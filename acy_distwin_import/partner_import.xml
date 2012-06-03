@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="distwin_tools" name="Distwin Tools" parent="base.menu_tools" sequence="30" />
+        
+        <record id="view_distwin_partner_import_form" model="ir.ui.view">
+            <field name="name">view.distwin.partner.import.form</field>
+            <field name="model">distwin.partner.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Distwin Partner Import">
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="partner_lines" colspan="4" nolabel="1" />
+                    <field name="state" />
+                    <button name="action_confirm" type="object" states="draft" string="Confirm" icon="gtk-execute" />
+                    <button name="action_cancel_draft" states="confirm" string="Set to Draft" type="object" icon="gtk-convert" />
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_distwin_partner_import_tree" model="ir.ui.view">
+            <field name="name">view.distwin.partner.import.tree</field>
+            <field name="model">distwin.partner.import</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Distwin Partner Import">
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_distwin_partner_line_form" model="ir.ui.view">
+            <field name="name">distwin.partner.line.form</field>
+            <field name="model">distwin.partner.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Distwin Partner Line">
+                    <field name="name" colspan="4" />
+                    <field name="account_number" />
+                    <field name="vat_number" />
+                    <field name="address_city" />
+                    <field name="address_street" />
+                    <field name="address_state" />
+                    <field name="address_phone" />
+                    <field name="address_country" />
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_distwin_partner_line_tree" model="ir.ui.view">
+            <field name="name">distwin.partner.line.form</field>
+            <field name="model">distwin.partner.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Distwin Partner Line">
+                    <field name="name" />
+                    <field name="account_number" />
+                    <field name="vat_number" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_distwin_partner_import" model="ir.actions.act_window">
+            <field name="name">Distwin Partner Import</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">distwin.partner.import</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <menuitem action="action_distwin_partner_import" id="menu_distwin_partner_import" parent="distwin_tools" />
+        
+        <!-- Import distwin excel file -->
+        <record model="ir.ui.view" id="distwin_partner_file_import_wizard">
+            <field name="name">distwin.partner.import.form</field>
+            <field name="model">import.distwin.partner.file.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Import partner from excel distwin export">
+                    <group colspan="4">
+                        <label string="Partner CSV File:"/>
+                        <newline/>
+                        <field name="file_name" nolabel="1"/>
+                        <field name="file" filename="file_name" nolabel="1"/>
+                    </group>
+                    <button icon="gtk-cancel" special="cancel" string="Cancel" type="object"/>
+                    <button icon="gtk-ok" name="import_action" string="Import" type="object"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_distwin_partner_file_import_wizard" model="ir.actions.act_window">
+            <field name="name">Import Distwin Partner Files Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.distwin.partner.file.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <act_window id="action_distwin_partner_file_import_wizard"
+                    key2="client_action_multi" name="Import Partners"
+                    res_model="import.distwin.partner.file.wizard" src_model="distwin.partner.import"
+            view_mode="form" target="new" view_type="form" groups="account.group_account_manager"/>
+        
+    </data>
+</openerp>
