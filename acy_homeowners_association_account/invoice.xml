@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Add floor field -->
+        <record model="ir.ui.view" id="invoice_tree_homeowners1">
+            <field name="name">account.invoice.tree.homeowners1</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="floor" select="1"/>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="invoice_form_homeowners1">
+            <field name="name">account.invoice.form.homeowners1</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="floor" select="1"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

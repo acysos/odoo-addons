@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+            
+        <record model="ir.ui.view" id="project_task_login_wizard_form_garage1">
+            <field name="name">project.task.login.wizard.form.garage1</field>
+            <field name="model">project.task.wizard</field>
+            <field name="inherit_id" ref="acysos_timesheet.project_task_login_wizard_form"/>
+            <field name="arch" type="xml">
+                <field name="project_id" position="replace">
+                    <field name="project_id" mode="tree" widget="many2one_pos" nolabel="1">
+                        <tree string="Projects">
+                            <field name="name" />
+                            <field name="vehicle_id" />
+                            <field name="trademark_model"/>
+                        </tree>
+                    </field>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_task_login_wizard_form_garage2">
+            <field name="name">project.task.login.wizard.form.garage2</field>
+            <field name="model">project.task.wizard.user</field>
+            <field name="inherit_id" ref="acysos_timesheet.project_task_login_wizard_form_user"/>
+            <field name="arch" type="xml">
+                <field name="active_user_ids" position="replace">
+                    <field name="active_user_ids" nolabel="1" widget="many2one_pos" mode="tree" colspan="2">
+                        <tree string="Active Users">
+                            <field name="name" />
+                            <field name="project_name"/>
+                            <field name="vehicle"/>
+                            <field name="trademark_model"/>
+                            <field name="user_id"/>
+                            <field name="timestamp"/>
+                        </tree>
+                    </field>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="project_task_tree_active_user_garage1">
+            <field name="name">project.task.tree.active_user.garage1</field>
+            <field name="model">project.task.user.active</field>
+            <field name="inherit_id" ref="acysos_timesheet.project_task_tree_active_user"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="project_name"/>
+                    <field name="vehicle"/>
+                    <field name="trademark_model"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp> 

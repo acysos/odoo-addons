@@ -1,0 +1,86 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * acy_homeowners_association
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6dev\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-01-11 11:14:58+0000\n"
+"PO-Revision-Date: 2011-01-11 11:14:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_homeowners_association
+#: field:res.partner,floor:0
+msgid "Floor"
+msgstr "Piso"
+
+#. module: acy_homeowners_association
+#: field:res.partner,stairs:0
+msgid "Stairs"
+msgstr "Escalera"
+
+#. module: acy_homeowners_association
+#: field:res.partner,parking:0
+msgid "Parking"
+msgstr "Garaje"
+
+#. module: acy_homeowners_association
+#: field:res.partner,boxroom:0
+msgid "Boxroom"
+msgstr "Trastero"
+
+#. module: acy_homeowners_association
+#: field:res.partner,percentage_home:0
+msgid "Percentage Home"
+msgstr "Coeficiente Vivienda"
+
+#. module: acy_homeowners_association
+#: field:res.partner,percentage_parking:0
+msgid "Percentage Parking"
+msgstr "Coeficiente Garaje"
+
+#. module: acy_homeowners_association
+#: field:res.partner,percentage_local:0
+msgid "Percentage Local"
+msgstr "Coeficiente Local"
+
+#. module: acy_homeowners_association
+#: field:res.partner,percentage_premises:0
+msgid "Percentage Premises"
+msgstr "Coeficiente Local"
+
+#. module: acy_homeowners_association
+#: field:res.partner,percentage_boxroom:0
+msgid "Percentage Boxroom"
+msgstr "Coeficiente Trastero"
+
+#. module: acy_homeowners_association
+#: field:res.partner,other_percentage:0
+msgid "Other Percentage"
+msgstr "Otros coeficientes"
+
+#. module: acy_homeowners_association
+#: selection:res.partner,stairs:0
+msgid "Left"
+msgstr "Izquierda"
+
+#. module: acy_homeowners_association
+#: selection:res.partner,stairs:0
+msgid "Center"
+msgstr "Centro"
+
+#. module: acy_homeowners_association
+#: selection:res.partner,stairs:0
+msgid "Right"
+msgstr "Derecha"
+
+#. module: acy_homeowners_association
+#: field:res.partner,resident:0
+msgid "No Resident"
+msgstr " No residente"

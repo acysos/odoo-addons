@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_project_list" model="ir.ui.view">
+            <field name="name">sale.order.list</field>
+            <field name="model">sale.order</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <tree string="Sales orders">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="invoiced_rate"/>
+                    <field name="amount_total" />
+                    <button name="order_confirm" states="draft" string="Confirm Order" icon="gtk-apply"/>
+                </tree>
+            </field>
+        </record>>
+    </data>
+</openerp>

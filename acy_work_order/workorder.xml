@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <menuitem icon="terp-project" id="menu_workorder_root" name="Work Orders"/>
+        
+        <record id="view_work_order_tree" model="ir.ui.view">
+            <field name="name">workorder.tree</field>
+            <field name="model">workorder</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Work Orders">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="date_created" />
+                    <field name="date_appointment"/>
+                    <field name="date_work"/>
+                    <field name="date_delivery"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_work_order_form" model="ir.ui.view">
+            <field name="name">workorder.form</field>
+            <field name="model">workorder</field>
+            <field name="type">form</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Work Orders">
+                    <field name="name" select="1" readonly="0" />
+		            <field name="partner_id" on_change="onchange_partner_id(partner_id)" select="1"/>
+                    <field domain="[('partner_id','=',partner_id)]" name="partner_workorder_id" />
+                    <field name="date_created" select="2" />
+                    <field name="date_appointment" select="2" />
+                    <field name="date_work" select="2"/>
+                    <field name="date_delivery" select="2"/>
+                    <field name="user_id" />
+                    <newline />
+                    <field colspan="4" name="sale_order_ids" nolabel="1" widget="one2many_list" />
+                    <newline />
+                    <field colspan="4" name="project_ids" nolabel="1" widget="one2many_list" />
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_workorder" model="ir.actions.act_window">
+            <field name="name">Work Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">workorder</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <menuitem action="action_workorder" id="menu_workorder" parent="menu_workorder_root" />
+        
+	
+	<!-- Add sale workorder field -->
+	<record model="ir.ui.view" id="view_order_form_workorder1">
+		<field name="name">sale.order.form.workorder1</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+			<field name="pricelist_id" position="after">
+                <field name="workorder_id" on_change="Child_id_change(name,parent.name)" />
+			</field>
+		</field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_order_form_workorder2">
+        <field name="name">sale.order.form.workorder2</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="replace">
+                <field name="name" on_change="Child_name_change(name,parent.name)" />
+            </field>
+        </field>
+    </record>
+	
+    </data>
+</openerp>

@@ -1,0 +1,206 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * acysos_timesheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.14\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2010-12-28 23:57:41+0000\n"
+"PO-Revision-Date: 2010-12-28 23:57:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acysos_timesheet
+#: field:project.task.work,hr_attendance_name:0
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: acysos_timesheet
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr ""
+"¡El nombre del objeto debe empezar con x_ y no contener ningún carácter "
+"especial!"
+
+#. module: acysos_timesheet
+#: model:ir.actions.act_window,name:acysos_timesheet.action_login_wizard
+msgid "action.login.wizard"
+msgstr "action.login.wizard"
+
+#. module: acysos_timesheet
+#: model:ir.module.module,description:acysos_timesheet.module_meta_information
+msgid ""
+"Modifies the original project_timesheet module for Acysos project.\n"
+"    - Description:\n"
+"      Simplified task management.\n"
+"      Initial screen where it asks for the employee and the Draft Code. The "
+"next screen shows the list of tasks available for the selected project. This "
+"screen gives the option to start the selected task or end it. If you start a "
+"task without task open previously closed, the system automatically closes "
+"the previous task with the current end date.\n"
+"    - Requirements:\n"
+"      + Employees must be assigned to OpenERP users\n"
+"      + Employees must have assigned a product and a journal on timesheet "
+"tab\n"
+"      + Projects must be defined using an analytical account\n"
+"                     "
+msgstr ""
+"Modifica el módulo original project_timesheet para el proyecto Acysos.\n"
+"    -Descripción:\n"
+"      Gestión de tareas simplificada.      Pantalla inicial donde se pide el "
+"código de empleado y el Proyecto. La siguiente pantalla, muestra la lista de "
+"tareas disponibles para el proyecto seleccionado. Esta pantalla nos da la "
+"opción de iniciar la tarea seleccionada o finalizarla. En caso de iniciar "
+"una tarea sin haber cerrado la tarea abierta anteriormente, el sistema "
+"cerrará automáticamente la tarea anterior con la fecha de finalización "
+"actual.\n"
+"    -Requisitos:\n"
+"     + Los empleados deben estar assignados a un usuario de OpenERP\n"
+"     + Los empleados deben tener assignado un producto y un diario en la "
+"pestaña de Horarios\n"
+"     + Los Proyectos deben tener definidos una cuenta analítica.\n"
+
+#. module: acysos_timesheet
+#: view:project.task.list.wizard:0
+msgid "Start"
+msgstr "Iniciar"
+
+#. module: acysos_timesheet
+#: view:project.task.list.wizard:0
+msgid "Select Task"
+msgstr "Seleccionar tarea"
+
+#. module: acysos_timesheet
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nombre de modelo no válido en la definición de acción."
+
+#. module: acysos_timesheet
+#: field:project.task.list.wizard,task_id:0
+msgid "Delegated Tasks"
+msgstr "Tareas delegadas"
+
+#. module: acysos_timesheet
+#: view:project.task.list.wizard:0 view:project.task.wizard.user:0
+msgid "Stop"
+msgstr "Terminar"
+
+#. module: acysos_timesheet
+#: field:project.task,start_timestamp:0
+msgid "Start Time"
+msgstr "Hora de inicio"
+
+#. module: acysos_timesheet
+#: model:ir.module.module,shortdesc:acysos_timesheet.module_meta_information
+msgid "Acysos Task Manager"
+msgstr "Administrador de tareas de Acysos"
+
+#. module: acysos_timesheet
+#: help:project.task,start_timestamp:0
+msgid "Date and time when the task was started."
+msgstr "Fecha y hora en la que se empezó la tarea."
+
+#. module: acysos_timesheet
+#: field:project.task.wizard,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: acysos_timesheet
+#: code:addons/acysos_timesheet/timesheet_wizard.py:0
+#, python-format
+msgid "Inserted by acysos_timesheet module"
+msgstr "Insertado por el módulo acysos_timesheet"
+
+#. module: acysos_timesheet
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "¡XML inválido para la definición de la vista!"
+
+#. module: acysos_timesheet
+#: model:ir.model,name:acysos_timesheet.model_project_task_wizard
+msgid "project.task.wizard"
+msgstr "project.task.wizard"
+
+#. module: acysos_timesheet
+#: model:ir.model,name:acysos_timesheet.model_project_task_list_wizard
+msgid "project.task.list.wizard"
+msgstr "project.task.list.wizard"
+
+#. module: acysos_timesheet
+#: field:project.task.wizard,project_id:0
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: acysos_timesheet
+#: field:hr.attendance,task_id:0
+msgid "task"
+msgstr "tarea"
+
+#. module: acysos_timesheet
+#: view:project.task.wizard:0
+msgid "Login"
+msgstr "Usuario"
+
+#. module: acysos_timesheet
+#: view:project.task.list.wizard:0
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: acysos_timesheet
+#: model:ir.ui.menu,name:acysos_timesheet.menu_timesheet_login_wizard
+msgid "Input Task"
+msgstr "Introducir Tarea"
+
+#. module: acysos_timesheet
+#: model:ir.ui.menu,name:acysos_timesheet.menu_timesheet_active_users
+#: model:ir.actions.act_window,name:acysos_timesheet.menu_timesheet_active_users
+msgid "Active users"
+msgstr "Usuarios activos"
+
+#. module: acysos_timesheet
+#: view:project.task.list.wizard:0
+#: view:project.task.wizard:0
+msgid "Back"
+msgstr "Atrás"
+
+#. module: acysos_timesheet
+#: view:project.task.wizard:0
+#: view:project.task.wizard.user:0
+msgid "Accept"
+msgstr "Aceptar"
+
+#. module: acysos_timesheet
+#: view:project.task.wizard.user:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: acysos_timesheet
+#: field:project.task.user.active,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: acysos_timesheet
+#: field:project.task.user.active,task_id:0
+msgid "Task"
+msgstr "Tarea"
+
+#. module: acysos_timesheet
+#: field:project.task.user.active,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: acysos_timesheet
+#: field:project.task.user.active,timestamp:0
+msgid "Start Time"
+msgstr "Inicio"
+
+#. module: acysos_timesheet
+#: model:ir.ui.menu,name:acysos_timesheet.menu_timesheet
+msgid "Timesheet"
+msgstr "Fichajes"

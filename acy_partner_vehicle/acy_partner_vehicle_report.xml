@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+	    <report
+		   auto="False"
+		   id="account_invoice_vehicle"
+		   model="account.invoice"
+		   name="account.invoice.vehicle"
+		   rml="acy_partner_vehicle/report/invoice.rml"
+		   string="Invoices with Vehicle"
+		   attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/',''))"
+            attachment_use="1"/>
+    </data>
+</openerp>

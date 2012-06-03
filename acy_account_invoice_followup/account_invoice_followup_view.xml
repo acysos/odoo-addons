@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.ui.view" id="view_invoice_followup_tree1">
+            <field name="name">view.invoice.followup.tree1</field>
+            <field name="model">account.move.line</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="account_payment_extension.view_payments_tree"/>
+            <field name="arch" type="xml">
+                <field name="amount_to_pay" position="replace"/>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_invoice_followup_tree2">
+            <field name="name">view.invoice.followup.tree2</field>
+            <field name="model">account.move.line</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="account_payment_extension.view_payments_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="amount_to_pay" readonly="1" sum="Total Amount to Pay"/>
+                    <field name="payment_type" readonly="1"/>
+                    <field name="date_maturity" readonly="1"/>
+                    <field name="invoice_sent" on_change="date_change()"/>
+                    <field name="invoice_received" on_change="date_change()"/>
+                    <field name="invoice_enter" on_change="date_change()"/>
+                    <field name="invoice_rejected" on_change="date_change()"/>
+                    <field name="date_followup"/>
+                    <field name="notes"/>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_invoice_followup_form1">
+            <field name="name">view.invoice.followup.form1</field>
+            <field name="model">account.move.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account_payment_extension.payments_move_line_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <group col="10" colspan="6">
+                        <field name="invoice_sent" on_change="date_change()" />
+                        <field name="invoice_received" on_change="date_change()" />
+                        <field name="invoice_enter" on_change="date_change()" />
+                        <field name="invoice_rejected" on_change="date_change()" />
+                        <field name="date_followup"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_invoice_followup_form2">
+            <field name="name">view.invoice.followup.form2</field>
+            <field name="model">account.move.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account_payment_extension.payments_move_line_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Followup Notes">
+                        <field name="notes" nolabel="1"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="view_invoice_followup_filter1" model="ir.ui.view">
+            <field name="name">view.invoice.followup.filter1</field>
+            <field name="model">account.move.line</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="account_payment_extension.view_payments_filter"/>
+            <field name="arch" type="xml">
+                <field name="date_maturity" position="after">
+                    <field name="date_followup"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="view_invoice_followup_filter2" model="ir.ui.view">
+            <field name="name">view.invoice.followup.filter2</field>
+            <field name="model">account.move.line</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="account_payment_extension.view_payments_filter"/>
+            <field name="arch" type="xml">
+                <field name="received_check" position="replace"/>
+            </field>
+        </record>
+        
+        
+        <record id="view_invoice_followup_filter1" model="ir.ui.view">
+            <field name="name">view.invoice.followup.filter1</field>
+            <field name="model">account.move.line</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="account_payment_extension.view_payments_filter"/>
+            <field name="arch" type="xml">
+                <field name="account_id" position="before">
+                    <separator orientation="vertical"/>
+                    <filter icon="terp-check" string="Sent" domain="[('invoice_sent','=',True)]" />
+                    <filter icon="terp-check" string="Received" domain="[('invoice_received','=',True)]" />
+                    <filter icon="terp-check" string="Entered" domain="[('invoice_enter','=',True)]" />
+                    <filter icon="terp-check" string="Rejected" domain="[('invoice_rejected','=',True)]" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

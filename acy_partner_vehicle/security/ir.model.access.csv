@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_res_partner_vehicle","res.partner.vehicle all","model_res_partner_vehicle",,1,1,1,1
+"access_res_partner_vehicle_model","res.partner.vehicle.model all","model_res_partner_vehicle_model",,1,1,1,1
+"access_res_partner_vehicle_trademark","res.partner.vehicle.trademark all","model_res_partner_vehicle_trademark",,1,1,1,1

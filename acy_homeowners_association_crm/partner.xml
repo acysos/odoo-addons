@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    <record model="ir.ui.view" id="view_res_partner_filter_homeowners2">
+      <field name="name">res.partner.select.homeowners2</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="crm.view_partners_form_crm3"/>
+      <field name="arch" type="xml">
+        <field name="section_id" position="replace" />
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_partner_tree_homeowners3">
+      <field name="name">view.partner.tree.homeowners3</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="crm.view_partners_tree_crm2"/>
+      <field name="arch" type="xml">
+        <field name="section_id" position="replace" />
+      </field>
+    </record>
+    
+    </data>
+</openerp>

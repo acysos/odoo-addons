@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.ui.view" id="invoice_form_workorder1">
+            <field name="name">account.invoice.form.workorder1</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="comment" position="after">
+                    <field name="workorder_name" />
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="invoice_supplier_form_workorder1">
+            <field name="name">account.invoice.form.workorder1</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <field name="comment" position="after">
+                    <field name="workorder_name" />
+                </field>
+            </field>
+        </record>
+        
+        <act_window domain="[('name', '=', origin)]" id="act_sale_order" name="Sale Order" res_model="sale.order" src_model="account.invoice"/>
+        <act_window domain="[('name', '=', workorder_name)]" id="act_work_order" name="Work Order" res_model="workorder" src_model="account.invoice"/>
+        
+    </data>
+</openerp>

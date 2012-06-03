@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+    <record model="ir.ui.view" id="view_res_partner_filter_homeowners1">
+      <field name="name">res.partner.select.homeowners1</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+          <field name="user_id" position="replace">
+            <field name="phone" />
+            <field name="mobile"/>
+            <field name="floor" />
+            <field name="stairs" />
+            <field name="parking" />
+            <field name="boxroom" />
+          </field>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_res_partner_filter_homeowners2">
+        <field name="name">res.partner.select.homeowners2</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='supplier']" position="after">
+                <filter string="No Resident" name="resident" icon="terp-personal" domain="[('resident','=','1')]" />
+                <filter string="Resident" name="resident" icon="terp-personal" domain="[('resident','!=','1')]" />
+            </xpath>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_res_partner_filter_homeowners3">
+      <field name="name">res.partner.select.homeowners3</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_res_partner_filter"/>
+      <field name="arch" type="xml">
+        <field name="country" position="replace" />
+      </field>
+    </record>
+      
+    <record model="ir.ui.view" id="view_partner_form_homeowners1">
+        <field name="name">view.partner.form.homeowners1</field>
+	    <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="lang" position="after">
+			    <field name="floor" />
+                <field name="stairs" />
+			    <field name="parking" />
+                <field name="boxroom" />
+		    </field>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_partner_form_homeowners2">
+        <field name="name">view.partner.form.homeowners2</field>
+	    <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="before">
+			    <field name="percentage_home" colspan="2"/>
+				<field name="percentage_parking" colspan="2"/>
+                <field name="percentage_premises" colspan="2"/>
+                <field name="percentage_boxroom" colspan="2"/>
+                <field name="other_percentage" colspan="2"/>
+                <field name="insurance_number" colspan="2" />
+		    </field>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_partner_form_homeowners3">
+        <field name="name">view.partner.form.homeowners3</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="supplier" position="after">
+                <field name="resident" />
+            </field>
+        </field>
+    </record>
+        
+	<record model="ir.ui.view" id="view_partner_tree_homeowners1">
+		<field name="name">view.partner.tree.homeowners1</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="ref" position="replace">
+                <field name="categories" />
+			    <field name="floor" />
+                <field name="stairs" />
+            </field>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_partner_tree_homeowners2">
+      <field name="name">view.partner.tree.homeowners2</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
+      <field name="arch" type="xml">
+        <field name="phone" position="before">
+          <field name="parking" />
+          <field name="boxroom" />
+        </field>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_partner_tree_homeowners4">
+      <field name="name">view.partner.tree.homeowners4</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
+      <field name="arch" type="xml">
+        <field name="user_id" position="replace" />
+        <field name="country" position="replace">
+          <field name="country" invisible="True" />
+        </field>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_partner_tree_homeowners5">
+      <field name="name">view.partner.tree.homeowners5</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
+      <field name="arch" type="xml">
+        <field name="phone" position="after">
+          <field name="mobile" />
+        </field>
+      </field>
+    </record>
+    
+    </data>
+</openerp>

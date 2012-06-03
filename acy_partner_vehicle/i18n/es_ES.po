@@ -1,0 +1,101 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_partner_vehicle
+#
+# Ignacio Ibeas Izquierdo (ignacio@acysos.com), 2010
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2009-12-10 01:31:24+0000\n"
+"PO-Revision-Date: 2009-12-10 01:31:24+0000\n"
+"Last-Translator: Ignacio Ibeas Izquierdo - http://www.acysos.com <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,name:0
+msgid "Registration Number"
+msgstr "Matrícula"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,chassis_number:0
+msgid "Chassis Number"
+msgstr "Número de bastidor"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,trademark_id:0
+#: field:res.partner.vehicle.trademark,name:0
+#: field:res.partner.vehicle.model,trademark_id:0
+msgid "Trademark"
+msgstr "Marca"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,model_id:0
+#: field:res.partner.vehicle.model,name:0
+msgid "Model"
+msgstr "Modelo"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,manufacture_date:0
+msgid "Manufacture Date"
+msgstr "Fecha fabricación"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,color:0
+msgid "Color"
+msgstr "Color"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,motor:0
+msgid "Motor"
+msgstr "Motor"
+
+#. module: acy_partner_vehicle
+#: field:res.partner.vehicle,motor_code:0
+msgid "Motor Code"
+msgstr "Código motor"
+
+#. module: acy_partner_vehicle
+#: model:ir.actions.act_window,name:acy_partner_vehicle.action_partner_vehicle
+#: model:ir.ui.menu,name:acy_partner_vehicle.menu_partner_vehicle
+#: view:res.partner:0
+#: view:res.partner.vehicle:0
+msgid "Partner Vehicles"
+msgstr "Vehículos de empresa"
+
+#. module: acy_partner_vehicle
+#: view:res.partner:0
+msgid "Vehicles"
+msgstr "Vehículos"
+
+#. module: acy_partner_vehicle
+#: model:ir.actions.act_window,name:acy_partner_vehicle.action_res_partner_vehicle_trademark
+#: model:ir.ui.menu,name:acy_partner_vehicle.menu_partner_vehicle_trademark
+msgid "Trademarks"
+msgstr "Marcas"
+
+#. module: acy_partner_vehicle
+#: model:ir.actions.act_window,name:acy_partner_vehicle.action_res_partner_vehicle_model
+#: model:ir.ui.menu,name:acy_partner_vehicle.menu_partner_vehicle_model
+msgid "Models"
+msgstr "Modelos"
+
+#. module: acy_partner_vehicle
+#: field:sale.order,vehicle_id:0
+#: field:account.invoice,vehicle_id:0
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: acy_partner_vechicle
+#: model:ir.actions.report.xml,name:account.account_invoices
+msgid "Invoices with Vehicle"
+msgstr "Facturas con Vehículo"

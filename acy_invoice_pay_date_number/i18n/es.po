@@ -1,0 +1,104 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2010-09-02 14:01:21+0000\n"
+"PO-Revision-Date: 2010-09-02 14:01:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,addendum,analytic_id:0
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_button:account.invoice.pay2,init,reconcile:0
+msgid "Partial Payment"
+msgstr "Pago parcial"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,init,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,init,amount:0
+msgid "Amount paid"
+msgstr "Importe pagado"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,addendum,writeoff_acc_id:0
+msgid "Write-Off account"
+msgstr "Cuenta de desajuste"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_view:account.invoice.pay2,init:0
+#: model:ir.actions.wizard,name:acy_invoice_pay_date_number.wizard_invoice_pay
+msgid "Pay invoice"
+msgstr "Pagar factura"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_view:account.invoice.pay2,addendum:0
+msgid "Information addendum"
+msgstr "Información adicional"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_button:account.invoice.pay2,addendum,end:0
+#: wizard_button:account.invoice.pay2,init,end:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_view:account.invoice.pay2,addendum:0
+msgid "Analytic"
+msgstr "Analítico"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_view:account.invoice.pay2,addendum:0
+msgid "Write-Off Move"
+msgstr "Movimiento de desajuste"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_button:account.invoice.pay2,addendum,reconcile:0
+msgid "Pay and reconcile"
+msgstr "Pagar y conciliar"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,init,name:0
+msgid "Entry Name"
+msgstr "Descripción"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,init,date:0
+msgid "Payment date"
+msgstr "Fecha de pago"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,init,journal_id:0
+msgid "Journal/Payment Mode"
+msgstr "Diario/Modo de pago"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,addendum,comment:0
+msgid "Comment"
+msgstr "Comentario"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_field:account.invoice.pay2,addendum,writeoff_journal_id:0
+msgid "Write-Off journal"
+msgstr "Diario de desajuste"
+
+#. module: acy_invoice_pay_date_number
+#: wizard_button:account.invoice.pay2,init,writeoff_check:0
+msgid "Full Payment"
+msgstr "Pago completo"
+

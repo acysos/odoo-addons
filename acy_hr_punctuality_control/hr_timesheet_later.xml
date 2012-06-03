@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_hr_punctuality_control_form" model="ir.ui.view">
+            <field name="name">view.hr.punctuality.control.form</field>
+            <field name="model">timesheet.later</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Punctuality Control">
+                    <group colspan="4">
+                        <field name="start_date" />
+                        <field name="end_date"/>
+                    </group>
+                    <separator string="" colspan="4"/>
+                    <group colspan="4" col="6">
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="terp-gtk-go-back-rtl" string="Open Registries" name="open_project_work" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_view_hr_punctuality_control" model="ir.actions.act_window">
+            <field name="name">Punctuality Control</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">timesheet.later</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem
+                 name="Punctuality Control"
+                 action="action_view_hr_punctuality_control"
+                 id="menu_view_hr_punctuality_control"
+                 parent="hr_attendance.menu_hr_time_tracking"
+                 sequence="10"
+                 icon="STOCK_INDENT"/>
+        
+    </data>
+</openerp>

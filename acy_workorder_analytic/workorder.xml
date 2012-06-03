@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+    <!-- Add vehicles field -->
+    <record model="ir.ui.view" id="view_work_order_form_analytic">
+        <field name="name">workorder.form.analytic</field>
+        <field name="model">workorder</field>
+        <field name="inherit_id" ref="acy_work_order.view_work_order_form" />
+        <field name="arch" type="xml">
+            <field name="sale_order_ids" position="before">
+		        <field name="analytic_id" select="2"/>
+            </field>
+        </field>
+    </record>
+    
+    <!-- Default sale analytic account -->
+    <record model="ir.ui.view" id="view_order_form_workorder_analytic">
+        <field name="name">sale.order.form.workorder.analytic</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="project_id" position="replace">
+                <field name="project_id" on_change="Child_analytic_change(name,parent.name)" />
+            </field>
+        </field>
+    </record>
+    
+    </data>
+</openerp>

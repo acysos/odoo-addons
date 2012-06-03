@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_project_list" model="ir.ui.view">
+            <field name="name">project.project.list</field>
+            <field name="model">project.project</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <tree string="Projects">
+                    <field name="complete_name"/>
+                    <field name="user_id"/>
+                    <field name="partner_id"/>
+                    <field name="effective_hours" widget="float_time"/>
+                    <field name="total_hours" widget="float_time"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

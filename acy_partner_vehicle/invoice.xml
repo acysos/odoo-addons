@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Add vehicles field -->
+        <record model="ir.ui.view" id="invoice_form_vehicle1">
+            <field name="name">account.invoice.form.vehicle1</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="address_invoice_id" position="after">
+                    <field domain="[('partner_id','=',partner_id)]" name="vehicle_id"/>
+                    <newline />
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="invoice_form_vehicle">
+            <field name="name">account.invoice.tree.vehicle</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="vehicle_id" select="1" />
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_account_invoice_filter_vehicle">
+            <field name="name">account.invoice.select.vehicle</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="vehicle_id" select="1" />
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

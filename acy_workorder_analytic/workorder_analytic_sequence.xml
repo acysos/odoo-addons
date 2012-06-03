@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Sequences for wordorder -->
+        <record id="seq_type_workorder" model="ir.sequence.type">
+            <field name="name">Work Order Analytic Sequence</field>
+            <field name="code">workorder-analytic</field>
+        </record>
+        <record id="seq_sale_order" model="ir.sequence">
+            <field name="name">Work Order Analytic Sequence</field>
+            <field name="code">workorder-analytic</field>
+            <field name="prefix">WO</field>
+            <field name="padding">3</field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!--
+            Partner Vehicles
+            -->
+        <record id="view_partner_vehicle_tree1" model="ir.ui.view">
+            <field name="name">res.partner.vehicle.tree1</field>
+            <field name="model">res.partner.vehicle</field>
+            <field name="type">tree</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Partner Vehicles">
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="trademark_id"/>
+                    <field name="model_id"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_partner_vehicle_form1" model="ir.ui.view">
+            <field name="name">res.partner.vehicle.form1</field>
+            <field name="model">res.partner.vehicle</field>
+            <field name="type">form</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Partner Vehicles">
+                    <field colspan="4" name="partner_id" select="1"/>
+                    <newline/>
+                    <field name="name" select="1"/>
+                    <field name="chassis_number" select="2"/>
+                    <field name="trademark_id"/>
+                    <field name="model_id" />
+                    <field name="manufacture_date"/>
+                    <newline/>
+                    <field name="color" select="2"/>
+                    <field name="motor" select="2"/>
+                    <field name="motor_code" select="2"/>
+                </form>
+            </field>
+        </record>
+        <record id="action_partner_vehicle" model="ir.actions.act_window">
+            <field name="name">Partner Vehicles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.vehicle</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem action="action_partner_vehicle" id="menu_partner_vehicle" parent="base.menu_address_book"/>
+        
+        <!--
+            Trademark
+            -->
+        
+        <record id="view_res_partner_vehicle_trademark_tree" model="ir.ui.view">
+            <field name="name">res.partner.vehicle.trademark.tree</field>
+            <field name="model">res.partner.vehicle.trademark</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Trademark">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_res_partner_vehicle_trademark_form" model="ir.ui.view">
+            <field name="name">res.partner.vehicle.trademark.form</field>
+            <field name="model">res.partner.vehicle.trademark</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Trademark">
+                    <field name="name" select="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_res_partner_vehicle_trademark" model="ir.actions.act_window">
+            <field name="name">Trademarks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.vehicle.trademark</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <menuitem action="action_res_partner_vehicle_trademark" id="menu_partner_vehicle_trademark" parent="menu_partner_vehicle"/>
+        
+        <!--
+            Model
+           -->
+        
+        <record id="view_res_partner_vehicle_model_tree" model="ir.ui.view">
+            <field name="name">res.partner.vehicle.model.tree</field>
+            <field name="model">res.partner.vehicle.model</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Model">
+                    <field name="trademark_id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_res_partner_vehicle_model_form" model="ir.ui.view">
+            <field name="name">res.partner.vehicle.model.form</field>
+            <field name="model">res.partner.vehicle.model</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="State">
+                    <field name="trademark_id" select="1"/>
+                    <field name="name" select="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_res_partner_vehicle_model" model="ir.actions.act_window">
+            <field name="name">Models</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.vehicle.model</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_res_partner_vehicle_model_tree"/>
+        </record>
+        
+        <menuitem action="action_res_partner_vehicle_model" id="menu_partner_vehicle_model" parent="menu_partner_vehicle"/>
+        
+    </data>
+</openerp>

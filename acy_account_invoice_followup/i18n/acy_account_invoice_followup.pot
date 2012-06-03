@@ -1,0 +1,62 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * acy_account_invoice_followup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-05-10 01:31:24+0000\n"
+"PO-Revision-Date: 2011-05-10 01:31:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_account_invoice_followup
+#: field:account.move.line,date_followup:0
+msgid "Last followup"
+msgstr ""
+
+#. module: acy_account_invoice_followup
+#: field:account.move.line,invoice_sent:0
+#: view:account.move.line:0
+msgid "Sent"
+msgstr ""
+
+#. module: acy_account_invoice_followup
+#: field:account.move.line,invoice_received:0
+#: view:account.move.line:0
+msgid "Received"
+msgstr ""
+
+#. module: acy_account_invoice_followup
+#: field:account.move.line,invoice_enter:0
+#: view:account.move.line:0
+msgid "Entered"
+msgstr ""
+
+#. module: acy_account_invoice_followup
+#: field:account.move.line,invoice_rejected:0
+#: view:account.move.line:0
+msgid "Rejected"
+msgstr ""
+
+#. module: acy_account_invoice_followup
+#: field:account.move.line,notes:0
+#: view:account.move.line:0
+msgid "Followup Notes"
+msgstr ""
+
+#. module: acy_account_invoice_followup
+#: model:ir.ui.menu,name:acy_account_invoice_followup.menu_action_invoice_payments_to_receive_followup
+#: model:ir.actions.act_window,name:acy_account_invoice_followup.action_invoice_payments_to_receive_followup
+msgid "Followup invoice payments to receive"
+msgstr ""
+
+#. module: acy_account_invoice_followup
+#: model:ir.actions.act_window,name:account.act_account_invoice_follow
+msgid "Invoice"
+msgstr ""

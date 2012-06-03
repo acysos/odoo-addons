@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Add vehicles field -->
+        <record model="ir.ui.view" id="res_partner_form_vehicle">
+            <field name="name">view.partner.form.vehicle</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Vehicles">
+                        <field colspan="4" name="vehicle_ids" nolabel="1" widget="one2many_list">
+                            <form string="Vehicles">
+                                <field name="name" select="1"/>
+                                <field name="chassis_number" select="2"/>
+                                <field name="trademark_id"/>
+                                <field name="model_id" select="2"/>
+                                <field name="manufacture_date"/>
+                                <newline/>
+                                <field name="color" select="2"/>
+                                <field name="motor" select="2"/>
+                                <field name="motor_code" select="2"/>
+                            </form>
+                            <tree string="Partner Vehicles">
+                                <field name="name"/>
+                                <field name="trademark_id"/>
+                                <field name="model_id"/>
+                                <field name="color"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+    </record>
+        
+    </data>
+</openerp>

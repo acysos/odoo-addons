@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+    <!-- Add vehicles field -->
+    <record model="ir.ui.view" id="view_work_order_form_vehicle">
+        <field name="name">workorder.form.vehicle</field>
+        <field name="model">workorder</field>
+        <field name="inherit_id" ref="acy_work_order.view_work_order_form" />
+        <field name="arch" type="xml">
+		    <field name="partner_workorder_id" position="after">
+                <field domain="[('partner_id','=',partner_id)]" name="vehicle_id" select="1" on_change="save_workorder(name,partner_id,partner_workorder_id,date_appointment,date_work,date_delivery,sale_order_ids,project_ids, vehicle_id, km)" />
+		        <field name="km" select="2"/>
+            </field>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_work_order_tree_vehicle">
+        <field name="name">workorder.tree.vehicle</field>
+        <field name="model">workorder</field>
+        <field name="inherit_id" ref="acy_work_order.view_work_order_tree" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field domain="[('partner_id','=',partner_id)]" name="vehicle_id" select="1" />
+            </field>
+        </field>
+    </record>
+    
+    </data>
+</openerp>

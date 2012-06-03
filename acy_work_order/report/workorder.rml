@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(595.0,842.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="57.0" y1="57.0" width="481" height="728"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla3">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla4">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="2,0" stop="2,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,1" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,1" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla2">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla6">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla5">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla7">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla8">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla9">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla10">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla11">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla12">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla13">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla14">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="3,0" stop="3,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="4,0" stop="4,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="4,-1" stop="4,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla18">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla15">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla16">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla17">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Times-Roman" alignment="CENTER"/>
+    <paraStyle name="P2" fontName="Times-Roman" fontSize="22.0" leading="27"/>
+    <paraStyle name="P3" fontName="Times-Roman" fontSize="8.0" leading="10"/>
+    <paraStyle name="P4" fontName="Times-Roman" alignment="RIGHT"/>
+    <paraStyle name="P5" fontName="Times-Roman" alignment="LEFT"/>
+    <paraStyle name="P6" rightIndent="0.0" leftIndent="0.0" fontName="Times-Roman"/>
+    <paraStyle name="P7" rightIndent="0.0" leftIndent="0.0" fontName="Times-Roman" fontSize="8.0" leading="10"/>
+    <paraStyle name="Standard" fontName="Times-Roman"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text body" fontName="Times-Roman" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Times-Roman" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Times-Roman" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Times-Roman"/>
+    <paraStyle name="Table Contents" fontName="Times-Roman"/>
+    <paraStyle name="Table Heading" fontName="Times-Roman" alignment="CENTER"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="Standard">[[repeatIn(objects,'o')]][[setLang(o.partner_id.lang) ]]</para>
+    <blockTable colWidths="241.0,241.0" style="Tabla1">
+      <tr>
+        <td>
+          <para style="P2">HOJA PARA ADMÓN.</para>
+        </td>
+        <td>
+          <para style="Table Contents">Nº Cliente: [[ o.partner_id.ref ]]</para>
+          <para style="Table Contents">Fecha: [[ o.date_appointment ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="160.0,321.0" style="Tabla3">
+      <tr>
+        <td>
+          <para style="P1">Carburante</para>
+        </td>
+        <td>
+          <para style="P1">TIPO DE PÓLIZA</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+        <td>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="161.0,161.0,161.0" style="Tabla4">
+      <tr>
+        <td>
+          <para style="P1">KILÓMETROS</para>
+        </td>
+        <td>
+          <para style="P1">Color de la carrocería</para>
+        </td>
+        <td>
+          <para style="P1">Nº Siniestro</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ o.vehicle_id.color ]]</para>
+        </td>
+        <td>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="482.0" style="Tabla2">
+      <tr>
+        <td>
+          <para style="P1">Trabajos a realizar</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents">[[repeatIn(o.sale_order_ids,'sale_order_ids')]][[ sale_order_ids.sale_description or ' ' ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="482.0" style="Tabla6">
+      <tr>
+        <td>
+          <para style="P1">ORDEN DE REPARACIÓN</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents">Fecha de Apertura: [[ o.date_appointment ]]Orden nº: [[ o.name ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="482.0" style="Tabla5">
+      <tr>
+        <td>
+          <blockTable colWidths="238.0,238.0" style="Tabla7">
+            <tr>
+              <td>
+                <para style="Table Contents">Cliente: [[ o.partner_id.name ]]</para>
+              </td>
+              <td>
+                <para style="Table Contents">C.I.F./N.I.F: [[ o.partner_id.vat ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="476.0" style="Tabla8">
+            <tr>
+              <td>
+                <para style="Table Contents">Domicilio: </para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="159.0,159.0,159.0" style="Tabla9">
+            <tr>
+              <td>
+                <para style="Table Contents">C.P.:</para>
+              </td>
+              <td>
+                <para style="Table Contents">Localidad: [[ o.partner_id.city ]]</para>
+              </td>
+              <td>
+                <para style="Table Contents">Provincia: </para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="108.0,113.0,137.0,119.0" style="Tabla10">
+            <tr>
+              <td>
+                <para style="Table Contents">Teléfono:</para>
+              </td>
+              <td>
+                <para style="Table Contents">Teléfono Móvil:</para>
+              </td>
+              <td>
+                <para style="Table Contents">F. Prev. Comienzo: [[ o.date_work ]]</para>
+              </td>
+              <td>
+                <para style="Table Contents">F. Prev. Entrega: [[ o.date_delivery ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="238.0,238.0" style="Tabla11">
+            <tr>
+              <td>
+                <para style="Table Contents">Matrícula: [[ o.vehicle_id.name ]]</para>
+              </td>
+              <td>
+                <para style="Table Contents">Bastidor: [[ o.vehicle_id.chassis_number ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="238.0,238.0" style="Tabla12">
+            <tr>
+              <td>
+                <para style="Table Contents">Marca: [[ o.vehicle_id.trademark_id.name ]]</para>
+              </td>
+              <td>
+                <para style="Table Contents">F. Fabricación: [[ o.vehicle_id.manufacture_date ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="238.0,238.0" style="Tabla13">
+            <tr>
+              <td>
+                <para style="Table Contents">Modelo: [[ o.vehicle_id.model_id.name ]]</para>
+              </td>
+              <td>
+                <para style="Table Contents">Versión: </para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="161.0,161.0,161.0" style="Tabla14">
+      <tr>
+        <td>
+          <para style="P3">Vehículo depositado para:</para>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+          <blockTable colWidths="16.0,139.0" style="Tabla18">
+            <tr>
+              <td>
+                <para style="Table Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P7">(X) Reparación del vehículo</para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="P6"/>
+          <para style="P6">
+            <font color="white"> </font>
+          </para>
+          <para style="P3">(*) Renuncia del presupuesto</para>
+        </td>
+        <td>
+          <para style="P3">Autorizo la reparación y prueba de mi vehículo por carretera por personal del taller:</para>
+          <para style="P3">
+            <font color="white"> </font>
+          </para>
+          <para style="P3">
+            <font color="white"> </font>
+          </para>
+          <para style="P3">
+            <font color="white"> </font>
+          </para>
+          <para style="P3">Fdo. Cliente</para>
+          <para style="P3">Fecha ____________________</para>
+        </td>
+        <td>
+          <para style="P3">AUTORIZO en mi nombre a Don:</para>
+          <para style="P3">_________________________</para>
+          <para style="P3">a la retirada del vehículo, quedando así mismo autorizado a dar conformidad, mediante su firma, a la reparación realizada.Firma de cliente:</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="160.0,321.0" style="Tabla15">
+      <tr>
+        <td>
+          <para style="P3">Entrega del vehículo:</para>
+          <para style="P3">
+            <font color="white"> </font>
+          </para>
+          <para style="P3">
+            <font color="white"> </font>
+          </para>
+          <para style="P3">
+            <font color="white"> </font>
+          </para>
+          <para style="P3">Fecha: ________________</para>
+        </td>
+        <td>
+          <para style="P3">Vehículo aceptado en depósito:</para>
+          <para style="P3">Firma taller:</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="482.0" style="Tabla16">
+      <tr>
+        <td>
+          <para style="Table Contents">(*) La renuncia a la confección del presupuesto se hará constar de forma expresa con la frase “RENUNCIO AL PRESUPUESTO”, escrita del puño y letra del cliente y la firma de éste:</para>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+          <blockTable colWidths="332.0,144.0" style="Tabla17">
+            <tr>
+              <td>
+                <para style="P4">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">Firma:</para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="P4">
+            <font color="white"> </font>
+          </para>
+          <para style="P4">
+            <font color="white"> </font>
+          </para>
+          <para style="P4">
+            <font color="white"> </font>
+          </para>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="Text body">
+      <font color="white"> </font>
+    </para>
+    <para style="Text body">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+  </story>
+</document>
