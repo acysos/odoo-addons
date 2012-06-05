@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_pos_pos_form_discount1">
+            <field name="name">pos.order.discount1</field>
+            <field name="model">pos.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <field name="price_unit" position="after">
+                    <field name="sale_price" on_change="onchange_sale_price(price_unit,sale_price,qty)" />
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_pos_pos_form_discount2">
+            <field name="name">pos.order.discount2</field>
+            <field name="model">pos.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <field name="discount" position="replace">
+                    <field name="discount" on_change="onchange_discount(discount,price_unit,qty)" />
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
