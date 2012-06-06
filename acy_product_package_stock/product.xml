@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="product_normal_form_view_extraprice1" model="ir.ui.view">
+            <field name="name">product.normal.form.extraprice1</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="packaging" position="before">
+                    <field name="package_id"/>
+                    <field name="pack_quantity"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
