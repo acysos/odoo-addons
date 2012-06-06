@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Production order -->
+        <record id="mrp_production_form_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.production.form.operator1</field>
+            <field name="model">mrp.production</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Operator Registry">
+                        <field colspan="4" name="operator_ids" nolabel="1" widget="one2many_list" />
+                    </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <record id="mrp_production_form_view_operator2" model="ir.ui.view">
+            <field name="name">mrp.production.form.operator2</field>
+            <field name="model">mrp.production</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <field name="workcenter_lines" position="replace">
+                    <field colspan="4" name="workcenter_lines" nolabel="1">
+                        <form string="Production Work Centers">
+                            <field name="number"/>
+                            <field colspan="4" name="name"/>
+                            <field name="workcenter_id" widget="selection"/>
+                            <field name="sequence"/>
+                            <field name="cycle"/>
+                            <field name="hour"/>
+                        </form>
+                    </field>
+                </field>
+            </field>
+        </record>
+        
+        <record id="mrp_production_product_form_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.production.product.line.form.operator1</field>
+            <field name="model">mrp.production.product.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_product_form_view"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="consumed_on"/>
+                    <newline />
+                </field>
+            </field>
+        </record>
+        <record id="mrp_production_product_tree_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.production.product.line.tree.operator1</field>
+            <field name="model">mrp.production.product.line</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="mrp.mrp_production_product_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="consumed_on"/>
+                </field>
+            </field>
+        </record>
+        
+        <!-- Product BOM -->
+        
+        <record id="mrp_bom_form_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.bom.form.view.operator1</field>
+            <field name="model">mrp.bom</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+            <field name="arch" type="xml">
+                <field name="bom_lines" position="replace">
+                    <field colspan="4" name="bom_lines" nolabel="1" widget="one2many_list">
+                        <tree string="Components" editable="bottom">
+                            <field name="product_id" on_change="onchange_product_id(product_id, name)" select="1"/>
+                            <field name="consumed_on" domain="[('routing_id', '=', parent.routing_id)]"/>
+                            <field name="product_qty"/>
+                            <field name="product_uom"/>
+                            <field name="name" invisible="1"/>
+                            <field name="date_start"/>
+                            <field name="date_stop"/>
+                        </tree>
+                        <form string="Bill of Material">
+                            <group colspan="4" col="6">
+                                <field name="product_id" on_change="onchange_product_id(product_id, name)" select="1"/>
+                                <field name="name" select="1"/>
+                                <field name="code" select="1" string="Reference" groups="base.group_extended"/>
+                                <newline/>
+                                <field name="product_qty"/>
+                                <field name="product_uom"/>
+                                <field name="routing_id"  groups="base.group_extended"/>
+                                <newline/>
+                                <field name="product_uos_qty" groups="product.group_uos" />
+                                <field name="product_uos"  groups="product.group_uos"/>
+                                <field name="consumed_on" domain="[('routing_id', '=', parent.routing_id)]"/>
+                                <newline/>
+                                <field name="type" groups="base.group_extended"/>
+                                <field name="company_id" select="1" groups="base.group_multi_company" widget="selection"/>
+                            </group>
+                            <group groups="base.group_extended">
+                                <notebook colspan="4">
+                                    <page string="Components">
+                                        <field colspan="4" name="bom_lines" nolabel="1" widget="one2many_list">
+                                            <tree string="Components" editable="bottom">
+                                                <field name="product_id" on_change="onchange_product_id(product_id, name)" select="1"/>
+                                                <field name="consumed_on" domain="[('routing_id', '=', parent.routing_id)]"/>
+                                                <field name="product_qty"/>
+                                                <field name="product_uom"/>
+                                                <field name="name" invisible="1"/>
+                                                <field name="date_start"/>
+                                                <field name="date_stop"/>
+                                            </tree>
+                                        </field>
+                                    </page>
+                                    <page string="Revisions" groups="base.group_extended" attrs="{'invisible': [('bom_id','!=',False)]}">
+                                        <field colspan="4" name="revision_ids" nolabel="1" widget="one2many_list"/>
+                                    </page>
+                                    <page string="Properties" groups="base.group_extended">
+                                        <field name="position"/>
+                                        <field name="active"/>
+                                        <field name="sequence"/>
+                                        <field name="bom_id"/>
+                                        
+                                        <field name="date_start"/>
+                                        <field name="date_stop"/>
+                                        <field name="product_rounding"/>
+                                        <field name="product_efficiency" groups="base.group_extended"/>
+                                        <field colspan="4" name="property_ids" nolabel="2" groups="base.group_extended"/>
+                                    </page>
+                                </notebook>
+                            </group>
+                        </form>
+                    </field>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

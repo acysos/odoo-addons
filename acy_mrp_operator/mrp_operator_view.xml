@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!--
+            Operator Registry
+            -->
+        <record id="view_operator_registry_tree" model="ir.ui.view">
+            <field name="name">view.operator.registry.tree</field>
+            <field name="model">mrp.operator.registry</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Operator Registry">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="operator_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_operator_registry_form" model="ir.ui.view">
+            <field name="name">view.operator.registry.form</field>
+            <field name="model">mrp.operator.registry</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Operator Registry">
+                    <field name="id" invisible="1"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="operator_id"/>
+                    <field name="workcenter_lines" colspan="4" nolabel="1" />
+                    <group col="8" colspan="4">
+                    <field name="state"/>
+                        <button name="action_confirm" type="object" states="draft" string="Confirm" icon="gtk-execute"/>
+                        <!--<button name="action_cancel" type="object" states="confirmed" string="Cancel" icon="gtk-stop"/>-->
+                        <button name="action_cancel_draft" states="cancel" string="Set to Draft" type="object" icon="gtk-convert"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="mrp_operator_registry_action" model="ir.actions.act_window">
+            <field name="name">Manufacturing Operator Registry</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.operator.registry</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="mrp_operator_registry_action" id="menu_mrp_operator_registry_action" parent="mrp.menu_mrp_manufacturing" sequence="2"/>
+        
+        <!-- Workcenter line -->
+        
+        <record id="view_mrp_production_workcenter_line_tree" model="ir.ui.view">
+            <field name="name">view.mrp.production.workcenter.line.tree</field>
+            <field name="model">mrp.production.workcenter.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Production Work Centers">
+                    <field name="sequence"/>
+                    <field name="number" select="1"/>
+                    <field name="name"/>
+                    <field name="workcenter_id" widget="selection"/>
+                    <field name="cycle"/>
+                    <field name="hour"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Workcenter registry -->
+        <record id="view_workcenter_registry_tree" model="ir.ui.view">
+            <field name="name">view.workcenter.registry.tree</field>
+            <field name="model">mrp.workcenter.registry</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Workcenter Registry" editable="top">
+                    <field name="key" widget="selection"/>
+                    <field name="workcenter_line_id" on_change="workcenter_line_change(workcenter_line_id)" />
+                    <field name="product_id" />
+                    <field name="workcenter_id" />
+                    <field name="name"/>
+                    <field name="de_product_qty"/>
+                    <field name="go_product_qty"/>
+                    <field name="date_start"/>
+                    <field name="time_start"/>
+                    <field name="date_stop"/>
+                    <field name="time_stop"/>
+                    <field name="production_id" invisible="1"/>
+                    <field name="operator_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_workcenter_registry_form" model="ir.ui.view">
+            <field name="name">view.workcenter.registry.form</field>
+            <field name="model">mrp.workcenter.registry</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Workcenter Registry">
+                    <field name="key" widget="selection"/>
+                    <field name="workcenter_line_id" on_change="workcenter_line_change(workcenter_line_id)" />
+                    <field name="product_id" />
+                    <field name="workcenter_id" />
+                    <field name="name"/>
+                    <field name="de_product_qty"/>
+                    <field name="go_product_qty"/>
+                    <field name="date_start"/>
+                    <field name="time_start"/>
+                    <field name="date_stop"/>
+                    <field name="time_stop"/>
+                    <field name="note" colspan="4" />
+                    <field name="production_id"/>
+                    <field name="operator_id"/>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Workcenter Registry Key -->
+        <record id="mrp_operator_registry_key_action" model="ir.actions.act_window">
+            <field name="name">Manufacturing Operator Registry Key</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.workcenter.registry.key</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="mrp_operator_registry_key_action" id="menu_mrp_operator_registry_key_action" parent="mrp.menu_mrp_configuration" sequence="2"/>
+        
+        
+    </data>
+</openerp>
