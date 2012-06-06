@@ -1,0 +1,142 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_product_extra_price
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-12-15 17:31+0000\n"
+"PO-Revision-Date: 2011-12-15 17:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_product_extra_price
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr ""
+
+#. module: acy_product_extra_price
+#: field:account.invoice.line,extra_parent_line_id:0
+#: field:product.template,extra_price:0
+#: field:sale.order.line,extra_parent_line_id:0
+msgid "Extra Price"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: code:addons/acy_product_extra_price/invoice.py:69
+#, python-format
+msgid "Unknown Error"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: model:ir.module.module,shortdesc:acy_product_extra_price.module_meta_information
+msgid "Product Extra Price"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: help:account.invoice.line,sequence:0
+msgid "Gives the sequence order when displaying a list of invoice lines."
+msgstr ""
+
+#. module: acy_product_extra_price
+#: help:product.template,extra_price:0
+msgid "Extra price to show in the invoice like a line"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: code:addons/acy_product_extra_price/invoice.py:67
+#, python-format
+msgid "There is no Accounting Journal of type Sale/Purchase defined!"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: code:addons/acy_product_extra_price/invoice.py:60
+#, python-format
+msgid "Invoice '%s' is waiting for validation."
+msgstr ""
+
+#. module: acy_product_extra_price
+#: model:ir.model,name:acy_product_extra_price.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: model:ir.model,name:acy_product_extra_price.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: field:account.invoice.line,extra_child_line_id:0
+#: field:sale.order.line,extra_child_line_id:0
+msgid "Line extra price"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: field:product.template,name_extra_price:0
+msgid "Description Extra Price"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: help:product.template,name_extra_price:0
+msgid "This description is used for the description of the line"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: constraint:account.invoice:0
+msgid "Invoice date is previous to an existing invoice."
+msgstr ""
+
+#. module: acy_product_extra_price
+#: field:account.invoice.line,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: model:ir.module.module,description:acy_product_extra_price.module_meta_information
+msgid "Allow to add a second price to the product. This is usefull for company that have a extra variable price and need to show it in the invoice.\n"
+"    \n"
+"    Example of a invoice line:\n"
+"        Description         Quantity        Unit Price      Subtotal\n"
+"        Product Name               2           50,00 €      100,00 €\n"
+"            Extra Price              2            2,53 €        5,06 €\n"
+"                                                Total Invoice   105,06 €\n"
+"    "
+msgstr ""
+
+#. module: acy_product_extra_price
+#: model:ir.model,name:acy_product_extra_price.model_account_invoice_line
+msgid "Invoice Line"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: code:addons/acy_product_extra_price/invoice.py:66
+#, python-format
+msgid "Configuration Error!"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: help:account.invoice.line,extra_parent_line_id:0
+#: help:sale.order.line,extra_parent_line_id:0
+msgid "The line that contain the product with the extra price"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: model:ir.model,name:acy_product_extra_price.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: acy_product_extra_price
+#: model:ir.model,name:acy_product_extra_price.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
