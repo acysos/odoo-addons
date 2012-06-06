@@ -1,0 +1,112 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_product_autocontrol
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-12-15 17:28+0000\n"
+"PO-Revision-Date: 2011-12-15 17:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_product_autocontrol
+#: model:ir.model,name:acy_product_autocontrol.model_product_product
+#: field:product.autocontrol,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: model:ir.model,name:acy_product_autocontrol.model_product_quality_control
+msgid "Product Quality Controls"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: field:product.autocontrol,frecuency:0
+msgid "Frecuency"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: field:product.autocontrol,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: model:ir.model,name:acy_product_autocontrol.model_mrp_production
+msgid "Manufacturing Order"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: sql_constraint:product.autocontrol:0
+msgid "The sequence must be unique per product !"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: view:mrp.production:0
+#: field:mrp.production,autocontrol_ids:0
+#: view:product.autocontrol:0
+msgid "Product Autocontrol"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: model:ir.model,name:acy_product_autocontrol.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: code:addons/acy_product_autocontrol/mrp.py:56
+#, python-format
+msgid "Couldn't find bill of material for product"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: view:product.product:0
+msgid "Autocontrol"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: model:ir.model,name:acy_product_autocontrol.model_product_autocontrol
+msgid "Product Autocontrols"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: code:addons/acy_product_autocontrol/mrp.py:56
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: constraint:mrp.production:0
+msgid "Order quantity cannot be negative or zero !"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: field:product.autocontrol,tolerance:0
+msgid "Tolerance"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: field:product.autocontrol,tools:0
+msgid "Tools"
+msgstr ""
+
+#. module: acy_product_autocontrol
+#: field:product.autocontrol,name:0
+msgid "Name"
+msgstr ""
+

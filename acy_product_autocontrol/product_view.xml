@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Product -->
+        <record id="product_normal_form_view_quality1" model="ir.ui.view">
+            <field name="name">product.normal.form.view.quality1</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Autocontrol">
+                        <field colspan="4" name="autocontrol_id" nolabel="1" widget="one2many_list" />
+                    </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <!-- Quality Control -->
+        <record id="view_product_autocontrol_tree" model="ir.ui.view">
+            <field name="name">view.product.autocontrol.tree</field>
+            <field name="model">product.autocontrol</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Product Autocontrol" editable="top">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="tolerance"/>
+                    <field name="frecuency"/>
+                    <field name="tools"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_product_autocontrol_form" model="ir.ui.view">
+            <field name="name">view.product.autocontrol.form</field>
+            <field name="model">product.autocontrol</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product Autocontrol">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="tolerance"/>
+                    <field name="frecuency"/>
+                    <field name="tools"/>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

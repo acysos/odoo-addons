@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Production order -->
+        <record id="mrp_production_form_view_autocontrol1" model="ir.ui.view">
+            <field name="name">mrp.production.form.autocontrol1</field>
+            <field name="model">mrp.production</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Product Autocontrol">
+                      <field colspan="4" name="autocontrol_ids" nolabel="1" widget="one2many_list" />
+                    </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <record id="view_mrp_autocontrol_tree" model="ir.ui.view">
+          <field name="name">view.mrp.autocontrol.tree</field>
+          <field name="model">mrp.autocontrol</field>
+          <field name="type">tree</field>
+          <field name="arch" type="xml">
+            <tree string="Product Autocontrol" editable="top">
+              <field name="sequence"/>
+              <field name="name"/>
+              <field name="tolerance"/>
+              <field name="frecuency"/>
+              <field name="tools"/>
+            </tree>
+          </field>
+        </record>
+        
+    </data>
+</openerp>
