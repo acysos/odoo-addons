@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <menuitem id="base.menu_magazine" name="Magazines" parent="base.menu_base_partner" sequence="9"/>
+        
+        <record model="ir.ui.view" id="view_magazine_form">
+            <field name="name">view.magazine.form</field>
+            <field name="model">magazine.magazine</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Magazine">
+                    <field name="name"/>
+                    <field name="date_create"/>
+                    <field name="last_number"/>
+                    <field name="magazines_published" colspan="4" mode="tree,form" nolabel="1">
+                        <form string="Publications">
+                            <field name="number"/>
+                            <field name="date_publish"/>
+                            <field name="file"/>
+                            <field name="comments" colspan="4"/>
+                        </form>
+                        <tree string="Publications">
+                            <field name="number"/>
+                            <field name="date_publish"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_magazine_tree">
+            <field name="name">view.magazine.tree</field>
+            <field name="model">magazine.magazine</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Magazine">
+                    <field name="name"/>
+                    <field name="date_create"/>
+                    <field name="last_number"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_magazine_filter" model="ir.ui.view">
+            <field name="name">Magazine - Search</field>
+            <field name="model">magazine.magazine</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Magazine">
+                    <field name="name"/>
+                    <field name="date_create"/>
+                    <field name="last_number"/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_magazine">
+            <field name="name">Magazines</field>
+            <field name="res_model">magazine.magazine</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Magazines" id="menu_magazine_magazine" parent="base.menu_magazine" action="action_magazine"/>
+        
+        <record model="ir.ui.view" id="view_magazine_published_form">
+            <field name="name">view.magazine.published.form</field>
+            <field name="model">magazine.published</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Magazine Published">
+                    <field name="magazine_id"/>
+                    <field name="number"/>
+                    <field name="date_publish"/>
+                    <field name="file"/>
+                    <field name="comments" colspan="4"/>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_magazine_published_tree">
+            <field name="name">view.magazine.published.tree</field>
+            <field name="model">magazine.published</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Magazine Published">
+                    <field name="magazine_id"/>
+                    <field name="number"/>
+                    <field name="date_publish"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_magazine_published">
+            <field name="name">Publications</field>
+            <field name="res_model">magazine.published</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Publications" id="menu_magazine_published" parent="base.menu_magazine" action="action_magazine_published"/>
+        
+        <record id="view_magazine_subscription_filter" model="ir.ui.view">
+            <field name="name">Subscriptions</field>
+            <field name="model">magazine.subscription</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Subscription">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="magazine_id"/>
+                    <field name="expire_number"/>
+                    <newline/>
+                    
+                    <group expand="0" string="Extended Filters..." groups="base.group_extended">
+                        <field name="date_create"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="view_magazine_subscription_tree" model="ir.ui.view">
+            <field name="name">Subscriptions</field>
+            <field name="model">magazine.subscription</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Subscriptions" colors="red:warning_expire==True">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="magazine_id"/>
+                    <field name="expire_number"/>
+                    <field name="warning_expire" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_magazine_subscription_form" model="ir.ui.view">
+            <field name="name">Subscriptions</field>
+            <field name="model">magazine.subscription</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Subscriptions">
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="magazine_id"/>
+                    <field name="date_create"/>
+                    <field name="partner_id" on_change="onchange_partner_id(partner_id)"/>
+                    <field name="partner_address_id"/>
+                    <field name="first_number"/>
+                    <field name="expire_number"/>
+                    <notebook colspan="4">
+                        <page string="Renewal">
+                            <field name="renewal_ids" colspan="4" nolabel="1">
+                                <form string="Renewals">
+                                    <field name="date_renewal"/>
+                                    <field name="price_unit"/>
+                                    <field name="first_number"/>
+                                    <field name="last_number"/>
+                                    <newline />
+                                    <field name="comments" colspan="4"/>
+                                </form>
+                                <tree string="Renewals">
+                                    <field name="date_renewal"/>
+                                    <field name="first_number"/>
+                                    <field name="last_number"/>
+                                    <field name="price_unit"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Comments">
+                              <field name="comments" colspan="4" nolabel="1"/>
+                        </page>
+<!--                        <page string="Products">
+                            <field name="product_ids" nolabel="1"/>
+                        </page>-->
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_magazine_subcription">
+            <field name="name">Subscriptions</field>
+            <field name="res_model">magazine.subscription</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Subscriptions" id="menu_magazine_subscription" parent="base.menu_magazine" action="action_magazine_subcription"/>
+        
+        <record id="view_subscription_renewal_filter" model="ir.ui.view">
+            <field name="name">Renewal - Search</field>
+            <field name="model">magazine.renewal</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Renewal">
+                    <field name="subscription_id"/>
+                    <field name="date_renewal"/>
+                    <field name="last_number"/>
+                    <newline/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_magazine_renewal_form">
+            <field name="name">view.magazine.renewal.form</field>
+            <field name="model">magazine.renewal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="renewals">
+                    <field name="subscription_id"/>
+                    <field name="date_renewal"/>
+                    <field name="first_number"/>
+                    <field name="last_number"/>
+                    <field name="price_unit"/>
+                    <newline />
+                    <field name="comments" colspan="4"/>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_magazine_renewal_tree">
+            <field name="name">view.magazine.renewal.tree</field>
+            <field name="model">magazine.renewal</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <form string="renewals">
+                    <field name="subscription_id"/>
+                    <field name="date_renewal"/>
+                    <field name="first_number"/>
+                    <field name="last_number"/>
+                    <field name="price_unit"/>
+                </form>
+            </field>
+        </record>
+        
+        <act_window name="Renewals"
+                    domain="[('subscription_id', '=', active_id)]"
+                    context="{'subscription_id': active_id}"
+                    res_model="magazine.renewal"
+                    src_model="magazine.subscription"
+        id="act_subscription_2_renewals"/>
+        
+        <record model="ir.actions.act_window" id="action_magazine_renewal">
+            <field name="name">Renewals</field>
+            <field name="res_model">magazine.renewal</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Renewals" id="menu_magazine_renewal" parent="base.menu_magazine" action="action_magazine_renewal"/>
+        
+    </data>
+</openerp>

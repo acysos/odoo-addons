@@ -1,0 +1,301 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_magazine_subscription
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-06-08 17:40+0000\n"
+"PO-Revision-Date: 2012-06-08 17:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_magazine_subscription
+#: field:res.company,magazine_mail_template:0
+msgid "Template"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: code:addons/acy_magazine_subscription/magazine.py:119
+#: code:addons/acy_magazine_subscription/magazine.py:122
+#, python-format
+msgid "Subscription"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.subscription:0
+msgid "Renewal"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.published:0
+msgid "Magazine Published"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.published,comments:0
+#: field:magazine.renewal,comments:0
+#: view:magazine.subscription:0
+#: field:magazine.subscription,comments:0
+msgid "Comments"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.make.invoice.wizard,price:0
+msgid "Price"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.model,name:acy_magazine_subscription.model_magazine_make_invoice_wizard
+msgid "magazine.make.invoice.wizard"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.make.invoice.wizard,state:0
+msgid "State"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.renewal,price_unit:0
+msgid "Unit Price"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.subscription,expire_number:0
+msgid "Number expired"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.renewal:0
+msgid "renewals"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.actions.act_window,name:acy_magazine_subscription.wizard_make_invoice
+msgid "Make Invoices"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.magazine,magazines_published:0
+msgid "Magazines Published"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.make.invoice.wizard,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:res.company,magazine_alert_expire:0
+msgid "Alert Expire"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.magazine,last_number:0
+msgid "Last number published"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.model,name:acy_magazine_subscription.model_magazine_subscription
+msgid "magazine.subscription"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.actions.act_window,name:acy_magazine_subscription.action_magazine_subcription
+#: model:ir.ui.menu,name:acy_magazine_subscription.menu_magazine_subscription
+#: view:magazine.subscription:0
+msgid "Subscriptions"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.subscription,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.model,name:acy_magazine_subscription.model_magazine_magazine
+msgid "magazine.magazine"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.model,name:acy_magazine_subscription.model_magazine_published
+msgid "magazine.published"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: help:res.company,magazine_alert_expire:0
+msgid "Numbers notice of expire (separated with comma. Ex. 2,1,0)"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.magazine,date_create:0
+#: field:magazine.renewal,date_renewal:0
+#: field:magazine.subscription,date_create:0
+msgid "Date"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.actions.act_window,name:acy_magazine_subscription.action_magazine
+#: model:ir.ui.menu,name:acy_magazine_subscription.menu_magazine_magazine
+msgid "Magazines"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:res.company:0
+msgid "Configuration"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.renewal,subscription_id:0
+msgid "Subscription"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.renewal,first_number:0
+#: field:magazine.subscription,first_number:0
+msgid "First number"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.renewal:0
+msgid "Search Renewal"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.magazine,name:0
+#: field:magazine.subscription,name:0
+msgid "Name"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.subscription:0
+msgid "Search Subscription"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.model,name:acy_magazine_subscription.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:res.company:0
+msgid "Magazine subscription"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.subscription,active:0
+msgid "Active"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.magazine:0
+#: field:magazine.published,magazine_id:0
+#: field:magazine.subscription,magazine_id:0
+msgid "Magazine"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.actions.act_window,name:acy_magazine_subscription.action_magazine_published
+#: model:ir.ui.menu,name:acy_magazine_subscription.menu_magazine_published
+#: view:magazine.magazine:0
+msgid "Publications"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.published,date_publish:0
+msgid "Published"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.subscription,warning_expire:0
+msgid "Warning expired"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.magazine:0
+msgid "Search Magazine"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: selection:magazine.make.invoice.wizard,state:0
+msgid "First"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.renewal,last_number:0
+msgid "Last number"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: view:magazine.subscription:0
+msgid "Extended Filters..."
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.subscription,partner_address_id:0
+msgid "Partner Contact"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: code:addons/acy_magazine_subscription/wizard/make_invoice.py:112
+#, python-format
+msgid "Invoices"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.published,number:0
+msgid "Number"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: code:addons/acy_magazine_subscription/magazine.py:122
+#, python-format
+msgid "Send email subcription: %s"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.make.invoice.wizard,account_id:0
+msgid "Analytic Account"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: selection:magazine.make.invoice.wizard,state:0
+msgid "Done"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.published,file:0
+msgid "File"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: field:magazine.subscription,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: model:ir.actions.act_window,name:acy_magazine_subscription.act_subscription_2_renewals
+#: model:ir.actions.act_window,name:acy_magazine_subscription.action_magazine_renewal
+#: model:ir.model,name:acy_magazine_subscription.model_magazine_renewal
+#: model:ir.ui.menu,name:acy_magazine_subscription.menu_magazine_renewal
+#: view:magazine.subscription:0
+#: field:magazine.subscription,renewal_ids:0
+msgid "Renewals"
+msgstr ""
+
+#. module: acy_magazine_subscription
+#: code:addons/acy_magazine_subscription/magazine.py:119
+#, python-format
+msgid "Not template configurated. Configure your company template or desactive Scheduled Actions"
+msgstr ""
+
