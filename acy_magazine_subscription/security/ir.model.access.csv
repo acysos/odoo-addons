@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_magazine_user,magazine group_user,model_magazine_magazine,acy_magazine_subscription.group_magazine_user,1,1,1,1
+access_magazine_renewal_user,magazine_renewal group_user,model_magazine_renewal,acy_magazine_subscription.group_magazine_user,1,1,1,1
+access_magazine_published_user,magazine_published group_user,model_magazine_published,acy_magazine_subscription.group_magazine_user,1,1,1,1
+access_magazine_subscription_user,magazine_subscription group_user,model_magazine_subscription,acy_magazine_subscription.group_magazine_user,1,1,1,1

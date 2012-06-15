@@ -36,7 +36,7 @@
         ],
     "init_xml" : [],
     "demo_xml" : [],
-    "update_xml" :["company_view.xml","magazine_view.xml","wizard/make_invoice_view.xml"],
+    "update_xml" :["company_view.xml","magazine_view.xml","wizard/make_invoice_view.xml","security/magazine_security.xml","security/ir.model.access.csv",],
     "active": False,
     "installable": True
 }
