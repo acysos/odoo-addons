@@ -73,7 +73,7 @@ class magazine_subscription(osv.osv):
         for rec in self.browse(cr, uid, ids, context):
             cr.execute("select max(last_number) as last_number from magazine_renewal where subscription_id=%s", (rec.id,))
             res = cr.dictfetchone()
-            result[rec.id] = res and res['last_number'] or False
+            result[rec.id] = res and res['last_number'] or 0
         return result
         
     def _warning_expire(self, cr, uid, ids, field_name, arg, context={}):
@@ -92,10 +92,12 @@ class magazine_subscription(osv.osv):
                     if x > number_alert:
                         number_alert = x
                 max_alert = int(rec.magazine_id.last_number) + number_alert
-            if rec.expire_number:
+            if rec.expire_number != '0':
                 expire_number = int(rec.expire_number)
                 if expire_number <= max_alert:
                     result[rec.id] = True
+            else:
+                result[rec.id] = False
         return result
     
     #def run_mail_scheduler(self, cr, uid, use_new_cursor=False, context=None):
@@ -173,7 +175,7 @@ class magazine_renewal(osv.osv):
     _name = "magazine.renewal"
     _description = "Renewals"
     _columns = {
-        'subscription_id': fields.many2one('magazine.subscription','Subscription', required=True),
+        'subscription_id': fields.many2one('magazine.subscription','Subscription', required=True, ondelete='cascade'),
         'date_renewal': fields.date('Date', required=True),
         'first_number': fields.integer('First number'),
         'last_number': fields.integer('Last number'),

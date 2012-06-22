@@ -55,12 +55,12 @@
         </record>
         
         <record model="ir.actions.act_window" id="action_magazine">
-            <field name="name">Magazines</field>
+            <field name="name">Publications</field>
             <field name="res_model">magazine.magazine</field>
             <field name="view_mode">tree,form</field>
         </record>
         
-        <menuitem name="Magazines" id="menu_magazine_magazine" parent="base.menu_magazine" action="action_magazine"/>
+        <menuitem name="Publications" id="menu_magazine_magazine" parent="base.menu_magazine" action="action_magazine"/>
         
         <record model="ir.ui.view" id="view_magazine_published_form">
             <field name="name">view.magazine.published.form</field>
@@ -90,12 +90,12 @@
         </record>
         
         <record model="ir.actions.act_window" id="action_magazine_published">
-            <field name="name">Publications</field>
+            <field name="name">Numbers/Editions</field>
             <field name="res_model">magazine.published</field>
             <field name="view_mode">tree,form</field>
         </record>
         
-        <menuitem name="Publications" id="menu_magazine_published" parent="base.menu_magazine" action="action_magazine_published"/>
+        <menuitem name="Numbers/Editions" id="menu_magazine_published" parent="base.menu_magazine" action="action_magazine_published"/>
         
         <record id="view_magazine_subscription_filter" model="ir.ui.view">
             <field name="name">Subscriptions</field>
@@ -219,13 +219,13 @@
             <field name="model">magazine.renewal</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <form string="renewals">
+                <tree string="renewals">
                     <field name="subscription_id"/>
                     <field name="date_renewal"/>
                     <field name="first_number"/>
                     <field name="last_number"/>
                     <field name="price_unit"/>
-                </form>
+                </tree>
             </field>
         </record>
         
