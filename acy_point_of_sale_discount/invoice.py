@@ -21,5 +21,25 @@
 #
 ##############################################################################
 
-import point_of_sale
-import invoice
+import time
+from lxml import etree
+import decimal_precision as dp
+
+import netsvc
+import pooler
+from osv import fields, osv, orm
+from tools.translate import _
+
+import time
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
+class account_invoice_line(osv.osv):
+    _inherit='account.invoice.line'
+    
+    _columns={
+        'pos_visible_discount': fields.float('Discount (%)', digits=(16, 2)),
+        'pos_sale_price': fields.float('Sale Price', digits_compute=dp.get_precision('Point Of Sale')),
+    }
+    
+account_invoice_line()
