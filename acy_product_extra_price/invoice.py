@@ -103,7 +103,7 @@ class account_invoice(osv.osv):
                 sequence += 1
                 tax_ids = self.pool.get('account.fiscal.position').map_tax(cr, uid, fiscal_position, line.product_id.taxes_id)
                 vals = {
-                    'name': '--> '+line.product_id.name_extra_price or ' ',
+                    'name': '--> '+(line.product_id.name_extra_price or ''),
                     'origin': line.origin,
                     'invoice_id': line.invoice_id.id,
                     'uos_id': line.uos_id.id,
@@ -131,5 +131,24 @@ class account_invoice(osv.osv):
                         'sequence': sequence,
                     }, context)
         return
+    
+    def _refund_cleanup_lines(self, cr, uid, lines):
+        lines2 = []
+        for line in lines:
+            if line.has_key('extra_parent_line_id') and line.has_key('extra_child_line_id'):
+                if line['extra_parent_line_id'] == False and line['extra_child_line_id'] == False:
+                    lines2.append(line)
+            else:
+                lines2.append(line)
+        
+        for line in lines2:
+            del line['id']
+            del line['invoice_id']
+            for field in ('company_id', 'partner_id', 'account_id', 'product_id',
+                        'uos_id', 'account_analytic_id', 'tax_code_id', 'base_code_id'):
+                line[field] = line.get(field, False) and line[field][0]
+            if 'invoice_line_tax_id' in line:
+                line['invoice_line_tax_id'] = [(6,0, line.get('invoice_line_tax_id', [])) ]
+        return map(lambda x: (0,0,x), lines2)
     
 account_invoice()
