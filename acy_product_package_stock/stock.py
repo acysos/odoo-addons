@@ -416,13 +416,13 @@ class stock_picking(osv.osv):
 
             invoice_obj.button_compute(cr, uid, [invoice_id], context=context,
                     set_total=(inv_type in ('in_invoice', 'in_refund')))
-            #self.write(cr, uid, [picking.id], {
-                #'invoice_state': 'invoiced',
-                #}, context=context)
+            self.write(cr, uid, [picking.id], {
+                'invoice_state': 'invoiced',
+                }, context=context)
             self._invoice_hook(cr, uid, picking, invoice_id)
-        #self.write(cr, uid, res.keys(), {
-            #'invoice_state': 'invoiced',
-            #}, context=context)
+        self.write(cr, uid, res.keys(), {
+            'invoice_state': 'invoiced',
+            }, context=context)
         return res
     
 stock_picking()
