@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.ui.view" id="view_magento_sale_shop_vies_form">
+            <field name="name">magento_sale_shop_vies_form</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="magento_connect.view_magento_sale_shop_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="magento_default_invoice_quantity" position="after">
+                    <separator string="Fiscal Position Configuration" colspan="4"/>
+                    <field name="national_fiscal_position"/>
+                    <field name="non_vat_fiscal_position"/>
+                    <field name="valid_vies_fiscal_position"/>
+                    <field name="non_valid_vies_fiscal_position"/>
+                    <field name="non_european_fiscal_position"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

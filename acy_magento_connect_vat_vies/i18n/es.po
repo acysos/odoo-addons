@@ -1,0 +1,89 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_magento_connect_vat_vies
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-10-07 20:18+0000\n"
+"PO-Revision-Date: 2012-10-07 20:18+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_magento_connect_vat_vies
+#: help:sale.shop,valid_vies_fiscal_position:0
+msgid "Default Fiscal position for partners with a valid vat number in vies validation webservices"
+msgstr "Posición fiscal para empresas con un CIF/NIF validad con VIES"
+
+#. module: acy_magento_connect_vat_vies
+#: code:addons/acy_magento_connect_vat_vies/partner.py:116
+#: code:addons/acy_magento_connect_vat_vies/partner.py:118
+#, python-format
+msgid "Successfully create partner: %s"
+msgstr "Empresa creada con éxito: %s"
+
+#. module: acy_magento_connect_vat_vies
+#: view:sale.shop:0
+msgid "Fiscal Position Configuration"
+msgstr "Configuración posiciones fiscales"
+
+#. module: acy_magento_connect_vat_vies
+#: model:ir.model,name:acy_magento_connect_vat_vies.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tienda ventas"
+
+#. module: acy_magento_connect_vat_vies
+#: field:sale.shop,non_european_fiscal_position:0
+msgid "Fiscal Position for non-European"
+msgstr "Posición fiscal para empresa no Europeas"
+
+#. module: acy_magento_connect_vat_vies
+#: help:sale.shop,non_vat_fiscal_position:0
+msgid "Default Fiscal position for partners without vat number"
+msgstr "Posición fiscal por defecto para empresas sin CIF/NIF"
+
+#. module: acy_magento_connect_vat_vies
+#: field:sale.shop,non_valid_vies_fiscal_position:0
+msgid "Fiscal Position for non-Valid Vies Vat"
+msgstr "Posición fiscal para CIF/NIF no válidos según VIES"
+
+#. module: acy_magento_connect_vat_vies
+#: help:sale.shop,non_european_fiscal_position:0
+msgid "Default Fiscal position for partners outside Europe"
+msgstr "Posición fiscal por defecto para empresas fuera de Europa"
+
+#. module: acy_magento_connect_vat_vies
+#: field:sale.shop,valid_vies_fiscal_position:0
+msgid "Fiscal Position for Valid Vies Vat"
+msgstr "Posición fiscal para CIF/NIF válidos según VIES"
+
+#. module: acy_magento_connect_vat_vies
+#: field:sale.shop,non_vat_fiscal_position:0
+msgid "Fiscal Position for non-Vat"
+msgstr "Posición fiscal sin CIF/NIF"
+
+#. module: acy_magento_connect_vat_vies
+#: model:ir.model,name:acy_magento_connect_vat_vies.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: acy_magento_connect_vat_vies
+#: field:sale.shop,national_fiscal_position:0
+msgid "National Fiscal Position"
+msgstr "Posición fiscal nacional"
+
+#. module: acy_magento_connect_vat_vies
+#: help:sale.shop,non_valid_vies_fiscal_position:0
+msgid "Default Fiscal position for partners without a valid vat number in vies validation webservices"
+msgstr "Posición fiscal para empresas sin un número de CIF/NIF no válido según VIES"
+
+#. module: acy_magento_connect_vat_vies
+#: help:sale.shop,national_fiscal_position:0
+msgid "Default Fiscal position for the partners with fiscal address in the same country that the company"
+msgstr "Posición discal por defecto para las empresas residentes en el mismo país que la compañía"
+
