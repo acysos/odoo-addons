@@ -36,8 +36,8 @@ msgid "Error: Invalid ean code"
 msgstr ""
 
 #. module: acy_product_internal_reference
-#: field:product.product,internal_ref:0
-msgid "Internal ref"
+#: field:product.product,internal_name:0
+msgid "Internal Name"
 msgstr ""
 
 #. module: acy_product_internal_reference
