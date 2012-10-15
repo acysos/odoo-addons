@@ -50,16 +50,19 @@ msgstr ""
 
 #. module: acy_purchase_3_discounts
 #: field:purchase.order.line,discount3:0
+#: field:account.invoice.line,discount3:0
 msgid "Discount 3"
 msgstr ""
 
 #. module: acy_purchase_3_discounts
 #: field:purchase.order.line,discount2:0
+#: field:account.invoice.line,discount2:0
 msgid "Discount 2"
 msgstr ""
 
 #. module: acy_purchase_3_discounts
 #: field:purchase.order.line,discount1:0
+#: field:account.invoice.line,discount1:0
 msgid "Discount 1"
 msgstr ""
 

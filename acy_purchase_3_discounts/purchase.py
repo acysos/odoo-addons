@@ -160,12 +160,18 @@ class stock_picking( osv.osv ):
     _inherit =  'stock.picking'
         
     def _get_discount_invoice(self, cursor, user, move_line):
+        #if move_line.sale_line_id:
+            #return move_line.sale_line_id.discount
         if move_line.purchase_line_id:
             line = move_line.purchase_line_id
             return 100*(1 - ( (100-line.discount1)/100 *(100-line.discount2)/100 * (100-line.discount3)/100 ))
         return super(stock_picking, self)._get_discount_invoice(cursor, user, move_line)
     
     def _invoice_line_hook(self, cr, uid, move_line, invoice_line_id):
+        if move_line.sale_line_id:
+            self.pool.get('account.invoice.line').write( cr, uid, [invoice_line_id], {        
+                'discount1':move_line.sale_line_id.discount,
+                } )
         if move_line.purchase_line_id:
             self.pool.get('account.invoice.line').write( cr, uid, [invoice_line_id], {        
                 'discount':move_line.purchase_line_id.discount,
