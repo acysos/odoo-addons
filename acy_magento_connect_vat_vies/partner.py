@@ -97,8 +97,12 @@ class res_partner(osv.osv):
                 fiscal_position = sale_shop.non_european_fiscal_position.id or None
                     
         else:
-            country_code = partner_address_obj.magento_get_customer_address_country_code(cr, uid, magento_app, values, context)
+            if values['country_id']:
+                country_code = values['country_id']
+            else:
+                country_code = partner_address_obj.magento_get_customer_address_country_code(cr, uid, magento_app, values, context)
             if country_code == 'GR': country_code = 'EL' #Fix Greece tax code
+            print country_code
             if country_code.lower() in european_countries:
                 fiscal_position = sale_shop.non_vat_fiscal_position.id or None
             else: 
@@ -116,8 +120,8 @@ class res_partner(osv.osv):
             self.pool.get('magento.log').create_log(cr, uid, magento_app, 'res.partner', partner_id, values['customer_id'], 'done', _('Successfully create partner: %s') % (values['name']) )
         else:
             self.pool.get('magento.log').create_log(cr, uid, magento_app, 'res.partner', partner_id, '', 'done', _('Successfully create partner: %s') % (values['name']) )
-
-        magento_app_customer_ids = self.pool.get('magento.app.customer').magento_app_customer_create(cr, uid, magento_app, partner_id, values, context)
+        if values.get('group_id', magento_app.customer_default_group.id):
+            magento_app_customer_ids = self.pool.get('magento.app.customer').magento_app_customer_create(cr, uid, magento_app, partner_id, values, context)
 
         logger.notifyChannel('Magento Sync Partner', netsvc.LOG_INFO, "Create Partner: magento %s, openerp id %s, magento id %s" % (magento_app.name, partner_id, values['customer_id']))
 
