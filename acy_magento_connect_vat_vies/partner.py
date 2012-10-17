@@ -97,7 +97,8 @@ class res_partner(osv.osv):
                 fiscal_position = sale_shop.non_european_fiscal_position.id or None
                     
         else:
-            if values['country_id']:
+            print values
+            if 'country_id' in values:
                 country_code = values['country_id']
             else:
                 country_code = partner_address_obj.magento_get_customer_address_country_code(cr, uid, magento_app, values, context)
