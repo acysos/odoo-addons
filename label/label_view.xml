@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+		<record model="ir.ui.view" id="label_template_form">
+			<field name="name">label.templates.form</field>
+			<field name="model">label.templates</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Label Templates">
+					<field name="name"/>
+					<field name="object_name" required="1"
+						on_change="change_model(object_name)"
+						attrs="{'readonly':[('ref_ir_value','!=',False)]}" />
+					<field name="model_int_name" invisible="1" />
+					<field name="type" on_change="change_type(type,context)"/>
+					<field name="default_label_format_id"/>
+                    <notebook colspan="4">
+						<page string="Label Details">
+							<separator colspan="3" string="Label Body" />
+							<separator colspan="1" string="Expression Builder" />
+
+							<field name="def_body_text" colspan="3" nolabel="1" />
+
+                            <group col="4">
+							<notebook>
+								<page string="Insert Simple Field">
+										<field name="model_object_field"
+											domain="[('model_id','=',object_name),('ttype','!=','one2many'),('ttype','!=','many2many')]"
+											on_change="onchange_model_object_field(model_object_field, context)"
+											colspan="4" />
+										<field name="sub_object" readonly="1" colspan="4" />
+										<field name="sub_model_object_field"
+											domain="[('model_id','=',sub_object),('ttype','!=','one2many'),('ttype','!=','many2many')]"
+											colspan="4"
+											attrs="{'readonly':[('sub_object','=',False)],'required':[('sub_object','!=',False)]}"
+											on_change="_onchange_sub_model_object_field(model_object_field,sub_model_object_field,context)" />
+										<field name="null_value" colspan="4"
+											on_change="_onchange_null_value(model_object_field,sub_model_object_field,null_value,context)" />
+										<field name="copyvalue" colspan="4" />
+								</page>
+                                <page string="Insert Table">
+                                    <field
+                                        name="table_model_object_field"
+                                        domain="[('model_id','=',object_name),('ttype','in',['one2many','many2many'])]"
+                                        colspan="2"
+                                        on_change="_onchange_table_model_object_field(table_model_object_field,context)" />
+                                    <field name="table_sub_object"
+                                        readonly="1" colspan="2" />
+                                    <field name="table_required_fields"
+                                        colspan="4" nolabel="1"
+                                        domain="[('model_id','=',table_sub_object),('ttype','!=','one2many'),('ttype','!=','many2many')]"
+                                        on_change="_onchange_table_required_fields(table_model_object_field,table_required_fields,'mako',context)" />
+                                    <field name="table_copyvalue"
+                                        colspan="4" />
+                                </page>
+							</notebook>
+                            </group>
+
+                            <field name="help_text" colspan="4" nolabel="1"/>
+						</page>
+
+						<page string="Security">
+							<separator colspan="4" string="Allowed User Groups" />
+							<field name="allowed_groups" string="Allowed User Groups" nolabel="1" />
+						</page>
+
+						<page string="Advanced">
+							<separator string="Fields used to sort the labels" colspan="4" />
+							<field name="sort_field1" />
+							<field name="sort_field2" />
+							<field name="sort_field3" />
+                            <field name="label_null" />
+
+							<separator string="Report Style Sheets" colspan="4" />
+							<field name="report_stylesheets" colspan="4" nolabel="1" />
+                            <group colspan="4" col="1">
+				                <label string="Optional ReportLab style sheets like:" align="0.0" />
+    				            <label string="&lt;blockTableStyle id='mytable'&gt;" align="0.0" />
+	    			            <label string="  &lt;blockAlignment value='CENTER'/&gt;" align="0.0" />
+	    			            <label string="	 &lt;blockValign value='MIDDLE'/&gt;" align="0.0" />
+	    			            <label string="	 &lt;lineStyle kind='GRID' colorName='black' tickness='1'/&gt;" align="0.0" />
+	    			            <label string="  &lt;blockBackground colorName='red' start='0,0' stop='0,0'/&gt;" align="0.0" />
+	    			            <label string="&lt;/blockTableStyle&gt;" align="0.0" />
+                            </group>
+
+							<separator string="Label action, wizard and report" colspan="4" />
+							<field name="ref_ir_act_window" />
+							<field name="ref_ir_value" />
+							<field name="report_template" />
+						</page>
+
+                    </notebook>
+				</form>
+		    </field>
+		</record>
+
+		<record model="ir.ui.view" id="label_template_tree">
+			<field name="name">label.templates.tree</field>
+			<field name="model">label.templates</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Label Templates">
+					<field name="name" select="1" />
+					<field name="object_name" required="1" select="1" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_label_template_tree_all">
+			<field name="name">Label Templates</field>
+			<field name="res_model">label.templates</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+			<field name="view_id" ref="label_template_tree" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_label_template_form">
+			<field name="name">Label Templates</field>
+			<field name="res_model">label.templates</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+			<field name="view_id" ref="label_template_form" />
+		</record>
+
+    <!-- Menus -->
+    <menuitem parent="base.menu_custom" name="Labels" id="label_reports_menu"/>
+    <menuitem parent="label_reports_menu" name="Configuration" id="configuration_label_reports_menu"/>
+
+    <menuitem name="Label Templates" id="menu_label_templates_all"
+			parent="label_reports_menu" action="action_label_template_tree_all" />
+
+    <menuitem name="New Template" id="menu_label_templates_form"
+			parent="label_reports_menu" action="action_label_template_form"
+			sequence="10" />
+</data>
+</openerp>

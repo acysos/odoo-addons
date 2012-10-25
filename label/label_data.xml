@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data noupdate="1">
+		<record id="label_templates_partner0" model="label.templates">
+			<field eval="'Partner'" name="name"/>
+			<field eval="'res.partner'" name="model_int_name"/>
+			<field eval="'object.address/o.country_id.name'" name="sort_field1"/>
+			<field eval="'object.address/o.state_id.name'" name="sort_field2"/>
+			<field eval="[(6,0,[ref('base.group_partner_manager')])]" name="allowed_groups"/>
+			<field name="object_name" ref="base.model_res_partner"/>
+			<field eval="&quot;&quot;&quot;%for o in object.address:\n
+&lt;blockTable style=&quot;mytable&quot;&gt;\n
+&lt;tr&gt;&lt;td&gt;\n
+&lt;b&gt;${object.name or ''}${object.title and ' '+object.title or ''}&lt;/b&gt;\n
+${o.title and o.title+' ' or ''}${o.name or ''}\n
+${o.street or ''}\n
+${o.street2 or ''}\n
+${o.zip or ''} ${o.city or ''}\n
+${o.state_id.name or ''}\n
+${o.country_id.name or ''}\n
+&lt;/td&gt;&lt;/tr&gt;\n
+&lt;/blockTable&gt;\n
+&lt;nextFrame/&gt;\n
+%endfor&quot;&quot;&quot;" name="def_body_text"/>
+			<field eval="&quot;&quot;&quot;&lt;blockTableStyle id='mytable'&gt;\n
+  &lt;blockAlignment value='CENTER' /&gt;\n
+  &lt;blockValign value='MIDDLE' /&gt;\n
+  &lt;lineStyle kind='GRID' colorName='black' tickness='1' /&gt;\n
+&lt;/blockTableStyle&gt;&quot;&quot;&quot;" name="report_stylesheets"/>
+            <field eval="''" name="level_null"/>
+			<field name="type">xsl</field>
+		</record>
+
+		<record id="label_templates_address0" model="label.templates">
+			<field eval="'Address'" name="name"/>
+			<field eval="'res.partner.address'" name="model_int_name"/>
+			<field eval="'object.country_id.name'" name="sort_field1"/>
+			<field eval="'object.state_id.name'" name="sort_field2"/>
+			<field eval="[(6,0,[ref('base.group_partner_manager')])]" name="allowed_groups"/>
+			<field name="object_name" ref="base.model_res_partner_address"/>
+			<field eval="&quot;&quot;&quot;&lt;blockTable style=&quot;mytable&quot;&gt;\n
+&lt;tr&gt;&lt;td&gt;\n
+&lt;b&gt;${object.partner_id.name or ''}${object.partner_id.title and ' '+object.partner_id.title or ''}&lt;/b&gt;\n
+${object.title and object.title+' ' or ''}${object.name or ''}\n
+${object.street or ''}\n
+${object.street2 or ''}\n
+${object.zip or ''} ${object.city or ''}\n
+${object.state_id.name or ''}\n
+${object.country_id.name or ''}\n
+&lt;/td&gt;&lt;/tr&gt;\n
+&lt;/blockTable&gt;\n
+&lt;nextFrame/&gt;&quot;&quot;&quot;" name="def_body_text"/>
+			<field eval="&quot;&quot;&quot;&lt;blockTableStyle id='mytable'&gt;\n
+  &lt;blockAlignment value='CENTER' /&gt;\n
+  &lt;blockValign value='MIDDLE' /&gt;\n
+  &lt;lineStyle kind='GRID' colorName='black' tickness='1' /&gt;\n
+&lt;/blockTableStyle&gt;&quot;&quot;&quot;" name="report_stylesheets"/>
+            <field eval="''" name="level_null"/>
+			<field name="type">xsl</field>
+		</record>
+	</data>
+</openerp>

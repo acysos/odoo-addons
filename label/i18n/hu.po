@@ -1,0 +1,1054 @@
+# Hungarian translation for openobject-addons
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-10-03 13:33+0000\n"
+"PO-Revision-Date: 2011-11-18 14:25+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-11-19 05:26+0000\n"
+"X-Generator: Launchpad (build 14299)\n"
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Helvetica-Bold"
+msgstr ""
+
+#. module: label
+#: field:label.templates,sort_field2:0
+msgid "Sort field 2"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,printer_bottom:0
+msgid "Bottom"
+msgstr ""
+
+#. module: label
+#: view:label.wizard:0
+msgid "Label Wizard"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,font_type:0
+msgid "Font Type"
+msgstr ""
+
+#. module: label
+#: help:report.label,landscape:0
+msgid "No check -> Portrait. Check -> Landscape"
+msgstr ""
+
+#. module: label
+#: field:report.pagesize,width:0
+msgid "Width"
+msgstr ""
+
+#. module: label
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Note: Only 1, 2, 4 contents can be mixed in the same line.\n"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Label Body"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Deletion of Record failed"
+msgstr ""
+
+#. module: label
+#: wizard_view:res.partner.address.label,init:0
+msgid "First Label"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Courier-BoldOblique"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "You have to install the label_%s module to use this template type."
+msgstr ""
+
+#. module: label
+#: field:label.templates,sort_field3:0
+msgid "Sort field 3"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Helvetica-BoldOblique"
+msgstr ""
+
+#. module: label
+#: help:report.pagesize,width:0
+msgid ""
+"Numeric width of the page ended with the unit (cm or in). For example, A4 is "
+"21cm and letter is 8.5in"
+msgstr ""
+
+#. module: label
+#: field:report.label,rows:0
+msgid "Number of Rows"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Label Details"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "8"
+msgstr ""
+
+#. module: label
+#: wizard_view:res.partner.address.label,notify_left:0
+msgid ""
+"Printer left margin bigger than (left label margin + label width). Try again."
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid ""
+"2) Mako fields like ${object.name} (use the expression builder to compute "
+"them)\n"
+msgstr ""
+
+#. module: label
+#: help:label.wizard,first_row:0
+msgid "The Row of the first label in the first page"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid ""
+"1) Fixed strings in <para> tags like <para style=\"default\">Ref.:</para>\n"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Helvetica"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Note: Line with 1, 2, 4 content is inserted in a <para> tag.\n"
+msgstr ""
+
+#. module: label
+#: help:label.templates,report_stylesheets:0
+msgid ""
+"Optional ReportLab style sheets like:\n"
+"<blockTableStyle id=\"mytable\">\n"
+"    <blockAlignment value=\"CENTER\"/>\n"
+"    <blockValign value=\"MIDDLE\"/>\n"
+"    <lineStyle kind=\"GRID\" colorName=\"black\" tickness=\"1\"/>\n"
+"    <blockBackground colorName=\"red\" start=\"0,0\" stop=\"0,0\"/>\n"
+"</blockTableStyle>"
+msgstr ""
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_label_template_form
+#: model:ir.actions.act_window,name:label.action_label_template_tree_all
+#: model:ir.ui.menu,name:label.menu_label_templates_all
+#: view:label.templates:0
+msgid "Label Templates"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: label
+#: help:label.templates,sub_model_object_field:0
+msgid ""
+"When you choose relationship fields this field will specify the sub value "
+"you can use."
+msgstr ""
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Wizard Complete"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Label action, wizard and report"
+msgstr ""
+
+#. module: label
+#: field:label.templates,sort_field1:0
+msgid "Sort field 1"
+msgstr ""
+
+#. module: label
+#: field:report.label,label_height:0
+msgid "Label Height"
+msgstr ""
+
+#. module: label
+#: help:label.templates,table_model_object_field:0
+msgid ""
+"Select the field from the model you want to use.\n"
+"(Only one2many & many2many fields can be used for tables)"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Times-BoldItalic"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,printer_right:0
+msgid "Right"
+msgstr ""
+
+#. module: label
+#: field:label.templates,help_text:0
+msgid "Help"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Label %s"
+msgstr ""
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_report_label_form
+#: model:ir.ui.menu,name:label.menu_report_label_form
+#: view:report.label:0
+msgid "Label Formats"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Mako templates not installed"
+msgstr ""
+
+#. module: label
+#: field:label.templates,def_body_text:0
+msgid "Label Template"
+msgstr ""
+
+#. module: label
+#: model:ir.actions.wizard,name:label.res_partner_address_report
+msgid "Labels"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "The label body can contain:\n"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Warning"
+msgstr ""
+
+#. module: label
+#: field:report.label,height_incr:0
+msgid "Height Increment"
+msgstr ""
+
+#. module: label
+#: help:label.templates,table_sub_object:0
+msgid "This field shows the model you willbe using for your table."
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Times-Roman"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,label_format:0
+msgid "Label Format"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Insert Simple Field"
+msgstr ""
+
+#. module: label
+#: field:label.templates,default_label_format_id:0
+msgid "Default Label Format"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,first_row:0
+msgid "First Row"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Label"
+msgstr ""
+
+#. module: label
+#: field:label.templates,table_sub_object:0
+msgid "Table-model"
+msgstr ""
+
+#. module: label
+#: model:label.templates,def_body_text:label.label_templates_partner0
+msgid ""
+"%for o in object.address:\n"
+" <blockTable style=\"mytable\">\n"
+" <tr><td>\n"
+" <b>${object.name or ''}${object.title and ' '+object.title or ''}</b>\n"
+" ${o.title and o.title+' ' or ''}${o.name or ''}\n"
+" ${o.street or ''}\n"
+" ${o.street2 or ''}\n"
+" ${o.zip or ''} ${o.city or ''}\n"
+" ${o.state_id.name or ''}\n"
+" ${o.country_id.name or ''}\n"
+" </td></tr>\n"
+" </blockTable>\n"
+" <nextFrame/>\n"
+" %endfor"
+msgstr ""
+
+#. module: label
+#: model:ir.model,name:label.model_report_pagesize
+msgid "report.pagesize"
+msgstr ""
+
+#. module: label
+#: field:label.templates,ref_ir_value:0
+msgid "Wizard Button"
+msgstr ""
+
+#. module: label
+#: field:report.label,label_width:0
+msgid "Label Width"
+msgstr ""
+
+#. module: label
+#: field:label.templates,type:0
+msgid "Type"
+msgstr ""
+
+#. module: label
+#: help:label.templates,table_required_fields:0
+msgid "Select the fields you require in the table."
+msgstr ""
+
+#. module: label
+#: field:label.templates,name:0
+msgid "Name of Template"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "7"
+msgstr ""
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_report_label_manufacturer_form
+#: model:ir.ui.menu,name:label.menu_report_label_manufacturer_form
+msgid "Label Manufacturers"
+msgstr ""
+
+#. module: label
+#: field:label.templates,table_required_fields:0
+msgid "Required Fields"
+msgstr ""
+
+#. module: label
+#: model:ir.ui.menu,name:label.configuration_label_reports_menu
+msgid "Configuration"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Advanced"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Expression Builder"
+msgstr ""
+
+#. module: label
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "6) <nextFrame/> tag is not needed.\n"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+#: field:label.templates,report_stylesheets:0
+msgid "Report Style Sheets"
+msgstr ""
+
+#. module: label
+#: wizard_view:res.partner.address.label,notify_bottom:0
+msgid ""
+"Printer bottom margin bigger than (bottom label margin + label height). Try "
+"again."
+msgstr ""
+
+#. module: label
+#: field:label.templates,sub_object:0
+msgid "Sub-model"
+msgstr ""
+
+#. module: label
+#: model:ir.ui.menu,name:label.menu_label_templates_form
+msgid "New Template"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Generic template file in label folder can not be read."
+msgstr ""
+
+#. module: label
+#: model:ir.model,name:label.model_label_wizard
+msgid "This is the wizard for create PDF Labels"
+msgstr ""
+
+#. module: label
+#: help:label.templates,table_copyvalue:0
+msgid ""
+"Copy and paste this code to your template body for displaying the info in "
+"your label."
+msgstr ""
+
+#. module: label
+#: constraint:report.pagesize:0
+msgid "Error! The page sizes do not have the unit (cm or in) at the end."
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Security"
+msgstr ""
+
+#. module: label
+#: selection:label.templates,type:0
+msgid "XSL:RML"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid ""
+"Template has invalid %%for control sentence in line:\n"
+"%s"
+msgstr ""
+
+#. module: label
+#: view:label.wizard:0
+msgid "Create Labels"
+msgstr ""
+
+#. module: label
+#: help:label.templates,model_object_field:0
+msgid ""
+"Select the field from the model you want to use.\n"
+"If it is a relationship field you will be able to choose the nested values "
+"in the box below\n"
+"(Note: If there are no values make sure you have selected the correct model)."
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Times-Bold"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "  <blockValign value='MIDDLE'/>"
+msgstr ""
+
+#. module: label
+#: help:label.templates,def_body_text:0
+msgid ""
+"Template of one label in Mako syntax. Can contain:\n"
+"1) Fixed strings like 'Ref.:'\n"
+"2) Mako fields like ${object.name}\n"
+"3) Mako control sequence %%for ... %%endfor for loops\n"
+"4) ReportLab tags <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+"5) ReportLab tags like <blockTable>, <tr>, <td>, ...\n"
+"6) <nextFrame/> tag where you want jump to next label.\n"
+"Note: Only 1, 2, 4 contents can be mixed in the same line.\n"
+"Note: Line with 1, 2, 4 content is inserted in a <para> tag.\n"
+"For ReportLab documentation visit "
+"http://www.reportlab.com/software/documentation/"
+msgstr ""
+
+#. module: label
+#: model:ir.model,name:label.model_label_templates
+msgid "Label Templates for Models"
+msgstr ""
+
+#. module: label
+#: field:label.templates,ref_ir_act_window:0
+msgid "Window Action"
+msgstr ""
+
+#. module: label
+#: field:report.label,landscape:0
+msgid "Landscape"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Template file in label/custom_reports folder can not be created."
+msgstr ""
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid ""
+"Template has not balanced %%for and %%endfor control sentences.\n"
+"Unexpected %%endfor sentence."
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,printer_top:0
+msgid "Top"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "The template name must be unique !"
+msgstr ""
+
+#. module: label
+#: help:label.templates,sort_field1:0
+#: help:label.templates,sort_field2:0
+#: help:label.templates,sort_field3:0
+msgid ""
+"Use the same names as those of the label body definition (e.g. "
+"object.country_id.name).\n"
+"Use a slash / to concatenate a field inside a %for with the external field "
+"used to loop (e.g. object.address/o.street)."
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "3) Mako control sequence %%for ... %%endfor for loops\n"
+msgstr ""
+
+#. module: label
+#: model:ir.module.module,shortdesc:label.module_meta_information
+msgid "PDF Labels for partner, address, product, picking, ..."
+msgstr ""
+
+#. module: label
+#: help:label.wizard,first_col:0
+msgid "The Column of the first label in the first page"
+msgstr ""
+
+#. module: label
+#: field:label.templates,model_int_name:0
+msgid "Model Internal Name"
+msgstr ""
+
+#. module: label
+#: field:report.label,pagesize_id:0
+msgid "Page Size"
+msgstr ""
+
+#. module: label
+#: help:report.label,height_incr:0
+msgid ""
+"Height between start positions of 2 labels. Numeric value ended with the "
+"unit (cm or in). For example 29.7cm or 11in"
+msgstr ""
+
+#. module: label
+#: field:label.templates,sub_model_object_field:0
+msgid "Sub Field"
+msgstr ""
+
+#. module: label
+#: field:label.wizard,state:0
+msgid "Status"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Courier"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid ""
+"Template has not balanced %%for and %%endfor control sentences.\n"
+"Missing %%endfor sentence(s)."
+msgstr ""
+
+#. module: label
+#: field:report.label,margin_top:0
+msgid "Top Margin"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "<blockTableStyle id='mytable'>"
+msgstr ""
+
+#. module: label
+#: help:report.label,label_height:0
+#: help:report.label,label_width:0
+#: help:report.label,margin_left:0
+#: help:report.label,margin_top:0
+msgid ""
+"Numeric value ended with the unit (cm or in). For example 29.7cm or 11in"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "  <lineStyle kind='GRID' colorName='black' tickness='1'/>"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "6"
+msgstr ""
+
+#. module: label
+#: help:label.templates,sub_object:0
+msgid ""
+"When a relation field is used this field will show you the type of field you "
+"have selected."
+msgstr ""
+
+#. module: label
+#: help:label.templates,null_value:0
+msgid "This Value is used if the field is empty."
+msgstr ""
+
+#. module: label
+#: selection:label.templates,type:0
+msgid "RML"
+msgstr ""
+
+#. module: label
+#: field:report.label,manufacturer_id:0
+msgid "Manufacturer"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Courier-Oblique"
+msgstr ""
+
+#. module: label
+#: field:report.label,cols:0
+msgid "Number of Columns"
+msgstr ""
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Create a report."
+msgstr ""
+
+#. module: label
+#: field:label.wizard,lang:0
+msgid "Language"
+msgstr ""
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_report_pagesize_form
+#: model:ir.ui.menu,name:label.menu_report_pagesize_form
+#: view:report.pagesize:0
+msgid "Page Sizes"
+msgstr ""
+
+#. module: label
+#: help:label.wizard,printer_bottom:0
+#: help:label.wizard,printer_left:0
+#: help:label.wizard,printer_right:0
+#: help:label.wizard,printer_top:0
+msgid ""
+"Numeric size ended with the unit (cm or in). For example, 0.3cm or 0.2in"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Courier-Bold"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: label
+#: help:report.label,width_incr:0
+msgid ""
+"Width between start positions of 2 labels. Numeric value ended with the unit "
+"(cm or in). For example 29.7cm or 11in"
+msgstr ""
+
+#. module: label
+#: field:label.templates,table_model_object_field:0
+msgid "Table Field"
+msgstr ""
+
+#. module: label
+#: field:label.templates,copyvalue:0
+msgid "Expression"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,printer_left:0
+msgid "Left"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "11"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "10"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "12"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,first_col:0
+msgid "First Column"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "14"
+msgstr ""
+
+#. module: label
+#: wizard_view:res.partner.address.label,init:0
+msgid "Printer Margins"
+msgstr ""
+
+#. module: label
+#: field:report.pagesize,height:0
+msgid "Height"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Copy of template "
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Optional ReportLab style sheets like:"
+msgstr ""
+
+#. module: label
+#: model:ir.model,name:label.model_report_label_manufacturer
+msgid "report.label.manufacturer"
+msgstr ""
+
+#. module: label
+#: help:label.templates,copyvalue:0
+msgid ""
+"Copy and paste the value in the location you want to use a system value."
+msgstr ""
+
+#. module: label
+#: view:label.wizard:0
+msgid "Close"
+msgstr ""
+
+#. module: label
+#: wizard_view:res.partner.address.label,notify_top:0
+msgid ""
+"Printer top margin bigger than (top label margin + label height). Try again."
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "5) ReportLab tags like <blockTable>, <tr>, <td>, ...\n"
+msgstr ""
+
+#. module: label
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr ""
+
+#. module: label
+#: wizard_view:res.partner.address.label,init:0
+msgid "Label Char Font"
+msgstr ""
+
+#. module: label
+#: constraint:report.label:0
+msgid "Error! Some sizes do not have the unit (cm or in) at the end."
+msgstr ""
+
+#. module: label
+#: field:report.label,width_incr:0
+msgid "Width Increment"
+msgstr ""
+
+#. module: label
+#: field:label.templates,report_template:0
+msgid "Label Report"
+msgstr ""
+
+#. module: label
+#: model:ir.model,name:label.model_report_label
+msgid "report.label"
+msgstr ""
+
+#. module: label
+#: model:ir.module.module,description:label.module_meta_information
+msgid ""
+"Flexible labels for partner, address, product, picking, ...:\n"
+"  * Definition of page sizes, label manufacturers and label formats\n"
+"  * Flexible label formats (page size, portrait or landscape, manufacturer, "
+"rows, columns, width, height, top margin, left margin, ...)\n"
+"  * Initial data for page sizes and label formats (from Avery and Apli "
+"manufacturers)\n"
+"  * Wizard to print labels. The label format, the printer margins, the font "
+"type and size, the first label (row and column) to print on the first page "
+"can be set.\n"
+"  * The labels are created as Mako Templates: The label body can contain:\n"
+"    1) Fixed strings like 'Ref.:'\n"
+"    2) Mako fields like ${object.name}\n"
+"    3) Mako control sequence %%for ... %%endfor for loops\n"
+"    4) ReportLab tags <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+"    5) ReportLab tags like <blockTable>, <tr>, <td>, ...\n"
+"    6) <nextFrame/> tag where you want jump to next label.\n"
+"    Note: Only 1, 2, 4 contents can be mixed in the same line.\n"
+"    Note: Line with 1, 2, 4 content is inserted in a <para> tag.\n"
+"    For ReportLab documentation visit "
+"http://www.reportlab.com/software/documentation/\n"
+"  * Report style sheets can be defined to be used in the label body\n"
+"  * The labels can be printed sorted by three different fields\n"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "  <blockBackground colorName='red' start='0,0' stop='0,0'/>"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+#: field:label.templates,allowed_groups:0
+msgid "Allowed User Groups"
+msgstr ""
+
+#. module: label
+#: field:label.templates,model_object_field:0
+msgid "Field"
+msgstr ""
+
+#. module: label
+#: field:label.templates,table_copyvalue:0
+msgid "Table Code"
+msgstr ""
+
+#. module: label
+#: model:label.templates,def_body_text:label.label_templates_address0
+msgid ""
+"<blockTable style=\"mytable\">\n"
+" <tr><td>\n"
+" <b>${object.partner_id.name or ''}${object.partner_id.title and ' "
+"'+object.partner_id.title or ''}</b>\n"
+" ${object.title and object.title+' ' or ''}${object.name or ''}\n"
+" ${object.street or ''}\n"
+" ${object.street2 or ''}\n"
+" ${object.zip or ''} ${object.city or ''}\n"
+" ${object.state_id.name or ''}\n"
+" ${object.country_id.name or ''}\n"
+" </td></tr>\n"
+" </blockTable>\n"
+" <nextFrame/>"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid ""
+"For Mako documentation visit http://www.makotemplates.org/docs/syntax.html\n"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid ""
+"4) ReportLab tags <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+msgstr ""
+
+#. module: label
+#: field:report.label,description:0
+msgid "Description"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "1) Fixed strings like 'Ref.:'\n"
+msgstr ""
+
+#. module: label
+#: field:label.templates,null_value:0
+msgid "Null Value"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid ""
+"For ReportLab documentation visit "
+"http://www.reportlab.com/software/documentation/\n"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "</blockTableStyle>"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Insert Table"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_size:0
+msgid "9"
+msgstr ""
+
+#. module: label
+#: help:report.pagesize,height:0
+msgid ""
+"Numeric height of the page ended with the unit (cm or in). For example, A4 "
+"is 29.7cm and letter is 11in"
+msgstr ""
+
+#. module: label
+#: field:report.label.manufacturer,name:0
+#: field:report.label,name:0
+#: field:report.pagesize,name:0
+msgid "Name"
+msgstr ""
+
+#. module: label
+#: field:report.label,margin_left:0
+msgid "Left Margin"
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "Fields used to sort the labels"
+msgstr ""
+
+#. module: label
+#: wizard_field:res.partner.address.label,init,font_size:0
+msgid "Font Size"
+msgstr ""
+
+#. module: label
+#: wizard_view:res.partner.address.label,notify_right:0
+msgid ""
+"Printer right margin bigger than (right label margin + label width). Try "
+"again."
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Times-Italic"
+msgstr ""
+
+#. module: label
+#: field:label.templates,object_name:0
+msgid "Model"
+msgstr ""
+
+#. module: label
+#: selection:res.partner.address.label,init,font_type:0
+msgid "Helvetica-Oblique"
+msgstr ""
+
+#. module: label
+#: selection:label.templates,type:0
+msgid "SLCS (Bixolon)"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid ""
+"There is another OpenERP report with the same name:\n"
+"%s\n"
+"\n"
+"Change the template name."
+msgstr ""
+
+#. module: label
+#: view:label.templates:0
+msgid "  <blockAlignment value='CENTER'/>"
+msgstr ""
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "6) <nextFrame/> tag where you want jump to next label.\n"
+msgstr ""
+
+#. module: label
+#: help:label.templates,allowed_groups:0
+msgid ""
+"Only users from these groups will be allowed to send mails from this "
+"Template."
+msgstr ""

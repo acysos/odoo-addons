@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="label_wizard_form">
+			<field name="name">label.wizard.form</field>
+			<field name="model">label.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Label Wizard">
+                    <group col="4" colspan="4">
+                        <field name="label_format" colspan="4"/>
+						<field name="lang"/>
+                        <field name="number_labels"/>
+                        <separator string="Printer Margins" colspan="4"/>
+                        <field name="printer_top"/>
+                        <field name="printer_bottom"/>
+                        <field name="printer_left"/>
+                        <field name="printer_right"/>
+                        <separator string="Label Char Font" colspan="4"/>
+                        <field name="font_type"/>
+                        <field name="font_size"/>
+                        <separator string="First Label" colspan="4"/>
+                        <field name="first_row"/>
+                        <field name="first_col"/>
+                    </group>
+					<field name="state" />
+					<group col="4" colspan="4" attrs="{'invisible':[('state','!=','create_report')]}">
+						<button icon="gtk-cancel" special="cancel" string="Close" />
+						<button icon="gtk-ok" name="create_label" string="Create Labels" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>
+

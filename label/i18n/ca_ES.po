@@ -1,0 +1,1098 @@
+# Translation of OpenERP Server.
+# This file containt the translation of the following modules:
+# 	* label
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.0-alpha\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2010-10-03 13:33:01+0000\n"
+"PO-Revision-Date: 2010-10-03 16:03+0100\n"
+"Last-Translator: Jordi Esteve <jesteve@zikzakmedia.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Helvetica-Bold"
+msgstr "Helvetica-Bold"
+
+#. module: label
+#: field:label.templates,sort_field2:0
+msgid "Sort field 2"
+msgstr "Camp a ordenar 2"
+
+#. module: label
+#: field:label.wizard,printer_bottom:0
+msgid "Bottom"
+msgstr "Inferior"
+
+#. module: label
+#: view:label.wizard:0
+msgid "Label Wizard"
+msgstr "Assistent etiqueta"
+
+#. module: label
+#: field:label.wizard,font_type:0
+msgid "Font Type"
+msgstr "Tipus lletra"
+
+#. module: label
+#: help:report.label,landscape:0
+msgid "No check -> Portrait. Check -> Landscape"
+msgstr "No seleccionat -> Vertical. Seleccionat -> Horitzontal"
+
+#. module: label
+#: field:report.pagesize,width:0
+msgid "Width"
+msgstr "Amplada"
+
+#. module: label
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nom de model no vàlid a la definició d'acció."
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Note: Only 1, 2, 4 contents can be mixed in the same line.\n"
+msgstr "Nota: Només els continguts 1, 2, 4 poden barrejar-se a la mateixa línia.\n"
+
+#. module: label
+#: view:label.templates:0
+msgid "Label Body"
+msgstr "Cos etiqueta"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Deletion of Record failed"
+msgstr "Ha fallat l'eliminació del registre"
+
+#. module: label
+#: view:label.wizard:0
+msgid "First Label"
+msgstr "Primera etiqueta"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Courier-BoldOblique"
+msgstr "Courier-BoldOblique"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "You have to install the label_%s module to use this template type."
+msgstr "Heu d'instal·lar el mòdul label_%s per usar aquest tipus de plantilla."
+
+#. module: label
+#: field:label.templates,sort_field3:0
+msgid "Sort field 3"
+msgstr "Camp a ordenar 3"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Helvetica-BoldOblique"
+msgstr "Helvetica-BoldOblique"
+
+#. module: label
+#: help:report.pagesize,width:0
+msgid "Numeric width of the page ended with the unit (cm or in). For example, A4 is 21cm and letter is 8.5in"
+msgstr "Valor numèric de l'amplada de la pàgina acabat amb la unitat (cm o in). Per exemple, A4 és 21cm i letter és 8.5in"
+
+#. module: label
+#: field:report.label,rows:0
+msgid "Number of Rows"
+msgstr "Núm. files"
+
+#. module: label
+#: view:label.templates:0
+msgid "Label Details"
+msgstr "Detalls etiqueta"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "8"
+msgstr "8"
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Printer left margin bigger than (left label margin + label width). Try again."
+msgstr "Marge esquerre de la impressora és més gran que (marge esquerre de l'etiqueta + amplada etiqueta). Torna-ho a provar."
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "2) Mako fields like ${object.name} (use the expression builder to compute them)\n"
+msgstr "2) Camps Mako com ${object.name} (el constructor d'expressions permet calcular-los)\n"
+
+#. module: label
+#: help:label.wizard,first_row:0
+msgid "The Row of the first label in the first page"
+msgstr "La fila de la primera etiqueta a la primera pàgina"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "1) Fixed strings in <para> tags like <para style=\"default\">Ref.:</para>\n"
+msgstr "1) Textos fixes dins d'etiquetes <para>, per exemple <para style=\"default\">Ref.:</para>\n"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Helvetica"
+msgstr "Helvetica"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Note: Line with 1, 2, 4 content is inserted in a <para> tag.\n"
+msgstr "Nota: Línia amb continguts 1, 2, 4 s'insereix dins d'una etiqueta <para>.\n"
+
+#. module: label
+#: help:label.templates,report_stylesheets:0
+msgid ""
+"Optional ReportLab style sheets like:\n"
+"<blockTableStyle id=\"mytable\">\n"
+"    <blockAlignment value=\"CENTER\"/>\n"
+"    <blockValign value=\"MIDDLE\"/>\n"
+"    <lineStyle kind=\"GRID\" colorName=\"black\" tickness=\"1\"/>\n"
+"    <blockBackground colorName=\"red\" start=\"0,0\" stop=\"0,0\"/>\n"
+"</blockTableStyle>"
+msgstr ""
+"Fulls d'estil ReportLab opcionals com:\n"
+"<blockTableStyle id=\"mytable\">\n"
+"    <blockAlignment value=\"CENTER\"/>\n"
+"    <blockValign value=\"MIDDLE\"/>\n"
+"    <lineStyle kind=\"GRID\" colorName=\"black\" tickness=\"1\"/>\n"
+"    <blockBackground colorName=\"red\" start=\"0,0\" stop=\"0,0\"/>\n"
+"</blockTableStyle>"
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_label_template_form
+#: model:ir.actions.act_window,name:label.action_label_template_tree_all
+#: model:ir.ui.menu,name:label.menu_label_templates_all
+#: view:label.templates:0
+msgid "Label Templates"
+msgstr "Plantilles etiqueta"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: label
+#: help:label.templates,sub_model_object_field:0
+msgid "When you choose relationship fields this field will specify the sub value you can use."
+msgstr "Quan seleccioneu camps de relació, aquest camp indicarà el sub valor que podeu utilitzar."
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Wizard Complete"
+msgstr "Assistent completat"
+
+#. module: label
+#: view:label.templates:0
+msgid "Label action, wizard and report"
+msgstr "Acció, assistent i informe d'etiqueta"
+
+#. module: label
+#: field:label.templates,sort_field1:0
+msgid "Sort field 1"
+msgstr "Camp a ordenar 1"
+
+#. module: label
+#: field:report.label,label_height:0
+msgid "Label Height"
+msgstr "Altura etiqueta"
+
+#. module: label
+#: help:label.templates,table_model_object_field:0
+msgid ""
+"Select the field from the model you want to use.\n"
+"(Only one2many & many2many fields can be used for tables)"
+msgstr ""
+"Seleccioneu el camp del model que voleu utilitzar.\n"
+"(Només els camps one2many i many2many es poden utilitzar per a taules)."
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Times-BoldItalic"
+msgstr "Times-BoldItalic"
+
+#. module: label
+#: field:label.wizard,printer_right:0
+msgid "Right"
+msgstr "Dret"
+
+#. module: label
+#: field:label.templates,help_text:0
+msgid "Help"
+msgstr "Ajuda"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Label %s"
+msgstr "Etiqueta %s"
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_report_label_form
+#: model:ir.ui.menu,name:label.menu_report_label_form
+#: view:report.label:0
+msgid "Label Formats"
+msgstr "Formats etiquetes"
+
+#. module: label
+#: code:addons/label/label.py:0
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Mako templates not installed"
+msgstr "Plantilles Mako no estan instal·lades"
+
+#. module: label
+#: field:label.templates,def_body_text:0
+msgid "Label Template"
+msgstr "Plantilla etiqueta"
+
+#. module: label
+#: model:ir.ui.menu,name:label.label_reports_menu
+msgid "Labels"
+msgstr "Etiquetes"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "The label body can contain:\n"
+msgstr "El cos de l'etiqueta pot contenir:\n"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Warning"
+msgstr "Avís"
+
+#. module: label
+#: field:report.label,height_incr:0
+msgid "Height Increment"
+msgstr "Increment vertical"
+
+#. module: label
+#: help:label.templates,table_sub_object:0
+msgid "This field shows the model you willbe using for your table."
+msgstr "Aquest camp mostra el model que s'utilitzarà per a la seva taula."
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Times-Roman"
+msgstr "Times-Roman"
+
+#. module: label
+#: field:label.wizard,label_format:0
+msgid "Label Format"
+msgstr "Format etiqueta"
+
+#. module: label
+#: view:label.templates:0
+msgid "Insert Simple Field"
+msgstr "Insereix camp simple"
+
+#. module: label
+#: field:label.templates,default_label_format_id:0
+msgid "Default Label Format"
+msgstr "Format etiqueta per defecte"
+
+#. module: label
+#: field:label.wizard,first_row:0
+msgid "First Row"
+msgstr "Primera fila"
+
+#. module: label
+#: code:addons/label/label.py:0
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Label"
+msgstr "Etiqueta"
+
+#. module: label
+#: field:label.templates,table_sub_object:0
+msgid "Table-model"
+msgstr "Taula-model"
+
+#. module: label
+#: model:label.templates,def_body_text:label.label_templates_partner0
+msgid ""
+"%for o in object.address:\n"
+" <blockTable style=\"mytable\">\n"
+" <tr><td>\n"
+" <b>${object.name or ''}${object.title and ' '+object.title or ''}</b>\n"
+" ${o.title and o.title+' ' or ''}${o.name or ''}\n"
+" ${o.street or ''}\n"
+" ${o.street2 or ''}\n"
+" ${o.zip or ''} ${o.city or ''}\n"
+" ${o.state_id.name or ''}\n"
+" ${o.country_id.name or ''}\n"
+" </td></tr>\n"
+" </blockTable>\n"
+" <nextFrame/>\n"
+" %endfor"
+msgstr ""
+"%for o in object.address:\n"
+" <blockTable style=\"mytable\">\n"
+" <tr><td>\n"
+" <b>${object.name or ''}${object.title and ' '+(object.title=='Corp.' and 'S.A.' or object.title=='ltd' and 'S.L.' or object.title) or ''}</b>\n"
+" ${o.title and (o.title=='M.' and 'Sr.' or o.title in ['Ms.','Mss'] and 'Sra.' or o.title)+' ' or ''}${o.name or ''}\n"
+" ${o.street or ''}\n"
+" ${o.street2 or ''}\n"
+" ${o.zip or ''} ${o.city or ''}\n"
+" ${o.state_id.name or ''}\n"
+" ${o.country_id.name or ''}\n"
+" </td></tr>\n"
+" </blockTable>\n"
+" <nextFrame/>\n"
+" %endfor"
+
+#. module: label
+#: model:ir.model,name:label.model_report_pagesize
+msgid "report.pagesize"
+msgstr "informe.midapàgina"
+
+#. module: label
+#: field:label.templates,ref_ir_value:0
+msgid "Wizard Button"
+msgstr "Botó assistent"
+
+#. module: label
+#: field:report.label,label_width:0
+msgid "Label Width"
+msgstr "Amplada etiqueta"
+
+#. module: label
+#: field:label.templates,type:0
+msgid "Type"
+msgstr "Tipus"
+
+#. module: label
+#: help:label.templates,table_required_fields:0
+msgid "Select the fields you require in the table."
+msgstr "Seleccioneu els camps que necessiteu de la taula."
+
+#. module: label
+#: field:label.templates,name:0
+msgid "Name of Template"
+msgstr "Nom de plantilla"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "7"
+msgstr "7"
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_report_label_manufacturer_form
+#: model:ir.ui.menu,name:label.menu_report_label_manufacturer_form
+msgid "Label Manufacturers"
+msgstr "Fabricants etiquetes"
+
+#. module: label
+#: field:label.templates,table_required_fields:0
+msgid "Required Fields"
+msgstr "Camps requerits"
+
+#. module: label
+#: model:ir.ui.menu,name:label.configuration_label_reports_menu
+msgid "Configuration"
+msgstr "Configuració"
+
+#. module: label
+#: view:label.templates:0
+msgid "Advanced"
+msgstr "Avançat"
+
+#. module: label
+#: view:label.templates:0
+msgid "Expression Builder"
+msgstr "Constructor d'expressions"
+
+#. module: label
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "XML invàlid per a la definició de la vista!"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "6) <nextFrame/> tag is not needed.\n"
+msgstr "6) Etiqueta <nextFrame/> no és necessària.\n"
+
+#. module: label
+#: view:label.templates:0
+#: field:label.templates,report_stylesheets:0
+msgid "Report Style Sheets"
+msgstr "Fulls d'estil d'informe"
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Printer bottom margin bigger than (bottom label margin + label height). Try again."
+msgstr "Marge inferior de la impressora és més gran que (marge inferior de l'etiqueta + altura etiqueta). Torna-ho a provar."
+
+#. module: label
+#: field:label.templates,sub_object:0
+msgid "Sub-model"
+msgstr "Sub-modelo"
+
+#. module: label
+#: model:ir.ui.menu,name:label.menu_label_templates_form
+msgid "New Template"
+msgstr "Nova plantilla"
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Generic template file in label folder can not be read."
+msgstr "No es pot llegir el fitxer amb la plantilla genèrica de la carpeta label."
+
+#. module: label
+#: model:ir.model,name:label.model_label_wizard
+msgid "This is the wizard for create PDF Labels"
+msgstr "Aquest és l'assistent per a crear etiquetes PDF"
+
+#. module: label
+#: help:label.templates,table_copyvalue:0
+msgid "Copy and paste this code to your template body for displaying the info in your label."
+msgstr "Copieu i enganxeu aquest codi en el cos de la plantilla per a mostrar la informació a la vostra etiqueta."
+
+#. module: label
+#: constraint:report.pagesize:0
+msgid "Error! The page sizes do not have the unit (cm or in) at the end."
+msgstr "Error! Les mides de la pàgina no tenen la unitat (cm o in) al final."
+
+#. module: label
+#: view:label.templates:0
+msgid "Security"
+msgstr "Seguretat"
+
+#. module: label
+#: selection:label.templates,type:0
+msgid "XSL:RML"
+msgstr "XSL:RML"
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid ""
+"Template has invalid %%for control sentence in line:\n"
+"%s"
+msgstr ""
+"La plantilla té una sentència de control %for no vàlida a la línia:\n"
+"%s"
+
+#. module: label
+#: view:label.wizard:0
+msgid "Create Labels"
+msgstr "Crea etiquetes"
+
+#. module: label
+#: help:label.templates,model_object_field:0
+msgid ""
+"Select the field from the model you want to use.\n"
+"If it is a relationship field you will be able to choose the nested values in the box below\n"
+"(Note: If there are no values make sure you have selected the correct model)."
+msgstr ""
+"Seleccioneu el camp del model que vulgueu utilitzar.\n"
+"Si és un camp de relació podreu escollir els valors relacionats al quadre de baix.\n"
+"(Nota: Si no hi ha valors, assegureu-vos d'escollir el model correcte)"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Times-Bold"
+msgstr "Times-Bold"
+
+#. module: label
+#: view:label.templates:0
+msgid "  <blockValign value='MIDDLE'/>"
+msgstr "  <blockValign value='MIDDLE'/>"
+
+#. module: label
+#: help:label.templates,def_body_text:0
+msgid ""
+"Template of one label in Mako syntax. Can contain:\n"
+"1) Fixed strings like 'Ref.:'\n"
+"2) Mako fields like ${object.name}\n"
+"3) Mako control sequence %%for ... %%endfor for loops\n"
+"4) ReportLab tags <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+"5) ReportLab tags like <blockTable>, <tr>, <td>, ...\n"
+"6) <nextFrame/> tag where you want jump to next label.\n"
+"Note: Only 1, 2, 4 contents can be mixed in the same line.\n"
+"Note: Line with 1, 2, 4 content is inserted in a <para> tag.\n"
+"For ReportLab documentation visit http://www.reportlab.com/software/documentation/"
+msgstr ""
+"Plantilla d'una etiqueta en sintaxis Mako. Pot contenir:\n"
+"1) Textos fixos com 'Ref.:'\n"
+"2) Camps Mako com ${object.name}\n"
+"3) Seqüència de control Mako per a bucles %for  ... %endfor\n"
+"4) Etiquetes ReportLab <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+"5) Etiquetes ReportLab com <blockTable>, <tr>, <td>, ...\n"
+"6) Etiqueta <nextFrame/> a on s'ha de saltar a la següent etiqueta.\n"
+"Nota: Només els continguts 1, 2, 4 poden barrejar-se a la mateixa línia.\n"
+"Nota: Línia amb continguts 1, 2, 4 s'insereix dins d'una etiqueta <para>.\n"
+"Per a documentació ReportLab visiteu http://www.reportlab.com/software/documentation/"
+
+#. module: label
+#: model:ir.model,name:label.model_label_templates
+msgid "Label Templates for Models"
+msgstr "Plantilles d'etiquetes per a models"
+
+#. module: label
+#: field:label.templates,ref_ir_act_window:0
+msgid "Window Action"
+msgstr "Acció finestra"
+
+#. module: label
+#: field:report.label,landscape:0
+msgid "Landscape"
+msgstr "Horitzontal"
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Template file in label/custom_reports folder can not be created."
+msgstr "No es pot crear el fitxer de la plantilla a la carpeta label/custom_reports."
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid ""
+"Template has not balanced %%for and %%endfor control sentences.\n"
+"Unexpected %%endfor sentence."
+msgstr ""
+"La plantilla no té les sentències de control %for i %endfor balancejades.\n"
+"Sentència %endfor inesperada."
+
+#. module: label
+#: field:label.wizard,printer_top:0
+msgid "Top"
+msgstr "Superior"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "The template name must be unique !"
+msgstr "El nom de la plantilla ha de ser únic!"
+
+#. module: label
+#: help:label.templates,sort_field1:0
+#: help:label.templates,sort_field2:0
+#: help:label.templates,sort_field3:0
+msgid ""
+"Use the same names as those of the label body definition (e.g. object.country_id.name).\n"
+"Use a slash / to concatenate a field inside a %for with the external field used to loop (e.g. object.address/o.street)."
+msgstr ""
+"Utilitzeu els mateixos noms que els utilitzats a la definició del cos de l'etiqueta (per ex. object.country_id.name).\n"
+"Utilitzeu una barra / per a concatenar un camp dins d'un %for amb el camp extern utilitzat al bucle (per ex. object.address/o.street)."
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "3) Mako control sequence %%for ... %%endfor for loops\n"
+msgstr "3) Seqüència de control Mako per a bucles %for  ... %endfor\n"
+
+#. module: label
+#: model:ir.module.module,shortdesc:label.module_meta_information
+msgid "PDF Labels for partner, address, product, picking, ..."
+msgstr "Etiquetes PDF per a empreses, direccions, productes, albarans, ..."
+
+#. module: label
+#: help:label.wizard,first_col:0
+msgid "The Column of the first label in the first page"
+msgstr "La columna de la primera etiqueta a la primera pàgina"
+
+#. module: label
+#: field:label.templates,model_int_name:0
+msgid "Model Internal Name"
+msgstr "Nom intern model"
+
+#. module: label
+#: field:report.label,pagesize_id:0
+msgid "Page Size"
+msgstr "Format pàgina"
+
+#. module: label
+#: help:report.label,height_incr:0
+msgid "Height between start positions of 2 labels. Numeric value ended with the unit (cm or in). For example 29.7cm or 11in"
+msgstr "Altura entre l'inici de 2 etiquetes. Valor numèric acabat amb la unitat (cm o in). Per exemple 29.7cm o 11in"
+
+#. module: label
+#: field:label.templates,sub_model_object_field:0
+msgid "Sub Field"
+msgstr "Sub camp"
+
+#. module: label
+#: field:label.wizard,state:0
+msgid "Status"
+msgstr "Estat"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Courier"
+msgstr "Courier"
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid ""
+"Template has not balanced %%for and %%endfor control sentences.\n"
+"Missing %%endfor sentence(s)."
+msgstr ""
+"La plantilla no té les sentències de control %for i %endfor balancejades.\n"
+"Falta sentència(s) %endfor ."
+
+#. module: label
+#: field:report.label,margin_top:0
+msgid "Top Margin"
+msgstr "Marge superior"
+
+#. module: label
+#: view:label.templates:0
+msgid "<blockTableStyle id='mytable'>"
+msgstr "<blockTableStyle id='mytable'>"
+
+#. module: label
+#: help:report.label,label_height:0
+#: help:report.label,label_width:0
+#: help:report.label,margin_left:0
+#: help:report.label,margin_top:0
+msgid "Numeric value ended with the unit (cm or in). For example 29.7cm or 11in"
+msgstr "Valor numèric acabat amb la unitat (cm o in). Per exemple 29.7cm o 11in"
+
+#. module: label
+#: view:label.templates:0
+msgid "  <lineStyle kind='GRID' colorName='black' tickness='1'/>"
+msgstr "  <lineStyle kind='GRID' colorName='black' tickness='1'/>"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "6"
+msgstr "6"
+
+#. module: label
+#: help:label.templates,sub_object:0
+msgid "When a relation field is used this field will show you the type of field you have selected."
+msgstr "Quan s'utilitza un camp de relació, aquest camp mostrarà el tipus de camp que heu seleccionat."
+
+#. module: label
+#: help:label.templates,null_value:0
+msgid "This Value is used if the field is empty."
+msgstr "Aquest valor s'utilitza si el camp està buit."
+
+#. module: label
+#: selection:label.templates,type:0
+msgid "RML"
+msgstr "RML"
+
+#. module: label
+#: field:report.label,manufacturer_id:0
+msgid "Manufacturer"
+msgstr "Fabricant"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Courier-Oblique"
+msgstr "Courier-Oblique"
+
+#. module: label
+#: field:report.label,cols:0
+msgid "Number of Columns"
+msgstr "Núm. columnes"
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Create a report."
+msgstr "Creeu un informe."
+
+#. module: label
+#: field:label.wizard,lang:0
+msgid "Language"
+msgstr "Idioma"
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_report_pagesize_form
+#: model:ir.ui.menu,name:label.menu_report_pagesize_form
+#: view:report.pagesize:0
+msgid "Page Sizes"
+msgstr "Formats pàgina"
+
+#. module: label
+#: help:label.wizard,printer_bottom:0
+#: help:label.wizard,printer_left:0
+#: help:label.wizard,printer_right:0
+#: help:label.wizard,printer_top:0
+msgid "Numeric size ended with the unit (cm or in). For example, 0.3cm or 0.2in"
+msgstr "Valor numèric acabat amb la unitat (cm o in). Per exemple 0.3cm o 0.2in"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Courier-Bold"
+msgstr "Courier-Bold"
+
+#. module: label
+#: code:addons/label/label_report_engine.py:0
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: label
+#: help:report.label,width_incr:0
+msgid "Width between start positions of 2 labels. Numeric value ended with the unit (cm or in). For example 29.7cm or 11in"
+msgstr "Amplada entre l'inici de 2 etiquetes. Valor numèric acabat amb la unitat (cm o in). Per exemple 29.7cm o 11in"
+
+#. module: label
+#: field:label.templates,table_model_object_field:0
+msgid "Table Field"
+msgstr "Camp taula"
+
+#. module: label
+#: field:label.templates,copyvalue:0
+msgid "Expression"
+msgstr "Expressió"
+
+#. module: label
+#: field:label.wizard,printer_left:0
+msgid "Left"
+msgstr "Esquerre"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "11"
+msgstr "11"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "10"
+msgstr "10"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "12"
+msgstr "12"
+
+#. module: label
+#: field:label.wizard,first_col:0
+msgid "First Column"
+msgstr "Primera columna"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "14"
+msgstr "14"
+
+#. module: label
+#: view:label.wizard:0
+msgid "Printer Margins"
+msgstr "Marges impressora"
+
+#. module: label
+#: field:report.pagesize,height:0
+msgid "Height"
+msgstr "Altura"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "Copy of template "
+msgstr "Còpia de plantilla"
+
+#. module: label
+#: view:label.templates:0
+msgid "Optional ReportLab style sheets like:"
+msgstr "Fulls d'estils de ReportLab opcionals com:"
+
+#. module: label
+#: model:ir.model,name:label.model_report_label_manufacturer
+msgid "report.label.manufacturer"
+msgstr "informe.etiqueta.fabricant"
+
+#. module: label
+#: help:label.templates,copyvalue:0
+msgid "Copy and paste the value in the location you want to use a system value."
+msgstr "Copieu i enganxeu el valor a la ubicació que voleu utilitzar un valor del sistema."
+
+#. module: label
+#: view:label.wizard:0
+msgid "Close"
+msgstr "Tanqueu"
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Printer top margin bigger than (top label margin + label height). Try again."
+msgstr "Marge superior de la impressora és més gran que (marge superior de l'etiqueta + altura etiqueta). Torna-ho a provar."
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "5) ReportLab tags like <blockTable>, <tr>, <td>, ...\n"
+msgstr "5) Etiquetes ReportLab com <blockTable>, <tr>, <td>, ...\n"
+
+#. module: label
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr "El nom de l'objecte ha de començar amb x_ i no contenir cap caràcter especial!"
+
+#. module: label
+#: view:label.wizard:0
+msgid "Label Char Font"
+msgstr "Lletra de les etiquetes"
+
+#. module: label
+#: constraint:report.label:0
+msgid "Error! Some sizes do not have the unit (cm or in) at the end."
+msgstr "Error! Algunes mides no tenen la unitat (cm o in) al final."
+
+#. module: label
+#: field:report.label,width_incr:0
+msgid "Width Increment"
+msgstr "Increment horitzontal"
+
+#. module: label
+#: field:label.templates,report_template:0
+msgid "Label Report"
+msgstr "Informe etiqueta"
+
+#. module: label
+#: model:ir.model,name:label.model_report_label
+msgid "report.label"
+msgstr "informe.etiqueta"
+
+#. module: label
+#: model:ir.module.module,description:label.module_meta_information
+msgid ""
+"Flexible labels for partner, address, product, picking, ...:\n"
+"  * Definition of page sizes, label manufacturers and label formats\n"
+"  * Flexible label formats (page size, portrait or landscape, manufacturer, rows, columns, width, height, top margin, left margin, ...)\n"
+"  * Initial data for page sizes and label formats (from Avery and Apli manufacturers)\n"
+"  * Wizard to print labels. The label format, the printer margins, the font type and size, the first label (row and column) to print on the first page can be set.\n"
+"  * The labels are created as Mako Templates: The label body can contain:\n"
+"    1) Fixed strings like 'Ref.:'\n"
+"    2) Mako fields like ${object.name}\n"
+"    3) Mako control sequence %%for ... %%endfor for loops\n"
+"    4) ReportLab tags <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+"    5) ReportLab tags like <blockTable>, <tr>, <td>, ...\n"
+"    6) <nextFrame/> tag where you want jump to next label.\n"
+"    Note: Only 1, 2, 4 contents can be mixed in the same line.\n"
+"    Note: Line with 1, 2, 4 content is inserted in a <para> tag.\n"
+"    For ReportLab documentation visit http://www.reportlab.com/software/documentation/\n"
+"  * Report style sheets can be defined to be used in the label body\n"
+"  * The labels can be printed sorted by three different fields\n"
+msgstr ""
+"Creació flexible d'etiquetes d'empreses, adreces, productes, albarans, ...:\n"
+"  * Definició de mides de pàgina, fabricants d'etiquetes i formats d'etiquetes\n"
+"  * Formats d'etiquetes flexibles (mida de pàgina, vertical o horitzontal, fabricant, files, columnes, ample, alt, marge superior, marge esquerre, ...)\n"
+"  * Dades inicials per a mides de pàgina i formats d'etiquetes (dels fabricants Avery i APLI)\n"
+"  * Assistent per imprimir etiquetes. Es pot indicar el format d'etiqueta, els marges de la impressora, el tipus de font i mida, la primera etiqueta (fila i columna) a imprimir a la primera pàgina.\n"
+"  * Les etiquetes es creen mitjançant plantilles Mako: El cos de l'etiqueta pot contenir:\n"
+"    1) Textos fixos com 'Ref.:'\n"
+"    2) Camps Mako com ${object.name}\n"
+"    3) Seqüència de control Mako per a bucles %for  ... %endfor\n"
+"    4) Etiquetes ReportLab <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+"    5) Etiquetes ReportLab com <blockTable>, <tr>, <td>, ...\n"
+"    6) Etiqueta <nextFrame/> a on s'ha de saltar a la següent etiqueta.\n"
+"    Nota: Només els continguts 1, 2, 4 poden barrejar-se a la mateixa línia.\n"
+"    Nota: Línia amb continguts 1, 2, 4 s'insereix dins d'una etiqueta <para>.\n"
+"    Per a documentació ReportLab visiteu http://www.reportlab.com/software/documentation/\n"
+"  * Es poden definir fulls d'estil d'informes per utilitzar-los en el cos de l'etiqueta\n"
+"  * Les etiquetes es poden imprimir ordenades per tres camps diferents\n"
+
+#. module: label
+#: view:label.templates:0
+msgid "  <blockBackground colorName='red' start='0,0' stop='0,0'/>"
+msgstr "  <blockBackground colorName='red' start='0,0' stop='0,0'/>"
+
+#. module: label
+#: view:label.templates:0
+#: field:label.templates,allowed_groups:0
+msgid "Allowed User Groups"
+msgstr "Grups d'usuaris permesos"
+
+#. module: label
+#: field:label.templates,model_object_field:0
+msgid "Field"
+msgstr "Camp"
+
+#. module: label
+#: field:label.templates,table_copyvalue:0
+msgid "Table Code"
+msgstr "Codi taula"
+
+#. module: label
+#: model:label.templates,def_body_text:label.label_templates_address0
+msgid ""
+"<blockTable style=\"mytable\">\n"
+" <tr><td>\n"
+" <b>${object.partner_id.name or ''}${object.partner_id.title and ' '+object.partner_id.title or ''}</b>\n"
+" ${object.title and object.title+' ' or ''}${object.name or ''}\n"
+" ${object.street or ''}\n"
+" ${object.street2 or ''}\n"
+" ${object.zip or ''} ${object.city or ''}\n"
+" ${object.state_id.name or ''}\n"
+" ${object.country_id.name or ''}\n"
+" </td></tr>\n"
+" </blockTable>\n"
+" <nextFrame/>"
+msgstr ""
+"<blockTable style=\"mytable\">\n"
+" <tr><td>\n"
+" <b>${object.partner_id.name or ''}${object.partner_id.title and ' '+(object.partner_id.title=='Corp.' and 'S.A.' or object.partner_id.title=='ltd' and 'S.L.' or object.partner_id.title) or ''}</b>\n"
+" ${object.title and (object.title=='M.' and 'Sr.' or object.title in ['Ms.','Mss'] and 'Sra.' or object.title)+' ' or ''}${object.name or ''}\n"
+" ${object.street or ''}\n"
+" ${object.street2 or ''}\n"
+" ${object.zip or ''} ${object.city or ''}\n"
+" ${object.state_id.name or ''}\n"
+" ${object.country_id.name or ''}\n"
+" </td></tr>\n"
+" </blockTable>\n"
+" <nextFrame/>"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "For Mako documentation visit http://www.makotemplates.org/docs/syntax.html\n"
+msgstr "Per a documentació Mako visiteu http://www.makotemplates.org/docs/syntax.html\n"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "4) ReportLab tags <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+msgstr "4) Etiquetes ReportLab <b> <i> <u> <super> <sub> <font> <barCode> <greek>\n"
+
+#. module: label
+#: field:report.label,description:0
+msgid "Description"
+msgstr "Descripció"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "1) Fixed strings like 'Ref.:'\n"
+msgstr "1) Textos fixos com 'Ref.:'\n"
+
+#. module: label
+#: field:label.templates,null_value:0
+msgid "Null Value"
+msgstr "Valor nul"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "For ReportLab documentation visit http://www.reportlab.com/software/documentation/\n"
+msgstr "Per a documentació ReportLab visiteu http://www.reportlab.com/software/documentation/\n"
+
+#. module: label
+#: view:label.templates:0
+msgid "</blockTableStyle>"
+msgstr "</blockTableStyle>"
+
+#. module: label
+#: view:label.templates:0
+msgid "Insert Table"
+msgstr "Insereix taula"
+
+#. module: label
+#: selection:label.wizard,font_size:0
+msgid "9"
+msgstr "9"
+
+#. module: label
+#: help:report.pagesize,height:0
+msgid "Numeric height of the page ended with the unit (cm or in). For example, A4 is 29.7cm and letter is 11in"
+msgstr "Valor numèric de l'altura de la pàgina acabat amb la unitat (cm o in). Per exemple, A4 és 29.7cm i letter és 11in"
+
+#. module: label
+#: field:report.label,name:0
+#: field:report.label.manufacturer,name:0
+#: field:report.pagesize,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: label
+#: field:report.label,margin_left:0
+msgid "Left Margin"
+msgstr "Marge esquerre"
+
+#. module: label
+#: view:label.templates:0
+msgid "Fields used to sort the labels"
+msgstr "Camps utilitzats per ordenar les etiquetes"
+
+#. module: label
+#: field:label.wizard,font_size:0
+msgid "Font Size"
+msgstr "Mida lletra"
+
+#. module: label
+#: selection:label.wizard,state:0
+msgid "Printer right margin bigger than (right label margin + label width). Try again."
+msgstr "Marge dret de la impressora és més gran que (marge dret de l'etiqueta + amplada etiqueta). Torna-ho a provar."
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Times-Italic"
+msgstr "Times-Italic"
+
+#. module: label
+#: field:label.templates,object_name:0
+msgid "Model"
+msgstr "Model"
+
+#. module: label
+#: selection:label.wizard,font_type:0
+msgid "Helvetica-Oblique"
+msgstr "Helvetica-Oblique"
+
+#. module: label
+#: selection:label.templates,type:0
+msgid "SLCS (Bixolon)"
+msgstr "SLCS (Bixolon)"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid ""
+"There is another OpenERP report with the same name:\n"
+"%s\n"
+"\n"
+"Change the template name."
+msgstr ""
+"Existeix altre informe d'OpenERP amb el mateix nom:\n"
+"%s\n"
+"\n"
+"Canvieu el nom de la plantilla."
+
+#. module: label
+#: view:label.templates:0
+msgid "  <blockAlignment value='CENTER'/>"
+msgstr "  <blockAlignment value='CENTER'/>"
+
+#. module: label
+#: code:addons/label/label.py:0
+#, python-format
+msgid "6) <nextFrame/> tag where you want jump to next label.\n"
+msgstr "6) Etiqueta <nextFrame/> a on s'ha de saltar a la següent etiqueta.\n"
+
+#. module: label
+#: help:label.templates,allowed_groups:0
+msgid "Only users from these groups will be allowed to send mails from this Template."
+msgstr "Només els usuaris d'aquests grups poden enviar correus des d'aquesta plantilla."
+
+#~ msgid "%s Label Form"
+#~ msgstr "Formulari etiqueta %s"
+#~ msgid "Create Label (%s)"
+#~ msgstr "Crear etiqueta (%s)"
+#~ msgid "Print"
+#~ msgstr "Imprimeix"
+#~ msgid "Ok"
+#~ msgstr "D'acord"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
