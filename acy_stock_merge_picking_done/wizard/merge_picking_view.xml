@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="merge_picking_form_init_done1" model="ir.ui.view">
+            <field name="name">Merge Picking</field>
+            <field name="model">stock.picking.merge.wizard</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="stock_merge_picking.merge_picking_form_init"/>
+            <field name="arch" type="xml">
+                <field name="target_picking_id" position="replace">
+                    <field name="target_picking_id" required="1"
+                        domain="[('state','&lt;&gt;','cancel')]" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
