@@ -83,7 +83,7 @@ class magazine_subscription(osv.osv):
 
             magazine_alert_expire = rec.company_id.magazine_alert_expire
             if not magazine_alert_expire:
-                max_alert = rec.magazine_id.last_number + 5 # 5 number
+                max_alert = int(rec.magazine_id.last_number) + 5 # 5 number
             else:
                 magazine_alert_expire = magazine_alert_expire.split(',')
                 magazine_alert_expire = [int(x) for x in magazine_alert_expire]
