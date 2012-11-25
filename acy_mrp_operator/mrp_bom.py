@@ -32,7 +32,7 @@ class mrp_bom(osv.osv):
     _description = 'Bill of Material'
     _inherit = 'mrp.bom'
     _columns = {
-            'consumed_on': fields.many2one('mrp.routing.workcenter','Consumed On'),
+            'consumed_on': fields.many2one('mrp.routing.workcenter','Consumed On', required=True),
     }
     
     def _bom_explode(self, cr, uid, bom, factor, properties=[], addthis=False, level=0):
