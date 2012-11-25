@@ -26,16 +26,19 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Homeowners Associations: Account extras""",
-    "license" : "AGPL-3",
+    "description": """Homeowners Associations\n
+    New Fields: Floor and parking number\n
+    Install Analytic Plans. Choose between Analytic Plan or Analytic Account""",
+    "license" : "GPL-3",
     "depends" : [
         "base",
         "account",
-        "acy_homeowners_association_partner"
+        "acy_homeowners_association_partner",
+        "account_analytic_plans"
         ],
     "init_xml" : [],
     "demo_xml" : [],
-    "update_xml" :['invoice.xml'],
+    "update_xml" :['invoice.xml','account_analytic_view.xml'],
     "active": False,
     "installable": True
 }
