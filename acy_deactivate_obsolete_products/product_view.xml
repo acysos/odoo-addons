@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_normal_form_view_obsolete1" model="ir.ui.view">
+            <field name="name">product.normal.form.obsolete1</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field eval="7" name="priority"/>
+            <field name="arch" type="xml">
+                <field name="state" position="replace">
+                    <field name="state" on_change="onchange_state(state)"/>
+                </field>
+            </field>
+        </record>
+        <record id="product_obsolete_action" model="ir.actions.act_window">
+            <field name="name">Obsolete Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('active','=',False)]</field>
+            <field name="view_id" ref="product.product_product_tree_view"/>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+        </record>
+        <menuitem action="product_obsolete_action" id="product.menu_obsolete_products" parent="base.menu_product" sequence="2"/>
+    </data>
+</openerp>
