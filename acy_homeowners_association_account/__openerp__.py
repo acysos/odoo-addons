@@ -28,7 +28,7 @@
     "website" : "www.acysos.com",
     "description": """Homeowners Associations\n
     New Fields: Floor and parking number\n
-    Install Analytic Plans. Choose between Analytic Plan or Analytic Account""",
+    Install Analytic Plans. Select Analytic Plan and Analytic Account""",
     "license" : "GPL-3",
     "depends" : [
         "base",

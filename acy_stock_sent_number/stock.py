@@ -115,7 +115,6 @@ class stock_picking(osv.osv):
                                 {'price_unit': product_price,
                                  'price_currency_id': product_currency})
 
-
             for move in too_few:
                 product_qty = move_product_qty[move.id]
 
@@ -152,55 +151,92 @@ class stock_picking(osv.osv):
             if new_picking:
                 move_obj.write(cr, uid, [c.id for c in complete], {'picking_id': new_picking})
             for move in complete:
-                
-                product_qty = move_product_qty[move.id]
-
-                if not new_picking:
-                    sequence = pick.type
-                    if sequence == 'out':
-                        sequence = 'sent'
-                    new_picking = self.copy(cr, uid, pick.id,
+                if pick.type == 'out':
+                    product_qty = move_product_qty[move.id]
+    
+                    if not new_picking:
+                        sequence = pick.type
+                        if sequence == 'out':
+                            sequence = 'sent'
+                        new_picking = self.copy(cr, uid, pick.id,
+                                {
+                                    'name': sequence_obj.get(cr, uid, 'stock.picking.%s'%(sequence)),
+                                    'move_lines' : [],
+                                    'state':'draft',
+                                    'type':'out'
+                                })
+                    if product_qty != 0:
+                        defaults = {
+                                'product_qty' : product_qty,
+                                'product_uos_qty': product_qty, #TODO: put correct uos_qty
+                                'picking_id' : new_picking,
+                                'state': 'assigned',
+                                'move_dest_id': False,
+                                'price_unit': move.price_unit,
+                        }
+                        prodlot_id = prodlot_ids[move.id]
+                        if prodlot_id:
+                            defaults.update(prodlot_id=prodlot_id)
+                        move_obj.copy(cr, uid, move.id, defaults)
+    
+                    move_obj.write(cr, uid, [move.id],
                             {
-                                'name': sequence_obj.get(cr, uid, 'stock.picking.%s'%(sequence)),
-                                'move_lines' : [],
-                                'state':'draft',
-                                'type':'out'
+                                'product_qty' : move.product_qty - product_qty,
+                                'product_uos_qty':move.product_qty - product_qty, #TODO: put correct uos_qty
+                                'state':'done'
                             })
-                if product_qty != 0:
-                    defaults = {
-                            'product_qty' : product_qty,
-                            'product_uos_qty': product_qty, #TODO: put correct uos_qty
-                            'picking_id' : new_picking,
-                            'state': 'assigned',
-                            'move_dest_id': False,
-                            'price_unit': move.price_unit,
-                    }
-                    prodlot_id = prodlot_ids[move.id]
-                    if prodlot_id:
-                        defaults.update(prodlot_id=prodlot_id)
-                    move_obj.copy(cr, uid, move.id, defaults)
-
-                move_obj.write(cr, uid, [move.id],
-                        {
-                            'product_qty' : move.product_qty - product_qty,
-                            'product_uos_qty':move.product_qty - product_qty, #TODO: put correct uos_qty
-                            'state':'done'
-                        })
                 
                 if prodlot_ids.get(move.id):
                     move_obj.write(cr, uid, [move.id], {'prodlot_id': prodlot_ids[move.id]})
             for move in too_many:
                 product_qty = move_product_qty[move.id]
-                defaults = {
-                    'product_qty' : product_qty,
-                    'product_uos_qty': product_qty, #TODO: put correct uos_qty
-                }
-                prodlot_id = prodlot_ids.get(move.id)
-                if prodlot_ids.get(move.id):
-                    defaults.update(prodlot_id=prodlot_id)
-                if new_picking:
-                    defaults.update(picking_id=new_picking)
-                move_obj.write(cr, uid, [move.id], defaults)
+                if pick.type == 'out':
+                    if not new_picking:
+                        sequence = pick.type
+                        if sequence == 'out':
+                            sequence = 'sent'
+                        new_picking = self.copy(cr, uid, pick.id,
+                                {
+                                    'name': sequence_obj.get(cr, uid, 'stock.picking.%s'%(sequence)),
+                                    'move_lines' : [],
+                                    'state':'draft',
+                                    'type':'out'
+                                })
+                    defaults = {
+                        'product_qty' : product_qty,
+                        'product_uos_qty': product_qty, #TODO: put correct uos_qty
+                    }
+                    if product_qty != 0:
+                        defaults = {
+                                'product_qty' : product_qty,
+                                'product_uos_qty': product_qty, #TODO: put correct uos_qty
+                                'picking_id' : new_picking,
+                                'state': 'assigned',
+                                'move_dest_id': False,
+                                'price_unit': move.price_unit,
+                        }
+                        prodlot_id = prodlot_ids[move.id]
+                        if prodlot_id:
+                            defaults.update(prodlot_id=prodlot_id)
+                        move_obj.copy(cr, uid, move.id, defaults)
+                    
+                    move_obj.write(cr, uid, [move.id],
+                            {
+                                'product_qty' : 0,
+                                'product_uos_qty':0, #TODO: put correct uos_qty
+                                'state':'done'
+                            })
+                else:
+                    defaults = {
+                        'product_qty' : product_qty,
+                        'product_uos_qty': product_qty, #TODO: put correct uos_qty
+                    }
+                    prodlot_id = prodlot_ids.get(move.id)
+                    if prodlot_ids.get(move.id):
+                        defaults.update(prodlot_id=prodlot_id)
+                    if new_picking:
+                        defaults.update(picking_id=new_picking)
+                    move_obj.write(cr, uid, [move.id], defaults)
 
 
             # At first we confirm the new picking (if necessary)
