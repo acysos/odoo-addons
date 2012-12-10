@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_order_form_limit1" model="ir.ui.view">
+            <field name="name">sale.order.form.limit1</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="pricelist_id" position="after">
+                    <field name="purchase_manager"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

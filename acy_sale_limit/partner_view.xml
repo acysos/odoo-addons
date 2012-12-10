@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_partner_property_form_limit1" model="ir.ui.view">
+            <field name="name">res.partner.product.property.form.inherit.limit1</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <field name="property_product_pricelist" position="after">
+                    <field name="sale_order_limit"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
