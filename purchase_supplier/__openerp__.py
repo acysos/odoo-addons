@@ -41,7 +41,7 @@
     'category': 'Generic Modules/Sales & Purchases',
 	"init_xml" : [],
 	"demo_xml" : [],
-	"update_xml" : [],
+	"update_xml" : ["product_view.xml"],
 	"active": False,
 	"installable": True
 }

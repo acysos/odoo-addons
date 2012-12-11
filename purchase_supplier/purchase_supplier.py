@@ -96,13 +96,14 @@ class product_product(osv.osv):
                     'ORDER BY p.id')
                 res = cr.fetchall()
                 ids += map(lambda x:x[0], res)
-        if not len(ids):
-            ids = self.search(cr, user, [('default_code','=',name)]+ args, limit=limit, context=context)
-        if not len(ids):
-            ids = self.search(cr, user, [('ean13','=',name)]+ args, limit=limit, context=context)
-        if not len(ids):
-            ids = self.search(cr, user, [('default_code',operator,name)]+ args, limit=limit, context=context)
-            ids += self.search(cr, user, [('name',operator,name)]+ args, limit=limit, context=context)
+        else: 
+            if not len(ids):
+                ids = self.search(cr, user, [('default_code','=',name)]+ args, limit=limit, context=context)
+            if not len(ids):
+                ids = self.search(cr, user, [('ean13','=',name)]+ args, limit=limit, context=context)
+            if not len(ids):
+                ids = self.search(cr, user, [('default_code',operator,name)]+ args, limit=limit, context=context)
+                ids += self.search(cr, user, [('name',operator,name)]+ args, limit=limit, context=context)
         result = self.name_get(cr, user, ids, context)
         return result
 
