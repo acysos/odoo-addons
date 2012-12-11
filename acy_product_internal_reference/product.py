@@ -74,7 +74,6 @@ class product_product(osv.osv):
             res[p.id] += (data['code'] or '')+(data['internal_reference'] and ('-'+data['internal_reference']) or '')
             if (data['code'] or data['internal_reference']): res[p.id] += '] '
             res[p.id] += (data['name'] or '') + (data['variants'] and (' - '+data['variants']) or '')
-            print res[p.id]
         return res
             
     _columns = {
