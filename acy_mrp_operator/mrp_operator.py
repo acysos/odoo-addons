@@ -64,21 +64,28 @@ class mrp_operator_registry(osv.osv):
                     if workcenter_line.production_id.id == workcenter_line2.production_id.id:
                         if workcenter_line2.workcenter_line_id.sequence <= workcenter_line.workcenter_line_id.sequence:
                             if workcenter_line.de_product_qty > 0:
+                                #mrp_routing_ids = self.pool.get('mrp.routing.workcenter').search(cr,uid,[('routing_id','=',workcenter_line2.production_id.routing_id.id)], order='sequence', context=context)
+                                #for mrp_routing_id in mrp_routing_ids:
+                                    #product_line_id = self.pool.get('mrp.production.product.line').search(cr, uid, [('production_id','=',workcenter_line2.production_id.id),('consumed_on','=',mrp_routing_id)], context=context)
+                                    #print product_line_id
+                                    #if len(product_line_id) == 1:
+                                        #break
                                 mrp_routing_id = self.pool.get('mrp.routing.workcenter').search(cr,uid,[('routing_id','=',workcenter_line2.production_id.routing_id.id),('workcenter_id','=',workcenter_line2.workcenter_id.id)], context=context)
-    
+                                
                                 product_line_id = self.pool.get('mrp.production.product.line').search(cr, uid, [('production_id','=',workcenter_line2.production_id.id),('consumed_on','=',mrp_routing_id[0])], context=context)
                                 
-                                product_line = self.pool.get('mrp.production.product.line').browse(cr, uid, product_line_id, context)[0]
-                                
-                                move_name = 'PROD:'+workcenter_line2.production_id.name
-                                
-                                stock_move_id = stock_obj.search(cr,uid,[('product_id','=',product_line.product_id.id),('state','=','assigned'),('name','=',move_name)],context=context)
-    
-                                bom_id = self.pool.get('mrp.bom').search(cr, uid, [('bom_id','=',workcenter_line2.production_id.bom_id.id),('product_id','=',product_line.product_id.id),('consumed_on','=',mrp_routing_id[0])], context=context)
-                                bom = self.pool.get('mrp.bom').browse(cr, uid, bom_id, context)[0]
-                                defective_qty = bom.product_qty*bom.product_efficiency*workcenter_line.de_product_qty
-                                context = {'operator_registry':1,'location_src':workcenter_line2.production_id.location_src_id.id}
-                                stock_obj.action_scrap(cr, uid,stock_move_id,defective_qty,4,context)
+                                if len(product_line_id) > 0:
+                                    product_line = self.pool.get('mrp.production.product.line').browse(cr, uid, product_line_id, context)[0]
+                                    
+                                    move_name = 'PROD:'+workcenter_line2.production_id.name
+                                    
+                                    stock_move_id = stock_obj.search(cr,uid,[('product_id','=',product_line.product_id.id),('state','=','assigned'),('name','=',move_name)],context=context)
+        
+                                    bom_id = self.pool.get('mrp.bom').search(cr, uid, [('bom_id','=',workcenter_line2.production_id.bom_id.id),('product_id','=',product_line.product_id.id),('consumed_on','=',mrp_routing_id[0])], context=context)
+                                    bom = self.pool.get('mrp.bom').browse(cr, uid, bom_id, context)[0]
+                                    defective_qty = bom.product_qty*bom.product_efficiency*workcenter_line.de_product_qty
+                                    context = {'operator_registry':1,'location_src':workcenter_line2.production_id.location_src_id.id}
+                                    stock_obj.action_scrap(cr, uid,stock_move_id,defective_qty,4,context)
         
         self.write(cr, uid, ids, {'state': 'confirmed'})
         return True
@@ -161,94 +168,6 @@ class mrp_production(osv.osv):
     _columns = {
         'operator_ids': fields.one2many('mrp.workcenter.registry', 'production_id', 'Operator Registry'),
     }
-    
-    def action_produce(self, cr, uid, production_id, production_qty, production_mode, context=None):
-        """ To produce final product based on production mode (consume/consume&produce).
-        If Production mode is consume, all stock move lines of raw materials will be done/consumed.
-        If Production mode is consume & produce, all stock move lines of raw materials will be done/consumed
-        and stock move lines of final product will be also done/produced.
-        @param production_id: the ID of mrp.production object
-        @param production_qty: specify qty to produce
-        @param production_mode: specify production mode (consume/consume&produce).
-        @return: True
-        """
-        stock_mov_obj = self.pool.get('stock.move')
-        production = self.browse(cr, uid, production_id, context=context)
-
-        final_product_todo = []
-
-        produced_qty = 0
-        if production_mode == 'consume_produce':
-            produced_qty = production_qty
-
-        for produced_product in production.move_created_ids2:
-            if (produced_product.scrapped) or (produced_product.product_id.id<>production.product_id.id):
-                continue
-            produced_qty += produced_product.product_qty
-
-        if production_mode in ['consume','consume_produce']:
-            consumed_products = {}
-            check = {}
-            scrapped = map(lambda x:x.scrapped,production.move_lines2).count(True)
-
-            for consumed_product in production.move_lines2:
-                consumed = consumed_product.product_qty
-                if consumed_product.scrapped:
-                    continue
-                if not consumed_products.get(consumed_product.product_id.id, False):
-                    consumed_products[consumed_product.product_id.id] = consumed_product.product_qty
-                    check[consumed_product.product_id.id] = 0
-                for f in production.product_lines:
-                    if f.product_id.id == consumed_product.product_id.id:
-                        if (len(production.move_lines2) - scrapped) > len(production.product_lines):
-                            check[consumed_product.product_id.id] += consumed_product.product_qty
-                            consumed = check[consumed_product.product_id.id]
-                        rest_consumed = produced_qty * f.product_qty / production.product_qty - consumed
-                        consumed_products[consumed_product.product_id.id] = rest_consumed
-
-            for raw_product in production.move_lines:
-                for f in production.product_lines:
-                    if f.product_id.id == raw_product.product_id.id:
-                        consumed_qty = consumed_products.get(raw_product.product_id.id, 0)
-                        if consumed_qty == 0:
-                            consumed_qty = production_qty * f.product_qty / production.product_qty
-                        if consumed_qty > 0:
-                            stock_mov_obj.action_consume(cr, uid, [raw_product.id], consumed_qty, raw_product.location_id.id, context=context)
-
-        if production_mode == 'consume_produce':
-            # To produce remaining qty of final product
-            vals = {'state':'confirmed'}
-            #final_product_todo = [x.id for x in production.move_created_ids]
-            #stock_mov_obj.write(cr, uid, final_product_todo, vals)
-            #stock_mov_obj.action_confirm(cr, uid, final_product_todo, context)
-            produced_products = {}
-            for produced_product in production.move_created_ids2:
-                if produced_product.scrapped:
-                    continue
-                if not produced_products.get(produced_product.product_id.id, False):
-                    produced_products[produced_product.product_id.id] = 0
-                produced_products[produced_product.product_id.id] += produced_product.product_qty
-
-            for produce_product in production.move_created_ids:
-                produced_qty = produced_products.get(produce_product.product_id.id, 0)
-                rest_qty = production.product_qty - produced_qty
-                if rest_qty <= production_qty:
-                   production_qty = rest_qty
-                if rest_qty > 0 :
-                    stock_mov_obj.action_consume(cr, uid, [produce_product.id], production_qty, context=context)
-
-        for raw_product in production.move_lines2:
-            new_parent_ids = []
-            parent_move_ids = [x.id for x in raw_product.move_history_ids]
-            for final_product in production.move_created_ids2:
-                if final_product.id not in parent_move_ids:
-                    new_parent_ids.append(final_product.id)
-            for new_parent_id in new_parent_ids:
-                stock_mov_obj.write(cr, uid, [raw_product.id], {'move_history_ids': [(4,new_parent_id)]})
-
-        wf_service = netsvc.LocalService("workflow")
-        wf_service.trg_validate(uid, 'mrp.production', production_id, 'button_produce_done', cr)
-        return True
 
 mrp_production()
 
