@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="menu_admin_reports" name="Reports Configuration" parent="base.menu_sale_config_sales" sequence="99"/>
+        
+        <!-- Sale Order Report Extended -->
+        <record id="action_sale_order_report_extended" model="ir.actions.act_window">
+            <field name="name">Header / Footer / Options / Special sale conditions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order.report.extended</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem 
+            action="action_sale_order_report_extended"
+            id="menu_sale_order_report_extended"
+            parent="menu_admin_reports"
+            sequence="1" />
+
+        <record id="view_sale_order_report_extended_form" model="ir.ui.view">
+	        <field name="name">sale.order.report.extended.form</field>
+	        <field name="model">sale.order.report.extended</field>
+	        <field name="type">form</field>
+	        <field name="arch" type="xml">
+	            <form string="Header / Footer / Options / Special sale conditions">
+                    <field name="name" colspan="4"/>
+                    <field name="text" colspan="4" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sale_order_report_extended_tree" model="ir.ui.view">
+	        <field name="name">sale.order.report.extended.tree</field>
+	        <field name="model">sale.order.report.extended</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+	            <tree string="Header / Footer / Options / Special sale conditions">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Sale Order Inherit -->
+        <record id="view_sale_order_form_inherit_report" model="ir.ui.view">
+	        <field name="name">sale.order.form.inherit.report</field>
+	        <field name="model">sale.order</field>
+	        <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+	        <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/notebook/page[@string='History']" position="after">
+                        <page string="Report configurator">
+                            <field name="header_id" colspan="4"/>
+                            <field name="header_related" colspan="4" nolabel="1"/>
+                            <field name="options_id" colspan="4"/>
+                            <field name="options_related" colspan="4" nolabel="1"/>
+                            <field name="footer_id" colspan="4"/>
+                            <field name="footer_related" colspan="4" nolabel="1"/>
+                            <field name="special_sale_conditions_id" colspan="4"/>
+                            <field name="special_sale_conditions_related" colspan="4" nolabel="1"/>
+                        </page>                    
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>
