@@ -172,3 +172,22 @@ msgstr "Precio"
 msgid "Taxes :"
 msgstr "Impuestos :"
 
+#. module: acy_sale_order_report_extended
+#: field:sale.order,header_id:0
+msgid "Header"
+msgstr "Cabecera"
+
+#. module: acy_sale_order_report_extended
+#: field:sale.order,footer_id:0
+msgid "Footer"
+msgstr "Pie de página"
+
+#. module: acy_sale_order_report_extended
+#: field:sale.order,options_id:0
+msgid "Options"
+msgstr "Opciones"
+
+#. module: acy_sale_order_report_extended
+#: field:sale.order,special_sale_conditions_id:0
+msgid "Special sale conditions"
+msgstr "Condiciones especiales de venta"
