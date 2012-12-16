@@ -47,15 +47,30 @@ sale_order_report_extended()
 class sale_order(osv.osv):
     _inherit = 'sale.order'
 
-    def _get_report_extended(self, cr, uid, ids, names, arg, context):
-        res = {}
+    def onchange_text(self, cr, uid, ids, report_id, partner_id, company_id):
+        context = {}
+        partner = self.pool.get('res.partner').browse(cr,uid,partner_id)
+        context['lang'] = partner.lang
+        company = self.pool.get('res.company').browse(cr,uid,company_id)
+        report = self.pool.get('sale.order.report.extended').browse(cr,uid,report_id,context)
+        text = report.text
+        if text:
+            text = text.replace("[[company]]",company.name).replace("[[partner]]",partner.name)
+        return text
 
-        for sale in self.browse(cr, uid, ids, context=context):
-            for name in names:
-                res.setdefault(sale.id, {})[name] = sale[name[:-8] + '_id'].text
+    def onchange_header(self, cr, uid, ids, report_id, partner_id, company_id):
+        text = self.onchange_text(cr,uid,ids,report_id, partner_id, company_id)
+        return {'value': {'header_related': text}}
+    def onchange_footer(self, cr, uid, ids, report_id, partner_id, company_id):
+        text = self.onchange_text(cr,uid,ids,report_id, partner_id, company_id)
+        return {'value': {'footer_related': text}}
+    def onchange_options(self, cr, uid, ids, report_id, partner_id, company_id):
+        text = self.onchange_text(cr,uid,ids,report_id, partner_id, company_id)
+        return {'value': {'options_related': text}}
+    def onchange_special(self, cr, uid, ids, report_id, partner_id, company_id):
+        text = self.onchange_text(cr,uid,ids,report_id, partner_id, company_id)
+        return {'value': {'special_sale_conditions_related': text}}
 
-        return res
-    
     _columns = {
         'header_id':fields.many2one('sale.order.report.extended', 'Header'),
         'footer_id':fields.many2one('sale.order.report.extended', 'Footer'),
@@ -64,15 +79,9 @@ class sale_order(osv.osv):
                                 'sale.order.report.extended', 
                                 'Special sale conditions'),
 
-        'header_related': fields.function(_get_report_extended, method=True, 
-                        type='text', string='Header', multi="report.extended"),
-        'footer_related': fields.function(_get_report_extended, method=True, 
-                        type='text', string='Footer', multi="report.extended"),
-        'options_related': fields.function(_get_report_extended, method=True, 
-                        type='text', string='Options', multi="report.extended"),
-        'special_sale_conditions_related': fields.function(
-                        _get_report_extended, method=True, type='text', 
-                        string='Special sale conditions', 
-                        multi="report.extended"),
+        'header_related': fields.text('Header',multi="report.extended"),
+        'footer_related': fields.text('Footer',multi="report.extended"),
+        'options_related': fields.text('Options',multi="report.extended"),
+        'special_sale_conditions_related': fields.text('Special sale conditions',multi="report.extended"),
     }
 sale_order()

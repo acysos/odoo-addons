@@ -51,15 +51,16 @@
                 <data>
                     <xpath expr="/form/notebook/page[@string='History']" position="after">
                         <page string="Report configurator">
-                            <field name="header_id" colspan="4"/>
+                            <label string='You can use this key "[[partner]]" and "[[company]]" in the text, will be replace Partner name and Company name' colspan="4"/>
+                            <field name="header_id" colspan="4" on_change="onchange_header(header_id, partner_id, company_id)"/>
                             <field name="header_related" colspan="4" nolabel="1"/>
-                            <field name="options_id" colspan="4"/>
+                            <field name="options_id" colspan="4" on_change="onchange_options(options_id, partner_id, company_id)"/>
                             <field name="options_related" colspan="4" nolabel="1"/>
-                            <field name="footer_id" colspan="4"/>
+                            <field name="footer_id" colspan="4" on_change="onchange_footer(footer_id, partner_id, company_id)"/>
                             <field name="footer_related" colspan="4" nolabel="1"/>
-                            <field name="special_sale_conditions_id" colspan="4"/>
+                            <field name="special_sale_conditions_id" colspan="4" on_change="onchange_special(special_sale_conditions_id, partner_id, company_id)"/>
                             <field name="special_sale_conditions_related" colspan="4" nolabel="1"/>
-                        </page>                    
+                        </page>
                     </xpath>
                 </data>
             </field>
