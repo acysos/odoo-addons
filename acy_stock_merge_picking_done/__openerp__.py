@@ -24,12 +24,14 @@
 {
     "name" : "Merge Picking Extension",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
-    "website" : "www.acysos.com, gatakka.net",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """This module allows you to manually merge stock pickings (Incoming Shipments, Delivery Orders, Internal Moves). Extension that allow merge Stock Picking with state done.
     
-    Need module stock_merge_picking https://launchpad.net/bremskerl-addons.""",
+    Need module stock_merge_picking https://launchpad.net/bremskerl-addons.
+    
+    Sponsored by Gatakka and Polux""",
     "license" : "AGPL-3",
     "depends" : ["stock","stock_merge_picking"],
     "init_xml" : [],

@@ -29,8 +29,9 @@
       + Employees must be assigned to OpenERP users
       + Employees must have assigned a product and a journal on timesheet tab
       + Projects must be defined using an analytical account
-                     """,
-	"author" : "Acysos S.L., NaN Projectes de Programari LLiure S.L.  sponsored by Talleres Mutilva",
+    
+    Sponsored by Talleres Mutilva""",
+	"author" : "Acysos S.L., NaN Projectes de Programari LLiure S.L.",
 	"website" : "http://www.acysos.com",
 	"license" : "AGPL-3",
 	"depends" : [ 

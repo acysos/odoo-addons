@@ -24,10 +24,10 @@
 {
     "name" : "Procurement - Create Project",
     "version" : "1.0",
-    "author" : "Acysos S.L.  sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
     "description": """Project MRP - Allow create project for the sale order when it doesn't exist and add the tasks for each sale order line to this project
-    """,
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "base",

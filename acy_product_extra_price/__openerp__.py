@@ -24,8 +24,8 @@
 {
     "name" : "Product Extra Price",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
-    "website" : "www.acysos.com, gatakka.net",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """Allow to add a second price to the product. This is usefull for company that have a extra variable price and need to show it in the invoice.
     
@@ -34,7 +34,8 @@
         Product Name               2           50,00 €      100,00 €
             Extra Price              2            2,53 €        5,06 €
                                                 Total Invoice   105,06 €
-    """,
+    
+    Sponsored by Gatakka and Polux""",
     "license" : "AGPL-3",
     "depends" : ["base", "product", "sale", "decimal_precision","account"],
     "init_xml" : [],

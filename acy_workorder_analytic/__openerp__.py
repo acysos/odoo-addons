@@ -24,9 +24,10 @@
 {
     "name" : "Work Order - Analytic",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Add Analytic Account to a Work Order. Each Workorder has his own analytic account. All orders and project""",
+    "description": """Add Analytic Account to a Work Order. Each Workorder has his own analytic account. All orders and project.
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "base",

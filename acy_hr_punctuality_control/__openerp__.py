@@ -24,9 +24,10 @@
 {
     "name" : "Human Resources Punctuality Control",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Beta version. Show the employees that come late to the work. Use timesheet.""",
+    "description": """Beta version. Show the employees that come late to the work. Use timesheet. 
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "base",

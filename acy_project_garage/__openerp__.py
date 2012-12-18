@@ -24,9 +24,10 @@
 {
     "name" : "Project Garage",
     "version" : "1.0",
-    "author" : "Acysos S.L.  sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Add vehicles to the projects""",
+    "description": """Add vehicles to the projects.
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "acy_partner_vehicle",

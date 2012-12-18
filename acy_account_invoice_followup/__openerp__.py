@@ -24,10 +24,11 @@
 {
     "name" : "Account Invoice Follow Up",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Follow the client invoice, add followup notes""",
-    "license" : "GPL-3",
+    "description": """Follow the client invoice, add followup notes. 
+    Sponsored by Talleres Mutilva""",
+    "license" : "AGPL-3",
     "depends" : [
         "base",
         "account",

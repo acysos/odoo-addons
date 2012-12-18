@@ -22,9 +22,9 @@
 {
     "name" : "Sale order report extended",
     "version" : "1.0",
-    "author" : "PCSOL, Acysos S.L.",
+    "author" : "Acysos S.L.",
     "category" : "Generic Modules/Sales & Purchases",
-    "website": "http://www.pcsol.be, http://www.acysos.com",
+    "website": "http://www.acysos.com",
     "description": """
     Sale order report extended
     
@@ -38,8 +38,9 @@
      appear on the sale order report and modify them if needed
      - Image support. Add image of the product like a appendix.
     
-    Update by Acysos S.L from sale_order_extended for OpenERP 5.0 of PCSOL. New support for images added by Acysos S.L.
+    Update by Acysos S.L from sale_order_extended for OpenERP 5.0 of PCSOL. New support for images added by Acysos S.L. and multilanguage.
     """,
+    "license" : "AGPL-3",
     "depends" : ['sale', 'product_images_olbs', 'product_images_repository'],
     "init_xml" : [],
     "update_xml" : ['sale_order_report_extended_view.xml',

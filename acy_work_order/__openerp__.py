@@ -24,11 +24,11 @@
 {
     "name" : "Work Order",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
     "description": """Make a work order.\n
         The work order is a window, that allow to administrate several order and their projects.
-    """,
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "base",

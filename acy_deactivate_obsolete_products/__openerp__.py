@@ -29,7 +29,7 @@
     "category" : "Generic Modules/Inventory Control",
     "description": """When the state of a product is changed to Obsolete it's deactivate. If the state is changes again to other state it's activate\n
     Add a new menu to show the deactivated products.""",
-    "license" : "GPL-3",
+    "license" : "AGPL-3",
     "depends" : [
         "base",
         "sale"

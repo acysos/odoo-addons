@@ -29,6 +29,7 @@
     "description" : """Extension of purchase. This module adds those functionalities:
                 - Adds 3 diferent discounts on purchase order lines
                 - Calculate resulting discount based on the other discounts""",
+    "license" : "AGPL-3",
     "depends" : [ 
         'account',
         'purchase',

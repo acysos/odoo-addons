@@ -29,7 +29,7 @@
     "description": """Homeowners Associations\n
     New Fields: Floor and parking number\n
     Install Analytic Plans. Select Analytic Plan and Analytic Account""",
-    "license" : "GPL-3",
+    "license" : "AGPL-3",
     "depends" : [
         "base",
         "account",

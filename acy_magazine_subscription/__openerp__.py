@@ -29,7 +29,8 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Magazine subscriptions by number. Based in InternetDomain of Zikzakmedia S.L.""",
+    "description": """Magazine subscriptions by number. Based in InternetDomain of Zikzakmedia S.L.
+    Sponsored by Innovation Media Consulting.""",
     "license" : "AGPL-3",
     "depends" : [
         "base",

@@ -24,9 +24,10 @@
 {
     "name" : "Account Analytic Line Report",
     "version" : "1.0",
-    "author" : "Acysos S.L.  sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Search the analytic lines for an analytic account and their children""",
+    "description": """Search the analytic lines for an analytic account and their children. 
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "base",

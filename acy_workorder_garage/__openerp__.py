@@ -24,10 +24,11 @@
 {
     "name" : "Work Order for Garage",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Add Vehicles to a Work Order""",
-    "license" : "GPL-3",
+    "description": """Add Vehicles to a Work Order.
+     Sponsored by Talleres Mutilva""",
+    "license" : "AGPL-3",
     "depends" : [
         "base",
         "sale",

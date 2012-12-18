@@ -27,7 +27,7 @@
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
     "description": """The vat amount is included in the analytic line""",
-    "license" : "GPL-3",
+    "license" : "AGPL-3",
     "depends" : [
         "base",
         "account",

@@ -24,10 +24,11 @@
 {
     "name" : "MRP Operator",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
-    "website" : "www.acysos.com, gatakka.net",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Production',
-    "description": """Assign to the manufacturing order the operator that have produced the product. Registry products produced by operator""",
+    "description": """Assign to the manufacturing order the operator that have produced the product. Registry products produced by operator. 
+    Sponsored by Gatakka and Polux""",
     "license" : "AGPL-3",
     "depends" : ["base", "mrp", "hr","stock"],
     "init_xml" : [],

@@ -24,10 +24,11 @@
 {
     "name" : "Invoice group by product",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
-    "website" : "www.acysos.com, gatakka.net",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Accounting',
-    "description": """Order invoice lines by product and create a new line with total of each product""",
+    "description": """Order invoice lines by product and create a new line with total of each product. 
+    Sponsored by Gatakka and Polux""",
     "license" : "AGPL-3",
     "depends" : ["base", "account", "product", "stock"],
     "init_xml" : [],

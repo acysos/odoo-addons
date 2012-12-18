@@ -24,9 +24,10 @@
 {
     "name" : "Project with Tasks",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Show the tasks inside of Project""",
+    "description": """Show the tasks inside of Project.
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "project",

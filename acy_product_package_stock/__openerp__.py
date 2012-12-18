@@ -24,11 +24,11 @@
 {
     "name" : "Product Control Package Stock",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
-    "website" : "www.acysos.com, gatakka.net",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """Allow to control the stock of the returnable package.
-    """,
+    Sponsored by Gatakka and Polux""",
     "license" : "AGPL-3",
     "depends" : ["base", "product", "sale", "decimal_precision","account","stock","acy_stock_sent_number","delivery"],
     "init_xml" : [],

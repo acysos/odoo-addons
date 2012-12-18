@@ -24,11 +24,12 @@
 {
     "name" : "Gestión de vehículos",
     "version" : "1.0",
-    "author" : "Acysos S.L.  sponsored by Talleres Mutilva",
+    "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
     "description": """Add a form for vehicles. Usefull for garage or repair shop. 
     Add a new page in partners for the vehicles.
-    Allow add the vehicle in the sale order.""",
+    Allow add the vehicle in the sale order.
+    Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",
     "depends" : [
         "base",
