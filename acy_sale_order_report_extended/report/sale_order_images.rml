@@ -105,6 +105,10 @@
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
     </blockTableStyle>
+    <blockTableStyle id="Tabla8">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
     <blockTableStyle id="Tabla6">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
@@ -116,8 +120,10 @@
     <initialize>
       <paraStyle name="all" alignment="justify"/>
     </initialize>
-    <paraStyle name="P1" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="2.0" leading="3" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="2.0" leading="3" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="2.0" leading="3" alignment="LEFT" textColor="#ffffff"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
@@ -416,28 +422,35 @@
     <blockTable colWidths="540.0" style="Tabla4">
       <tr>
         <td>
-          <para style="terp_tblheader_Details">Appendix</para>
+          <para style="terp_default_Bold_9">APPENDIX</para>
           <section>
-            <para style="terp_default_8">[[ repeatIn(o.order_line,'iline') ]]</para>
-            <para style="P2">[[ iline.name ]]</para>
-          </section>
-          <section>
-            <para style="terp_default_8">[[ repeatIn(iline.product_id.image_ids,'image') ]]</para>
+            <para style="terp_default_9">[[ repeatIn(o.order_line,'iline') ]]</para>
             <blockTable colWidths="534.0" style="Tabla7">
               <tr>
                 <td>
-                  <para style="P1">[[ image['preview'] and setTag('para','image',{})]][[ image['preview'] ]]</para>
-                  <para style="P1">
-                    <font color="white"> </font>
-                  </para>
+                  <para style="P4">[[ iline.product_id.image_ids or removeParentNode('blockTable') ]]</para>
+                  <para style="terp_default_9">[[ iline.name ]]</para>
+                  <section>
+                    <para style="terp_default_9">[[ repeatIn(iline.product_id.image_ids,'image') ]]</para>
+                    <blockTable colWidths="529.0" style="Tabla8">
+                      <tr>
+                        <td>
+                          <para style="P1">[[ image.preview and setTag('para','image',{})]][[ image.preview ]]</para>
+                        </td>
+                      </tr>
+                    </blockTable>
+                    <para style="P2">
+                      <font color="white"> </font>
+                    </para>
+                  </section>
                 </td>
               </tr>
             </blockTable>
-            <para style="terp_default_8">
+            <para style="P3">
               <font color="white"> </font>
             </para>
           </section>
-          <para style="terp_default_9">
+          <para style="terp_default_1">
             <font color="white"> </font>
           </para>
         </td>

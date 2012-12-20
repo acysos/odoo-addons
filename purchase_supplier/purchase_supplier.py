@@ -44,58 +44,68 @@ class product_product(osv.osv):
         if not context:
             context={}
         if context and context.has_key('partner_id') and context['partner_id']:
-            cr.execute('SELECT p.id ' \
-                    'FROM product_product AS p ' \
-                    'INNER JOIN product_template AS t ' \
-                    'ON p.product_tmpl_id=t.id ' \
-                    'INNER JOIN product_supplierinfo AS ps ' \
-                    'ON ps.product_id=p.id ' \
-                    'WHERE ps.name = '+str(context['partner_id'])+' ' \
-                    'AND p.default_code = \''+str(name)+'\' ' \
-                    'AND t.purchase_ok = True ' \
-                    'ORDER BY p.id')
-            res = cr.fetchall()
-            ids = map(lambda x:x[0], res)
-            if not len(ids):
+            partner = self.pool.get('res.partner').browse(cr,user,context['partner_id'])
+            if partner.supplier:
                 cr.execute('SELECT p.id ' \
-                    'FROM product_product AS p ' \
-                    'INNER JOIN product_template AS t ' \
-                    'ON p.product_tmpl_id=t.id ' \
-                    'INNER JOIN product_supplierinfo AS ps ' \
-                    'ON ps.product_id=p.id ' \
-                    'WHERE ps.name = '+str(context['partner_id'])+' ' \
-                    'AND p.ean13 = \''+str(name)+'\' ' \
-                    'AND t.purchase_ok = True ' \
-                    'ORDER BY p.id')
+                        'FROM product_product AS p ' \
+                        'INNER JOIN product_template AS t ' \
+                        'ON p.product_tmpl_id=t.id ' \
+                        'INNER JOIN product_supplierinfo AS ps ' \
+                        'ON ps.product_id=p.id ' \
+                        'WHERE ps.name = '+str(context['partner_id'])+' ' \
+                        'AND p.default_code = \''+str(name)+'\' ' \
+                        'AND t.purchase_ok = True ' \
+                        'ORDER BY p.id')
                 res = cr.fetchall()
                 ids = map(lambda x:x[0], res)
-            if not len(ids):
-                if operator in ('like', 'ilike'):
-                    name='%'+name+'%'
-                cr.execute('SELECT p.id ' \
-                    'FROM product_product AS p ' \
-                    'INNER JOIN product_template AS t ' \
-                    'ON p.product_tmpl_id=t.id ' \
-                    'INNER JOIN product_supplierinfo AS ps ' \
-                    'ON ps.product_id=p.id ' \
-                    'WHERE ps.name = '+str(context['partner_id'])+' ' \
-                    'AND p.default_code '+operator+'   \''+str(name)+'\' ' \
-                    'AND t.purchase_ok = True ' \
-                    'ORDER BY p.id')
-                res = cr.fetchall()
-                ids = map(lambda x:x[0], res)
-                cr.execute('SELECT p.id ' \
-                    'FROM product_product AS p ' \
-                    'INNER JOIN product_template AS t ' \
-                    'ON p.product_tmpl_id=t.id ' \
-                    'INNER JOIN product_supplierinfo AS ps ' \
-                    'ON ps.product_id=p.id ' \
-                    'WHERE ps.name = '+str(context['partner_id'])+' ' \
-                    'AND t.name '+operator+'   \''+str(name)+'\' ' \
-                    'AND t.purchase_ok = True ' \
-                    'ORDER BY p.id')
-                res = cr.fetchall()
-                ids += map(lambda x:x[0], res)
+                if not len(ids):
+                    cr.execute('SELECT p.id ' \
+                        'FROM product_product AS p ' \
+                        'INNER JOIN product_template AS t ' \
+                        'ON p.product_tmpl_id=t.id ' \
+                        'INNER JOIN product_supplierinfo AS ps ' \
+                        'ON ps.product_id=p.id ' \
+                        'WHERE ps.name = '+str(context['partner_id'])+' ' \
+                        'AND p.ean13 = \''+str(name)+'\' ' \
+                        'AND t.purchase_ok = True ' \
+                        'ORDER BY p.id')
+                    res = cr.fetchall()
+                    ids = map(lambda x:x[0], res)
+                if not len(ids):
+                    if operator in ('like', 'ilike'):
+                        name='%'+name+'%'
+                    cr.execute('SELECT p.id ' \
+                        'FROM product_product AS p ' \
+                        'INNER JOIN product_template AS t ' \
+                        'ON p.product_tmpl_id=t.id ' \
+                        'INNER JOIN product_supplierinfo AS ps ' \
+                        'ON ps.product_id=p.id ' \
+                        'WHERE ps.name = '+str(context['partner_id'])+' ' \
+                        'AND p.default_code '+operator+'   \''+str(name)+'\' ' \
+                        'AND t.purchase_ok = True ' \
+                        'ORDER BY p.id')
+                    res = cr.fetchall()
+                    ids = map(lambda x:x[0], res)
+                    cr.execute('SELECT p.id ' \
+                        'FROM product_product AS p ' \
+                        'INNER JOIN product_template AS t ' \
+                        'ON p.product_tmpl_id=t.id ' \
+                        'INNER JOIN product_supplierinfo AS ps ' \
+                        'ON ps.product_id=p.id ' \
+                        'WHERE ps.name = '+str(context['partner_id'])+' ' \
+                        'AND t.name '+operator+'   \''+str(name)+'\' ' \
+                        'AND t.purchase_ok = True ' \
+                        'ORDER BY p.id')
+                    res = cr.fetchall()
+                    ids += map(lambda x:x[0], res)
+            else:
+                if not len(ids):
+                    ids = self.search(cr, user, [('default_code','=',name)]+ args, limit=limit, context=context)
+                if not len(ids):
+                    ids = self.search(cr, user, [('ean13','=',name)]+ args, limit=limit, context=context)
+                if not len(ids):
+                    ids = self.search(cr, user, [('default_code',operator,name)]+ args, limit=limit, context=context)
+                    ids += self.search(cr, user, [('name',operator,name)]+ args, limit=limit, context=context)
         else: 
             if not len(ids):
                 ids = self.search(cr, user, [('default_code','=',name)]+ args, limit=limit, context=context)
