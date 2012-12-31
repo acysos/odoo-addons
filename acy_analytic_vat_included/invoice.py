@@ -118,4 +118,4 @@ class account_move_line(osv.osv):
                    analytic_line_obj.create(cr, uid, al_vals, context=context)
         return True
     
-account_move_line(osv.osv):
+account_move_line()
