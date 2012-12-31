@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_template_form_view_meter1" model="ir.ui.view">
+            <field name="name">product.template.product.form.meter1</field>
+            <field name="model">product.template</field> 
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="purchase_ok" position="after">
+                    <field name="meters"/>
+                </field>
+            </field>
+        </record>
+        <record id="roduct_normal_form_view_meter1" model="ir.ui.view">
+            <field name="name">product.normal.form.meter1</field>
+            <field name="model">product.product</field> 
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="purchase_ok" position="after">
+                    <field name="meters"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="product_template_form_view_meter2" model="ir.ui.view">
+            <field name="name">product.template.product.form.meter2</field>
+            <field name="model">product.template</field> 
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="description_purchase" position="after">
+                    <field name="meter_description" colspan="4"/>
+                </field>
+            </field>
+        </record>
+        <record id="roduct_normal_form_view_meter2" model="ir.ui.view">
+            <field name="name">product.normal.form.meter2</field>
+            <field name="model">product.product</field> 
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="description_purchase" position="after">
+                    <field name="meter_description" colspan="4"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

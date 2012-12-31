@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_product_meter_tree" model="ir.ui.view">
+            <field name="name">product.meter.tree</field>
+            <field name="model">product.meter</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Product Meters" editable="top">
+                    <field name="date" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="partner_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="product_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="meter" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="state" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_product_meter_filter" model="ir.ui.view">
+            <field name="name">product.meter.select</field>
+            <field name="model">product.meter</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <group expand="1" string="Group By..." groups="base.group_extended">
+                    <filter string="Partner" icon="terp-personal" domain="[]" context="{'group_by':'partner_id'}"/>
+                    <filter string="Product" icon="terp-personal" domain="[]" context="{'group_by':'product_id'}"/>
+                    <separator orientation="vertical"/>
+                </group>
+                <field name="partner_id" select="1"/>
+                <field name="product_id" select="1"/>
+                <field name="date" select="1"/>
+                <field name="state" select="1"/>
+            </field>
+        </record>
+        
+        <record id="action_product_meter" model="ir.actions.act_window">
+            <field name="name">Product Meter</field>
+            <field name="res_model">product.meter</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_product_meter_tree"/>
+            <field name="search_view_id" ref="view_product_meter_filter"/>
+        </record>
+        <menuitem action="action_product_meter" id="menu_product_meter" parent="product.menu_products"/>
+        
+        <act_window context="{'search_default_partner_id':[active_id]}" id="act_res_partner_2_product_meters" name="Meters" res_model="product.meter" src_model="res.partner"/>
+        
+    </data>
+</openerp>

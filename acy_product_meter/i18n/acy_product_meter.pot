@@ -1,0 +1,188 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_product_meter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-12-31 17:50+0000\n"
+"PO-Revision-Date: 2012-12-31 17:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_product_meter
+#: field:product.template,meters:0
+msgid "Has meters"
+msgstr ""
+
+#. module: acy_product_meter
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr ""
+
+#. module: acy_product_meter
+#: sql_constraint:product.meter:0
+msgid "Only one meter per day, per partner and per product !"
+msgstr ""
+
+#. module: acy_product_meter
+#: view:product.meter:0
+msgid "Group By..."
+msgstr ""
+
+#. module: acy_product_meter
+#: field:product.meter,state:0
+msgid "State"
+msgstr ""
+
+#. module: acy_product_meter
+#: help:product.template,meter_description:0
+msgid "The bracket [last] will be replace by the last meter. The bracket [new] will be replace by the new meter"
+msgstr ""
+
+#. module: acy_product_meter
+#: view:product.meter:0
+msgid "Product Meters"
+msgstr ""
+
+#. module: acy_product_meter
+#: field:product.template,meter_description:0
+msgid "Meter description"
+msgstr ""
+
+#. module: acy_product_meter
+#: help:account.invoice.line,meter_parent_line_id:0
+msgid "The line that contain the product with meters"
+msgstr ""
+
+#. module: acy_product_meter
+#: help:product.template,meters:0
+msgid "Allow use meters with this product. Remerber change the meter description in descriptions"
+msgstr ""
+
+#. module: acy_product_meter
+#: selection:product.meter,state:0
+msgid "Read"
+msgstr ""
+
+#. module: acy_product_meter
+#: help:account.invoice.line,sequence:0
+msgid "Gives the sequence order when displaying a list of invoice lines."
+msgstr ""
+
+#. module: acy_product_meter
+#: field:product.meter,date:0
+msgid "Date"
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:61
+#, python-format
+msgid "Invoice '%s' is waiting for validation."
+msgstr ""
+
+#. module: acy_product_meter
+#: field:account.invoice.line,meter_parent_line_id:0
+msgid "Parent line product meter"
+msgstr ""
+
+#. module: acy_product_meter
+#: field:account.invoice.line,meter_line:0
+#: model:ir.actions.act_window,name:acy_product_meter.action_product_meter
+#: model:ir.model,name:acy_product_meter.model_product_meter
+#: model:ir.ui.menu,name:acy_product_meter.menu_product_meter
+msgid "Product Meter"
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:70
+#, python-format
+msgid "Unknown Error"
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:118
+#, python-format
+msgid "No previous meter"
+msgstr ""
+
+#. module: acy_product_meter
+#: view:product.meter:0
+#: field:product.meter,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:118
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:68
+#, python-format
+msgid "There is no Accounting Journal of type Sale/Purchase defined!"
+msgstr ""
+
+#. module: acy_product_meter
+#: constraint:account.invoice:0
+msgid "Invoice date is previous to an existing invoice."
+msgstr ""
+
+#. module: acy_product_meter
+#: field:account.invoice.line,meter_child_line_id:0
+msgid "Child line product meter"
+msgstr ""
+
+#. module: acy_product_meter
+#: model:ir.model,name:acy_product_meter.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: acy_product_meter
+#: field:account.invoice.line,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: acy_product_meter
+#: model:ir.model,name:acy_product_meter.model_account_invoice_line
+msgid "Invoice Line"
+msgstr ""
+
+#. module: acy_product_meter
+#: field:product.meter,meter:0
+msgid "Meter"
+msgstr ""
+
+#. module: acy_product_meter
+#: model:ir.actions.act_window,name:acy_product_meter.act_res_partner_2_product_meters
+msgid "Meters"
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:67
+#, python-format
+msgid "Configuration Error!"
+msgstr ""
+
+#. module: acy_product_meter
+#: model:ir.model,name:acy_product_meter.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: acy_product_meter
+#: view:product.meter:0
+#: field:product.meter,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: acy_product_meter
+#: selection:product.meter,state:0
+msgid "Invoiced"
+msgstr ""
+
