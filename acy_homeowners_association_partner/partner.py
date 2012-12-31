@@ -39,6 +39,25 @@ class res_partner(osv.osv):
                 categories += ' / '
             res[partner.id] = categories
         return res
+              
+    def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
+        if not args:
+            args=[]
+        if not context:
+            context={}
+        if name:
+            ids = self.search(cr, uid, [('ref', '=', name)] + args, limit=limit, context=context)
+            if not ids:
+                ids = self.search(cr, uid, [('name', operator, name)] + args, limit=limit, context=context)
+                if not ids:
+                    ids = self.search(cr, uid, [('floor', operator, name)] + args, limit=limit, context=context)
+                    if not ids:
+                        ids = self.search(cr, uid, [('parking', operator, name)] + args, limit=limit, context=context)
+                        if not ids:
+                            ids = self.search(cr, uid, [('boxroom', operator, name)] + args, limit=limit,context=context)
+        else:
+            ids = self.search(cr, uid, args, limit=limit, context=context)
+        return self.name_get(cr, uid, ids, context)
     
     _columns = {
         'floor': fields.char('Floor', size=128, select=True),
