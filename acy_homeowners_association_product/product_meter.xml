@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_product_meters_page_form_association1" model="ir.ui.view">
+            <field name="name">product.meters.page.form.association1</field>
+            <field name="model">product.meters.page</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="acy_product_meter.view_product_meters_page_form"/>
+            <field name="arch" type="xml">
+                <field name="product_meters" position="replace">
+                    <field name="product_meters" attrs="{'readonly':[('state','=','confirmed')]}" colspan="4" widget="one2many_list"  context="{'product_id' : product_id,'meter_state': meter_state,'date':date}" nolabel="1">
+                        <tree string="Product Meters" editable="top">
+                            <field name="date"  invisible="True"/>
+                            <field name="partner_id"/>
+                            <field name="floor"/>
+                            <field name="product_id"  invisible="True"/>
+                            <field name="meter" />
+                            <field name="state"  invisible="True"/>
+                        </tree>
+                    </field>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
