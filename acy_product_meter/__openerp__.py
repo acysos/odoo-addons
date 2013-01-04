@@ -36,7 +36,7 @@
         ],
     "init_xml" : [],
     "demo_xml" : [],
-    "update_xml" :['product_meter_data.xml','product_meter_view.xml','product_view.xml','product_meter_workflow.xml','security/product_security.xml','security/ir.model.access.csv'],
+    "update_xml" :['product_meter_data.xml','product_meter_view.xml','product_view.xml','product_meter_sequence.xml','product_meter_workflow.xml','security/product_security.xml','security/ir.model.access.csv'],
     "active": False,
     "installable": True
 }

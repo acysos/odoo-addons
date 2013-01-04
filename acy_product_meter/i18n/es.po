@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-02-26 18:29+0000\n"
-"PO-Revision-Date: 2012-02-26 18:29+0000\n"
-"Last-Translator: Ignacio Ibeas (www.acysos.com) <ignacio@acysos.com>\n"
+"POT-Creation-Date: 2013-01-03 19:05+0000\n"
+"PO-Revision-Date: 2013-01-03 19:05+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,6 +19,29 @@ msgstr ""
 #: field:product.template,meters:0
 msgid "Has meters"
 msgstr "Tiene lecturas"
+
+#. module: acy_product_meter
+#: selection:product.meters.page,state:0
+msgid "Confirmed"
+msgstr "Confirmed"
+
+#. module: acy_product_meter
+#: model:ir.actions.act_window,name:acy_product_meter.action_product_meters_page
+#: model:ir.ui.menu,name:acy_product_meter.menu_product_meters_page
+#: view:product.meters.page:0
+msgid "Product Meter Pages"
+msgstr "Hoja de lecturas"
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:70
+#, python-format
+msgid "Unknown Error"
+msgstr "Error desconocido"
+
+#. module: acy_product_meter
+#: view:product.meters.page:0
+msgid "Confirm"
+msgstr "Confirmar"
 
 #. module: acy_product_meter
 #: constraint:product.template:0
@@ -37,8 +60,14 @@ msgstr "Agrupar por..."
 
 #. module: acy_product_meter
 #: field:product.meter,state:0
+#: field:product.meters.page,state:0
 msgid "State"
 msgstr "Estado"
+
+#. module: acy_product_meter
+#: selection:product.meters.page,state:0
+msgid "Draft"
+msgstr "Borrador"
 
 #. module: acy_product_meter
 #: help:product.template,meter_description:0
@@ -46,14 +75,12 @@ msgid "The bracket [last] will be replace by the last meter. The bracket [new] w
 msgstr "El texto [last] será reemplazado por la última lectura. El texto [new] será remplazado por la nueva lectura"
 
 #. module: acy_product_meter
+#: model:ir.ui.menu,name:acy_product_meter.menu_product_meter
 #: view:product.meter:0
+#: view:product.meters.page:0
+#: field:product.meters.page,product_meters:0
 msgid "Product Meters"
 msgstr "Lecturas de productos"
-
-#. module: acy_product_meter
-#: field:account.invoice.line,meter_parent_line_id:0
-msgid "Parent line product meter"
-msgstr "Linea padre con el producto que representa las lecturas"
 
 #. module: acy_product_meter
 #: field:product.template,meter_description:0
@@ -61,9 +88,10 @@ msgid "Meter description"
 msgstr "Descripción para la linea de lectura"
 
 #. module: acy_product_meter
-#: help:account.invoice.line,meter_parent_line_id:0
-msgid "The line that contain the product with meters"
-msgstr "La línea que contiene el producto con lecturas"
+#: model:ir.model,name:acy_product_meter.model_product_meters_page
+#: field:product.meter,product_meters_page_id:0
+msgid "Product Meters Page"
+msgstr "Hoja de lecturas"
 
 #. module: acy_product_meter
 #: help:product.template,meters:0
@@ -71,10 +99,10 @@ msgid "Allow use meters with this product. Remerber change the meter description
 msgstr "Activer lecturas en este producto. Recuerde cambair la descripción en descripciones"
 
 #. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:113
-#, python-format
-msgid "No meter without be invoiced"
-msgstr "No existe lecturas no facturadas"
+#: selection:product.meter,state:0
+#: selection:product.meters.page,meter_state:0
+msgid "Read"
+msgstr "Leída"
 
 #. module: acy_product_meter
 #: help:account.invoice.line,sequence:0
@@ -82,7 +110,13 @@ msgid "Gives the sequence order when displaying a list of invoice lines."
 msgstr "Proporciona el orden en el que se muestran la lineas de facturación."
 
 #. module: acy_product_meter
+#: view:product.meters.page:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: acy_product_meter
 #: field:product.meter,date:0
+#: field:product.meters.page,date:0
 msgid "Date"
 msgstr "Fecha"
 
@@ -93,18 +127,28 @@ msgid "Invoice '%s' is waiting for validation."
 msgstr "Factura '%s' esta pendiente de validar."
 
 #. module: acy_product_meter
+#: help:account.invoice.line,meter_parent_line_id:0
+msgid "The line that contain the product with meters"
+msgstr "La línea que contiene el producto con lecturas"
+
+#. module: acy_product_meter
+#: field:account.invoice.line,meter_parent_line_id:0
+msgid "Parent line product meter"
+msgstr "Linea padre con el producto que representa las lecturas"
+
+#. module: acy_product_meter
 #: field:account.invoice.line,meter_line:0
 #: model:ir.actions.act_window,name:acy_product_meter.action_product_meter
 #: model:ir.model,name:acy_product_meter.model_product_meter
-#: model:ir.ui.menu,name:acy_product_meter.menu_product_meter
+#: model:ir.ui.menu,name:acy_product_meter.menu_product_meters
 msgid "Product Meter"
 msgstr "Lecturas de productos"
 
 #. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:70
-#, python-format
-msgid "Unknown Error"
-msgstr "Error desconocido"
+#: field:product.meter,name:0
+#: field:product.meters.page,name:0
+msgid "Name"
+msgstr "Nombre"
 
 #. module: acy_product_meter
 #: code:addons/acy_product_meter/invoice.py:118
@@ -115,11 +159,11 @@ msgstr "No existe lectura anterior"
 #. module: acy_product_meter
 #: view:product.meter:0
 #: field:product.meter,product_id:0
+#: field:product.meters.page,product_id:0
 msgid "Product"
 msgstr "Producto"
 
 #. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:113
 #: code:addons/acy_product_meter/invoice.py:118
 #, python-format
 msgid "Error!"
@@ -162,9 +206,9 @@ msgid "Meter"
 msgstr "Lectura"
 
 #. module: acy_product_meter
-#: selection:product.meter,state:0
-msgid "Read"
-msgstr "Leída"
+#: field:product.meters.page,meter_state:0
+msgid "Meters State"
+msgstr "Estado de las lecturas"
 
 #. module: acy_product_meter
 #: model:ir.actions.act_window,name:acy_product_meter.act_res_partner_2_product_meters
@@ -190,6 +234,7 @@ msgstr "Empresa"
 
 #. module: acy_product_meter
 #: selection:product.meter,state:0
+#: selection:product.meters.page,meter_state:0
 msgid "Invoiced"
 msgstr "Facturada"
 

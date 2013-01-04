@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Sequences for product meter -->
+        <record id="seq_type_product_meter" model="ir.sequence.type">
+            <field name="name">Product Meter</field>
+            <field name="code">product.meter</field>
+        </record>
+        <record id="seq_product_meter" model="ir.sequence">
+            <field name="name">Product Meter</field>
+            <field name="code">product.meter</field>
+            <field name="prefix">PM</field>
+            <field name="padding">6</field>
+        </record>
+        <record id="seq_type_product_meter_page" model="ir.sequence.type">
+            <field name="name">Product Meter Page</field>
+            <field name="code">product.meter.page</field>
+        </record>
+        <record id="seq_product_meter_page" model="ir.sequence">
+            <field name="name">Product Meter</field>
+            <field name="code">product.meter.page</field>
+            <field name="prefix">MP</field>
+            <field name="padding">6</field>
+        </record>
+    </data>
+</openerp>

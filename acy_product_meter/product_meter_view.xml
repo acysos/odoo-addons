@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <menuitem id="menu_product_meter" parent="base.menu_product" name="Product Meters"/>
+        
+        <record id="view_product_meters_page_tree" model="ir.ui.view">
+            <field name="name">product.meters.page.tree</field>
+            <field name="model">product.meters.page</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Product Meter Pages">
+                    <field name="date" attrs="{'readonly':[('state','=','confirmed')]}"/>
+                    <field name="product_id" attrs="{'readonly':[('state','=','confirmed')]}"/>
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_product_meters_page_form" model="ir.ui.view">
+            <field name="name">product.meters.page.form</field>
+            <field name="model">product.meters.page</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product Meter Pages">
+                    <field name="name" attrs="{'readonly':[('state','=','confirmed')]}" />
+                    <field name="date" attrs="{'readonly':[('state','=','confirmed')]}" on_change="onchange_date(date)"/>
+                    <field name="product_id" attrs="{'readonly':[('state','=','confirmed')]}" domain="[('meters','=',1)]" on_change="onchange_product_id(product_id)"/>
+                    <field name="meter_state" attrs="{'readonly':[('state','=','confirmed')]}" on_change="onchange_meter_state(meter_state)"/>
+                    <field name="product_meters" attrs="{'readonly':[('state','=','confirmed')]}" colspan="4" widget="one2many_list"  context="{'product_id' : product_id,'meter_state': meter_state,'date':date}" nolabel="1">
+                        <tree string="Product Meters" editable="top">
+                            <field name="date" invisible="True"/>
+                            <field name="partner_id"/>
+                            <field name="product_id" invisible="True"/>
+                            <field name="meter" />
+                            <field name="state" invisible="True"/>
+                        </tree>
+                    </field>
+                    <field name="state" />
+                    <button name="action_confirm" type="object" states="draft" string="Confirm" icon="gtk-execute" />
+                    <button name="action_cancel_draft" states="confirmed" string="Set to Draft" type="object" icon="gtk-convert" />
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_product_meters_page_filter" model="ir.ui.view">
+            <field name="name">product.meters.page.select</field>
+            <field name="model">product.meters.page</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="product_id" select="1"/>
+                <field name="date" select="1"/>
+                <field name="state" select="1"/>
+            </field>
+        </record>
+        
+        <record id="action_product_meters_page" model="ir.actions.act_window">
+            <field name="name">Product Meter Pages</field>
+            <field name="res_model">product.meters.page</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_product_meters_page_tree"/>
+            <field name="search_view_id" ref="view_product_meters_page_filter"/>
+        </record>
+        <menuitem action="action_product_meters_page" id="menu_product_meters_page" parent="menu_product_meter"/>
+        
         <record id="view_product_meter_tree" model="ir.ui.view">
             <field name="name">product.meter.tree</field>
             <field name="model">product.meter</field>
@@ -40,7 +101,7 @@
             <field name="view_id" ref="view_product_meter_tree"/>
             <field name="search_view_id" ref="view_product_meter_filter"/>
         </record>
-        <menuitem action="action_product_meter" id="menu_product_meter" parent="product.menu_products"/>
+        <menuitem action="action_product_meter" id="menu_product_meters" parent="menu_product_meter"/>
         
         <act_window context="{'search_default_partner_id':[active_id]}" id="act_res_partner_2_product_meters" name="Meters" res_model="product.meter" src_model="res.partner"/>
         
