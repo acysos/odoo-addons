@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-03 19:05+0000\n"
-"PO-Revision-Date: 2013-01-03 19:05+0000\n"
+"POT-Creation-Date: 2013-01-05 16:30+0000\n"
+"PO-Revision-Date: 2013-01-05 16:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Tiene lecturas"
 #. module: acy_product_meter
 #: selection:product.meters.page,state:0
 msgid "Confirmed"
-msgstr "Confirmed"
+msgstr "Confirmado"
 
 #. module: acy_product_meter
 #: model:ir.actions.act_window,name:acy_product_meter.action_product_meters_page
@@ -33,10 +33,9 @@ msgid "Product Meter Pages"
 msgstr "Hoja de lecturas"
 
 #. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:70
-#, python-format
-msgid "Unknown Error"
-msgstr "Error desconocido"
+#: view:product.meter:0
+msgid "Total meter"
+msgstr "Total lecturas"
 
 #. module: acy_product_meter
 #: view:product.meters.page:0
@@ -162,6 +161,12 @@ msgstr "No existe lectura anterior"
 #: field:product.meters.page,product_id:0
 msgid "Product"
 msgstr "Producto"
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:70
+#, python-format
+msgid "Unknown Error"
+msgstr "Error desconocido"
 
 #. module: acy_product_meter
 #: code:addons/acy_product_meter/invoice.py:118

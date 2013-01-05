@@ -71,7 +71,7 @@
                     <field name="date" attrs="{'readonly':[('state','=','invoiced')]}"/>
                     <field name="partner_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
                     <field name="product_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
-                    <field name="meter" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="meter" attrs="{'readonly':[('state','=','invoiced')]}" sum="Total meter"/>
                     <field name="state" attrs="{'readonly':[('state','=','invoiced')]}"/>
                 </tree>
             </field>

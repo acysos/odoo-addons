@@ -79,6 +79,7 @@ class account_invoice(osv.osv):
             ids = [ids]
         updated_invoices = []
         for invoice in self.browse(cr, uid, ids, context):
+            context['lang'] = partner.lang
             fiscal_position = invoice.fiscal_position and self.pool.get('account.fiscal.position').browse(cr, uid, invoice.fiscal_position.id, context) or False
             
             sequence = -1

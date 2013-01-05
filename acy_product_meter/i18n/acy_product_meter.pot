@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-03 18:40+0000\n"
-"PO-Revision-Date: 2013-01-03 18:40+0000\n"
+"POT-Creation-Date: 2013-01-05 16:29+0000\n"
+"PO-Revision-Date: 2013-01-05 16:29+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,9 +33,8 @@ msgid "Product Meter Pages"
 msgstr ""
 
 #. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:70
-#, python-format
-msgid "Unknown Error"
+#: view:product.meter:0
+msgid "Total meter"
 msgstr ""
 
 #. module: acy_product_meter
@@ -88,8 +87,9 @@ msgid "Meter description"
 msgstr ""
 
 #. module: acy_product_meter
-#: help:account.invoice.line,meter_parent_line_id:0
-msgid "The line that contain the product with meters"
+#: model:ir.model,name:acy_product_meter.model_product_meters_page
+#: field:product.meter,product_meters_page_id:0
+msgid "Product Meters Page"
 msgstr ""
 
 #. module: acy_product_meter
@@ -126,6 +126,11 @@ msgid "Invoice '%s' is waiting for validation."
 msgstr ""
 
 #. module: acy_product_meter
+#: help:account.invoice.line,meter_parent_line_id:0
+msgid "The line that contain the product with meters"
+msgstr ""
+
+#. module: acy_product_meter
 #: field:account.invoice.line,meter_parent_line_id:0
 msgid "Parent line product meter"
 msgstr ""
@@ -139,9 +144,9 @@ msgid "Product Meter"
 msgstr ""
 
 #. module: acy_product_meter
-#: model:ir.model,name:acy_product_meter.model_product_meters_page
-#: field:product.meter,product_meters_page_id:0
-msgid "Product Meters Page"
+#: field:product.meter,name:0
+#: field:product.meters.page,name:0
+msgid "Name"
 msgstr ""
 
 #. module: acy_product_meter
@@ -155,6 +160,12 @@ msgstr ""
 #: field:product.meter,product_id:0
 #: field:product.meters.page,product_id:0
 msgid "Product"
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:70
+#, python-format
+msgid "Unknown Error"
 msgstr ""
 
 #. module: acy_product_meter
