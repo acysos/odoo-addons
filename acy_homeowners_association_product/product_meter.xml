@@ -14,11 +14,25 @@
                             <field name="date"  invisible="True"/>
                             <field name="partner_id"/>
                             <field name="floor"/>
+                            <field name="stairs"/>
                             <field name="product_id"  invisible="True"/>
                             <field name="meter" />
                             <field name="state"  invisible="True"/>
                         </tree>
                     </field>
+                </field>
+            </field>
+        </record>
+        
+        <record id="view_product_meter_tree" model="ir.ui.view">
+            <field name="name">product.meter.tree</field>
+            <field name="model">product.meter</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="acy_product_meter.view_product_meter_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="floor"/>
+                    <field name="stairs"/>
                 </field>
             </field>
         </record>

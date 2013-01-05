@@ -31,6 +31,7 @@
     "depends" : [
         "base",
         "acy_product_meter",
+        "acy_homeowners_association_partner"
         ],
     "init_xml" : [],
     "demo_xml" : [],

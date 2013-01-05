@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-03 19:15+0000\n"
-"PO-Revision-Date: 2013-01-03 19:15+0000\n"
+"POT-Creation-Date: 2013-01-05 21:27+0000\n"
+"PO-Revision-Date: 2013-01-05 21:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: acy_homeowners_association_product
+#: field:product.meter,stairs:0
+msgid "Stairs"
+msgstr ""
 
 #. module: acy_homeowners_association_product
 #: model:ir.model,name:acy_homeowners_association_product.model_product_meter

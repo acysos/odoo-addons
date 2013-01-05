@@ -24,6 +24,7 @@
 from osv import osv, fields
 import tools
 import os
+from tools.translate import _
 
 class product_meter(osv.osv):
     _inherit = "product.meter"
@@ -33,9 +34,17 @@ class product_meter(osv.osv):
         for meter in self.browse(cr,uid,ids,context):
             res[meter.id] = meter.partner_id.floor
         return res
+        
+    def _stairs_get(self,cr,uid,ids,name,arg,context={}):
+        res={}
+        stairs_values = {'L': 'Left', 'C': 'Center','R': 'Right'}
+        for meter in self.browse(cr,uid,ids,context):
+            res[meter.id] = stairs_values[meter.partner_id.stairs]
+        return res
     
     _columns = {
         'floor': fields.function(_floor_get, method=True, store=True, type='char', size=64, string='Floor', readonly=True),
+        'stairs': fields.function(_stairs_get, method=True, store=True, type='char', size=64, string='Stairs', readonly=True)
     }
     
     _order = "floor asc"
