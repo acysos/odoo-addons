@@ -47,6 +47,6 @@ class product_meter(osv.osv):
         'stairs': fields.function(_stairs_get, method=True, store=True, type='char', size=64, string='Stairs', readonly=True)
     }
     
-    _order = "floor asc"
+    _order = "date desc, stairs asc, floor asc"
     
 product_meter()
