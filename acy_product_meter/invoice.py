@@ -75,11 +75,13 @@ class account_invoice(osv.osv):
         return res
     
     def expand_product_meters(self, cr, uid, ids, context={}):
+        if not context:
+            context = {}
         if type(ids) in [int, long]:
             ids = [ids]
         updated_invoices = []
         for invoice in self.browse(cr, uid, ids, context):
-            context['lang'] = partner.lang
+            context['lang'] = invoice.partner_id.lang
             fiscal_position = invoice.fiscal_position and self.pool.get('account.fiscal.position').browse(cr, uid, invoice.fiscal_position.id, context) or False
             
             sequence = -1
