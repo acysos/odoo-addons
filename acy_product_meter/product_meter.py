@@ -105,7 +105,7 @@ class product_meter(osv.osv):
         'partner_id': fields.many2one('res.partner', 'Partner', select=True, required=True),
         'product_id': fields.many2one('product.product', 'Product', select=True, required=True),
         'meter': fields.float('Meter', digits_compute=dp.get_precision('Decimal Meter')),
-        'state': fields.selection([('read', 'Read'),('invoiced', 'Invoiced')], 'State', required=True),
+        'state': fields.selection([('read', 'Read'),('invoiced', 'Invoiced')], 'State', required=True, readonly=True),
         'product_meters_page_id': fields.many2one('product.meters.page', 'Product Meters Page', ondelete='cascade'),
     }
     
@@ -121,6 +121,14 @@ class product_meter(osv.osv):
     _sql_constraints = [
         ('meter_uniq', 'unique(date, partner_id, product_id)', 'Only one meter per day, per partner and per product !'),
     ]
+    
+    def action_read(self, cr, uid, ids, context=None):
+        self.write(cr, uid, ids, {'state': 'read'})
+        return True
+    
+    def action_invoiced(self, cr, uid, ids, context=None):
+        self.write(cr, uid, ids, {'state': 'invoiced'})
+        return True
     
     def copy(self, cr, uid, id, default=None, context=None):
         if not default:

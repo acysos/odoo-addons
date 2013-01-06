@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-05 16:30+0000\n"
-"PO-Revision-Date: 2013-01-05 16:30+0000\n"
+"POT-Creation-Date: 2013-01-06 16:36+0000\n"
+"PO-Revision-Date: 2013-01-06 16:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,11 @@ msgid "Draft"
 msgstr "Borrador"
 
 #. module: acy_product_meter
+#: view:product.meter:0
+msgid "Set to read"
+msgstr "Cambiar a Leida"
+
+#. module: acy_product_meter
 #: help:product.template,meter_description:0
 msgid "The bracket [last] will be replace by the last meter. The bracket [new] will be replace by the new meter"
 msgstr "El texto [last] será reemplazado por la última lectura. El texto [new] será remplazado por la nueva lectura"
@@ -95,7 +100,7 @@ msgstr "Hoja de lecturas"
 #. module: acy_product_meter
 #: help:product.template,meters:0
 msgid "Allow use meters with this product. Remerber change the meter description in descriptions"
-msgstr "Activer lecturas en este producto. Recuerde cambair la descripción en descripciones"
+msgstr "Activar lecturas en este producto. Recuerde cambair la descripción en descripciones"
 
 #. module: acy_product_meter
 #: selection:product.meter,state:0
@@ -150,7 +155,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:118
+#: code:addons/acy_product_meter/invoice.py:121
 #, python-format
 msgid "No previous meter"
 msgstr "No existe lectura anterior"
@@ -169,7 +174,7 @@ msgid "Unknown Error"
 msgstr "Error desconocido"
 
 #. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:118
+#: code:addons/acy_product_meter/invoice.py:121
 #, python-format
 msgid "Error!"
 msgstr "Error!"
@@ -194,6 +199,11 @@ msgstr "Linea con la descripción de la lectura"
 #: model:ir.model,name:acy_product_meter.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producto"
+
+#. module: acy_product_meter
+#: view:product.meter:0
+msgid "Set to invoiced"
+msgstr "Cambiar a Facturada"
 
 #. module: acy_product_meter
 #: field:account.invoice.line,sequence:0
