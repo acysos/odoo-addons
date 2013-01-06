@@ -111,8 +111,7 @@ class product_meter(osv.osv):
     
     _defaults = {
         'name': lambda obj, cr, uid, context: obj.pool.get('ir.sequence').get(cr, uid, 'product.meter'),
-        'date': lambda self, cr, uid, context : context['date'] if context and 'date' in context else lambda *a: time.strftime('%Y-%m-%d'),
-        'state': 'read',
+        'date': lambda self, cr, uid, context : context['date'] if context and 'date' in context else time.strftime('%Y-%m-%d'),
         'product_id' : lambda self, cr, uid, context : context['product_id'] if context and 'product_id' in context else None,
         'state' : lambda self, cr, uid, context : context['meter_state'] if context and 'meter_state' in context else 'read',
     }
