@@ -50,7 +50,7 @@ msgstr ""
 #. module: acy_product_meter
 #: code:addons/acy_product_meter/invoice.py:121
 #, python-format
-msgid "Not found previous meter"
+msgid "Not found previous meter %s %s"
 msgstr ""
 
 #. module: acy_product_meter
@@ -149,7 +149,7 @@ msgstr ""
 #. module: acy_product_meter
 #: code:addons/acy_product_meter/invoice.py:116
 #, python-format
-msgid "Not found actual meter"
+msgid "Not found actual meter %s %s"
 msgstr ""
 
 #. module: acy_product_meter

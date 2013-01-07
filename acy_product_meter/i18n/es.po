@@ -50,8 +50,8 @@ msgstr "Error: La UdM por defecto y la UdM de compra deben estar en la misma cat
 #. module: acy_product_meter
 #: code:addons/acy_product_meter/invoice.py:121
 #, python-format
-msgid "Not found previous meter"
-msgstr "No se ha encontrado lectura anterior"
+msgid "Not found previous meter %s %s"
+msgstr "No se ha encontrado lectura anterior %s %s"
 
 #. module: acy_product_meter
 #: sql_constraint:product.meter:0
@@ -149,8 +149,8 @@ msgstr "Linea padre con el producto que representa las lecturas"
 #. module: acy_product_meter
 #: code:addons/acy_product_meter/invoice.py:116
 #, python-format
-msgid "Not found actual meter"
-msgstr "No se ha encontrado lectura actual"
+msgid "Not found actual meter %s %s"
+msgstr "No se ha encontrado lectura actual %s %s"
 
 #. module: acy_product_meter
 #: field:account.invoice.line,meter_line:0
