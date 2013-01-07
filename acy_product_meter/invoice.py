@@ -113,12 +113,12 @@ class account_invoice(osv.osv):
                 meter_object = self.pool.get('product.meter')
                 new_meter_id = meter_object.search(cr, uid, [('product_id','=',line.product_id.id),('partner_id','=',line.invoice_id.partner_id.id),('state','=','read'),('date','<=',date_search)], order='date', context=context)
                 if not new_meter_id:
-                    continue
+                    raise osv.except_osv(_('Error!'), _('Not found actual meter'))
                 new_meter = meter_object.browse(cr,uid,new_meter_id[0], context=context)
 
                 last_meter_id = meter_object.search(cr, uid, [('product_id','=',line.product_id.id),('partner_id','=',line.invoice_id.partner_id.id),('state','=','invoiced'),('date','<',new_meter.date)], order='date desc', context=context)
                 if not last_meter_id:
-                    raise osv.except_osv(_('Error!'), _('No previous meter'))
+                    raise osv.except_osv(_('Error!'), _('Not found previous meter'))
                 last_meter = meter_object.browse(cr,uid,last_meter_id[0], context=context)
                 
                 line_description = line.product_id.meter_description

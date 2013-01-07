@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-06 16:36+0000\n"
-"PO-Revision-Date: 2013-01-06 16:36+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2013-01-07 15:48+0000\n"
+"PO-Revision-Date: 2013-01-07 15:48+0000\n"
+"Last-Translator: Ignacio Ibeas (www.acysos.com) <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,12 @@ msgstr "Confirmar"
 #: constraint:product.template:0
 msgid "Error: The default UOM and the purchase UOM must be in the same category."
 msgstr "Error: La UdM por defecto y la UdM de compra deben estar en la misma categoría."
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:121
+#, python-format
+msgid "Not found previous meter"
+msgstr "No se ha encontrado lectura anterior"
 
 #. module: acy_product_meter
 #: sql_constraint:product.meter:0
@@ -100,7 +106,7 @@ msgstr "Hoja de lecturas"
 #. module: acy_product_meter
 #: help:product.template,meters:0
 msgid "Allow use meters with this product. Remerber change the meter description in descriptions"
-msgstr "Activar lecturas en este producto. Recuerde cambair la descripción en descripciones"
+msgstr "Activer lecturas en este producto. Recuerde cambair la descripción en descripciones"
 
 #. module: acy_product_meter
 #: selection:product.meter,state:0
@@ -141,6 +147,12 @@ msgid "Parent line product meter"
 msgstr "Linea padre con el producto que representa las lecturas"
 
 #. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:116
+#, python-format
+msgid "Not found actual meter"
+msgstr "No se ha encontrado lectura actual"
+
+#. module: acy_product_meter
 #: field:account.invoice.line,meter_line:0
 #: model:ir.actions.act_window,name:acy_product_meter.action_product_meter
 #: model:ir.model,name:acy_product_meter.model_product_meter
@@ -153,12 +165,6 @@ msgstr "Lecturas de productos"
 #: field:product.meters.page,name:0
 msgid "Name"
 msgstr "Nombre"
-
-#. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:121
-#, python-format
-msgid "No previous meter"
-msgstr "No existe lectura anterior"
 
 #. module: acy_product_meter
 #: view:product.meter:0
@@ -174,6 +180,7 @@ msgid "Unknown Error"
 msgstr "Error desconocido"
 
 #. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:116
 #: code:addons/acy_product_meter/invoice.py:121
 #, python-format
 msgid "Error!"

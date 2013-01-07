@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-06 16:35+0000\n"
-"PO-Revision-Date: 2013-01-06 16:35+0000\n"
+"POT-Creation-Date: 2013-01-07 15:48+0000\n"
+"PO-Revision-Date: 2013-01-07 15:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -45,6 +45,12 @@ msgstr ""
 #. module: acy_product_meter
 #: constraint:product.template:0
 msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr ""
+
+#. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:121
+#, python-format
+msgid "Not found previous meter"
 msgstr ""
 
 #. module: acy_product_meter
@@ -141,6 +147,12 @@ msgid "Parent line product meter"
 msgstr ""
 
 #. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:116
+#, python-format
+msgid "Not found actual meter"
+msgstr ""
+
+#. module: acy_product_meter
 #: field:account.invoice.line,meter_line:0
 #: model:ir.actions.act_window,name:acy_product_meter.action_product_meter
 #: model:ir.model,name:acy_product_meter.model_product_meter
@@ -152,12 +164,6 @@ msgstr ""
 #: field:product.meter,name:0
 #: field:product.meters.page,name:0
 msgid "Name"
-msgstr ""
-
-#. module: acy_product_meter
-#: code:addons/acy_product_meter/invoice.py:121
-#, python-format
-msgid "No previous meter"
 msgstr ""
 
 #. module: acy_product_meter
@@ -174,6 +180,7 @@ msgid "Unknown Error"
 msgstr ""
 
 #. module: acy_product_meter
+#: code:addons/acy_product_meter/invoice.py:116
 #: code:addons/acy_product_meter/invoice.py:121
 #, python-format
 msgid "Error!"
