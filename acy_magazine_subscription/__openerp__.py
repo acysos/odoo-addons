@@ -29,6 +29,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": "Tools",
     "description": """Magazine subscriptions by number. Based in InternetDomain of Zikzakmedia S.L.
     Sponsored by Innovation Media Consulting.""",
     "license" : "AGPL-3",

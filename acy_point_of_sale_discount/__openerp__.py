@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": "Generic Modules/Sales & Purchases",
     "description": """Auto calculate subtotal when a discount is applied without save the pos order. Allow change the sale price like Sale Orders""",
     "license" : "AGPL-3",
     "depends" : [

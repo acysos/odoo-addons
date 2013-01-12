@@ -32,7 +32,7 @@
 {
 	"name" : "Purchase extension to search or filter by supplier the products in the purchase order lines",
 	"version" : "0.2",
-	"author" : "Javier Duran, Acysos S.L. (Ignacio Ibeas)",
+	"author" : "Acysos S.L., Javier Duran",
     "website" : "www.acysos.com",
 	"depends" : ["product", "purchase"],
 	"description": """ Allow to limit available selection of Products in a Purchase Order only to those products that are supplied by selected Supplier.

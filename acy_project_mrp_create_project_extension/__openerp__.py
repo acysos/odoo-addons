@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules/Projects & Services",
     "description": """Project MRP - Allow create project for the sale order when it doesn't exist and add the tasks for each sale order line to this project
     Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",

@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules/Projects & Services",
     "description": """Add Analytic Account to a Work Order. Each Workorder has his own analytic account. All orders and project.
     Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",

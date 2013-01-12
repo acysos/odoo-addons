@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": "Generic Modules/CRM & SRM",
     "description": """Homeowners Associations""",
     "license" : "AGPL-3",
     "depends" : [

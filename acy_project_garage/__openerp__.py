@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules/Projects & Services",
     "description": """Add vehicles to the projects.
     Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",

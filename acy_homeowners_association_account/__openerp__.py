@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules/Accounting",
     "description": """Homeowners Associations\n
     New Fields: Floor and parking number\n
     Install Analytic Plans. Select Analytic Plan and Analytic Account""",

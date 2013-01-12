@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": 'Generic Modules/Accounting',
     "description": """Follow the client invoice, add followup notes. 
     Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",

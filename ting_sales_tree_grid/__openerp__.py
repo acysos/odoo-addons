@@ -26,8 +26,8 @@
 {
     "name" : "Sale Order Editable Tree Grid",
     "version" : "6.0",
-    "author" : "Ting!, Acysos",
-    "category" : "Generic",
+    "author" : "Acysos S.L., Ting!",
+    "category": "Generic Modules/Sales & Purchases",
     "depends" : ["base","sale"],
     "init_xml" : [],
     "description": """

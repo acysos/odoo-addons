@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": "Generic Modules/Sales & Purchases",
     "description": """Make a work order.\n
         The work order is a window, that allow to administrate several order and their projects.
     Sponsored by Talleres Mutilva""",

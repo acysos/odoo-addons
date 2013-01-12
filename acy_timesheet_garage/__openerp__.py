@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": "Generic Modules/Human Resources",
     "description": """Extends garage modules.
     Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",

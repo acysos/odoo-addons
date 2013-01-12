@@ -22,10 +22,11 @@
 ##############################################################################
 
 {
-    "name" : "Homeowners Association",
+    "name" : "Homeowners Association Partner",
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules",
     "description": """Homeowners Associations. Partner extras.""",
     "license" : "AGPL-3",
     "depends" : [

@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules",
     "description": """Check the Vat Number and assing the correct fiscal position.
     
     If the Vat Number is European Vat Number check if it is valid with Vies Webservice.

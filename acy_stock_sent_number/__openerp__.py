@@ -26,7 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "category": 'Generic Modules/Inventory Control',
+    "category" : "Generic Modules/Inventory Control",
     "description": """Parcial Picking out with continue number.
     Sponsored by Gatakka and Polux""",
     "license" : "AGPL-3",

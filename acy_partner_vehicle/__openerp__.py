@@ -22,10 +22,11 @@
 ##############################################################################
 
 {
-    "name" : "Gestión de vehículos",
+    "name" : "Vehicles Management",
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules",
     "description": """Add a form for vehicles. Usefull for garage or repair shop. 
     Add a new page in partners for the vehicles.
     Allow add the vehicle in the sale order.

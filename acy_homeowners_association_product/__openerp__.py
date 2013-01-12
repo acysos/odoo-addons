@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules/Inventory Control",
     "description": """Homeowners Associations. Product Extras.""",
     "license" : "AGPL-3",
     "depends" : [

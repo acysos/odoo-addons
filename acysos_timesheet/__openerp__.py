@@ -32,6 +32,7 @@
     
     Sponsored by Talleres Mutilva""",
 	"author" : "Acysos S.L., NaN Projectes de Programari LLiure S.L.",
+    "category": "Generic Modules/Human Resources",
 	"website" : "http://www.acysos.com",
 	"license" : "AGPL-3",
 	"depends" : [ 

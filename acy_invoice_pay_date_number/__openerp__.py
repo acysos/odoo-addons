@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules/Accounting",
     "description": """Use the date and number of invoice for payment data and description""",
     "license" : "AGPL-3",
     "depends" : [

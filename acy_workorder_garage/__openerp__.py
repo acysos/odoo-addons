@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": "Generic Modules/Sales & Purchases",
     "description": """Add Vehicles to a Work Order.
      Sponsored by Talleres Mutilva""",
     "license" : "AGPL-3",

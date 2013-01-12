@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "http://www.acysos.com",
+    "category": "Generic Modules/Sales & Purchases",
     "description" : """Point of sale extension. Allow add negative quantities. Create picking for stock.\n""",
     "depends" : [ 
         'account',

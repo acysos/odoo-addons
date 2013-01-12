@@ -26,7 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "category" : "Generic Modules/Sale",
+    "category": "Generic Modules/Sales & Purchases",
     "description": """When the sale order reached a amount limit need confirmation by a purchase manager of the partner.\n
     The sale order add field to write the purchase manager that has confirmed the sale order.""",
     "license" : "GPL-3",

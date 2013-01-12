@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category" : "Generic Modules",
     "description": """Remove International key from VAT Number when the VAT is from the same country that the company""",
     "license" : "AGPL-3",
     "depends" : [

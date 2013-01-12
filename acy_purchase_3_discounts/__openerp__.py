@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "http://www.acysos.com",
+    "category": "Generic Modules/Sales & Purchases",
     "description" : """Extension of purchase. This module adds those functionalities:
                 - Adds 3 diferent discounts on purchase order lines
                 - Calculate resulting discount based on the other discounts""",

@@ -25,7 +25,7 @@
     "name" : "Product Meter CSB19",
     "version" : "1.0",
     "author" : "Acysos S.L.",
-    "category" : "Generic Modules/Inventory Control",
+    "category" : "Generic Modules/Accounting",
     "website" : "www.acysos.com",
     "description": """Elimina el precio de los conceptos extra de CSB19 para introducir las lecturas""",
     "license" : "AGPL-3",

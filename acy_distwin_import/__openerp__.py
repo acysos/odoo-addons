@@ -26,6 +26,7 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "category": "Tools",
     "description": """DEVELOPMENT VERSION. Allow import partners and invoices from the excel files exported by Distwin. Remember save the distwin excel file like csv.
     TODO: Import invoices, improve speed.
     """,
