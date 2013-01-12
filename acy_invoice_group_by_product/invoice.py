@@ -144,24 +144,9 @@ class account_invoice(osv.osv):
     }
     
     def create(self, cr, uid, vals, context=None):
-        if context is None:
-            context = {}
-        try:
-            res = super(account_invoice, self).create(cr, uid, vals, context)
-            for inv_id, name in self.name_get(cr, uid, [res], context=context):
-                ctx = context.copy()
-                if vals.get('type', 'in_invoice') in ('out_invoice', 'out_refund'):
-                    ctx = self.get_log_context(cr, uid, context=ctx)
-                message = _("Invoice '%s' is waiting for validation.") % name
-                self.log(cr, uid, inv_id, message, context=ctx)
-            self.group_by_product(cr, uid, [res], context)
-            return res
-        except Exception, e:
-            if '"journal_id" viol' in e.args[0]:
-                raise orm.except_orm(_('Configuration Error!'),
-                     _('There is no Accounting Journal of type Sale/Purchase defined!'))
-            else:
-                raise orm.except_orm(_('Unknown Error'), str(e))
+        res = super(account_invoice, self).create(cr, uid, vals, context)
+        self.group_by_product(cr, uid, [res], context)
+        return res
     
     def write(self, cr, uid, ids, vals, context=None):
         res = super(account_invoice,self).write(cr, uid, ids, vals, context)
