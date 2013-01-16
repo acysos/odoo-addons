@@ -148,7 +148,7 @@ class stock_picking(osv.osv):
                             'product_uos_qty':move.product_qty - product_qty, #TODO: put correct uos_qty
                         })
 
-            if new_picking:
+            if new_picking and pick.type == 'in':
                 move_obj.write(cr, uid, [c.id for c in complete], {'picking_id': new_picking})
             for move in complete:
                 if pick.type == 'out':
@@ -243,7 +243,7 @@ class stock_picking(osv.osv):
             if new_picking:
                 wf_service.trg_validate(uid, 'stock.picking', new_picking, 'button_confirm', cr)
                 # Then we finish the good picking
-                self.write(cr, uid, [pick.id], {'backorder_id': new_picking})
+                self.write(cr, uid, [pick.id], {'backorder_id': new_picking,'invoice_state':'none'})
                 self.action_move(cr, uid, [new_picking])
                 wf_service.trg_validate(uid, 'stock.picking', new_picking, 'button_done', cr)
                 wf_service.trg_write(uid, 'stock.picking', pick.id, cr)
