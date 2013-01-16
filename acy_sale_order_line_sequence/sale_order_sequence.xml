@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Sequences for product meter -->
+        <record id="seq_type_sale_order_line_sequence" model="ir.sequence.type">
+            <field name="name">Sale Order Line Sequence</field>
+            <field name="code">sale.order.line.sequence</field>
+        </record>
+        <record id="seq_sale_order_line_sequence" model="ir.sequence">
+            <field name="name">Sale Order Line Sequence</field>
+            <field name="code">sale.order.line.sequence</field>
+            <field name="prefix">SOL</field>
+            <field name="padding">6</field>
+        </record>
+    </data>
+</openerp>

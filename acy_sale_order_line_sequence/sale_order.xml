@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+        <record model="ir.ui.view" id="view_order_form_sequence1">
+            <field name="name">sale.order.form.sequence1</field>
+			<field name="model">sale.order</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//tree[@string='Sales Order Lines']/field[@name='name']" position="before">
+                    <field name="sequence" string="Sequence" on_change="onchange_sequence(parent.sale_order_line_seq,sequence,parent.id)"/>
+				</xpath>
+			</field>
+		</record>
+        <record model="ir.ui.view" id="view_order_form_sequence2">
+            <field name="name">sale.order.form.sequence2</field>
+			<field name="model">sale.order</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//form[@string='Sales Order Lines']/notebook/page/field[@name='product_id']" position="before">
+                    <field name="sequence" string="Sequence" on_change="onchange_sequence(parent.sale_order_line_seq,sequence,parent.id)"/>
+				</xpath>
+			</field>
+		</record>
+        <record model="ir.ui.view" id="view_order_form_sequence3">
+            <field name="name">sale.order.form.sequence3</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field name="name" on_change="onchange_name(sale_order_line_seq)"/>
+                    <field name="sale_order_line_seq" invisible="1"/>
+                </field>
+            </field>
+		</record>
+	</data>
+</openerp>

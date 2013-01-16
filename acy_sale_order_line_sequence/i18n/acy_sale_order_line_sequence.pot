@@ -1,0 +1,60 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_sale_order_line_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-01-16 12:40+0000\n"
+"PO-Revision-Date: 2013-01-16 12:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_sale_order_line_sequence
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr ""
+
+#. module: acy_sale_order_line_sequence
+#: view:sale.order:0
+#: field:sale.order.line.seq,sequence_line:0
+msgid "Sequence"
+msgstr ""
+
+#. module: acy_sale_order_line_sequence
+#: field:sale.order.line.seq,name:0
+msgid "Order Reference"
+msgstr ""
+
+#. module: acy_sale_order_line_sequence
+#: code:addons/acy_sale_order_line_sequence/sale.py:84
+#, python-format
+msgid "Invalid action !"
+msgstr ""
+
+#. module: acy_sale_order_line_sequence
+#: code:addons/acy_sale_order_line_sequence/sale.py:84
+#, python-format
+msgid "You have to save the sale order before change the sequence line !"
+msgstr ""
+
+#. module: acy_sale_order_line_sequence
+#: model:ir.model,name:acy_sale_order_line_sequence.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: acy_sale_order_line_sequence
+#: model:ir.model,name:acy_sale_order_line_sequence.model_sale_order_line_seq
+msgid "sale.order.line.seq"
+msgstr ""
+
+#. module: acy_sale_order_line_sequence
+#: model:ir.model,name:acy_sale_order_line_sequence.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
