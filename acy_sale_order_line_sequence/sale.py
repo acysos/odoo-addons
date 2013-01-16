@@ -87,8 +87,8 @@ class sale_order_line(osv.osv):
                 seq_line_obj.write(cr,uid,seq_line_id,{'sequence_line':seq_line.sequence_line+1})
                 return {'value': {'sequence': seq_line.sequence_line}}
             else:
-                sale_order_id = sale_obj.browse(cr,uid,sale_id)
-                if not sale_order_id:
+                #sale_order_id = sale_obj.browse(cr,uid,sale_id)
+                if not sale_id:
                     raise osv.except_osv(_('Invalid action !'), _('You have to save the sale order before change the sequence line !'))
                 else:
                     if seq_line.sequence_line < sequence:
