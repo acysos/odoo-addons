@@ -72,7 +72,9 @@ class change_production_qty(osv.osv_memory):
                 if not move.scrapped:
                     done += move.product_qty
             new_qty = ((prod.product_qty - done) or prod.product_qty) + dif_qty
-
+            if new_qty < 0:
+                new_qty = 0
+                prod_obj.write(cr,uid,[prod.id],{'state':'done'})
             if prod.state == 'in_production':
                 prod_obj.action_compute_in_production(cr, uid, [prod.id],new_qty)
             else:
@@ -94,12 +96,16 @@ class change_production_qty(osv.osv_memory):
         
                 #factor = prod.product_qty * prod.product_uom.factor / bom_point.product_uom.factor
                 factor = new_qty * prod.product_uom.factor / bom_point.product_uom.factor
+                print factor
                 res = bom_obj._bom_explode(cr, uid, bom_point, factor / bom_point.product_qty, [])
+                print res
                 for r in res[0]:
                     if r['product_id'] == move.product_id.id:
                         move_lines_obj.write(cr, uid, [move.id], {'product_qty' :  r['product_qty']})
             for m in prod.move_created_ids:
-                move_lines_obj.write(cr, uid, [m.id], {'product_qty': wiz_qty.product_qty})
+                move_lines_obj.write(cr, uid, [m.id], {'product_qty': new_qty})
+            for pl in prod.product_lines:
+                self.pool.get('mrp.production.product.line').write(cr,uid,[pl.id],{'product_qty':wiz_qty.product_qty})
     
         return {}
     
