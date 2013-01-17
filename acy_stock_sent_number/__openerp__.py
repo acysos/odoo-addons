@@ -24,13 +24,12 @@
 {
     "name" : "Picking out continue number",
     "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "website" : "www.acysos.com",
-    "category" : "Generic Modules/Inventory Control",
-    "description": """Parcial Picking out with continue number.
-    Sponsored by Gatakka and Polux""",
+    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
+    "website" : "www.acysos.com, gatakka.net",
+    "category": 'Generic Modules/Inventory Control',
+    "description": """Parcial Picking out with continue number""",
     "license" : "AGPL-3",
-    "depends" : ["stock","delivery"],
+    "depends" : ["stock","delivery","sale"],
     "init_xml" : [],
     "demo_xml" : [],
     "update_xml" :["stock_sent_sequence.xml","sale.xml"],
