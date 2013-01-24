@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <record id="view_export_file_template_form_ext1" model="ir.ui.view">
+            <field name="name">ir.model.export.file_template.form.ext1</field>
+            <field name="model">ir.model.export.file_template</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="smile_export_file.view_export_file_template_form" />
+			<field name="arch" type="xml">
+                <field name="records" position="after">
+                    <field name="filter_type" attrs="{'invisible': [('refer_to_underlying_object', '!=', True)], 'required': [('refer_to_underlying_object', '=', True)]}"/>
+                    <field name="submodel_id" attrs="{'invisible': [('refer_to_underlying_object', '!=', True)], 'required': [('refer_to_underlying_object', '=', True)]}" />
+                    <field name="domain" colspan="4" attrs="{'invisible': ['|',('filter_type','!=','domain'),('refer_to_underlying_object', '!=', True)]}" nolabel="1"/>
+                    <field name="filter_method" colspan="4" attrs="{'invisible': [('filter_type','!=','method')]}" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

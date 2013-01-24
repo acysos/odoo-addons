@@ -114,6 +114,28 @@ def _text2pdf(string):
 class ir_model_export_file_template(osv.osv):
     _inherit = 'ir.model.export.file_template'
     
+    _columns = {
+        'filter_type': fields.selection([('domain', 'Domain'), ('method', 'Method')], string="Filter method", required=True),
+        'domain': fields.char('Filter domain', size=256),
+        'filter_method': fields.char('Filter method', size=64, help="signature: method(cr, uid, context)"),
+        'submodel_id': fields.many2one('ir.model', 'Object', domain=[('osv_memory', '=', False)], required=True, ondelete='cascade'),
+        'submodel': fields.related('submodel_id', 'model', type='char', string='Model', readonly=True),
+    }
+    
+    _defaults = {
+        'domain': '[]',
+        'filter_type': 'domain',
+    }
+    
+    def sub_domain_get(self,cr,uid,domain,model_obj):
+        return model_obj.search(cr, uid, domain)
+    
+    def sub_method_get(self,cr,uid,filter_method,model_obj):
+        method = filter_method.split('(')
+        if not (filter_method and hasattr(model_obj, method[0])):
+            raise osv.except_osv(_('Error'), _("Can't find method: %s on object: %s") % (filter_method, model_obj.name))
+        return eval('model_obj.'+filter_method)
+    
     def _render_tab(self, cr, uid, export_file, template_part, localdict):
         """Render the output of this template in a tabular format"""
         template = []
@@ -132,7 +154,19 @@ class ir_model_export_file_template(osv.osv):
             sub_objects = localdict['object']
             if export_file.refer_to_underlying_object:
                 sub_objects = eval(export_file.records, localdict)
-                print sub_objects
+                model_obj = self.pool.get(export_file.submodel)
+                if not model_obj:
+                    raise osv.except_osv(_('Error'), _("Unknown object: %s") % (export_file.submodel, ))
+                if export_file.filter_type == 'domain':
+                    result_ids = self.sub_domain_get(cr,uid,eval(export_file.domain),model_obj)
+                elif export_file.filter_type == 'method':
+                    result_ids = self.sub_method_get(cr,uid,export_file.filter_method,model_obj)
+                new_sub_objects = []
+                for sub_object in sub_objects:
+                    if sub_object.id in result_ids:
+                        new_sub_objects.append(sub_object)
+                sub_objects = new_sub_objects
+                
             if not isinstance(sub_objects, list):
                 sub_objects = [sub_objects]
             for index, sub_object in enumerate(sub_objects):

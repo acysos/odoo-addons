@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.1\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-07 14:28+0000\n"
-"PO-Revision-Date: 2013-01-07 14:28+0000\n"
-"Last-Translator: Ignacio Ibeas (www.acysos.com) <ignacio@acysos.com>\n"
+"POT-Creation-Date: 2013-01-24 00:19+0000\n"
+"PO-Revision-Date: 2013-01-24 00:19+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,9 +16,42 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: acy_smile_export_file_extended
-#: model:ir.model,name:acy_smile_export_file_extended.model_ir_model_export_file_template_column
-msgid "Export File Template Column"
-msgstr "Exportar columna de la plantilla"
+#: selection:ir.model.export.file_template,filter_type:0
+msgid "Domain"
+msgstr "Dominio"
+
+#. module: acy_smile_export_file_extended
+#: field:ir.model.export.file_template,domain:0
+msgid "Filter domain"
+msgstr "Filtro por dominio"
+
+#. module: acy_smile_export_file_extended
+#: field:ir.model.export.file_template,filter_method:0
+#: field:ir.model.export.file_template,filter_type:0
+msgid "Filter method"
+msgstr "Filtro por método"
+
+#. module: acy_smile_export_file_extended
+#: help:ir.model.export.file_template,filter_method:0
+msgid "signature: method(cr, uid, context)"
+msgstr "formato: method(cr, uid, context)"
+
+#. module: acy_smile_export_file_extended
+#: field:ir.model.export.file_template,submodel_id:0
+msgid "Object"
+msgstr "Objeto"
+
+#. module: acy_smile_export_file_extended
+#: model:ir.model,name:acy_smile_export_file_extended.model_ir_model_export_template
+msgid "Export Template"
+msgstr "Plantilla de exportación"
+
+#. module: acy_smile_export_file_extended
+#: code:addons/acy_smile_export_file_extended/export.py:51
+#: code:addons/acy_smile_export_file_extended/export_file.py:136
+#, python-format
+msgid "Can't find method: %s on object: %s"
+msgstr "No se puede encontrar el método: %s en el objeto: %s"
 
 #. module: acy_smile_export_file_extended
 #: model:ir.model,name:acy_smile_export_file_extended.model_ir_model_export_file_template
@@ -26,9 +59,37 @@ msgid "Export File Template"
 msgstr "Exportar plantilla de archivo"
 
 #. module: acy_smile_export_file_extended
-#: code:addons/acy_smile_export_file_extended/export_file.py:155
-#: code:addons/acy_smile_export_file_extended/export_file.py:180
+#: code:addons/acy_smile_export_file_extended/export.py:42
+#: code:addons/acy_smile_export_file_extended/export.py:51
+#: code:addons/acy_smile_export_file_extended/export.py:58
+#: code:addons/acy_smile_export_file_extended/export_file.py:136
+#: code:addons/acy_smile_export_file_extended/export_file.py:159
+#: code:addons/acy_smile_export_file_extended/export_file.py:189
+#: code:addons/acy_smile_export_file_extended/export_file.py:214
 #, python-format
 msgid "Error"
 msgstr "Error"
+
+#. module: acy_smile_export_file_extended
+#: field:ir.model.export.file_template,submodel:0
+msgid "Model"
+msgstr "Módelo"
+
+#. module: acy_smile_export_file_extended
+#: model:ir.model,name:acy_smile_export_file_extended.model_ir_model_export_file_template_column
+msgid "Export File Template Column"
+msgstr "Exportar columna de la plantilla"
+
+#. module: acy_smile_export_file_extended
+#: selection:ir.model.export.file_template,filter_type:0
+msgid "Method"
+msgstr "Método"
+
+#. module: acy_smile_export_file_extended
+#: code:addons/acy_smile_export_file_extended/export.py:42
+#: code:addons/acy_smile_export_file_extended/export.py:58
+#: code:addons/acy_smile_export_file_extended/export_file.py:159
+#, python-format
+msgid "Unknown object: %s"
+msgstr "Objeto desconocido: %s"
 

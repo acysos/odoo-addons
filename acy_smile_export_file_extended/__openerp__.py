@@ -31,15 +31,17 @@
     
     - Support Line Counter
     - Ascii Fill Char
-    - Null delimter char""",
+    - Null delimter char
+    - Add domain and method filter support in underlying object""",
     "license" : "AGPL-3",
     "depends" : [
         "base",
+        "smile_export",
         "smile_export_file"
         ],
     "init_xml" : [],
     "demo_xml" : [],
-    "update_xml" :[],
+    "update_xml" :['export_file_view.xml'],
     "active": False,
     "installable": True
 }
