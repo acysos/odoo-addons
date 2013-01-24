@@ -55,6 +55,14 @@ class mrp_operator_registry(osv.osv):
                 sequence = cr.fetchone()[0]
                 prod_obj = self.pool.get('mrp.production')
                 stock_obj = self.pool.get('stock.move')
+                if workcenter_line.production_id.state in ['draft','picking_except','cancel','done']:
+                    raise osv.except_osv(_('Error'), _("Can't make production if the Manufacturing order is %s") % (workcenter_line.production_id.state))
+                if workcenter_line.product_id:
+                    if not workcenter_line.workcenter_line_id:
+                        raise osv.except_osv(_('Error'), _("Can't produce a product without Workcenter %s") % (workcenter_line.product_id.name))
+                if workcenter_line.workcenter_line_id:
+                    if not workcenter_line.product_id:
+                        raise osv.except_osv(_('Error'), _("Can't use a workcenter without product %s") % (workcenter_line.workcenter_line_id.name))
                 prod_obj.action_in_production(cr,uid,workcenter_line.production_id.id)
                 if sequence == workcenter_line.workcenter_line_id.sequence:
                     if workcenter_line.go_product_qty > 0:
