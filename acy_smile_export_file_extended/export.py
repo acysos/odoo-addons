@@ -69,8 +69,8 @@ class ir_model_export_template(osv.osv):
                     res_obj = model_obj.browse(cr,uid,res_id,context)
                     for sub_res_obj in eval('res_obj.'+field_record):
                         if sub_res_obj.id in result_ids:
-                            new_res_ids.append(res_id)
-            
+                            if not res_id in new_res_ids:
+                                new_res_ids.append(res_id)
             res_ids = new_res_ids
         return res_ids
     
