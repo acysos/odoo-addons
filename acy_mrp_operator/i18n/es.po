@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-02-15 16:56+0000\n"
-"PO-Revision-Date: 2012-02-15 16:56+0000\n"
+"POT-Creation-Date: 2013-01-30 17:31+0000\n"
+"PO-Revision-Date: 2013-01-30 17:31+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,12 @@ msgstr "Código de la operación"
 #: model:ir.model,name:acy_mrp_operator.model_mrp_production
 #: field:mrp.workcenter.registry,production_id:0
 msgid "Manufacturing Order"
-msgstr "Orden de fabricación"
+msgstr "Órden de producción"
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_routing_workcenter
+msgid "Workcenter Usage"
+msgstr "Uso centro de producción"
 
 #. module: acy_mrp_operator
 #: model:ir.model,name:acy_mrp_operator.model_mrp_workcenter_registry
@@ -84,10 +89,9 @@ msgid "Manufacturing Operator Registry"
 msgstr "Hojas de trabajo"
 
 #. module: acy_mrp_operator
-#: model:ir.actions.act_window,name:acy_mrp_operator.mrp_operator_registry_key_action
-#: model:ir.ui.menu,name:acy_mrp_operator.menu_mrp_operator_registry_key_action
-msgid "Manufacturing Operator Registry Key"
-msgstr "Clave registro del trabajador"
+#: field:mrp.workcenter.registry.key,name:0
+msgid "Name"
+msgstr "Nombre"
 
 #. module: acy_mrp_operator
 #: field:mrp.workcenter.registry,product_id:0
@@ -140,9 +144,9 @@ msgid "The sequence must be unique per routing !"
 msgstr "La secuencia debe ser unica para cada proceso!"
 
 #. module: acy_mrp_operator
-#: view:mrp.bom:0
-msgid "Properties"
-msgstr "Propiedades"
+#: field:mrp.workcenter.registry,note:0
+msgid "Notes"
+msgstr "Notas"
 
 #. module: acy_mrp_operator
 #: sql_constraint:mrp.bom:0
@@ -152,14 +156,16 @@ msgstr "Todas las cantidades de producto deben de ser superiores a cero.\n"
 "¡Debe instalar el módulo mrp_subproduct si quiere gestionar productos extra en las LdM!"
 
 #. module: acy_mrp_operator
-#: field:mrp.workcenter.registry.key,name:0
-msgid "Name"
-msgstr "Nombre"
+#: model:ir.actions.act_window,name:acy_mrp_operator.mrp_operator_registry_key_action
+#: model:ir.ui.menu,name:acy_mrp_operator.menu_mrp_operator_registry_key_action
+msgid "Manufacturing Operator Registry Key"
+msgstr "Clave registro del trabajador"
 
 #. module: acy_mrp_operator
-#: field:mrp.workcenter.registry,note:0
-msgid "Notes"
-msgstr "Notas"
+#: code:addons/acy_mrp_operator/mrp_operator.py:62
+#, python-format
+msgid "Can't produce a product without Workcenter %s"
+msgstr "No puede producir sin definir un centro de trabajo %s"
 
 #. module: acy_mrp_operator
 #: model:ir.model,name:acy_mrp_operator.model_mrp_workcenter_registry_key
@@ -184,14 +190,23 @@ msgid "Consumed On"
 msgstr "Consumido en"
 
 #. module: acy_mrp_operator
+#: code:addons/acy_mrp_operator/mrp_operator.py:65
+#, python-format
+msgid "Can't use a workcenter without product %s"
+msgstr "No puede utilizar un producto sin centro de trabajo %s"
+
+#. module: acy_mrp_operator
 #: constraint:mrp.bom:0
 msgid "Error ! You can not create recursive BoM."
 msgstr "¡Error! No puede crear Listas de Material recursivas."
 
 #. module: acy_mrp_operator
-#: model:ir.model,name:acy_mrp_operator.model_mrp_routing_workcenter
-msgid "Workcenter Usage"
-msgstr "Uso centro de producción"
+#: code:addons/acy_mrp_operator/mrp_operator.py:59
+#: code:addons/acy_mrp_operator/mrp_operator.py:62
+#: code:addons/acy_mrp_operator/mrp_operator.py:65
+#, python-format
+msgid "Error"
+msgstr "Error"
 
 #. module: acy_mrp_operator
 #: selection:mrp.operator.registry,state:0
@@ -211,6 +226,16 @@ msgid "Operator Registry"
 msgstr "Registro del trabajador"
 
 #. module: acy_mrp_operator
+#: code:addons/acy_mrp_operator/mrp_operator.py:59
+#, python-format
+msgid "Can't make production if the Manufacturing order is %s\n"
+"The order must be ready or in production\n"
+"Line: %s"
+msgstr "No puede producir si el estado de la orden de producción es %s\n"
+"La orden debe esta preparada o en producción\n"
+"Línea: %s"
+
+#. module: acy_mrp_operator
 #: view:mrp.bom:0
 #: field:mrp.operator.registry,name:0
 msgid "Reference"
@@ -226,6 +251,11 @@ msgstr "Centros de trabajo de producción"
 #: field:mrp.production.workcenter.line,number:0
 msgid "Number"
 msgstr "Número"
+
+#. module: acy_mrp_operator
+#: view:mrp.bom:0
+msgid "Properties"
+msgstr "Propiedades"
 
 #. module: acy_mrp_operator
 #: field:mrp.workcenter.registry,go_product_qty:0
