@@ -88,7 +88,7 @@ class account_invoice(osv.osv):
                 sequence += 1
                 tax_ids = self.pool.get('account.fiscal.position').map_tax(cr, uid, fiscal_position, line.product_id.taxes_id)
                 vals = {
-                    'name': '--> '+(line.product_id.name_extra_price or ''),
+                    'name': '-- '+(line.product_id.name_extra_price or ''),
                     'origin': line.origin,
                     'invoice_id': line.invoice_id.id,
                     'uos_id': line.uos_id.id,

@@ -84,7 +84,7 @@ class sale_order(osv.osv):
                 tax_ids = self.pool.get('account.fiscal.position').map_tax(cr, uid, fiscal_position, line.product_id.taxes_id)
                 vals = {
                     'order_id': order.id,
-                    'name': '--> '+line.product_id.name_extra_price or ' ',
+                    'name': '-- '+line.product_id.name_extra_price or ' ',
                     'sequence': sequence,
                     'delay': line.product_id.sale_delay or 0.0,
                     'procurement_id': line.procurement_id and line.procurement_id.id or False,
