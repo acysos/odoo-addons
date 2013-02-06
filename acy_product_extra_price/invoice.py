@@ -115,6 +115,17 @@ class account_invoice(osv.osv):
                     self.pool.get('account.invoice.line').write(cr, uid, [id], {
                         'sequence': sequence,
                     }, context)
+            if context is None:
+                context = {}
+            ctx = context.copy()
+            ait_obj = self.pool.get('account.invoice.tax')
+            for id in ids:
+                cr.execute("DELETE FROM account_invoice_tax WHERE invoice_id=%s AND manual is False", (id,))
+                partner = self.browse(cr, uid, id, context=ctx).partner_id
+                if partner.lang:
+                    ctx.update({'lang': partner.lang})
+                for taxe in ait_obj.compute(cr, uid, id, context=ctx).values():
+                    ait_obj.create(cr, uid, taxe)
         return
     
     def _refund_cleanup_lines(self, cr, uid, lines):
