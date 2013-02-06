@@ -1,0 +1,46 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_picking_create_invoice_layout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-02-06 18:00+0000\n"
+"PO-Revision-Date: 2013-02-06 18:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_picking_create_invoice_layout
+#: code:addons/acy_picking_create_invoice_layout/stock.py:169
+#, python-format
+msgid "Sub total"
+msgstr "Subtotal"
+
+#. module: acy_picking_create_invoice_layout
+#: code:addons/acy_picking_create_invoice_layout/stock.py:110
+#, python-format
+msgid "Picking List %s - %s"
+msgstr "Albarán %s - %s"
+
+#. module: acy_picking_create_invoice_layout
+#: model:ir.model,name:acy_picking_create_invoice_layout.model_stock_picking
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: acy_picking_create_invoice_layout
+#: code:addons/acy_picking_create_invoice_layout/stock.py:56
+#, python-format
+msgid "Please put a partner on the picking list if you want to generate invoice."
+msgstr "Por favor, introduzca una empresa en el albarán si quiere crear una factura."
+
+#. module: acy_picking_create_invoice_layout
+#: code:addons/acy_picking_create_invoice_layout/stock.py:55
+#, python-format
+msgid "Error, no partner !"
+msgstr "Error, no se ha definido una empresa !"
+
