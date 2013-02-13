@@ -67,6 +67,8 @@ class account_invoice(osv.osv):
             
             sequence = -1
             reorder = []
+            if invoice.type not in ['out_invoice','out_refund']:
+                continue
             for line in invoice.invoice_line:
                 sequence += 1
                 if sequence > line.sequence:
