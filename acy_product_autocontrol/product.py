@@ -34,10 +34,10 @@ class product_autocontrol(osv.osv):
     
     _columns = {
         'sequence': fields.integer('Sequence',required=True),
-        'name': fields.char('Name', required=True, size=128, translate=True),
-        'tolerance': fields.char('Tolerance', size=128, translate=True),
-        'frecuency': fields.char('Frecuency', size=128, translate=True),
-        'tools': fields.char('Tools', size=128, translate=True),
+        'name': fields.char('Name', required=True, size=128, translate=False),
+        'tolerance': fields.char('Tolerance', size=128, translate=False),
+        'frecuency': fields.char('Frecuency', size=128, translate=False),
+        'tools': fields.char('Tools', size=128, translate=False),
         'product_id': fields.many2one('product.product', 'Product', ondelete='cascade'),
     }
     
