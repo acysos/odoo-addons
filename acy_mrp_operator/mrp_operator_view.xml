@@ -112,6 +112,48 @@
                 </form>
             </field>
         </record>
+        <record id="view_workcenter_registry_search" model="ir.ui.view">
+            <field name="name">view.workcenter.registry.search</field>
+            <field name="model">mrp.workcenter.registry</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search for mrp workcenter registry">
+                    <group col='15' colspan='4'>
+                        <filter string="Production" name="production" icon="terp-accessories-archiver" domain="[('product_id','!=',False)]" help="Registry with production"/>
+                        <filter string="No Production" name="no-production" icon="terp-accessories-archiver" domain="[('product_id','=',False)]" help="Registry without production"/>
+                        <separator orientation="vertical"/>
+                        <field name="key"/>
+                        <field name="product_id"/>
+                        <field name="workcenter_line_id"/>
+                        <field name="workcenter_id"/>
+                        <field name="operator_id"/>
+                        <newline/>
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                    </group>
+                    <newline/>
+                    <group expand="1" string="Group By..." colspan="4" col="20" >
+                        <filter string="Product" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'product_id'}"/>
+                        <separator orientation="vertical" />
+                        <filter string="Workcenter" icon="terp-stock_align_left_24" domain="[]" context="{'group_by':'workcenter_line_id'}" />
+                        <filter string="Resource" icon="terp-stock_align_left_24" domain="[]" context="{'group_by':'workcenter_id'}" />
+                        <separator orientation="vertical" />
+                        <filter string="Date start" icon="terp-go-month" domain="[]" context="{'group_by':'date_start'}"/>
+                        <filter string="Date stop" icon="terp-go-month" domain="[]" context="{'group_by':'date_stop'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        
+        <record id="mrp_worcenter_registry_action" model="ir.actions.act_window">
+            <field name="name">Worcenter Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.workcenter.registry</field>
+            <field name="context">{"search_default_production":1}</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="mrp_worcenter_registry_action" id="menu_mrp_worcenter_registry_action_action" parent="mrp.next_id_77" sequence="10"/>
         
         <!-- Workcenter Registry Key -->
         <record id="mrp_operator_registry_key_action" model="ir.actions.act_window">
