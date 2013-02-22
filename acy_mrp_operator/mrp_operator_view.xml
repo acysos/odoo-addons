@@ -77,8 +77,8 @@
                     <field name="product_id" />
                     <field name="workcenter_id" />
                     <field name="name"/>
-                    <field name="de_product_qty"/>
                     <field name="go_product_qty"/>
+                    <field name="de_product_qty"/>
                     <field name="date_start"/>
                     <field name="time_start"/>
                     <field name="date_stop"/>
