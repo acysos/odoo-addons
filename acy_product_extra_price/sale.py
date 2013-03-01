@@ -105,6 +105,7 @@ class sale_order(osv.osv):
                     'th_weight': False,
                     'state': 'draft',
                     'extra_parent_line_id': line.id,
+                    'product_id': line.product_id.product_id_extra.id or None,
                 }
                 
                 extra_line = self.pool.get('sale.order.line').create(cr, uid, vals, context)

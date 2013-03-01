@@ -10,6 +10,7 @@
                 <field name="list_price" position="after">
                     <field name="extra_price"/>
                     <field name="name_extra_price"/>
+                    <field name="product_id_extra"/>
                 </field>
             </field>
         </record>
@@ -23,6 +24,7 @@
                 <field name="list_price" position="after">
                     <field name="extra_price"/>
                     <field name="name_extra_price"/>
+                    <field name="product_id_extra"/>
                 </field>
             </field>
         </record>

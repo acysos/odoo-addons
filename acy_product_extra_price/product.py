@@ -30,6 +30,7 @@ class product_template(osv.osv):
     _columns = {
         'extra_price': fields.float('Extra Price', digits_compute=dp.get_precision('Sale Price'), help="Extra price to show in the invoice like a line"),
         'name_extra_price': fields.char('Description Extra Price', size=64, help="This description is used for the description of the line", translate=True),
+        'product_id_extra': fields.many2one('product.product','Product for extra price'),
     }
     
 product_template()

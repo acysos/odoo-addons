@@ -104,7 +104,8 @@ class account_invoice(osv.osv):
                     'company_id': line.company_id.id,
                     'partner_id': line.partner_id.id,
                     'extra_parent_line_id': line.id,
-                    'sequence': sequence
+                    'sequence': sequence,
+                    'product_id': line.product_id.product_id_extra.id or None,
                 }
                 extra_line = self.pool.get('account.invoice.line').create(cr, uid, vals, context)
                 if not invoice.id in updated_invoices:
