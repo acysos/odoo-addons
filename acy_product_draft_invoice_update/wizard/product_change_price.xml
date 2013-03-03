@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_wizard_product_change_price_form" model="ir.ui.view">
+            <field name="name">view.wizard.product.change.price.form</field>
+            <field name="model">wizard.product.change.price</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change product price">
+                    <field name="product_id" colspan="4"/>
+                    <group col="6" colspan="4">
+                        <label string="New Price ="/>
+                        <label string="Old Price"/>
+                        <label string="* ( 1 + "/>
+                        <field name="percentage" nolabel="1"/>
+                        <label string=" ) + "/>
+                        <field name="fixed" nolabel="1"/>
+                    </group>
+                    <separator string="" colspan="4" />
+                    <group colspan="4" col="6">
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="gtk-execute" string="_Change Price" name="change_price" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <act_window id="action_wizard_product_change_price"
+                    multi="True"
+                    key2="client_action_multi" name="Change product price"
+                    res_model="wizard.product.change.price" src_model="account.invoice"
+            view_mode="form" target="new" view_type="form" />
+        
+    </data>
+</openerp>

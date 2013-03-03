@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2013-01-21 23:11+0000\n"
-"PO-Revision-Date: 2013-01-21 23:11+0000\n"
+"POT-Creation-Date: 2013-03-03 20:48+0000\n"
+"PO-Revision-Date: 2013-03-03 20:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,18 +16,31 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: acy_product_draft_invoice_update
-#: help:product.template,update_price:0
+#: code:addons/acy_product_draft_invoice_update/wizard/product_change_price.py:52
+#, python-format
+msgid "UserError"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: model:ir.model,name:acy_product_draft_invoice_update.model_product_product
+#: field:wizard.product.change.price,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: code:addons/acy_product_draft_invoice_update/wizard/product_change_price.py:53
+#, python-format
+msgid "You only change the price in a draft invoice"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: help:product.product,update_price:0
 msgid "Update price in draft invoices when it is changed"
 msgstr ""
 
 #. module: acy_product_draft_invoice_update
-#: help:product.template,update_name:0
-msgid "Update description in draft invoices when it is changed"
-msgstr ""
-
-#. module: acy_product_draft_invoice_update
-#: constraint:product.template:0
-msgid "Error: The default UOM and the purchase UOM must be in the same category."
+#: view:wizard.product.change.price:0
+msgid "_Change Price"
 msgstr ""
 
 #. module: acy_product_draft_invoice_update
@@ -36,12 +49,78 @@ msgid "Product Template"
 msgstr ""
 
 #. module: acy_product_draft_invoice_update
-#: field:product.template,update_name:0
+#: view:wizard.product.change.price:0
+msgid "* ( 1 + "
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: help:product.product,update_name:0
+msgid "Update description in draft invoices when it is changed"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: view:wizard.product.change.price:0
+msgid " ) + "
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: help:wizard.product.change.price,product_id:0
+msgid "Product to change the price"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: view:wizard.product.change.price:0
+msgid "Old Price"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: field:product.product,update_name:0
 msgid "Name Update"
 msgstr ""
 
 #. module: acy_product_draft_invoice_update
-#: field:product.template,update_price:0
+#: model:ir.model,name:acy_product_draft_invoice_update.model_wizard_product_change_price
+msgid "wizard.product.change.price"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: view:wizard.product.change.price:0
+msgid "New Price ="
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: view:wizard.product.change.price:0
+msgid "Cancel"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: model:ir.actions.act_window,name:acy_product_draft_invoice_update.action_wizard_product_change_price
+#: view:wizard.product.change.price:0
+msgid "Change product price"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: field:wizard.product.change.price,fixed:0
+msgid "Fixed"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: field:wizard.product.change.price,percentage:0
+msgid "Percentage"
+msgstr ""
+
+#. module: acy_product_draft_invoice_update
+#: field:product.product,update_price:0
 msgid "Price Update"
 msgstr ""
 

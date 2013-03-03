@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2012 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #    $Id$
 #
@@ -21,22 +21,4 @@
 #
 ##############################################################################
 
-{
-    "name" : "Product change price update draft invoice",
-    "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "category" : "Generic Modules/Inventory Control",
-    "website" : "www.acysos.com",
-    "description": """Change the price of a product and update all invoice with state draft""",
-    "license" : "AGPL-3",
-    "depends" : [
-        "base",
-        "account",
-        "decimal_precision",
-        ],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" :['product_view.xml','wizard/product_change_price.xml'],
-    "active": False,
-    "installable": True
-}
+import product_change_price
