@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_invoice_line_tree_duplicate" model="ir.ui.view">
+            <field name="name">account.invoice.line.tree.duplicate</field>
+            <field name="model">account.invoice.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Invoice Line">
+                    <field name="invoice_date"/>
+                    <field name="name"/>
+                    <field name="account_id" groups="account.group_account_user"/>
+                    <field name="quantity"/>
+                    <field name="uos_id"/>
+                    <field name="price_unit"/>
+                    <field name="discount" groups="base.group_extended"/>
+                    <field name="price_subtotal"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_account_invoice_line_duplicate_filter" model="ir.ui.view">
+            <field name="name">account.invoice.line.filter</field>
+            <field name="model">account.invoice.line</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="name" />
+                <field name="product_id" />
+                <field name="invoice_date" />
+            </field>
+        </record>
+        
+        <record id="action_invoice_line_tree" model="ir.actions.act_window">
+            <field name="name">Account Invoice Lines</field>
+            <field name="res_model">account.invoice.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_invoice_line_tree_duplicate"/>
+            <field name="search_view_id" ref="view_account_invoice_line_duplicate_filter"/>
+        </record>
+        
+        <menuitem
+                 id="menu_account_invoice_lines"
+                 name="Account Invoice Lines"
+                 action="action_invoice_line_tree" parent="account.menu_action_invoice_tree1"/>
+    </data>
+</openerp>

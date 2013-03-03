@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_wizard_invoice_duplicate_line_form" model="ir.ui.view">
+            <field name="name">view.wizard.invoice.duplicate.line.form</field>
+            <field name="model">wizard.invoice.duplicate.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Duplicate Line">
+                    <field name="description"/>
+                    <field name="price" />
+                    <separator string="" colspan="4" />
+                    <group colspan="4" col="6">
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="gtk-execute" string="_Copy" name="copy_invoice_line" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <act_window id="action_wizard_invoice_duplicate_line"
+                    multi="True"
+                    key2="client_action_multi" name="Duplicate invoice lines"
+                    res_model="wizard.invoice.duplicate.line" src_model="account.invoice.line"
+            view_mode="form" target="new" view_type="form" />
+        
+    </data>
+</openerp>
