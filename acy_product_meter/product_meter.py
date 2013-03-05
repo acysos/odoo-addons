@@ -90,6 +90,7 @@ class product_meters_page(osv.osv):
             'state': 'draft',
             'meter_state': 'read',
             'date': time.strftime('%Y-%m-%d'),
+            'name': self.pool.get('ir.sequence').get(cr, uid, 'product.meter.page'),
         })
         return super(product_meters_page, self).copy(cr, uid, id, default, context=context)
     
@@ -99,11 +100,23 @@ class product_meter(osv.osv):
     _name = "product.meter"
     _description = "Product Meter"
     
+    def _last_meter_get(self, cr, uid, ids, name, args, context=None):
+        res={}
+        for line in self.browse(cr,uid,ids,context):
+            line_ids = self.search(cr,uid,[('partner_id','=',line.partner_id.id),('product_id','=',line.product_id.id),('date','<',line.date)],limit=1, order='date DESC')
+            if len(line_ids) == 0:
+                res[line.id] = 0
+            else:
+                last_line = self.browse(cr,uid,line_ids[0],context)
+                res[line.id] = last_line.meter
+        return res
+
     _columns = {
         'name': fields.char('Name', size=64, readonly=True, required=True),
         'date': fields.date('Date', select=1),
         'partner_id': fields.many2one('res.partner', 'Partner', select=True, required=True),
         'product_id': fields.many2one('product.product', 'Product', select=True, required=True),
+        'last_meter': fields.function(_last_meter_get, method=True, store=False, string='Last Meter', readonly=True, digits_compute=dp.get_precision('Decimal Meter')),
         'meter': fields.float('Meter', digits_compute=dp.get_precision('Decimal Meter')),
         'state': fields.selection([('read', 'Read'),('invoiced', 'Invoiced')], 'State', required=True, readonly=True),
         'product_meters_page_id': fields.many2one('product.meters.page', 'Product Meters Page', ondelete='cascade'),

@@ -31,6 +31,7 @@
                             <field name="date" invisible="True"/>
                             <field name="partner_id"/>
                             <field name="product_id" invisible="True"/>
+                            <field name="last_meter"/>
                             <field name="meter" />
                             <field name="state" invisible="True"/>
                         </tree>
@@ -62,6 +63,27 @@
         </record>
         <menuitem action="action_product_meters_page" id="menu_product_meters_page" parent="menu_product_meter"/>
         
+        <record id="view_product_meter_form" model="ir.ui.view">
+            <field name="name">product.meter.form</field>
+            <field name="model">product.meter</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product Meters">
+                    <field name="name" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="date" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="partner_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="product_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="last_meter" />
+                    <field name="meter" attrs="{'readonly':[('state','=','invoiced')]}" sum="Total meter"/>
+                    <field name="state" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <group col="4" colspan="4">
+                        <button name="action_invoiced" type="object" states="read" string="Set to invoiced" icon="gtk-execute" />
+                        <button name="action_read" states="invoiced" string="Set to read" type="object" icon="gtk-convert" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        
         <record id="view_product_meter_tree" model="ir.ui.view">
             <field name="name">product.meter.tree</field>
             <field name="model">product.meter</field>
@@ -71,8 +93,11 @@
                     <field name="date" attrs="{'readonly':[('state','=','invoiced')]}"/>
                     <field name="partner_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
                     <field name="product_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <field name="last_meter" />
                     <field name="meter" attrs="{'readonly':[('state','=','invoiced')]}" sum="Total meter"/>
                     <field name="state" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                    <button name="action_invoiced" type="object" states="read" string="Set to invoiced" icon="gtk-execute" />
+                    <button name="action_read" states="invoiced" string="Set to read" type="object" icon="gtk-convert" />
                 </tree>
             </field>
         </record>
