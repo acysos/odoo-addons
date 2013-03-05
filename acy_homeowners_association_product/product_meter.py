@@ -37,7 +37,7 @@ class product_meter(osv.osv):
         
     def _stairs_get(self,cr,uid,ids,name,arg,context={}):
         res={}
-        stairs_values = {'L': 'Left', 'C': 'Center','R': 'Right'}
+        stairs_values = {'L': 'Izquierda', 'C': 'Centro','R': 'Derecha'}
         for meter in self.browse(cr,uid,ids,context):
             if meter.partner_id.stairs:
                 res[meter.id] = stairs_values[meter.partner_id.stairs]
