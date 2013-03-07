@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="purchase_order_form_finish" model="ir.ui.view">
+            <field name="name">purchase.order.form.finish</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr='//button[@string="Cancel Purchase Order"]' position='after'>
+                    <button name="cancel_shipped" states="approved" type="object" string="Finish receptions" icon="gtk-cancel"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,32 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_purchase_finish_receptions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-03-07 09:01+0000\n"
+"PO-Revision-Date: 2013-03-07 09:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_purchase_finish_receptions
+#: sql_constraint:purchase.order:0
+msgid "Order Reference must be unique !"
+msgstr ""
+
+#. module: acy_purchase_finish_receptions
+#: view:purchase.order:0
+msgid "Finish receptions"
+msgstr ""
+
+#. module: acy_purchase_finish_receptions
+#: model:ir.model,name:acy_purchase_finish_receptions.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
