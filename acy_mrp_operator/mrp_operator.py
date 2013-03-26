@@ -64,10 +64,7 @@ class mrp_operator_registry(osv.osv):
                     if not workcenter_line.product_id:
                         raise osv.except_osv(_('Error'), _("Can't use a workcenter without product %s") % (workcenter_line.name))
                 prod_obj.action_in_production(cr,uid,workcenter_line.production_id.id)
-                if sequence == workcenter_line.workcenter_line_id.sequence:
-                    if workcenter_line.go_product_qty > 0:
-                        prod_obj.action_produce(cr, uid,workcenter_line.production_id.id,workcenter_line.go_product_qty,'consume_produce',context)
-                        
+                
                 for workcenter_line2 in registry.workcenter_lines:
                     if workcenter_line.production_id.id == workcenter_line2.production_id.id:
                         if workcenter_line2.workcenter_line_id.sequence <= workcenter_line.workcenter_line_id.sequence:
@@ -94,6 +91,10 @@ class mrp_operator_registry(osv.osv):
                                     defective_qty = bom.product_qty*bom.product_efficiency*workcenter_line.de_product_qty
                                     context = {'operator_registry':1,'location_src':workcenter_line2.production_id.location_src_id.id}
                                     stock_obj.action_scrap(cr, uid,stock_move_id,defective_qty,4,context)
+                
+                if sequence == workcenter_line.workcenter_line_id.sequence:
+                    if workcenter_line.go_product_qty > 0:
+                        prod_obj.action_produce(cr, uid,workcenter_line.production_id.id,workcenter_line.go_product_qty,'consume_produce',context)
         
         self.write(cr, uid, ids, {'state': 'confirmed'})
         return True
