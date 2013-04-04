@@ -90,11 +90,12 @@ class purchase_order(osv.osv):
 
                 extra_price = line.product_id.extra_price_purchase
                 supplier_info_ids = self.pool.get('product.supplierinfo').search(cr, uid, [('name','=',line.order_id.partner_id.id),('product_id','=',line.product_id.id)])
-                pl_partner_ids = self.pool.get('pricelist.partnerinfo').search(cr,uid,[('suppinfo_id','=',supplier_info_ids[0])], order='min_quantity DESC')
-                pl_partner = self.pool.get('pricelist.partnerinfo').browse(cr,uid,pl_partner_ids)
-                for pl in pl_partner:
-                    if pl.min_quantity <  line.product_qty:
-                        extra_price = pl.extra_price
+                if len(supplier_info_ids) > 0:
+                    pl_partner_ids = self.pool.get('pricelist.partnerinfo').search(cr,uid,[('suppinfo_id','=',supplier_info_ids[0])], order='min_quantity DESC')
+                    pl_partner = self.pool.get('pricelist.partnerinfo').browse(cr,uid,pl_partner_ids)
+                    for pl in pl_partner:
+                        if pl.min_quantity <  line.product_qty:
+                            extra_price = pl.extra_price
                 if extra_price == 0:
                     continue
                 
