@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2012 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #    $Id$
 #
@@ -21,32 +21,6 @@
 #
 ##############################################################################
 
-{
-    "name" : "Magento Connect Check Vat",
-    "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "website" : "www.acysos.com",
-    "category" : "Generic Modules",
-    "description": """Check the Vat Number and assing the correct fiscal position.
-    
-    If the Vat Number is European Vat Number check if it is valid with Vies Webservice.
-    
-    Fiscal position configuratión in Shop Configuration.
-    
-    This module need python vatnumber (http://code.google.com/p/vatnumber/).
-
-    For Zikzakmedia connector.
-    """,
-    "license" : "AGPL-3",
-    "depends" : [
-        "base",
-        "base_vat",
-        "account",
-        "magento_connect"
-        ],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" :["sale_view.xml"],
-    "active": False,
-    "installable": True
-}
+import partner
+import company
+import magerp_core

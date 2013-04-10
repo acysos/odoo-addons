@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_company_form_magento" model="ir.ui.view">
+            <field name="name">res.company.form.magento</field>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Magento">
+                        <separator string="Fiscal Position Configuration" colspan="4"/>
+                        <field name="national_fiscal_position"/>
+                        <field name="non_vat_fiscal_position"/>
+                        <field name="valid_vies_fiscal_position"/>
+                        <field name="non_valid_vies_fiscal_position"/>
+                        <field name="non_european_fiscal_position"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>
