@@ -106,7 +106,7 @@ msgstr ""
 #. module: acy_product_draft_invoice_update
 #: model:ir.actions.act_window,name:acy_product_draft_invoice_update.action_wizard_product_change_price
 #: view:wizard.product.change.price:0
-msgid "Change product price"
+msgid "Change product price and description"
 msgstr ""
 
 #. module: acy_product_draft_invoice_update

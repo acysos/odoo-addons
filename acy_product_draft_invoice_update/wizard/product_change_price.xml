@@ -7,8 +7,9 @@
             <field name="model">wizard.product.change.price</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Change product price">
+                <form string="Change product price and description">
                     <field name="product_id" colspan="4"/>
+                    <field name="description" colspan="4"/>
                     <group col="6" colspan="4">
                         <label string="New Price ="/>
                         <label string="Old Price"/>
@@ -28,7 +29,7 @@
         
         <act_window id="action_wizard_product_change_price"
                     multi="True"
-                    key2="client_action_multi" name="Change product price"
+                    key2="client_action_multi" name="Change product price and description"
                     res_model="wizard.product.change.price" src_model="account.invoice"
             view_mode="form" target="new" view_type="form" />
         

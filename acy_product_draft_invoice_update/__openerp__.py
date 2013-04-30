@@ -27,7 +27,10 @@
     "author" : "Acysos S.L.",
     "category" : "Generic Modules/Inventory Control",
     "website" : "www.acysos.com",
-    "description": """Change the price of a product and update all invoice with state draft""",
+    "description": """Change the price and description of a product and update all invoice with state draft
+        Add a new product line to the invoice.
+        Remove a product line for the invoice.
+    """,
     "license" : "AGPL-3",
     "depends" : [
         "base",

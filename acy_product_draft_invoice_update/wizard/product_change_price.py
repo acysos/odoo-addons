@@ -30,6 +30,7 @@ class product_change_price(osv.osv_memory):
     
     _columns = {
         'product_id': fields.many2one('product.product', 'Product', required=True, help="Product to change the price"),
+        'description': fields.char('Description', size=256, select=True),
         'percentage': fields.float('Percentage', digits=(16,2)),
         'fixed': fields.float('Fixed', digits=(16,2)),
     }
@@ -47,7 +48,7 @@ class product_change_price(osv.osv_memory):
                 for line in invoice.invoice_line:
                     if line.product_id.id == form_obj.product_id.id:
                         new_price = line.price_unit*(1 + form_obj.percentage) + form_obj.fixed
-                        line_obj.write(cr,uid,line.id,{'price_unit':new_price},context)
+                        line_obj.write(cr,uid,line.id,{'price_unit':new_price,'name':form_obj.description},context)
             else:
                 raise osv.except_osv(_('UserError'),
                     _('You only change the price in a draft invoice'))

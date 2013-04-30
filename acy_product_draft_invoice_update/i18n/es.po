@@ -106,8 +106,8 @@ msgstr "Cancelar"
 #. module: acy_product_draft_invoice_update
 #: model:ir.actions.act_window,name:acy_product_draft_invoice_update.action_wizard_product_change_price
 #: view:wizard.product.change.price:0
-msgid "Change product price"
-msgstr "Cambiar precio del producto"
+msgid "Change product price and description"
+msgstr "Cambiar precio y descripción del producto"
 
 #. module: acy_product_draft_invoice_update
 #: field:wizard.product.change.price,fixed:0
