@@ -31,7 +31,7 @@ msgstr "Direcciones de empresa"
 #. module: city
 #: field:city.city,zip:0
 msgid "ZIP"
-msgstr "ZIP"
+msgstr "Código postal"
 
 #. module: city
 #: field:city.city,country_id:0
