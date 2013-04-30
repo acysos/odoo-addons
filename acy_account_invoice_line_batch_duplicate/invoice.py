@@ -44,15 +44,20 @@ class account_invoice_line(osv.osv):
         if not value:
             return []
         now = datetime.now()
-        date = value.split('-') 
-        if datetime(int(date[0]),int(date[1]),int(date[2])) > now:
+        date = value.split('-')
+        if value == 'False':
             cr.execute("SELECT l.id " \
-                "FROM account_invoice_line l, account_invoice i " \
-                "WHERE l.invoice_id = i.id AND i.date_invoice is NULL")
+                    "FROM account_invoice_line l, account_invoice i " \
+                    "WHERE l.invoice_id = i.id AND i.date_invoice is NULL")
         else:
-            cr.execute(("SELECT l.id " \
-                "FROM account_invoice_line l, account_invoice i " \
-                "WHERE l.invoice_id = i.id AND i.date_invoice %s '%s'") % (operator,value))
+            if datetime(int(date[0]),int(date[1]),int(date[2])) > now:
+                cr.execute("SELECT l.id " \
+                    "FROM account_invoice_line l, account_invoice i " \
+                    "WHERE l.invoice_id = i.id AND i.date_invoice is NULL")
+            else:
+                cr.execute(("SELECT l.id " \
+                    "FROM account_invoice_line l, account_invoice i " \
+                    "WHERE l.invoice_id = i.id AND i.date_invoice %s '%s'") % (operator,value))
         res = cr.fetchall()
         if len(res):
             return [('id', 'in', [x[0] for x in res])]

@@ -27,6 +27,7 @@
                 <field name="name" />
                 <field name="product_id" />
                 <field name="invoice_date" />
+                <filter name="without_date" icon="terp-gtk-media-pause" string="Without date" domain="[('invoice_date','=','False')]"/>
             </field>
         </record>
         

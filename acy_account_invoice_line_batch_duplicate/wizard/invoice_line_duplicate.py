@@ -29,6 +29,7 @@ class invoice_line_duplicate(osv.osv_memory):
     _name = 'wizard.invoice.duplicate.line'
  
     _columns = {
+        'product_id': fields.many2one('product.product', 'Product', required=True, help='Leave blank, to copy the product of the original line'),
         'description': fields.char('Description', size=64, help='Leave blank, to copy the description of the original line'),
         'price': fields.float('Price', digits_compute=dp.get_precision('Account'), help='Leave blank, to copy the original price'),
     }
@@ -42,6 +43,10 @@ class invoice_line_duplicate(osv.osv_memory):
 
         for line in lines:
             if line.invoice_id.state == 'draft':
+                if form_obj.product_id:
+                    product_id = form_obj.product_id.id
+                else:
+                    product_id = line.product_id.id
                 if form_obj.description:
                     description = form_obj.description
                 else:
@@ -50,7 +55,7 @@ class invoice_line_duplicate(osv.osv_memory):
                     price = form_obj.price
                 else:
                     price = line.price_unit
-                line_obj.copy(cr,uid,line.id,{'name':description,'price_unit':price}, context)
+                line_obj.copy(cr,uid,line.id,{'name':description,'price_unit':price,'product_id':product_id}, context)
             else:
                 raise osv.except_osv(_('UserError'),
                     _('You only can duplicate a line in a draft invoice'))
