@@ -1,0 +1,318 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_mrp_operator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-02-21 16:50+0000\n"
+"PO-Revision-Date: 2013-02-21 16:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_mrp_operator
+#: model:ir.actions.act_window,name:acy_mrp_operator.mrp_worcenter_registry_action
+#: model:ir.ui.menu,name:acy_mrp_operator.menu_mrp_worcenter_registry_action_action
+msgid "Worcenter Analysis"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: selection:mrp.operator.registry,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.bom:0
+msgid "Components"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.operator.registry:0
+msgid "Confirm"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,name:0
+msgid "Operation Code"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_production
+#: field:mrp.workcenter.registry,production_id:0
+msgid "Manufacturing Order"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_routing_workcenter
+msgid "Workcenter Usage"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_workcenter_registry
+#: field:mrp.operator.registry,workcenter_lines:0
+msgid "MRP Workcenter Registry"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_operator_registry
+msgid "MRP Operator Registry"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+msgid "Group By..."
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.operator.registry,state:0
+msgid "State"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+msgid "Production"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: selection:mrp.operator.registry,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+#: field:mrp.workcenter.registry,date_stop:0
+msgid "Date stop"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_production_workcenter_line
+msgid "Work Order"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+#: field:mrp.workcenter.registry,workcenter_id:0
+msgid "Resource"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.actions.act_window,name:acy_mrp_operator.mrp_operator_registry_action
+#: model:ir.ui.menu,name:acy_mrp_operator.menu_mrp_operator_registry_action
+msgid "Manufacturing Operator Registry"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry.key,name:0
+msgid "Name"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+#: field:mrp.workcenter.registry,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_production_product_line
+msgid "Production Scheduled Product"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_workcenter_registry_key
+msgid "mrp.workcenter.registry.key"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+msgid "Workcenter Registry"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.operator.registry:0
+msgid "Set to Draft"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,time_stop:0
+msgid "Time stop"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_product_produce
+msgid "Product Produce"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,key:0
+msgid "Key"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.operator.registry,date:0
+msgid "Date"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,time_start:0
+msgid "Time start"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: sql_constraint:mrp.routing.workcenter:0
+msgid "The sequence must be unique per routing !"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,note:0
+msgid "Notes"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: sql_constraint:mrp.bom:0
+msgid "All product quantities must be greater than 0.\n"
+"You should install the mrp_subproduct module if you want to manage extra products on BoMs !"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.actions.act_window,name:acy_mrp_operator.mrp_operator_registry_key_action
+#: model:ir.ui.menu,name:acy_mrp_operator.menu_mrp_operator_registry_key_action
+msgid "Manufacturing Operator Registry Key"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: code:addons/acy_mrp_operator/mrp_operator.py:62
+#, python-format
+msgid "Can't produce a product without Workcenter %s"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+msgid "Search for mrp workcenter registry"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+#: field:mrp.workcenter.registry,workcenter_line_id:0
+msgid "Workcenter"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: model:ir.model,name:acy_mrp_operator.model_mrp_bom
+#: view:mrp.bom:0
+msgid "Bill of Material"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.bom,consumed_on:0
+#: field:mrp.production.product.line,consumed_on:0
+msgid "Consumed On"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: code:addons/acy_mrp_operator/mrp_operator.py:65
+#, python-format
+msgid "Can't use a workcenter without product %s"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: constraint:mrp.bom:0
+msgid "Error ! You can not create recursive BoM."
+msgstr ""
+
+#. module: acy_mrp_operator
+#: code:addons/acy_mrp_operator/mrp_operator.py:59
+#: code:addons/acy_mrp_operator/mrp_operator.py:62
+#: code:addons/acy_mrp_operator/mrp_operator.py:65
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: selection:mrp.operator.registry,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+#: field:mrp.workcenter.registry,date_start:0
+msgid "Date start"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.operator.registry:0
+#: view:mrp.production:0
+#: field:mrp.production,operator_ids:0
+msgid "Operator Registry"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: code:addons/acy_mrp_operator/mrp_operator.py:59
+#, python-format
+msgid "Can't make production if the Manufacturing order is %s\n"
+"The order must be ready or in production\n"
+"Line: %s"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.workcenter.registry:0
+msgid "No Production"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.bom:0
+#: field:mrp.operator.registry,name:0
+msgid "Reference"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.production:0
+#: view:mrp.production.workcenter.line:0
+msgid "Production Work Centers"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.production.workcenter.line,number:0
+msgid "Number"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.bom:0
+msgid "Properties"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,go_product_qty:0
+msgid "Good Product Qty"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.operator.registry,operator_id:0
+#: field:mrp.workcenter.registry,operator_id:0
+msgid "Operator"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: constraint:mrp.production:0
+msgid "Order quantity cannot be negative or zero !"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,de_product_qty:0
+msgid "Defective Product Qty"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: field:mrp.workcenter.registry,operator_registry_id:0
+msgid "Operator registry"
+msgstr ""
+
+#. module: acy_mrp_operator
+#: view:mrp.bom:0
+msgid "Revisions"
+msgstr ""
+
