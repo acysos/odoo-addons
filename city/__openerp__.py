@@ -25,6 +25,7 @@
     "version" : "2.0",
     "author" : "Acysos S.L., Pedro Manuel Baeza, Pablo Rocandio",
     "website" : "www.acysos.com, www.serviciosbaeza.com",
+    "license" : "AGPL-3",
     "category" : "Hidden",
     "description": """Creates a model for storing cities
 Zip code, city, state and country fields are replaced with a location field in partner and partner contact forms.
