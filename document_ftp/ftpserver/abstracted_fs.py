@@ -31,7 +31,7 @@ def _get_month_name(month):
     elif month==11:return 'Nov'
     elif month==12:return 'Dec'
 
-from ftpserver import _to_decode, _to_unicode
+from ftpserver import _to_decode, _to_unicode, to_ascii
 
 
 class abstracted_fs(object):
@@ -252,7 +252,9 @@ class abstracted_fs(object):
         @param line An absolute or relative ftp path, as passed to the cmd.
         @param mode A word describing the mode of operation, so that this
                     function behaves properly in the different commands.
-        """
+        """ 
+        """Remove special characters"""
+        line = to_ascii(_to_unicode(line))
         path = self.ftpnorm(line)
         if self.cwd_node is None:
             if not os.path.isabs(path):
@@ -364,7 +366,6 @@ class abstracted_fs(object):
     def rmdir(self, datacr):
         """Remove the specified directory."""
         cr, node, rem = datacr
-        print type(node)
         assert node
         node.rmcol(cr)
         cr.commit()
@@ -389,9 +390,6 @@ class abstracted_fs(object):
             * A file: read, create and remove
             * A directory: change the parent and reassign children to ressource
         """
-        print src
-        print type(src)
-        print datacr
         cr = datacr[0]
         try:
             nname = _to_unicode(datacr[2])

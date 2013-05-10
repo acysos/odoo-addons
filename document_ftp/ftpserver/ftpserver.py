@@ -1836,6 +1836,9 @@ class FTPHandler(asynchat.async_chat):
             raise FTPExceptionSent(why)
 
     def get_crdata2(self, *args, **kwargs):
+        print args
+        #args[0] = to_ascii(_to_unicode(args[0]))
+        #print args[0]
         return self.try_as_current_user(self.fs.get_crdata, args, kwargs, line=args[0])
 
     def _make_eport(self, ip, port):
@@ -2224,11 +2227,10 @@ class FTPHandler(asynchat.async_chat):
             cmd = 'APPE'
         else:
             cmd = 'STOR'
-        """Remove special characters"""
-        line = to_ascii(_to_unicode(line))
         datacr = None
         try:
             datacr = self.get_crdata2(line,mode='create')
+            print datacr
             if self.restart_position:
                 mode = 'r+'
             fd = self.try_as_current_user(self.fs.create, (datacr, datacr[2], mode + 'b'))
@@ -2579,8 +2581,6 @@ class FTPHandler(asynchat.async_chat):
 
     def ftp_MKD(self, line):
         """Create the specified directory."""
-        """Remove special characters"""
-        line = to_ascii(_to_unicode(line))
         try:
             datacr = self.get_crdata2(line, mode='create')
             self.try_as_current_user(self.fs.mkdir, (datacr, datacr[2]), line=line)
@@ -2643,8 +2643,6 @@ class FTPHandler(asynchat.async_chat):
         """Rename file (destination name only, source is specified with
         RNFR).
         """
-        """Remove special characters"""
-        line = to_ascii(_to_unicode(line))
         if not self.fs.rnfr:
             self.respond("503 Bad sequence of commands: use RNFR first.")
             return
