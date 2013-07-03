@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_columns" enabled="true" name="_columns">_columns = {
+		${cursor}
+				}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_constraints" enabled="true" name="_constraints">def ${_check_method}(self, cr, uid, context=None): 
+    if not context:
+        context={}
+    #TODO : check condition and return boolean accordingly
+	return True
+_constraints = [(${_check_method}, _('Error: Invalid Message'), ['${field_name}']), ] ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_date_name" enabled="true" name="_date_name">_date_name = '${data}' ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_defaults" enabled="true" name="_defaults">_defaults = {  
+	'${datee}': lambda *a: time.strftime('%Y-%m-%d'),  ${cursor}
+	}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_description" enabled="true" name="_description">_description = '${__doc__}' ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_inherit" enabled="true" name="_inherit">_inherit = '${openerpmodel}' ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_inherits" enabled="true" name="_inherits">_inherits = {  '${openerpmodel}': '${model_id}'  ${cursor} }</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_name" enabled="true" name="_name">_name = '${openerp}' ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_order" enabled="true" name="_order">_order = '${id}' ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_parent_store" enabled="true" name="_parent_store">_parent_store = ${False} ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_rec_name" enabled="true" name="_rec_name">_rec_name = '${name}' ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_sequence" enabled="true" name="_sequence">_sequence = ${data} ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_sql_constraints" enabled="true" name="_sql_constraints">_sql_constraints = [ 	('name_uniq', 'unique (name)', _('The Name of the OpenERPModel must be unique !')), 	${cursor} ]</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_table" enabled="true" name="_table">_table = '${openerp_model}' ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def action_workflow" enabled="true" name="def action_workflow">def action_cancel(self, cr, uid, ids, *args): 
+	#TODO : Business Process
+ 	return result ${cursor}
+	result = True</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def copy" enabled="true" name="def copy">def copy(self, cr, uid, id, default=None, context=None): 
+    if not context:
+        context={}
+	res_id = super(${ModelName}, self).copy(cr, uid, id, default, context)
+	return res_id ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def create" enabled="true" name="def create">def create(self, cr, uid, vals, context=None):
+    if not context:
+        context={}
+	res_id = super(${ModelName}, self).create(cr, uid, vals, context)
+	return res_id ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def default_get" enabled="true" name="def default_get">def default_get(self, cr, uid, fields_list, context=None):
+    if not context:
+        context={}
+	values = super(${ModelName}, self).default_get(cr, uid, fields_list, context)
+	${cursor}
+	return values</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def fields_get" enabled="true" name="def fields_get">def fields_get(self, cr, uid, fields=None, context=None):
+    if not context:
+        context={}
+	return super(${ModelName}, self).fields_get(cr, uid, fields, context, read_access) 
+	${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def fields_view_get" enabled="true" name="def fields_view_get">def fields_view_get(self, cr, uid, view_id=None, view_type=False, context=None, toolbar=False, submenu=False):
+    if not context:
+        context={}
+	res = super(${ModelName}, self).fields_view_get(cr, uid, view_id, view_type, context, toolbar, submenu)
+	return res</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_get" enabled="true" name="def name_get">def name_get(self, cr, uid, ids, context=None):
+	#TODO : search on name field or _res_name fields 
+	#and make a result [(id, name), (id, name), ...] 
+	res = self.read(cr, uid, ids, [self._rec_name], context, load='_classic_write')]
+	return res ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_search" enabled="true" name="def name_search">def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=80):
+	#TODO: make a search on specific fields and get ids     
+	 if not args:
+        args=[]
+    if not context:
+        context={}
+    ids = []
+    if name:
+        ids = self.search(cr, uid, [('code','ilike',name)]+ args, limit=limit)
+    if not ids:
+        ids = self.search(cr, uid, [('name',operator,name)]+ args, limit=limit)
+    self.name_get(cr, uid, ids, context=context)${cursor}</template>
+    <template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def on_change" enabled="true" name="def on_change">def onchange_${fields}(self, cr, uid, ${fields}, context=None):
+    if not context:
+        context={}
+	value = {}
+	domain = {}
+	${cursor}
+	return {'value': value, 'domain': domain }</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def read" enabled="true" name="def read">def read(self, cr, uid, ids, fields=None, context=None, load='_classic_read'):
+    if not context:
+        context={}
+	res = super(${ModelName}, self).read(cr, uid, ids, fields, context) 
+	#TODO : process on result
+	return res ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def search" enabled="true" name="def search">def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
+    if not context:
+        context={}
+	#TODO : process on args before search
+	res = super(${ModelName}, self).search(cr, uid, args, offset, limit, order, context, count)
+	#TODO : process</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def unlink" enabled="true" name="def unlink">def unlink(self, cr, uid, ids, context=None):
+    if not context:
+        context={}
+	#TODO: process before delete resource
+	res = super(${ModelName}, self).unlink(cr, uid, ids, context)
+	return res ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def write" enabled="true" name="def write">def write(self, cr, uid, ids, vals, context=None):
+    if not context:
+        context={}
+	#TODO: process before updating resource
+	res = super(${ModelName}, self).write(cr, uid, ids, vals, context)
+	return res ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : domain" enabled="true" name="Field Attribute : domain">domain=[('${state}','=','${done}'), ${cursor}]</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : help" enabled="true" name="Field Attribute : help">help='${HelpAboutField}', ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : readonly" enabled="true" name="Field Attribute : readonly">readonly=True, ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : required" enabled="true" name="Field Attribute : required">required=True, ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : select" enabled="true" name="Field Attribute : select">select = True, ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : store" enabled="true" name="Field Attribute : store">store={
+	#TODO : define model and function call for store field 
+	'${field_name}': (_get_invoice_from_line, None, 50),
+	}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field States" enabled="true" name="Field States">states={'${draft}':[('readonly',${False})${cursor}]}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.binary" enabled="true" name="fields.binary">'${file_field}':fields.binary('${Label}', filters=${None}), ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.boolean" enabled="true" name="fields.boolean">'${name}':fields.boolean('${Label}', required=${False}), ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.char" enabled="true" name="fields.char">'${name}':fields.char('${Label}', size=${64}, required=${False}, readonly=${False}), ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.date" enabled="true" name="fields.date">#TODO : import time required to get currect date
+'${datee}': fields.date('${Date}'), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.datetime" enabled="true" name="fields.datetime">#TODO : import time required to get currect datetime
+'${datetime}': fields.datetime('${Date}'), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.float" enabled="true" name="fields.float">'${number}': fields.float('${Label}', digits_compute=dp.get_precision('Account')), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.function" enabled="true" name="fields.function">'${data}': fields.function(${_function_call}, method=True, type='${float}', string='${Label}', store=${True}), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.integer" enabled="true" name="fields.integer">'${number}': fields.integer('${Label}') ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.integer_big" enabled="true" name="fields.integer_big">'${number}': fields.integer_big('${Label}') ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.many2many" enabled="true" name="fields.many2many">'${data}_ids':fields.many2many('${OpenerpModel}', '${partner}_${category}_rel', '${model1}_id', '${model2}_id', '${Label}'), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.many2one" enabled="true" name="fields.many2one">'${data}_id':fields.many2one('${OpenerpModel}', '${Label}', required=${False}), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.one2many" enabled="true" name="fields.one2many">'${data}_ids':fields.one2many('${OpenerpModel}', '${field}_id', '${Label}', required=${False}), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.property" enabled="true" name="fields.property">'property_${name}': fields.property( 
+	'${OpenerpModel}',
+	type='${many2one}',
+	relation='${openerpmodel}',
+	string='${Label}',
+	method=True,
+	view_load=True,
+	domain=[('${state}','=','${done}')],
+	help="${Helpdescrip}"
+	required=${10:True}),</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.reference" enabled="true" name="fields.reference">'${ref}': fields.reference('${Document}', 
+	selection=[
+	#TODO : define list of model and Label that will be work as a reference
+	('account.account', 'Account'),
+	${cursor} 	], size=${128}),</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.related" enabled="true" name="fields.related">'${field}_id': fields.related('${relation_field}','${field}_id', type='${many2one}', relation='${openerpmodel}', string='${Label}'), ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.selection : [(draft, Draft)]" enabled="true" name="fields.selection : [(draft, Draft)]">'${state}':fields.selection([
+	('draft','Draft'),
+	('done','Done'),
+	${cursor} ],	'${State}', select=True, readonly=${True}),</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.selection [def _select_data]" enabled="true" name="fields.selection [def _select_data]">'${state}': fields.selection(${_get_states}, '${data}', required=${True}), ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.text" enabled="true" name="fields.text">'${note}': fields.text('${Description}'), ${cursor}</template>
+	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.time" enabled="true" name="fields.time">#TODO : import time required to get currect time
+'${datee}': fields.time('${Time}'), ${cursor}</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="New OpenERP Method" enabled="true" name="New OpenERP Method">def ${method}_${name}(self, cr, uid, ids, context=None):
+	result = None
+	#TODO : OpenERP Business Process 
+	${cursor}
+	return result</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="OpenERP : model" enabled="true" name="OpenERP : model">from osv import osv
+from osv import fields
+import decimal_precision as dp
+from tools.translate import _
+import time
+
+class ${ClassName}(osv.osv):
+	'''
+	Open ERP Model
+	'''
+	_name = '${openerpmodel}'
+	_description = '${openerpmodel}'
+
+	_columns = {
+			'${name}':fields.char('${data}', size=${255}, required=${False}, readonly=${False}),
+			${cursor}
+		}
+${ClassName}()</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="OpenERP : inherit model" enabled="true" name="OpenERP : model">from osv import osv
+from osv import fields
+import decimal_precision as dp
+from tools.translate import _
+import time
+
+class ${ClassName}(osv.osv):
+	'''
+	Open ERP Model
+	'''
+	_inherit = '${openerpmodel}'
+
+	_columns = {
+			${cursor}
+		}
+${ClassName}()</template>
+
+
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="OpenERP License" enabled="true" name="OpenERP License"># -*- encoding: utf-8 -*-
+########################################################################
+#
+# @authors: ${authon}
+# Copyright (C) 2013  ${company}
+#
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#
+# This module is GPLv3 or newer and incompatible
+# with OpenERP SA "AGPL + Private Use License"!
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see http://www.gnu.org/licenses.
+########################################################################
+</template>
+<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="__openerp__" enabled="true" name="__openerp__">{
+    "name": "${name}",
+    "version": "1.0",
+    "depends": ["base"],
+    "author": "${author}",
+    "website": "${web}",
+    "category": "${category}",
+    "complexity": "normal",
+    "description": """
+    This module provide :
+    ${cursor}
+    """,
+    "init_xml": [${cursor}],
+    'update_xml': [${cursor}],
+    'demo_xml': [${cursor}],
+    'test': [${cursor}],
+    'installable': True,
+    'auto_install': False,
+#    'images' : [],
+#    'certificate': '${certificate}',
+}</template>
+</templates>
