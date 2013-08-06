@@ -1,0 +1,195 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* stock_valued
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-03-01 11:25+0000\n"
+"PO-Revision-Date: 2012-03-02 21:06+0000\n"
+"Last-Translator: jmartin (Zikzakmedia) <jmartin@zikzakmedia.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-04-20 05:43+0000\n"
+"X-Generator: Launchpad (build 16567)\n"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Shipping Address :"
+msgstr "Adreça d'enviament :"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Disc%"
+msgstr "Desc%"
+
+#. module: stock_valued
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Heu d'assignar un lot de producció per aquest producte"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Notes:"
+msgstr "Observacions:"
+
+#. module: stock_valued
+#: sql_constraint:res.partner:0
+msgid ""
+"Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! El NIF especificat ja està assignat a un altre client."
+
+#. module: stock_valued
+#: model:ir.model,name:stock_valued.model_stock_picking
+msgid "Picking List"
+msgstr "Albarà"
+
+#. module: stock_valued
+#: field:stock.move,sale_price_net:0
+msgid "Net"
+msgstr "Base"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Description"
+msgstr "Descripció"
+
+#. module: stock_valued
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Intenteu assignar un lot que no pertany al mateix producte"
+
+#. module: stock_valued
+#: field:stock.move,sale_price_unit:0
+#: report:stock_valued.stock_valued_rml:0
+msgid "Price"
+msgstr "Preu"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "."
+msgstr "."
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Expected Shipping Date"
+msgstr "Data d'enviament prevista"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "VAT"
+msgstr "Impost"
+
+#. module: stock_valued
+#: field:stock.move,sale_discount:0
+msgid "Discount (%)"
+msgstr "Descompte (%)"
+
+#. module: stock_valued
+#: field:stock.move,sale_price_subtotal:0
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: stock_valued
+#: view:stock.picking:0
+msgid "Partner Address"
+msgstr "Adreça d'empresa"
+
+#. module: stock_valued
+#: field:stock.picking,tracking:0
+msgid "Tracking"
+msgstr "Seguiment"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Tax Amount"
+msgstr "Impostos"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Customer Agreement:"
+msgstr "Conformitat del client:"
+
+#. module: stock_valued
+#: field:stock.picking,amount_tax:0
+msgid "Taxes"
+msgstr "Impostos"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Amount"
+msgstr "Import"
+
+#. module: stock_valued
+#: field:res.partner,alb_val:0
+msgid "Albarán valorado"
+msgstr "Albarà valorat"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "["
+msgstr "["
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "]"
+msgstr "]"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Packing List:"
+msgstr "Albarà:"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Quantity"
+msgstr "Quantitat"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "TOTAL"
+msgstr "TOTAL"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Weight"
+msgstr "Pes"
+
+#. module: stock_valued
+#: model:ir.model,name:stock_valued.model_stock_move
+msgid "Stock Move"
+msgstr "Moviment d'estoc"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Recipient"
+msgstr "Destinatari"
+
+#. module: stock_valued
+#: model:ir.actions.report.xml,name:stock_valued.reprml
+msgid "Valued Packing List"
+msgstr "Albarà valorat"
+
+#. module: stock_valued
+#: report:stock_valued.stock_valued_rml:0
+msgid "Order(Origin)"
+msgstr "Comanda (Origen)"
+
+#. module: stock_valued
+#: model:ir.model,name:stock_valued.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: stock_valued
+#: field:stock.picking,amount_total:0
+msgid "Total"
+msgstr "Total"
+
+#. module: stock_valued
+#: field:stock.picking,amount_untaxed:0
+#: report:stock_valued.stock_valued_rml:0
+msgid "Untaxed Amount"
+msgstr "Base"

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_partner_alb_val">
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+                    <field name="alb_val"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_picking_form_valued">
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="move_lines" position="after">
+                    <group colspan="4" col="7">
+                        <field name="amount_untaxed" sum="Untaxed amount"/>
+                        <field name="amount_tax"/>
+                        <field name="amount_total" sum="Total amount"/>
+                    </group>
+                </field>
+                <xpath expr="//field[@name='move_lines']/form//field[@name='state']" position="before">
+                    <group col="8" colspan="4">
+                        <field name="sale_price_unit"/>
+                        <field name="sale_discount"/>
+                        <field name="sale_price_net"/>
+                        <field name="sale_price_subtotal"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_picking_out_form_valued">
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_out_form"/>
+            <field name="arch" type="xml">
+                <field name="move_lines" position="after">
+                    <group colspan="4" col="7">
+                        <field name="amount_untaxed" sum="Untaxed amount"/>
+                        <field name="amount_tax"/>
+                        <field name="amount_total" sum="Total amount"/>
+                    </group>
+                </field>
+                <xpath expr="//field[@name='move_lines']/form//field[@name='state']" position="before">
+                    <group col="8" colspan="4">
+                        <field name="sale_price_unit"/>
+                        <field name="sale_discount"/>
+                        <field name="sale_price_net"/>
+                        <field name="sale_price_subtotal"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_picking_form_partner">
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="address_id" select="2" position="replace">
+                    <field name="partner_id" select="2"/>
+                    <field name="address_id" select="2" string="Partner Address" />
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
