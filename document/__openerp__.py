@@ -22,7 +22,7 @@
 
 {
     'name': 'Integrated Document Management System',
-    'version': '2.1',
+    'version': '3.0',
     'category': 'Generic Modules/Others',
     'description': """This is a complete document management system:
     * User Authentication

@@ -31,7 +31,7 @@
 
 {
 	"name" : "Purchase extension to search or filter by supplier the products in the purchase order lines",
-	"version" : "0.2",
+	"version" : "1.0",
 	"author" : "Acysos S.L., Javier Duran",
     "website" : "www.acysos.com",
 	"depends" : ["product", "purchase"],

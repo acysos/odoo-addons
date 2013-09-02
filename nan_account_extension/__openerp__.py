@@ -29,7 +29,7 @@
 
 {
     "name" : "NaN Account Extension",
-    "version" : "2.0",
+    "version" : "3.0",
     "author" : "Acysos S.L., NaN",
     "category" : "Accounting",
     "website": "http://www.acysos.com, http://www.nan-tic.com",
