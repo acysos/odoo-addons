@@ -28,7 +28,7 @@
 
 {
     "name" : "External Prices",
-    "version" : "2.0",
+    "version" : "3.0",
     "depends" : [
         'account',
         'account_tax_include',
