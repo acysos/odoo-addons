@@ -36,10 +36,8 @@ class account_cash_statement(osv.osv):
         print ids
         for statement in statement_obj.browse(cr, uid, ids, context=context):
             if statement.journal_id.to_invoiced:
-                print "To invoice"
                 return self.write(cr, uid, ids, {'closing_date': time.strftime("%Y-%m-%d %H:%M:%S"),'state':'confirm'}, context=context)
             else:
-                print "No invoice"
                 res = super(account_cash_statement, self).button_confirm_cash(cr, uid, ids, context=context)
                 return res
     
