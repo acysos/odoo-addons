@@ -41,6 +41,7 @@
         "base",
         "base_vat",
         "account",
+        "sale",
         "magentoerpconnect"
         ],
     "init_xml" : [],

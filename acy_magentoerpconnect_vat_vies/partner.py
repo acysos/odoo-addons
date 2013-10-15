@@ -32,7 +32,7 @@ class res_partner(osv.osv):
     def check_vat_vies(self, cr, uid, ids, context):
         if context is None:
             context = {}
-            
+        print "Vat vies"
         vat = False
         vat_ok = False
         european_countries = ['at','be','bg','cy','cz','de','dk','ee','el','es','fi','fr','gb','hu','ie','it','lt','lu','lv','mt','nl','pl','pt','ro','se','si','sk']
@@ -42,7 +42,6 @@ class res_partner(osv.osv):
         values = {}
         partners = partner_obj.browse(cr,uid,ids,context)
         for partner in partners:
-            print partner.name
             fiscal_position = partner.property_account_position.id or None
             if partner.mag_vat:
                 company = partner.company_id
@@ -64,9 +63,12 @@ class res_partner(osv.osv):
                             fiscal_position = company.non_valid_vies_fiscal_position.id or None
                     else:
                         fiscal_position = company.non_european_fiscal_position.id or None
-                values = {'property_account_position':fiscal_position,'vat':vat}
+                print partner.vat
+                values = {'property_account_position':fiscal_position}
+                print values
                 self.write(cr,uid,[partner.id],values,context)
-                
+                print "Hecho"
+
         return True
         
 res_partner()

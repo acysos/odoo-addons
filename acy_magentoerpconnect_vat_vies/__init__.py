@@ -24,3 +24,4 @@
 import partner
 import company
 import magerp_core
+import sale
