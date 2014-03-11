@@ -1,0 +1,15 @@
+<openerp>
+    <data>
+    
+   		<report
+            id="real_state_top_generic_list"
+			string="**Top List"
+			model="real.state.top"
+			name="real.state.top.generic.list"
+			rml="acy_real_state/report/generic_list.rml"
+			header="True"
+			auto="False"
+			menu="True"/>
+    
+    </data>
+</openerp>

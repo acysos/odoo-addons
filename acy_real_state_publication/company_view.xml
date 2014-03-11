@@ -1,0 +1,24 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_company_form_real_state_publication">
+            <field name="name">res.company.form.real.state.publication</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="acy_real_state.view_company_form_real_state"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="default_document_client" position="after">
+                		<separator string="Remote FTP Configuration" colspan="4"/>
+                        <field name="ftp_host"/>
+                        <field name="ftp_anonymous"/>
+                        <field name="ftp_user"/>
+                        <field name="ftp_password" password="True"/>
+                        <field name="ftp_folder"/>
+                        <newline />
+                        <field name="image_width"/>
+                        <field name="image_height"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
+

@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<openerp>
+<data noupdate="1">
+    <record model="document.storage" id="storage_real_state">
+        <field name="name">Realstate storage</field>
+        <field name="type">filestore</field>
+        <field name="user_id" ref="base.user_root"/>
+    </record>
+    
+    <record model="document.directory" id="dir_real_state">
+        <field name="name">Real State</field>
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+
+    <record model="document.directory" id="dir_top">
+        <field name="name">Tops</field>
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="parent_id" ref="dir_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_all">
+        <field name="name">All</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_flat">
+        <field name="name">Flats</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','flat')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_shop">
+        <field name="name">Shops</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','shop')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_premise">
+        <field name="name">Premises</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','premise')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_chalet">
+        <field name="name">Chalets</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','chalet')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_house">
+        <field name="name">Houses</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','house')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_office">
+        <field name="name">Offices</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','office')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_industrial_unit">
+        <field name="name">Industrial Units</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','industrial_unit')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_hotel_industry">
+        <field name="name">Hotel Industries</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','hotel_industry')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_parking">
+        <field name="name">Parkings</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','parking')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_box_room">
+        <field name="name">Box rooms</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','box_room')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    
+    <record model="document.directory" id="dir_top_land">
+        <field name="name">Lands</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_top"/>
+        <field name="domain">[('type','=','land')]</field>
+        <field name="ressource_type_id" search="[('model','=','real.state.top')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+    <!-- Rental Agreements -->
+    <record model="document.directory" id="dir_rental_agreements">
+        <field name="name">Rental Agreements</field>
+        <field name="type">ressource</field>
+        <field name="parent_id" ref="dir_real_state"/>
+        <field name="ressource_type_id" search="[('model','=','rental.agreement')]" />
+        <field name="user_id" eval="False"/>
+        <field name="storage_id" ref="storage_real_state"/>
+        <field name="ressource_id">0</field>
+    </record>
+</data>
+
+<data noupdate="0">
+
+</data>
+</openerp>

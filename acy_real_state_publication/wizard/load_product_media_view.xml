@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_load_product_media_form_view_top_inherit" model="ir.ui.view">
+            <field name="name">load.product.media.form.top.inherit</field>
+            <field name="model">load.product.media</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product_images_repository.view_load_product_media_form_view"/>
+            <field name="arch" type="xml">
+				<field name="media_fname" position="after">
+					<field name="sequence" />
+				</field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+        <record model="ir.ui.view" id="view_product_image_form_inherit_top">
+            <field name="name">product.images.form.inherit.top</field>
+            <field name="model">product.images</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product_images_repository.view_product_image_form_inherit"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="top_id" invisible="1" />
+                </field>
+                <field name="name" position="after">
+                    <field name="sequence" />
+                </field>
+            </field>
+        </record>
+     	
+     	<record id="view_product_image_tree_inherit_top" model="ir.ui.view">
+			<field name="name">product.images.tree.inherit.top</field>
+			<field name="model">product.images</field>
+			<field name="type">tree</field>
+			<field name="inherit_id" ref="product_images_olbs.view_product_image_tree"/>
+			<field name="arch" type="xml">
+				<field name="name" position="before">
+					<field name="sequence" />
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>

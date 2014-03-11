@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+      <record model="ir.ui.view" id="view_partner_form_real_state">
+          <field name="name">view.partner.form.real.state</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="arch" type="xml">
+              <field name="title" position="replace" />
+              <field name="name" position="replace">
+                  <field name="name" colspan="4"/>
+              </field>
+              <field name="ref" position="replace">
+                  <field name="name2" colspan="4"/>
+                  <field name="vat2"/>
+                  <field name="real_state_type" />
+                  <field name="ref"/>
+              </field>
+              <field name="supplier" position="after">
+                  <field name="active"/>
+              </field>
+	      	  <field name="active" position="replace"/>
+ 	          <field name="lang" position="after">
+                  <field name="partner_attachments_url" colspan="4" widget="url" />
+              </field>
+              <field name="address" position="replace">
+                  <field colspan="4" name="address" nolabel="1" select="1" height="260" context="{'vat':vat,'name':name}">
+                      <form string="Partner Contacts">
+                          <group colspan="4" col="6">
+                              <field name="name"/>
+                              <field name="vat"/>
+                              <field name="function"/>
+                          </group>
+                          <newline/>
+                          <group colspan="2" col="4">
+                              <separator string="Postal Address" colspan="4" col="4" />
+                              <field name="type" string="Type" colspan="2"/>
+                              <field name="street" colspan="4"/>
+                              <field name="street2" colspan="4"/>
+                              <field name="city_id" colspan="4" on_change="on_change_city(city_id)" />
+                              <field name="zip"/>
+                              <field name="city"/>
+                              <field name="country_id" completion="1"/>
+                              <field name="state_id"/>
+                          </group>
+                          <group colspan="2" col="2"  width="500">
+                              <separator string="Communication" colspan="2" col="2" />
+                              <field name="phone"/>
+                              <field name="mobile"/>
+                              <field name="fax"/>
+                              <field name="email" widget="email"/>
+                          </group>
+                      </form>
+                      <tree string="Partner Contacts">
+                          <field name="function"/>
+                          <field name="name"/>
+                          <field name="phone"/>
+                          <field name="mobile"/>
+                          <field name="email"/>
+                          <field name="street"/>
+                      </tree>
+                    </field>
+              </field>
+          </field>
+        </record>
+        <record id="view_partner_tree_real_state1" model="ir.ui.view">
+            <field name="name">res.partner.tree.real.state</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field eval="8" name="priority"/>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="country" position="replace">
+                    <field name="country" invisible="True"/>
+                </field>
+                <field name="phone" position="after">
+                    <field name="mobile"/>
+                </field>
+            </field>
+        </record>
+        <record id="view_res_partner_filter_real_state" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="priority" eval="5"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Partner">
+                    <group col='10' colspan='4'>
+                        <filter string="Customers" name="customer" icon="terp-personal" domain="[('customer','=',1)]" help="Customer Partners"/>
+                        <filter string="Suppliers" name="supplier" icon="terp-personal" domain="[('supplier','=',1)]" help="Supplier Partners"/>
+                        <separator orientation="vertical"/>
+                        <field name="name" select="1"/>
+                        <field name="name2" select="1"/>
+                        <field name="address" select="1" string="Address"/>
+                        <field name="phone" />
+                        <field name="mobile" />
+                        <field name="vat" />
+                        <field name="vat2" string="Second Vat" />
+                        <field name="user_id" select="1">
+                            <filter string="My Partners" icon="terp-personal+" domain="[('user_id','=',uid)]"/>
+                        </field>
+                    </group>
+                    <newline />
+                    <group expand="0" string="Extended Filter...">
+                        <field name="city" select="1"/>
+                        <field name="email" select="1"/>
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group By...">
+                        <filter string="Salesman" icon="terp-personal" domain="[]" context="{'group_by' : 'user_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <menuitem name="Meetings" id="crm.menu_meeting_sale"
+                  parent="menu_base_real_state" sequence="3"/>
+        <menuitem name="Phone Calls" id="crm.menu_crm_case_phone"
+                  groups="base.group_extended,base.group_sale_salesman"
+                  parent="menu_base_real_state" sequence="4" />
+
+        <record id="view_partners_form_crm1_real_state" model="ir.ui.view">
+            <field name="name">view.res.partner.form.crm.inherited1.real.state</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+            <field eval="18" name="priority"/>
+            <field name="arch" type="xml">
+                <field name="section_id" position="replace">
+                    <field name="section_id" completion="1" widget="selection"
+                           groups="base.group_extended" invisible="1"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="view_partners_tree_crm2_real_state" model="ir.ui.view">
+            <field name="name">view.res.partner.tree.crm.inherited2.real.state</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="crm.view_partners_tree_crm2"/>
+            <field eval="18" name="priority"/>
+            <field name="arch" type="xml">
+                <field name="section_id" position="replace" />
+            </field>
+        </record>
+        
+        <menuitem id="menu_real_state_partner" name="Owner" parent="menu_base_real_state" sequence="1"/>
+        <record id="action_partner_all_form" model="ir.actions.act_window">
+            <field name="name">All</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_state"/>
+            <field name="context">{'search_default_customer':1 }</field>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_state_all" name="All"
+                  parent="menu_real_state_partner"
+                  action="action_partner_all_form" sequence="5"/>
+        <record id="action_partner_owner_form" model="ir.actions.act_window">
+            <field name="name">Owners</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('real_state_type','=','owner'),('customer','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_state"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_state_owner" name="Owners"
+                  parent="menu_real_state_partner"
+                  action="action_partner_owner_form" sequence="10"/>
+        <record id="action_partner_tenant_form" model="ir.actions.act_window">
+            <field name="name">Tenants</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('real_state_type','=','tenant'),('customer','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_state"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_state_tenant" name="Tenants"
+                  parent="menu_real_state_partner"
+                  action="action_partner_tenant_form" sequence="10"/>
+        <record id="action_partner_buyer_form" model="ir.actions.act_window">
+            <field name="name">Buyers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('real_state_type','=','buyer'),('customer','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_state"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_state_buyer" name="Buyers"
+                  parent="menu_real_state_partner"
+                  action="action_partner_buyer_form" sequence="10"/>
+        <record id="action_partner_manage_form" model="ir.actions.act_window">
+            <field name="name">Manage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('real_state_type','=','manage'),('customer','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_state"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_state_manage" name="Manage"
+                  parent="menu_real_state_partner"
+                  action="action_partner_manage_form" sequence="10"/>
+
+        <act_window name="Tops"
+			domain="[('partner_id', '=', active_id)]"
+			res_model="real.state.top"
+			src_model="res.partner"
+			id="action_partner_tops"/>
+			
+		        
+        <act_window name="Agreements"
+			domain="['|',('partner_id', '=', active_id),('owner_id', '=', active_id)]"
+			res_model="rental.agreement"
+			src_model="res.partner"
+			id="action_partner_agreement"/>
+	
+
+        
+  </data>
+</openerp>

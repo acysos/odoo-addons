@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <record id="acy_real_state.group_real_state_manager" model="res.groups">
+            <field name="name">Real State / Manager</field>
+        </record>
+        
+        <record id="acy_real_state.group_real_state_user" model="res.groups">
+            <field name="name">Real State / User</field>
+        </record>
+        
+    </data>
+</openerp>

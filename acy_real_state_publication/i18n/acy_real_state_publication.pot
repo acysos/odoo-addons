@@ -1,0 +1,272 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_real_state_publication
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-02-18 22:29+0000\n"
+"PO-Revision-Date: 2014-02-18 22:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_real_state_publication
+#: field:real.state.top,internet_wo:0
+msgid "Internet WO Update"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/top.py:94
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:81
+#, python-format
+msgid "The path to OpenERP medias folder does not exists on the server !"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:res.company,image_width:0
+msgid "Image Width"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:product.images,top_id:0
+#: field:real.state.top.internet.wo,top_id:0
+#: field:real.state.top.press,top_id:0
+msgid "Top"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+#: field:real.state.top,internet_description:0
+msgid "Internet Description"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+msgid "Images and documents"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+msgid "Internet"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.model,name:acy_real_state_publication.model_real_state_top_press
+msgid "real.state.top.press"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+msgid "In the top"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top.internet.wo,name:0
+msgid "Website"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: help:res.company,ftp_host:0
+msgid "Remote ftp host"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.model,name:acy_real_state_publication.model_real_state_top
+msgid "real.state.top"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:res.company,ftp_password:0
+msgid "FTP Password"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:99
+#, python-format
+msgid "The path to OpenERP medias folder is not configured on the company !"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.model,name:acy_real_state_publication.model_load_product_media
+msgid "Load Product Medias"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/top.py:120
+#, python-format
+msgid "The certificate file should be a PDF File"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/top.py:155
+#: code:addons/acy_real_state_publication/top.py:173
+#: code:addons/acy_real_state_publication/top.py:196
+#, python-format
+msgid "certificate_%s.pdf"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.actions.act_window,name:acy_real_state_publication.load_product_media_act_window
+msgid "Load an image"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top.press.publication,date:0
+msgid "Date"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top,image_ids:0
+msgid "Top Images"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.model,name:acy_real_state_publication.model_product_images
+msgid "Products Image gallery"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+#: field:real.state.top.press,name:0
+#: field:real.state.top.press.publication,press_id:0
+msgid "Press"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:94
+#, python-format
+msgid "Context is missing !"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:res.company,ftp_folder:0
+msgid "FTP Folder"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:res.company:0
+msgid "Remote FTP Configuration"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.model,name:acy_real_state_publication.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/top.py:94
+#: code:addons/acy_real_state_publication/top.py:119
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:81
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:94
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:99
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:104
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:107
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top.press,date_publications:0
+msgid "Date Publications"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+#: field:real.state.top,publications:0
+msgid "Publications"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.model,name:acy_real_state_publication.model_real_state_top_press_publication
+msgid "real.state.top.press.publication"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top.press.publication,page:0
+msgid "Page"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+msgid "Web Images"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:res.company,ftp_user:0
+msgid "FTP User"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:104
+#, python-format
+msgid "No media selected !"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:res.company,image_height:0
+msgid "Image Height"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:load.product.media,sequence:0
+#: field:product.images,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:res.company,ftp_anonymous:0
+msgid "FTP Anonymous"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:res.company,ftp_host:0
+msgid "FTP Host"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top,energy_doc_url:0
+msgid "Energy URL"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.model,name:acy_real_state_publication.model_real_state_top_internet_wo
+msgid "real.state.top.internet.wo"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: view:real.state.top:0
+msgid "Without Automatic Update"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top,poster:0
+msgid "Poster"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: model:ir.actions.act_window,name:acy_real_state_publication.act_top_2_images
+msgid "Images"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: code:addons/acy_real_state_publication/wizard/load_product_media.py:107
+#, python-format
+msgid "No filename !"
+msgstr ""
+
+#. module: acy_real_state_publication
+#: field:real.state.top.internet.wo,actual:0
+#: field:real.state.top.press,actual:0
+msgid "Active"
+msgstr ""
+

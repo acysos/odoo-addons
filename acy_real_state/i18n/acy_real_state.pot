@@ -1,0 +1,1199 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_real_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2014-02-18 22:21+0000\n"
+"PO-Revision-Date: 2014-02-18 22:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_real_state
+#: field:real.state.top,office_toilets:0
+msgid "Toilets"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "Northeast"
+msgstr ""
+
+#. module: acy_real_state
+#: field:res.company,default_mount_agreement:0
+#: field:res.users,default_mount_agreement:0
+msgid "Default Mount Rental Agreement"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,stair:0
+#: report:real.state.top.generic.list:0
+msgid "Stair"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.subtype,type:0
+msgid "Top Type"
+msgstr ""
+
+#. module: acy_real_state
+#: field:res.company,default_document_mount:0
+msgid "Default Document Mount"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.rental_agreement_act
+#: model:ir.ui.menu,name:acy_real_state.menu_rental_agreement_list
+#: view:real.state.top:0
+#: field:real.state.top,agreements:0
+#: view:rental.agreement:0
+msgid "Rental Agreements"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Group By..."
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,write_date:0
+msgid "Last Write Date"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Extended Filter..."
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.company:0
+msgid "Mount FTP Configuration"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,office_air_conditioning:0
+#: field:real.state.top,shop_air_conditioning:0
+msgid "Air Conditioning"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Industrial Unit information"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,fire_fighting:0
+msgid "Fire-Fighting"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,homeowners_expenses:0
+msgid "Homeowners Expenses"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "South West"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.report.xml,name:acy_real_state.real_state_top_generic_list
+msgid "**Top List"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,furnished:0
+msgid "No"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "My Partners"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,operation:0
+msgid "Rent with sale option"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: field:real.state.top,buyer_id:0
+#: selection:res.partner,real_state_type:0
+msgid "Buyer"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: selection:real.state.top,operation:0
+msgid "Valuation"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Town House"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.action_partner_owner_form
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_owner
+msgid "Owners"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "D"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Land information"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: field:real.state.top,note:0
+#: field:real.state.top,note_flat:0
+#: field:rental.agreement,notes:0
+msgid "Notes"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,address:0
+#: report:real.state.top.generic.list:0
+#: view:res.partner:0
+msgid "Address"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,triphase:0
+msgid "Triphase"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: selection:real.state.top,operation:0
+#: report:real.state.top.generic.list:0
+msgid "Sale"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_zone
+msgid "real.state.zone"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,shop_window:0
+msgid "Shop Window"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,offices:0
+msgid "Offices"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_box_room_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_box_room_list
+#: field:real.state.top,box_room:0
+#: field:real.state.top,office_boxroom:0
+msgid "Box Room"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_top
+msgid "real.state.top"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,administrator_phone:0
+msgid "Telephone"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_shop_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_shop_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Shop"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Service Contracts Information"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Windows Client"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,name:0
+#: field:rental.agreement,name:0
+msgid "Reference"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,floor_number:0
+msgid "Floor Number"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Chalet and House Information"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,parking_description:0
+msgid "Parking Description"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_zone_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_zone_list
+msgid "Zones"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,gas_ref:0
+msgid "Gas Reference"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,light_ref:0
+msgid "Light Reference"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,plot_m2:0
+msgid "Plot M2"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,aqua_ref:0
+msgid "Aqua Reference"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,operation:0
+#: report:real.state.top.generic.list:0
+msgid "Operation"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,kitchen:0
+msgid "Kitchen"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Office information"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,room_description:0
+msgid "Room Description"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,retribution:0
+msgid "Retribution"
+msgstr ""
+
+#. module: acy_real_state
+#: field:res.users,document_mount:0
+msgid "Document Mount"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Rent Information"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Suppliers"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,zone:0
+#: report:real.state.top.generic.list:0
+#: field:real.state.zone,name:0
+msgid "Zone"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "West"
+msgstr ""
+
+#. module: acy_real_state
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr ""
+
+#. module: acy_real_state
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Flat Information"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.action_partner_agreement
+msgid "Agreements"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Supplies"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,number_keys:0
+msgid "Number of Keys"
+msgstr ""
+
+#. module: acy_real_state
+#: field:rental.agreement,start_date:0
+msgid "Start date"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "East"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,type:0
+#: report:real.state.top.generic.list:0
+#: view:res.partner:0
+#: field:res.partner,real_state_type:0
+msgid "Type"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: field:real.state.top,available:0
+msgid "Available"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_flat_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_flat_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Flat"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_chalet_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_chalet_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Chalet"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,electricity:0
+#: field:real.state.top,office_electricity:0
+#: field:real.state.top,shop_electricity:0
+msgid "Eletricity"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_hotel_industry_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_hotel_industry_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Hotel Industry"
+msgstr ""
+
+#. module: acy_real_state
+#: field:rental.agreement,signing_date:0
+msgid "Signing date"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,office_m2:0
+msgid "Office M2"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,bedrooms:0
+msgid "Bedrooms"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.subtype:0
+msgid "Real State Subtype"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.subtype,name:0
+msgid "SubType"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Search Partner"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_premise_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_premise_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Premise"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,chalet_basement:0
+msgid "Basement"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_conf
+#: view:res.company:0
+msgid "Configuration"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Box room"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Hotel industry information"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "Northwest"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "C"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "G"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,basement_m2:0
+msgid "Basement M2"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_heating_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_heating_list
+#: field:real.state.heating,name:0
+#: field:real.state.top,chalet_heating:0
+#: field:real.state.top,flat_heating:0
+#: field:real.state.top,office_heating:0
+#: field:real.state.top,shop_heating:0
+msgid "Heating"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Administrator Information"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Not Available"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,deposit:0
+msgid "Deposit"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,gantry_crane:0
+msgid "Gantry Crane"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_res_users
+msgid "res.users"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,exclusive_date:0
+msgid "Exclusive Date"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Partner Contacts"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,city_id:0
+#: report:real.state.top.generic.list:0
+msgid "Location"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,industrial_toilet:0
+#: field:real.state.top,shop_toilet:0
+#: field:real.state.top,toilet:0
+msgid "Toilet"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_heating
+msgid "real.state.heating"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,furnished:0
+msgid "Furnished"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Communication"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,operation:0
+msgid "Sale & Rent"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_partner
+#: field:real.state.top,partner_id:0
+#: field:rental.agreement,owner_id:0
+#: selection:res.partner,real_state_type:0
+msgid "Owner"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+#: selection:real.state.top,furnished:0
+msgid "Yes"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,balcony:0
+msgid "Balcony"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Salesman"
+msgstr ""
+
+#. module: acy_real_state
+#: help:real.state.top,website:0
+msgid "Website of Administrator"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_industrial_unit_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_industrial_unit_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Industrial Unit"
+msgstr ""
+
+#. module: acy_real_state
+#: help:res.company,default_mount_agreement:0
+#: help:res.users,default_mount_agreement:0
+msgid "Local mount point for rental agreement"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_list
+#: field:rental.agreement,top_id:0
+msgid "Top"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "In process"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.action_partner_buyer_form
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_buyer
+msgid "Buyers"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Advanced search..."
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_hotwater
+msgid "real.state.hotwater"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Images and documents"
+msgstr ""
+
+#. module: acy_real_state
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,hall_description:0
+msgid "Hall Description"
+msgstr ""
+
+#. module: acy_real_state
+#: field:res.users,document_client:0
+msgid "Client"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,box_room_description:0
+msgid "Box Room Description"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,website:0
+msgid "Website"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Customers"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "North"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Shop information"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,students:0
+msgid "Students"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.action_partner_tenant_form
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_tenant
+#: view:real.state.top:0
+msgid "Tenants"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,swimming_pool:0
+msgid "Swimming Pool"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,updated_date:0
+msgid "Updated Date"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.action_partner_tops
+msgid "Tops"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Linux/MacOSX Client"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: field:real.state.top,industrial_prepared:0
+#: field:real.state.top,shop_prepared:0
+msgid "Prepared"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,email:0
+msgid "E-Mail"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,energy_doc:0
+msgid "Energy Certificate"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,date:0
+msgid "Date"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_land_state_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_land_state_list
+#: field:real.state.land.state,name:0
+#: field:real.state.top,land_state:0
+msgid "Land State"
+msgstr ""
+
+#. module: acy_real_state
+#: field:rental.agreement,partner_id:0
+#: selection:res.partner,real_state_type:0
+msgid "Tenant"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Premise information"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "B"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_land_type_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_land_type_list
+#: field:real.state.land.type,name:0
+#: field:real.state.top,land_type:0
+msgid "Land Type"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "F"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,homeowners_expenses_included:0
+msgid "Included"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,built_in_closet:0
+msgid "Built-in Closet"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_hotwater_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_hotwater_list
+#: field:real.state.hotwater,name:0
+#: field:real.state.top,chalet_hotwater:0
+#: field:real.state.top,flat_hotwater:0
+msgid "Hot Water"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,energy_efficiency:0
+msgid "Energy Efficiency"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,structural_barriers:0
+msgid "Structural Barriers"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,mezzanine_m2:0
+msgid "Mezzanine M2"
+msgstr ""
+
+#. module: acy_real_state
+#: field:rental.agreement,end_date:0
+msgid "End date"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,orientation:0
+msgid "Orientation"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_office_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_office_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Office"
+msgstr ""
+
+#. module: acy_real_state
+#: report:real.state.top.generic.list:0
+msgid "TOP LIST"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_house_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_house_list
+msgid "House"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.action_partner_manage_form
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_manage
+#: selection:res.partner,real_state_type:0
+msgid "Manage"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,number:0
+msgid "Number"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,height:0
+msgid "Height"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_rental_agreement
+msgid "rental.agreement"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_parking_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_parking_list
+#: selection:real.state.subtype,type:0
+#: field:real.state.top,office_parking:0
+#: field:real.state.top,parking:0
+#: selection:real.state.top,type:0
+msgid "Parking"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,garden_m2:0
+msgid "Garden M2"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Other fields..."
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,chalet_ground:0
+msgid "Ground"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Information"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,bathroom:0
+msgid "Bathroom"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Second Vat"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,floor:0
+#: report:real.state.top.generic.list:0
+msgid "Floor"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: selection:real.state.top,operation:0
+msgid "Transfer"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,elevator:0
+#: field:real.state.top,office_elevator:0
+msgid "Elevator"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,rent_price:0
+#: field:rental.agreement,rent_price:0
+msgid "Rent Price"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,office_outside:0
+#: field:real.state.top,outside:0
+msgid "Outside"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_top_land_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_land_list
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Land"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Web Client"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,furnished_description:0
+msgid "Furnished Description"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_land_type
+msgid "real.state.land.type"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,administrator:0
+msgid "Administrator"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,first_floor:0
+msgid "First Floor"
+msgstr ""
+
+#. module: acy_real_state
+#: help:real.state.top,city_id:0
+msgid "Use the name or the zip to search the location"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,locker_room:0
+msgid "Locker Room"
+msgstr ""
+
+#. module: acy_real_state
+#: field:res.company,default_document_client:0
+msgid "Default Document Client"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,kitchen_description:0
+msgid "Kitchen Description"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,furnished:0
+msgid "Half"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,hall:0
+msgid "Hall"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,ground_m2:0
+msgid "Ground M2"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "A"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,chalet_usage_m2:0
+#: field:real.state.top,flat_usage_m2:0
+msgid "Usage M2"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "E"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "unlimited"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,fumes_vent:0
+msgid "Fumes Vent"
+msgstr ""
+
+#. module: acy_real_state
+#: help:res.company,default_document_mount:0
+#: help:res.users,document_mount:0
+msgid "Local mount point"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: view:rental.agreement:0
+msgid "Real State Top"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "East-West"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.users:0
+msgid "Real State Configuration"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,rooms:0
+msgid "Rooms"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,open_field_m2:0
+msgid "Open Field M2"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,second_floor:0
+msgid "Second Floor"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "South"
+msgstr ""
+
+#. module: acy_real_state
+#: view:res.partner:0
+msgid "Postal Address"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,bath_description:0
+#: field:real.state.top,toilet_description:0
+msgid "Bathroom Description"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,exclusive:0
+msgid "Exclusive"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.action_partner_all_form
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_all
+#: selection:real.state.top,orientation:0
+msgid "All"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_res_partner_address
+msgid "Partner Addresses"
+msgstr ""
+
+#. module: acy_real_state
+#: report:real.state.top.generic.list:0
+msgid "Ref."
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_land_state
+msgid "real.state.land.state"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,subtype:0
+#: report:real.state.top.generic.list:0
+msgid "Subtype"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,sale_price:0
+msgid "Sale Price"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,office_usage_m2:0
+msgid "Usage Office M2"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "South-Easth"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,create_date:0
+msgid "Create Date"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: selection:real.state.top,operation:0
+#: report:real.state.top.generic.list:0
+msgid "Rent"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.ui.menu,name:acy_real_state.menu_base_real_state
+#: view:res.company:0
+msgid "Real State"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,shop_facade:0
+msgid "Facade"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.actions.act_window,name:acy_real_state.real_state_subtype_act
+#: model:ir.ui.menu,name:acy_real_state.menu_real_state_subtype_list
+msgid "Subtypes"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top,attachments_url:0
+#: field:rental.agreement,rent_attachments_url:0
+#: field:res.partner,partner_attachments_url:0
+msgid "Attachments URL"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_subtype
+msgid "real.state.subtype"
+msgstr ""
+
+#. module: acy_real_state
+#: selection:real.state.top,orientation:0
+msgid "North-South"
+msgstr ""
+

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_real_state_top_press,real_state_top_press user,model_real_state_top_press,acy_real_state.group_real_state_user,1,1,1,1
+access_real_state_top_press_publication,real_state_top_press_publication user,model_real_state_top_press_publication,acy_real_state.group_real_state_user,1,1,1,1
+access_real_state_top_internet_wo,real_state_top_internet_wo user,model_real_state_top_internet_wo,acy_real_state.group_real_state_user,1,1,1,1
