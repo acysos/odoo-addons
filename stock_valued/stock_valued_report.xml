@@ -5,7 +5,7 @@
             string="Valued Packing List"
              model="stock.picking"
             name="stock_valued.stock_valued_rml"
-            rml="stock_valued/report/albaran.rml" 
+            rml="stock_valued/report/valued_picking.rml" 
             menu="True"
       auto="True"
       header="True"
