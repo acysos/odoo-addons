@@ -19,26 +19,23 @@
 #
 ##############################################################################
 
-__author__ = "Luis Manuel Angueira Blanco (Pexego)"
-
 """
-Inheritance of account invoce to add some fields.
+Inheritance of account invoice to add some fields.
 """
 
-from osv import osv, fields
+from openerp.osv import orm, fields
 
 
-class account_invoice(osv.osv):
+class account_invoice(orm.Model):
     """
-    Inheritance of account invoce to add some fields
+    Inheritance of account invoice to add some fields
     """
     _inherit = 'account.invoice'
 
     _columns = {
         'refund_invoices_description' : fields.text('Refund invoices description'),
-        'origin_invoices_ids' : fields.many2many('account.invoice', 'account_invoice_refunds_rel', 'refund_invoice_id', 'original_invoice_id', 'Refund invoice',
-            help='Links to original invoice which is referred by current refund invoice')
+        'origin_invoices_ids' : fields.many2many('account.invoice',
+                         'account_invoice_refunds_rel', 'refund_invoice_id',
+                         'original_invoice_id', 'Refund invoice',
+                         help='Links to original invoice which is referred by current refund invoice')
     }
-    
-account_invoice()
-

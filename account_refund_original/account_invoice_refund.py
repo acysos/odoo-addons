@@ -19,15 +19,13 @@
 #
 ##############################################################################
 
-__author__ = "Jordi Esteve <jesteve@zikzakmedia.com> (Zikzakmedia)"
-
 import time
+from openerp.osv import orm, fields
+from openerp.tools.translate import _
+from openerp import netsvc
 
-from osv import fields, osv
-from tools.translate import _
-import netsvc
 
-class account_invoice_refund(osv.osv_memory):
+class account_invoice_refund(orm.TransientModel):
 
     """Refunds invoice"""
 
@@ -60,4 +58,3 @@ class account_invoice_refund(osv.osv_memory):
                 })
         return result
 
-account_invoice_refund()
