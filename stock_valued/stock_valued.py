@@ -50,48 +50,28 @@ class stock_picking(osv.osv):
 
 ##For Value picking
 
-    def _amount_untaxed(self, cr, uid, ids, prop, unknow_none, unknow_dict):
-
-        id_set = ",".join(map(str, map(int, ids)))
-        cr.execute("""  select
-                            sp.id,
-                            COALESCE(sum( sm.product_qty*sol.price_unit*(100-sol.discount))/100.0,0)::decimal(16,2) as amount
-                        from
-                            stock_picking sp
-                            left join stock_move sm on sp.id=sm.picking_id
-                            left join sale_order_line sol on sm.sale_line_id=sol.id
-                        where
-                            sp.id in ( %s ) and
-                            sm.state != 'cancel'
-                        group by sp.id""" % id_set)
-        res = dict(cr.fetchall())
-
+    def _amount_untaxed(self, cr, uid, ids, prop, unknow_none, context):
+        res = {}
+        for picking in self.browse(cr, uid, ids, context):
+            total_untaxed = 0
+            for move in picking.move_lines:
+                total_untaxed += move.sale_price_net * move.product_qty
+            res[picking.id] = total_untaxed
         return res
 
     def _amount_tax(self, cr, uid, ids, field_name, arg, context):
-        id_set = ",".join(map(str, map(int, ids)))
-        cr.execute("""
-                   select
-                        sp.id,
-                        COALESCE(sum( at.amount*sm.product_qty*sol.price_unit*(100-sol.discount))/100.0,0)::decimal(16,2) as amount
-                   from stock_picking sp
-                        left join stock_move sm on sp.id=sm.picking_id
-                        left join sale_order_line sol on sm.sale_line_id=sol.id
-                        left join sale_order_tax sot on sol.id=sot.order_line_id
-                        left join account_tax at on at.id=sot.tax_id
-                   where
-                        sp.id in ( %s )
-                        and sm.state != 'cancel'
-                   group by sp.id""" % id_set)
-        res = dict(cr.fetchall())
+        res = {}
+        for picking in self.browse(cr, uid, ids, context):
+            res[picking.id] = picking.amount_total - picking.amount_untaxed
         return res
 
     def _amount_total(self, cr, uid, ids, field_name, arg, context):
         res = {}
-        untax = self._amount_untaxed(cr, uid, ids, field_name, arg, context)
-        tax = self._amount_tax(cr, uid, ids, field_name, arg, context)
-        for id in ids:
-            res[id] = untax.get(id, 0.0) + tax.get(id, 0.0)
+        for picking in self.browse(cr, uid, ids, context):
+            total = 0
+            for move in picking.move_lines:
+                total += move.sale_price_subtotal
+            res[picking.id] = total
         return res
 
     _name = "stock.picking"
@@ -122,7 +102,7 @@ class stock_move(osv.osv):
                 subtotal = cur_obj.round(cr, uid, cur,
                         line.sale_line_id.price_unit * line.product_qty \
                         * (1 - (line.sale_line_id.discount or 0.0) / 100.0))
-                net = line.sale_line_id.price_unit
+                net = line.sale_line_id.price_subtotal/line.product_qty
                 unit = line.sale_line_id.price_unit
                 discount = line.sale_line_id.discount
                 res[line.id] = {
