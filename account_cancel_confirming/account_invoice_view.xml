@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="invoice_form_cancel_inherit_confirming" model="ir.ui.view">
+            <field name="name">invoice.form.cancel.inherit.confirming</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account_cancel.invoice_form_cancel_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='invoice_cancel']" position="attributes">
+                    <attribute name = "states">draft,proforma2,sale,open,confirming</attribute>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

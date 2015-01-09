@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record model="workflow.activity" id="act_confirming">
+            <field name="wkf_id" ref="account.wkf"/>
+            <field name="name">confirming</field>
+            <field name="action">write({'state':'confirming'})</field>
+            <field name="kind">function</field>
+           </record>
+           
+        <record id="open_to_confirming" model="workflow.transition">
+            <field name="act_from" ref="account.act_open"/>
+            <field name="act_to" ref="act_confirming"/>
+            <field name="signal">invoice_confirming</field>
+        </record>
+    
+        <record id="t8c" model="workflow.transition">
+            <field name="act_from" ref="act_confirming"/>
+            <field name="act_to" ref="account.act_paid"/>
+            <field name="trigger_model">account.move.line</field>
+            <field name="trigger_expr_id">move_line_id_payment_get()</field>
+            <field name="condition">test_paid()</field>
+        </record>
+    
+        <record id="t12c" model="workflow.transition">
+            <field name="act_from" ref="act_confirming"/>
+            <field name="act_to" ref="account.act_cancel"/>
+            <field name="signal">invoice_cancel</field>
+        </record>
+    
+    </data>
+</openerp>
