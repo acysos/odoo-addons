@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record model="ir.ui.view" id="res_users_sale_warehouse_form_view">
+            <field name="name">res_users.sale.warehouse.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook/page[@groups='base.group_multi_company']" position="after">
+                    <page string="Warehouse">
+                    <field name="warehouse_ids" nolabel="1"/>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='user_email']" position="after">
+                    <!--field name="warehouse_id" domain="[('warehouse_id', 'in', [x.id for x in warehouse_ids])]"/-->
+                    <field name="warehouse_id"/>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+</openerp>
