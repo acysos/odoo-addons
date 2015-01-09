@@ -29,20 +29,31 @@ import time
 
 class pos_order(osv.osv):
     _inherit = 'pos.order'
-
-    _columns = {
-            
-        }
     
     def create_picking(self, cr, uid, ids, context=None):
         super(pos_order, self).create_picking(cr, uid, ids, context=None)
         picking_obj = self.pool.get('stock.picking')
+        move_obj = self.pool.get('stock.move')
+        pos_line_obj = self.pool.get('pos.order.line')
         for order in self.browse(cr, uid, ids, context=context):
             if not order.state=='draft':
                 continue
+            location_id = order.shop_id.warehouse_id.lot_stock_id.id
+            output_id = order.shop_id.warehouse_id.lot_output_id.id
+            values = {'pos_id':order.id}
             for payment in order.statement_ids:
                 if payment.statement_id.journal_id.to_invoiced:
-                    picking_obj.write(cr,uid,[order.picking_id.id],{'invoice_state':'2binvoiced'})
+                    values['invoice_state'] = '2binvoiced'
+            picking_obj.write(cr,uid,[order.picking_id.id], values)
+            for line in order.picking_id.move_lines:
+                values = {}
+                if line.location_id.id == output_id and line.location_dest_id.id == location_id:
+                    values['negative'] = True
+                pos_line_id = pos_line_obj.search(cr,uid,
+                      [('name','=',line.name)])[0]
+                if pos_line_id:
+                    values['pos_line_id'] = pos_line_id
+                move_obj.write(cr, uid, [line.id], values)
         return True
         
 pos_order()
