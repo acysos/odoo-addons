@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+            <record model="ir.ui.view" id="purchase_early_payment_discount_for partner_form_view">
+                <field name="name">res.partner.form</field>
+                <field name="model">res.partner</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="sale_early_payment_discount.view_partner_form_add_early_payment_discounts"/>
+                <field name="arch" type="xml">
+                    <xpath expr="/form/notebook/page/field[@name='early_payment_discount_ids']" position="replace">
+                        <field name="early_payment_discount_ids" colspan ="2" nolabel="1" context="{'partner_id': active_id}"/>
+                        <field name="purchase_early_payment_discount_ids" colspan ="2" nolabel="1" context="{'partner_id': active_id}"/>
+                    </xpath>
+                </field>
+            </record>
+
+    </data>
+</openerp>

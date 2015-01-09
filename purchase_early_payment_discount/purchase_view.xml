@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+            <record model="ir.ui.view" id="purchase_order_form_add_early_payment_disc_total">
+                <field name="name">purchase.order.form.add_early_payment_disc_total</field>
+                <field name="model">purchase.order</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="purchase.purchase_order_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="/form/notebook/page/group/button[@name='button_dummy']" position="after">
+	                    <field name="early_payment_disc_untaxed"/>
+	                    <field name="early_payment_disc_tax"/>
+	                    <field name="early_payment_disc_total"/>
+                    </xpath>
+                    <xpath expr="/form/notebook/page/field[@name='partner_id']" position="replace">
+                        <field name="partner_id" on_change="onchange_partner_id2(partner_id,early_payment_discount,payment_term)" required="1" context="{'search_default_supplier':1}"/>
+                    </xpath>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="purchase_order_form_add_early_payment_discount">
+                <field name="name">purchase.order.form.add_early_payment_discount</field>
+                <field name="model">purchase.order</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="purchase_payment.purchase_order_form_add_payment_info"/>
+                <field name="arch" type="xml">
+                    <xpath expr="/form/notebook/page/group/field[@name='payment_term']" position="replace">
+                        <field name="payment_term" widget="selection" on_change="onchange_payment_term(payment_term,partner_id)"/>
+                        <field name="early_payment_discount"/>
+                    </xpath>
+                </field>
+            </record>
+
+    </data>
+</openerp>

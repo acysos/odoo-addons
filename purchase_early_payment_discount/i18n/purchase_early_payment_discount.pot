@@ -1,0 +1,188 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* purchase_early_payment_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-02-23 10:59+0000\n"
+"PO-Revision-Date: 2012-02-23 10:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_early_payment_discount
+#: constraint:product.category:0
+msgid "Error ! You can not create recursive categories."
+msgstr "Error ! You can not create recursive categories."
+
+#. module: purchase_early_payment_discount
+#: sql_constraint:product.category:0
+msgid "Slug must be unique"
+msgstr "Slug must be unique"
+
+#. module: purchase_early_payment_discount
+#: field:purchase.order,early_payment_disc_tax:0
+msgid "Taxes E.P."
+msgstr "Taxes E.P."
+
+#. module: purchase_early_payment_discount
+#: constraint:account.payment.term:0
+msgid "Error: Payment days field format is not valid."
+msgstr "Error: Payment days field format is not valid."
+
+#. module: purchase_early_payment_discount
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! Specified VAT Number already exists for any other registered partner."
+
+#. module: purchase_early_payment_discount
+#: field:account.payment.term,purchase_early_payment_discount_ids:0
+msgid "E.P. discounts"
+msgstr "E.P. discounts"
+
+#. module: purchase_early_payment_discount
+#: field:purchase.order,early_payment_disc_total:0
+msgid "With E.P."
+msgstr "With E.P."
+
+#. module: purchase_early_payment_discount
+#: model:ir.model,name:purchase_early_payment_discount.model_stock_picking
+msgid "Picking List"
+msgstr "Picking List"
+
+#. module: purchase_early_payment_discount
+#: field:res.partner,purchase_early_payment_discount_ids:0
+msgid "Purchase E.P. discounts"
+msgstr "Purchase E.P. discounts"
+
+#. module: purchase_early_payment_discount
+#: code:addons/purchase_early_payment_discount/account_invoice.py:126
+#, python-format
+msgid "Cannot set early payment discount because now is impossible find the early payment account. Review invoice products categories have defined early payment account by default or early payment discount product have defined an output account."
+msgstr "Cannot set early payment discount because now is impossible find the early payment account. Review invoice products categories have defined early payment account by default or early payment discount product have defined an output account."
+
+#. module: purchase_early_payment_discount
+#: field:purchase.order,total_early_discount:0
+msgid "E.P. amount"
+msgstr "E.P. amount"
+
+#. module: purchase_early_payment_discount
+#: model:ir.model,name:purchase_early_payment_discount.model_product_category
+msgid "Product Category"
+msgstr "Product Category"
+
+#. module: purchase_early_payment_discount
+#: field:purchase.order,early_payment_disc_untaxed:0
+msgid "Untaxed Amount E.P."
+msgstr "Untaxed Amount E.P."
+
+#. module: purchase_early_payment_discount
+#: code:addons/purchase_early_payment_discount/account_invoice.py:132
+#, python-format
+msgid "Early payment disc. (%s)"
+msgstr "Early payment disc. (%s)"
+
+#. module: purchase_early_payment_discount
+#: code:addons/purchase_early_payment_discount/account_invoice.py:133
+#: code:addons/purchase_early_payment_discount/account_invoice.py:145
+#: help:purchase.order,early_payment_discount:0
+#, python-format
+msgid "Early payment discount"
+msgstr "Early payment discount"
+
+#. module: purchase_early_payment_discount
+#: view:account.invoice:0
+msgid "Apply early payment disc."
+msgstr "Apply early payment disc."
+
+#. module: purchase_early_payment_discount
+#: field:account.partner.purchase.payment.term.early.discount,name:0
+msgid "Name"
+msgstr "Name"
+
+#. module: purchase_early_payment_discount
+#: code:addons/purchase_early_payment_discount/account_invoice.py:132
+#, python-format
+msgid "Early payment disc. "
+msgstr "Early payment disc. "
+
+#. module: purchase_early_payment_discount
+#: field:account.partner.purchase.payment.term.early.discount,payment_term_id:0
+msgid "Purchase payment Term"
+msgstr "Purchase payment Term"
+
+#. module: purchase_early_payment_discount
+#: model:ir.model,name:purchase_early_payment_discount.model_account_partner_purchase_payment_term_early_discount
+msgid "Purchase early payment discounts"
+msgstr "Purchase early payment discounts"
+
+#. module: purchase_early_payment_discount
+#: model:ir.model,name:purchase_early_payment_discount.model_purchase_order
+msgid "Purchase Order"
+msgstr "Purchase Order"
+
+#. module: purchase_early_payment_discount
+#: sql_constraint:purchase.order:0
+msgid "Order Reference must be unique !"
+msgstr "Order Reference must be unique !"
+
+#. module: purchase_early_payment_discount
+#: field:account.partner.purchase.payment.term.early.discount,early_payment_discount:0
+#: field:purchase.order,early_payment_discount:0
+msgid "E.P. disc.(%)"
+msgstr "E.P. disc.(%)"
+
+#. module: purchase_early_payment_discount
+#: constraint:account.invoice:0
+msgid "Invoice date is previous to an existing invoice."
+msgstr "Invoice date is previous to an existing invoice."
+
+#. module: purchase_early_payment_discount
+#: field:product.category,property_account_purchase_early_payment_disc:0
+msgid "Purchase early payment account"
+msgstr "Purchase early payment account"
+
+#. module: purchase_early_payment_discount
+#: help:product.category,property_account_purchase_early_payment_disc:0
+msgid "This account will be used to input the early payments discount in purchase"
+msgstr "This account will be used to input the early payments discount in purchase"
+
+#. module: purchase_early_payment_discount
+#: help:account.partner.purchase.payment.term.early.discount,early_payment_discount:0
+msgid "Percentage of discount for purchase early payment."
+msgstr "Percentage of discount for purchase early payment."
+
+#. module: purchase_early_payment_discount
+#: model:ir.model,name:purchase_early_payment_discount.model_account_payment_term
+msgid "Payment Term"
+msgstr "Payment Term"
+
+#. module: purchase_early_payment_discount
+#: view:account.partner.purchase.payment.term.early.discount:0
+#: model:ir.actions.act_window,name:purchase_early_payment_discount.action_purchase_payment_term_early_discount_form
+#: model:ir.ui.menu,name:purchase_early_payment_discount.menu_action_purchase_payment_term_early_discount_form
+msgid "Purchase Early Payment Discounts"
+msgstr "Purchase Early Payment Discounts"
+
+#. module: purchase_early_payment_discount
+#: code:addons/purchase_early_payment_discount/account_invoice.py:126
+#, python-format
+msgid "Warning"
+msgstr "Warning"
+
+#. module: purchase_early_payment_discount
+#: model:ir.model,name:purchase_early_payment_discount.model_account_invoice
+msgid "Invoice"
+msgstr "Invoice"
+
+#. module: purchase_early_payment_discount
+#: field:account.partner.purchase.payment.term.early.discount,partner_id:0
+#: model:ir.model,name:purchase_early_payment_discount.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+

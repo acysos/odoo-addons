@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report auto="False"
+            id="purchase.report_purchase_order"
+            model="purchase.order"
+            name="purchase.order"
+            rml="purchase_early_payment_discount/report/order.rml"
+            string="Quotation / Order"/>
+
+    </data>
+</openerp>

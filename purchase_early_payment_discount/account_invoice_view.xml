@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--
+        Invoices
+        -->
+
+        <record id="invoice_form_add_purchase_early_payment_button" model="ir.ui.view">
+            <field name="name">account.invoice.form_add_purchase_early_payment_button</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="type">form</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook/page[@string='Other Info']/field[@name='payment_term']" position="replace">
+                </xpath>
+                <xpath expr="/form/notebook/page[@string='Invoice']/group[@col='4']/label[@colspan='2']" position="replace">
+                    <button colspan="2" name="button_compute_early_payment_disc" states="draft" string="Apply early payment disc." type="object" groups="base.group_user" />
+                </xpath>
+                <xpath expr="/form/notebook/page[@string='Invoice']/field[@name='reference']" position="after">
+                    <group colspan="4" col="6">
+	                    <field name="payment_term" widget="selection" on_change="onchange_payment_term2(payment_term, type, partner_id)"/>
+	                    <field name="early_payment_discount"/>
+	                    <field name="early_discount_amount"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
