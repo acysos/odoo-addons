@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+		 <record model="ir.ui.view" id="purchase_order_form_editable">
+                <field name="name">purchase.order.form</field>
+                <field name="model">purchase.order</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="purchase.purchase_order_form"/>
+                <field name="arch" type="xml">
+                  <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                    <attribute name="editable">bottom</attribute>
+                  </xpath>
+                  <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="replace">
+                    <field name="product_id" on_change="onchange_product_id(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,notes,context)" required="1" context="{'force_product_uom': True}"/>
+                    <field name="name" invisible="True"/>
+                    <field name="taxes_id" invisible="True"/>
+                  </xpath>
+                  <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom']" position="after">
+                    <field name="qty_avl"/>
+                    <field name="virtual_avl"/>
+                  </xpath>
+                </field>
+            </record>
+    
+    </data>
+</openerp>
