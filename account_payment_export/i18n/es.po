@@ -1,0 +1,110 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_payment_export
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20131224-002412\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-25 11:26+0000\n"
+"PO-Revision-Date: 2014-01-25 11:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_export
+#: field:payment.type,ir_model_id:0
+msgid "Payment wizard"
+msgstr "Asistente de pago"
+
+#. module: account_payment_export
+#: model:ir.model,name:account_payment_export.model_payment_type
+msgid "Payment type"
+msgstr "Tipo de pago"
+
+#. module: account_payment_export
+#: model:ir.model,name:account_payment_export.model_payment_order
+msgid "Payment Order"
+msgstr "Orden de pago"
+
+#. module: account_payment_export
+#: view:payment.manual:0
+msgid "OK"
+msgstr "OK"
+
+#. module: account_payment_export
+#: model:ir.model,name:account_payment_export.model_payment_manual
+msgid "Send payment order(s) manually"
+msgstr "Enviar la orden de pago manualmente"
+
+#. module: account_payment_export
+#: help:payment.type,ir_model_id:0
+msgid "Select the Payment Wizard for payments of this type. Leave empty for manual processing"
+msgstr "Seleccione el asistente de pago para los pagos de estet tipo. Deje en blanco para proceso manual"
+
+#. module: account_payment_export
+#: model:ir.model,name:account_payment_export.model_payment_mode
+msgid "Payment Mode"
+msgstr "Modo de pago"
+
+#. module: account_payment_export
+#: view:payment.manual:0
+msgid "Manual payment"
+msgstr "Pago manual"
+
+#. module: account_payment_export
+#: field:payment.manual,payment_order_ids:0
+msgid "Payment orders"
+msgstr "Ordenes de pago"
+
+#. module: account_payment_export
+#: code:addons/account_payment_export/model/account_payment.py:52
+#, python-format
+msgid "Payment Order Export"
+msgstr "Exportar orden de pago"
+
+#. module: account_payment_export
+#: model:ir.model,name:account_payment_export.model_account_move_line
+msgid "Journal Items"
+msgstr "Apuntes contables"
+
+#. module: account_payment_export
+#: view:payment.order:0
+msgid "launch_wizard"
+msgstr "lanzar_asistente"
+
+#. module: account_payment_export
+#: view:payment.manual:0
+msgid "Please execute payment order manually, and click OK when succesfully sent."
+msgstr "Por favor, ejecute la orden de pago manualmente, y pulse OK cuando sea enviada con exito."
+
+#. module: account_payment_export
+#: model:ir.model,name:account_payment_export.model_payment_order_create
+msgid "payment.order.create"
+msgstr "pago.orden.crear"
+
+#. module: account_payment_export
+#: code:addons/account_payment_export/model/account_payment.py:68
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: account_payment_export
+#: view:payment.manual:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_payment_export
+#: model:payment.type,name:account_payment_export.manual_bank_tranfer
+msgid "Manual Bank Transfer"
+msgstr "Tranferencia bancaria manual"
+
+#. module: account_payment_export
+#: code:addons/account_payment_export/model/account_payment.py:69
+#, python-format
+msgid "You can only combine payment orders of the same type"
+msgstr "Solo puede combinar ordenes de pago del mismo tipo"
+

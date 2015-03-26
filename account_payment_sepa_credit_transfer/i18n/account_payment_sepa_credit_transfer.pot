@@ -1,0 +1,335 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_payment_sepa_credit_transfer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-03 17:08+0000\n"
+"PO-Revision-Date: 2014-03-03 17:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_sepa_credit_transfer
+#: help:payment.type,sepa_category_purpose:0
+msgid "Select the appropiate SEPA category for transactions made under this payment type. Only appplicable for SEPA Credit Transfers."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[CASH] Transaction is a general cash management instruction."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa.wizard,state:0
+msgid "Create"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,nb_transactions:0
+#: field:banking.export.sepa.wizard,nb_transactions:0
+msgid "Number of Transactions"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,filename:0
+#: field:banking.export.sepa.wizard,filename:0
+msgid "Filename"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,state:0
+#: field:banking.export.sepa.wizard,state:0
+msgid "State"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: help:banking.export.sepa.wizard,charge_bearer:0
+msgid "Following service level : transaction charges are to be applied following the rules agreed in the service level and/or scheme (SEPA Core messages must use this). Shared : transaction charges on the debtor side are to be borne by the debtor, transaction charges on the creditor side are to be borne by the creditor. Borne by creditor : all transaction charges are to be borne by the creditor. Borne by debtor : all transaction charges are to be borne by the debtor."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa,charge_bearer:0
+#: selection:banking.export.sepa.wizard,charge_bearer:0
+msgid "Shared"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,batch_booking:0
+#: field:banking.export.sepa.wizard,batch_booking:0
+msgid "Batch Booking"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[INTC] Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa,state:0
+msgid "Sent"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:ir.model,name:account_payment_sepa_credit_transfer.model_banking_export_sepa_wizard
+msgid "Export SEPA Credit Transfer File"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: view:banking.export.sepa:0
+msgid "SEPA Credit Transfer"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa.wizard,state:0
+msgid "Finish"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[TRAD] Transaction is related to the payment of a trade finance transaction."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa,state:0
+msgid "Reconciled"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa,charge_bearer:0
+#: selection:banking.export.sepa.wizard,charge_bearer:0
+msgid "Following Service Level"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa,charge_bearer:0
+#: selection:banking.export.sepa.wizard,charge_bearer:0
+msgid "Borne by Creditor"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[TREA] Transaction is related to treasury operations. E.g. financial contract settlement."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[PENS] Transaction is the payment of pension."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[CORT] Transaction is related to settlement of a trade, eg a foreign exchange deal or a securities transaction."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[WHLD] Transaction is the payment of withholding tax."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: constraint:res.company:0
+msgid "Invalid SEPA Credit Transfer Identifier."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[GOVT] Transaction is a payment to or from a government department."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[TAXS] Transaction is the payment of taxes."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: view:banking.export.sepa.wizard:0
+msgid "Validate"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:payment.type,name:account_payment_sepa_credit_transfer.export_sepa_sct_001_001_03
+msgid "SEPA Credit Transfer v03 (recommended)"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: view:banking.export.sepa.wizard:0
+msgid "Generate"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:payment.type,sepa_category_purpose:0
+msgid "SEPA Category Purpose Type"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[DIVI] Transaction is the payment of dividends."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:banking.export.sepa,charge_bearer:0
+#: selection:banking.export.sepa.wizard,charge_bearer:0
+msgid "Borne by Debtor"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:ir.model,name:account_payment_sepa_credit_transfer.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,total_amount:0
+#: field:banking.export.sepa.wizard,total_amount:0
+msgid "Total Amount"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[SUPP] Transaction is related to a payment to a supplier."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,charge_bearer:0
+#: field:banking.export.sepa.wizard,charge_bearer:0
+msgid "Charge Bearer"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: view:banking.export.sepa.wizard:0
+msgid "SEPA File Generation"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[HEDG] Transaction is related to the payment of a hedging operation."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:payment.type,name:account_payment_sepa_credit_transfer.export_sepa_sct_001_001_02
+msgid "SEPA Credit Transfer v02"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:ir.model,name:account_payment_sepa_credit_transfer.model_banking_export_sepa
+msgid "SEPA export"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "Not Applicable"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:payment.type,name:account_payment_sepa_credit_transfer.export_sepa_sct_001_001_05
+msgid "SEPA Credit Transfer v05"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:payment.type,name:account_payment_sepa_credit_transfer.export_sepa_sct_001_001_04
+msgid "SEPA Credit Transfer v04"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[LOAN] Transaction is related to the transfer of a loan to a borrower."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,file:0
+#: field:banking.export.sepa.wizard,file_id:0
+msgid "SEPA XML File"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:ir.model,name:account_payment_sepa_credit_transfer.model_payment_type
+msgid "Payment type"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: help:res.company,sepa_debtor_identifier:0
+msgid "Enter the Identifier that has been attributed to your company to make SEPA Credit Transfers. This identifier is composed of :\n"
+"- your VAT (9 digits)\n"
+"- a 3-digits subfix (commonly is 000)"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: help:banking.export.sepa,charge_bearer:0
+msgid "Following service level : transaction charges are to be applied following the rules agreed in the service level and/or scheme (SEPA Core messages must use this). Shared : transaction charges on the creditor side are to be borne by the creditor, transaction charges on the debtor side are to be borne by the debtor. Borne by creditor : all transaction charges are to be borne by the creditor. Borne by debtor : all transaction charges are to be borne by the debtor."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[VATX] Transaction is the payment of value added tax."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:res.company,sepa_debtor_identifier:0
+msgid "SEPA Credit Transfer Identifier"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[SECU] Transaction is the payment of securities."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: view:banking.export.sepa:0
+#: field:banking.export.sepa,payment_order_ids:0
+#: field:banking.export.sepa.wizard,payment_order_ids:0
+msgid "Payment Orders"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: view:banking.export.sepa:0
+msgid "General Information"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: model:ir.actions.act_window,name:account_payment_sepa_credit_transfer.act_banking_export_sepa_payment_order
+#: model:ir.actions.act_window,name:account_payment_sepa_credit_transfer.action_account_banking_sepa
+#: model:ir.ui.menu,name:account_payment_sepa_credit_transfer.menu_account_banking_sepa
+msgid "SEPA Credit Transfer Files"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: help:banking.export.sepa,batch_booking:0
+#: help:banking.export.sepa.wizard,batch_booking:0
+msgid "If true, the bank statement will display only one debit line for all the wire transfers of the SEPA XML file ; if false, the bank statement will display one debit line per wire transfer of the SEPA XML file."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa.wizard,file:0
+msgid "File"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: view:banking.export.sepa.wizard:0
+msgid "Cancel"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[INTE] Transaction is the payment of interest."
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: field:banking.export.sepa,create_date:0
+msgid "Generation Date"
+msgstr ""
+
+#. module: account_payment_sepa_credit_transfer
+#: selection:payment.type,sepa_category_purpose:0
+msgid "[SALA] Transaction is the payment of salaries."
+msgstr ""
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            auto="False"
+            id="sdd_mandate_report"
+            model="sdd.mandate"
+            name="sdd.mandate"
+            rml="account_payment_sepa_direct_debit/report/sdd_mandate_report.rml"
+            string="SDD Mandate"
+            usage="default"
+            />
+    </data>
+</openerp>
