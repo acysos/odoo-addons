@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    "name": "Stock valued",
+    "name": "Stock Picking valued",
     "version": "1.0",
     "author": "Acysos S.L.",
     "category": "Stock Management",
