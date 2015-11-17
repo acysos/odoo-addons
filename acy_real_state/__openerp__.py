@@ -39,6 +39,8 @@
     "init_xml" : [],
     "demo_xml" : [],
     "update_xml" :[
+        'security/real_state_security.xml',
+        'security/ir.model.access.csv',
         'report/generic_list.xml',
         'top_view.xml',
         'partner_view.xml',
@@ -48,8 +50,7 @@
         'res_user.xml',
         'rental_agreement_sequence.xml',
         'rental_agreement_view.xml',
-        'security/real_state_security.xml',
-        'security/ir.model.access.csv',
+        'crm_meeting_view.xml',
         ],
     "active": False,
     "installable": True

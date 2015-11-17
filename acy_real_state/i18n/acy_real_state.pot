@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.4\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2014-02-18 22:21+0000\n"
-"PO-Revision-Date: 2014-02-18 22:21+0000\n"
+"POT-Creation-Date: 2014-04-24 19:31+0000\n"
+"PO-Revision-Date: 2014-04-24 19:31+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -120,6 +120,11 @@ msgstr ""
 #. module: acy_real_state
 #: selection:real.state.top,operation:0
 msgid "Rent with sale option"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_real_state_top_subsivision
+msgid "Top subdivision that can be rented individually"
 msgstr ""
 
 #. module: acy_real_state
@@ -269,6 +274,11 @@ msgid "Gas Reference"
 msgstr ""
 
 #. module: acy_real_state
+#: view:res.partner:0
+msgid "Suppliers"
+msgstr ""
+
+#. module: acy_real_state
 #: field:real.state.top,light_ref:0
 msgid "Light Reference"
 msgstr ""
@@ -325,8 +335,8 @@ msgid "Rent Information"
 msgstr ""
 
 #. module: acy_real_state
-#: view:res.partner:0
-msgid "Suppliers"
+#: view:real.state.top.subsivision:0
+msgid "Real State Subdivisions"
 msgstr ""
 
 #. module: acy_real_state
@@ -362,8 +372,8 @@ msgid "Agreements"
 msgstr ""
 
 #. module: acy_real_state
-#: view:real.state.top:0
-msgid "Supplies"
+#: selection:real.state.top,energy_efficiency:0
+msgid "Exempt"
 msgstr ""
 
 #. module: acy_real_state
@@ -482,6 +492,12 @@ msgid "Box room"
 msgstr ""
 
 #. module: acy_real_state
+#: selection:real.state.subtype,type:0
+#: selection:real.state.top,type:0
+msgid "Premise-Office"
+msgstr ""
+
+#. module: acy_real_state
 #: view:real.state.top:0
 msgid "Hotel industry information"
 msgstr ""
@@ -520,6 +536,11 @@ msgstr ""
 #. module: acy_real_state
 #: view:real.state.top:0
 msgid "Administrator Information"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+msgid "Supplies"
 msgstr ""
 
 #. module: acy_real_state
@@ -629,9 +650,11 @@ msgid "Local mount point for rental agreement"
 msgstr ""
 
 #. module: acy_real_state
+#: field:crm.meeting,top_id:0
 #: model:ir.actions.act_window,name:acy_real_state.real_state_top_act
 #: model:ir.ui.menu,name:acy_real_state.menu_real_state_top
 #: model:ir.ui.menu,name:acy_real_state.menu_real_state_top_list
+#: field:real.state.top.subsivision,top_id:0
 #: field:rental.agreement,top_id:0
 msgid "Top"
 msgstr ""
@@ -675,6 +698,11 @@ msgstr ""
 #. module: acy_real_state
 #: field:res.users,document_client:0
 msgid "Client"
+msgstr ""
+
+#. module: acy_real_state
+#: model:ir.model,name:acy_real_state.model_crm_meeting
+msgid "Meeting"
 msgstr ""
 
 #. module: acy_real_state
@@ -802,6 +830,12 @@ msgstr ""
 #. module: acy_real_state
 #: field:real.state.top,homeowners_expenses_included:0
 msgid "Included"
+msgstr ""
+
+#. module: acy_real_state
+#: view:real.state.top:0
+#: field:real.state.top,subdivision_ids:0
+msgid "Subdivisions"
 msgstr ""
 
 #. module: acy_real_state
@@ -937,6 +971,12 @@ msgid "Transfer"
 msgstr ""
 
 #. module: acy_real_state
+#: field:real.state.top,m2:0
+#: field:real.state.top.subsivision,m2:0
+msgid "M2"
+msgstr ""
+
+#. module: acy_real_state
 #: field:real.state.top,elevator:0
 #: field:real.state.top,office_elevator:0
 msgid "Elevator"
@@ -1035,8 +1075,21 @@ msgid "Usage M2"
 msgstr ""
 
 #. module: acy_real_state
+#: field:real.state.top,chalet_cons_m2:0
+#: field:real.state.top,flat_cons_m2:0
+#: field:real.state.top,ground_cons_m2:0
+#: field:real.state.top,office_cons_m2:0
+msgid "Constructed M2"
+msgstr ""
+
+#. module: acy_real_state
 #: selection:real.state.top,energy_efficiency:0
 msgid "E"
+msgstr ""
+
+#. module: acy_real_state
+#: field:real.state.top.subsivision,name:0
+msgid "Name"
 msgstr ""
 
 #. module: acy_real_state

@@ -21,29 +21,29 @@
 #
 ##############################################################################
 
-{
-    "name" : "Real State Publication",
-    "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "website" : "www.acysos.com",
-    "description": """Base module to manage top publication in web or press""",
-    "license" : "AGPL-3",
-    "category" : "Specific Industry Applications",
-    "depends" : [
-        "base",
-        "acy_real_state",
-        "product_images_olbs",
-        "product_images_repository",
-        ],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" :[
-        'security/ir.model.access.csv',
-        'top_view.xml',
-        'product_image_view.xml',
-        'company_view.xml',
-        'wizard/load_product_media_view.xml',
-        ],
-    "active": False,
-    "installable": True
-}
+from osv import fields,osv
+from tools.translate import _
+
+class real_state_top(osv.osv):
+    _inherit = 'real.state.top'
+    
+    TOP_STATE = [
+            ('0','Unknown'),
+            ('1','New'),
+            ('2','Well-conserved'),
+            ('3','New construction'),
+            ('4','To remodelate'),
+            ('5','Remodelated'),
+             ]
+
+    _columns = {
+        'door':fields.char('Door', size=64, required=False, readonly=False),
+        'latitude':fields.char('Latitude', size=64, required=False,
+                               readonly=False),
+        'longitude':fields.char('Longitude', size=64, required=False,
+                                readonly=False),
+        'top_state':fields.selection(TOP_STATE, 
+                           'State of conservation', select=True, readonly=False),
+    }
+    
+real_state_top()

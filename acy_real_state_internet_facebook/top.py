@@ -21,29 +21,14 @@
 #
 ##############################################################################
 
-{
-    "name" : "Real State Publication",
-    "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "website" : "www.acysos.com",
-    "description": """Base module to manage top publication in web or press""",
-    "license" : "AGPL-3",
-    "category" : "Specific Industry Applications",
-    "depends" : [
-        "base",
-        "acy_real_state",
-        "product_images_olbs",
-        "product_images_repository",
-        ],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" :[
-        'security/ir.model.access.csv',
-        'top_view.xml',
-        'product_image_view.xml',
-        'company_view.xml',
-        'wizard/load_product_media_view.xml',
-        ],
-    "active": False,
-    "installable": True
-}
+from osv import fields,osv
+from tools.translate import _
+
+class real_state_top(osv.osv):
+    _inherit = 'real.state.top'
+    
+    _columns = {
+        'facebook': fields.boolean('Publish in facebook.com'),
+    }
+    
+real_state_top()

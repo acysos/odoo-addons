@@ -27,3 +27,4 @@ import company
 import res_user
 import rental_agreement
 import report
+import crm

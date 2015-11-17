@@ -1,0 +1,97 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acy_real_state_internet_common
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2015-02-18 11:36+0000\n"
+"PO-Revision-Date: 2015-02-18 11:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acy_real_state_internet_common
+#: field:real.state.top,door:0
+msgid "Door"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: selection:real.state.top,top_state:0
+msgid "Remodelated"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: selection:real.state.top,top_state:0
+msgid "Well-conserved"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: selection:real.state.top,top_state:0
+msgid "Unknown"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: selection:real.state.top,top_state:0
+msgid "To remodelate"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: field:real.state.top,longitude:0
+msgid "Longitude"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: model:ir.model,name:acy_real_state_internet_common.model_real_state_hotwater
+msgid "real.state.hotwater"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: model:ir.model,name:acy_real_state_internet_common.model_real_state_top
+msgid "real.state.top"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: view:real.state.top:0
+msgid "Publications"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: view:real.state.top:0
+msgid "Common information"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: field:real.state.top,latitude:0
+msgid "Latitude"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: selection:real.state.top,top_state:0
+msgid "New"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: model:ir.model,name:acy_real_state_internet_common.model_real_state_heating
+msgid "real.state.heating"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: field:real.state.top,top_state:0
+msgid "State of conservation"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: selection:real.state.top,top_state:0
+msgid "New construction"
+msgstr ""
+
+#. module: acy_real_state_internet_common
+#: view:real.state.top:0
+msgid "Portals and Website"
+msgstr ""
+

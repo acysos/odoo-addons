@@ -75,6 +75,7 @@ class real_state_subtype(osv.osv):
                         ('chalet','Chalet'),
                         ('house','Town House'),
                         ('office','Office'),
+                        ('premise-office','Premise-Office'),
                         ('industrial_unit','Industrial Unit'),
                         ('hotel_industry','Hotel Industry'),
                         ('parking','Parking'),
@@ -83,6 +84,22 @@ class real_state_subtype(osv.osv):
     }
     _order = 'name'
 real_state_subtype()
+
+class real_state_top_subdivision(osv.osv):
+    _name = 'real.state.top.subsivision'
+    _description= 'Top subdivision that can be rented individually'
+    
+    _columns = {
+        'name':fields.char('Name', size=64, required=False, readonly=False), 
+        'm2': fields.integer('M2'),
+        'top_id': fields.many2one('real.state.top', 'Top', ondelete='cascade'),
+    }
+    
+    _defaults = {  
+        'name': '/',  
+        }
+    
+real_state_top_subdivision()
 
 class real_state_top(osv.osv):
     _name = 'real.state.top'
@@ -125,40 +142,159 @@ class real_state_top(osv.osv):
                 path = 'ftp://%s@%s'%(user.login, url) + '/' + diry.name + '/' + top.name + '/'
             res[top.id] = path
         return res
+
+    def _m2_get(self, cr, uid, ids, name, arg, context={}):
+        res = {}
+        for top in self.browse(cr, uid, ids, context):
+            if top.type in ['flat']:
+                res[top.id] = top.flat_usage_m2
+            elif top.type in ['shop', 'industrial_unit', 'hotel_industry', 'premise']:
+                res[top.id] = top.ground_m2
+            elif top.type in ['office', 'premise-office']:
+                res[top.id] = top.office_m2
+            elif top.type in ['chalet','house']:
+                res[top.id] = top.chalet_usage_m2
+            elif top.type in ['land']:
+                res[top.id] = top.land_m2
+            else:
+                res[top.id] = 0
+        return res
+    
+    def _cons_m2_get(self, cr, uid, ids, name, arg, context={}):
+        res = {}
+        for top in self.browse(cr, uid, ids, context):
+            if top.type in ['flat']:
+                res[top.id] = top.flat_cons_m2
+            elif top.type in ['shop', 'industrial_unit', 'hotel_industry', 'premise']:
+                res[top.id] = top.ground_cons_m2
+            elif top.type in ['office','premise-office']:
+                res[top.id] = top.office_cons_m2
+            elif top.type in ['chalet','house']:
+                res[top.id] = top.chalet_cons_m2
+            elif top.type in ['land']:
+                res[top.id] = top.land_cons_m2
+            else:
+                res[top.id] = 0
+        return res
+    
+    def _m2_search(self, cr, uid, obj, name, args, context):
+        if not len(args):
+            return []
+        menu = self.pool.get('ir.ui.menu').browse(cr,uid,context['active_id'])
+        operator = args[0][1]
+        value = args[0][2]
+        top_obj = self.pool.get('real.state.top')
+        top_div_obj = self.pool.get('real.state.top.subsivision')
+        if menu.action.domain:
+            if menu.action.domain.find('flat') >= 0: 
+               top_ids = top_obj.search(cr, uid, 
+                                        [('flat_usage_m2',operator,value)])
+            elif menu.action.domain.find('shop') >= 0 or menu.action.domain.find('industrial_unit') >= 0 or menu.action.domain.find('hotel_industry') >= 0 or menu.action.domain.find('premise') >= 0:
+               top_ids = top_obj.search(cr, uid, [
+                           ('ground_m2',operator,value),
+                           ])
+               sub_ids = top_div_obj.search(cr, uid, [('m2',operator,value)])
+               for sub_id in sub_ids:
+                   sub = top_div_obj.browse(cr, uid, sub_id)
+                   if sub.top_id.id not in top_ids:
+                       top_ids.append(sub.top_id.id)
+            elif menu.action.domain.find('office') >= 0 or menu.action.domain.find('premise-office') >=0:
+               top_ids = top_obj.search(cr, uid, [
+                           ('office_m2',operator,value),
+                           ])
+               sub_ids = top_div_obj.search(cr, uid, [('m2',operator,value)])
+               for sub_id in sub_ids:
+                   sub = top_div_obj.browse(cr, uid, sub_id)
+                   if sub.top_id.id not in top_ids:
+                       top_ids.append(sub.top_id.id)
+            elif menu.action.domain.find('chalet') >= 0 or menu.action.domain.find('house') >=0:
+               top_ids = top_obj.search(cr, uid, [
+                           ('chalet_usage_m2',operator,value),
+                           ])
+            elif menu.action.domain.find('land') >= 0:
+               top_ids = top_obj.search(cr, uid, [
+                           ('land_m2',operator,value),
+                           ])
+        else:
+            return []
+        if len(top_ids) > 0:
+            return [('id','in', top_ids)]
+        return []
+    
+    TYPES = [('unlimited','unlimited'),
+             ('flat','Flat'),
+             ('shop','Shop'),
+             ('premise','Premise'),
+             ('chalet','Chalet'),
+             ('house','Town House'),
+             ('office','Office'),
+             ('premise-office','Premise-Office'),
+             ('industrial_unit','Industrial Unit'),
+             ('hotel_industry','Hotel Industry'),
+             ('parking','Parking'),
+             ('box_room','Box room'),
+             ('land','Land')]  
+    
+    OPERATIONS = [('sale','Sale'),
+                  ('rent','Rent'),
+                  ('sale_rent','Sale & Rent'),
+                  ('rent_sale_option','Rent with sale option'),
+                  ('transfer','Transfer'),
+                  ('valuation','Valuation')]
+    
+    ENERGY_EFFICIENCY = [('in_process','In process'),
+                          ('exempt','Exempt'),
+                          ('yes','Yes'),
+                          ('a','A'),
+                          ('b','B'),
+                          ('c','C'),
+                          ('d','D'),
+                          ('e','E'),
+                          ('f','F'),
+                          ('g','G')]
+    
+    ORIENTATION = [('all','All'),
+                   ('north','North'),
+                   ('northeast','Northeast'),
+                   ('east','East'),
+                   ('southeast','South-Easth'),
+                   ('south','South'),
+                   ('southwest','South West'),
+                   ('west','West'),
+                   ('northwest','Northwest'),
+                   ('north-south','North-South'),
+                   ('east-west','East-West')]
+    
+    FURNISHED = [('yes','Yes'),
+                 ('half','Half'),
+                 ('no','No')]
  
+    def operation_getselectionval(self, cr, uid, ids):
+        info = self.browse(cr, uid, ids)
+        for operationtuple in self.OPERATIONS:
+            if info[0].operation == operationtuple[0]:
+               return operationtuple[1]
+
     _columns = {
-        'create_date' : fields.datetime('Create Date', readonly=True),
-        'write_date' : fields.datetime('Last Write Date', readonly=True),
+        'create_date': fields.datetime('Create Date', readonly=True),
+        'write_date': fields.datetime('Last Write Date', readonly=True),
         'name': fields.char('Reference', size=64, select=True, readonly=True),
         'address': fields.char('Address', size=256, required=True),
         'stair': fields.char('Stair', size=256),
         'number': fields.char('Number', size=64, select=True),
         'floor': fields.char('Floor', size=64, select=True),
-        'type': fields.selection([('unlimited','unlimited'),
-                                ('flat','Flat'),
-                                ('shop','Shop'),
-                                ('premise','Premise'),
-                                ('chalet','Chalet'),
-                                ('house','Town House'),
-                                ('office','Office'),
-                                ('industrial_unit','Industrial Unit'),
-                                ('hotel_industry','Hotel Industry'),
-                                ('parking','Parking'),
-                                ('box_room','Box room'),
-                                ('land','Land')], 'Type', required=True, select=True),
-        'zone': fields.many2one('real.state.zone','Zone', required=True, select=True),
-	    'city_id': fields.many2one('city.city', 'Location', required=True,
-                help='Use the name or the zip to search the location'),
+        'type': fields.selection(TYPES, 'Type', required=True, select=True),
+        'zone': fields.many2one('real.state.zone','Zone', required=True, 
+                                select=True),
+        'city_id': fields.many2one(
+            'city.city', 'Location', required=True,
+            help='Use the name or the zip to search the location'),
         'partner_id': fields.many2one('res.partner',
             'Owner', 
             select=True, 
             domain= [('real_state_type','=','owner')]),
-        'operation': fields.selection([('sale','Sale'),
-                                ('rent','Rent'),
-                                ('sale_rent','Sale & Rent'),
-                                ('rent_sale_option','Rent with sale option'),
-                                ('transfer','Transfer'),
-                                ('valuation','Valuation')], 'Operation', required=True, select=True),
+        'operation': fields.selection(OPERATIONS, 'Operation', required=True, 
+                                      select=True),
         'date': fields.date('Date', required=True),
         'updated_date': fields.date('Updated Date'),
         'number_keys': fields.char('Number of Keys', size=256),
@@ -175,20 +311,24 @@ class real_state_top(osv.osv):
         'note': fields.text('Notes'),
         'available': fields.boolean('Available'),
         'subtype': fields.many2one('real.state.subtype','Subtype', select=True),
-        'energy_efficiency': fields.selection([('in_process','In process'),
-                                ('yes','Yes'),
-                                ('a','A'),
-                                ('b','B'),
-                                ('c','C'),
-                                ('d','D'),
-                                ('e','E'),
-                                ('f','F'),
-                                ('g','G')], 'Energy Efficiency', required=False),
+        'energy_efficiency': fields.selection(ENERGY_EFFICIENCY, 
+                                              'Energy Efficiency', 
+                                              required=False),
+        'energy_date': fields.date('Date Energy Efficiency'),
+        'energy_emission': fields.integer('Energy Emission'),
+        'energy_number': fields.integer('Energy Number'),
         'energy_doc': fields.binary('Energy Certificate'),
-        'retribution': fields.char('Retribution',size=256),
+        'retribution': fields.char('Retribution', size=256),
         'buyer_id': fields.many2one('res.partner',
             'Buyer',
             domain= [('real_state_type','=','buyer')]),
+        'm2': fields.function(_m2_get, method=True, type='float', string='M2',
+                              store=False, fnct_search=_m2_search),
+        'cons_m2': fields.function(_cons_m2_get, method=True, type='float',
+                                   string='Constructed M2', store=False),
+        'subdivision_ids':fields.one2many('real.state.top.subsivision', 
+                                          'top_id', 'Subdivisions', 
+                                          required=False), 
         # Flat, Chalet, Town House information
         'kitchen': fields.integer('Kitchen'),
         'kitchen_description': fields.char('Kitchen Description', size=256),
@@ -200,17 +340,7 @@ class real_state_top(osv.osv):
         'bath_description': fields.char('Bathroom Description', size=256),
         'toilet': fields.integer('Toilet'),
         'toilet_description': fields.char('Bathroom Description', size=256),
-        'orientation': fields.selection([('all','All'),
-                                ('north','North'),
-                                ('northeast','Northeast'),
-                                ('east','East'),
-                                ('southeast','South-Easth'),
-                                ('south','South'),
-                                ('southwest','South West'),
-                                ('west','West'),
-                                ('northwest','Northwest'),
-                                ('north-south','North-South'),
-                                ('east-west','East-West')], 'Orientation'),
+        'orientation': fields.selection(ORIENTATION, 'Orientation'),
         'parking': fields.integer('Parking'),
         'parking_description': fields.char('Parking Description', size=256),
         'box_room': fields.integer('Box Room'),
@@ -221,9 +351,7 @@ class real_state_top(osv.osv):
         # Rent Flat, Chalet or Town house
         'bedrooms': fields.integer('Bedrooms'),
         'built_in_closet': fields.integer('Built-in Closet'),
-        'furnished': fields.selection([('yes','Yes'),
-                        ('half','Half'),
-                        ('no','No')], 'Furnished'),
+        'furnished': fields.selection(FURNISHED, 'Furnished'),
         'furnished_description': fields.char('Furnished Description', size=256),
         # Suppliers
         'administrator': fields.char('Administrator',size=256),
@@ -235,12 +363,14 @@ class real_state_top(osv.osv):
         'aqua_ref': fields.char('Aqua Reference',size=256),
         # Only Flat.
         'flat_usage_m2': fields.float('Usage M2'),
+        'flat_cons_m2': fields.float('Constructed M2'),
         'elevator': fields.boolean('Elevator'),
         'flat_heating': fields.many2one('real.state.heating','Heating'),
         'flat_hotwater': fields.many2one('real.state.hotwater','Hot Water'),
         'students': fields.boolean('Students'),
         # Only Chalet, Town House
         'chalet_usage_m2': fields.float('Usage M2'),
+        'chalet_cons_m2': fields.float('Usage M2'),
         'plot_m2': fields.float('Plot M2'),
         'chalet_basement': fields.float('Basement'),
         'chalet_ground': fields.float('Ground'),
@@ -253,6 +383,7 @@ class real_state_top(osv.osv):
         'chalet_hotwater': fields.many2one('real.state.hotwater','Hot Water'),
         # Industrial Unit information
         'ground_m2': fields.float('Ground M2'),
+        'ground_cons_m2': fields.float('Constructed M2'),
         'mezzanine_m2': fields.float('Mezzanine M2'),
         'basement_m2': fields.float('Basement M2'),
         'open_field_m2': fields.float('Open Field M2'),
@@ -268,7 +399,7 @@ class real_state_top(osv.osv):
         'industrial_prepared': fields.boolean('Prepared'),
         #Office information
         'office_m2': fields.float('Office M2'),
-        'office_usage_m2': fields.float('Usage Office M2'),
+        'office_cons_m2': fields.float('Usage Office M2'),
         'office_electricity': fields.boolean('Eletricity'),
         'office_toilets': fields.char('Toilets',size=256),
         'office_outside': fields.boolean('Outside'),
@@ -288,6 +419,8 @@ class real_state_top(osv.osv):
         #Hotel industry
         'fumes_vent': fields.boolean('Fumes Vent'),
         #Land
+        'land_m2': fields.float('Land M2'),
+        'land_cons_m2': fields.float('Usage Land M2'),
         'land_type': fields.many2one('real.state.land.type','Land Type'),
         'land_state': fields.many2one('real.state.land.state','Land State'),
     }
@@ -296,6 +429,7 @@ class real_state_top(osv.osv):
         'type': 'unlimited',
         'operation': 'sale',
         'available': lambda *a: 1,
+        'energy_efficiency': 'in_process',
     }
     
     def create(self, cr, uid, vals, context=None):

@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2014 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #    $Id$
 #
@@ -22,27 +22,25 @@
 ##############################################################################
 
 {
-    "name" : "Real State Publication",
+    "name" : "Real State Web Common",
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Base module to manage top publication in web or press""",
+    "description": """Common information for internet website and portals""",
     "license" : "AGPL-3",
     "category" : "Specific Industry Applications",
     "depends" : [
         "base",
         "acy_real_state",
-        "product_images_olbs",
-        "product_images_repository",
+        "acy_real_state_publication",
+        "smile_export",
+        "smile_export_file",
+        "acy_smile_export_file_extended",
         ],
     "init_xml" : [],
     "demo_xml" : [],
     "update_xml" :[
-        'security/ir.model.access.csv',
         'top_view.xml',
-        'product_image_view.xml',
-        'company_view.xml',
-        'wizard/load_product_media_view.xml',
         ],
     "active": False,
     "installable": True

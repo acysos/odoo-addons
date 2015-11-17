@@ -1,0 +1,46 @@
+<openerp>
+    <data>
+    
+            <record model="ir.ui.view" id="crm_top_suggested_tree_view">
+                <field name="name">crm.top.suggested.tree</field>
+                <field name="model">crm.top.suggested</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Tops Suggested">
+                        <field name="name"/>
+                        <field name="crm_id"/>
+                        <field name="interested"/>
+                    </tree>
+                </field>
+            </record>
+    
+		 <record model="ir.ui.view" id="crm_case_form_view_oppor_real_state">
+                <field name="name">crm.case.form.view.oppor.real.state</field>
+                <field name="model">crm.lead</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+                <field name="arch" type="xml">
+                    <page string="Opportunity" position="after">
+                        <page string="Real State">
+                            <field name="top_suggested_ids" colspan="4" nolabel="1" string="Tops Suggested">
+                                <tree string="Tops Suggested" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="interested"/>
+                                </tree>
+                            </field>
+                            <field name="top_type"/>
+                            <field name="operation"/>
+                            <field name="sale_price"/>
+                            <field name="rent_price"/>
+                            <field name="m2"/>
+                            <field name="parking"/>
+                            <field name="elevator"/>
+                            <field name="prepared"/>
+                            <field name="zone_ids" colspan="4"/>
+                        </page>
+                    </page>
+                </field>
+            </record>
+    
+    </data>
+</openerp>

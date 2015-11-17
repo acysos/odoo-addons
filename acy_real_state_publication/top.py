@@ -75,6 +75,7 @@ class real_state_top(osv.osv):
     
     _columns = {
         'publications': fields.one2many('real.state.top.press','top_id','Publications'),
+        #'web_url':fields.char('Web URL', size=64, required=False, readonly=False), 
         'internet_wo': fields.one2many('real.state.top.internet.wo','top_id','Internet WO Update'),
         'poster': fields.boolean('Poster'),
         'internet_description': fields.text('Internet Description'),

@@ -1,0 +1,222 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* crm_real_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.4\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2015-08-02 16:52+0000\n"
+"PO-Revision-Date: 2015-08-02 16:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Town House"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,operation:0
+msgid "Transfer"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.top.suggested,name:0
+msgid "Top"
+msgstr ""
+
+#. module: crm_real_state
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,elevator:0
+msgid "Elevator"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,rent_price:0
+msgid "Rent Price"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.top.suggested,interested:0
+msgid "Interested"
+msgstr ""
+
+#. module: crm_real_state
+#: model:ir.model,name:crm_real_state.model_crm_top_suggested
+msgid "crm.top.suggested"
+msgstr ""
+
+#. module: crm_real_state
+#: field:res.company,realstate_template:0
+msgid "Template"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,m2:0
+msgid "M2"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,top_type:0
+msgid "Type"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,operation:0
+msgid "Valuation"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Flat"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Chalet"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Hotel Industry"
+msgstr ""
+
+#. module: crm_real_state
+#: view:crm.lead:0
+msgid "Real State"
+msgstr ""
+
+#. module: crm_real_state
+#: code:addons/crm_real_state/crm_lead.py:159
+#, python-format
+msgid "CRM Lead Real State"
+msgstr ""
+
+#. module: crm_real_state
+#: view:crm.lead:0
+msgid "Opportunity"
+msgstr ""
+
+#. module: crm_real_state
+#: view:crm.lead:0
+#: field:crm.lead,top_suggested_ids:0
+#: view:crm.top.suggested:0
+msgid "Tops Suggested"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Land"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Premise"
+msgstr ""
+
+#. module: crm_real_state
+#: code:addons/crm_real_state/crm_lead.py:161
+#, python-format
+msgid "Not template configured. Configure your company template or disallow Scheduled Actions"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "unlimited"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,operation:0
+msgid "Rent with sale option"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,operation:0
+msgid "Sale & Rent"
+msgstr ""
+
+#. module: crm_real_state
+#: model:ir.model,name:crm_real_state.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,operation:0
+msgid "Sale"
+msgstr ""
+
+#. module: crm_real_state
+#: model:ir.model,name:crm_real_state.model_crm_lead
+msgid "crm.lead"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Industrial Unit"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Shop"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,zone_ids:0
+msgid "Zones"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Office"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,sale_price:0
+msgid "Sale Price"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Box room"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,top_type:0
+msgid "Premise-Office"
+msgstr ""
+
+#. module: crm_real_state
+#: view:res.company:0
+msgid "CRM Configuration"
+msgstr ""
+
+#. module: crm_real_state
+#: selection:crm.lead,operation:0
+msgid "Rent"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.top.suggested,crm_id:0
+msgid "CRM Lead"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,parking:0
+#: selection:crm.lead,top_type:0
+msgid "Parking"
+msgstr ""
+
+#. module: crm_real_state
+#: field:crm.lead,operation:0
+msgid "Operation"
+msgstr ""
+

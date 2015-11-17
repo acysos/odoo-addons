@@ -1,0 +1,17 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_company_form_real_state_pisoscom">
+            <field name="name">res.company.form.real.state.pisoscom</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="acy_real_state_publication.view_company_form_real_state_publication"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="image_height" position="after">
+                		<separator string="Configuración Pisos.com" colspan="4"/>
+                        <field name="pisoscom" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
+

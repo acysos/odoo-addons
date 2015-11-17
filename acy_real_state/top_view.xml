@@ -42,7 +42,7 @@
                     <page string="Information">
 	                        <group col="6">
 	                            <field name="sale_price" attrs="{'invisible': [('operation', 'in', ['rent','rent_sale_option']),]}" />
-	                            <field name="rent_price" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}" />
+	                            <field name="rent_price" attrs="{'invisible': [('operation', 'in', ['sale','valuation']),]}" />
 	                            <field name="deposit" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}" />
 	                        </group>
 	                        <group col="6">
@@ -54,6 +54,7 @@
                             <group colspan="4" col="8" attrs="{'invisible': [('type', 'not in', ['flat'])]}">
                                 <separator string="Flat Information" colspan="8"/>
                                 <field name="flat_usage_m2" />
+                                <field name="flat_cons_m2" />
                                 <field name="elevator" />
                                 <field name="flat_heating" widget="selection" />
                                 <field name="flat_hotwater" widget="selection" />
@@ -61,6 +62,7 @@
                             <group colspan="4" col="10" attrs="{'invisible': [('type', 'not in', ['chalet','house'])]}">
                                 <separator string="Chalet and House Information" colspan="10"/>
                                 <field name="chalet_usage_m2" />
+                                <field name="chalet_cons_m2" />
                                 <field name="plot_m2" />
                                 <field name="garden_m2" />
                                 <field name="chalet_heating" widget="selection" />
@@ -126,6 +128,7 @@
                                 <separator string="Hotel industry information" colspan="10" />
                             </group>
                             <field name="ground_m2" />
+                            <field name="ground_cons_m2" />
                             <field name="mezzanine_m2" />
                             <field name="basement_m2" />
                             <field name="open_field_m2" attrs="{'invisible': [('type', 'not in',['industrial_unit'])]}" />
@@ -155,10 +158,10 @@
                             <field name="shop_facade" />
                             <field name="fumes_vent" />
                         </group>
-                        <group colspan="4" col="16" attrs="{'invisible': [('type', 'not in',['office'])]}">
+                        <group colspan="4" col="16" attrs="{'invisible': [('type', 'not in',['office','premise-office'])]}">
                             <separator string="Office information" colspan="16"/>
                             <field name="office_m2" />
-                            <field name="office_usage_m2" />
+                            <field name="office_cons_m2" />
                             <separator string="Prepared" colspan="16"/>
                             <field name="office_electricity" />
                             <field name="office_toilets" colspan="14" />
@@ -173,12 +176,25 @@
                         </group>
                         <group colspan="4" col="4" attrs="{'invisible': [('type', 'not in',['land'])]}">
                             <separator string="Land information" colspan="4" />
+                            <field name="land_m2"/>
+                            <field name="land_cons_m2"/>
                             <field name="land_type" widget="selection" />
                             <field name="land_state" widget="selection" />
                         </group>
                         <group col="4" colspan="4" attrs="{'invisible': [('type', 'in', ['flat','chalet','house'])]}">
 	                        <separator string="Notes" colspan="4"/>
 	                        <field name="note" colspan="4" nolabel="1"/>
+                        </group>
+                        <group col="4" colspan="4" attrs="{'invisible': [('type', 'in', ['flat','chalet','house','land','box_room','parking'])]}">
+	                        <separator string="Subdivisions" colspan="4"/>
+	                        <field name="subdivision_ids" colspan="4" nolabel="1">
+	                              <form string="Subdivisions">
+	                                  <field name="m2" />
+	                              </form>
+	                              <tree string="Subdivisions" editable="bottom">
+	                                  <field name="m2" />
+	                              </tree>
+	                        </field>
                         </group>
                     </page>
                     <page string="Supplies">
@@ -188,6 +204,9 @@
                             <field name="gas_ref" />
                             <field name="aqua_ref" />
                             <field name="energy_efficiency" attrs="{'invisible': [('type', 'in', ['industrial_unit','land'])], 'required': [('type', 'not in', ['industrial_unit','land'])]}" />
+                            <field name="energy_date" />
+                            <field name="energy_emission" />
+                            <field name="energy_number" />
                             <field name="energy_doc" attrs="{'invisible': [('type', 'in', ['industrial_unit','land'])], 'required': [('energy_efficiency','in',['a','b','c','d','e','f','g'])]}" />
                         </group>
                         <group colspan="2" col="2">
@@ -198,7 +217,7 @@
                             <field name="website" />
                         </group>
                     </page>
-                    <page string="Tenants" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}">
+                    <page string="Tenants" attrs="{'invisible': [('operation', 'in', ['sale','valuation']),]}">
                         <field colspan="4" mode="tree,form,graph" name="agreements" nolabel="1" widget="one2many_list">
                             <form string="Rental Agreements">
                                 <field name="name" />
@@ -245,12 +264,14 @@
                 <field name="number"/>
                 <field name="floor"/>
                 <field name="stair"/>
+                <field name="m2"/>
                 <field name="rent_price"/>
                 <field name="sale_price"/>
                 <field name="partner_id"/>
               </tree>
           </field>
       </record>
+      
       <record model="ir.ui.view" id="real_state_top_filter">
           <field name="name">real.state.top.filter</field>
           <field name="model">real.state.top</field>
@@ -325,7 +346,7 @@
                   </group>
                   <newline />
                   <group col="10" colspan="4">
-                      <field name="flat_usage_m2" />
+                      <field name="m2" />
                       <field name="rooms" />
                       <field name="bathroom" />
                       <field name="parking" />
@@ -342,7 +363,7 @@
                   </group>
               </search>
           </field>
-      </record>  
+      </record>
       
       <record model="ir.ui.view" id="real_state_top_filter_industrial">
           <field name="name">real.state.top.filter.industrial</field>
@@ -367,7 +388,7 @@
                   </group>
                   <newline/>
                   <group col="10" colspan="4">
-                  	  <field name="ground_m2"/>
+                  	  <field name="m2"/>
                       <field name="industrial_prepared" />
                   </group>
                   <newline/>
@@ -402,7 +423,7 @@
                   </group>
                   <newline/>
                   <group col="10" colspan="4">
-                  	  <field name="ground_m2" />
+                  	  <field name="m2" />
                       <field name="shop_prepared" />
                   </group>
                   <newline/>
@@ -437,8 +458,45 @@
                   </group>
                   <newline/>
                   <group col="10" colspan="4">
-                      <field name="office_m2" />
-                      <field name="office_usage_m2" />
+                      <field name="m2" />
+                      <field name="office_cons_m2" />
+                  </group>
+                  <newline/>
+                  <group expand="0" string="Advanced search...">
+                      <field name="address" />
+                      <field name="partner_id" />
+                   </group>
+              </search>
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="real_state_top_filter_hotel_industry">
+          <field name="name">real.state.top.filter.hotel_industry</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="priority" eval="5"/>
+          <field name="arch" type="xml">
+              <search string="Real State Top">
+                  <group col="10" colspan="4">
+                  	  <filter string="Available" domain="[('available','=',1)]"/>
+                  	  <filter string="Not Available" domain="[('available','=',0)]"/>
+                  	  <separator orientation="vertical"/>
+                      <filter string="Sale" domain="[('operation','in',('sale','sale_rent','rent_sale_option'))]"/>
+                      <filter string="Rent" domain="[('operation','in',('rent','sale_rent','rent_sale_option'))]"/>
+                   	  <filter string="Transfer" domain="[('operation','=','transfer')]"/>
+                      <filter string="Valuation" domain="[('operation','=','valuation')]"/>
+                      <separator orientation="vertical"/>
+                      <field name="name" />
+                      <field name="type" />
+                      <field name="subtype" widget="selection" />
+                      <field name="zone"/>
+                      <field name="city_id" />
+                  </group>
+                  <newline/>
+                  <group col="10" colspan="4">
+                      <field name="sale_price" />
+                      <field name="rent_price" />
+                      <field name="m2" />
                   </group>
                   <newline/>
                   <group expand="0" string="Advanced search...">
@@ -501,6 +559,7 @@
       
       <record model="ir.actions.act_window" id="real_state_top_shop_act">
           <field name="name">Shop</field>
+          <field name="view_id" ref="real_state_top_tree"/>
           <field name="res_model">real.state.top</field>
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
@@ -515,10 +574,11 @@
       sequence="15"/>
       <record model="ir.actions.act_window" id="real_state_top_premise_act">
           <field name="name">Premise</field>
+          <field name="view_id" ref="real_state_top_tree"/>
           <field name="res_model">real.state.top</field>
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
-          <field name="domain">[('type','=','premise')]</field>
+          <field name="domain">[('type','in',['premise','premise-office'])]</field>
           <field name="context">{"search_default_available":1}</field>
           <field name="search_view_id" ref="real_state_top_filter_shop"/>
       </record>
@@ -548,6 +608,7 @@
           <field name="view_type">form</field>
           <field name="domain">[('type','=','house')]</field>
           <field name="context">{"search_default_available":1}</field>
+          <field name="search_view_id" ref="real_state_top_filter_flat"/>
       </record>
       <menuitem
                action="real_state_top_house_act"
@@ -556,10 +617,11 @@
       sequence="30"/>
       <record model="ir.actions.act_window" id="real_state_top_office_act">
           <field name="name">Office</field>
+          <field name="view_id" ref="real_state_top_tree"/>
           <field name="res_model">real.state.top</field>
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
-          <field name="domain">[('type','=','office')]</field>
+          <field name="domain">[('type','in',['office','premise-office'])]</field>
           <field name="context">{"search_default_available":1}</field>
           <field name="search_view_id" ref="real_state_top_filter_office"/>
       </record>
@@ -568,8 +630,24 @@
                id="menu_real_state_top_office_list"
                parent="menu_real_state_top_list"
       sequence="35"/>
+      <record model="ir.actions.act_window" id="real_state_top_premise_office_act">
+          <field name="name">Premise-Office</field>
+          <field name="view_id" ref="real_state_top_tree"/>
+          <field name="res_model">real.state.top</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+          <field name="domain">[('type','=','premise-office')]</field>
+          <field name="context">{"search_default_available":1}</field>
+          <field name="search_view_id" ref="real_state_top_filter_office"/>
+      </record>
+      <menuitem
+               action="real_state_top_premise_office_act"
+               id="menu_real_state_top_premise_office_list"
+               parent="menu_real_state_top_list"
+      sequence="37"/>
       <record model="ir.actions.act_window" id="real_state_top_industrial_unit_act">
           <field name="name">Industrial Unit</field>
+          <field name="view_id" ref="real_state_top_tree"/>
           <field name="res_model">real.state.top</field>
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
@@ -584,11 +662,13 @@
       sequence="40"/>
       <record model="ir.actions.act_window" id="real_state_top_hotel_industry_act">
           <field name="name">Hotel Industry</field>
+          <field name="view_id" ref="real_state_top_tree"/>
           <field name="res_model">real.state.top</field>
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','hotel_industry')]</field>
           <field name="context">{"search_default_available":1}</field>
+          <field name="search_view_id" ref="real_state_top_filter_hotel_industry"/>
       </record>
       <menuitem
                action="real_state_top_hotel_industry_act"
@@ -717,6 +797,18 @@
               <tree string="Real State Subtype">
                   <field name="name" />
                   <field name="type" />
+              </tree>
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="real_state_top_subdivision_tree">
+          <field name="name">real.state.top.subdivision.tree</field>
+          <field name="model">real.state.top.subsivision</field>
+          <field name="type">tree</field>
+          <field name="arch" type="xml">
+              <tree string="Real State Subdivisions">
+                  <field name="m2" />
+                  <field name="top_id" />
               </tree>
           </field>
       </record>
