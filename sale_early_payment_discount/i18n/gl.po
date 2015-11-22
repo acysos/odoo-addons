@@ -1,0 +1,175 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* pxgo_early_payment_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.2\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-04-18 17:56+0000\n"
+"PO-Revision-Date: 2011-04-18 17:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pxgo_early_payment_discount
+#: field:sale.order,early_payment_disc_untaxed:0
+msgid "Untaxed Amount E.P."
+msgstr "Importe sen tributos do D.P.A."
+
+#. module: pxgo_early_payment_discount
+#: view:account.partner.payment.term.early.discount:0
+#: model:ir.actions.act_window,name:pxgo_early_payment_discount.action_payment_term_early_discount_form
+#: model:ir.model,name:pxgo_early_payment_discount.model_account_partner_payment_term_early_discount
+#: model:ir.ui.menu,name:pxgo_early_payment_discount.menu_action_payment_term_early_discount_form
+msgid "Early payment discounts"
+msgstr "Descontos por pagamentos anticipados"
+
+#. module: pxgo_early_payment_discount
+#: help:product.category,property_account_sale_early_payment_disc:0
+msgid "This account will be used to input the early payments discount in sale"
+msgstr "Esta conta empregarase para indica-lo desconto por pagamentos anticipados nas ventas"
+
+#. module: pxgo_early_payment_discount
+#: constraint:account.payment.term:0
+msgid "Error: Payment days field format is not valid."
+msgstr "Erro: O formato do campo de días de pagamento non é válido."
+
+#. module: pxgo_early_payment_discount
+#: help:account.invoice,early_discount_amount:0
+msgid "Early payment discount amount to apply."
+msgstr "Importe a aplicar do desconto por pagamento anticipado."
+
+#. module: pxgo_early_payment_discount
+#: field:account.payment.term,early_payment_discount_ids:0
+#: field:res.partner,early_payment_discount_ids:0
+msgid "E.P. discounts"
+msgstr "Descontos por P.A."
+
+#. module: pxgo_early_payment_discount
+#: field:sale.order,early_payment_disc_total:0
+msgid "With E.P."
+msgstr "Con D.P.A."
+
+#. module: pxgo_early_payment_discount
+#: model:ir.model,name:pxgo_early_payment_discount.model_stock_picking
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: pxgo_early_payment_discount
+#: code:addons/pxgo_early_payment_discount/account_invoice.py:123
+#, python-format
+msgid "Cannot set early payment discount because now is impossible find the early payment account. Review invoice products categories have defined early payment account by default or early payment discount product have defined an output account."
+msgstr "Non se pode aplicar o desconto por pagamentos anticipados porque é imposible atopa-la conta contable asociada. Revise que as categorías dos productos teñen definidas unha conta para estos descontos por defecto ou que o producto 'desconto por pago anticipado' ten definida unha conta de stock de saída."
+
+#. module: pxgo_early_payment_discount
+#: field:account.invoice,early_discount_amount:0
+#: field:sale.order,total_early_discount:0
+msgid "E.P. amount"
+msgstr "Importe D.P.A."
+
+#. module: pxgo_early_payment_discount
+#: model:ir.model,name:pxgo_early_payment_discount.model_product_category
+msgid "Product Category"
+msgstr "Categoría de Producto"
+
+#. module: pxgo_early_payment_discount
+#: code:addons/pxgo_early_payment_discount/account_invoice.py:129
+#, python-format
+msgid "Early payment disc. (%s)"
+msgstr "Desconto por Pagamento Antic. (%s)"
+
+#. module: pxgo_early_payment_discount
+#: help:account.invoice,early_payment_discount:0
+#: view:account.partner.payment.term.early.discount:0
+#: code:addons/pxgo_early_payment_discount/account_invoice.py:130
+#: code:addons/pxgo_early_payment_discount/account_invoice.py:142
+#: model:product.template,name:pxgo_early_payment_discount.product_rappel_product_template
+#: help:sale.order,early_payment_discount:0
+#, python-format
+msgid "Early payment discount"
+msgstr "Desconto por pagamento Antic."
+
+#. module: pxgo_early_payment_discount
+#: model:product.category,name:pxgo_early_payment_discount.category_system
+msgid "System products"
+msgstr "Productos do sistema"
+
+#. module: pxgo_early_payment_discount
+#: view:account.invoice:0
+msgid "Apply early payment disc."
+msgstr "Aplicar descontos por pagamentos antic."
+
+#. module: pxgo_early_payment_discount
+#: field:account.partner.payment.term.early.discount,name:0
+msgid "Name"
+msgstr "Nome"
+
+#. module: pxgo_early_payment_discount
+#: code:addons/pxgo_early_payment_discount/account_invoice.py:129
+#, python-format
+msgid "Early payment disc. "
+msgstr "Desc. pagamentos antic."
+
+#. module: pxgo_early_payment_discount
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡A referencia do pedido debe ser única!"
+
+#. module: pxgo_early_payment_discount
+#: field:account.invoice,early_payment_discount:0
+#: field:account.partner.payment.term.early.discount,early_payment_discount:0
+#: field:sale.order,early_payment_discount:0
+msgid "E.P. disc.(%)"
+msgstr "Desc. P.A. (%)"
+
+#. module: pxgo_early_payment_discount
+#: constraint:product.category:0
+msgid "Error ! You can not create recursive categories."
+msgstr "¡Erro! Non pode crear categorías recorrentes."
+
+#. module: pxgo_early_payment_discount
+#: field:account.partner.payment.term.early.discount,payment_term_id:0
+#: model:ir.model,name:pxgo_early_payment_discount.model_account_payment_term
+msgid "Payment Term"
+msgstr "Prazo de Pago"
+
+#. module: pxgo_early_payment_discount
+#: field:product.category,property_account_sale_early_payment_disc:0
+msgid "Sale early payment account"
+msgstr "Conta de D.P.A. nas ventas"
+
+#. module: pxgo_early_payment_discount
+#: field:sale.order,early_payment_disc_tax:0
+msgid "Taxes E.P."
+msgstr "Impostos D.P.A."
+
+#. module: pxgo_early_payment_discount
+#: help:account.partner.payment.term.early.discount,early_payment_discount:0
+msgid "Percentage of discount for early payment."
+msgstr "Porcentaxe de desconto para pagamento antic."
+
+#. module: pxgo_early_payment_discount
+#: code:addons/pxgo_early_payment_discount/account_invoice.py:123
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: pxgo_early_payment_discount
+#: model:ir.model,name:pxgo_early_payment_discount.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: pxgo_early_payment_discount
+#: field:account.partner.payment.term.early.discount,partner_id:0
+#: model:ir.model,name:pxgo_early_payment_discount.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: pxgo_early_payment_discount
+#: model:ir.model,name:pxgo_early_payment_discount.model_sale_order
+msgid "Sales Order"
+msgstr "Orde de Ventas"

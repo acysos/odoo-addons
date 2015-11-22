@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="partner_purchase_payment_term_early_discount_form" model="ir.ui.view">
+            <field name="name">account.partner.purchase.payment.term.early.discount.form</field>
+            <field name="model">account.partner.purchase.payment.term.early.discount</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Purchase Early Payment Discounts">
+                    <field name="name" colspan="4"/>
+                    <field name="partner_id" domain="[('supplier', '=', True)]"/>
+                    <field name="payment_term_id"/>
+                    <field name="early_payment_discount"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="partner_purchase_payment_term_early_discount_tree" model="ir.ui.view">
+            <field name="name">account.partner.purchase.payment.term.early.discount.tree</field>
+            <field name="model">account.partner.purchase.payment.term.early.discount</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase Early Payment Discounts">
+                    <field name="name" select="1"/>
+                    <field name="partner_id" select="1"/>
+                    <field name="payment_term_id" select="1"/>
+                    <field name="early_payment_discount" select="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_purchase_payment_term_early_discount_form" model="ir.actions.act_window">
+            <field name="name">Purchase Early Payment Discounts</field>
+            <field name="res_model">account.partner.purchase.payment.term.early.discount</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_purchase_payment_term_early_discount_form" id="menu_action_purchase_payment_term_early_discount_form" parent="account.menu_configuration_misc"/>
+
+    </data>
+</openerp>
