@@ -46,6 +46,7 @@ Al crear el fichero bancario CSB:
 
 Bug Tracker
 ===========
+* CSB 68. Beta testing. Bug en el Número de transacción.
 
 Gestión de errores
 ==================
