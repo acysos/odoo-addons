@@ -183,6 +183,8 @@ class BankingExportCsbWizard(models.TransientModel):
                 csb = self.env['csb.3401']
             elif payment_order.mode.type.code == 'csb58':
                 csb = self.env['csb.58']
+            elif payment_order.mode.type.code == 'csb68':
+                csb = self.env['csb.68']
             else:
                 raise Log(_('User error:\n\nThe payment mode is not CSB 19, '
                             'CSB 32, CSB 34 or CSB 58'), True)

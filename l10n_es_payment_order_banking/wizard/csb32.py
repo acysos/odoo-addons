@@ -182,7 +182,7 @@ class Csb32(models.Model):
         texto += converter.convert(self.num_recibos+1, 15)
         texto += '  '
         partner = self.env['res.partner']
-        addresses = partner.address_get([recibo['partner_id'].id])
+        addresses = recibo['partner_id'].address_get()
         address = partner.browse(addresses['default'])
         texto += converter.convert(address.street, 34)
         texto += converter.convert(address.zip, 5)

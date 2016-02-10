@@ -130,19 +130,19 @@ class Csb34(models.Model):
         text += '003'
         # Direccion
         address = None
-        partner = self.env['res.partner']
-        partner_id = self.order.mode.bank_id.partner_id.i
-        address_ids = partner.address_get([partner_id], ['invoice', 'default'])
+        partner_obj = self.env['res.partner']
+        partner = self.order.mode.bank_id.partner_id
+        address_ids = partner.address_get(['invoice', 'default'])
         if address_ids.get('invoice'):
-            address = partner.read([address_ids.get('invoice')],
-                                   ['street', 'zip', 'city'])[0]
+            address = partner_obj.read([address_ids.get('invoice')],
+                                       ['street', 'zip', 'city'])[0]
         elif address_ids.get('default'):
-            address = partner.read([address_ids.get('default')],
-                                   ['street', 'zip', 'city'])[0]
+            address = partner_obj.read([address_ids.get('default')],
+                                       ['street', 'zip', 'city'])[0]
         else:
             raise Log(_('User error:\n\nCompany %s has no invoicing or '
                         'default address.') %
-                      self.order.mode.bank_id.partner_id.name)
+                      partner.name)
         text += converter.convert(address['street'], 36)
         text += 5*' '
         text += '\r\n'
@@ -187,8 +187,7 @@ class Csb34(models.Model):
         }
         address = None
         partner = self.env['res.partner']
-        address_ids = partner.address_get([recibo['partner_id'].id],
-                                          ['invoice', 'default'])
+        address_ids = recibo['partner_id'].address_get(['invoice', 'default'])
         if address_ids.get('invoice'):
             address = partner.browse(address_ids.get('invoice'))
         elif address_ids.get('default'):

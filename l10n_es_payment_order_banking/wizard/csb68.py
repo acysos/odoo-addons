@@ -69,8 +69,7 @@ class Csb58(models.Model):
         text = ''
         address = None
         partner = self.env['res.partner']
-        address_ids = partner.address_get([recibo['partner_id'].id],
-                                          ['invoice', 'default'])
+        address_ids = recibo['partner_id'].address_get(['default', 'invoice'])
         if address_ids.get('invoice'):
             address = partner.browse(address_ids.get('invoice'))
         elif address_ids.get('default'):
@@ -83,7 +82,7 @@ class Csb58(models.Model):
         text1 = self._cabecera_beneficiario_68(recibo)
         text1 += '010'
         text1 += converter.convert(recibo['partner_id'].name, 40)
-        text1 += 29*' '
+        text1 += 31*' '
         text += '\r\n'
         if len(text1) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
@@ -100,7 +99,7 @@ class Csb58(models.Model):
         if address.street2:
             txt_address += ' ' + address.street2
         text2 += converter.convert(txt_address, 45)
-        text2 += 24*' '
+        text2 += 26*' '
         text += '\r\n'
         if len(text2) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
@@ -112,7 +111,7 @@ class Csb58(models.Model):
         text3 = self._cabecera_beneficiario_68(recibo)
         text3 += '012'
         text3 += converter.convert(address.city, 40)
-        text3 += 24*' '
+        text3 += 29*' '
         text3 += '\r\n'
         if len(text3) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
@@ -155,7 +154,7 @@ class Csb58(models.Model):
         else:
             text5 += 2*' '
         text5 += 6*' ' # TODO Código estadistico
-        text5 += 32*' '
+        text5 += 34*' '
         text5 += '\r\n'
         if len(text5) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
@@ -167,13 +166,14 @@ class Csb58(models.Model):
         text6 = self._cabecera_beneficiario_68(recibo)
         text6 += '015'
         text6 += 8*' ' # TODO Número de pago
-        text6 += converter.convert(abs(recibo['ml_inv_ref']), 12)
-        text6 += converter.convert(abs(recibo['ml_date_created']), 8)
+        text6 += converter.convert(recibo['ml_inv_ref'][0].number, 12)
+        text6 += converter.convert(recibo['ml_date_created'], 8)
         text6 += converter.convert(abs(recibo['amount']), 12)
         text6 += 'H' # TODO Signo Negativo
-        text6 += converter.convert(abs(recibo['communication']), 12)
-        text6 += 2*' '
+        text6 += converter.convert(recibo['communication'], 12)
+        text6 += 16*' '
         text6 += '\r\n'
+        print len(text6)
         if len(text6) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
                         'characters long:\n%s') % (

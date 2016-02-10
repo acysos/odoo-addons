@@ -112,8 +112,8 @@ class Csb3401(models.Model):
         text += '003'
         # Direccion
         partner = self.env['res.partner']
-        address_id = partner.address_get(
-            [self.order.mode.bank_id.partner_id.id], ['invoice'])['invoice']
+        address_id = self.order.mode.bank_id.partner_id.address_get(
+            ['invoice'])['invoice']
         if not address_id:
             raise Log(_('User error:\n\nCompany %s has no invoicing '
                         'address.') % address_id)
