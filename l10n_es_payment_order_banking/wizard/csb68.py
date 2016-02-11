@@ -22,7 +22,8 @@
 
 from openerp import models, api, _
 from datetime import datetime
-from log import *
+from log import Log
+
 
 class Csb58(models.Model):
     _name = 'csb.68'
@@ -46,7 +47,7 @@ class Csb58(models.Model):
         text += '001'
         text += today
         text += 9*' '
-        text += converter.convert(self.order.mode.bank_id.partner_id.name, 24)
+        text += converter.convert(self.order.mode.bank_id.acc_number, 24)
         text += 30*' '
         text += '\r\n'
         if len(text) % 102 != 0:
@@ -82,8 +83,8 @@ class Csb58(models.Model):
         text1 = self._cabecera_beneficiario_68(recibo)
         text1 += '010'
         text1 += converter.convert(recibo['partner_id'].name, 40)
-        text1 += 31*' '
-        text += '\r\n'
+        text1 += 29*' '
+        text1 += '\r\n'
         if len(text1) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
                         'characters long:\n%s') % (
@@ -99,8 +100,8 @@ class Csb58(models.Model):
         if address.street2:
             txt_address += ' ' + address.street2
         text2 += converter.convert(txt_address, 45)
-        text2 += 26*' '
-        text += '\r\n'
+        text2 += 24*' '
+        text2 += '\r\n'
         if len(text2) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
                         'characters long:\n%s') % (
@@ -110,8 +111,9 @@ class Csb58(models.Model):
         # Tercer tipo
         text3 = self._cabecera_beneficiario_68(recibo)
         text3 += '012'
+        text3 += converter.convert(address.zip, 5)
         text3 += converter.convert(address.city, 40)
-        text3 += 29*' '
+        text3 += 24*' '
         text3 += '\r\n'
         if len(text3) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
@@ -122,7 +124,7 @@ class Csb58(models.Model):
         # Cuarto tipo
         text4 = self._cabecera_beneficiario_68(recibo)
         text4 += '013'
-        text4 += 9*' '
+        text4 += converter.convert(address.zip, 9)
         text4 += converter.convert(address.state_id.name or '', 30)
         text4 += converter.convert(address.country_id.name or '', 20)
         text4 += 10*' '
@@ -144,7 +146,7 @@ class Csb58(models.Model):
                                           '%Y-%m-%d')
         else:
             date_pago = datetime.today()
-        text5 += date_pago.strftime('%d%m%y')
+        text5 += converter.convert(date_pago.strftime('%d%m%y'), 8)
         text5 += converter.convert(abs(recibo['amount']), 12)
         # TODO Indicativo de presentación - Anulación
         text5 += '0'
@@ -154,7 +156,7 @@ class Csb58(models.Model):
         else:
             text5 += 2*' '
         text5 += 6*' ' # TODO Código estadistico
-        text5 += 34*' '
+        text5 += 32*' '
         text5 += '\r\n'
         if len(text5) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
@@ -170,8 +172,8 @@ class Csb58(models.Model):
         text6 += converter.convert(recibo['ml_date_created'], 8)
         text6 += converter.convert(abs(recibo['amount']), 12)
         text6 += 'H' # TODO Signo Negativo
-        text6 += converter.convert(recibo['communication'], 12)
-        text6 += 16*' '
+        text6 += converter.convert(recibo['communication'], 26)
+        text6 += 2*' '
         text6 += '\r\n'
         print len(text6)
         if len(text6) % 102 != 0:
