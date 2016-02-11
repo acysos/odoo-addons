@@ -38,7 +38,7 @@
 
 {
     'name': 'Exportación de ficheros bancarios CSB 19, 32, 34, 58 y 68',
-    'version': '8.0.1.7.0',
+    'version': '8.0.2.0.0',
     'author': 'Spanish Localization Team ,Odoo Community Association (OCA)',
     'contributors': [
         'Ignacio Ibeas <ignacio@acysos.com>',
