@@ -47,7 +47,8 @@ class Csb58(models.Model):
         text += '001'
         text += today
         text += 9*' '
-        text += converter.convert(self.order.mode.bank_id.acc_number, 24)
+        # Eliminamos los espacios en blanco de la cuenta bancaria
+        text += converter.convert(self.order.mode.bank_id.acc_number.replace(' ', ''), 24)
         text += 30*' '
         text += '\r\n'
         if len(text) % 102 != 0:
@@ -139,14 +140,14 @@ class Csb58(models.Model):
         text5 = self._cabecera_beneficiario_68(recibo)
         text5 += '014'
         text5 += 8*' ' # TODO Número de pago
-        if recibo.get('date'):
-            date_pago = datetime.strptime(recibo['date'], '%Y-%m-%d')
-        elif recibo.get('ml_maturity_date'):
+        if recibo.get('ml_maturity_date'):
             date_pago = datetime.strptime(recibo['ml_maturity_date'],
                                           '%Y-%m-%d')
+        elif recibo.get('date'):
+            date_pago = datetime.strptime(recibo['date'], '%Y-%m-%d')
         else:
             date_pago = datetime.today()
-        text5 += converter.convert(date_pago.strftime('%d%m%y'), 8)
+        text5 += converter.convert(date_pago.strftime('%d%m%Y'), 8)
         text5 += converter.convert(abs(recibo['amount']), 12)
         # TODO Indicativo de presentación - Anulación
         text5 += '0'
@@ -169,13 +170,13 @@ class Csb58(models.Model):
         text6 += '015'
         text6 += 8*' ' # TODO Número de pago
         text6 += converter.convert(recibo['ml_inv_ref'][0].number, 12)
-        text6 += converter.convert(recibo['ml_date_created'], 8)
+        date_create = datetime.strptime(recibo['ml_date_created'], '%Y-%m-%d')
+        text6 += converter.convert(date_create.strftime('%d%m%Y'), 8)
         text6 += converter.convert(abs(recibo['amount']), 12)
         text6 += 'H' # TODO Signo Negativo
         text6 += converter.convert(recibo['communication'], 26)
         text6 += 2*' '
         text6 += '\r\n'
-        print len(text6)
         if len(text6) % 102 != 0:
             raise Log(_('Configuration error:\n\nA line in "%s" is not 100 '
                         'characters long:\n%s') % (
@@ -192,7 +193,7 @@ class Csb58(models.Model):
         text += 12*' '
         text += 3*' '
         text += converter.convert(abs(self.total_amount), 12)
-        text += converter.convert(abs(self.total_payments), 10)
+        text += converter.convert(abs(self.total_payments * 6 + 2), 10)
         text += 42*' '
         text += 5*' '
         text += '\r\n'
