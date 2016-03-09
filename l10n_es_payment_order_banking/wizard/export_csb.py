@@ -100,7 +100,7 @@ class BankingExportCsbWizard(models.TransientModel):
             # Para CSB 68 utilizar cuenta IBAN
             if payment_order.mode.type.code == 'csb68' and len(cc) != 22:
                 raise Log(_('User error:\n\n For CBS 68 you must use an IBAN account.'), True)
-            elif len(cc) != 20:
+            elif payment_order.mode.type.code != 'csb68' and len(cc) != 20:
                 raise Log(_('User error:\n\nThe bank account number of the '
                             'company %s has not 20 digits.') %
                           (payment_order.mode.partner_id.name), True)
