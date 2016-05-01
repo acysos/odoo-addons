@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<record id="view_invoice_line_performance_tree" model="ir.ui.view">
+            <field name="name">account.invoice.line.performance.tree</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_tree" />
+            <field name="arch" type="xml">
+            	<field name="price_unit" position="after">
+            		<field name="performance" widget="float_time"/>
+            	</field>
+            </field>
+        </record>
+
+		<record id="view_invoice_line_performance_form" model="ir.ui.view">
+            <field name="name">account.invoice.line.performance.form</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_form" />
+            <field name="arch" type="xml">
+            	<field name="price_unit" position="after">
+            		<field name="performance" widget="float_time"/>
+            	</field>
+            </field>
+        </record>
+        
+        <record id="invoice_performance_form" model="ir.ui.view">
+            <field name="name">account.invoice.performance.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='invoice_line']//field[@name='price_unit']" position="after">
+            		<field name="performance" widget="float_time"/>
+            	</xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

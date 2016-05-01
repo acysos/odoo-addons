@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_invoice_document_performance" inherit_id="account.report_invoice_document">
+            <xpath expr="//table[@class='table table-condensed'][1]/thead/tr/th[3]" position="after">
+				<th class="text-right">Performance</th>
+            </xpath>
+            <xpath expr="//tr[@t-foreach='o.invoice_line']/td[3]" position="after">
+	            <td class="text-right">
+	                <span t-field="l.performance"/>
+	            </td>
+            </xpath>
+        </template>
+    </data>
+</openerp>
