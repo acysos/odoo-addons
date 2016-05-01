@@ -1,0 +1,168 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* subscription_alerts
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-01 00:07+0000\n"
+"PO-Revision-Date: 2016-05-01 02:12+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: subscription_alerts
+#: model:email.template,body_html:subscription_alerts.email_template_subscription_alert
+msgid ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Hello ${object.partner_id.name},</p>\n"
+"\n"
+"    <p>The periodical subscription ${object.name or 'n/a'} has been launched </p>\n"
+"    \n"
+"    <br/>\n"
+"    <p>If you have any question, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"    <br/>\n"
+"    <br/>\n"
+"    <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"    </div>\n"
+"    <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.street:\n"
+"            ${object.company_id.street}<br/>\n"
+"        % endif\n"
+"        % if object.company_id.street2:\n"
+"            ${object.company_id.street2}<br/>\n"
+"        % endif\n"
+"        % if object.company_id.city or object.company_id.zip:\n"
+"            ${object.company_id.zip} ${object.company_id.city}<br/>\n"
+"        % endif\n"
+"        % if object.company_id.country_id:\n"
+"            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br/>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Phone:&nbsp; ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web :&nbsp;<a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        %endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>\n"
+"            "
+msgstr ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Hola ${object.partner_id.name},</p>\n"
+"\n"
+"    <p>Su subscripción periódica ${object.name or 'n/a'} ha sido lanzada</p>\n"
+"    \n"
+"    <br>\n"
+"    <p>Si tiene alguna pregunta, no dude en contactarnos.</p>\n"
+"    <p>Gracias por elegirnos ${object.partner_id.company_id.name or 'us'}!</p>\n"
+"    <br>\n"
+"    <br>\n"
+"    <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.partner_id.company_id.name}</strong></h3>\n"
+"    </div>\n"
+"    <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.partner_id.company_id.street:\n"
+"            ${object.partner_id.company_id.street}<br>\n"
+"        % endif\n"
+"        % if object.partner_id.company_id.street2:\n"
+"            ${object.partner_id.company_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.partner_id.company_id.city or object.partner_id.company_id.zip:\n"
+"            ${object.partner_id.company_id.zip} ${object.partner_id.company_id.city}<br>\n"
+"        % endif\n"
+"        % if object.partner_id.company_id.country_id:\n"
+"            ${object.partner_id.company_id.state_id and ('%s, ' % object.partner_id.company_id.state_id.name) or ''} ${object.partner_id.company_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.partner_id.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Teléfono:&nbsp; ${object.partner_id.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.partner_id.company_id.website:\n"
+"            <div>\n"
+"                Web :&nbsp;<a href=\"${object.partner_id.company_id.website}\">${object.partner_id.company_id.website}</a>\n"
+"            </div>\n"
+"        %endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>\n"
+"            "
+
+#. module: subscription_alerts
+#: model:email.template,subject:subscription_alerts.email_template_subscription_alert
+msgid "${object.company_id.name|safe} Subscription (${object.name or 'n/a'})"
+msgstr "${object.partner_id.company_id.name|safe} Subscripción (${object.name or 'n/a'})"
+
+#. module: subscription_alerts
+#: model:ir.model,name:subscription_alerts.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: subscription_alerts
+#: view:res.company:subscription_alerts.view_company_subscription_alerts_form
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: subscription_alerts
+#: field:subscription.subscription,email_template:0
+msgid "Email Template"
+msgstr "Plantilla email"
+
+#. module: subscription_alerts
+#: model:ir.model,name:subscription_alerts.model_email_template
+msgid "Email Templates"
+msgstr "Plantillas email"
+
+#. module: subscription_alerts
+#: help:res.company,subs_alert_days:0
+msgid "Number the days before the subscruption is launched"
+msgstr "Número de días antes de que la subscripción sea lanzada"
+
+#. module: subscription_alerts
+#: model:ir.model,name:subscription_alerts.model_subscription_subscription
+msgid "Subscription"
+msgstr "Suscripción"
+
+#. module: subscription_alerts
+#: field:res.company,subs_alert_days:0
+msgid "Subscription Alert Days"
+msgstr "Días de alerta de la subscripción"
+
+#. module: subscription_alerts
+#: view:res.company:subscription_alerts.view_company_subscription_alerts_form
+msgid "Subscription Alerts"
+msgstr "Alertas de subcripción"
+
+#. module: subscription_alerts
+#: model:ir.model,name:subscription_alerts.model_subscription_document
+msgid "Subscription Document"
+msgstr "Documento de suscripción"
+
+#. module: subscription_alerts
+#: view:subscription.subscription:subscription_alerts.view_subscription_alerts_form
+msgid "True"
+msgstr "True"

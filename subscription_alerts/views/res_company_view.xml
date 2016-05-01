@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (C) 2016 Acysos S.L. - Ignacio Ibeas (http://acysos.com)
+    The licence is in the file __openerp__.py
+-->
+
+<openerp>
+    <data>
+        <record id="view_company_subscription_alerts_form" model="ir.ui.view">
+            <field name="name">res.company.subscription.alerts.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+            	<page string="Configuration" position="inside">
+	                <group>
+	                    <group name="subs_alert_grp" string="Subscription Alerts">
+	                        <field name="subs_alert_days"/>
+	                    </group>
+	                </group>
+            	</page>
+            </field>
+        </record>
+    </data>
+</openerp>
