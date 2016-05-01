@@ -22,7 +22,7 @@
 {
     "name": "Stock picking valued",
     "version": "8.0.1.0",
-    "author": "Acysos S.L., Odoo Community Association (OCA)",
+    "author": "Acysos S.L.",
     'website': 'https://www.acysos.com/',
     "category": "Generic Modules/Stock Management",
     "summary": "Add amount information to pickings.",
