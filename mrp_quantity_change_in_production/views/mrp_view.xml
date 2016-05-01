@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Production order -->
+        <record id="mrp_production_form_view_change_in_production" model="ir.ui.view">
+            <field name="name">mrp.production.form.change_in_production</field>
+            <field name="model">mrp.production</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@string='Update']" position="replace">
+                    <button type="action"
+                        name="%(mrp.action_change_production_qty)d"
+                        string="Update" states="ready,confirmed,in_production"
+                        class="oe_edit_only oe_link"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
