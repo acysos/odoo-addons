@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_feed_machine_connector,FeedMachineConnector,model_farm_feed_machine_connector,farm.group_farm_manager,1,0,0,0
+access_dosif_rel,dosif_lot_relations,model_feed_machine_dosif_lot_relations,farm.group_farm_manager,1,0,0,0
+access_feed_machine_dosif,feed_machine_dosification,model_feed_machine_dosification,farm.group_farm_manager,1,0,0,0
