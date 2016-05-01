@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_mrp_bom_structure_show_child_supplier_discount">
+            <field name="name">view.mrp.bom.structure.show.child.supplier.discount</field>
+            <field name="model">mrp.bom.line</field>
+            <field name="inherit_id" ref="mrp_bom_structure_show_child.view_mrp_bom_structure_show_child" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="standard_price" position="after">
+                        <field name="supplier_discount"/>
+                        <field name="supplier_price_discount"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>
