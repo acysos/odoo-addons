@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--
+            Resource: product.uom.categ
+            -->
+        <record id="package_cat0" model="product.category">
+            <field name="name">Package</field>
+        </record>
+        
+    </data>
+</openerp>
