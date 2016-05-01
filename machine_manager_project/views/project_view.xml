@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (C) 2016 Acysos S.L. - Ignacio Ibeas (http://acysos.com)
+    The licence is in the file __openerp__.py
+-->
+
+<openerp>
+    <data>
+
+        <!-- Project -->
+        <record id="edit_project_machine" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+            	<field name="partner_id" position="after">
+            		<newline />
+            		<field name="machine" domain="[('partner_id', '=', partner_id)]"/>
+            	</field>
+            </field>
+        </record>
+
+        <!-- Task -->
+        <record id="view_task_machine_form2" model="ir.ui.view">
+            <field name="name">project.task.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+            	<field name="progress" position="after">
+            		<field name="machine" domain="[('partner_id', '=', partner_id)]"/>
+            	</field>
+            </field>
+        </record>
+    </data>
+</openerp>

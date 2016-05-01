@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (C) 2016 Acysos S.L. - Ignacio Ibeas (http://acysos.com)
+    The licence is in the file __openerp__.py
+-->
+
+<openerp>
+    <data>
+
+        <record id="machines_project_view_form" model="ir.ui.view">
+            <field name="name">machines.project.form</field>
+            <field name="model">machinery</field>
+            <field name="inherit_id" ref="machine_manager.machines_view_form"/>
+            <field name="arch" type="xml">
+            	<field name="serial" position="after">
+            		<field name="partner_id"/>
+            	</field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
