@@ -1,0 +1,186 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_cash_statement_gui
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-05 17:42+0000\n"
+"PO-Revision-Date: 2015-10-05 17:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line.concept,account_id:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,amount:0
+msgid "Amount"
+msgstr "Importe"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,bank_statement_line:0
+msgid "Bank Statement Line"
+msgstr "Registro de extracto bancario"
+
+#. module: account_cash_statement_gui
+#: view:account.cash.statement.register:account_cash_statement_gui.account_cash_statement_register_form
+msgid "Cancel Cash Statement"
+msgstr "Cancelar registro de caja"
+
+#. module: account_cash_statement_gui
+#: code:addons/account_cash_statement_gui/models/account_cash_statement.py:98
+#, python-format
+msgid "Cannot cancel a Cash register with a not confirmed statement"
+msgstr "No puede cancelar un registro de caja que no este confirmado"
+
+#. module: account_cash_statement_gui
+#: code:addons/account_cash_statement_gui/models/account_cash_statement.py:78
+#, python-format
+msgid "Cannot confirm a Cash register with a not open statement"
+msgstr "No se puede confirmar un registro de caja que no este abierto"
+
+#. module: account_cash_statement_gui
+#: code:addons/account_cash_statement_gui/models/account_cash_statement.py:75
+#, python-format
+msgid "Cannot confirm a Cash register without line"
+msgstr "No puede confirmar un registro de caja sin lineas"
+
+#. module: account_cash_statement_gui
+#: model:ir.actions.act_window,name:account_cash_statement_gui.account_cash_statement_register_line_concept_action
+#: model:ir.ui.menu,name:account_cash_statement_gui.menu_account_cash_statement_register_line_concept
+msgid "Cash Line Concepts"
+msgstr "Conceptos de los registros"
+
+#. module: account_cash_statement_gui
+#: view:account.cash.statement.register:account_cash_statement_gui.account_cash_statement_register_form
+msgid "Cash Line Registers"
+msgstr "Lineas del registro"
+
+#. module: account_cash_statement_gui
+#: model:ir.actions.act_window,name:account_cash_statement_gui.account_cash_statement_gui_action
+#: model:ir.ui.menu,name:account_cash_statement_gui.menu_account_cash_statement_gui
+msgid "Cash Registers Gui"
+msgstr "Guía de registros de caja"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.statement.register,session:0
+msgid "Cash Statement"
+msgstr "Registro de caja"
+
+#. module: account_cash_statement_gui
+#: view:account.cash.register.line.concept:account_cash_statement_gui.account_cash_statement_register_line_concept_form
+#: view:account.cash.register.line.concept:account_cash_statement_gui.account_cash_statement_register_line_concept_tree
+msgid "Cash Statement Line Concepts"
+msgstr "Conceptos de las lineas de registro"
+
+#. module: account_cash_statement_gui
+#: view:account.cash.statement.register:account_cash_statement_gui.account_cash_statement_register_form
+#: view:account.cash.statement.register:account_cash_statement_gui.account_cash_statement_register_tree
+msgid "Cash Statement Registers"
+msgstr "Movimientos de caja"
+
+#. module: account_cash_statement_gui
+#: selection:account.cash.statement.register,state:0
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,name:0
+msgid "Communication"
+msgstr "Comunicación"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,concept:0
+#: field:account.cash.register.line.concept,name:0
+msgid "Concept"
+msgstr "Concepto"
+
+#. module: account_cash_statement_gui
+#: view:account.cash.statement.register:account_cash_statement_gui.account_cash_statement_register_form
+msgid "Confirm Cash Statement"
+msgstr "Confirmar movimientos de caja"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,create_uid:0
+#: field:account.cash.register.line.concept,create_uid:0
+#: field:account.cash.statement.register,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,create_date:0
+#: field:account.cash.register.line.concept,create_date:0
+#: field:account.cash.statement.register,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.statement.register,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: account_cash_statement_gui
+#: selection:account.cash.statement.register,state:0
+msgid "Draft"
+msgstr "Borrrador"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,id:0
+#: field:account.cash.register.line.concept,id:0
+#: field:account.cash.statement.register,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,write_uid:0
+#: field:account.cash.register.line.concept,write_uid:0
+#: field:account.cash.statement.register,write_uid:0
+msgid "Last Updated by"
+msgstr "Actualizado por"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,write_date:0
+#: field:account.cash.register.line.concept,write_date:0
+#: field:account.cash.statement.register,write_date:0
+msgid "Last Updated on"
+msgstr "Actualizado en"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.statement.register,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.statement.register,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,ref:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.register.line,cash_id:0
+msgid "Register"
+msgstr "Movimiento"
+
+#. module: account_cash_statement_gui
+#: view:account.cash.statement.register:account_cash_statement_gui.account_cash_statement_register_form
+#: field:account.cash.statement.register,line_ids:0
+msgid "Registers"
+msgstr "Movimientos"
+
+#. module: account_cash_statement_gui
+#: field:account.cash.statement.register,state:0
+msgid "State"
+msgstr "Estado"
+

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+  	    <record id="account_cash_statement_register_tree" model="ir.ui.view">
+            <field name="name">account.cash.statement.register.tree</field>
+            <field name="model">account.cash.statement.register</field>
+            <field name="arch" type="xml">
+            	<tree string="Cash Statement Registers">
+            		<field name="date"/>
+            		<field name="name"/>
+            		<field name="session"/>
+            		<field name="partner_id"/>
+            		<field name="state"/>
+            	</tree>
+            </field>
+        </record>
+
+  	    <record id="account_cash_statement_register_form" model="ir.ui.view">
+            <field name="name">account.cash.statement.register.form</field>
+            <field name="model">account.cash.statement.register</field>
+            <field name="arch" type="xml">
+            	<form string="Cash Statement Registers">
+            		<header>
+            			<button name="button_confirm" states="draft" string="Confirm Cash Statement" type="object"/>
+            			<button name="button_cancel" states="close" string="Cancel Cash Statement" type="object"/>
+            			<field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+            		</header>
+            		<sheet>
+	            		<group>
+	            			<group>
+		            		<field name="date"/>
+		            		<field name="name"/>
+		            		</group>
+		            		<group>
+		            		<field name="session"/>
+		            		<field name="partner_id"/>
+		            		</group>
+	            		</group>
+	            		<group string="Registers">
+      					     <field name="line_ids" nolabel="1">
+ 					     	    <tree string="Cash Line Registers" editable="bottom">
+					         		<field name="name"/>
+					         		<field name="ref"/>
+					         		<field name="concept"/>
+					         		<field name="amount"/>
+					         	</tree>
+ 					     	    <form>
+					         		<field name="name"/>
+					         		<field name="ref"/>
+					         		<field name="concept"/>
+					         		<field name="amount"/>
+					         	</form>
+      					     </field>
+	            		</group>
+            		</sheet>
+            	</form>
+            </field>
+        </record>
+        
+        <record id="account_cash_statement_gui_action" model="ir.actions.act_window">
+            <field name="name">Cash Registers Gui</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.cash.statement.register</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="account_cash_statement_gui_action" id="menu_account_cash_statement_gui"
+            parent="account.menu_finance_bank_and_cash"
+            sequence="50"/>
+            
+  	    <record id="account_cash_statement_register_line_concept_tree" model="ir.ui.view">
+            <field name="name">account.cash.register.line.concept.tree</field>
+            <field name="model">account.cash.register.line.concept</field>
+            <field name="arch" type="xml">
+            	<tree string="Cash Statement Line Concepts">
+            		<field name="name"/>
+            		<field name="account_id"/>
+            	</tree>
+            </field>
+        </record>
+        
+  	    <record id="account_cash_statement_register_line_concept_form" model="ir.ui.view">
+            <field name="name">account.cash.register.line.concept.form</field>
+            <field name="model">account.cash.register.line.concept</field>
+            <field name="arch" type="xml">
+            	<form string="Cash Statement Line Concepts">
+            		<group>
+	            		<field name="name"/>
+	            		<field name="account_id"/>
+            		</group>
+            	</form>
+            </field>
+        </record>
+        
+        <record id="account_cash_statement_register_line_concept_action" model="ir.actions.act_window">
+            <field name="name">Cash Line Concepts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.cash.register.line.concept</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="account_cash_statement_register_line_concept_action" id="menu_account_cash_statement_register_line_concept"
+            parent="account.menu_configuration_misc"
+            sequence="50"/>
+    
+    </data>
+</openerp>
