@@ -1,0 +1,148 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_tracking
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-07 17:09+0000\n"
+"PO-Revision-Date: 2015-05-07 17:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,create_date:0
+msgid "Created on"
+msgstr "Creador en"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: purchase_tracking
+#: model:ir.model,name:purchase_tracking.model_procurement_order
+msgid "Procurement"
+msgstr "Abastecimiento"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_line_id:0
+msgid "Purchase Line"
+msgstr "Linea de compra"
+
+#. module: purchase_tracking
+#: model:ir.actions.act_window,name:purchase_tracking.purchase_tracking_action
+#: model:ir.ui.menu,name:purchase_tracking.menu_purchase_tracking
+msgid "Purchase Tracking"
+msgstr "Seguimiento de compras"
+
+#. module: purchase_tracking
+#: view:purchase.tracking:purchase_tracking.purchase_tracking_form
+#: view:purchase.tracking:purchase_tracking.purchase_tracking_tree
+msgid "Purchase tracking"
+msgstr "Seguimiento de compras"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,sale_line_id:0
+msgid "Sale Line"
+msgstr "Linea de pedido"
+
+#. module: purchase_tracking
+#: field:procurement.order,tracked:0
+msgid "Tracked"
+msgstr "Seguido"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_date_order:0
+msgid "Date order"
+msgstr "Fecha pedido"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_order_id:0
+msgid "Purchase order"
+msgstr "Pedido de compra"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_product_id:0
+msgid "Purchase product"
+msgstr "Prod. comprado"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_product_name:0
+msgid "Purchase Description"
+msgstr "Des. comprado"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_product_qty:0
+msgid "Quantity"
+msgstr "Cant."
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_product_price:0
+msgid "Price Unit"
+msgstr "Precio Unidad"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_product_disc:0
+msgid "Disc."
+msgstr "Des."
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_supplier:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,purchase_date_planned:0
+msgid "Date planned"
+msgstr "Fecha planeada"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,sale_order_id:0
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,sale_product_id:0
+msgid "Sale product"
+msgstr "Prod. vendido"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,total_pend_qty:0
+msgid "Qty Pending"
+msgstr "Cant. Pendiente"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,prod_lots:0
+msgid "Lots"
+msgstr "Lotes"
+
+#. module: purchase_tracking
+#: field:purchase.tracking,dates_recv:0
+msgid "Dates Recv"
+msgstr "Fechas recv"

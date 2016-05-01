@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="purchase_tracking_tree" model="ir.ui.view">
+            <field name="name">purchase.tracking.tree</field>
+            <field name="model">purchase.tracking</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase tracking" colors="red:total_pend_qty>0">
+                    <field name="purchase_date_order"/>
+                    <field name="purchase_order_id"/>
+                    <field name="sale_order_id"/>
+                    <field name="purchase_product_id"/>
+                    <field name="purchase_product_name"/>
+                    <field name="sale_product_id"/>
+                    <field name="prod_lots"/>
+                    <field name="purchase_product_qty"/>
+                    <field name="total_pend_qty"/>
+                    <field name="purchase_product_price"/>
+                    <field name="purchase_product_disc"/>
+                    <field name="purchase_product_subtotal"/>
+                    <field name="purchase_supplier"/>
+                    <field name="purchase_date_planned"/>
+                    <field name="purchase_product_state"/>
+                    <field name="dates_recv"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="purchase_tracking_form" model="ir.ui.view">
+            <field name="name">purchase.tracking.form</field>
+            <field name="model">purchase.tracking</field>
+            <field name="arch" type="xml">
+                <form string="Purchase tracking">
+                    <group>
+                        <field name="purchase_line_id" invisible="1"/>
+                        <field name="sale_line_id" invisible="1"/>
+                        <field name="purchase_date_order"/>
+                        <field name="purchase_order_id"/>
+                        <field name="sale_order_id"/>
+                        <field name="purchase_product_id"/>
+                        <field name="purchase_product_name"/>
+                        <field name="sale_product_id"/>
+                        <field name="prod_lots"/>
+                        <field name="purchase_product_qty"/>
+                        <field name="total_pend_qty"/>
+                        <field name="purchase_product_price"/>
+                        <field name="purchase_product_disc"/>
+                        <field name="purchase_product_subtotal"/>
+                        <field name="purchase_supplier"/>
+                        <field name="purchase_date_planned"/>
+                        <field name="purchase_product_state"/>
+                        <field name="dates_recv"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="purchase_tracking_action" model="ir.actions.act_window">
+            <field name="name">Purchase Tracking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.tracking</field>
+            <field name="context">{}</field>
+            <field name="domain">['|',('purchase_line_id','!=',None),('sale_line_id','!=',None)]</field>
+            <field name="view_mode">tree,form,graph,calendar</field>
+        </record>
+        <menuitem action="purchase_tracking_action" id="menu_purchase_tracking"
+            parent="purchase.menu_procurement_management"
+            sequence="50"/>
+    
+    </data>
+</openerp>
