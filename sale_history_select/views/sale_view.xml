@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+    
+             <record model="ir.ui.view" id="view_order_form_history">
+                <field name="name">sale.order.form.history</field>
+                <field name="model">sale.order</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="sale.view_order_form"/>
+                <field name="arch" type="xml">
+                    <data>
+                        <xpath expr="//field[@name='order_line']/form/field[@name='name']" position="after">
+                            <label for="order_line_id"/>
+                            <field name="order_line_id"
+                            domain="[('product_id','=',product_id)]"
+                            on_change="onchange_order_line_id(order_line_id)"
+                            options="{'no_create': True}"/>
+                        </xpath>
+                    </data>
+                </field>
+            </record>
+    
+    </data>
+</openerp>
