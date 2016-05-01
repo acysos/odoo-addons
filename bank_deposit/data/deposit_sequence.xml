@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Sequences for bank.deposit -->
+        <record id="seq_type_bank_deposit" model="ir.sequence.type">
+            <field name="name">Bank Deposit</field>
+            <field name="code">bank.deposit</field>
+        </record>
+
+        <record id="seq_bank_deposit" model="ir.sequence">
+            <field name="name">Bank Deposit</field>
+            <field name="code">bank.deposit</field>
+            <field name="prefix">BD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

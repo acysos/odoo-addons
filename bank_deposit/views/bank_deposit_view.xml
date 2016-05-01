@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+  	    <record id="bank_deposit_tree" model="ir.ui.view">
+            <field name="name">bank.deposit.tree</field>
+            <field name="model">bank.deposit</field>
+            <field name="arch" type="xml">
+            	<tree string="Bank Deposits">
+            		<field name="name"/>
+            		<field name="partner"/>
+            		<field name="rate"/>
+            		<field name="amount"/>
+            	</tree>
+            </field>
+        </record>
+        
+  	    <record id="bank_deposit_form" model="ir.ui.view">
+            <field name="name">bank.deposit.form</field>
+            <field name="model">bank.deposit</field>
+            <field name="arch" type="xml">
+            	<form string="Bank Deposits">
+            		<header>
+            			<button name="button_calculate" states="open" string="Calculate Rates" type="object"/>
+            			<button name="button_close" states="open" string="Close Deposit" type="object"/>
+            			<field name="state" widget="statusbar" statusbar_visible="open,close"/>
+            		</header>
+            		<sheet>
+	            		<group>
+	            			<group>
+			            		<field name="name"/>
+			            		<field name="partner"/>
+			            		<field name="date"/>
+		            		</group>
+		            		<group>
+			            		<field name="rate"/>
+			            		<field name="amount"/>
+		            		</group>
+	            		</group>
+	            		<notebook>
+	            			<page string="Moves">
+			            		<group>
+			            			<field name="move_ids" nolabel="1">
+						            	<tree string="Bank Deposit Moves" editable="top">
+						            		<field name="name"/>
+						            		<field name="date"/>
+						            		<field name="amount"/>
+						            		<field name="balance"/>
+						            	</tree>
+						            	<form string="Bank Deposit Moves">
+						            		<group>
+							            		<field name="name"/>
+							            		<field name="date"/>
+							            		<field name="amount"/>
+							            		<field name="balance"/>
+						            		</group>
+						            	</form>
+			            			</field>
+			            		</group>
+			            	</page>
+			            	<page string="Users">
+			            		<group>
+			            			<field name="users" nolabel="1"/>
+			            		</group>
+			            	</page>
+	            		</notebook>
+            		</sheet>
+            	</form>
+            </field>
+        </record>
+        
+        <record id="bank_deposit_action" model="ir.actions.act_window">
+            <field name="name">Bank Deposits</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bank.deposit</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="bank_deposit_action" id="menu_bank_deposit"
+            parent="account.menu_finance_bank_and_cash"
+            sequence="50"/>
+            
+  	    <record id="bank_deposit_rate_tree" model="ir.ui.view">
+            <field name="name">bank.deposit.rate.tree</field>
+            <field name="model">bank.deposit.rate</field>
+            <field name="arch" type="xml">
+            	<tree string="Bank Deposit Rates">
+            		<field name="name"/>
+            		<field name="rate"/>
+            	</tree>
+            </field>
+        </record>
+
+  	    <record id="bank_deposit_rate_form" model="ir.ui.view">
+            <field name="name">bank.deposit.rate.form</field>
+            <field name="model">bank.deposit.rate</field>
+            <field name="arch" type="xml">
+            	<form string="Bank Deposit Rates">
+     		        <sheet>
+	            		<group>
+            				<field name="name"/>
+            				<field name="rate"/>
+           				</group>
+          			</sheet>
+            	</form>
+            </field>
+        </record>
+        
+        <record id="bank_deposit_rate_action" model="ir.actions.act_window">
+            <field name="name">Bank Deposit Rates</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bank.deposit.rate</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="bank_deposit_rate_action" id="menu_bank_deposit_rate"
+            parent="account.menu_configuration_misc"
+            sequence="50"/>	
+    
+    </data>
+</openerp>
