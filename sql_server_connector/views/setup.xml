@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sqls_connection_tree" model="ir.ui.view">
+            <field name="name">sqls.connection.tree</field>
+            <field name="model">connector.sqlserver</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="db_ip"/>
+                    <field name="db_user"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sqls_connection_form" model="ir.ui.view">
+            <field name="name">sqls.connection.form</field>
+            <field name="model">connector.sqlserver</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="db_name"/>
+                        <field name="db_ip"/>
+                        <field name="db_user"/>
+                        <field name="password"/>
+                        <field name="db_port"/>
+                    </group>
+                </sheet>
+            </field>
+        </record>
+        <menuitem name="Sql Server Connections" id="menu_sqls_connection" 
+            parent="base.menu_administration" sequence="30"/>
+        <record id="sqls_connection_view" model="ir.actions.act_window">
+            <field name="name">sqls_connection_view</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">connector.sqlserver</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sqls_connection_tree"/>
+        </record>
+        <menuitem action="sqls_connection_view" id="menu_sqls_connection_settings"
+            name="Connections settings" parent="menu_sqls_connection" sequence="1"/>
+    </data>
+</openerp>
