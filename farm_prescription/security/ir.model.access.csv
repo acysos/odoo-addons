@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_veterinarian,Veterinarian,model_farm_veterinarian,farm.group_farm_manager,1,1,1,1
+access_template,Template,model_farm_prescription_template,farm.group_farm_manager,1,1,1,1
+access_template_line,TemplateLine,model_farm_prescription_template_line,farm.group_farm_manager,1,1,1,1
+access_prescription,Prescription,model_farm_prescription,farm.group_farm_manager,1,1,1,1
+access_prescription.animal,PrescriptionAnimal,model_farm_prescription_animal,farm.group_farm_manager,1,1,1,1
+access_prescription_animal_group,PrescriptionAnimalGroup,model_farm_prescription_animal_group,farm.group_farm_manager,1,1,1,1
+access_prescription_line,PrescriptionLine,model_farm_prescription_line,farm.group_farm_manager,1,1,1,1
