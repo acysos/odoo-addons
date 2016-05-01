@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+  	    <record id="account_cash_statement_register_deposit_form" model="ir.ui.view">
+            <field name="name">account.cash.statement.register.deposit.form</field>
+            <field name="model">account.cash.statement.register</field>
+            <field name="inherit_id" ref="account_cash_statement_gui.account_cash_statement_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='concept']" position="after">
+                    <field name="bank_deposit_id"/>
+                    <field name="bank_deposit_balance"/>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+</openerp>
