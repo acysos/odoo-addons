@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_general_feed_order_tree">
+			<field name="name">event_order.tree</field>
+			<field name="model">farm.general.feed.event</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Event order">
+					<field name="name" />
+					<field name="farm" />
+					<field name="timestamp" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_general_feed_order_form">
+            <field name="name">general_feed_order.form</field>
+            <field name="model">farm.general.feed.event</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                <header>
+                    <field name="state" widget="statusbar" />
+                    <button name="confirm" states="draft" 
+                        string="Confirm Order" id="draft_confirm"
+                        type="object" />
+                </header>
+                <sheet>
+                    <group attrs="{
+                            'readonly':[('state','=','validated')]}"
+                            col="4" colspam="2">
+                        <field name="name"/>
+                        <field name="specie" />
+                        <field name="distribution_type"/>
+                        <field name="farm" />
+                        <field name="dest_yard" attrs="{'invisible': [('distribution_type', '=', 'farm')]}"/>
+                        <field name="location_dest" domain="[('location_id', '=', farm)]"/>
+                        <field name="timestamp"
+                            attrs="{'readonly':[('state','=','validated')]}"/>
+                        <field name="feed_quantity"/>
+                        <field name="feed_location"/>
+                        <field name="feed_product"/>
+                        <field name="feed_lot"
+                            domain="[('product_id', '=', feed_product)]"/>
+                        <field name="uom"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="move"/>
+                        <field name="job_order" attrs="{'readonly': True}"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+	</data>
+</openerp>
