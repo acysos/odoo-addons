@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+        <record id="larp_player_view_form" model="ir.ui.view">
+            <field name="name">larp.player.form</field>
+            <field name="model">larp.player</field>
+            <field name="arch" type="xml">
+            	<form string="Player">
+            		<header>
+            		</header>
+            		<sheet string="Player">
+	            		<div class="oe_title">
+	                        <h1>
+	                        	<field name="name" class="oe_inline" default_focus="1" placeholder="Name"/>
+	                        </h1>
+	                        <field name="player" placeholder="Player"/>
+                        </div>
+	            		<group>
+	            			<field name="event"/>
+	            			<field name="point_experience"/>
+	            			<field name="skills" colspan="4"/>
+	            			<field name="plot" colspan="4" widget="text_ckeditor4"/>
+	            			<field name="plot_ids" colspan="4"/>
+	            		</group>
+            		</sheet>
+            	</form>
+            </field>
+        </record>
+        
+        <record id="larp_player_view_tree" model="ir.ui.view">
+            <field name="name">larp.player.tree</field>
+            <field name="model">larp.player</field>
+            <field name="arch" type="xml">
+            	<tree string="LARP Player">
+            	    <field name="event"/>
+                    <field name="name"/>
+                    <field name="player"/>
+            	</tree>
+            </field>
+        </record>
+        
+	    <record id="action_larp_player" model="ir.actions.act_window">
+	        <field name="name">Players</field>
+	        <field name="res_model">larp.player</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	    </record>
+	    <menuitem
+	        sequence="10"
+	        parent="larp.menu_larp"
+	        id="menu_action_larp_player"
+	        action="action_larp_player"/>
+	        
+        <record id="larp_skill_view_form" model="ir.ui.view">
+            <field name="name">larp.skill.form</field>
+            <field name="model">larp.skill</field>
+            <field name="arch" type="xml">
+            	<form string="Skills">
+            		<header>
+            		</header>
+            		<sheet string="Skill">
+	            		<div class="oe_title">
+	                        <h1>
+	                        	<field name="name" class="oe_inline" default_focus="1" placeholder="Name"/>
+	                        </h1>
+                        </div>
+	            		<group>
+	            			<field name="event"/>
+	            			<field name="point_experience"/>
+	            			<field name="description" colspan="4" widget="text_ckeditor4"/>
+	            			<field name="skills_depends" colspan="4"/>
+	            		</group>
+            		</sheet>
+            	</form>
+            </field>
+        </record>
+        
+        <record id="larp_skill_view_tree" model="ir.ui.view">
+            <field name="name">larp.skill.tree</field>
+            <field name="model">larp.skill</field>
+            <field name="arch" type="xml">
+            	<tree string="Players">
+            	    <field name="event"/>
+                    <field name="name"/>
+                    <field name="point_experience"/>
+            	</tree>
+            </field>
+        </record>
+        
+	    <record id="action_larp_skill" model="ir.actions.act_window">
+	        <field name="name">Skills</field>
+	        <field name="res_model">larp.skill</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	    </record>
+	    <menuitem
+	        sequence="5"
+	        parent="larp.menu_larp_configuration"
+	        id="menu_action_larp_skill"
+	        action="action_larp_skill"/>
+	
+	</data>
+</openerp>

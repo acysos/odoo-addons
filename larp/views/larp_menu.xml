@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+        <menuitem name="LARP"
+            id="menu_base_larp"
+            sequence="20"/>
+        
+        <menuitem id="menu_larp_game" parent="larp.menu_base_larp" name="Games" sequence="5" />
+        
+        <menuitem id="menu_larp" parent="larp.menu_base_larp" name="LARP" sequence="10" />
+        
+        <menuitem id="menu_larp_configuration" parent="larp.menu_base_larp" name="Configuration" sequence="15" />
+            
+	</data>
+</openerp>

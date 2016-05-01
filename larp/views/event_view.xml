@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    
+        <record model="ir.ui.view" id="view_event_type_larp_form">
+            <field name="name">Event type LARP</field>
+            <field name="model">event.type</field>
+            <field name="inherit_id" ref="event.view_event_type_form" />
+            <field name="arch" type="xml">
+            	<field name="name" position="after">
+            		<field name="larp_game"/>
+            	</field>
+            </field>
+        </record>
+        
+	    <record id="action_larp_game" model="ir.actions.act_window">
+	        <field name="name">Games</field>
+	        <field name="res_model">event.event</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	        <field name="domain">[('larp_game','=',True)]</field>
+	    </record>
+	    <menuitem
+	        sequence="5"
+	        parent="larp.menu_larp"
+	        id="menu_action_larp_game"
+	        action="action_larp_game"/>
+    
+    </data>
+</openerp>
