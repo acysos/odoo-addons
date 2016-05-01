@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="connection_ifr_tree" model="ir.ui.view">
+            <field name="name">connection.ifr.tree</field>
+            <field name="model">farm.ifr.connector</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="connection"/>
+                </tree>
+            </field>
+        </record>
+        <record id="connection_ifr_form" model="ir.ui.view">
+            <field name="name">connection.ifr.form</field>
+            <field name="model">farm.ifr.connector</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <header>
+                    <field name="state" widget="statusbar" />
+                    <button name="initial_sincronize" states="desSinc" 
+                        string="Initial Sinc" id="initial_sinc"
+                        type="object" />
+                    <button name="synchronize_cron" states="sinc" 
+                        string="Sinc Now" id="manual_sinc"
+                        type="object" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="connection"/>
+                        <field name="farms_relations"/>
+                    </group>
+                </sheet>
+            </field>
+        </record>
+        <record id="farms_relation_form" model="ir.ui.view">
+            <field name="name">farm.relations.form</field>
+            <field name="model">farm.ifr.farms.relation</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <sheet>
+                    <group>
+                        <field name="farm"/>
+                        <field name="loc1"/>
+                        <field name="loc2"/>
+                        <field name="loc3"/>
+                        <field name="ifr_farm_name"/>
+                    </group>
+                </sheet>
+            </field>
+        </record>
+        <record id="connection_ifr_view" model="ir.actions.act_window">
+            <field name="name">connection_ifr_view</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.ifr.connector</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="connection_ifr_tree"/>
+        </record>
+        <menuitem action="connection_ifr_view" id="menu_ifr__settings"
+            name="IFR Connection Settings" parent="sql_server_connector.menu_sqls_connection" sequence="4"/>
+    </data>
+</openerp>

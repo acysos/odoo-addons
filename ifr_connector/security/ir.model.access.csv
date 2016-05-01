@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_IFR_conector,Connector,model_farm_ifr_connector,farm.group_farm_manager,1,0,0,0
+access_farms_relation,FarmsRelation,model_farm_ifr_farms_relation,farm.group_farm_manager,1,0,0,0
