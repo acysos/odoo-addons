@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+    
+        <record id="view_account_analytic_account_perm_ext_form" model="ir.ui.view">
+            <field name="name">analytic.analytic.account.perm.ext.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <field name="manager_id" position="after">
+                    <field name="user_ids" widget="many2many_tags" placeholder="Users..."/>
+                </field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>
