@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Production order -->
+        <record id="mrp_production_form_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.production.form.operator1</field>
+            <field name="model">mrp.production</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Operator Registry">
+                        <field colspan="4" name="operator_ids" nolabel="1" widget="one2many_list" />
+                    </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <record id="mrp_production_form_view_operator2" model="ir.ui.view">
+            <field name="name">mrp.production.form.operator2</field>
+            <field name="model">mrp.production</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <field name="workcenter_lines" position="replace">
+                    <field colspan="4" name="workcenter_lines" nolabel="1">
+                        <form string="Production Work Centers">
+                            <field name="number"/>
+                            <field colspan="4" name="name"/>
+                            <field name="workcenter_id" widget="selection"/>
+                            <field name="sequence"/>
+                            <field name="cycle"/>
+                            <field name="hour"/>
+                        </form>
+                    </field>
+                </field>
+            </field>
+        </record>
+        
+        <record id="mrp_production_product_form_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.production.product.line.form.operator1</field>
+            <field name="model">mrp.production.product.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_product_form_view"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="consumed_on"/>
+                    <newline />
+                </field>
+            </field>
+        </record>
+        <record id="mrp_production_product_tree_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.production.product.line.tree.operator1</field>
+            <field name="model">mrp.production.product.line</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="mrp.mrp_production_product_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="consumed_on"/>
+                </field>
+            </field>
+        </record>
+        
+        <!-- Product BOM -->
+        
+        <record id="mrp_bom_form_view_operator1" model="ir.ui.view">
+            <field name="name">mrp.bom.form.view.operator1</field>
+            <field name="model">mrp.bom</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='bom_line_ids']/tree//field[@name='product_id']" position="after">
+                    <field name="consumed_on" domain="[('routing_id', '=', parent.routing_id)]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
