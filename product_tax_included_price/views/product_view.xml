@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+    
+        <record id="product_product_tax_price_tree_view" model="ir.ui.view">
+            <field name="name">product.product.tax.price.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="price" position="after">
+                    <field name="lst_price_tax"/>
+                </field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>
