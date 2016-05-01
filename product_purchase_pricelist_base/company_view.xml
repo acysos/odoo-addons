@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_company_inherit_purchase_pricelist">
+            <field name="name">res.company.form.inherit.purchase.pricelist</field>
+            <field name="inherit_id" ref="account.view_company_inherit_form"/>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="overdue_msg" position="after">
+                      <field name="purchase_price_update"/>
+                      <field name="sale_with_tax"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+    <!--
+    Price type
+    -->
+        <record model="product.price.type" id="product_price_type_purchaseprice" >
+            <field name="name">Purchase Price</field>
+            <field name="field">purchase_price</field>
+        </record>
+
+    <!--
+    Price list
+    -->
+    <record model="product.pricelist" id="list1p">
+        <field name="name">Purchase Price Pricelist</field>
+        <field name="type">purchase</field>
+    </record>
+    <record model="product.pricelist.version" id="ver1p">
+        <field name="pricelist_id" ref="list1p"/>
+        <field name="name">Purchase Price Pricelist Version</field>
+    </record>
+    <record model="product.pricelist.item" id="item1p">
+        <field name="price_version_id" ref="ver1p"/>
+        <field name="base" ref="product_price_type_purchaseprice" />
+        <field name="name">Purchase Price Pricelist Line</field>
+    </record>
+
+    </data>
+</openerp>
