@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+         <record id="view_hr_payslip_rate_timesheet_form" model="ir.ui.view">
+            <field name="name">hr.payslip.rate.timesheet.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_worked_days_hourly_rate.view_hr_payslip_rate_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='worked_days_line_ids']//field[@name='hourly_rate']" position="after">
+                    <field name="worked_rate"/>
+                </xpath>
+
+            </field>
+        </record>
+        
+    </data>
+</openerp>

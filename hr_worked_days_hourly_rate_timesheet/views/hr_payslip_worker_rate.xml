@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="act_hr_payslip_worker_rate" model="ir.actions.act_window">
+            <field name="res_model">hr.payslip.worker.rate</field>
+            <field name="view_type">form</field>
+            <field name="name">Contracts</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem action="act_hr_payslip_worker_rate" id="menu_hr_payslip_worker_rate" name="Worker Rates" parent="hr.menu_hr_configuration" sequence="30"/>
+        
+    </data>
+</openerp>
