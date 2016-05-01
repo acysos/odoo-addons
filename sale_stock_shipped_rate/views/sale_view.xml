@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_order_shipped_rate_tree" model="ir.ui.view">
+            <field name="name">sale.order.shipped.rate.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+	            <field name="amount_total" position="after">
+	            	<field name="shipped_rate" widget="progressbar"/>
+	            </field>
+            </field>
+		</record>
+    </data>
+</openerp>
