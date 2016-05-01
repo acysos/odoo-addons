@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Production order -->
+        <record id="mrp_production_form_view_autocontrol1" model="ir.ui.view">
+            <field name="name">mrp.production.form.autocontrol1</field>
+            <field name="model">mrp.production</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Product Autocontrol">
+                      <field colspan="4" name="autocontrol_ids" nolabel="1" widget="one2many_list" />
+                    </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <record id="view_mrp_autocontrol_tree" model="ir.ui.view">
+          <field name="name">view.mrp.autocontrol.tree</field>
+          <field name="model">mrp.autocontrol</field>
+          <field name="type">tree</field>
+          <field name="arch" type="xml">
+            <tree string="Product Autocontrol" editable="top">
+              <field name="sequence"/>
+              <field name="name"/>
+              <field name="tolerance"/>
+              <field name="frecuency"/>
+              <field name="tools"/>
+            </tree>
+          </field>
+        </record>
+              
+<!--          <record model="ir.ui.view" id="view_registry_autocontrol_form">
+            <field name="name">view.registry.autocontrol.form</field>
+            <field name="model">registry.autocontrol</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Registry Autocontrol">
+                    <field name="name" select="1"/>
+                    <field name="date"/>
+                    <field name="mrp_id" />
+                    <field name="product_id" />
+                    <field name="start_autocontrol_ids" colspan="4"/>
+                    <field name="intermediate_autocontrol_ids" colspan="4"/>
+                    <field name="final_autocontrol_ids" colspan="4"/>
+                    <group col="8" colspan="4">
+                    	<field name="state" />
+						<button name="action_start" states="start" string="Start Control" type="object" />
+						<button name="action_intermediate" states="intermediate" string="Intermediate Control" type="object" />
+						<button name="action_final" states="final" string="Final Control" type="object" />
+                   	</group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="mrp_registry_autocontrol_action" model="ir.actions.act_window">
+            <field name="name">Registry Autocontrol</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">registry.autocontrol</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="mrp_registry_autocontrol_action" id="menu_mrp_registry_autocontrol_action" parent="mrp.menu_mrp_manufacturing" sequence="3"/>
+-->
+
+    </data>
+</openerp>
