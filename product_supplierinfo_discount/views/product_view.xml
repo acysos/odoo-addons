@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record model="ir.ui.view" id="product_supplierinfo_discount_form_view">
+                <field name="name">product.supplierinfo.discount.form</field>
+                <field name="model">product.supplierinfo</field>
+                <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+                <field name="arch" type="xml">
+                        <field name="price" position="after">
+                                <field name="discount"/>
+                        </field>
+                </field>
+        </record>
+    
+    </data>
+</openerp>
