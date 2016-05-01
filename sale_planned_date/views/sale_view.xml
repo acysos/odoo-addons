@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_order_form_date_planned" model="ir.ui.view">
+            <field name="name">sale.order.form.date.planned</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="date_order" position="after">
+                    <field name="date_planned"/>
+                </field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

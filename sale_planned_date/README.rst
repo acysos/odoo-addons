@@ -1,0 +1,1 @@
+Allow set planned date in sale order
