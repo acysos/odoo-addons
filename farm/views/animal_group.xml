@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_animal_group">
+			<field name="name">animal_group.form</field>
+			<field name="model">farm.animal.group</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Animal Group">
+				<header>
+                    <field name="state" widget="statusbar" />
+                </header>
+					<sheet>
+						<group col="4" colspan="2">
+							<field name="specie" />
+							<field name="breed" domain="[('specie', '=', specie)]" />
+							<field name="number" />
+							<field name="location" attrs="{'readonly': True}" />
+							<field name="farm" />
+							<field name="quantity" />
+							<field name="origin" />
+							<field name="arrival_date" />
+							<field name="initial_location" domain="['|',('location_id', '=', farm),('location_id.location_id', '=', farm)]" />
+							<field name="initial_quantity" />
+							<field name="removal_date" />
+							<field name="weights" />
+							<field name="current_weight" />
+							<field name="active" />
+							<field name="consumed_feed" />
+							<field name="transition_days"/>
+							<field name="fattening_days"/>
+							<field name="lot"/>
+						</group>
+						<group>
+                          <field name="account" attrs="{'readonly': True}"/>
+                        </group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_animal_group_tree">
+			<field name="name">animal_group.tree</field>
+			<field name="model">farm.animal.group</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Animal Group">				
+                        <field name="number" />
+						<field name="arrival_date" />
+						<field name="weaning_day"/>
+						<field name="quantity" />
+						<field name="state"/>
+						<field name="mother"/>		
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_animal_group_weigth_tree">
+            <field name="name">animal_group_weigth.tree</field>
+            <field name="model">farm.animal.group.weight</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                    <tree string="Animal Group Weigth">
+                            <field name="timestamp" />
+                            <field name="weight" />
+                    </tree>
+            </field>
+        </record>
+		<record model="ir.ui.view" id="view_animal_group_weigth">
+			<field name="name">animal_group_weigth.form</field>
+			<field name="model">farm.animal.group.weight</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Animal Group Weigth">
+					<sheet>
+						<group>
+							<field name="timestamp" />
+							<field name="quantity" />
+							<field name="uom" />
+							<field name="weight" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>

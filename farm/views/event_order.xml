@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_event_order_tree">
+			<field name="name">event_order.tree</field>
+			<field name="model">farm.event.order</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Event order">
+					<field name="name" />
+					<field name="animal_type" />
+					<field name="event_type" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_event_order_form">
+            <field name="name">event_order.form</field>
+            <field name="model">farm.event.order</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                <header>
+                    <field name="state" widget="statusbar" />
+                    <button name="confirm" states="draft" 
+                        string="Confirm Order" id="draft_confirm"
+                        type="object" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" attrs="{'readonly': True}"/>
+                        <field name="specie" attrs="{
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="farm" attrs="{
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="timestamp"
+                            attrs="{'readonly':[('state','=','validated')]}"/>
+                        <field name="event_type"
+                            attrs="{'readonly':[('state','=','validated')]}"/>
+                        <field name="animal_type"
+                            attrs="{'required': True,'readonly':[('state','=','validated')]}"/>
+                        <field name="medication_events"
+                            attrs="{'invisible':[('event_type','!=','medication')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="feed_events"
+                            attrs="{'invisible':[('event_type','!=','feed')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="insemination_events"
+                            attrs="{'invisible':[('event_type','!=','insemination')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="pregnancy_diagnosis_events"
+                            attrs="{'invisible':[('event_type','!=','pregnancy_diagnosis')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="abort_events"
+                            attrs="{'invisible':[('event_type','!=','abort')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="farrowing_events"
+                            attrs="{'invisible':[('event_type','!=','farrowing')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="foster_events"
+                            attrs="{'invisible':[('event_type','!=','foster')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="weaning_events"
+                            attrs="{'invisible':[('event_type','!=','weaning')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="trasformation_events"
+                            attrs="{'invisible':[('event_type','!=','trasformation_event')],
+                            'readonly':[('state','=','validated')]}"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+	</data>
+</openerp>

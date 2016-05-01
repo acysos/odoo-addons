@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+        <data>
+            <record id="view_move_event_tree" model="ir.ui.view">
+                <field name="name">move_event.tree</field>
+                <field name="model">farm.move.event</field>
+                <field name="mode">primary</field>
+                <field name="inherit_id" ref="view_abstract_event_tree"/>
+                <field name="arch" type="xml">
+                    <field name="lot" position="after">
+                            <field name="from_location"/>
+                            <field name="to_location" />
+                    </field>     
+                </field>
+            </record>
+            <record id="view_move_event_form" model="ir.ui.view">
+            <field name="name">move_event.form</field>
+            <field name="model">farm.move.event</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="view_abstract_event_form"/>
+            <field name="arch" type="xml">
+            <field name="state" position="after">
+                <h1>Move Event</h1>
+                </field>
+                <field name="lot" position="after">
+                        <field name="from_location"/>
+                        <field name="to_location"/>
+                        <field name="quantity"/>
+                        <field name="unit_price"/>
+                        <field name="uom"/>
+                        <field name="weight"/>
+                        <field name="move"/>
+                        <field name="weight_record"/>
+                        <field name="move"/>
+                </field>     
+            </field>
+        </record>   
+        </data>
+    </openerp>

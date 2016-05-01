@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+        <data>
+            <record id="view_trasformation_event_tree" model="ir.ui.view">
+                <field name="name">trasformation_event.tree</field>
+                <field name="model">farm.transformation.event</field>
+                <field name="mode">primary</field>
+                <field name="inherit_id" ref="view_abstract_event_tree"/>
+                <field name="arch" type="xml">
+                    <field name="lot" position="after">
+                            <field name="from_location"/>
+                            <field name="to_location"/>
+                    </field>     
+                </field>
+            </record>
+            <record id="view_trasformation_event_form" model="ir.ui.view">
+            <field name="name">trasformation_event.form</field>
+            <field name="model">farm.transformation.event</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="view_abstract_event_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                <h1>Trasformation</h1>
+                </field>
+                <field name="lot" position="after">
+                            
+                            <field name="to_animal_type"/>
+                            <field name="quantity"/>
+                            <field name="to_animal"
+                                attrs="{'invisible':[('to_animal_type', '=', 'group')],
+                                'readonly': True}"/>
+                            <field name="to_animal_group"
+                                attrs="{'invisible':[('to_animal_type', '!=', 'group')]}"/>
+                            <field name="from_location"/>
+                            <field name="to_location"/> 
+                            <field name="move"
+                                attr="{'invisible':[('state', '=', 'draft')]"/>   
+                </field>     
+            </field>
+        </record>   
+        </data>
+    </openerp>

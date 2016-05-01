@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem name="Farm" id="menu_farm" sequence="51"/>
+        <menuitem name="Configuration" id="menu_farm_configuration" 
+            parent="menu_farm"/>
+        <menuitem name="Events" id="menu_farm_events" 
+            parent="menu_farm"/>
+        <record id="farm_specie_view" model="ir.actions.act_window">
+            <field name="name">Specie</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.specie</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_specie_tree"/>
+        </record>
+        <record id="farm_farm_line_view" model="ir.actions.act_window">
+            <field name="name">FarmLine</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.specie.farm_line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_farm_line_tree"/>
+        </record>
+        <record id="farm_event_order_view" model="ir.actions.act_window">
+            <field name="name">EventOrder</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.event.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_event_order_tree"/>
+        </record>
+        <record id="farm_tag_view" model="ir.actions.act_window">
+            <field name="name">Tag</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.tags</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tag_tree"/>
+        </record>
+        <record id="farm_semen_extraction_view" model="ir.actions.act_window">
+            <field name="name">Extraction Event</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.semen_extraction.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_semen_extraction_event_tree"/>
+        </record>
+        <record id="farm_removal_view" model="ir.actions.act_window">
+            <field name="name">Removal Event</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.removal.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_removal_event_tree"/>
+        </record>    
+        <menuitem action="farm_specie_view" id="menu_farm_configuration_specie"
+            name="Specie" parent="menu_farm_configuration" sequence="2"/>
+        <menuitem action="farm_farm_line_view" id="menu_farm_configuration_farm_line"
+            name="Farm Line" parent="menu_farm_configuration" sequence="6"/>
+        <menuitem action="farm_tag_view" id="menu_farm_configuration_tag"
+            name="Tag" parent="menu_farm_configuration" sequence="3"/>
+        <menuitem action="farm_event_order_view" id="menu_farm_event_order"
+            name="Work order" parent="menu_farm_events" sequence="2"/> 
+        <menuitem action="farm_semen_extraction_view" id="menu_farm_extraction_event"
+            name="Semen Extraction" parent="menu_farm_events" sequence="4"/>
+        <menuitem action="farm_removal_view" id="menu_farm_removal_event"
+            name="Removal Event" parent="menu_farm_events" sequence="5"/>     
+    </data>
+</openerp>

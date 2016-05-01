@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="stock_production_lot_form_farm_view" model="ir.ui.view">
+            <field name="name">stock.production.lot.farm.form</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <field name="ref" position="after">
+                        <field name="animal_type"/>
+                        <field name="semen_breed"/>
+                </field>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="view_stock_lot_animal_group_form">
+           <field name="name">stockLotAnimalGroup.form</field>
+           <field name="model">stock.lot_farm.animal.group</field>
+           <field name="type">form</field>
+           <field name="arch" type="xml">
+            <form string="Animal Group Tag">
+                <sheet>
+                <group>
+                <field name="lot" domain="[('animal_type','=','group')]"/>
+                </group>
+                </sheet>
+            </form>
+            </field>
+     </record>
+     <record model="ir.ui.view" id="view_stock_lot_animal_form">
+           <field name="name">stockLot_animal.form</field>
+           <field name="model">stock.lot_farm.animal</field>
+           <field name="type">form</field>
+           <field name="arch" type="xml">
+            <form string="Animal Group Tag">
+                <sheet>
+                <group>
+                <field name="lot" 
+                    domain="['|',('animal_type','=','male'),('animal_type','=','femnale'),
+                        ('animal_type','=','individual'),('animal_type','=','group')]"/>
+                </group>
+                </sheet>
+            </form>
+            </field>
+     </record>
+     <record id="stock_location_form_farm_view" model="ir.ui.view">
+            <field name="name">stock.location.farm.form</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <field name="scrap_location" position="after">
+                        <field name="silo"/>
+                        <field name="farm_yard"/>
+                        <field name="locations_to_fed"
+                        attrs="{'invisible':[('silo','!=', True)]}"/>
+                </field>
+            </field>
+    </record>
+    <record id="stock_warehouse_form_farm_view" model="ir.ui.view">
+            <field name="name">stock.warehouse.farm.form</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="external"/>
+                    <field name="holding_number"/>
+                </field>
+            </field>
+    </record>
+    <record model="ir.ui.view" id="view_foster_location_tree">
+            <field name="name">forser_location.tree</field>
+            <field name="model">farm.foster.locations</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                        <field name="location"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_foster_location_form">
+            <field name="name">foster_location.form</field>
+            <field name="model">farm.foster.locations</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Foste Location">
+                <sheet>
+                    <field name="location"/>
+                
+                </sheet>
+                </form>
+             </field>
+            </record>
+      <record model="ir.ui.view" id="view_transit_location_tree">
+            <field name="name">transit_location.tree</field>
+            <field name="model">farm.transit.locations</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                        <field name="location"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_transit_location_form">
+            <field name="name">transit_location.form</field>
+            <field name="model">farm.transit.locations</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Foste Location">
+                <sheet>
+                    <field name="location"/>
+                
+                </sheet>
+                </form>
+             </field>
+            </record>
+            <record model="ir.ui.view" id="view_future_location_tree">
+            <field name="name">future_location.tree</field>
+            <field name="model">farm.future_maders.locations</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                        <field name="location"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_future_location_form">
+            <field name="name">future_location.form</field>
+            <field name="model">farm.future_maders.locations</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Foste Location">
+                <sheet>
+                    <field name="location"/>
+                </sheet>
+                </form>
+             </field>
+            </record>
+            <record model="ir.ui.view" id="view_silo_location_tree">
+            <field name="name">silo_location.tree</field>
+            <field name="model">stock.location.silo_stock.location</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                        <field name="location"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_silo_location_form">
+            <field name="name">silo_location.form</field>
+            <field name="model">stock.location.silo_stock.location</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Location to Feed">
+                <group>
+                    <field name="silo" domain="[('silo', '=', True)]"/>
+                    <field name="location"/>
+                </group>
+                </form>
+             </field>
+            </record>
+</data>
+</openerp>

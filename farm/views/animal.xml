@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_animal_tree">
+			<field name="name">animal.tree</field>
+			<field name="model">farm.animal</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Animal">
+					<field name="type" />
+					<field name="specie" />
+					<field name="breed" />
+					<field name="current_cycle" attrs="{'invisible':[('type','!=','female')]}"/>
+					<field name="number" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_animal_form">
+			<field name="name">animal.form</field>
+			<field name="model">farm.animal</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Animal">
+					<header>
+						<field name="state" widget="statusbar"
+							attrs="{'invisible':[('type','!=','female')]}" />
+					</header>
+					<sheet>
+						<group>
+							<field name="type" />
+						</group>
+						<group col="4" colspam="2">
+							<field name="specie" />
+							<field name="breed" domain="[('specie', '=', specie)]" />
+						</group>
+						<group>
+							<field name="lot" attrs="{'required': True}"/>
+							<field name="number" />
+						</group>
+						<group col="4" colspam="2">
+							<field name="active" />
+						</group>
+						<group col="4" colspan="2">
+							<field name="farm" attrs="{'required': True}" />
+							<field name="initial_location" domain="['|',('location_id', '=', farm),('location_id.location_id', '=', farm)]" />
+							<field name="location" attrs="{'readonly': True}" />
+							<field name="origin" />
+						</group>
+						<group col="4" colspam="2">
+							<field name="arrival_date" />
+							<field name="birthdate" />
+						</group>
+						<group col="4" colspam="2">
+							<field name="removal_date" />
+							<field name="removal_reason" />
+						</group>
+						<group>
+							<field name="weight" />
+						</group>
+						<group col="4" colspam="2">
+							<field name="current_weight" />
+							<field name="consumed_feed" />
+							<field name="sex" />
+							<field name="purpose" />
+						</group>
+						<group>
+							<field name="notes" />
+						</group>
+						<group attrs="{'invisible':[('type','!=','male')]}">
+							<field name="extractions" />
+							<field name="last_extraction" />
+						</group>
+						<group attrs="{'invisible':[('type','!=','female')]}">
+							<field name="cycles" attrs="{'readonly': True}"/>
+							<field name="current_cycle" />
+							<field name="first_mating" />
+							<field name="days_from_insemination" />
+							<field name="last_produced_group" />
+							<field name="days_from_farrowing" />
+						</group>
+						<group>
+						  <field name="account" attrs="{'readonly': True}"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_animal_weight_form">
+			<field name="name">animalWeight.form</field>
+			<field name="model">farm.animal.weight</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Weight">
+					<sheet>
+						<group>
+							<field name="timestamp" />
+							<field name="uom" />
+							<field name="weight" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_cycle_form">
+			<field name="name">cycle.form</field>
+			<field name="model">farm.animal.female_cycle</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Female Cycle">
+					<header>
+						<field name="state" widget="statusbar" />
+					</header>
+					<sheet>
+						<group col="4" colspan="2">
+							<field name="animal" />
+							<field name="sequence" attrs="{'readonly': True}" />
+							<field name="ordination_date" />
+						</group>
+						<group col="4" colspan="2">
+							<field name="insemination_events" />
+							<field name="days_between_wearing_and_insemination" />
+							<field name="diagnosis_events" />
+							<field name="pregnant" />
+							<field name="farrowing_event" />
+							<field name="abort_event" />
+							<field name="live"/>
+							<field name="dead"/>
+							<field name="fostered" />
+							<field name="foster_events" />
+							<field name="weaning_event" />
+							<field name="weared" />
+							<field name="days_between_farrowing_weaning"/>
+							<field name="removed" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_cycle_tree">
+			<field name="name">cycle.tree</field>
+			<field name="model">farm.animal.female_cycle</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Female Cycle">
+					<field name="state" widget="statusbar" />
+					<field name="sequence" attrs="{'readonly': True}" />
+					<field name="pregnant" />
+					<field name="fostered" />
+					<field name="weared" />
+				</tree>
+			</field>
+		</record>
+	</data>
+
+</openerp>

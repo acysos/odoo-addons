@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <openerp>
+        <data>
+        <record id="product_template_form_farm_view" model="ir.ui.view">
+            <field name="name">product.template.common.farm.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                <page string="Farm">
+                    <group col="4" colspan="2">
+                        <field name="farrowing_price"/>
+                        <field name="wearing_price"/>
+                    </group>
+                </page>
+            </notebook>
+            </field>
+        </record>            
+        </data>
+    </openerp>
