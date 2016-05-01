@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_order_form_product_time" model="ir.ui.view">
+            <field name="name">sale.order.form.product.time</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form//label[@for='product_uos_qty']" position="before">
+                    <field name="seconds" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name='total_seconds_line'/>
+                    <field name='seconds_consumed'/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//field[@name='name']" position="after">
+                    <label for="time_line_ids"/>
+                    <field name="time_line_ids" attrs="{'readonly':[('state','=','done')]}">
+                        <tree string="Sales Order Lines" editable="top">
+                            <field name="date"/>
+                            <field name="quantity"/>
+                            <field name="type"/>
+                        </tree>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
+                    <field name="seconds" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name='total_seconds_line'/>
+                    <field name='seconds_consumed'/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','=','done')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//field[@name='product_uom_qty']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//field[@name='product_uos']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//field[@name='address_allotment_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

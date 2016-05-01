@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_product_time_line_calendar" model="ir.ui.view">
+            <field name="name">product.time.line.calendar</field>
+            <field name="model">product.time.line</field>
+            <field name="arch" type="xml">
+                <calendar string="Product Time Calendar" color="partner_id" date_start="start_datetime">
+                    <field name="total_seconds"/>
+                    <field name="type"/>
+                </calendar>
+            </field>
+        </record>
+        
+        <record id="view_product_time_line_tree" model="ir.ui.view">
+            <field name="name">product.time.line.tree</field>
+            <field name="model">product.time.line</field>
+            <field name="arch" type="xml">
+                <tree string="Product Time Calendar">
+                    <field name="quantity"/>
+                    <field name="seconds"/>
+                    <field name="total_seconds"/>
+                    <field name="type"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_product_time_line_form" model="ir.ui.view">
+            <field name="name">product.time.line.form</field>
+            <field name="model">product.time.line</field>
+            <field name="arch" type="xml">
+                <form string="Product Time Calendar">
+                    <group>
+                        <field name="quantity"/>
+                        <field name="seconds"/>
+                        <field name="total_seconds"/>
+                        <field name="type"/>
+                        <field name="partner_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_time_order" model="ir.actions.act_window">
+            <field name="name">Product Time Calendar</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.time.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form</field>
+        </record>
+
+        <menuitem action="action_time_order" id="menu_sale_order" parent="base.menu_sales" sequence="10" groups="base.group_sale_salesman,base.group_sale_manager"/>
+
+        <record id="view_product_time_type_form" model="ir.ui.view">
+            <field name="name">product.time.type.form</field>
+            <field name="model">product.time.type</field>
+            <field name="arch" type="xml">
+                <form string="Product Time Type">
+                    <group>
+                        <field name="name"/>
+                        <field name="start_time" widget="float_time"/>
+                        <field name="end_time" widget="float_time"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_product_time_type_tree" model="ir.ui.view">
+            <field name="name">product.time.type.tree</field>
+            <field name="model">product.time.type</field>
+            <field name="arch" type="xml">
+                <tree string="Product Time Type">
+                    <field name="name"/>
+                    <field name="start_time" widget="float_time"/>
+                    <field name="end_time" widget="float_time"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_product_time_type" model="ir.actions.act_window">
+            <field name="name">Product Time Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.time.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_product_time_type" id="menu_product_time_type" parent="base.menu_sales" sequence="20" groups="base.group_sale_salesman,base.group_sale_manager"/>
+
+    </data>
+</openerp>

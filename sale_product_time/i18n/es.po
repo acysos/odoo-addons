@@ -1,0 +1,150 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_product_time
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-12 22:46+0000\n"
+"PO-Revision-Date: 2015-02-12 22:46+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_product_time
+#: field:product.time.line,create_uid:0
+#: field:product.time.type,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sale_product_time
+#: field:product.time.line,create_date:0
+#: field:product.time.type,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sale_product_time
+#: field:product.time.line,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: sale_product_time
+#: field:product.time.line,id:0
+#: field:product.time.type,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_product_time
+#: field:product.time.line,write_uid:0
+#: field:product.time.type,write_uid:0
+msgid "Last Updated by"
+msgstr "Actualizado por"
+
+#. module: sale_product_time
+#: field:product.time.line,write_date:0
+#: field:product.time.type,write_date:0
+msgid "Last Updated on"
+msgstr "Actualizado el"
+
+#. module: sale_product_time
+#: field:product.time.type,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sale_product_time
+#: field:product.time.line,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: sale_product_time
+#: model:ir.actions.act_window,name:sale_product_time.action_time_order
+#: model:ir.ui.menu,name:sale_product_time.menu_sale_order
+#: view:product.time.line:sale_product_time.view_product_time_line_calendar
+#: view:product.time.line:sale_product_time.view_product_time_line_form
+#: view:product.time.line:sale_product_time.view_product_time_line_tree
+msgid "Product Time Calendar"
+msgstr "Programación - Calendario"
+
+#. module: sale_product_time
+#: model:ir.actions.act_window,name:sale_product_time.action_product_time_type
+#: model:ir.ui.menu,name:sale_product_time.menu_product_time_type
+#: view:product.time.type:sale_product_time.view_product_time_type_form
+#: view:product.time.type:sale_product_time.view_product_time_type_tree
+msgid "Product Time Type"
+msgstr "Tipo de producto temporal"
+
+#. module: sale_product_time
+#: field:sale.order.line,time_line_ids:0
+msgid "Programming"
+msgstr "Programación"
+
+#. module: sale_product_time
+#: field:product.time.line,quantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: sale_product_time
+#: field:product.time.line,sale_order_line_id:0
+msgid "Sale Order Line"
+msgstr "Linea de pedido"
+
+#. module: sale_product_time
+#: model:ir.model,name:sale_product_time.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: sale_product_time
+#: model:ir.model,name:sale_product_time.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: sale_product_time
+#: view:sale.order:sale_product_time.view_order_form_product_time
+msgid "Sales Order Lines"
+msgstr "Líneas pedido de ventas"
+
+#. module: sale_product_time
+#: field:product.time.line,seconds:0
+#: field:sale.order.line,seconds:0
+msgid "Seconds"
+msgstr "Segundos"
+
+#. module: sale_product_time
+#: field:sale.order.line,seconds_consumed:0
+msgid "Seconds Consumed"
+msgstr "Segundos consumidos"
+
+#. module: sale_product_time
+#: field:product.time.type,end_time:0
+msgid "Time end"
+msgstr "Hora final"
+
+#. module: sale_product_time
+#: field:product.time.type,start_time:0
+msgid "Time start"
+msgstr "Hora de inicio"
+
+#. module: sale_product_time
+#: field:sale.order.line,total_seconds_line:0
+msgid "Total Seconds"
+msgstr "Total de segundos"
+
+#. module: sale_product_time
+#: field:product.time.line,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: sale_product_time
+#: view:sale.order:sale_product_time.view_order_form_product_time
+msgid "{'readonly':[('state','!=','draft')]}"
+msgstr "{'readonly':[('state','!=','draft')]}"
+
+#. module: sale_product_time
+#: view:sale.order:sale_product_time.view_order_form_product_time
+msgid "{'readonly':[('state','=','done')]}"
+msgstr "{'readonly':[('state','=','done')]}"
+
