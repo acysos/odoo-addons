@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+  	    <record id="account_cash_statement_register_line_concept_analytic_tree" model="ir.ui.view">
+            <field name="name">account.cash.register.line.concept.analytic.tree</field>
+            <field name="model">account.cash.register.line.concept</field>
+            <field name="inherit_id" ref="account_cash_statement_gui.account_cash_statement_register_line_concept_tree"/>
+            <field name="arch" type="xml">
+            	<field name="account_id" position="after">
+            		<field name="analytic_plan_id"/>
+            	</field>
+            </field>
+        </record>
+        
+  	    <record id="account_cash_statement_register_line_concept_analytic_form" model="ir.ui.view">
+            <field name="name">account.cash.register.line.concept.analytic.form</field>
+            <field name="model">account.cash.register.line.concept</field>
+            <field name="inherit_id" ref="account_cash_statement_gui.account_cash_statement_register_line_concept_form"/>
+            <field name="arch" type="xml">
+            	<field name="account_id" position="after">
+            		<field name="analytic_plan_id"/>
+            	</field>
+            </field>
+        </record>
+    
+        <record id="account_cash_statement_register_analytic_tree" model="ir.ui.view">
+            <field name="name">account.cash.statement.register.analytic.tree</field>
+            <field name="model">account.cash.statement.register</field>
+            <field name="inherit_id" ref="account_cash_statement_gui.account_cash_statement_register_tree"/>
+            <field name="arch" type="xml">
+            	<field name="partner_id" position="replace">
+            		<field name="analytic_plan_id"/>
+            	</field>
+            </field>
+        </record>
+
+  	    <record id="account_cash_statement_register_analytic_form" model="ir.ui.view">
+            <field name="name">account.cash.statement.register.analytic.form</field>
+            <field name="model">account.cash.statement.register</field>
+            <field name="inherit_id" ref="account_cash_statement_gui.account_cash_statement_register_form"/>
+            <field name="arch" type="xml">
+            	<field name="partner_id" position="after">
+            		<field name="analytic_plan_id"/>
+            	</field>
+<!--                 <xpath expr="//field[@name='line_ids']/tree/field[@name='account_id']" position="after">
+                    <field name="analytic_plan_id"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form/field[@name='account_id']" position="after">
+                    <field name="analytic_plan_id"/>
+                </xpath> -->
+            </field>
+        </record>
+    
+    </data>
+</openerp>
