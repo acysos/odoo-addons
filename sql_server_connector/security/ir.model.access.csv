@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sql_server_connector,Connector,model_connector_sqlserver,farm.group_farm_manager,1,0,0,0
