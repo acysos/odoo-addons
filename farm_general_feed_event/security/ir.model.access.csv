@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_general_feed_work_order,GenerarFeedEventOrder,model_farm_general_feed_event,farm.group_farm_manager,1,1,1,1
