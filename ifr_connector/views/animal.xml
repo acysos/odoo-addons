@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="animal_wizard_form_view">
+    <field name="name">animal.wizard.form</field>
+    <field name="model">farm.animal.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Promote mother">
+            <group>
+                <field name="female_sequence"/>
+                <field name="location_dest"/>
+            </group>
+        </form>
+        <footer>
+        <button name="PromoteMother" type="object"
+                        string="Promote Mother" class="oe_highlight"/>
+         or
+                        <button special="cancel" string="Cancel"/>
+        </footer>
+    </field>
+</record>
+        <record id="ifr_animal_farm_view" model="ir.ui.view">
+            <field name="name">ifr.animal.farm.form</field>
+            <field name="model">farm.animal</field>
+            <field name="inherit_id" ref="farm.view_animal_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <button name="launch_wizard" type="object"
+                        string="Promote Mother" class="oe_highlight"
+                        attrs="{'invisible': ['|', ('type', '!=', 'female'),('ifr_sequence', '!=', False)]}"/>
+                </field>
+                <field name="breed" position="after">
+                    <field name="ifr_sequence"/>
+                </field>
+            </field>
+        </record>
+        <record id="ifr_animal_farm_tree_view" model="ir.ui.view">
+            <field name="name">ifr.animal.farm.tree</field>
+            <field name="model">farm.animal</field>
+            <field name="inherit_id" ref="farm.view_animal_tree"/>
+            <field name="arch" type="xml">
+                <field name="number" position="after">
+                    <field name="ifr_sequence"/>
+                </field>
+            </field>
+        </record>
+        
+</data>
+
+</openerp>
