@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	   <record model="ir.ui.view" id="view_specie_tree">
+	       <field name="name">specie.tree</field>
+	       <field name="model">farm.specie</field>
+	       <field name="type">tree</field>
+	       <field name="arch" type="xml">
+	           <tree string="Specie">
+	              <field name="name"/>
+	              <field name="male_enabled"/>
+	              <field name="female_enabled"/>
+	              <field name="individual_enabled"/>
+	              <field name="group_enabled"/> 
+	           </tree>  
+	       </field>
+	   </record>
+		<record model="ir.ui.view" id="view_specie_form">
+			<field name="name">specie.form</field>
+			<field name="model">farm.specie</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Specie">
+					<header>
+					   <group >
+					       <field name="name"/>
+					   </group>
+					</header>
+					<sheet>
+					<group col="4" colspan="2">
+						<field name="male_enabled"/>
+						<field name="male_product"
+						  attrs="{'invisible':[('male_enabled','=',False)],'required':[('male_enabled','=',True)]}"/>
+						<field name="female_enabled"/>
+						<field name="female_product"
+						  attrs="{'invisible':[('female_enabled','=',False)],'required':[('female_enabled','=',True)]}"/>
+						<field name="individual_enabled"/>
+						<field name="individual_product"
+						  attrs="{'invisible':[('individual_enabled','=',False)],'required':[('individual_enabled','=',True)]}"/>
+						<field name="group_enabled"/>
+						<field name="group_product"
+						  attrs="{'invisible':[('group_enabled','=',False)],'required':[('group_enabled','=',True)]}"/>
+					</group>
+					<group>	
+						<field name="semen_product"/>
+						<field name="sale_product"/>
+					</group>	
+					<group col="4" colspan="2">
+						<field name="breeds"/>
+						<field name="farm_lines"/>
+					</group>				
+					<group>
+						<field name="removed_location"/>
+						<field name="foster_location"/>
+						<field name="lost_found_location"/>
+						<field name="future_maders_location"/>
+						<field name="feed_lost_found_location"/>
+					</group>
+					</sheet>
+				</form>
+			
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_farm_line_tree">
+           <field name="name">farm.line.tree</field>
+           <field name="model">farm.specie.farm_line</field>
+           <field name="type">tree</field>
+           <field name="arch" type="xml">
+               <tree string="Farm Line">
+                  <field name="specie"/>
+                  <field name="farm"/>
+               </tree>  
+           </field>
+       </record>
+		<record model="ir.ui.view" id="view_farm_line_form">
+            <field name="name">farm.line.form</field>
+            <field name="model">farm.specie.farm_line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Farm Line">
+                    <sheet>
+                        <group>
+                            <field name="specie"/>
+                            <field name="farm"/>
+                            <field name="event_order_sequence"/>
+                        </group>
+                    </sheet>
+                  </form>
+              </field>
+          </record>		
+	</data>
+</openerp>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <openerp>
+        <data>
+	        <record id="view_feed_event_tree" model="ir.ui.view">
+	            <field name="name">feed_event.tree</field>
+	            <field name="model">farm.feed.event</field>
+	            <field name="mode">primary</field>
+	            <field name="inherit_id" ref="view_abstract_event_tree"/>
+	            <field name="arch" type="xml">
+	                <field name="lot" position="after">
+	                        <field name="feed_quantity"/>
+	                        <field name="feed_quantity_animal_day"/>
+	                </field>     
+	            </field>
+	        </record>
+            <record id="view_feed_event_form" model="ir.ui.view">
+            <field name="name">feed_event.form</field>
+            <field name="model">farm.feed.event</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="view_abstract_event_form"/>
+            <field name="arch" type="xml">
+            <field name="state" position="after">
+                <h1>Feed Event</h1>
+                </field>
+                <field name="lot" position="after">
+                        <field name="feed_quantity"/>
+                        <field name="feed_quantity_animal_day"/>
+                        <field name="location"
+                            domain="[('location_id', '=', farm)]"/>
+                        <field name="quantity"/>
+                        <field name="feed_location"/>
+                        <field name="feed_product"/>
+                        <field name="feed_lot"
+                            domain="[('product_id', '=', feed_product)]"/>
+                        <field name="uom"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="move" attrs="{'readonly' : True}"/>
+                </field>     
+            </field>
+        </record>   
+        </data>
+    </openerp>

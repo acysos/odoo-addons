@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="analytic_journal_farm" model="account.analytic.journal">
+            <field name="code">FAR</field>
+            <field name="name">Farm</field>
+            <field name="type">general</field>
+        </record>
+        <record id="seq_type_farm_line" model="ir.sequence.type">
+            <field name="name">FarmLine</field>
+            <field name="code">farm.specie.farm_line</field>
+        </record>
+     </data>
+</openerp>

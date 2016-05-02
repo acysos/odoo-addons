@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+        <data>
+            <record id="view_medication_event_tree" model="ir.ui.view">
+                <field name="name">medication_event.tree</field>
+                <field name="model">farm.medication.event</field>
+                <field name="mode">primary</field>
+                <field name="inherit_id" ref="view_abstract_event_tree"/>
+                <field name="arch" type="xml">
+                    <field name="lot" position="after">
+                            <field name="feed_product"/>
+                    </field>     
+                </field>
+            </record>
+            <record id="view_medication_event_form" model="ir.ui.view">
+            <field name="name">mediction_event.form</field>
+            <field name="model">farm.medication.event</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="view_abstract_event_form"/>
+            <field name="arch" type="xml">
+            <field name="state" position="after">
+                <h1>Medication Event</h1>
+                </field>
+                <field name="animal_group" position="replace">
+                     <field name="medication_in_feed"/>
+                     <field name="animal_group" 
+                        attrs="{'invisible':['|',('animal_type','!=','group'), ('medication_in_feed', '=', True)],
+                            'required':[('animal_type','=','group')]}"
+                        domain="[('farm', '=', farm), ('state', '!=', 'sold')]"/> 
+                      <field name="medicated_feed" 
+                         attrs="{'invisible': [('medication_in_feed', '=', False)]}"/>
+                      <field name="feed_product"/>
+                      <field name="feed_product_uom_category"/>
+                      <field name="feed_quantity"/>
+                      <field name="uom"/>
+                      <field name="location" domain="[('location_id', '=', farm)]"/>
+                      <field name="quantity"/>
+                      <field name="feed_location"/>
+                      <field name="feed_lot" domain="[('product_id', '=', feed_product)]"/>
+                      <field name="start_date"/>
+                      <field name="end_date"/>
+                      <field name="move"/>
+                </field>     
+            </field>
+        </record>   
+        </data>
+    </openerp>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+        <record model="ir.ui.view" id="view_abstract_event_tree">
+            <field name="name">abstract_event.tree</field>
+            <field name="model">farm.event</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Event">
+                        <field name="state"/>
+                        <field name="lot"/>
+                        <field name="animal_type"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_abstract_event_form">
+            <field name="name">abstract_event.form</field>
+            <field name="model">farm.event</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Event">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,validated" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+                </header>
+                <sheet>
+                    <group col="4" colspan="2">
+                        <field name="animal_type"/>
+                        <field name="farm"/>
+                        <field name="specie"/>
+                        <field name="animal" 
+                            attrs="{'invisible':[('animal_type','=','group')],
+                            'required':['|',('animal_type','=','individual'),('animal_type','=', 'male'),('animal_type','=', 'female')]}"
+                            domain="[('type', '=', animal_type),('farm', '=', farm)]"/>
+                        <field name="animal_group"
+                            attrs="{'invisible':[('animal_type','!=','group')],'required':[('animal_type','=','group')]}"
+                            domain="[('farm', '=', farm), ('state', '!=', 'sold')]"/>
+                        <field name="lot"/>
+                    </group>
+                    <group col="4" colspan="2">
+                        <field name="timestamp"/>
+                        <field name="employee"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_abstract_event_import_mixin_tree" model="ir.ui.view">
+            <field name="name">abstract_event.import_mixin.tree</field>
+            <field name="model">farm.event.import.mixin</field>
+            <field name="inherit_id" ref="view_abstract_event_tree"/>
+            <field name="arch" type="xml">
+                <field name="animal_type" position="after">
+                        <field name="imported"/>
+                </field>
+            </field>
+        </record>
+        <record id="view_abstract_event_import_mixin_form" model="ir.ui.view">
+            <field name="name">abstract_event.import_mixin.form</field>
+            <field name="model">farm.event.import.mixin</field>
+            <field name="inherit_id" ref="view_abstract_event_form"/>
+            <field name="arch" type="xml">
+                <field name="lot" position="after">
+                        <field name="imported"/>
+                </field>
+            </field>
+        </record> 
+</data>
+</openerp>
