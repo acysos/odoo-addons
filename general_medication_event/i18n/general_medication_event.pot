@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* general_medication_event
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-13 11:04+0000\n"
+"PO-Revision-Date: 2016-04-13 11:04+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,feed_quantity:0
+msgid "Comsumed Cuantity"
+msgstr ""
+
+#. module: general_medication_event
+#: view:farm.general.medication.event:general_medication_event.view_general_medication_event_form
+msgid "Confirm Order"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,timestamp:0
+msgid "Date & Time"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,distribution_type:0
+msgid "Distribution Type"
+msgstr ""
+
+#. module: general_medication_event
+#: selection:farm.general.medication.event,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,employee:0
+msgid "Employee"
+msgstr ""
+
+#. module: general_medication_event
+#: help:farm.general.medication.event,employee:0
+msgid "Employee that did the job."
+msgstr ""
+
+#. module: general_medication_event
+#: view:farm.general.medication.event:general_medication_event.view_general_medication_event_tree
+msgid "Event order"
+msgstr ""
+
+#. module: general_medication_event
+#: selection:farm.general.medication.event,distribution_type:0
+#: field:farm.general.medication.event,farm:0
+msgid "Farm"
+msgstr ""
+
+#. module: general_medication_event
+#: model:ir.actions.act_window,name:general_medication_event.farm_general_medication_event_view
+msgid "Farm_general_medication"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,location_dest:0
+msgid "Feed destity location"
+msgstr ""
+
+#. module: general_medication_event
+#: model:ir.ui.menu,name:general_medication_event.menu_farm_general_medication_event
+msgid "General Medication Event"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,id:0
+msgid "ID"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,job_order:0
+msgid "Job order"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,medicated_feed:0
+msgid "Medicated feed"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,feed_lot:0
+msgid "Medication Lot"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,feed_location:0
+msgid "Medication Source"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,medication_in_feed:0
+msgid "Medication in feed"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,notes:0
+msgid "Notes"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,prescription:0
+msgid "Prscription"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,name:0
+msgid "Reference"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,specie:0
+msgid "Specie"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,state:0
+msgid "State"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,move:0
+msgid "Stock Move"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,uom:0
+msgid "UOM"
+msgstr ""
+
+#. module: general_medication_event
+#: selection:farm.general.medication.event,state:0
+msgid "Validated"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,dest_yard:0
+#: selection:farm.general.medication.event,distribution_type:0
+msgid "Yard"
+msgstr ""
+
+#. module: general_medication_event
+#: code:addons/general_medication_event/models/general_medication_event.py:161
+#, python-format
+msgid "farms are diferen in event and prescription"
+msgstr ""
+
+#. module: general_medication_event
+#: field:farm.general.medication.event,feed_product:0
+msgid "medication"
+msgstr ""
+
