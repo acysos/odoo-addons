@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record forcecreate="True" id="ir_cron_feed_machine_sync" model="ir.cron">
+            <field name="name">feed machine Integration</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="interval_number">15</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall" />
+            <field eval="'farm.feed.machine.connector'" name="model" />
+            <field eval="'synchronize_cron'" name="function" />
+            <field eval="'(None, )'" name="args" />
+        </record>  
+</data>
+</openerp>
