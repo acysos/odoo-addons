@@ -1,0 +1,182 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* farm_general_feed_event
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-21 09:57+0000\n"
+"PO-Revision-Date: 2015-12-21 09:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,feed_quantity:0
+msgid "Comsumed Cuantity"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.view_general_feed_order_form
+msgid "Confirm Order"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,timestamp:0
+msgid "Date & Time"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: selection:farm.general.feed.event,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,employee:0
+msgid "Employee"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: help:farm.general.feed.event,employee:0
+msgid "Employee that did the job."
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,end_date:0
+msgid "End Date"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: help:farm.general.feed.event,end_date:0
+msgid "End date of the period in which the givenquantity of product was consumed. It is the dateof event's timestamp."
+msgstr ""
+
+#. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.view_general_feed_order_tree
+msgid "Event order"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,farm:0
+msgid "Farm"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: model:ir.actions.act_window,name:farm_general_feed_event.farm_general_feed_event_view
+msgid "Farm_general_feed"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,feed_product:0
+msgid "Feed"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,feed_lot:0
+msgid "Feed Lot"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,feed_location:0
+msgid "Feed Source"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:product.template,feed_lactating:0
+msgid "Feed fFor Lactaing Animals"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:product.template,feed_transit:0
+msgid "Feed for Transition Animals"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: model:ir.ui.menu,name:farm_general_feed_event.menu_farm_general_feed_event
+msgid "General Feed Event"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.event.order,general_feed_event:0
+msgid "General feed event Order"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,id:0
+msgid "ID"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,job_order:0
+msgid "Job order"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,notes:0
+msgid "Notes"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: model:ir.model,name:farm_general_feed_event.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,name:0
+msgid "Reference"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,specie:0
+msgid "Specie"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,start_date:0
+msgid "Start Date"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: help:farm.general.feed.event,start_date:0
+msgid "Start date of the period inwhich the given quantity of product wasconsumed."
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,state:0
+msgid "State"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,uom:0
+msgid "UOM"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: selection:farm.general.feed.event,state:0
+msgid "Validated"
+msgstr ""
+
