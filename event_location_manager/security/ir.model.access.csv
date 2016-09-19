@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manager_event_location_reserv,EventTrackLocationReservation,model_event_track_location_reservation,event.group_event_manager,1,1,1,1
+access_user_event_location_reserv,EventTrackLocationReservation,model_event_track_location_reservation,event.group_event_user,1,0,0,0

@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* event_location_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-30 11:20+0000\n"
+"PO-Revision-Date: 2016-06-30 11:20+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_location_manager
+#: field:event.track.location,capacity:0
+msgid "Capacity"
+msgstr "Capacidad"
+
+#. module: event_location_manager
+#: field:event.track.location,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,end_date:0
+msgid "End date"
+msgstr "Fecha fin"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,et_location_id:0
+msgid "Location"
+msgstr "Lugar"
+
+#. module: event_location_manager
+#: model:ir.actions.act_window,name:event_location_manager.action_event_location_reservation
+#: model:ir.ui.menu,name:event_location_manager.menu_event_location_reservation
+msgid "Location Booking"
+msgstr "Reservas localización"
+
+#. module: event_location_manager
+#: view:event.track.location.reservation:event_location_manager.view_event_location_reservation_calendar
+msgid "Location Reservations"
+msgstr "Reservas localización"
+
+#. module: event_location_manager
+#: field:event.track.location,reservation_days:0
+msgid "Reservation days"
+msgstr "Dias reservados"
+
+#. module: event_location_manager
+#: view:event.track.location:event_location_manager.event_location_manager_form
+msgid "Resevations"
+msgstr "Resevas"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,track_id:0
+msgid "Session"
+msgstr "Sesión"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,duration:0
+msgid "duration"
+msgstr "duración"
+
+#. module: event_location_manager
+#: field:event.track.location.reservation,day:0
+msgid "start date"
+msgstr "Fecha inicio"
+
+#. module: event_location_manager
+#: code:addons/event_location_manager/models/event_event.py:70
+#, python-format
+msgid "this place is reserved for this date, place: %s date: %s"
+msgstr "Este lugar esta reservado para esta fecha, Lugar: %s dia: %s"
+

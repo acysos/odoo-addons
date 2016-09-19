@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <!-- Multi - Company Rules -->
+        <record model="ir.rule" id="event_location_company_rule">
+            <field name="name">Event_Location: multi-company</field>
+            <field name="model_id" ref="website_event_track.model_event_track_location"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',
+                                            ('company_id', '=', False),
+                                            ('company_id', 'child_of', [user.company_id.id]),
+                                        ]
+            </field>
+        </record>
+         <record model="ir.rule" id="event_location_reservation_company_rule">
+            <field name="name">Event_Location_resrvation: multi-company</field>
+            <field name="model_id" ref="model_event_track_location_reservation"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',
+                                            ('et_location_id.company_id', '=', False),
+                                            ('et_location_id.company_id', 'child_of', [user.company_id.id]),
+                                        ]
+            </field>
+        </record>
+</data>
+</openerp>
