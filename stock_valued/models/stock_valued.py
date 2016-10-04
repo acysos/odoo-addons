@@ -70,7 +70,7 @@ class StockMove(models.Model):
             sale_line = self.procurement_id.sale_line_id
             self.sale_taxes = round(
                 (sale_line.order_id._amount_line_tax(sale_line) /
-                 sale_line.product_uom_qty) * self.product_qty, 2)
+                 sale_line.product_uom_qty) * self.product_qty, 2) if sale_line.product_uom_qty else 0.00
             self.sale_price_untaxed = sale_line.price_reduce
             self.sale_price_unit = sale_line.price_unit
             self.sale_discount = sale_line.discount
