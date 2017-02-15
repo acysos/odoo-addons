@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class HrAnalyticTimesheet(models.Model):
@@ -26,3 +26,16 @@ class HrAnalyticTimesheet(models.Model):
 
     worked_rate = fields.Many2one(string='Worked Rate',
                                   comodel_name='hr.payslip.worker.rate')
+
+    @api.model
+    def on_change_unit_amount2(self, id, prod_id, unit_amount, company_id,
+                              unit=False, journal_id=False, worked_rate_id=False):
+        res = super(HrAnalyticTimesheet, self).on_change_unit_amount(
+            id, prod_id, unit_amount, company_id, unit=False, journal_id=False)
+        if worked_rate_id:
+            worked_rate = self.env['hr.payslip.worker.rate'].browse(worked_rate_id)
+            if worked_rate:
+                value = res['value']
+                value['amount'] = value['amount'] * worked_rate.rate
+                res['value'] = value
+        return res

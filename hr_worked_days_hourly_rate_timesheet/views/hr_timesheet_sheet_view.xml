@@ -9,6 +9,9 @@
             	<field name="task_id" position="after">
             		<field name="worked_rate"/>
             	</field>
+            	<field name="unit_amount" position="attributes">
+            		<attribute name="on_change">on_change_unit_amount2(product_id, unit_amount, False, product_uom_id,journal_id, worked_rate, parent.id, context)</attribute>
+            	</field>
             </field>
         </record>
     </data>
