@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="invoice_retention_tree" model="ir.ui.view">
+            <field name="name">account.invoice.retention.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree" />
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="retention_state"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="invoice_retention_form" model="ir.ui.view">
+            <field name="name">account.invoice.retention.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <field name="amount_total" position="after">
+                    <field name="retention_amount" groups="account.group_account_user" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </field>
+                <page string="Other Info" position="inside">
+                    <group string="Retention">
+                        <field name="with_retention"/>
+                        <field name="retention_percentage"/>
+                        <field name="retention_days"/>
+                        <field name="retention_date_due"/>
+                    </group>
+                </page>
+                <field name="reconciled" position="after">
+                    <field name="retention_state" invisible="1"/>
+                </field>
+                <field name="payment_term" position="attributes">
+                    <attribute name="required">True</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_retention_filter" model="ir.ui.view">
+            <field name="name">account.invoice.retention.select</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <filter name="unpaid" position="after">
+                    <filter name="retention_payment" string="Retention Payment" domain="[('retention_state','=',True)]"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</openerp>
