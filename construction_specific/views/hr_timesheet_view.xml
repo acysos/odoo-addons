@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_timesheet_line_tree" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.tree</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+            	<field name="unit_amount" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            	<field name="unit_amount" position="after">
+            		<field name="worked_rate"/>
+            	</field>
+            </field>
+        </record>
+        
+        <record id="hr_timesheet_line_construction_tree" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.construction.tree</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet_invoice.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="to_invoice" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="hr_timesheet_line_construction_search" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.construction.search</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+            <field name="arch" type="xml">
+                 <filter string="Timesheet Month" position="after">
+                 	<filter string="Tipo Hora" context="{'group_by':'worked_rate'}"/>
+                 </filter>
+                <xpath expr="/search/group" position="before">
+					<filter string="Mes anterior" name="prev_month" domain="[('date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('date','&lt;',time.strftime('%%Y-%%m-01'))]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

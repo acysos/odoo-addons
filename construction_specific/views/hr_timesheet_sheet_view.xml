@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_timesheet_sheet_form_construction">
+            <field name="name">hr.timesheet.sheet.form.construction</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form"/>
+            <field name="arch" type="xml">
+            	<xpath
+                    expr="//page[@string='Summary']"
+                    position="replace"/>
+                <xpath expr="//field[@name='timesheet_ids']/tree/field[@name='to_invoice']" position="replace"/>
+            	<field name="total_attendance" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            	<field name="total_timesheet" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            	<field name="total_difference" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            	<xpath expr="//field[@name='timesheet_ids']/tree/field[@name='unit_amount']" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</xpath>
+            	<xpath expr="//field[@name='timesheet_ids']/form/field[@name='unit_amount']" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</xpath>
+            	<xpath expr="//field[@name='period_ids']/tree/field[@name='total_attendance']" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</xpath>
+            	<xpath expr="//field[@name='period_ids']/tree/field[@name='total_timesheet']" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</xpath>
+            	<xpath expr="//field[@name='period_ids']/tree/field[@name='total_difference']" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</xpath>
+            </field>
+        </record>
+        
+        <record id="hr_timesheet_sheet_tree_simplified_construction" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.tree.construction</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_tree_simplified"/>
+            <field name="arch" type="xml">
+            	<field name="total_attendance" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            	<field name="total_timesheet" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            	<field name="total_difference" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_timesheet_sheet_form_with_activity_rate_construction">
+            <field name="name">hr.timesheet.sheet.form.rate.construction</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_worked_days_hourly_rate_timesheet.hr_timesheet_sheet_form_with_activity_rate"/>
+            <field name="arch" type="xml">
+            	<field name="worked_rate" position="attributes">
+            		<attribute name="required">1</attribute>
+            	</field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

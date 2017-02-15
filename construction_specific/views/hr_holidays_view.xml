@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record model="ir.ui.view" id="view_holiday_simple">
+            <field name="name">hr.holidays.report_tree</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.view_holiday_simple"/>
+            <field name="arch" type="xml">
+            	<field name="type" position="replace"/>
+            </field>
+        </record>
+    
+    </data>
+</openerp>
