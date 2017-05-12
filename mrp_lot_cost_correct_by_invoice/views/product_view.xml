@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="product_category_raw_mat_form_view">
+            <field name="name">product.category.raw.mat.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view" />
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="raw_material"/>
+                    <newline />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -22,8 +22,7 @@
     "name": "General Medication Event",
     "version": "1",
     "license": "AGPL-3",
-    "author": "Acysos S.L., \
-    Odoo Community Association (OCA)",
+    "author": "Acysos S.L.",
     "category": "Specific industry",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo alexander@acysos.com', ],
@@ -33,6 +32,7 @@
         "farm_prescription",
     ],
     "data": [
+             "security/ir.model.access.csv",
              "views/general_medication_event.xml",
              "views/farm_menu.xml",
     ],

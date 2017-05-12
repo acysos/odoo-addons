@@ -70,10 +70,10 @@ class FarrowingEvent(models.Model):
                 'event': self.id,
                 'animal_group': new_group[0].id
                 })
-        self.animal.current_cycle.update_state(self)
-        for line in self.animal.account.line_ids:
-            line.account_id = new_group[0].account
-            line.name = 'Farrow Cost'
+            self.animal.current_cycle.update_state(self)
+            for line in self.animal.account.line_ids:
+                line.account_id = new_group[0].account
+                line.name = 'Farrow Cost'
         super(FarrowingEvent, self).confirm()
 
     @api.one

@@ -67,6 +67,25 @@ class TransformationEvent(models.Model):
                 self.individual_to_group()
         else:
             self.group_to_indvidual()
+        ani = False
+        party = False
+        if self.animal:
+            ani = self.animal.id
+        else:
+            party = self.animal_group.id
+        self.env['farm.move.event'].create({
+                            'animal_type': self.animal_type,
+                            'specie': self.specie.id,
+                            'farm': self.farm.id,
+                            'animal': ani,
+                            'animal_group': party,
+                            'from_location': self.from_location.id,
+                            'timestamp': self.timestamp,
+                            'to_location': self.to_location.id,
+                            'quantity': self.quantity,
+                            'unit_price': 1,
+                            'move': self.move.id,
+                            })
         super(TransformationEvent, self).confirm()
 
     def is_compatible_trasformation(self):
@@ -183,7 +202,8 @@ class TransformationEvent(models.Model):
             else:
                 master_q.qty = master_q.qty + q.qty
                 q.unlink()
-        master_q.reservation_id = new_move.id
+        if master_q is not None:
+            master_q.reservation_id = new_move.id
         if self.animal_group.quantity > self.quantity:
             self.animal_group.quantity -= self.quantity
             self.animal_group.initial_quantity -= self.quantity
@@ -236,9 +256,16 @@ class TransformationEvent(models.Model):
         new_move.action_done()
         animal = quants_obj.search([
             ('lot_id', '=', lot.id),
+            ('product_id', '=', self.animal_group.specie.group_product.id),
             ('location_id', '=', self.to_location.id)])
+        tag = False
         if self.to_animal_type == 'female':
             animal.product_id = self.animal_group.specie.female_product.id
+            tag = self.env['farm.tags'].search([
+                ('name', '=', (self.farm.name + '-future'))])
+            if not tag:
+                tag = self.env['farm.tags'].create({
+                    'name': (self.farm.name + '-future')})
         elif self.to_animal_type == 'male':
             animal.product_id = self.animal_group.specie.male_product.id
         else:
@@ -251,6 +278,8 @@ class TransformationEvent(models.Model):
                'female': 'female',
                'individual': 'undetermined',
                }
+        an_lot = animal_lot_obj.create({
+            'lot': new_lot.id})
         new_animal = animal_obj.create({
             'type': self.to_animal_type,
             'specie': self.animal_group.specie.id,
@@ -260,10 +289,10 @@ class TransformationEvent(models.Model):
             'birthdate': self.animal_group.arrival_date,
             'initial_location': self.to_location.id,
             'sex': sex[self.to_animal_type],
+            'lot': [(4, an_lot.id)],
             })
-        animal_lot_obj.create({
-            'animal': new_animal.id,
-            'lot': new_lot.id})
+        if tag:
+            new_animal.tags = [(6, 0, [tag.id, ])]
         new_animal.origin = 'raised'
         self.to_animal = new_animal
 
@@ -283,12 +312,11 @@ class TransformationEvent(models.Model):
             dest_lot = self.to_animal_group.lot[2].lot
         else:
             dest_lot = self.to_animal_group.lot[0].lot
-        warehose = self.animal_group.location.get_warehouse(
-            self.animal_group.location)
+        warehose = self.to_location.get_farm_warehouse()
         location_dest = self.to_location.id
         picking_obj = self.env['stock.picking']
         picking_t = self.env['stock.picking.type'].search([
-            ('warehouse_id', '=', warehose)])[1]
+            ('warehouse_id', '=', warehose.id)])[1]
         new_pick = picking_obj.create({
             'picking_type_id': picking_t.id,
             'company_id': 1,
@@ -325,8 +353,8 @@ class TransformationEvent(models.Model):
         if self.to_location.id not in transition_location:
             self.animal_group.state = 'fatten'
             tags_obj = self.env['farm.tags']
-            tag = tags_obj.search([('name', '=', self.farm.name + '-transi')])
-            tag.animal_group = [(3, self.animal_group.id)]
+            for tag in self.animal_group.tags:
+                tag.animal_group = [(3, self.animal_group.id)]
             new_tag = tags_obj.search([
                 ('name', '=', self.animal_group.farm.name + '-' +
                  self.to_location.name)])
@@ -336,8 +364,7 @@ class TransformationEvent(models.Model):
                 new_tag = tags_obj.create(
                     {'name': new_name, })
             self.animal_group.tags = [(6, 0, [new_tag.id, ])]
-        else:
-            m_g_move.action_done()
+        m_g_move.action_done()
 
     @api.one
     def individual_to_group(self):

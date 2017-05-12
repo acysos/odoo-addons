@@ -6,7 +6,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">farm.general.feed.event</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
             <field name="view_id" ref="view_general_feed_order_tree"/>
         </record>
         <menuitem action="farm_general_feed_event_view" id="menu_farm_general_feed_event"

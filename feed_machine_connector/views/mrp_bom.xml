@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
             <field name="arch" type="xml">
                 <field name="active" position="after">
-                        <field name="bom_report"/>
+                        <field name="bom_report" widget="text_ckeditor4"/>
                 </field>
             </field>
             </record>

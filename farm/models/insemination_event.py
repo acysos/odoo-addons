@@ -86,7 +86,7 @@ class InseminationEvent(models.Model):
             'location_id': target_quant[0].location_id.id,
             'location_dest_id': self.animal.initial_location.id,
             'company_id': self.animal.initial_location.company_id.id,
-            'origin:': self.job_order.name,
+            'origin': self.job_order.name,
             })
         for q in target_quant:
             q.reservation_id = new_move.id

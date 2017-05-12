@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_landed_cost_template,LandedCostTemplate,model_purchase_landedcost_template,purchase.group_purchase_user,1,1,1,1
+access_landed_cost_template_manager,LandedCostTemplate,model_purchase_landedcost_template,purchase.group_purchase_manager,1,1,1,1
+access_landed_cost,LandedCost,model_purchase_landedcost,purchase.group_purchase_user,1,1,1,1
+access_landed_cost_manager,LandedCost,model_purchase_landedcost,purchase.group_purchase_manager,1,1,1,1

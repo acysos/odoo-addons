@@ -30,7 +30,8 @@
                                 attrs="{'invisible':[('to_animal_type', '=', 'group')],
                                 'readonly': True}"/>
                             <field name="to_animal_group"
-                                attrs="{'invisible':[('to_animal_type', '!=', 'group')]}"/>
+                                attrs="{'invisible':[('to_animal_type', '!=', 'group')]}"
+                                domain="[('state', '!=', 'sold')]"/>
                             <field name="from_location"/>
                             <field name="to_location"/> 
                             <field name="move"

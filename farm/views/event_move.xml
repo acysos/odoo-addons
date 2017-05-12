@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+<record model="ir.ui.view" id="view_move_event_tree">
+            <field name="name">move_event.tree</field>
+            <field name="model">farm.move.event</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Event" position="replace">
+                    <tree string="Animals Moves">
+	                    <field name="animal_type" />
+	                    <field name="timestamp" />
+	                    <field name="quantity" />
+	                    <field name="from_location"/>
+	                    <field name="to_location" />
+                    </tree>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_move_event_form">
+            <field name="name">move_event.form</field>
+            <field name="model">farm.move.event</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Event" position="replace">
+                    <form string="Animal Move">
+                    <sheet>
+                        <group col="4" colspam="2">
+                            <field name="animal_type" attrs="{'readonly': True}"/>
+                            <field name="timestamp" attrs="{'readonly': True}"/>                        
+                            <field name="animal" attrs="{'invisible':[('animal_type','=','group')], 'readonly': True}"/>
+                            <field name="animal_group" attrs="{'invisible':[('animal_type','!=','group')], 'readonly': True}" />
+                            <field name="from_location" attrs="{'readonly': True}"/>
+                            <field name="to_location" attrs="{'readonly': True}"/>
+                        </group>
+                        <group>
+                            <field name="move" attrs="{'readonly': True}"/>
+                        </group>
+                    </sheet>
+                    </form>
+                </form>
+            </field>
+        </record>
+</data>
+</openerp>

@@ -1,0 +1,217 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* feed_machine_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-07 08:13+0000\n"
+"PO-Revision-Date: 2016-06-07 08:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: feed_machine_connector
+#: model:ir.model,name:feed_machine_connector.model_mrp_bom
+msgid "Bill of Material"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,view_bom:0
+msgid "Boms View Name"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,connection:0
+msgid "Connection Name"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,create_uid:0
+#: field:feed.machine.dosif.lot.relations,create_uid:0
+#: field:feed.machine.dosification,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,create_date:0
+#: field:feed.machine.dosif.lot.relations,create_date:0
+#: field:feed.machine.dosification,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:feed.machine.dosification,dosification:0
+msgid "Dosification"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:feed.machine.dosif.lot.relations,dosification:0
+msgid "Dosifications"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:mrp.bom,bom_report:0
+msgid "Ensanched BOM"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:product.template,feed_machine_product_id:0
+msgid "External Id"
+msgstr ""
+
+#. module: feed_machine_connector
+#: model:ir.ui.menu,name:feed_machine_connector.menu_connection_fm__settings
+msgid "Feed Machine Connection Settings"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:stock.picking,feed_machine_product_input_id:0
+msgid "Feed Machine Input ID"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:stock.production.lot,feed_machine_lot:0
+msgid "Feed Machine Related Lot"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,feed_machine_source:0
+msgid "Feed machine inputs location"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:feed.machine.dosif.lot.relations,feed_machine_lot:0
+msgid "Feed machine lot"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,feed_lost_found_location:0
+msgid "Feed machine output location"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,id:0
+#: field:feed.machine.dosif.lot.relations,id:0
+#: field:feed.machine.dosification,id:0
+msgid "ID"
+msgstr ""
+
+#. module: feed_machine_connector
+#: view:farm.feed.machine.connector:feed_machine_connector.connection_fm_form
+msgid "Initial Sinc"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,write_uid:0
+#: field:feed.machine.dosif.lot.relations,write_uid:0
+#: field:feed.machine.dosification,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,write_date:0
+#: field:feed.machine.dosif.lot.relations,write_date:0
+#: field:feed.machine.dosification,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:feed.machine.dosification,dosif_rel:0
+msgid "Lot relation"
+msgstr ""
+
+#. module: feed_machine_connector
+#: model:ir.model,name:feed_machine_connector.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:mrp.production,machine_production_lot:0
+msgid "Machine Production lot"
+msgstr ""
+
+#. module: feed_machine_connector
+#: model:ir.model,name:feed_machine_connector.model_mrp_production
+msgid "Manufacturing Order"
+msgstr ""
+
+#. module: feed_machine_connector
+#: selection:farm.feed.machine.connector,state:0
+msgid "No Sincronized"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:feed.machine.dosif.lot.relations,lot:0
+msgid "ODOO Lot"
+msgstr ""
+
+#. module: feed_machine_connector
+#: help:farm.feed.machine.connector,sincronization_start_day:0
+msgid "Only load moves after this day"
+msgstr ""
+
+#. module: feed_machine_connector
+#: model:ir.model,name:feed_machine_connector.model_stock_picking
+msgid "Picking List"
+msgstr ""
+
+#. module: feed_machine_connector
+#: model:ir.model,name:feed_machine_connector.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,view_product_input:0
+msgid "Product Input View Name"
+msgstr ""
+
+#. module: feed_machine_connector
+#: model:ir.model,name:feed_machine_connector.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,view_production:0
+msgid "Productions View Name"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,view_product:0
+msgid "Products View Name"
+msgstr ""
+
+#. module: feed_machine_connector
+#: view:farm.feed.machine.connector:feed_machine_connector.connection_fm_form
+msgid "Sinc BOM"
+msgstr ""
+
+#. module: feed_machine_connector
+#: view:farm.feed.machine.connector:feed_machine_connector.connection_fm_form
+msgid "Sinc Now"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,sincronization_start_day:0
+msgid "Sinc. Start day"
+msgstr ""
+
+#. module: feed_machine_connector
+#: selection:farm.feed.machine.connector,state:0
+msgid "Sincronized"
+msgstr ""
+
+#. module: feed_machine_connector
+#: field:farm.feed.machine.connector,state:0
+msgid "State"
+msgstr ""
+
+#. module: feed_machine_connector
+#: model:ir.actions.act_window,name:feed_machine_connector.connection_fm_view
+msgid "connection_fm_view"
+msgstr ""
+

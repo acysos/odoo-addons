@@ -36,31 +36,47 @@ class MRP_production(models.Model):
             self, production_qty, production_mode,
             wiz=False):
         if wiz and wiz.lot_id and len(wiz.consume_lines) > 0:
+            '''
             control = True
             for line in wiz.consume_lines:
                 if not line.lot_id:
                     control = False
             if(control):
                 self.calculateCost(wiz)
+            '''
+            self.calculateCost(wiz)
         super(MRP_production, self).action_produce(
             self.id, production_qty, production_mode, wiz)
+
+    def get_price_unit(self, move):
+        return move.price_unit
 
     @api.one
     def calculateCost(self, wiz):
         stock_quant_obj = self.env['stock.quant']
+        stock_move_obj = self.env['stock.move']
+        purchases = self.env['purchase.order'].search([(True, '=', True)])
         totalCost = 0.0
         for line in wiz.consume_lines:
-            moves = stock_quant_obj.search([
-                ('product_id', '=', line.product_id.id,),
-                ('lot_id', '=', line.lot_id.id)])
-            qty = 0.0
-            amount = 0.0
-            for move in moves:
-                qty += move.qty
-                amount += move.cost * move.qty
-            unit_price = amount/qty
-            totalCost += line.product_qty * unit_price
-        if wiz.lot_id.unit_cost:
+            if line.lot_id:
+                quants = stock_quant_obj.search([
+                    ('product_id', '=', line.product_id.id,),
+                    ('lot_id', '=', line.lot_id.id)])
+                ids = []
+                for q in quants:
+                    ids.append(q.id)
+                moves = stock_move_obj.search([
+                    ('quant_ids', 'in', ids),
+                    ('picking_id','!=', False)])
+                amount = 0.0
+                raw_qty = 0
+                if len(moves) != 0:
+                    for move in moves:
+                        amount += self.get_price_unit(move) * move.product_qty
+                        raw_qty += move.product_qty
+                    unit_price = amount/raw_qty
+                    totalCost += line.product_qty * unit_price
+        if wiz.lot_id.unit_cost and wiz.lot_id.unit_cost != 0.0:
             initial_lots = stock_quant_obj.search([
                 ('lot_id', '=', wiz.lot_id.id)])
             initial_totalCost = 0.0

@@ -13,8 +13,7 @@ class FeedEventMixin(models.Model):
 
     location = fields.Many2one(comodel_name='stock.location',
                                string='Location',
-                               domain=[('usage', '=', 'internal'),
-                                       ('silo', '=', False), ],
+                               domain=[('usage', '=', 'internal')],
                                required=True)
     quantity = fields.Integer(string='Num. of animals', compute='get_quantity',
                               store=True)

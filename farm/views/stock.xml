@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 <data>
+    <record model="ir.actions.act_window" id="location_open_animal_moves">
+            <field name="domain">['|',('from_location', '=', active_ids), ('to_location', '=', active_ids)]</field>
+            <field name="name">Animal Moves</field>
+            <field name="res_model">farm.move.event</field>
+    </record>
     <record id="stock_production_lot_form_farm_view" model="ir.ui.view">
             <field name="name">stock.production.lot.farm.form</field>
             <field name="model">stock.production.lot</field>
@@ -9,6 +14,7 @@
                 <field name="ref" position="after">
                         <field name="animal_type"/>
                         <field name="semen_breed"/>
+                        <field name="unit_cost"/>
                 </field>
             </field>
     </record>
@@ -34,9 +40,7 @@
             <form string="Animal Group Tag">
                 <sheet>
                 <group>
-                <field name="lot" 
-                    domain="['|',('animal_type','=','male'),('animal_type','=','femnale'),
-                        ('animal_type','=','individual'),('animal_type','=','group')]"/>
+                <field name="lot"/>
                 </group>
                 </sheet>
             </form>
@@ -47,13 +51,28 @@
             <field name="model">stock.location</field>
             <field name="inherit_id" ref="stock.view_location_form"/>
             <field name="arch" type="xml">
+                <div name="buttons" position="inside">
+                    <button string="Animal Moves" 
+                                class="oe_stat_button" 
+                                icon="fa-building-o" name="%(location_open_animal_moves)d" type="action"
+                                />
+                    
+                </div>
                 <field name="scrap_location" position="after">
-                        <field name="silo"/>
                         <field name="farm_yard"/>
+                        <field name="animal_max" 
+                            attrs="{'invisible': [('farm_yard', '=', False)]}"/>
+                        <field name="factory"/>
+                        <field name="silo"/>
                         <field name="locations_to_fed"
-                        attrs="{'invisible':[('silo','!=', True)]}"/>
+                            attrs="{'invisible':[('silo','!=', True)]}"/>
                 </field>
             </field>
+    </record>
+    <record model="ir.actions.act_window" id="location_open_animal_moves">
+            <field name="domain">['|',('from_location', '=', active_ids), ('to_location', '=', active_ids)]</field>
+            <field name="name">Animal Moves</field>
+            <field name="res_model">farm.move.event</field>
     </record>
     <record id="stock_warehouse_form_farm_view" model="ir.ui.view">
             <field name="name">stock.warehouse.farm.form</field>
@@ -63,6 +82,8 @@
                 <field name="code" position="after">
                     <field name="external"/>
                     <field name="holding_number"/>
+                    <field name="radius"/>
+                    <field name='animal_max'/>
                 </field>
             </field>
     </record>
@@ -151,11 +172,21 @@
             <field name="arch" type="xml">
                 <form string="Location to Feed">
                 <group>
-                    <field name="silo" domain="[('silo', '=', True)]"/>
+                    
                     <field name="location"/>
                 </group>
                 </form>
              </field>
             </record>
+         <record id="stock_inventory_form_farm_view" model="ir.ui.view">
+            <field name="name">stock.inventory.farm.form</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form"/>
+            <field name="arch" type="xml">
+                <field name="filter" position="after">
+                    <field name="feed_analitic"/>
+                </field>
+            </field>
+    </record>
 </data>
 </openerp>

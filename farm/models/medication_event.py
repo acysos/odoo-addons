@@ -27,7 +27,9 @@ class MedicationEvent(models.Model):
             target_quant = quants_obj.search([
                 ('lot_id', '=', self.feed_lot.id),
                 ('location_id', '=', self.feed_location.id)])
-            medication_cost = target_quant.cost
+            medication_cost = 0
+            for tq in target_quant:
+                medication_cost = tq.cost
             if len(self.move) == 0:
                 new_move = moves_obj.create({
                     'name': self.job_order.name+'-'+self.lot.name+'-mov',
@@ -41,27 +43,27 @@ class MedicationEvent(models.Model):
                     'company_id': self.location.company_id.id,
                     'origin': self.job_order.name,
                     })
+                self.move = new_move
                 for q in target_quant:
                     q.reservation_id = new_move.id
                 new_move.action_done()
+            consumed_quants = quants_obj.search([
+                ('lot_id', '=', self.feed_lot.id),
+                ('location_id', '=', self.location.id)])
+            if not consumed_quants:
                 consumed_quants = quants_obj.search([
-                    ('lot_id', '=', self.feed_lot.id),
                     ('location_id', '=', self.location.id)])
-                if not consumed_quants:
-                    consumed_quants = quants_obj.search([
-                        ('location_id', '=', self.location.id)])
-                consumed_feed = self.feed_quantity
-                for q in consumed_quants:
-                    if q.qty >= consumed_feed:
-                        q.qty -= consumed_feed
-                        consumed_feed = 0
-                        if q.qty == 0:
-                            q.unlink()
-                    else:
-                        consumed_feed -= q.qty
-                        q.qty = 0
+            consumed_feed = self.feed_quantity
+            for q in consumed_quants:
+                if q.qty >= consumed_feed:
+                    q.qty -= consumed_feed
+                    consumed_feed = 0
+                    if q.qty == 0:
                         q.unlink()
-                self.move = new_move
+                else:
+                    consumed_feed -= q.qty
+                    q.qty = 0
+                    q.unlink()
             if self.animal_type == 'group':
                 account = self.animal_group.account
             else:

@@ -24,6 +24,9 @@
                     <button name="sincronize_data" states="sinc" 
                         string="Sinc Now" id="manual_sinc"
                         type="object" />
+                   <button name="button_sinc_bom" states="sinc" 
+                        string="Sinc BOM" id="bom_manual_sinc"
+                        type="object" />
                 </header>
                 <sheet>
                     <group>
@@ -35,6 +38,7 @@
                         <field name="feed_machine_source"/>
                         <field name="feed_lost_found_location"/>
                         <field name="sincronization_start_day"/>
+                        <field name="margin"/>
                     </group>
                 </sheet>
             </field>

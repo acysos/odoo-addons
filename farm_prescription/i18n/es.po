@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 10:42+0000\n"
-"PO-Revision-Date: 2015-12-21 10:42+0000\n"
+"POT-Creation-Date: 2016-05-18 09:34+0000\n"
+"PO-Revision-Date: 2016-05-18 09:34+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "AFECCION A TRATAR"
+msgstr "AFECCION A TRATAR"
 
 #. module: farm_prescription
 #: field:farm.prescription,afection:0
@@ -41,6 +46,11 @@ msgstr "Grupos de Animales"
 #: field:farm.prescription,animals:0
 msgid "Animals"
 msgstr "Animales"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Cerdos"
+msgstr "Cerdos"
 
 #. module: farm_prescription
 #: field:farm.veterinarian,collegiate_number:0
@@ -75,6 +85,11 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "DENOMINACION y LOTE:"
+msgstr "DENOMINACION y LOTE:"
+
+#. module: farm_prescription
 #: field:farm.prescription,date:0
 msgid "Date"
 msgstr "Fecha"
@@ -83,6 +98,11 @@ msgstr "Fecha"
 #: field:farm.prescription,delivery_date:0
 msgid "Delivery Date"
 msgstr "Dia de Envio"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Dirección"
+msgstr "Dirección"
 
 #. module: farm_prescription
 #: field:farm.prescription,dosage:0
@@ -97,11 +117,50 @@ msgid "Draft"
 msgstr "Borrador"
 
 #. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Ejemplar para Dispensador"
+msgstr "Ejemplar para Dispensador"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Ejemplar para Ganadero"
+msgstr "Ejemplar para Ganadero"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Ejemplar para Veterinario"
+msgstr "Ejemplar para Veterinario"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Esta receta podra utilizarse una sola vez. Conservar\n"
+"										durante 5 años"
+msgstr "Esta receta podra utilizarse una sola vez. Conservar\n"
+"										durante 5 años"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Esta receta podra utilizarse una sola vez. Conservar\n"
+"									durante 5 años"
+msgstr "Esta receta podra utilizarse una sola vez. Conservar\n"
+"									durante 5 años"
+
+#. module: farm_prescription
 #: field:farm.prescription,expiry_period:0
 #: field:farm.prescription.mixin,expiry_period:0
 #: field:farm.prescription.template,expiry_period:0
 msgid "Expiry Period"
 msgstr "Periodo de Expiración"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "FECHA DE CADUCIDAD:"
+msgstr "FECHA DE CADUCIDAD:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "FECHA:"
+msgstr "FECHA:"
 
 #. module: farm_prescription
 #: model:ir.actions.act_window,name:farm_prescription.farm_prescription_template_view
@@ -112,6 +171,26 @@ msgstr "Farm_prescription_template_view"
 #: model:ir.actions.act_window,name:farm_prescription.farm_veterinarian_view
 msgid "Farm_veterinarian"
 msgstr "Farm_veterinarian"
+
+#. module: farm_prescription
+#: field:product.template,mec_mode:0
+msgid "Farmaceutic mode"
+msgstr "Forma farmacèurica"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Firma del veterinario:"
+msgstr "Firma del veterinario:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Forma farmacèurica:"
+msgstr "Forma farmacèurica:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "GANADERO:"
+msgstr "GANADERO:"
 
 #. module: farm_prescription
 #: field:farm.prescription,id:0
@@ -130,6 +209,11 @@ msgstr "ID"
 #: help:farm.prescription,reference:0
 msgid "If there is a real prescription; put itsreference here. Otherwise, leave it blank andit will be computed automatically with the configured sequence."
 msgstr "Si se trata de una prescripción real poner su referencia aqui. Sino dejar en blanco."
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Instrucciones de uso y administración:"
+msgstr "Instrucciones de uso y administración:"
 
 #. module: farm_prescription
 #: field:farm.prescription,write_uid:0
@@ -165,11 +249,53 @@ msgid "Lot"
 msgstr "Lote"
 
 #. module: farm_prescription
+#: field:farm.prescription,medicated_feed_lot:0
+#: field:farm.prescription.mixin,medicated_feed_lot:0
+#: field:farm.prescription.template,medicated_feed_lot:0
+msgid "Medicated feed lot"
+msgstr "Medicated feed lot"
+
+#. module: farm_prescription
 #: field:farm.prescription,note:0
 #: field:farm.prescription.mixin,note:0
 #: field:farm.prescription.template,note:0
 msgid "Note"
 msgstr "Nota"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Num. Receta"
+msgstr "Num. Receta"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Nº DE ANIMALES A TRATAR Y ESPECIE:"
+msgstr "Nº DE ANIMALES A TRATAR Y ESPECIE:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Nº Ejemplares:"
+msgstr "Nº Ejemplares:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Nº de colegiado:"
+msgstr "Nº de colegiado:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Nº de explotación:"
+msgstr "Nº de explotación:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Obserbaciones:"
+msgstr "Obserbaciones:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Periodo de supresion"
+msgstr "Periodo de supresion"
 
 #. module: farm_prescription
 #: field:farm.medication.event,prescription:0
@@ -192,6 +318,11 @@ msgid "Prescription Template"
 msgstr "Plantilla prescripción"
 
 #. module: farm_prescription
+#: view:farm.prescription.template.line:farm_prescription.farm_prescription_template_line_form
+msgid "Prescription Template Lines"
+msgstr "Lineas plantilla de prescripción"
+
+#. module: farm_prescription
 #: model:ir.ui.menu,name:farm_prescription.menu_farm_prescription_template
 msgid "Prescription Templates"
 msgstr "Plantillas prescripciones"
@@ -200,6 +331,21 @@ msgstr "Plantillas prescripciones"
 #: field:product.template,prescription_required:0
 msgid "Prescription requiered"
 msgstr "Prescripción requerida"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Presentación:"
+msgstr "Presentación:"
+
+#. module: farm_prescription
+#: field:product.template,presentation:0
+msgid "Presentation"
+msgstr "Presentation"
+
+#. module: farm_prescription
+#: view:farm.medication.event:farm_prescription.farm_prescription_medication_form_view
+msgid "Print prescription"
+msgstr "Imprimir prescripcion"
 
 #. module: farm_prescription
 #: field:farm.prescription,product:0
@@ -228,9 +374,24 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "RECETA DE MEDICAMENTO:"
+msgstr "RECETA DE MEDICAMENTO:"
+
+#. module: farm_prescription
 #: field:farm.prescription,reference:0
 msgid "Reference"
 msgstr "Referencia"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Sello del Dispensador:"
+msgstr "Sello del Dispensador:"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "Sello del Fabricante:"
+msgstr "Sello del Fabricante:"
 
 #. module: farm_prescription
 #: field:farm.prescription,specie:0
@@ -271,6 +432,11 @@ msgid "Unit"
 msgstr "Unidad"
 
 #. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "VETERINARIO:"
+msgstr "VETERINARIO:"
+
+#. module: farm_prescription
 #: selection:farm.prescription,state:0
 msgid "Validated"
 msgstr "Validado"
@@ -294,10 +460,15 @@ msgid "Waiting Period"
 msgstr "Tiempo de espera"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:190
+#: code:addons/farm_prescription/models/prescription.py:204
 #, python-format
 msgid "asing veterinarian is necesary"
 msgstr "Es necesario asignar veterinario"
+
+#. module: farm_prescription
+#: view:website:farm_prescription.prescription_report_document
+msgid "dias"
+msgstr "dias"
 
 #. module: farm_prescription
 #: field:farm.prescription,farm:0
@@ -305,19 +476,18 @@ msgid "farm"
 msgstr "Granja"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:282
-#, python-format
-msgid "medication quantity and prescription quantity are diferent"
-msgstr "La cantidad de la medicación es diferente a la de la prescripción"
+#: view:website:farm_prescription.prescription_report_document
+msgid "lote"
+msgstr "lote"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:193
+#: code:addons/farm_prescription/models/prescription.py:207
 #, python-format
 msgid "no lines in prescription"
 msgstr "No hay lineas en la prescripción"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:196
+#: code:addons/farm_prescription/models/prescription.py:210
 #, python-format
 msgid "no lot selected"
 msgstr "Lote no seleccionado"
@@ -328,25 +498,30 @@ msgid "origin"
 msgstr "origen"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:255
+#: model:ir.actions.report.xml,name:farm_prescription.med_ev_print
+msgid "report medi event"
+msgstr "report medi event"
+
+#. module: farm_prescription
+#: code:addons/farm_prescription/models/prescription.py:277
 #, python-format
 msgid "this medication required prescription"
 msgstr "Esta medicación requiere prescripción"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:264
+#: code:addons/farm_prescription/models/prescription.py:286
 #, python-format
 msgid "this prescription it is not for this farm"
 msgstr "Esta prescripción no es para esta granja"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:273
+#: code:addons/farm_prescription/models/prescription.py:295
 #, python-format
 msgid "this prescription not contains medicated animal"
 msgstr "Esta prescripción no contiene animales a medicar"
 
 #. module: farm_prescription
-#: code:addons/farm_prescription/models/prescription.py:278
+#: code:addons/farm_prescription/models/prescription.py:300
 #, python-format
 msgid "this prescription not contains medicated group"
 msgstr "Esta prescripción no contiene grupo al que medicar"

@@ -8,6 +8,11 @@
             <field name="arch" type="xml">
                 <field name="farrowing_price" position="after">
                         <field name="prescription_required"/>
+                        <field name="mec_mode"
+                        attrs="{'invisible': [('prescription_required', '=', False)]}"/>
+                        <field name="presentation"
+                        attrs="{'invisible': [('prescription_required', '=', False)]}"/>
+                        <field name="aditive"/>
                 </field>
             </field>
         </record>
@@ -50,7 +55,6 @@
                 <group col="4" colspam="2">
                     <field name="afection"/>
                     <field name="dosage"/>
-                    <field name="waiting_period"/>
                     <field name="expiry_period"/>
                     <field name="n_lines"/>
                 </group>
@@ -265,7 +269,7 @@
             </field>
         </record>
         <record id="farm_prescription_veterinarian_tree_view" model="ir.ui.view">
-            <field name="name">user.farm.prescription.tree</field>
+            <field name="name">veterinarian_tree</field>
             <field name="model">farm.veterinarian</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
@@ -276,14 +280,18 @@
             </field>
         </record>
          <record id="farm_prescription_vetrinarian_form_view" model="ir.ui.view">
-            <field name="name">user.farm.prescription.form</field>
+            <field name="name">veterinarian_form</field>
             <field name="model">farm.veterinarian</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Veterinarian">
-                <group>
+                <group col="4" colspan="2">
                         <field name="user"/>
                         <field name="collegiate_number"/>
+                        <field name="vet_name"/>
+                        <field name="vet_street"/>
+                        <field name="vet_zip"/>
+                        <field name="vet_city"/>
                 </group>
                 </form>
             </field>
@@ -294,6 +302,11 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="farm.view_medication_event_form"/>
             <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <button name="print_pres"
+                        string="Print prescription" id="farm_print_prescription"
+                        type="object" />
+                </field>
                 <field name="feed_product" position="after">
                     <field name="prescription"
                         domain="[('product', '=', feed_product)]"/>

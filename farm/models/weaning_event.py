@@ -75,15 +75,17 @@ class WeaningEvent(models.Model):
             'event': self.id,
             'cycle': self.animal.current_cycle.id, })
         self.get_female_move()
-        if self.farrowing_group == self.weared_group:
-                self.move_group()
-        else:
-            self.trasform_group()
+        if self.farrowing_group.quantity > 0:
+            if self.farrowing_group == self.weared_group:
+                    self.move_group()
+            else:
+                self.trasform_group()
+            self.animal.current_cycle.update_state(self)
+            self.farrowing_group.state = 'transition'
+            for line in self.animal.account.line_ids:
+                line.account_id = self.weared_group.account
+                line.name = 'wean Cost'
         self.animal.current_cycle.update_state(self)
-        self.farrowing_group.state = 'transition'
-        for line in self.animal.account.line_ids:
-            line.account_id = self.weared_group.account
-            line.name = 'wean Cost'
         super(WeaningEvent, self).confirm()
 
     @api.one

@@ -45,7 +45,16 @@
                 </field>
             </field>
         </record>
-        
+        <record id="ifr_animal_farm_search_view" model="ir.ui.view">
+            <field name="name">ifr.animal.farm.search</field>
+            <field name="model">farm.animal</field>
+            <field name="inherit_id" ref="farm.animal_search_view"/>
+            <field name="arch" type="xml">
+                <field name="number" position="after">
+                    <field name="ifr_sequence"/>
+                </field>
+            </field>
+        </record>
 </data>
 
 </openerp>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="mrp_lot_cost_report_graph">
+        <field name="name">mrp.lot.cost.report.graph</field>
+        <field name="model">mrp.lot.cost.report</field>
+        <field name="arch" type="xml">
+            <graph string="Lot Cost" type="bar">
+                <field name="product_id" type="col"/>
+                <field name="dates" type="row"/>
+                <field name="lot_cost" type="measure"/>
+            </graph>
+        </field>
+    </record>
+</data>
+</openerp>

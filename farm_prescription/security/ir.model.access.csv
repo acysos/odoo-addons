@@ -6,3 +6,12 @@ access_prescription,Prescription,model_farm_prescription,farm.group_farm_manager
 access_prescription.animal,PrescriptionAnimal,model_farm_prescription_animal,farm.group_farm_manager,1,1,1,1
 access_prescription_animal_group,PrescriptionAnimalGroup,model_farm_prescription_animal_group,farm.group_farm_manager,1,1,1,1
 access_prescription_line,PrescriptionLine,model_farm_prescription_line,farm.group_farm_manager,1,1,1,1
+access_farm_partner,base.res_partner,base.model_res_partner,farm.group_farm_manager,1,0,0,0
+access_fam_lang,base.res_lang,base.model_res_lang,farm.group_farm_manager,1,0,0,0
+access_fam_user,base.res_users,base.model_res_users,farm.group_farm_manager,1,0,0,0
+access_template_user,Template,model_farm_prescription_template,farm.group_farm_user,1,0,0,0
+access_template_line_user,TemplateLine,model_farm_prescription_template_line,farm.group_farm_user,1,0,0,0
+access_prescription_user,Prescription,model_farm_prescription,farm.group_farm_user,1,1,1,0
+access_prescription.animal_user,PrescriptionAnimal,model_farm_prescription_animal,farm.group_farm_user,1,1,1,0
+access_prescription_animal_group_user,PrescriptionAnimalGroup,model_farm_prescription_animal_group,farm.group_farm_user,1,1,1,0
+access_prescription_line_user,PrescriptionLine,model_farm_prescription_line,farm.group_farm_user,1,1,1,1

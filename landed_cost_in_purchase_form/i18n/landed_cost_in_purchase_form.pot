@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* landed_cost_in_purchase_form
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-30 10:47+0000\n"
+"PO-Revision-Date: 2016-09-30 10:47+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.report,avg_with:0
+msgid "AVG with transport included"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,type:0
+#: field:purchase.landedcost.template,type:0
+msgid "Cost distribution"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.order.line,total_cost:0
+msgid "Cost with transport included"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,create_uid:0
+#: field:purchase.landedcost.template,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,create_date:0
+#: field:purchase.landedcost.template,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,id:0
+#: field:purchase.landedcost.template,id:0
+msgid "ID"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,invoice_id:0
+msgid "Invoice"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: view:purchase.landedcost:landed_cost_in_purchase_form.view_landed_cost__tree
+msgid "Landed Cost"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: view:purchase.landedcost:landed_cost_in_purchase_form.landed_cos_form
+#: view:purchase.landedcost.template:landed_cost_in_purchase_form.view_landed_cost_template_form
+#: view:purchase.landedcost.template:landed_cost_in_purchase_form.view_landed_cost_template_tree
+msgid "Landed Cost Template"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,write_uid:0
+#: field:purchase.landedcost.template,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,write_date:0
+#: field:purchase.landedcost.template,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: selection:purchase.landedcost,type:0
+#: selection:purchase.landedcost.template,type:0
+msgid "PER DELIVERY"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: selection:purchase.landedcost,type:0
+#: selection:purchase.landedcost.template,type:0
+msgid "PER UNIT"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,purchase_id:0
+msgid "Purchase"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: model:ir.model,name:landed_cost_in_purchase_form.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: model:ir.model,name:landed_cost_in_purchase_form.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: model:ir.model,name:landed_cost_in_purchase_form.model_purchase_report
+msgid "Purchases Orders"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,quantity:0
+#: field:purchase.landedcost.template,quantity:0
+msgid "Quantity"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: selection:purchase.landedcost,type:0
+#: selection:purchase.landedcost.template,type:0
+msgid "TOTAL"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,template_id:0
+msgid "Template"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.report,amount_with:0
+msgid "Total with transport included"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.order,landed_cost_id:0
+msgid "Transport Cost"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,provider:0
+#: field:purchase.landedcost.template,provider:0
+msgid "Transport company"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,name:0
+#: field:purchase.landedcost.template,name:0
+msgid "name"
+msgstr ""
+
+#. module: landed_cost_in_purchase_form
+#: field:purchase.landedcost,price:0
+#: field:purchase.landedcost.template,price:0
+msgid "price"
+msgstr ""
+

@@ -24,6 +24,9 @@
                     <button name="synchronize_cron" states="sinc" 
                         string="Sinc Now" id="manual_sinc"
                         type="object" />
+                     <button name="inventario_madres" states="sinc" 
+                        string="Sinc remov" id="manual_remov"
+                        type="object" />
                 </header>
                 <sheet>
                     <group>
@@ -45,6 +48,7 @@
                         <field name="loc2"/>
                         <field name="loc3"/>
                         <field name="ifr_farm_name"/>
+                        <field name="last_weaning"/>
                     </group>
                 </sheet>
             </field>

@@ -16,6 +16,7 @@ DFORMAT = "%Y-%m-%d %H:%M:%S"
 
 class Tag(models.Model):
     _name = 'farm.tags'
+    _order = 'name DESC'
 
     name = fields.Char(string='Name', required=True)
     animals = fields.Many2many(
@@ -34,8 +35,7 @@ class Animal(models.Model):
                             default='individual')
     specie = fields.Many2one(comodel_name='farm.specie',
                              string='Specie', required=True, select=True)
-    breed = fields.Many2one(comodel_name='farm.specie.breed', string='Breed',
-                            required=True)
+    breed = fields.Many2one(comodel_name='farm.specie.breed', string='Breed')
     tags = fields.Many2many(
         comodel_name='farm.tags', inverse_name='animals',
         string='Tags')
@@ -138,11 +138,15 @@ class Animal(models.Model):
         new_account = analy_ac_obj.create({
             'name': 'AA-'+res.type+'-'+res.number})
         res.account = new_account
+        if res.type == 'female':
+            nom_eti = '-unmated'
+        else:
+            nom_eti = '-fathers'
         tags_obj = self.env['farm.tags']
         new_tag = tags_obj.search([
-            ('name', '=', res.farm.name + '-unmated')])
+            ('name', '=', res.farm.name + nom_eti)])
         if len(new_tag) == 0:
-            new_tag = tags_obj.create({'name': res.farm.name + '-unmated', })
+            new_tag = tags_obj.create({'name': res.farm.name + nom_eti, })
         res.tags = [(6, 0, [new_tag.id, ])]
         return res
 

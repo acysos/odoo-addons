@@ -22,8 +22,7 @@
     "name": "farm general feed order",
     "version": "1",
     "license": "AGPL-3",
-    "author": "Acysos S.L., \
-    Odoo Community Association (OCA)",
+    "author": "Acysos S.L.",
     "category": "Specific industry",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo alexander@acysos.com', ],

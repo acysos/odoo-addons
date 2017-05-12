@@ -6,6 +6,8 @@
             parent="menu_farm"/>
         <menuitem name="Events" id="menu_farm_events" 
             parent="menu_farm"/>
+        <menuitem name="Animals" id="menu_farm_animals" sequence="100" 
+            parent="menu_farm"/>
         <record id="farm_specie_view" model="ir.actions.act_window">
             <field name="name">Specie</field>
             <field name="type">ir.actions.act_window</field>
@@ -29,6 +31,30 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_event_order_tree"/>
+        </record>
+        <record id="farm_consume_stock_view" model="ir.actions.act_window">
+            <field name="name">ConsumeStock</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.consume.stock</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_consume_stock_tree"/>
+        </record>
+        <record id="farm_animal_view" model="ir.actions.act_window">
+            <field name="name">Animals</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.animal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_animal_tree"/>
+        </record>
+         <record id="farm_animal_group_view" model="ir.actions.act_window">
+            <field name="name">Animal groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.animal.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_animal_group_tree"/>
         </record>
         <record id="farm_tag_view" model="ir.actions.act_window">
             <field name="name">Tag</field>
@@ -65,6 +91,12 @@
         <menuitem action="farm_semen_extraction_view" id="menu_farm_extraction_event"
             name="Semen Extraction" parent="menu_farm_events" sequence="4"/>
         <menuitem action="farm_removal_view" id="menu_farm_removal_event"
-            name="Removal Event" parent="menu_farm_events" sequence="5"/>     
+            name="Removal Event" parent="menu_farm_events" sequence="5"/>
+        <menuitem action="farm_consume_stock_view" id="menu_farm_consume_stock"
+            name="Comsume Stock" parent="menu_farm_events" sequence="6"/>
+        <menuitem action="farm_animal_view" id="menu_farm_animal"
+            name="Animal" parent="menu_farm_animals" sequence="4"/>
+        <menuitem action="farm_animal_group_view" id="menu_farm_animal_group"
+            name="Animal group" parent="menu_farm_animals" sequence="6"/> 
     </data>
 </openerp>

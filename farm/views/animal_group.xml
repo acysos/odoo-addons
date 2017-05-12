@@ -9,6 +9,14 @@
 				<form string="Animal Group">
 				<header>
                     <field name="state" widget="statusbar" />
+                    <button string="Feed events" 
+                                class="oe_stat_button" 
+                                icon="fa-building-o" name="%(animal_group2_open_feed_events)d" type="action"
+                                />
+                    <button string="Medication events" 
+                                class="oe_stat_button" 
+                                icon="fa-building-o" name="%(animal_group_open_medication_events)d" type="action"
+                                />
                 </header>
 					<sheet>
 						<group col="4" colspan="2">
@@ -53,6 +61,32 @@
 				</tree>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="animal_group_search_view">
+            <field name="name">animal.group.search</field>
+            <field name="model">farm.animal.group</field>
+            <field name="arch" type="xml">
+                <search string="Search Animal group">
+                    <group>
+                        <field name="state" />
+                        <field name="specie" />
+                        <field name="breed" />
+                        <field name="number" />
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group by...">
+                        <filter string="Farm"
+                                domain="[]"
+                                context="{'group_by': 'farm'}" />
+                        <filter string="Location"
+                                domain="[]"
+                                context="{'group_by': 'location'}" />
+                        <filter string="State"
+                                domain="[]"
+                                context="{'group_by': 'state'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
 		<record model="ir.ui.view" id="view_animal_group_weigth_tree">
             <field name="name">animal_group_weigth.tree</field>
             <field name="model">farm.animal.group.weight</field>

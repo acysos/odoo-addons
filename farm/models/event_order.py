@@ -80,11 +80,18 @@ class EventOrder(models.Model):
     @api.model
     @api.returns('self', lambda value: value.id)
     def create(self, vals):
-        res = super(EventOrder, self).create(vals)
         farm_line = self.env['farm.specie.farm_line'].search([
-            ('farm', '=', res.farm.id)])
-        res.name = farm_line.event_order_sequence.get(
-            'farm.specie.farm_line')
+            ('farm', '=', vals['farm'])])
+        if len(farm_line)==0:
+            vals['name'] = '*'
+        else:
+            '''
+            vals['name'] = farm_line[0].event_order_sequence.get(
+                farm_line[0].event_order_sequence[0].code)
+                '''
+            vals['name'] = farm_line.event_order_sequence.get_id(
+                farm_line.event_order_sequence.id)
+        res = super(EventOrder, self).create(vals)
         return res
 
     def get_active_events(self):
@@ -126,9 +133,10 @@ class EventOrder(models.Model):
                     _('The values of farm are diferent on order and events'))
             elif self.animal_type:
                 if event.animal_type != self.animal_type:
-                    raise Warning(
-                        _('The values of animal type are diferent on order'
-                          ' and events'))
+                    if event.event_type != 'medication':
+                        raise Warning(
+                            _('The values of animal type are diferent on order'
+                              ' and events'))
             if event.specie != self.specie:
                 raise Warning(
                     _('The values of specie are diferent on order and events'))

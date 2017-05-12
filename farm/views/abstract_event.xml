@@ -23,7 +23,7 @@
                     <field name="state" widget="statusbar" statusbar_visible="draft,validated" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
                 </header>
                 <sheet>
-                    <group col="4" colspan="2">
+                    <group col="4" colspan="2" attrs="{'readonly': [('state', '=', 'validated')]}">
                         <field name="animal_type"/>
                         <field name="farm"/>
                         <field name="specie"/>

@@ -23,8 +23,8 @@
                 </field>
                 <field name="lot" position="after">
                     <field name="quantity"/>
-                    <field name="female_to_location" domain="[('location_id', '=', farm)]"/>
-                    <field name="weared_group"/>
+                    <field name="female_to_location" domain="[('location_id.location_id', '=', farm)]"/>
+                    <field name="weared_group" domain="[('state', '!=', 'fatten'), ('state', '!=', 'sold')]"/>
                     <field name="weaned_to_location"/>
                     <field name="farrowing_group" attrs="{'readonly': True}"/>
                     <field name="female_cycle" attrs="{'readonly': True}"/>

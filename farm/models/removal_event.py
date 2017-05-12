@@ -34,8 +34,20 @@ class RemovalEvent(models.Model):
     reason = fields.Many2one(comodel_name='farm.removal.reason',
                              string='Reason')
     move = fields.Many2one(comodel_name='stock.move', string='Stock Move')
-    specific_lot = fields.Many2one(comodel_name='stock.production_lot',
+    specific_lot = fields.Many2one(comodel_name='stock.production.lot',
                                    string='Specific lot')
+
+    @api.multi
+    def copy(self, default={}):
+        for res in self:
+            default['animal_type'] = res.animal_type
+            default['specie'] = res.specie.id
+            default['removal_type'] = res.removal_type.id
+            default['reason'] = res.reason.id
+            default['animal'] = False
+            default['animal_group'] = False
+            default['move'] = False
+            return super(RemovalEvent, self).copy(default)
 
     @api.one
     @api.onchange('animal', 'animal_group')
@@ -52,10 +64,29 @@ class RemovalEvent(models.Model):
             return False
         elif not self.is_compatible_to_location():
             return False
+        ani = None
+        party = None
         if self.animal_type == 'group':
             self.remove_group()
         else:
             self.remove_animal()
+        if self.animal:
+            ani = self.animal.id
+        else:
+            party = self.animal_group.id
+        self.env['farm.move.event'].create({
+                            'animal_type': self.animal_type,
+                            'specie': self.specie.id,
+                            'farm': self.farm.id,
+                            'animal': ani,
+                            'animal_group': party,
+                            'timestamp': self.timestamp,
+                            'from_location': self.from_location.id,
+                            'to_location': self.move.location_dest_id.id,
+                            'quantity': self.quantity,
+                            'unit_price': 1,
+                            'move': self.move.id,
+                            })
         super(RemovalEvent, self).confirm()
 
     @api.one
@@ -96,6 +127,19 @@ class RemovalEvent(models.Model):
         self.animal_group.quantity -= self.quantity
         if self.animal_group.quantity < 1:
             self.animal_group.removal_date = self.timestamp
+            rem_loc = self.animal_group.specie.removed_location
+            rem_farm = rem_loc.get_farm_warehouse().view_location_id
+            self.animal_group.location = rem_loc
+            self.animal_group.farm = rem_farm
+            tags_obj = self.env['farm.tags']
+            for tag in self.animal_group.tags:
+                tag.animal_group = [(3, self.animal_group.id)]
+            new_tag = tags_obj.search([
+                ('name', '=', 'Removed Animals')])
+            if len(new_tag) == 0:
+                new_tag = tags_obj.create(
+                    {'name': 'Removed Animals', })
+            self.animal_group.tags = [(6, 0, [new_tag.id, ])]
 
     @api.one
     def remove_animal(self):

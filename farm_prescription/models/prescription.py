@@ -13,6 +13,10 @@ class Veterinarian(models.Model):
 
     user = fields.Many2one(comodel_name='res.users', string='user')
     collegiate_number = fields.Char(string='Collegiate Number')
+    vet_name = fields.Char(string='Veterinarian complete name')
+    vet_street = fields.Char(string='street')
+    vet_zip = fields.Char(string='ZIP')
+    vet_city = fields.Char(string='City')
 
 
 class ProductTemplate(models.Model):
@@ -20,6 +24,9 @@ class ProductTemplate(models.Model):
 
     prescription_required = fields.Boolean(string='Prescription requiered',
                                            default=False)
+    aditive = fields.Boolean(string='Aditive')
+    mec_mode = fields.Char(string="Farmaceutic mode")
+    presentation = fields.Char(string="Presentation")
 
 
 class Product(models.Model):
@@ -72,7 +79,8 @@ class PrescriptionLineMixin(models.Model):
     _auto = False
 
     product = fields.Many2one(comodel_name='product.product', string='Product',
-                              domain=[('prescription_required', '=', True)],
+                              domain=['|',('prescription_required', '=', True),
+                                      ('aditive', '=', True)],
                               required=True)
     unit = fields.Many2one(comodel_name='product.uom', string='Unit',
                            required=True)
@@ -147,6 +155,7 @@ class Prescription(models.Model):
             for party in res.animal_group:
                 result = result + party.party.quantity
             res.num_of_animals = result
+            return result
 
     @api.one
     @api.onchange('template')
@@ -169,11 +178,12 @@ class Prescription(models.Model):
         if len(res.lines) == 0 and res.template:
             pre_lines_obj = self.env['farm.prescription.line']
             for line in res.template.lines:
-                pre_lines_obj.create({
-                        'prescription': res.id,
-                        'quantity': line.quantity,
-                        'product': line.product.id,
-                        'unit': line.unit.id})
+                if line.product.prescription_required:
+                    pre_lines_obj.create({
+                            'prescription': res.id,
+                            'quantity': line.quantity,
+                            'product': line.product.id,
+                            'unit': line.unit.id})
         return res
 
     @api.one
@@ -200,9 +210,11 @@ class Prescription(models.Model):
             if not pres.veterinarian:
                 raise Warning(
                     _('asing veterinarian is necesary'))
+            '''
             if not pres.lines:
                 raise Warning(
                     _('no lines in prescription'))
+            '''
             if not pres.lot:
                 raise Warning(
                     _('no lot selected'))
@@ -253,10 +265,24 @@ class PrescriptionLine(models.Model):
 class MedicationEvent(models.Model):
     _inherit = 'farm.medication.event'
 
-    prescription = fields.Many2one(
-                            comodel_name='farm.prescription',
-                            string='Prescription', select=True,
-                            domain=[('state', '=', 'validated')])
+    prescription = fields.Many2one(comodel_name='farm.prescription',
+                                   string='Prescription', select=True,
+                                   domain=[('state', '=', 'validated')])
+    partner_id = fields.Many2one(comodel_name='res.partner',
+                                 string='Pathner', store=True,
+                                 compute='get_partner')
+    warehouse_id = fields.Many2one(comodel_name='stock.warehouse',
+                                   string='Pathner')
+
+    @api.multi
+    def set_warehouse(self):
+        for res in self:
+            res.warehouse_id = res.farm.get_farm_warehouse()
+
+    @api.multi
+    def get_partner(self):
+        for res in self:
+            res.partner_id = res.farm.get_farm_warehouse().partner_id
 
     @api.one
     def confirm(self):
@@ -266,6 +292,7 @@ class MedicationEvent(models.Model):
                     _('this medication required prescription'))
             else:
                 self.confirm_prescription()
+                self.set_warehouse()
         super(MedicationEvent, self).confirm()
 
     @api.one
@@ -276,7 +303,6 @@ class MedicationEvent(models.Model):
         if self.animal:
             controlA = False
             for lot in self.prescription.get_animal_lots()[0]:
-                print lot
                 if self.animal.lot.lot.id == lot:
                     controlA = True
             if not controlA:
@@ -290,3 +316,8 @@ class MedicationEvent(models.Model):
                               'medicated group'))
         if not self.prescription.origin:
             self.prescription.origin = self
+
+    @api.multi
+    def print_pres(self):
+        return self.env['report'].sudo().get_action(
+            self, 'farm_prescription.prescription_report_document')

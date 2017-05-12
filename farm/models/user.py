@@ -12,7 +12,7 @@ class User(models.Model):
     farm = fields.Many2many(comodel_name='res.user_stock.location',
                             inverse_name='user', colum1='location',
                             string='Farms',
-                            domain=[('type', '=', 'warehouse'), ],
+                            domain=[('usage', '=', 'view'), ],
                             help="Farms to which this user is assigned."
                             "Determine animals that he/she can manage.")
 

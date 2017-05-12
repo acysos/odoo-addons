@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="view_landed_cost_template_tree">
+            <field name="name">landed_cost_template.tree</field>
+            <field name="model">purchase.landedcost.template</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Landed Cost Template">
+                    <field name="name" />
+                    <field name="type" />
+                    <field name="price" />
+                </tree>
+            </field>
+        </record>
+       <record model="ir.ui.view" id="view_landed_cost_template_form">
+            <field name="name">landed_cost_template.form</field>
+            <field name="model">purchase.landedcost.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Landed Cost Template">
+                    <group col="4" colspam="2">
+                        <field name="name"/>
+                        <field name="provider"/>
+                        <field name="type"/>   
+                    </group>
+                    <group col="4" colspam="2">
+                        <field name="price"/>
+                        <field name="quantity" attrs="{'invisible':[('type', '!=', 'unit')]}"/>
+                    </group>
+                </form>
+            </field>
+       </record>
+       <record model="ir.ui.view" id="view_landed_cost__tree">
+            <field name="name">landed_cost.tree</field>
+            <field name="model">purchase.landedcost</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Landed Cost">
+                    <field name="purchase_id" />
+                    <field name="type" />
+                    <field name="price" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="landed_cos_form">
+            <field name="name">landed_cos.form</field>
+            <field name="model">purchase.landedcost</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Landed Cost Template">
+                    <group col="4" colspam="2">
+                        <field name="template_id"/>
+                    </group>
+                    <group col="4" colspam="2">
+                        <field name="provider"/>
+                        <field name="type"/>   
+                    </group>
+                    <group col="4" colspam="2">
+                        <field name="price"/>
+                        <field name="quantity"/>
+                        <field name="invoice_id"/>
+                    </group>
+                </form>
+            </field>
+       </record>
+</data>
+</openerp>

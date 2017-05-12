@@ -15,4 +15,4 @@ class mrpProductiom(models.Model):
 class mrp_bom(models.Model):
     _inherit = 'mrp.bom'
 
-    bom_report = fields.Html(string='Ensabched BOM')
+    bom_report = fields.Html(string='Ensanched BOM')

@@ -28,7 +28,7 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="name" attrs="{'readonly': True}"/>
+                        <field name="name" attrs="{'readonly': [('name', '!=', '*')]}"/>
                         <field name="specie" attrs="{
                             'readonly':[('state','=','validated')]}"/>
                         <field name="farm" attrs="{
@@ -38,7 +38,7 @@
                         <field name="event_type"
                             attrs="{'readonly':[('state','=','validated')]}"/>
                         <field name="animal_type"
-                            attrs="{'required': True,'readonly':[('state','=','validated')]}"/>
+                            attrs="{'readonly':[('state','=','validated')]}"/>
                         <field name="medication_events"
                             attrs="{'invisible':[('event_type','!=','medication')],
                             'readonly':[('state','=','validated')]}"/>

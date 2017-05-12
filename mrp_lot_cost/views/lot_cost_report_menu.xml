@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <menuitem id='mrp_reports' name='MRP' parent='base.menu_reporting'
+        sequence='110'/>
+    <record id="lot_cost_report" model="ir.actions.act_window">
+            <field name="name">Lot cost report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.lot.cost.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="mrp_lot_cost_report_graph"/>
+        </record>     
+    <menuitem action="lot_cost_report" id="menu_mrp_lot_cost_report"
+            name="Lot Cost" parent="mrp_reports" sequence="2"/>
+</data>
+</openerp>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="farm_sales_report_graph">
+        <field name="name">farm.sales.report.graph</field>
+        <field name="model">farm.report.account.sales</field>
+        <field name="arch" type="xml">
+            <graph string="Sales" type="bar">
+                <field name="farm" type="col"/>
+                <field name="period_id" type="row"/>
+                <field name="amount_total" type="measure"/>
+                <field name="weight" type="measure"/>
+                <field name="animal_qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+</data>
+</openerp>

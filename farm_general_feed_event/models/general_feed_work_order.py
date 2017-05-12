@@ -3,7 +3,7 @@
 # Copyright (C) 2015  Acysos S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from openerp import models, fields, api, _
 
 EVENT_STATES = [
     ('draft', 'Draft'),
@@ -26,7 +26,7 @@ class GeneralFeedEventOrder(models.Model):
                            domain=[('usage', '=', 'view'), ])
     distribution_type = fields.Selection(string='Distribution Type',
                                          selection=DISTRIBUTION_TYPES,
-                                         default='farm')
+                                         default='yard')
     location_dest = fields.Many2one(comodel_name='stock.location',
                                     string='Feed destity location',
                                     required=True)
@@ -65,11 +65,13 @@ class GeneralFeedEventOrder(models.Model):
             if len(res.move) > 0:
                 res.feed_product = res.move.product_id
                 res.uom = res.move.product_uom
-                res.feed_quantity = res.move.product_uom_qty
+                res.feed_quantity = res.move.product_qty
                 res.farm = res.move.location_dest_id.location_id.location_id
-                res.dest_yard = res.move.location_dest_id
+                res.dest_yard = \
+                    res.move.location_dest_id.locations_to_fed.location
                 res.feed_location = res.move.location_id
                 res.location_dest = res.move.location_dest_id
+                res.start_date = res.move.picking_id.date
                 if len(res.move.reserved_quant_ids) > 0:
                     res.feed_lot = res.move.reserved_quant_ids[0].lot_id
                 else:
@@ -80,8 +82,6 @@ class GeneralFeedEventOrder(models.Model):
     @api.returns('self', lambda value: value.id)
     def create(self, vals):
         res = super(GeneralFeedEventOrder, self).create(vals)
-        prod_tmpl = self.env['product.product'].search([
-            ('id', '=', res.feed_product.product_tmpl_id.id)])
         if len(res.move) == 0:
             quants_obj = self.env['stock.quant']
             moves_obj = self.env['stock.move']
@@ -105,14 +105,30 @@ class GeneralFeedEventOrder(models.Model):
             res.move = new_move
         else:
             new_move = res.move
+        '''
         if prod_tmpl.feed_lactating:
             self.specific_feed(True, res, new_move)
         elif prod_tmpl.feed_transit:
             self.specific_feed(False, res, new_move)
         else:
             self.standard_feed(res, new_move)
+        '''
+        self.standard_feed(res, new_move)
+        if new_move.state != 'done':
+            res.move.action_done()
+        self.do_old_events(res)
         return res
 
+    @api.multi
+    def do_old_events(self, new_event):
+        old_event = self.env['farm.general.feed.event'].search([
+            ('location_dest', '=' , new_event.location_dest.id),
+            ('state', '=', 'draft'), ('id', '!=', new_event.id)])
+        for event in old_event:
+            event.end_date = new_event.start_date
+            event.confirm()
+
+    '''
     @api.multi
     def specific_feed(self, lact, res, new_move):
         if lact:
@@ -132,6 +148,8 @@ class GeneralFeedEventOrder(models.Model):
         num_of_animals = 0
         for group in farm_animal_groups_obj:
             num_of_animals += group.quantity
+        if num_of_animals == 0:
+            raise Warning(_("Yard empty or bad comfiguration of feed"))
         feed_per_animal = res.feed_quantity/num_of_animals
         new_order = farm_job_order_obj.create({
             'specie': res.specie.id,
@@ -148,6 +166,7 @@ class GeneralFeedEventOrder(models.Model):
                 'feed_product': res.feed_product.id,
                 'feed_lot': res.feed_lot.id,
                 'uom': res.uom.id,
+                'quantity': group.quantity,
                 'specie': res.specie.id,
                 'animal_group': group.id,
                 'feed_quantity': feed_per_animal * group.quantity,
@@ -158,20 +177,20 @@ class GeneralFeedEventOrder(models.Model):
                 'job_order': new_order.id,
                 'move': new_move.id})
         res.job_order = new_order
-
+'''
     @api.multi
     def standard_feed(self, res, new_move):
         if res.distribution_type == 'farm':
             farm_animal_groups_obj = self.env['farm.animal.group'].search([
                 ('farm', '=', res.farm.id),
-                ('location.usage', '!=', 'transit'),
+                ('location.scrap_location', '!=', True),
                 ('state', '!=', 'sold')])
             farm_animal_obj = self.env['farm.animal'].search([
-            ('farm', '=', res.farm.id)])
+                ('farm', '=', res.farm.id)])
         else:
             farm_animal_groups_obj = self.env['farm.animal.group'].search([
                 ('location', '=', res.dest_yard.id),
-                ('location.usage', '!=', 'transit'),
+                ('location.scrap_location', '!=', True),
                 ('state', '!=', 'sold')])
             farm_animal_obj = self.env['farm.animal'].search([
                 ('location', '=', res.dest_yard.id)])
@@ -179,8 +198,10 @@ class GeneralFeedEventOrder(models.Model):
         feed_event_obj = self.env['farm.feed.event']
         num_of_animals = 0
         for group in farm_animal_groups_obj:
-            num_of_animals += group.quantity
-        num_of_animals += len(farm_animal_obj)
+            num_of_animals = num_of_animals + group.quantity
+        num_of_animals = num_of_animals + len(farm_animal_obj)
+        if num_of_animals == 0:
+            raise Warning(_("Yard empty"))
         feed_per_animal = res.feed_quantity/num_of_animals
         new_order = farm_job_order_obj.create({
             'specie': res.specie.id,
@@ -196,6 +217,7 @@ class GeneralFeedEventOrder(models.Model):
                 'feed_product': res.feed_product.id,
                 'feed_lot': res.feed_lot.id,
                 'uom': res.uom.id,
+                'quantity': group.quantity,
                 'specie': res.specie.id,
                 'animal_group': group.id,
                 'feed_quantity': feed_per_animal * group.quantity,
@@ -225,23 +247,11 @@ class GeneralFeedEventOrder(models.Model):
 
     @api.one
     def confirm(self):
-        tot_feed = 0
-        for event in self.job_order.feed_events:
-            tot_feed = tot_feed + event.feed_quantity
-        if tot_feed != self.feed_quantity:
-            tot_animals = 0
+        if self.move.product_qty != self.feed_quantity:
             for event in self.job_order.feed_events:
-                if event.animal_type == 'group':
-                    tot_animals = tot_animals + event.animal_group.quantity
-                else:
-                    tot_animals = tot_animals + 1
-            feed_per_animal = self.feed_quantity/tot_animals
+                event.unlink()
+            self.standard_feed(self, self.move)
         for event in self.job_order.feed_events:
-            event.end_date = self.end_date
-            if tot_feed != self.feed_quantity:
-                if event.animal_type == 'group':
-                    event.feed_quantity = tot_feed * event.animal_group.quantity
-                else:
-                    event.feed_quantity = tot_feed 
+            event.end_date = self.end_date 
         self.job_order.confirm()
         self.state = 'validated'

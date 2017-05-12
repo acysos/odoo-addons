@@ -22,8 +22,7 @@
     "name": "Feed machine conector",
     "version": "1",
     "license": "AGPL-3",
-    "author": "Acysos S.L., \
-    Odoo Community Association (OCA)",
+    "author": "Acysos S.L.",
     "category": "Specific industry",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo alexander@acysos.com', ],
@@ -31,10 +30,13 @@
     "depends": [
         "farm",
         "sql_server_connector",
-       
+        "web_ckeditor4",
+        "base",
+
     ],
     "data": ["views/setup.xml",
              "views/stock.xml",
+             "views/partner.xml",
              "data/feed_machine_cron.xml",
              "views/mrp_bom.xml",
              "security/ir.model.access.csv",

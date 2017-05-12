@@ -9,6 +9,7 @@ from datetime import datetime
 
 
 DFORMAT = "%Y-%m-%d %H:%M:%S"
+DFORMAT2 = "%Y-%m-%d"
 
 
 class AnimalGroup(models.Model):
@@ -18,15 +19,14 @@ class AnimalGroup(models.Model):
     mother = fields.Char(string='Mother', compute='get_mother')
     specie = fields.Many2one(comodel_name='farm.specie', string='Specie',
                              required=True)
-    breed = fields.Many2one(comodel_name='farm.specie.breed', string='Breed',
-                            required=True)
+    breed = fields.Many2one(comodel_name='farm.specie.breed', string='Breed')
     lot = fields.One2many(comodel_name='stock.lot_farm.animal.group',
                           inverse_name='animal_group', column1='lot',
                           string='Lot')
     number = fields.Char(string='Number', compute='get_number')
     location = fields.Many2one(comodel_name='stock.location',
                                string='Current location',
-                               domain=[('usage', '=', 'internal'), ])
+                               domain=[('usage', '!=', 'view'), ])
     farm = fields.Many2one(comodel_name='stock.location',
                            string='Current Farm',
                            domain=[('usage', '=', 'view')])
@@ -86,7 +86,35 @@ class AnimalGroup(models.Model):
     account = fields.Many2one(comodel_name='account.analytic.account',
                               string='Analytic Account')
     weaning_day = fields.Datetime(string='weaning_day', compute='get_weaning_day')
+
+    @api.multi
+    def get_transformations(self):
+        tranform_obj = self.env['farm.trasformation.event']
+        for res in self:
+            for lot in res.lot:
+                transforms = tranform_obj.search([
+                    '|', ('animal_group', '=', res.id),
+                    ('to_animal_group', '=', )])
     
+    @api.multi
+    def show_feed_event_from_group(self):
+        feed_ev_obj = self.env['farm.feed.event']
+        ids = []
+        for res in self:
+            for lot in res.lot:
+                print res.lot
+                feed_evts = feed_ev_obj.search([
+                    ('lot', '=', lot.lot.id)])
+                for event in feed_evts:
+                    ids.append(event.id)
+            res = {'view_mode': 'tree,form',
+                   'res_model': 'farm.feed.event',
+                   'view_id': False,
+                   'type': 'ir.actions.act_window',
+                   'view_type': 'form',
+                   'domain': [('id', 'in', ids)]}
+            return res
+
     @api.multi
     def get_mother(self):
         farrow = self.env['farm.farrowing.event_group']
@@ -94,7 +122,7 @@ class AnimalGroup(models.Model):
             group_farrow = farrow.search([
                 ('animal_group', '=', res.id)])
             if len(group_farrow)!= 0:
-                res.mother = group_farrow.event.animal.ifr_sequence
+                res.mother = group_farrow.event.animal.number
             else:
                 res.mother = '*'
 
@@ -115,22 +143,31 @@ class AnimalGroup(models.Model):
             weaning_obj = self.env['farm.weaning.event']
             wean = weaning_obj.search([
                 ('farrowing_group', '=', self.id)])
-            wean_day = datetime.strptime(wean.timestamp, DFORMAT)
-            self.transition_days = (datetime.today() - wean_day).days
+            if wean:
+                wean_day = datetime.strptime(wean.timestamp, DFORMAT)
+                self.transition_days = (datetime.today() - wean_day).days
+            else:
+                ref_day = datetime.strptime(self.arrival_date, DFORMAT2)
+                self.transition_days = (datetime.today() - ref_day).days
         else:
             weaning_obj = self.env['farm.weaning.event']
             transformation_obj = self.env['farm.transformation.event']
             wean = weaning_obj.search([
                 ('farrowing_group', '=', self.id)])
             if len(wean) != 0:
-                transition_location = []
-                for loc in self.specie.lost_found_location:
-                    transition_location.append(loc.location.id)
-                transition = transformation_obj.search([
-                    ('animal_group', '=', self.id),
-                    ('from_location.id', 'in', transition_location),
-                    ('to_location.id', 'not in', transition_location)])
                 wean_day = datetime.strptime(wean.timestamp, DFORMAT)
+            else:
+                wean_day = datetime.strptime(self.arrival_date, DFORMAT2)  
+            transition_location = []
+            for loc in self.specie.lost_found_location:
+                transition_location.append(loc.location.id)
+            transition = transformation_obj.search([
+                ('animal_group', '=', self.id),
+                ('from_location.id', 'in', transition_location),
+                ('to_location.id', 'not in', transition_location)])
+            if transition:
+                transition_finish = datetime.strptime(
+                    transition.timestamp, DFORMAT)
                 transition_finish = datetime.strptime(
                     transition.timestamp, DFORMAT)
                 self.transition_days = (transition_finish - wean_day).days
@@ -183,8 +220,10 @@ class AnimalGroup(models.Model):
                         animal_group_lot_obj.create({
                             'lot': new_lot.id,
                             'animal_group': res.id})
-            quant = quant_obj.search([(
-                'lot_id', '=', record.lot[0].lot.id)])
+            quant = quant_obj.search([
+                ('lot_id', '=', record.lot[0].lot.id),
+                ('location_id', '=', record.initial_location.id)
+                ])
             record.location = record.initial_location
             if len(record.lot) > 1:
                     raise Warning(
@@ -209,7 +248,6 @@ class AnimalGroup(models.Model):
                         })
                     new_move.action_done()
                     new_move.quant_ids.lot_id = record.lot[0].lot.id
-                    self.stock_move = new_move
                 else:
                     raise Warning(
                         _('this lot iis in use, please create new lot'))
@@ -217,10 +255,12 @@ class AnimalGroup(models.Model):
                 if not quant:
                     raise Warning(
                         _('no product in farms for this lot'))
-                elif quant.location_id != record.initial_location:
-                    raise Warning(
-                        _('group location and product location are diferent'))
-                elif quant.qty != record.initial_quantity:
+                target_quant = False
+                for q in quant:
+                    if q.location_id == record.initial_location:
+                        if q.qty >= record.initial_quantity:
+                            target_quant = q
+                if not target_quant:
                     raise Warning(
                         _('group intial quantity and product quantity '
                           'are diferent'))
@@ -230,9 +270,6 @@ class AnimalGroup(models.Model):
                 if len(an_group) > 0:
                     raise Warning(
                         _('this lot is in use from oder group'))
-                current_move = moves_obj.search([
-                    ('quant_ids.id', '=', record.lot.lot.id)])
-                self.stock_move = current_move
 
     @api.model
     @api.returns('self', lambda value: value.id)

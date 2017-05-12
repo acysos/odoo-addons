@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
         <data>
+            <record model="ir.actions.act_window" id="animal_group_open_medication_events">
+	            <field name="domain">[('animal_group', '=', active_ids)]</field>
+	            <field name="name">Medication events</field>
+	            <field name="res_model">farm.medication.event</field>
+            </record>
+            <record model="ir.actions.act_window" id="animal_open_medication_events">
+                <field name="domain">[('animal', '=', active_ids)]</field>
+                <field name="name">Medication events</field>
+                <field name="res_model">farm.medication.event</field>
+            </record>
             <record id="view_medication_event_tree" model="ir.ui.view">
                 <field name="name">medication_event.tree</field>
                 <field name="model">farm.medication.event</field>

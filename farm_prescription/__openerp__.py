@@ -36,6 +36,7 @@
         "security/ir.model.access.csv",
         "data/prescription_sequence.xml",
         "views/prescription.xml",
+        "reports/prescription_report.xml",
         "views/farm_menu.xml",
     ],
     "installable": True,

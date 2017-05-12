@@ -24,6 +24,14 @@
 					<header>
 						<field name="state" widget="statusbar"
 							attrs="{'invisible':[('type','!=','female')]}" />
+						<button string="Feed events" 
+                                class="oe_stat_button" 
+                                icon="fa-building-o" name="%(animal_open_feed_events)d" type="action"
+                                />
+                        <button string="Medication events" 
+                                class="oe_stat_button" 
+                                icon="fa-building-o" name="%(animal_open_medication_events)d" type="action"
+                                />
 					</header>
 					<sheet>
 						<group>
@@ -136,6 +144,33 @@
 				</form>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="animal_search_view">
+            <field name="name">animal.search</field>
+            <field name="model">farm.animal</field>
+            <field name="arch" type="xml">
+                <search string="Search Animal">
+                    <group>
+                        <field name="type" />
+	                    <field name="specie" />
+	                    <field name="breed" />
+	                    <field name="current_cycle" attrs="{'invisible':[('type','!=','female')]}"/>
+	                    <field name="number" />
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group by...">
+                        <filter string="Farm"
+                                domain="[]"
+                                context="{'group_by': 'farm'}" />
+                        <filter string="Location"
+                                domain="[]"
+                                context="{'group_by': 'location'}" />
+                        <filter string="State"
+                                domain="[]"
+                                context="{'group_by': 'state'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
 		<record model="ir.ui.view" id="view_cycle_tree">
 			<field name="name">cycle.tree</field>
 			<field name="model">farm.animal.female_cycle</field>

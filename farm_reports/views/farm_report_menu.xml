@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <menuitem id='farm_reports' name='Farm' parent='base.menu_reporting'
+        sequence='100'/>
+    <record id="farm_sales_report" model="ir.actions.act_window">
+            <field name="name">Sale report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.report.account.sales</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="farm_sales_report_graph"/>
+        </record>     
+    <menuitem action="farm_sales_report" id="menu_farm_sales_report"
+            name="Sales" parent="farm_reports" sequence="2"/>
+</data>
+</openerp>

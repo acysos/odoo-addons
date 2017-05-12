@@ -34,6 +34,17 @@ class Animal(models.Model):
     _order = 'ifr_sequence'
 
     ifr_sequence = fields.Char(string='Female Sequence')
+    state = fields.Selection(selection=[('initial', ''),
+                                        ('prospective', 'Prospective'),
+                                        ('unmated', 'Unmated'),
+                                        ('mated', 'Mated'),
+                                        ('toreview', 'To review'),
+                                        ('removed', 'Removed'), ],
+                             readonly=True, default='prospective',
+                             help='According to NPPC Production and Financial'
+                             'Standards there are four status for breeding'
+                             'sows The status change is event driven:arrival'
+                             'date, entry date mating event and removal event')
 
     @api.multi
     def launch_wizard(self):
@@ -51,4 +62,3 @@ class Animal(models.Model):
             'target': 'new',
             'nodestroy': True,
             }
-        return {}

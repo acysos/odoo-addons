@@ -8,6 +8,7 @@ from datetime import datetime
 from openerp.exceptions import Warning
 import logging
 
+
 DFORMAT = "%Y-%m-%d"
 DTFORMAT = "%Y-%m-%d %H:%M:%S"
 SINC_STATES = [
@@ -19,6 +20,7 @@ logger = logging.getLogger(__name__)
 
 class Connector(models.Model):
     _name = 'farm.ifr.connector'
+    _inherit = {'mail.thread': 'mail_thread_id'}
 
     connection = fields.Many2one(comodel_name='connector.sqlserver',
                                  string='Connection Name')
@@ -45,6 +47,9 @@ class Connector(models.Model):
         row = cursor.fetchone()
         animal_obj = self.env['farm.animal']
         animals = []
+        #self.sincronize_removals(conn)
+        self.reload_females(conn)
+        '''
         while row:
             for farm in self.farms_relations:
                         if farm.ifr_farm_name == row[0]:
@@ -55,10 +60,164 @@ class Connector(models.Model):
             if len(animal) == 1:
                 animals.append([animal, row[0]])
             row = cursor.fetchone()
+        '''
+        self.sincronzacion_minima(conn)
+        self.revision_madres()
+        '''
         for animal in animals:
             self.sincronize_female(conn, animal[0], animal[1])
         self.sincronize_removals(conn)
+        '''
         self.connection.disconnect(conn)
+
+    @api.multi
+    def sincronzacion_minima(self, conn):
+        cursor = conn.cursor()
+        for res in self:
+            for granja in res.farms_relations:
+                lechones = []
+                data = granja.last_weaning
+                '''
+                cursor.execute(
+                    "SELECT ID_GRANJA, ID_ANIMAL "
+                    "from dbo.HISTO where DAT_PART > convert(datetime, '" +
+                    data + "', 121) and ID_GRANJA='" +
+                    granja.ifr_farm_name + "' order by DAT_DEST ASC")
+                row = cursor.fetchone()
+                while row:
+                    self.mover_madre(row[1], granja, 'lactado')
+                    row = cursor.fetchone()
+                '''
+                cursor.execute(
+                    "SELECT ID_GRANJA, DAT_DEST, N_DESTET, ID_ANIMAL "
+                    "from dbo.HISTO where DAT_DEST > convert(datetime, '" +
+                    data + "', 121) and ID_GRANJA='" +
+                    granja.ifr_farm_name + "' order by DAT_DEST ASC")
+                tot_lechones = 0
+                row = cursor.fetchone()
+                destetes = {}
+                while row:
+                    if row[2] != 0:
+                        fecha = str(row[1])
+                        tot_lechones = tot_lechones + row[2]
+                        if fecha in destetes:
+                            destetes[fecha] = destetes[fecha] + row[2]
+                        else:
+                            destetes[fecha] = row[2]
+                        '''
+                        self.mover_madre(row[3], granja, 'unmated')
+                        '''
+                    row = cursor.fetchone()
+                for d, cant in destetes.iteritems():
+                    lechones.append(self.alta_lechones(cant, d, granja))
+                if tot_lechones != 0:
+                    self.coste_lechones(lechones, tot_lechones, granja)
+
+    @api.multi
+    def mover_madre(self, ref, granja, nuevo_estado):
+        madre = self.env['farm.animal'].search([
+            ('ifr_sequence', '=', ref), ('farm', '=', granja.farm.id)])
+        if madre:
+            if nuevo_estado == 'unmated':
+                madre.location = granja.loc1
+                madre.state = nuevo_estado
+            elif nuevo_estado == 'mated':
+                madre.location = granja.loc1
+                madre.state = nuevo_estado
+            elif nuevo_estado == 'lactando':
+                location_obj = self.env['farm.foster.locations']
+                foster_locations = []
+                for loc in madre.specie.foster_location:
+                    foster_locations.append(loc.id)
+                foster_location = location_obj.search(
+                    [('location.location_id.location_id', '=', granja.farm.id),
+                     ('id', 'in', foster_locations),
+                     ],
+                    ).location
+                madre.location = foster_location
+
+    @api.multi
+    def alta_lechones(self, numero, fecha, granja):
+        tags_obj = self.env['farm.tags']
+        grup_ani_obj = self.env['farm.animal.group']
+        specie = self.env['farm.specie'].search([(True, '=', True)])
+        tags = []
+        new_tag = tags_obj.search([
+            ('name', '=', granja.farm.name + '-transicion')])
+        if len(new_tag) == 0:
+            new_tag = tags_obj.create({
+                'name': granja.farm.name + '-transicion', })
+        tags.append(new_tag.id)
+        new_group = grup_ani_obj.create({
+            'specie': specie[0].id,
+            'origin': 'raised',
+            'arrival_date': fecha,
+            'farm': granja.farm.id,
+            'initial_location': granja.loc2.id,
+            'initial_quantity': numero,
+            'tags': [(6, 0, tags)],
+            })
+        new_group.state = 'transition'
+        new_f = datetime.strptime(fecha, DTFORMAT)
+        if new_f > datetime.strptime(granja.last_weaning, DFORMAT):
+            granja.last_weaning = fecha
+        return new_group
+
+    @api.multi
+    def coste_lechones(self, lechones, tot_lechones, granja):
+        madres = self.env['farm.animal'].search([
+            ('type', '=', 'female'), ('farm', '=', granja.farm.id)])
+        location_obj = self.env['farm.foster.locations']
+        specie = self.env['farm.specie'].search([(True, '=', True)])
+        total_destete = 0
+        total_parto = 0
+        total_previos = 0
+        company = self.env['res.company'].with_context({}).search([
+                ('id', '=', granja.farm.company_id.id)])
+        foster_locations = []
+        for loc in specie.foster_location:
+            foster_locations.append(loc.id)
+        foster_location = location_obj.search(
+            [('location.location_id', '=', granja.farm.id),
+             ('id', 'in', foster_locations),
+             ],
+            ).location
+        for madre in madres:
+            if madre.location == foster_location:
+                for line in madre.account.line_ids:
+                    total_destete = total_parto + line.amount
+                    line.unlink()
+            elif madre.state != 'prospective':
+                for line in madre.account.line_ids:
+                    total_parto = total_parto + line.amount
+                    line.unlink
+            else:
+                for line in madre.account.line_ids:
+                    total_previos = total_previos + line.amount
+                    line.unlink
+        self.asignar_coste(total_destete, 'Destete', lechones, tot_lechones,
+                           company)
+        self.asignar_coste(total_parto, 'Parto', lechones, tot_lechones,
+                           company)
+        self.asignar_coste(total_previos, 'Previos', lechones, tot_lechones,
+                           company)
+
+    @api.multi
+    def asignar_coste(self, total, prefijo, lechones, tot_lechones, company):
+        coste_x_lechon = total/tot_lechones
+        for lechon in lechones:
+            journal = self.env['account.analytic.journal'].with_context(
+                {}).search([('code', '=', 'PUR')])
+            analytic_line_obj = self.env['account.analytic.line']
+            analytic_line_obj.create({
+                'name': prefijo,
+                'date': lechon.arrival_date,
+                'amount': (coste_x_lechon * lechon.quantity),
+                'unit_amount': 1,
+                'account_id': lechon.account.id,
+                'general_account_id': company.feed_account.id,
+                'journal_id': journal.id,
+                })
 
     @api.multi
     def sincronize_removals(self, conn):
@@ -142,7 +301,7 @@ class Connector(models.Model):
                         else:
                             control = 3
                     else:
-                        control = 3
+                        control = 2
                 else:
                     control = 2
         if control == 0:
@@ -267,6 +426,181 @@ class Connector(models.Model):
             row = cursor.fetchone()
 
     @api.multi
+    def reload_females(self, conn):
+        cursor = conn.cursor()
+        cursor.execute(
+            "SELECT ID_GRANJA, ID_ANIMAL, DAT_NAC, DAT_ENTR, descripcion"
+            " FROM dbo.REPRO r inner join dbo.C_CASAGEN c "
+            "on r.CASA_GENETICA=c.codigo WHERE SEXO=1 and ID_ANIMAL!='       3' "
+            "and DAT_ENTR > DAT_BAJ")
+        animal_obj = self.env['farm.animal']
+        specie_obj = self.env['farm.specie'].search([(True, '=', True)])
+        specie = specie_obj[0]
+        breed_obj = self.env['farm.specie.breed']
+        row = cursor.fetchone()
+        animals = []
+        while row:
+            for farm in self.farms_relations:
+                        if farm.ifr_farm_name == row[0]:
+                            current_farm = farm
+            animal = animal_obj.search([
+                ('ifr_sequence', '=', row[1]),
+                ('farm', '=', current_farm.farm.id)])
+            if len(animal) == 0:
+                raza = breed_obj.search(
+                    [('name', '=', row[4])])
+                if len(raza) == 0:
+                    raza = breed_obj.create({
+                        'specie': specie_obj[0].id,
+                        'name': row[4]})
+                target_yard = None
+                for loc in specie.future_maders_location:
+                    if loc.location.get_farm_warehouse() == \
+                            current_farm.farm.get_farm_warehouse():
+                        target_yard = loc.location
+                if target_yard is None:
+                    raise Warning('No se a encontrado configurado ningun '
+                                  'corral para futuras madres en esta granja '
+                                  'para esta especie')
+                target_mather = animal_obj.search([
+                    ('farm', '=', current_farm.farm.id),
+                    ('location', '=', target_yard.id),
+                    ('breed', '=', raza.id)])
+                if not target_mather:
+                    target_mather = animal_obj.search([
+                        ('farm', '=', current_farm.farm.id),
+                        ('location', '=', target_yard.id),
+                        ('breed', '=', None)])
+                    if not target_mather:
+                        self.send_msg(
+                            ('Corral recria vacio ' + current_farm.farm.name +
+                             '' + target_yard.name), row[1])
+                if target_mather:
+                    self.get_female_move(target_mather[0], current_farm.loc1)
+                    target_mather[0].ifr_sequence = row[1]
+                logger.info('Female promoted')
+            else:
+                animals.append([animal, row[1], current_farm, row[0]])
+            row = cursor.fetchone()
+        for animal in animals:
+            cursor2 = conn.cursor()
+            cursor2.execute("SELECT UltimoMovimiento from " +
+                            "dbo.UltimoMovimiento where ID_ANIMAL='" +
+                            animal[1] + "' and ID_GRANJA='" + animal[3] + "'")
+            row2 = cursor2.fetchone()
+            if row2:
+                if row2[0] == 'CUBRI':
+                    if animal[0].state != 'mated':
+                        self.mover_madre(animal[1], animal[2], 'mated')
+                elif row2[0] == 'DESTETE':
+                    if animal[0].state != 'unmated':
+                        self.mover_madre(animal[1], animal[2], 'unmated')
+                elif row2[0] == 'PARTO':
+                    if animal[0].state != 'lactando':
+                        self.mover_madre(animal[1], animal[2], 'lactando')
+
+    @api.multi
+    def revision_madres(self):
+        conn = self.connection.connect()
+        madres = self.env['farm.animal'].search([('sex', '=', 'female'),
+                                                 ('ifr_sequence', '!=', ""),
+                                                 ('state', '!=', 'toreview')])
+        remov_obj = self.env['farm.removal.event']
+        for madre in madres:
+            for res in self:
+                for farm in res.farms_relations:
+                    if farm.farm == madre.farm:
+                        current_farm = farm.ifr_farm_name 
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT ID_GRANJA, ID_ANIMAL, DAT_NAC, DAT_ENTR, descripcion"
+                " FROM dbo.REPRO r inner join dbo.C_CASAGEN c "
+                "on r.CASA_GENETICA=c.codigo WHERE SEXO=1 and ID_GRANJA = '" + 
+                current_farm + "' and DAT_ENTR > DAT_BAJ and ID_ANIMAL = '" +
+                madre.ifr_sequence + "'")
+            row = cursor.fetchone()
+            if not row:
+                madre.state = 'toreview'    
+    @api.multi
+    def inventario_madres(self):
+        conn = self.connection.connect()
+        madres = self.env['farm.animal'].search([('sex', '=', 'female'),
+                                                 ('ifr_sequence', '!=', "")])
+        remov_obj = self.env['farm.removal.event']
+        for madre in madres:
+            for res in self:
+                for farm in res.farms_relations:
+                    if farm.farm == madre.farm:
+                        current_farm = farm.ifr_farm_name 
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT ID_GRANJA, ID_ANIMAL, DAT_NAC, DAT_ENTR, descripcion"
+                " FROM dbo.REPRO r inner join dbo.C_CASAGEN c "
+                "on r.CASA_GENETICA=c.codigo WHERE SEXO=1 and ID_GRANJA = '" + 
+                current_farm + "' and DAT_ENTR > DAT_BAJ and ID_ANIMAL = '" +
+                madre.ifr_sequence + "'")
+            row = cursor.fetchone()
+            if not row:
+                new_remov = remov_obj.create({
+                    'animal_type': 'female',
+                    'farm': madre.farm.id,
+                    'animal': madre.id,
+                    'from_location': madre.location.id,
+                    })
+                new_remov.confirm()
+    
+    @api.one
+    def get_female_move(self, mother, dest):
+        moves_obj = self.env['stock.move']
+        quants_obj = self.env['stock.quant']
+        target_quant = quants_obj.search([
+            ('lot_id', '=', mother.lot.lot.id),
+            ('location_id', '=', mother.location.id),
+            ])
+        fem_move = moves_obj.create({
+            'name': 'promote-mother-' + mother.lot.lot.name,
+            'create_date': fields.Date.today(),
+            'date': fields.Date.today(),
+            'product_id': mother.lot.lot.product_id.id,
+            'product_uom_qty': 1,
+            'product_uom':
+                mother.lot.lot.product_id.product_tmpl_id.uom_id.id,
+            'location_id': mother.location.id,
+            'location_dest_id': dest.id,
+            'company_id': mother.farm.company_id.id, })
+        for q in target_quant:
+            q.reservation_id = fem_move.id
+        fem_move.action_done()
+        mother.location = dest
+        tags_obj = self.env['farm.tags']
+        tag = tags_obj.search([
+                ('name', '=', mother.farm.name+'-future')])
+        tag.animal = [(3, mother.id)]
+        new_tag = tags_obj.search([
+            ('name', '=', mother.farm.name + '-unmated')])
+        if len(new_tag) == 0:
+            new_tag = tags_obj.create({'name': mother.farm.name + '-unmated',
+                                       })
+        mother.tags = [(6, 0, [new_tag.id, ])]
+
+    def send_msg(self, body, subject):
+        
+        old_msg = self.env['mail.message'].search([('subject', '=', subject)])
+        if len(old_msg) == 0:
+            group = self.env['res.groups'].search([
+                ('category_id.name', '=', 'Farm')])
+            recipient_partners = []
+            for gr in group:
+                for recipient in gr.users:
+                    recipient_partners.append(
+                        (4, recipient.partner_id.id))
+            post_vars = {'subject': subject,
+                         'partner_ids': recipient_partners}
+            self.message_post(body=body,
+                              type='comment',
+                              **post_vars)
+    
+    @api.multi
     def initial_females_load(self, conn):
         cursor = conn.cursor()
         cursor.execute(
@@ -312,9 +646,11 @@ class Connector(models.Model):
             logger.info('Female Sinc')
             new_females.append([new_animal, row[0]])
             row = cursor.fetchone()
+        '''    
         for female in new_females:
             self.load_last_events(conn, female[0], female[1], True)
-            logger.info('event Sinc')
+        '''    
+        logger.info('event Sinc')
 
     @api.multi
     def lastFosters(self, animal, conn, farrowData, farm):
@@ -391,7 +727,7 @@ class Connector(models.Model):
             res.last_foster_day = new_last_foster
 
     @api.one
-    def get_female_move(self, animal, foster_loc):
+    def get_female_move2(self, animal, foster_loc):
         moves_obj = self.env['stock.move']
         quants_obj = self.env['stock.quant']
         target_quant = quants_obj.search([
@@ -428,34 +764,48 @@ class Connector(models.Model):
     @api.multi
     def lastWeaning(self, animal, conn, farrowData, farm):
         cursor = conn.cursor()
+        data = datetime.strftime(farrowData, "%m/%d/%Y")
+        '''
         cursor.execute(
             'SELECT ID_GRANJA, DAT_DEST FROM dbo.UltimoMovimiento '
             "WHERE DAT_DEST > convert(datetime, '" +
             str(farrowData) + "' , 121) and ID_GRANJA='" + farm + "'" +
             " and ID_ANIMAL='" + animal.ifr_sequence + "'")
+        '''
+        cursor.execute(
+            "SELECT top 1 ID_GRANJA, DAT_DEST, N_DESTET "
+            "from dbo.HISTO where ID_ANIMAL='" +
+            animal.ifr_sequence +
+            "' and DAT_DEST > convert(datetime, '" +
+             data + "', 121) and ID_GRANJA='" +
+            farm + "' order by DAT_DEST DESC")
         row = cursor.fetchone()
         if row:
             for res in self:
-                for farm in res.farms_relations:
-                    if farm.ifr_farm_name == row[0]:
-                        current_farm = farm
+                for cfarm in res.farms_relations:
+                    if cfarm.ifr_farm_name == row[0]:
+                        current_farm = cfarm
             c_c = animal.current_cycle
             group = c_c.farrowing_event.event.produced_group.animal_group
             weaning_obj = self.env['farm.weaning.event']
             today_wean = weaning_obj.search([
                 ('timestamp', '=', str(row[1])),
-                ('farm', '=', current_farm.farm.id)])
+                ('farm', '=', current_farm.farm.id),
+                ('weaned_to_location', '=', current_farm.loc2.id)])
             if len(today_wean) != 0:
                 group_dest = today_wean[0].weared_group
+                if group_dest.location != current_farm.loc2:
+                                group_dest = group
             else:
                 group_dest = group
-            group = c_c.farrowing_event.event.produced_group.animal_group
             if c_c.state == 'lactating':
+                if group.quantity != row[2]:
+                    self.set_group_qty(group, row[2],current_farm)
                 new_wean = self.env['farm.weaning.event'].create({
                     'animal': animal.id,
                     'specie': animal.specie.id,
                     'animal_type': 'female',
-                    'farm': current_farm.farm.id,
+                    'farm': animal.farm.id,
                     'timestamp': row[1],
                     'weared_group': group_dest.id,
                     'farrowing_group': group.id,
@@ -463,7 +813,56 @@ class Connector(models.Model):
                     'weaned_to_location': current_farm.loc2.id,
                     })
                 new_wean.confirm()
-
+        else:
+            cursor.execute(
+                "SELECT top 1 ID_GRANJA, DAT_DEST, N_DESTET, DAT_PART "
+                "from dbo.HISTO where ID_ANIMAL='" +
+                animal.ifr_sequence +
+                "' and ID_GRANJA='" +
+                farm + "' order by DAT_PART DESC")
+            row = cursor.fetchone()
+            if row:
+                if row[1] is not None:
+                    if row[1] > row[3]:
+                        for res in self:
+                            for cfarm in res.farms_relations:
+                                if cfarm.ifr_farm_name == row[0]:
+                                    current_farm = cfarm
+                        c_c = animal.current_cycle
+                        group = c_c.farrowing_event.event.produced_group.animal_group
+                        weaning_obj = self.env['farm.weaning.event']
+                        today_wean = weaning_obj.search([
+                            ('timestamp', '=', str(row[1])),
+                            ('farm', '=', current_farm.farm.id),
+                            ('weaned_to_location', '=', current_farm.loc2.id)])
+                        if len(today_wean) != 0:
+                            group_dest = today_wean[0].weared_group
+                            if group_dest.location != current_farm.loc2:
+                                group_dest = group
+                        else:
+                            group_dest = group
+                        group = c_c.farrowing_event.event.produced_group.animal_group
+                        if c_c.state == 'lactating':
+                            if group.quantity != row[2]:
+                                self.set_group_qty(group, row[2],current_farm)
+                            new_wean = self.env['farm.weaning.event'].create({
+                                'animal': animal.id,
+                                'specie': animal.specie.id,
+                                'animal_type': 'female',
+                                'farm': animal.farm.id,
+                                'timestamp': row[1],
+                                'weared_group': group_dest.id,
+                                'farrowing_group': group.id,
+                                'female_to_location': current_farm.loc1.id,
+                                'weaned_to_location': current_farm.loc2.id,
+                                })
+                            new_wean.confirm()
+                            '''
+                            last_farrow = self.env['farm.farrowing.event'].search([
+                                ('animal', '=', animal.id),
+                                ], order='timestamp DESC')
+                            last_farrow.timestamp = row[3]
+                            '''
     @api.multi
     def lastPigletsRemovals(self, animal, conn, farrowData, farm):
         cursor = conn.cursor()
@@ -510,24 +909,23 @@ class Connector(models.Model):
     def lastFarrowing(self, animal, conn, diagData, farm):
         cursor = conn.cursor()
         cursor.execute(
-            "SELECT top 1 ID_GRANJA, FPARTO, NM, NMM, NV "
-            "from dbo.V_DatosOrdenAnim where ID_ANIMAL='" +
+            "SELECT top 1 ID_GRANJA, DAT_PART, N_MORTS, N_MOMIF, N_VIUS "
+            "from dbo.HISTO where ID_ANIMAL='" +
             animal.ifr_sequence +
-            "' and FPARTO> convert(datetime, '" +
+            "' and DAT_PART> convert(datetime, '" +
             str(diagData) + "', 121) and ID_GRANJA='" +
-            farm + "' order by FPARTO DESC")
+            farm + "' order by DAT_PART DESC")
         row = cursor.fetchone()
         if row:
             for res in self:
-                for farm in res.farms_relations:
-                    if farm.ifr_farm_name == row[0]:
-                        current_farm = farm
+                for cfarm in res.farms_relations:
+                    if cfarm.ifr_farm_name == row[0]:
+                        current_farm = cfarm
             if len(animal.cycles)>0:
                 current_cycle = animal.cycles[-1]
             else:
                 current_cycle = None
-            if (len(current_cycle)==0 or current_cycle.diagnosis_events or
-                    current_cycle.farrowing_event):
+            if len(current_cycle)==0 or len(current_cycle.farrowing_event) != 0:
                 female_clYcle_obj = self.env['farm.animal.female_cycle']
                 f_c = female_clYcle_obj.create(
                     {'animal': animal.id, })
@@ -535,7 +933,7 @@ class Connector(models.Model):
                 'animal': animal.id,
                 'specie': animal.specie.id,
                 'animal_type': 'female',
-                'farm': current_farm.farm.id,
+                'farm': animal.farm.id,
                 'timestamp': row[1],
                 'live': row[4],
                 'stillborn': row[2],
@@ -557,9 +955,9 @@ class Connector(models.Model):
         row = cursor.fetchone()
         if row:
             for res in self:
-                for farm in res.farms_relations:
-                    if farm.ifr_farm_name == row[0]:
-                        current_farm = farm
+                for cfarm in res.farms_relations:
+                    if cfarm.ifr_farm_name == row[0]:
+                        current_farm = cfarm
             new_abort = self.env['farm.abort.event'].create({
                 'animal': animal.id,
                 'especie': animal.specie.id,
@@ -571,6 +969,7 @@ class Connector(models.Model):
             return True
         else:
             return False
+        return False
 
     @api.multi
     def lastInsemination(self, animal, conn, farm, initialSinc=False):
@@ -690,6 +1089,49 @@ class Connector(models.Model):
         else:
             return (False, None)
 
+    @api.multi
+    def set_group_qty(self, group, qty, farm):
+        if group.quantity > qty:
+            dif = group.quantity - qty
+            reason_obj = self.env['farm.removal.reason']
+            reason = reason_obj.search([
+                ('name', '=', 'AjustesIFRdestete')])
+            if len(reason) == 0:
+                reason_obj.create({'name': 'AjustesIFRdestete'})
+            new_remov = self.env['farm.removal.event'].create({
+                'animal_group': group.id,
+                'specie': group.specie.id,
+                'animal_type': 'group',
+                'farm': farm.id,
+                'from_location': group.location.id,
+                'quantity': dif,
+                'reason': reason.id,
+                })
+            new_remov.confirm()
+        else:
+            dif = qty - group.quantity
+            lot = group.lot[0].lot
+            quant = self.env['stock.quant'].search([
+                ('lot_id', '=', lot.id),
+                ('location_id', '=', group.location.id)])
+            if len(quant) == 0:
+                raise_location = self.env['stock.location'].search(
+                        [('usage', '=', 'production')])
+                uom = lot.product_id.product_tmpl_id.uom_id.id
+                self.env['stock.move'].create({
+                    'name': 'AjusteIFRdestete-' + lot.name,
+                    'date': fields.Date.today(),
+                    'product_id': lot.product_id.id,
+                    'product_uom_qty': dif,
+                    'product_uom': uom,
+                    'location_id': raise_location.id,
+                    'location_dest_id': group.location.id,
+                    'company_id': group.location.company_id.id,
+                    })
+            else:
+                quant[0].qty = quant[0].qty + dif
+            group.quantity = group.quantity + dif
+
 
 class FarmsRelation(models.Model):
     _name = 'farm.ifr.farms.relation'
@@ -708,3 +1150,4 @@ class FarmsRelation(models.Model):
                            string='stallion location',
                            domain=[('usage', '=', 'internal')])
     ifr_farm_name = fields.Char(string='code in IFR program')
+    last_weaning = fields.Date('Ultimo destete', default=fields.Date.today())
