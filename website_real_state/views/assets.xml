@@ -10,11 +10,5 @@
 	    </xpath>
 	</template>
 	
-	<template id="assets_frontend_less" name="Partner Google Map Assets" inherit_id="website_less.option_bootstrap_less">
-      <xpath expr="//link[last()]" position="after">
-        <link href="/snippet_partner_google_map/static/src/less/s_partner_google_map.less" rel="stylesheet" type="text/less"/>
-      </xpath>
-    </template>
-	
   </data>
 </openerp>
