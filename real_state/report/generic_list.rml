@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(842.0,595.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="28.0" y1="28.0" width="786" height="539"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="5,-1" stop="5,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="6,-1" stop="6,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="7,-1" stop="7,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="8,-1" stop="8,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="9,-1" stop="9,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="10,-1" stop="10,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="11,-1" stop="11,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla3">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="5,-1" stop="5,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="6,-1" stop="6,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="7,-1" stop="7,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="8,-1" stop="8,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="9,-1" stop="9,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="10,-1" stop="10,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#808080" start="11,-1" stop="11,-1"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Helvetica" alignment="CENTER"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="2.0" leading="3"/>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table Contents" fontName="Helvetica"/>
+    <paraStyle name="Table Heading" fontName="Helvetica" alignment="CENTER"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="P1">TOP LIST</para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="65.0,65.0,65.0,65.0,66.0,65.0,65.0,65.0,65.0,65.0,65.0,66.0" style="Tabla1">
+      <tr>
+        <td>
+          <para style="Table Contents">Ref.</para>
+        </td>
+        <td>
+          <para style="Table Contents">Operation</para>
+        </td>
+        <td>
+          <para style="Table Contents">Type</para>
+        </td>
+        <td>
+          <para style="Table Contents">Subtype</para>
+        </td>
+        <td>
+          <para style="Table Contents">Zone</para>
+        </td>
+        <td>
+          <para style="Table Contents">Location</para>
+        </td>
+        <td>
+          <para style="Table Contents">Address</para>
+        </td>
+        <td>
+          <para style="Table Contents">M2</para>
+        </td>
+        <td>
+          <para style="Table Contents">Floor</para>
+        </td>
+        <td>
+          <para style="Table Contents">Stair</para>
+        </td>
+        <td>
+          <para style="Table Contents">Rent</para>
+        </td>
+        <td>
+          <para style="Table Contents">Sale</para>
+        </td>
+      </tr>
+    </blockTable>
+    <section>
+      <para style="Standard">[[repeatIn(objects,'o')]]</para>
+      <blockTable colWidths="65.0,66.0,65.0,66.0,65.0,65.0,67.0,67.0,64.0,65.0,65.0,65.0" style="Tabla3">
+        <tr>
+          <td>
+            <para style="Table Contents">[[ o.name ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.operation_getselectionval() ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.type ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.subtype.name ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.zone.name ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.city_id.name ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.address ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.m2 ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.floor ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.stair ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.rent_price ]]</para>
+          </td>
+          <td>
+            <para style="Table Contents">[[ o.sale_price ]]</para>
+          </td>
+        </tr>
+      </blockTable>
+      <para style="P2">
+        <font color="white"> </font>
+      </para>
+    </section>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+  </story>
+</document>

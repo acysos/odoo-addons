@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    
+    <template id="tops_template">
+    <t t-call="website.layout">
+    	<div class="hidden js_numbers">
+			<span>1</span>
+		</div>
+    	<div class="container mainTop">
+    		<div id="ip_toolbar" class="row">
+    		
+    		</div>
+    		<div class="row">          
+				  <div class="col-md-7 ip_mapleft">
+				  	<div class="superior_left row">
+				  		<div class="buttonback">
+				  			<t t-if="tops.image_ids">
+				  				<img src="/website_real_state/static/img/images/back.png" id="back"/>
+				  			</t>
+				  		</div>
+				  		<div class="buttonnext">
+				  			<t t-if="tops.image_ids">
+				  				<img src="/website_real_state/static/img/images/next.png" id="next"/>
+				  			</t>
+				  		</div>
+				  		<div class="image2 col-md-12">
+                            <t t-if="tops.image_ids">
+				       	 		<span t-field="tops.image_ids[0].file_db_store"
+                                        t-field-options='{"widget": "image", "class": "img-responsive"}'/>
+				       	 	</t>
+				  		</div>
+				  		<div class="offer">
+				  			<t t-if="tops.image_ids">
+				  				<t t-if="((tops.original_sale_price != '') and (tops.original_sale_price &gt; 0)) or ((tops.original_rent_price != '') and (tops.original_rent_price &gt; 0))">
+				  					<img src="/website_real_state/static/img/images/banner_offer.png" id="offer1"/>
+				  				</t>
+				  			</t>
+				  		</div>
+				  		<div class="pending">
+				  			<t t-if="tops.exclusive">
+				  				<img src="/website_real_state/static/img/images/banner_pending.png" id="pending1"/>
+				  			</t>
+				  		</div>
+				  		<div class="opportunity">
+				  			<t t-if="tops.website_opportunity">
+				  				<img src="/website_real_state/static/img/images/banner_featured.png" id="opportunity1"/>
+				  			</t>
+				  		</div>
+				  		<div class="new">
+				  			<div class="hidden">
+				  				<span t-field="tops.date"/>
+				  				<span t-field="companies.new_top_date"/>
+				  			</div>
+				  			<img class="hidden" src="/website_real_state/static/img/images/banner_new.png" id="novelty"/>
+				  			
+				  		</div>
+				  	</div>
+				  	<div class="inferior_left row">
+				  		<t t-foreach="tops.image_ids" t-as="topimage">
+				  			<div class="image1 col-md-4">
+					  				<t t-if="tops.image_ids">
+						       	 		<span t-field="topimage[0].file_db_store"
+		                                        t-field-options='{"widget": "image", "class": "img-responsive"}'/>
+				       	 			</t>
+					  		</div>
+				  		</t>
+				  	</div>
+				  </div>
+			      <div class="col-md-5 ip_mapright">
+			         <div class="superior_right">
+			         	 <t t-set="completeAddress" t-value="tops.zone.name+' - '+tops.address"/><span t-esc="completeAddress"/>
+			         	 <t t-if="(tops.original_sale_price != '') and (tops.original_sale_price &gt; 0)">
+			       	 		<span id="origsaleprice" t-field="tops.original_sale_price"/>
+			       	 		<span class="hidden" id="1"/>
+				       	 </t>
+				       	 <t t-if="(tops.sale_price != '') and (tops.sale_price &gt; 0)">
+				       	 	<span t-field="tops.sale_price"/>
+				       	 	<span class="hidden" id="2"/>
+				       	 </t>
+				       	 <t t-if="(tops.original_rent_price != '') and (tops.original_rent_price &gt; 0)">
+				       	 	<span id="origrentprice" t-field="tops.original_rent_price"/>
+				       	 	<span class="hidden" id="3"/>
+				       	 </t>
+				       	 <t t-if="(tops.rent_price &gt; 0) and (tops.rent_price &gt; 0)">
+				       	 	<span t-field="tops.rent_price"/>
+				       	 	<span class="hidden" id="4"/>
+				       	 </t>
+				       	 <br/><br/>
+				       	 <p>M2: <span t-field="tops.m2"/></p><p>N° Ref: <span id="reference" t-field="tops.name"/></p>
+				       	 <p>Energy Efficiency: <span t-field="tops.energy_efficiency"/></p><br/><span t-field="tops.internet_description"/><br/><br/>
+			         </div>
+			       	 <div class="inferior_right">
+			       	 	 <div class="row tabs" id="mapPane">
+						    <div class="tabs req_panel col-md-6" style="cursor: pointer;">
+						        <span>Contact agency</span>
+						    </div>
+						    <div class="tabs calc_panel col-md-6" style="cursor: pointer;">
+						        <span id="text1">Mortgage calculate</span>
+						    </div>
+						    <div class="tabs map_panel col-md-6" style="cursor: pointer;">
+						        <span>Show map</span>
+						    </div>
+						    <div class="tabs share_panel col-md-6" style="cursor: pointer;">
+						        <span id="text2">Share</span><br/><br/>
+						    </div>
+						</div>
+						<div class="current">
+							<div class="hidden" id="contact">
+								<div id="wrap">
+							        <div class="oe_structure"/>
+							        <div class="container">
+							            <div class="row">
+							                <div class="col-md-12">
+							                    <form action="/crm/contactus" method="post"  enctype="multipart/form-data">
+										            <label class="control-label" for="contact_name">Your name</label>
+													<input class="form-control" name="contact_name" required="True" type="text" /><br/>
+													<label class="control-label" for="phone">Phone number</label>
+													<input class="form-control" name="phone" type="text" /><br/>
+													<label class="control-label" for="email_from">Email address</label>
+													<input class="form-control" name="email_from" required="True" type="email" /><br/>
+													<label class="control-label" for="name">Subject</label>
+													<input class="form-control" name="name" type="text" /><br/>
+													<label class="control-label" for="description">Your Question</label>
+													<textarea class="form-control" name="description" style="min-height: 120px"
+														required="True"></textarea><br/>
+													<button class="btn btn-primary btn-lg">Send</button> 
+										        </form>
+							                </div>
+							            </div>
+							        </div>
+							        <div class="oe_structure"/>
+							     </div>
+							</div>
+							<div class="hidden" id="calculate">
+								<form>
+									<label for="price">*Price of property:</label> <input type="text" name="price" value=""/><br/>
+									<label for="signal">Signal:</label> <input type="text" name="signal" value=""/><br/>
+									<label for="interes">*Annual interest:</label> <input type="text" name="interes" value=""/> %<br/>
+									<label for="terms">*Terms:</label> <input type="text" name="terms" value=""/>Years<br/>
+									<input type="button" id="calc" value="Calculate"/><br/>
+									<label for="price_signal">Mortgaged amount:</label> <input type="text" name="price_signal" value=""/><br/>
+									<label for="total">Total payments:</label> <input type="text" name="total" value=""/><br/>
+									<label for="month">Monthly payment:</label> <input type="text" name="month" value=""/><br/>
+									<label for="info">*Indicative calculation.</label><br/>
+								</form>
+								<div class="hidden" id="payment_info">
+									<span t-field="companies.interest"/>
+									<span t-field="companies.payments"/>
+								</div>
+							</div>
+							<div class="show" id="maps">
+								<span class="hidden" t-field="tops.latitude"/>
+								<span class="hidden" t-field="tops.longitude"/>							
+								
+								<t t-if="tops.latitude and tops.longitude">
+				       	 			<section class="s_google_map" data-map-type="ROADMAP" data-map-color="" data-map-zoom="12" t-att-data-map-gps="'('+ tops.latitude + ',' + tops.longitude + ')'" data-pin-style="flat" style="height: 488px; overflow: hidden;">
+							      		<div class="map_container" /> 
+							    	</section>
+				       	 		</t>
+								
+							</div>
+							<div class="hidden" id="share">
+								<div class="oe_share s_share">
+				                  <h3>Share 
+				                    <a class="oe_share_facebook" t-attf-href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_Blank"><i class="fa fa-facebook-square"/> </a>
+				                    <a class="oe_share_twitter" t-attf-href="https://twitter.com/intent/tweet?text={{completeAddress + ' - ' + tops.name}}&amp;url={url}" target="_Blank"><i class="fa fa-twitter"/> </a>
+				                    <a class="oe_share_linkedin" t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={url}&amp;title={{completeAddress + ' - ' + tops.name}}" target="_Blank"><i class="fa fa-linkedin"/> </a>
+				                    <a class="oe_share_google" t-attf-href="https://plus.google.com/share?url={url}" target="_Blank"><i class="fa fa-google-plus-square"/> </a>
+				                    <a t-attf-href="mailto:?body={url}&amp;subject={{completeAddress + ' - ' + tops.name}}"><i class="fa fa-envelope-o"></i></a>                    
+				                  </h3>
+								</div>
+							</div>
+						</div>
+			       	 </div>
+			      </div>
+			 </div>
+    	</div>
+    	
+    </t>
+    
+    </template>
+    
+    
+    
+    
+    
+    
+	       		
+    </data>
+</openerp>

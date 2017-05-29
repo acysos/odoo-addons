@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+      
+      <record model="ir.ui.view" id="real_state_top_form_publication_idealista">
+          <field name="name">real.state.top.form.publication.idealista</field>
+          <field name="model">real.state.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_state_publication.real_state_top_form_publication"/>
+          <field name="arch" type="xml">
+                <field name="internet_wo" position="before">
+                    <field name="idealista" on_change="onchange_idealista()"/>
+                </field>
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="real_state_top_filter_idealista">
+          <field name="name">real.state.top.filter.idealista</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="idealista"/>
+          		</field>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="real_state_top_filter_flat_idealista">
+          <field name="name">real.state.top.filter.flat.idealista</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_flat"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="idealista"/>
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_industrial_idealista">
+          <field name="name">real.state.top.filter.industrial.idealista</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_industrial"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="idealista"/>
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_shop_idealista">
+          <field name="name">real.state.top.filter..shop.idealista</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_shop"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="idealista" />
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_office_idealista">
+          <field name="name">real.state.top.filter.office.idealista</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_office"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="idealista"/>
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_land_idealista">
+          <field name="name">real.state.top.filter.land.idealista</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_land"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="idealista"/>
+          		</field>
+          </field>
+      </record>
+      
+  </data>
+</openerp>

@@ -1,0 +1,1389 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-11 16:17+0000\n"
+"PO-Revision-Date: 2017-05-12 12:15+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: real_state
+#: field:res.users,meeting_count:0
+msgid "# Meetings"
+msgstr "# Reuniones"
+
+#. module: real_state
+#: field:real.state.top,address:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Aditional Information"
+msgstr "Información Adicional"
+
+#. module: real_state
+#: field:real.state.top,administrator:0
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Administrator Information"
+msgstr "Información del Administrador"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+msgid "Advanced search..."
+msgstr "Busqueda Avanzada..."
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_partner_agreement
+msgid "Agreements"
+msgstr "Contratos"
+
+#. module: real_state
+#: field:real.state.top,office_air_conditioning:0
+#: field:real.state.top,shop_air_conditioning:0
+msgid "Air Conditioning"
+msgstr "Aire Acondicionado"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_partner_all_form
+#: model:ir.ui.menu,name:real_state.menu_real_state_all
+#: selection:real.state.top,orientation:0
+msgid "All"
+msgstr "Todos"
+
+#. module: real_state
+#: field:real.state.top,aqua_ref:0
+msgid "Aqua Reference"
+msgstr "Referencia Agua"
+
+#. module: real_state
+#: field:real.state.top,attachments_url:0
+#: field:rental.agreement,rent_attachments_url:0
+#: field:res.partner,partner_attachments_url:0
+#: field:res.users,partner_attachments_url:0
+msgid "Attachments URL"
+msgstr "URL de Archivos Adjuntos"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+#: field:real.state.top,available:0
+msgid "Available"
+msgstr "DIsponible"
+
+#. module: real_state
+#: field:real.state.top,balcony:0
+msgid "Balcony"
+msgstr "Balcón-Terraza"
+
+#. module: real_state
+#: field:real.state.top,chalet_basement:0
+msgid "Basement"
+msgstr "Sótano"
+
+#. module: real_state
+#: field:real.state.top,basement_m2:0
+msgid "Basement M2"
+msgstr "M2 Sótano"
+
+#. module: real_state
+#: field:real.state.top,bathroom:0
+msgid "Bathroom"
+msgstr "Baño"
+
+#. module: real_state
+#: field:real.state.top,bath_description:0
+msgid "Bathroom Description"
+msgstr "Descripción de Baño"
+
+#. module: real_state
+#: field:real.state.top,bedrooms:0
+msgid "Bedrooms"
+msgstr "Dormitorios"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_box_room_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_box_room_list
+#: field:real.state.top,box_room:0 field:real.state.top,office_boxroom:0
+msgid "Box Room"
+msgstr "Trastero"
+
+#. module: real_state
+#: field:real.state.top,box_room_description:0
+msgid "Box Room Description"
+msgstr "Descripción de Trastero"
+
+#. module: real_state
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Box room"
+msgstr "Trastero"
+
+#. module: real_state
+#: field:real.state.top,built_in_closet:0
+msgid "Built-in Closet"
+msgstr "Armario Empotrado"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+#: field:real.state.top,buyer_id:0 selection:res.partner,real_state_type:0
+msgid "Buyer"
+msgstr "Comprador"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_partner_buyer_form
+#: model:ir.ui.menu,name:real_state.menu_real_state_buyer
+msgid "Buyers"
+msgstr "Compradores"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.mail_menu_calendar_real_state
+msgid "Calendar"
+msgstr "Calendario"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_chalet_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_chalet_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Chalet"
+msgstr "Chalet"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Chalet and House Information"
+msgstr "Información de Chalets y Casas de pueblo"
+
+#. module: real_state
+#: field:res.users,document_client:0
+msgid "Client"
+msgstr "Cliente"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_res_company
+#: model:ir.ui.menu,name:real_state.company_info
+#: model:ir.ui.menu,name:real_state.menu_action_res_company_form_real_state
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_real_state_conf
+#: view:res.company:real_state.view_company_form_real_state
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: real_state
+#: field:real.state.top,chalet_cons_m2:0 field:real.state.top,cons_m2:0
+#: field:real.state.top,flat_cons_m2:0 field:real.state.top,ground_cons_m2:0
+msgid "Constructed M2"
+msgstr "M2 Construidos"
+
+#. module: real_state
+#: field:real.state.top,office_cons_m2:0
+msgid "Constructed Office M2"
+msgstr "M2 Construidos de Oficina"
+
+#. module: real_state
+#: field:real.state.top,create_date:0
+msgid "Create Date"
+msgstr "Fecha de Creación"
+
+#. module: real_state
+#: field:real.state.heating,create_uid:0 field:real.state.hotwater,create_uid:0
+#: field:real.state.land.state,create_uid:0
+#: field:real.state.land.type,create_uid:0
+#: field:real.state.subtype,create_uid:0 field:real.state.top,create_uid:0
+#: field:real.state.top.subsivision,create_uid:0
+#: field:real.state.zone,create_uid:0 field:rental.agreement,create_uid:0
+msgid "Created by"
+msgstr "Creado Por"
+
+#. module: real_state
+#: field:real.state.heating,create_date:0
+#: field:real.state.hotwater,create_date:0
+#: field:real.state.land.state,create_date:0
+#: field:real.state.land.type,create_date:0
+#: field:real.state.subtype,create_date:0
+#: field:real.state.top.subsivision,create_date:0
+#: field:real.state.zone,create_date:0 field:rental.agreement,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Customer Partners"
+msgstr "Clientes"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: real_state
+#: field:real.state.top,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: real_state
+#: field:real.state.top,energy_date:0
+msgid "Date Energy Efficiency"
+msgstr "Fecha de Eficiencia Energética"
+
+#. module: real_state
+#: field:res.company,default_document_client:0
+msgid "Default Document Client"
+msgstr "Cliente por Defecto"
+
+#. module: real_state
+#: field:res.company,default_document_mount:0
+msgid "Default Document Mount"
+msgstr "Default Document Mount"
+
+#. module: real_state
+#: field:res.company,default_mount_agreement:0
+#: field:res.users,default_mount_agreement:0
+msgid "Default Mount Rental Agreement"
+msgstr "Punto de Montaje"
+
+#. module: real_state
+#: field:real.state.top,deposit:0
+msgid "Deposit"
+msgstr "Fianza"
+
+#. module: real_state
+#: field:real.state.heating,display_name:0
+#: field:real.state.hotwater,display_name:0
+#: field:real.state.land.state,display_name:0
+#: field:real.state.land.type,display_name:0
+#: field:real.state.subtype,display_name:0 field:real.state.top,display_name:0
+#: field:real.state.top.subsivision,display_name:0
+#: field:real.state.zone,display_name:0 field:rental.agreement,display_name:0
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: real_state
+#: field:res.users,document_mount:0
+msgid "Document Mount"
+msgstr "Montaje de documentos"
+
+#. module: real_state
+#: field:real.state.top,email:0
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "East"
+msgstr "Este"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "East-West"
+msgstr "Este-Oeste"
+
+#. module: real_state
+#: field:real.state.top,electricity:0 field:real.state.top,office_electricity:0
+#: field:real.state.top,shop_electricity:0
+msgid "Eletricity"
+msgstr "Eletricidad"
+
+#. module: real_state
+#: field:real.state.top,elevator:0 field:real.state.top,office_elevator:0
+msgid "Elevator"
+msgstr "Ascensor"
+
+#. module: real_state
+#: field:rental.agreement,end_date:0
+msgid "End date"
+msgstr "Fecha finalización"
+
+#. module: real_state
+#: field:real.state.top,energy_doc:0
+msgid "Energy Certificate"
+msgstr "Certificado Energético"
+
+#. module: real_state
+#: field:real.state.top,energy_efficiency:0
+msgid "Energy Efficiency"
+msgstr "Eficiencia Energética"
+
+#. module: real_state
+#: field:real.state.top,energy_emission:0
+msgid "Energy Emission"
+msgstr "Emisiones"
+
+#. module: real_state
+#: field:real.state.top,energy_number:0
+msgid "Energy Number"
+msgstr "Energía"
+
+#. module: real_state
+#: field:real.state.top,students:0
+msgid "Estudiantes"
+msgstr "Estudiantes"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_calendar_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: real_state
+#: field:real.state.top,exclusive:0
+msgid "Exclusive"
+msgstr "Exclusivo"
+
+#. module: real_state
+#: field:real.state.top,exclusive_date:0
+msgid "Exclusive Date"
+msgstr "Fecha exclusividad"
+
+#. module: real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "Exempt"
+msgstr "Exento"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Extended Filter..."
+msgstr "Filtro Extendido..."
+
+#. module: real_state
+#: field:real.state.top,shop_facade:0
+msgid "Facade"
+msgstr "Fachada"
+
+#. module: real_state
+#: field:real.state.top,fire_fighting:0
+msgid "Fire-Fighting"
+msgstr "Anti-Incendios"
+
+#. module: real_state
+#: field:real.state.top,first_floor:0
+msgid "First Floor"
+msgstr "Primera planta"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_flat_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_flat_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Flat"
+msgstr "Vivienda"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Flat Information"
+msgstr "Información de la Vivienda"
+
+#. module: real_state
+#: field:real.state.top,floor:0
+msgid "Floor"
+msgstr "Piso"
+
+#. module: real_state
+#: field:real.state.top,floor_number:0
+msgid "Floor Number"
+msgstr "Nº de pisos"
+
+#. module: real_state
+#: field:real.state.top,fumes_vent:0
+msgid "Fumes Vent"
+msgstr "Salida de humos"
+
+#. module: real_state
+#: field:real.state.top,furnished:0
+msgid "Furnished"
+msgstr "Amueblado"
+
+#. module: real_state
+#: field:real.state.top,furnished_description:0
+msgid "Furnished Description"
+msgstr "Descripción de Amueblado"
+
+#. module: real_state
+#: field:real.state.top,gantry_crane:0
+msgid "Gantry Crane"
+msgstr "Puente Grúa"
+
+#. module: real_state
+#: field:real.state.top,garden_m2:0
+msgid "Garden M2"
+msgstr "M2 de jardin"
+
+#. module: real_state
+#: field:real.state.top,gas_ref:0
+msgid "Gas Reference"
+msgstr "Referencia Gas"
+
+#. module: real_state
+#: field:real.state.top,chalet_ground:0
+msgid "Ground"
+msgstr "Bajo"
+
+#. module: real_state
+#: field:real.state.top,ground_m2:0
+msgid "Ground M2"
+msgstr "M2 Bajo"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Group By..."
+msgstr "Agrupado por..."
+
+#. module: real_state
+#: selection:real.state.top,furnished:0
+msgid "Half"
+msgstr "Semi"
+
+#. module: real_state
+#: field:real.state.top,hall:0
+msgid "Hall"
+msgstr "Salón"
+
+#. module: real_state
+#: field:real.state.top,hall_description:0
+msgid "Hall Description"
+msgstr "Descripción de Salón"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_heating_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_heating_list
+#: field:real.state.heating,name:0 field:real.state.top,chalet_heating:0
+#: field:real.state.top,flat_heating:0 field:real.state.top,office_heating:0
+#: field:real.state.top,shop_heating:0
+msgid "Heating"
+msgstr "Calefacción"
+
+#. module: real_state
+#: field:real.state.top,height:0
+msgid "Height"
+msgstr "Altura"
+
+#. module: real_state
+#: field:real.state.top,homeowners_expenses:0
+msgid "Homeowners Expenses"
+msgstr "Gastos de comunidad"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_hotwater_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_hotwater_list
+#: field:real.state.hotwater,name:0 field:real.state.top,chalet_hotwater:0
+#: field:real.state.top,flat_hotwater:0
+msgid "Hot Water"
+msgstr "Agua Caliente"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_hotel_industry_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_hotel_industry_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Hotel Industry"
+msgstr "Hostelería"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Hotel industry information"
+msgstr "Información para Hostelería"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_house_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_house_list
+msgid "House"
+msgstr "Casa de Pueblo"
+
+#. module: real_state
+#: field:real.state.heating,id:0 field:real.state.hotwater,id:0
+#: field:real.state.land.state,id:0 field:real.state.land.type,id:0
+#: field:real.state.subtype,id:0 field:real.state.top,id:0
+#: field:real.state.top.subsivision,id:0 field:real.state.zone,id:0
+#: field:rental.agreement,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Images and documents"
+msgstr "Imágenes y Documentos"
+
+#. module: real_state
+#: selection:real.state.top,energy_efficiency:0
+msgid "In process"
+msgstr "En Proceso"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_crm_case_phone_inbound_real_state
+msgid "Inbound"
+msgstr "Registradas"
+
+#. module: real_state
+#: field:real.state.top,homeowners_expenses_included:0
+msgid "Included"
+msgstr "Incluido"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_industrial_unit_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_industrial_unit_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Industrial Unit"
+msgstr "Nave Industrial"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Industrial Unit information"
+msgstr "Información para Naves Industriales"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+#: view:res.partner:real_state.view_partner_form_real_state
+msgid "Information"
+msgstr "Información"
+
+#. module: real_state
+#: field:real.state.top,kitchen:0
+msgid "Kitchen"
+msgstr "Cocina"
+
+#. module: real_state
+#: field:real.state.top,kitchen_description:0
+msgid "Kitchen Description"
+msgstr "Descripción de Cocina"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_land_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_land_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Land"
+msgstr "Terreno"
+
+#. module: real_state
+#: field:real.state.top,land_m2:0
+msgid "Land M2"
+msgstr "M2 Terreno"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_land_state_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_land_state_list
+#: field:real.state.land.state,name:0 field:real.state.top,land_state:0
+msgid "Land State"
+msgstr "Estado del Terreno"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_land_type_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_land_type_list
+#: field:real.state.land.type,name:0 field:real.state.top,land_type:0
+msgid "Land Type"
+msgstr "Tipo de Terreno"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Land information"
+msgstr "Información del Terreno"
+
+#. module: real_state
+#: field:real.state.heating,__last_update:0
+#: field:real.state.hotwater,__last_update:0
+#: field:real.state.land.state,__last_update:0
+#: field:real.state.land.type,__last_update:0
+#: field:real.state.subtype,__last_update:0
+#: field:real.state.top,__last_update:0
+#: field:real.state.top.subsivision,__last_update:0
+#: field:real.state.zone,__last_update:0 field:rental.agreement,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: real_state
+#: field:real.state.heating,write_uid:0 field:real.state.hotwater,write_uid:0
+#: field:real.state.land.state,write_uid:0
+#: field:real.state.land.type,write_uid:0 field:real.state.subtype,write_uid:0
+#: field:real.state.top,write_uid:0
+#: field:real.state.top.subsivision,write_uid:0
+#: field:real.state.zone,write_uid:0 field:rental.agreement,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: real_state
+#: field:real.state.heating,write_date:0 field:real.state.hotwater,write_date:0
+#: field:real.state.land.state,write_date:0
+#: field:real.state.land.type,write_date:0
+#: field:real.state.subtype,write_date:0
+#: field:real.state.top.subsivision,write_date:0
+#: field:real.state.zone,write_date:0 field:rental.agreement,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: real_state
+#: field:real.state.top,write_date:0
+msgid "Last Write Date"
+msgstr "Última fecha de escritura"
+
+#. module: real_state
+#: field:res.users,opportunity_ids:0
+msgid "Leads and Opportunities"
+msgstr "Iniciativas y Oportunidades"
+
+#. module: real_state
+#: field:real.state.top,light_ref:0
+msgid "Light Reference"
+msgstr "Referencia Luz"
+
+#. module: real_state
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Linux/MacOSX Client"
+msgstr "Cliente Linux/MacOSX"
+
+#. module: real_state
+#: help:res.company,default_document_mount:0 help:res.users,document_mount:0
+msgid "Local mount point"
+msgstr "Punto de Montaje Local"
+
+#. module: real_state
+#: help:res.company,default_mount_agreement:0
+#: help:res.users,default_mount_agreement:0
+msgid "Local mount point for rental agreement"
+msgstr "Punto de Montaje Local para Contratos de Alquiler"
+
+#. module: real_state
+#: field:real.state.top,city_id:0
+msgid "Location"
+msgstr "Localización"
+
+#. module: real_state
+#: field:real.state.top,locker_room:0
+msgid "Locker Room"
+msgstr "Vestuarios"
+
+#. module: real_state
+#: field:real.state.top,m2:0 field:real.state.top.subsivision,m2:0
+msgid "M2"
+msgstr "M2"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_partner_manage_form
+#: model:ir.ui.menu,name:real_state.menu_real_state_manage
+#: selection:res.partner,real_state_type:0
+msgid "Manage"
+msgstr "Gestionar"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.calendar_meeting
+#: field:res.users,meeting_ids:0
+msgid "Meetings"
+msgstr "Reuniones"
+
+#. module: real_state
+#: field:real.state.top,mezzanine_m2:0
+msgid "Mezzanine M2"
+msgstr "M2 Entreplanta"
+
+#. module: real_state
+#: view:res.company:real_state.view_company_form_real_state
+msgid "Mount FTP Configuration"
+msgstr "Configuración Punto de Montaje FTP"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "My Partners"
+msgstr "Mis empresas"
+
+#. module: real_state
+#: field:real.state.top.subsivision,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: real_state
+#: selection:real.state.top,furnished:0
+msgid "No"
+msgstr "No"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "North"
+msgstr "Norte"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "North-South"
+msgstr "Norte-Sur"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "Northeast"
+msgstr "Noreste"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "Northwest"
+msgstr "Noroeste"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+msgid "Not Available"
+msgstr "No Disponible"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+#: field:real.state.top,note:0 field:real.state.top,note_flat:0
+#: field:rental.agreement,notes:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: real_state
+#: field:real.state.top,number:0
+msgid "Number"
+msgstr "Número"
+
+#. module: real_state
+#: field:real.state.top,number_keys:0
+msgid "Number of Keys"
+msgstr "Nº de Llaves"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_office_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_office_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Office"
+msgstr "Oficina"
+
+#. module: real_state
+#: field:real.state.top,office_m2:0
+msgid "Office M2"
+msgstr "M2 de Oficina"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Office information"
+msgstr "Información de Oficina"
+
+#. module: real_state
+#: field:real.state.top,offices:0
+msgid "Offices"
+msgstr "Oficinas"
+
+#. module: real_state
+#: field:real.state.top,open_field_m2:0
+msgid "Open Field M2"
+msgstr "M2 Campa"
+
+#. module: real_state
+#: field:real.state.top,operation:0
+msgid "Operation"
+msgstr "Operación"
+
+#. module: real_state
+#: field:res.users,opportunity_count:0
+msgid "Opportunity"
+msgstr "Oportunidad"
+
+#. module: real_state
+#: field:real.state.top,orientation:0
+msgid "Orientation"
+msgstr "Orientación"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter_flat
+msgid "Other fields..."
+msgstr "Otros campos..."
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_crm_case_phone_outbound_real_state
+msgid "Outbound"
+msgstr "Planificadas"
+
+#. module: real_state
+#: field:real.state.top,office_outside:0 field:real.state.top,outside:0
+msgid "Outside"
+msgstr "Exterior"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_real_state_partner
+#: field:real.state.top,partner_id:0 field:rental.agreement,owner_id:0
+#: selection:res.partner,real_state_type:0
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_partner_owner_form
+#: model:ir.ui.menu,name:real_state.menu_real_state_owner
+msgid "Owners"
+msgstr "Propietarios"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_parking_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_parking_list
+#: selection:real.state.subtype,type:0 field:real.state.top,office_parking:0
+#: field:real.state.top,parking:0 selection:real.state.top,type:0
+msgid "Parking"
+msgstr "Parking"
+
+#. module: real_state
+#: field:real.state.top,parking_description:0
+msgid "Parking Description"
+msgstr "Descripción de Garaje"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.phone_calls
+msgid "Phone calls"
+msgstr "Llamadas Telefónicas"
+
+#. module: real_state
+#: field:res.users,phonecall_count:0 field:res.users,phonecall_ids:0
+msgid "Phonecalls"
+msgstr "Llamadas Telefónicas"
+
+#. module: real_state
+#: field:real.state.top,plot_m2:0
+msgid "Plot M2"
+msgstr "M2 Parcela"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_premise_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_premise_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Premise"
+msgstr "Local"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Premise information"
+msgstr "Información del Local"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_premise_office_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_premise_office_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Premise-Office"
+msgstr "Local-Oficina"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+#: field:real.state.top,industrial_prepared:0
+#: field:real.state.top,shop_prepared:0
+msgid "Prepared"
+msgstr "Acondicionado"
+
+#. module: real_state
+#: field:res.users,website_published:0
+msgid "Publish"
+msgstr "Publicado"
+
+#. module: real_state
+#: help:res.users,website_published:0
+msgid "Publish on the website"
+msgstr "Publicado en la Página Web"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_base_real_state
+#: view:res.company:real_state.view_company_form_real_state
+msgid "Real State"
+msgstr "Inmobiliaria"
+
+#. module: real_state
+#: view:res.users:real_state.view_users_form_real_state
+#: view:res.users:real_state.view_users_form_simple_modif_real_state
+msgid "Real State Configuration"
+msgstr "Configuración Inmobiliaria"
+
+#. module: real_state
+#: view:real.state.top.subsivision:real_state.real_state_top_subdivision_tree
+msgid "Real State Subdivisions"
+msgstr "Real State Subdivisions"
+
+#. module: real_state
+#: view:real.state.subtype:real_state.real_state_subtype_tree
+msgid "Real State Subtype"
+msgstr "Real State Subtype"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+#: view:real.state.top:real_state.real_state_top_form
+#: view:real.state.top:real_state.real_state_top_tree
+#: view:rental.agreement:real_state.rental_agreement_form
+msgid "Real State Top"
+msgstr "Real State Top"
+
+#. module: real_state
+#: field:real.state.top,name:0 field:rental.agreement,name:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+#: selection:real.state.top,operation:0
+msgid "Rent"
+msgstr "Alquiler"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Rent Information"
+msgstr "Información de Alquiler"
+
+#. module: real_state
+#: field:real.state.top,rent_price:0 field:rental.agreement,rent_price:0
+msgid "Rent Price"
+msgstr "Precio Alquiler"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+msgid "Rent price from"
+msgstr "Precio alquiler desde"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+msgid "Rent price to"
+msgstr "Precio alquiler hasta"
+
+#. module: real_state
+#: selection:real.state.top,operation:0
+msgid "Rent with sale option"
+msgstr "ALquiler con opción a compra"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.rental_agreement_act
+#: model:ir.ui.menu,name:real_state.menu_rental_agreement_list
+#: view:real.state.top:real_state.real_state_top_form
+#: field:real.state.top,agreements:0
+#: view:rental.agreement:real_state.rental_agreement_filter
+#: view:rental.agreement:real_state.rental_agreement_tree
+msgid "Rental Agreements"
+msgstr "Contratos de Alquiler"
+
+#. module: real_state
+#: field:real.state.top,retribution:0
+msgid "Retribution"
+msgstr "Honorarios"
+
+#. module: real_state
+#: field:real.state.top,room_description:0
+msgid "Room Description"
+msgstr "Descripción de las Habitaciones"
+
+#. module: real_state
+#: field:real.state.top,rooms:0
+msgid "Rooms"
+msgstr "Habitaciones"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+#: selection:real.state.top,operation:0
+msgid "Sale"
+msgstr "Venta"
+
+#. module: real_state
+#: selection:real.state.top,operation:0
+msgid "Sale & Rent"
+msgstr "Alquiler y Venta"
+
+#. module: real_state
+#: field:real.state.top,sale_price:0
+msgid "Sale Price"
+msgstr "Precio Venta"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+msgid "Sale Price to"
+msgstr "Precio venta hasta"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+msgid "Sale price from"
+msgstr "Precio venta desde"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Salesman"
+msgstr "Vendedor"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Search Partner"
+msgstr "Buscar empresa"
+
+#. module: real_state
+#: field:real.state.top,second_floor:0
+msgid "Second Floor"
+msgstr "Segunda Planta"
+
+#. module: real_state
+#: field:res.partner,name2:0 field:res.users,name2:0
+msgid "Second Owner"
+msgstr "Segundo Propietario"
+
+#. module: real_state
+#: field:res.partner,vat2:0 field:res.users,vat2:0
+msgid "Second VAT"
+msgstr "2º NIF"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Second Vat"
+msgstr "2º NIF"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Service Contracts Information"
+msgstr "Información de contratos de servicio"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_top_shop_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_shop_list
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Shop"
+msgstr "Negocio"
+
+#. module: real_state
+#: field:real.state.top,shop_window:0
+msgid "Shop Window"
+msgstr "Escaparate"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Shop information"
+msgstr "Información del Negocio"
+
+#. module: real_state
+#: field:rental.agreement,signing_date:0
+msgid "Signing date"
+msgstr "Fecha de Firma"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "South"
+msgstr "Sur"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "South West"
+msgstr "Suroeste"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "South-Easth"
+msgstr "Sureste"
+
+#. module: real_state
+#: field:real.state.top,stair:0
+msgid "Stair"
+msgstr "Escalera"
+
+#. module: real_state
+#: field:rental.agreement,start_date:0
+msgid "Start date"
+msgstr "Fecha de Inicio"
+
+#. module: real_state
+#: field:real.state.top,structural_barriers:0
+msgid "Structural Barriers"
+msgstr "Barreras Estructurales"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+#: field:real.state.top,subdivision_ids:0
+msgid "Subdivisions"
+msgstr "Subdivisiones"
+
+#. module: real_state
+#: field:real.state.subtype,name:0 field:real.state.top,subtype:0
+msgid "Subtype"
+msgstr "Subtipo"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_subtype_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_subtype_list
+msgid "Subtypes"
+msgstr "Subtipos"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Supplier Partners"
+msgstr "Proveedores"
+
+#. module: real_state
+#: view:res.partner:real_state.view_res_partner_filter_real_state
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Supplies"
+msgstr "Suministros"
+
+#. module: real_state
+#: field:real.state.top,swimming_pool:0
+msgid "Swimming Pool"
+msgstr "Piscina"
+
+#. module: real_state
+#: field:real.state.top,administrator_phone:0
+msgid "Telephone"
+msgstr "Teléfono"
+
+#. module: real_state
+#: field:rental.agreement,partner_id:0 selection:res.partner,real_state_type:0
+msgid "Tenant"
+msgstr "Inquilino"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_partner_tenant_form
+#: model:ir.ui.menu,name:real_state.menu_real_state_tenant
+#: view:real.state.top:real_state.real_state_top_form
+msgid "Tenants"
+msgstr "Inquilinos"
+
+#. module: real_state
+#: field:real.state.top,industrial_toilet:0 field:real.state.top,shop_toilet:0
+#: field:real.state.top,toilet:0
+msgid "Toilet"
+msgstr "Aseo"
+
+#. module: real_state
+#: field:real.state.top,toilet_description:0
+msgid "Toilet Description"
+msgstr "Descripción del Aseo"
+
+#. module: real_state
+#: field:real.state.top,office_toilets:0
+msgid "Toilets"
+msgstr "Aseos"
+
+#. module: real_state
+#: field:calendar.event,top_id:0
+#: model:ir.actions.act_window,name:real_state.real_state_top_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_top
+#: model:ir.ui.menu,name:real_state.menu_real_state_top_list
+#: field:real.state.top.subsivision,top_id:0 field:rental.agreement,top_id:0
+msgid "Top"
+msgstr "Inmueble"
+
+#. module: real_state
+#: field:real.state.subtype,type:0
+msgid "Top Type"
+msgstr "Tipo de Inmueble"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_real_state_top_subsivision
+msgid "Top subdivision that can be rented individually"
+msgstr "Subdivisión de la propiedad que se puede alquilar individualmente"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_partner_tops
+msgid "Tops"
+msgstr "Inmuebles"
+
+#. module: real_state
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "Town House"
+msgstr "Casa de pueblo"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+#: selection:real.state.top,operation:0
+msgid "Transfer"
+msgstr "Traspaso"
+
+#. module: real_state
+#: field:real.state.top,triphase:0
+msgid "Triphase"
+msgstr "Trifásica"
+
+#. module: real_state
+#: field:real.state.top,type:0 field:res.partner,real_state_type:0
+#: field:res.users,real_state_type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: real_state
+#: field:real.state.top,updated_date:0
+msgid "Updated Date"
+msgstr "Fecha de Actualización"
+
+#. module: real_state
+#: help:real.state.top,city_id:0
+msgid "Usa el nombre o el C.P para buscar la localización"
+msgstr "Usa el nombre o el C.P para buscar la localización"
+
+#. module: real_state
+#: field:real.state.top,land_cons_m2:0
+msgid "Usage Land M2"
+msgstr "M2 de terreno útiles"
+
+#. module: real_state
+#: field:real.state.top,chalet_usage_m2:0 field:real.state.top,flat_usage_m2:0
+msgid "Usage M2"
+msgstr "M2 Útiles"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: real_state
+#: view:real.state.top:real_state.real_state_top_filter
+#: view:real.state.top:real_state.real_state_top_filter_flat
+#: view:real.state.top:real_state.real_state_top_filter_hotel_industry
+#: view:real.state.top:real_state.real_state_top_filter_industrial
+#: view:real.state.top:real_state.real_state_top_filter_land
+#: view:real.state.top:real_state.real_state_top_filter_office
+#: view:real.state.top:real_state.real_state_top_filter_shop
+#: selection:real.state.top,operation:0
+msgid "Valuation"
+msgstr "Valoración"
+
+#. module: real_state
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Web Client"
+msgstr "Cliente Web"
+
+#. module: real_state
+#: field:real.state.top,website:0
+msgid "Website"
+msgstr "Página web"
+
+#. module: real_state
+#: field:res.users,website_description:0
+msgid "Website Partner Full Description"
+msgstr "Descripción completa del sitio web"
+
+#. module: real_state
+#: field:res.users,website_short_description:0
+msgid "Website Partner Short Description"
+msgstr "Breve descripción del sitio web"
+
+#. module: real_state
+#: field:res.users,website_meta_description:0
+msgid "Website meta description"
+msgstr "Descripcion del sitio web"
+
+#. module: real_state
+#: field:res.users,website_meta_keywords:0
+msgid "Website meta keywords"
+msgstr "Palabras clave del sitio web"
+
+#. module: real_state
+#: field:res.users,website_meta_title:0
+msgid "Website meta title"
+msgstr "Título del Sitio web"
+
+#. module: real_state
+#: help:real.state.top,website:0
+msgid "Website of Administrator"
+msgstr "Página web del Administrador"
+
+#. module: real_state
+#: selection:real.state.top,orientation:0
+msgid "West"
+msgstr "Oeste"
+
+#. module: real_state
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Windows Client"
+msgstr "Cliente Windows"
+
+#. module: real_state
+#: selection:real.state.top,energy_efficiency:0
+#: selection:real.state.top,furnished:0
+msgid "Yes"
+msgstr "Sí"
+
+#. module: real_state
+#: field:real.state.top,zone:0 field:real.state.zone,name:0
+msgid "Zone"
+msgstr "Zona"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.real_state_zone_act
+#: model:ir.ui.menu,name:real_state.menu_real_state_zone_list
+msgid "Zones"
+msgstr "Zonas"
+
+#. module: real_state
+#: field:res.users,self:0
+msgid "unknown"
+msgstr "desconocido"
+
+#. module: real_state
+#: selection:real.state.subtype,type:0 selection:real.state.top,type:0
+msgid "unlimited"
+msgstr "ilimitado"

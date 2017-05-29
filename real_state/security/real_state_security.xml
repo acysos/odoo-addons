@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+       <record id="real_state.group_real_state_user" model="res.groups">
+            <field name="name">Real State / User</field>
+        </record>
+        
+         <record id="real_state.group_real_state_manager" model="res.groups">
+            <field name="name">Real State / Manager</field>
+            <field name="implied_ids" eval="[(4, ref('real_state.group_real_state_user'))]"/>
+        </record>
+        
+        
+        
+    </data>
+</openerp>

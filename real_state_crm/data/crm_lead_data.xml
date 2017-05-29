@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    <record forcecreate="True" id="ir_crm_real_state_action" model="ir.cron">
+            <field name="name">CRM Real State scheduler</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field name="model">crm.lead</field>
+            <field name="function">run_search_top_suggested</field>
+            <field name="args">()</field>
+        </record>
+    </data>
+</openerp>

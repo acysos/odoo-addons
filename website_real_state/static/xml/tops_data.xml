@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="tops_data_map.top_data">
+		
+		<div class="everyTop1"> 
+   			<div class="col-md-6 image_left1">
+	            <div class="left3">
+                    <div class="imageP1 col-md-12">
+                        <t t-if="top.image_ids">
+				           	<a t-attf-href="/realstate/top/{{top.id}}"><img style="width:100%;height:100%;" class='img-responsive' t-att-src="'/website/image/base_multi_image.image/' + top.image_ids[0] + '/file_db_store'" /></a>
+				        </t>
+                    </div>
+               </div>
+            </div>
+            <div class="col-md-6 description_right1">
+		         <div class="right3">
+		         	 <t t-set="completeAddress1" t-value="top.zone[1]+' - '+top.address"/>
+					<span t-esc="completeAddress1"/>
+					<br/><br/>
+			      	    <p>M2: <span t-esc="top.m2"/></p>
+			      	    <p>N° Ref: <span id="reference1" t-esc="top.name"/></p><br/>
+			      	    <a t-attf-href="/realstate/top/{{top.id}}">Más detalles</a>
+			     </div>
+	     	</div>
+        </div>
+
+    </t>
+</templates>

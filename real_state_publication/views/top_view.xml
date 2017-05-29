@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+      
+      <record model="ir.ui.view" id="real_state_top_press_form">
+          <field name="name">real.state.top.press.form</field>
+          <field name="model">real.state.top.press</field>
+          <field name="type">form</field>
+          <field name="arch" type="xml">
+              <field name="name" />
+              <field name="actual" />
+              <field name="top_id" />
+              <field name="date_publications" colspan="4" widget="one2many" />
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="real_state_top_form_publication">
+          <field name="name">real.state.top.form.publication</field>
+          <field name="model">real.state.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_state.real_state_top_form"/>
+          <field name="arch" type="xml">
+              <page string="Images and documents" position="before">
+                  <page string="Publications">
+                      <group colspan="2" col="4">
+                          <separator string="Internet" colspan="4" />
+                           <field name="internet_wo" nolabel="1" colspan="4">
+                              <form string="Without Automatic Update">
+                                  <field name="name" />
+                                  <field name="actual" />
+                              </form>
+                              <tree string="Without Automatic Update" editable="bottom">
+                                  <field name="name"/>
+                                  <field name="actual" />
+                              </tree>
+                          </field> 
+                          <separator string="Internet Description" colspan="4" />
+                          <field name="internet_description" nolabel="1" colspan="4" />
+                      </group>
+                      <group colspan="2" col="4">
+                     <!--  <separator string="Press" colspan="4" />
+                           <field name="publications" nolabel="1" colspan="4">
+                              <form string="Publications">
+                              	<group>
+                                  <field name="name" />
+                                  <field name="actual" />
+                                  <field name="date_publications" colspan="4" widget="one2many" />
+                              	</group>
+                              </form>
+                              <tree string="Publications">
+                                  <field name="name"/>
+                                  <field name="actual" />
+                                  <field name="date_publications" />
+                              </tree>
+                          </field> -->        
+                          <separator string="In the top" colspan="4" />
+                          <field name="poster" />
+                      </group>
+                  </page>
+              </page>
+              
+              <field name="energy_doc" position="after">
+              		<field name="energy_doc_url" widget="url" readonly="1"/>
+              </field>
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="real_state_top_filter_publication">
+          <field name="name">real.state.top.filter.publication</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="publications" />
+          			<field name="internet_wo" /><newline />
+          		</field>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="real_state_top_filter_flat_publication">
+          <field name="name">real.state.top.filter.flat.publication</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_flat"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="publications" />
+          			<field name="internet_wo" /><newline />
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_industrial_publication">
+          <field name="name">real.state.top.filter.industrial.publication</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_industrial"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="publications" />
+          			<field name="internet_wo" /><newline />
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_shop_publication">
+          <field name="name">real.state.top.filter..shop.publication</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_shop"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="publications" />
+          			<field name="internet_wo" /><newline />
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_office_publication">
+          <field name="name">real.state.top.filter.office.publication</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_office"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="publications" />
+          			<field name="internet_wo" /><newline />
+          		</field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_land_publication">
+          <field name="name">real.state.top.filter.land.publication</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_land"/>
+          <field name="arch" type="xml">
+          		<field name="partner_id" position="after">
+          			<field name="publications" />
+          			<field name="internet_wo" /><newline />
+          		</field>
+          </field>
+      </record> 
+      <!--
+      <act_window name="Images"
+                  domain="[('top_id', '=', active_id)]"
+                  context="{'default_top_id': active_id}"
+                  res_model="product.images"
+                  src_model="real.state.top"
+                  id="act_top_2_images"/>  
+      
+      <record id="load_product_media_act_window" model="ir.actions.act_window">
+          <field name="name">Load an image</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">load.product.media</field>
+          <field name="src_model">real.state.top</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+          <field name="context">{'create': True, 'top_id': active_id}</field>
+      </record>
+      
+      <record model="ir.values" id="load_product_media_ir_values">
+          <field name="model_id" ref="product.model_product_product" />
+          <field name="object" eval="1" />
+          <field name="name">Load an image</field>
+          <field name="key2">client_action_multi</field>
+          <field name="value" eval="'ir.actions.act_window,' + str(ref('load_product_media_act_window'))" />
+          <field name="key">action</field>
+          <field name="model">real.state.top</field>
+        </record> -->
+  </data>
+</openerp>

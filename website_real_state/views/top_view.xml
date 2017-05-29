@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+      
+      <record model="ir.ui.view" id="real_state_top_web_site_common">
+          <field name="name">real.state.top.form.web.site.common</field>
+          <field name="model">real.state.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_state_publication.real_state_top_form_publication"/>
+          <field name="arch" type="xml">
+                <separator string="Internet" position="before">
+                	<separator string="Website" colspan="8" />
+						<group col="6" colspan="8">
+							<field name="website_published" />
+                        	<field name="website_featured" />
+                        	<field name="website_opportunity" />
+                        	<field name="original_sale_price" />
+                        	<field name="original_rent_price" />
+                        	<field name="website_actsta" />
+						</group>
+                </separator>
+          </field>
+      </record>
+      
+  </data>
+</openerp>

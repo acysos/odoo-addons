@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_users_form_urbasa" model="ir.ui.view">
+            <field name="name">res.users.form.urbasa</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <field name="lang" position="after">
+                    <field name="color"/>
+                </field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

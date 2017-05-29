@@ -1,0 +1,58 @@
+<openerp>
+    <data>
+    
+            <record model="ir.ui.view" id="crm_top_suggested_tree_view">
+                <field name="name">crm.top.suggested.tree</field>
+                <field name="model">crm.top.suggested</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Tops Suggested">
+                        <field name="name"/>
+                        <field name="crm_id"/>
+                        <field name="interested"/>
+                    </tree>
+                </field>
+            </record>
+    
+		 <record model="ir.ui.view" id="crm_case_form_view_oppor_real_state">
+                <field name="name">crm.case.form.view.oppor.real.state</field>
+                <field name="model">crm.lead</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+                <field name="arch" type="xml">
+                    <page string="Lead" position="after">
+                        <page string="Real State">
+                            <group>
+                            	<field name="top_suggested_ids" colspan="4" nolabel="1" string="Tops Suggested">
+                                <tree string="Tops Suggested" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="interested"/>
+                                </tree>
+                            	</field>
+                            	<field name="top_type"/>
+                            	<field name="operation"/>
+                            	<field name="sale_price"/>
+	                            <field name="rent_price"/>
+	                            <field name="m2"/>
+	                            <field name="parking"/>
+	                            <field name="elevator"/>
+	                            <field name="prepared"/>
+	                        </group>
+	                        <field name="zone_ids" colspan="4"/>
+                        </page>
+                    </page>
+                    <field name="phone" position="after">
+                    	<field name="state"/>
+                    </field>
+                    <button name="case_mark_won" position="before">
+                    	<button name="change_statep" states="open,cancel,done,pending" string="Draft" type="object" context="{'state': 'draft'}"/>
+                    	<button name="change_statep" states="draft,cancel,done,pending" string="Open" type="object" context="{'state': 'open'}"/>
+                    	<button name="change_statep" states="open,draft,done,pending" string="Cancel" type="object" context="{'state': 'cancel'}"/>
+                    	<button name="change_statep" states="open,cancel,draft,pending" string="Done" type="object" context="{'state': 'done'}"/>
+                    	<button name="change_statep" states="open,cancel,done,draft" string="Pending" type="object" context="{'state': 'pending'}"/>
+                    </button>
+                </field>
+            </record>
+    
+    </data>
+</openerp>

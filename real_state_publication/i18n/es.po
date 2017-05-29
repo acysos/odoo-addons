@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_state_publication
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-12 10:55+0000\n"
+"PO-Revision-Date: 2017-05-12 13:01+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,actual:0
+#: field:real.state.top.press,actual:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: real_state_publication
+#: model:ir.model,name:real_state_publication.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,create_uid:0
+#: field:real.state.top.press,create_uid:0
+#: field:real.state.top.press.publication,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,create_date:0
+#: field:real.state.top.press,create_date:0
+#: field:real.state.top.press.publication,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: real_state_publication
+#: field:real.state.top.press.publication,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: real_state_publication
+#: field:real.state.top.press,date_publications:0
+msgid "Date Publications"
+msgstr "Fecha publicaciones"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,display_name:0
+#: field:real.state.top.press,display_name:0
+#: field:real.state.top.press.publication,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: real_state_publication
+#: field:real.state.top,energy_doc_url:0
+msgid "Energy URL"
+msgstr "Energy URL"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,id:0 field:real.state.top.press,id:0
+#: field:real.state.top.press.publication,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: real_state_publication
+#: view:real.state.top:real_state_publication.real_state_top_form_publication
+msgid "Images and documents"
+msgstr "Imágenes y Documentos"
+
+#. module: real_state_publication
+#: view:real.state.top:real_state_publication.real_state_top_form_publication
+msgid "In the top"
+msgstr "En el Inmueble"
+
+#. module: real_state_publication
+#: view:real.state.top:real_state_publication.real_state_top_form_publication
+msgid "Internet"
+msgstr "Internet"
+
+#. module: real_state_publication
+#: view:real.state.top:real_state_publication.real_state_top_form_publication
+#: field:real.state.top,internet_description:0
+msgid "Internet Description"
+msgstr "Descripción de Internet"
+
+#. module: real_state_publication
+#: field:real.state.top,internet_wo:0
+msgid "Internet WO Update"
+msgstr "Actualización Internet WO"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,__last_update:0
+#: field:real.state.top.press,__last_update:0
+#: field:real.state.top.press.publication,__last_update:0
+msgid "Last Modified on"
+msgstr "Última Modificación en"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,write_uid:0
+#: field:real.state.top.press,write_uid:0
+#: field:real.state.top.press.publication,write_uid:0
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,write_date:0
+#: field:real.state.top.press,write_date:0
+#: field:real.state.top.press.publication,write_date:0
+msgid "Last Updated on"
+msgstr "Última Actualización en"
+
+#. module: real_state_publication
+#: field:real.state.top.press.publication,page:0
+msgid "Page"
+msgstr "Página"
+
+#. module: real_state_publication
+#: field:real.state.top,poster:0
+msgid "Poster"
+msgstr "Cartel"
+
+#. module: real_state_publication
+#: view:real.state.top:real_state_publication.real_state_top_form_publication
+#: field:real.state.top.press,name:0
+#: field:real.state.top.press.publication,press_id:0
+msgid "Press"
+msgstr "Prensa"
+
+#. module: real_state_publication
+#: view:real.state.top:real_state_publication.real_state_top_form_publication
+#: field:real.state.top,publications:0
+msgid "Publications"
+msgstr "Publicaciones"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,top_id:0
+#: field:real.state.top.press,top_id:0
+msgid "Top"
+msgstr "Inmueble"
+
+#. module: real_state_publication
+#: field:real.state.top.internet.wo,name:0
+msgid "Website"
+msgstr "Página web"
+
+#. module: real_state_publication
+#: view:real.state.top:real_state_publication.real_state_top_form_publication
+msgid "Without Automatic Update"
+msgstr "Sin Actualización Automática"

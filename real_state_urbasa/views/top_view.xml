@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+      
+      <record model="ir.ui.view" id="real_state_top_form_urbasa">
+          <field name="name">real.state.top.form.urbasa</field>
+          <field name="model">real.state.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_state.real_state_top_form"/>
+          <field name="arch" type="xml">
+              <field name="swimming_pool" position="after">
+                  <field name="txoko" />
+                  <field name="txoko_description" attrs="{'invisible': [('txoko','=',False)]}" colspan="4" />
+              </field>
+              <field name="students" position="after">
+                  <field name="sanfermines" />
+              </field>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_state_top_filter_flat_urbasa">
+          <field name="name">real.state.top.filter.flat.urbasa</field>
+          <field name="model">real.state.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_state.real_state_top_filter_flat"/>
+          <field name="arch" type="xml">
+              <field name="students" position="after">
+                  <field name="sanfermines" />
+              </field>
+          </field>
+      </record>
+      
+  </data>
+</openerp>

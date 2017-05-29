@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+     © 2014-2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
+<openerp>
+<data>
+
+    <record id="real_state_image_form_view" model="ir.ui.view">
+        <field name="name">Imagenes</field>
+        <field name="model">real.state.top</field>
+        <field name="inherit_id" ref="real_state.real_state_top_form"/>
+        <field name="arch" type="xml">
+            <field name="attachments_url" position="after">
+                  <separator string="Web Images" colspan="4" />
+                    <field name="image_ids" nolabel="1" context="{
+                    		   'default_owner_model': 'real.state.top',
+                               'default_owner_id': id,
+                               'form_view_ref': 'base_multi_image.image_form_view',
+                               'kanban_view_ref': 'base_multi_image.image_kanban_view',
+                           }"
+                           mode="kanban">
+                           <form string="Image">
+				            <group>
+				                <group string="Owner">
+				                    <field name="sequence"/>
+				                    <field name="owner_model" invisible="1"/>
+                    				<field name="owner_id" invisible="1"/>
+				                </group>
+				                <group string="Name">
+				                    <field name="name"/>
+				                    <field name="storage"/>
+				                    <field name="extension"/>
+				                </group>
+				            </group>
+				            <group>
+				                <group string="Options">
+				                    <field
+				                        name="url"
+				                        attrs="{
+				                            'invisible': [('storage', '!=', 'url')],
+				                            'required': [('storage', '=', 'url')],
+				                        }"
+				                        widget="url"/>
+				                    <field
+				                        name="path"
+				                        attrs="{
+				                            'invisible': [('storage', '!=', 'file')],
+				                            'required': [('storage', '=', 'file')],
+				                        }"/>
+				                    <field name="filename" invisible="1"/>
+				                    <field
+				                        name="file_db_store"
+				                        attrs="{
+				                            'invisible': [('storage', '!=', 'db')],
+				                            'required': [('storage', '=', 'db')],
+				                        }"
+				                        filename="filename"/>
+				                </group>
+				                <group string="Preview">
+				                    <field name="image_medium"
+				                           widget="image"
+				                           readonly="True"
+				                           nolabel="1" />
+				                </group>
+				            </group>
+				            <group string="Comments">
+				                <field name="comments" nolabel="1" />
+				            </group>
+				        </form>
+                    </field>
+              </field>
+        </field>
+    </record>
+</data>
+</openerp>

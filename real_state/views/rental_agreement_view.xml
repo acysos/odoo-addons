@@ -1,0 +1,75 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="rental_agreement_form">
+            <field name="name">rental.agreement.form</field>
+            <field name="model">rental.agreement</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Real State Top">
+                    <group>
+                    	<field name="name" />
+	                    <field name="top_id"/>
+	                    <field name="owner_id" />
+	                    <field name="partner_id" />
+	                    <field name="signing_date" />
+	                    <field name="start_date" />
+	                    <field name="end_date" />
+	                    <field name="rent_price" />
+	                    <field name="rent_attachments_url" colspan="4" widget="url" /> 
+	                    <field name="notes" colspan="4" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="rental_agreement_tree">
+            <field name="name">rental.agreement.tree</field>
+            <field name="model">rental.agreement</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Rental Agreements">
+                    <field name="name" />
+                    <field name="top_id" />
+                    <field name="partner_id" />
+                    <field name="signing_date"/>
+                    <field name="start_date" />
+                    <field name="end_date" />
+                    <field name="rent_price" />
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="rental_agreement_filter">
+            <field name="name">rental.agreement.filter</field>
+            <field name="model">rental.agreement</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Rental Agreements">
+                    <group col="10" colspan="4">
+                        <field name="name" />
+                        <field name="top_id" />
+                        <field name="partner_id" />
+                        <field name="owner_id" />
+                        <newline />
+                        <field name="start_date" />
+                        <field name="end_date" />
+                        <field name="signing_date" />
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="rental_agreement_act">
+            <field name="name">Rental Agreements</field>
+            <field name="res_model">rental.agreement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem
+                 action="rental_agreement_act"
+                 id="menu_rental_agreement_list"
+                 parent="menu_real_state_top"
+        sequence="10"/>
+        
+    </data>
+</openerp>
+
