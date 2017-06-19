@@ -49,11 +49,27 @@
 
         <record id="aeat_sii_map_line_SFESBE" model="aeat.sii.map.lines">
             <field name="code">SFESBE</field>
+            <field name="taxes"/>
+            <field name="sii_map_id" ref="aeat_sii_map"/>
+            <field name="name">SuministroFactEmitidas Bienes Exento</field>
+        </record>
+        
+        <record id="aeat_sii_map_line_SFESBEI" model="aeat.sii.map.lines">
+            <field name="code">SFESBEI</field>
             <field name="taxes" eval="[(6, 0, [
                 ref('l10n_es.account_tax_template_s_iva0_ic')
             ])]"/>
             <field name="sii_map_id" ref="aeat_sii_map"/>
-            <field name="name">SuministroFactEmitidas Bienes Exento</field>
+            <field name="name">SuministroFactEmitidas Bienes Exento Intracomunitarias</field>
+        </record>
+        
+        <record id="aeat_sii_map_line_SFESBEE" model="aeat.sii.map.lines">
+            <field name="code">SFESBEE</field>
+            <field name="taxes" eval="[(6, 0, [
+                ref('l10n_es.account_tax_template_s_iva0_e')
+            ])]"/>
+            <field name="sii_map_id" ref="aeat_sii_map"/>
+            <field name="name">SuministroFactEmitidas Bienes Exento Exportaciones</field>
         </record>
 
         <record id="aeat_sii_map_line_SFESSE" model="aeat.sii.map.lines">

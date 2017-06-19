@@ -182,8 +182,14 @@ class AccountInvoice(models.Model):
         if not company.vat:
             raise exceptions.Warning(_(
                 "No VAT configured for the company '{}'").format(company.name))
-        id_version_sii = self.env['ir.config_parameter'].get_param(
-            'l10n_es_aeat_sii.version', False)
+        print company
+        print company.sii_test
+        if not company.sii_test:
+            id_version_sii = self.env['ir.config_parameter'].get_param(
+                'l10n_es_aeat_sii.version', False)
+        else:
+            id_version_sii = self.env['ir.config_parameter'].get_param(
+                'l10n_es_aeat_sii.version.pruebas', False)
         header = {
             "IDVersionSii": id_version_sii,
             "Titular": {
@@ -272,6 +278,8 @@ class AccountInvoice(models.Model):
         taxes_to = {}
         taxes_sfesb = self._get_taxes_map(['SFESB'], self.date_invoice)
         taxes_sfesbe = self._get_taxes_map(['SFESBE'], self.date_invoice)
+        taxes_sfesbei = self._get_taxes_map(['SFESBEI'], self.date_invoice)
+        taxes_sfesbee = self._get_taxes_map(['SFESBEE'], self.date_invoice)
         taxes_sfesisp = self._get_taxes_map(['SFESISP'], self.date_invoice)
         # taxes_sfesisps = self._get_taxes_map(['SFESISPS'], self.date_invoice)
         taxes_sfens = self._get_taxes_map(['SFENS'], self.date_invoice)
@@ -281,22 +289,33 @@ class AccountInvoice(models.Model):
         for line in self.invoice_line:
             for tax_line in line.invoice_line_tax_id:
                 if tax_line in taxes_sfesb or tax_line in taxes_sfesisp or \
-                        tax_line in taxes_sfens:
+                        tax_line in taxes_sfens or tax_line in taxes_sfesbe or \
+                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
                     if 'DesgloseFactura' not in taxes_sii:
                         taxes_sii['DesgloseFactura'] = {}
                     inv_breakdown = taxes_sii['DesgloseFactura']
-                    if tax_line in taxes_sfesb:
+                    if tax_line in taxes_sfesb or tax_line in taxes_sfesbe or \
+                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
                         if 'Sujeta' not in inv_breakdown:
                             inv_breakdown['Sujeta'] = {}
                         # TODO l10n_es no tiene impuesto exento de bienes
                         # corrientes nacionales
-                        if tax_line in taxes_sfesbe:
+                        if tax_line in taxes_sfesbe or \
+                            tax_line in taxes_sfesbei or \
+                            tax_line in taxes_sfesbee:
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {
                                     'BaseImponible': line.price_subtotal}
+                                if tax_line in taxes_sfesbei:
+                                    inv_breakdown['Sujeta']['Exenta'][
+                                        'CausaExencion'] = 'E5'
+                                if tax_line in taxes_sfesbee:
+                                    inv_breakdown['Sujeta']['Exenta'][
+                                        'CausaExencion'] = 'E2'
                             else:
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'BaseImponible'] += line.price_subtotal
+                                
                         # TODO Facturas No sujetas
                         if tax_line in taxes_sfesb or \
                                 tax_line in taxes_sfesisp:
@@ -392,6 +411,7 @@ class AccountInvoice(models.Model):
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
+        print taxes_sii
         return taxes_sii
 
     @api.multi
