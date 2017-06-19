@@ -7,7 +7,7 @@ Suministro Inmediato de Información en el IVA
 =============================================
 
 Módulo para la presentación inmediata del IVA
-http://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_05/SII_Descripcion_ServicioWeb_v0.5_es_es.pdf
+http://www.agenciatributaria.es/AEAT.internet/SII.html
 
 Installation
 ============
@@ -65,13 +65,6 @@ Cuando se valida una factura automáticamente envia la comunicación al servidor
 de AEAT.
 
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/{repo_id}/{branch}
-
-.. repo_id is available in https://github.com/OCA/maintainer-tools/blob/master/tools/repos_with_ids.txt
-.. branch is "8.0" for example
-
 Known issues / Roadmap
 ======================
 
@@ -83,53 +76,26 @@ Known issues / Roadmap
 * Asistente para consultar los documentos comunicados
 * Libro de bienes de inversión (Libro anual se crea un módulo aparte)
 * Regimenes especial de seguros y agencias de viaje
-* Evio de facturas del primer semestre (Parcial, esta el botón de envio manual, falta un asistente de envio masivo)
-
-Bug Tracker
-===========
-
-Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/l10n-spain/issues>`_. In case of trouble, please
-check there if your issue has already been reported. If you spotted it first,
-help us smash it by providing detailed and welcomed feedback.
+* Envio de facturas del primer semestre (Parcial, esta el botón de envio manual, falta un asistente de envio masivo)
 
 Credits
 =======
-
-Images
-------
-
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
 
 * Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>
-* Diagram Software S.L.
+* Oihane Crucelaegui - Avanzosc S.L. <oihanecrucelaegi@avanzosc.es>
+* Rubén Cerdà -Diagram Software S.L. <ruben.cerda.roig@diagram.es>
 * Ramon Guiu - Minorisa S.L. <ramon.guiu@minorisa.net>
-* Pablo Fuentes <pablo@studio73.es>
-* Jordi Tolsà <jordi@studio73.es>
+* Pablo Fuentes - Studio73 <pablo@studio73.es>
+* Jordi Tolsà - Studio73 <jordi@studio73.es>
 * Omar Castiñeira - Comunitea S.L. <omar@comunitea.com>
 
-Funders
--------
-
-The development of this module has been financially supported by:
-
-* Company 1 name
-* Company 2 name
 
 Maintainer
 ----------
 
-.. image:: https://odoo-community.org/logo.png
-   :alt: Odoo Community Association
-   :target: https://odoo-community.org
-
-This module is maintained by the OCA.
-
-OCA, or the Odoo Community Association, is a nonprofit organization whose
-mission is to support the collaborative development of Odoo features and
-promote its widespread use.
-
-To contribute to this module, please visit https://odoo-community.org.
+.. image:: https://acysos.com/website_logo.png
+   :alt: Acysos S.L.
+   :target: https://www.acysos.com
