@@ -37,10 +37,12 @@ class AccountInvoice(osv.osv):
         'refund_type': fields.selection(
             selection=[('S', 'By substitution'), ('I', 'By differences')],
             string="Refund Type"),
-        'sii_enabled': fields.related('company_id','sii_enabled',type='boolean',
-                                      relation='res.company',string='SII Enabled',
-                                      store=True,readonly=True),
-        'registration_key': fields.many2one('aeat.sii.mapping.registration.keys', "Registration key", required=True)
+        'sii_enabled': fields.related(
+            'company_id', 'sii_enabled', type='boolean', relation='res.company',
+            string='SII Enabled', store=True, readonly=True),
+        'registration_key': fields.many2one(
+            'aeat.sii.mapping.registration.keys', "Registration key",
+            required=True)
     }
 
     _defaults = {
@@ -111,8 +113,12 @@ class AccountInvoice(osv.osv):
         if not company.partner_id.vat:
             raise Warning(_(
                 "No VAT configured for the company '{}'").format(company.name))
-        id_version_sii = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'l10n_es_aeat_sii.version', False)
+        if not company.sii_test:
+            id_version_sii = self.pool.get('ir.config_parameter').get_param(
+                cr, uid, 'l10n_es_aeat_sii.version', False)
+        else:
+            id_version_sii = self.pool.get('ir.config_parameter').get_param(
+                cr, uid, 'l10n_es_aeat_sii.version.pruebas', False)
         header = {
             "IDVersionSii": id_version_sii,
             "Titular": {
@@ -191,7 +197,12 @@ class AccountInvoice(osv.osv):
         taxes_to = {}
         taxes_sfesb = self._get_taxes_map(cr, uid, ['SFESB'],
                                           invoice.date_invoice, invoice)
-        taxes_sfesbe = self._get_taxes_map(cr, uid, ['SFESBE'], invoice.date_invoice, invoice)
+        taxes_sfesbe = self._get_taxes_map(
+            cr, uid, ['SFESBE'], invoice.date_invoice, invoice)
+        taxes_sfesbei = self._get_taxes_map(
+            cr, uid, ['SFESBEI'], invoice.date_invoice, invoice)
+        taxes_sfesbee = self._get_taxes_map(
+            cr, uid, ['SFESBEE'], invoice.date_invoice, invoice)
         taxes_sfesisp = self._get_taxes_map(cr, uid, ['SFESISP'],
                                             invoice.date_invoice, invoice)
         # taxes_sfesisps = self._get_taxes_map(cr, uid, ['SFESISPS'], self.date_invoice, invoice)
@@ -204,19 +215,29 @@ class AccountInvoice(osv.osv):
         for line in invoice.invoice_line:
             for tax_line in line.invoice_line_tax_id:
                 if tax_line in taxes_sfesb or tax_line in taxes_sfesisp or \
-                        tax_line in taxes_sfens:
+                        tax_line in taxes_sfens or tax_line in taxes_sfesbe or \
+                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
                     if 'DesgloseFactura' not in taxes_sii:
                         taxes_sii['DesgloseFactura'] = {}
                     inv_breakdown = taxes_sii['DesgloseFactura']
-                    if tax_line in taxes_sfesb:
+                    if tax_line in taxes_sfesb or tax_line in taxes_sfesbe or \
+                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
                         if 'Sujeta' not in inv_breakdown:
                             inv_breakdown['Sujeta'] = {}
                         # TODO l10n_es no tiene impuesto exento de bienes
                         # corrientes nacionales
-                        if tax_line in taxes_sfesbe:
+                        if tax_line in taxes_sfesbe or \
+                            tax_line in taxes_sfesbei or \
+                            tax_line in taxes_sfesbee:
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {
                                     'BaseImponible': line.price_subtotal}
+                                if tax_line in taxes_sfesbei:
+                                    inv_breakdown['Sujeta']['Exenta'][
+                                        'CausaExencion'] = 'E5'
+                                if tax_line in taxes_sfesbee:
+                                    inv_breakdown['Sujeta']['Exenta'][
+                                        'CausaExencion'] = 'E2'
                             else:
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'BaseImponible'] += line.price_subtotal
@@ -371,7 +392,7 @@ class AccountInvoice(osv.osv):
         if not invoice.partner_id.vat:
             raise Warning(_(
                 "The partner '{}' has not a VAT configured.").format(
-                    self.partner_id.name))
+                    invoice.partner_id.name))
         invoice_date = self._change_date_format(cr, uid, invoice.date_invoice)
         ejercicio = invoice.period_id.fiscalyear_id.date_start[0:4]
         periodo = invoice.period_id.date_start[5:7]
