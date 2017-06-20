@@ -647,7 +647,7 @@ class AccountInvoice(models.Model):
                 #     'account.fp_intra').id:
                 #     res = serv.SuministroLRDetOperacionIntracomunitaria(
                 #         header, invoices)
-                if res['EstadoEnvio'] in ['Correcto', 'AceptadoConErrores']:
+                if res['EstadoRegistro'] in ['Correcto', 'AceptadoConErrores']:
                     self.sii_sent = True
                     self.sii_csv = res['CSV']
                 else:
@@ -791,20 +791,29 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_sii_identifier(self):
         self.ensure_one()
-        codPais = self.partner_id.vat[:2]
         dic_ret = {}
-        if codPais != 'ES':
-            if self.fiscal_position.name == u'Régimen Intracomunitario':
-                idType = '02'
-            else:
-                idType = '04'
+        vat = ''.join(e for e in self.partner_id.vat if e.isalnum()).upper()
+        if self.fiscal_position.name == u'Régimen Intracomunitario':
             dic_ret = {
                 "IDOtro": {
-                    "CodigoPais": codPais,
-                    "IDType": idType,
-                    "ID": self.partner_id.vat
+                    "IDType": '02',
+                    "ID": vat
                 }
             }
+        elif self.fiscal_position.name == \
+                u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
+            dic_ret = {
+                "IDOtro": {
+                    "CodigoPais":
+                        self.partner_id.country_id and
+                        self.partner_id.country_id.code or
+                        vat[:2],
+                    "IDType": '04',
+                    "ID": vat
+                  }
+            }
+        elif vat.startswith('ESN'):
+            dic_ret = {"NIF": self.partner_id.vat[2:]}
         else:
             dic_ret = {"NIF": self.partner_id.vat[2:]}
         return dic_ret
