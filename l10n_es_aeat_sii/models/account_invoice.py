@@ -647,7 +647,7 @@ class AccountInvoice(models.Model):
                 #     'account.fp_intra').id:
                 #     res = serv.SuministroLRDetOperacionIntracomunitaria(
                 #         header, invoices)
-                if res['EstadoRegistro'] in ['Correcto', 'AceptadoConErrores']:
+                if res['EstadoEnvio'] in ['Correcto', 'ParcialmenteCorrecto']:
                     self.sii_sent = True
                     self.sii_csv = res['CSV']
                 else:
