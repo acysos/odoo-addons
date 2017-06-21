@@ -806,6 +806,10 @@ class AccountInvoice(models.Model):
         if self.fiscal_position.name == u'Régimen Intracomunitario':
             dic_ret = {
                 "IDOtro": {
+                    "CodigoPais":
+                        self.partner_id.country_id and
+                        self.partner_id.country_id.code or
+                        vat[:2],
                     "IDType": '02',
                     "ID": vat
                 }
