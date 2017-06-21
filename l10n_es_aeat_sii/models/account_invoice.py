@@ -113,12 +113,13 @@ class AccountInvoice(osv.osv):
         if not company.partner_id.vat:
             raise Warning(_(
                 "No VAT configured for the company '{}'").format(company.name))
-        if not company.sii_test:
-            id_version_sii = self.pool.get('ir.config_parameter').get_param(
-                cr, uid, 'l10n_es_aeat_sii.version', False)
-        else:
-            id_version_sii = self.pool.get('ir.config_parameter').get_param(
-                cr, uid, 'l10n_es_aeat_sii.version.pruebas', False)
+#         if not company.sii_test:
+#             id_version_sii = self.pool.get('ir.config_parameter').get_param(
+#                 cr, uid, 'l10n_es_aeat_sii.version', False)
+#         else:
+#             id_version_sii = self.pool.get('ir.config_parameter').get_param(
+#                 cr, uid, 'l10n_es_aeat_sii.version.pruebas', False)
+        id_version_sii = '0.7'
         header = {
             "IDVersionSii": id_version_sii,
             "Titular": {
@@ -215,29 +216,19 @@ class AccountInvoice(osv.osv):
         for line in invoice.invoice_line:
             for tax_line in line.invoice_line_tax_id:
                 if tax_line in taxes_sfesb or tax_line in taxes_sfesisp or \
-                        tax_line in taxes_sfens or tax_line in taxes_sfesbe or \
-                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
+                        tax_line in taxes_sfens or tax_line in taxes_sfesbe:
                     if 'DesgloseFactura' not in taxes_sii:
                         taxes_sii['DesgloseFactura'] = {}
                     inv_breakdown = taxes_sii['DesgloseFactura']
-                    if tax_line in taxes_sfesb or tax_line in taxes_sfesbe or \
-                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
+                    if tax_line in taxes_sfesb or tax_line in taxes_sfesbe:
                         if 'Sujeta' not in inv_breakdown:
                             inv_breakdown['Sujeta'] = {}
                         # TODO l10n_es no tiene impuesto exento de bienes
                         # corrientes nacionales
-                        if tax_line in taxes_sfesbe or \
-                            tax_line in taxes_sfesbei or \
-                            tax_line in taxes_sfesbee:
+                        if tax_line in taxes_sfesbe:
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {
                                     'BaseImponible': line.price_subtotal}
-                                if tax_line in taxes_sfesbei:
-                                    inv_breakdown['Sujeta']['Exenta'][
-                                        'CausaExencion'] = 'E5'
-                                if tax_line in taxes_sfesbee:
-                                    inv_breakdown['Sujeta']['Exenta'][
-                                        'CausaExencion'] = 'E2'
                             else:
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'BaseImponible'] += line.price_subtotal
@@ -273,23 +264,38 @@ class AccountInvoice(osv.osv):
                                     cr, uid,
                                     taxes_f, tax_line, line,
                                     line.invoice_line_tax_id, invoice)
-                if tax_line in taxes_sfess or tax_line in taxes_sfesse:
+                if tax_line in taxes_sfess or tax_line in taxes_sfesse or \
+                        tax_line in taxes_sfesbee or tax_line in taxes_sfesbei:
                     if 'DesgloseTipoOperacion' not in taxes_sii:
                         taxes_sii['DesgloseTipoOperacion'] = {}
                     type_breakdown = taxes_sii['DesgloseTipoOperacion']
-                    if 'PrestacionServicios' not in type_breakdown:
-                        type_breakdown['PrestacionServicios'] = {}
-                    if 'Sujeta' not in type_breakdown['PrestacionServicios']:
-                        type_breakdown['PrestacionServicios']['Sujeta'] = {}
-                    if tax_line in taxes_sfesse:
-                        if 'Exenta' not in taxes_sii['DesgloseFactura'][
-                                'Sujeta']:
-                            taxes_sii['DesgloseFactura']['Sujeta'][
+                    if tax_line in taxes_sfess or \
+                            tax_line in taxes_sfesse:
+                        if 'PrestacionServicios' not in type_breakdown:
+                            type_breakdown['PrestacionServicios'] = {}
+                        op_key = 'PrestacionServicios'
+                    if tax_line in taxes_sfesbee or tax_line in taxes_sfesbei:
+                        if 'Entrega' not in type_breakdown:
+                            type_breakdown['Entrega'] = {}
+                        op_key = 'Entrega'
+                    if 'Sujeta' not in type_breakdown[op_key]:
+                        type_breakdown[op_key]['Sujeta'] = {}
+                    if tax_line in taxes_sfesse or \
+                            tax_line in taxes_sfesbee or \
+                            tax_line in taxes_sfesbei:
+                        if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
+                            type_breakdown[op_key]['Sujeta'][
                                 'Exenta'] = {
                                     'BaseImponible': line.price_subtotal}
+                            if tax_line in taxes_sfesbee:
+                                type_breakdown[op_key]['Sujeta']['Exenta'][
+                                    'CausaExencion'] = 'E2'
+                            if tax_line in taxes_sfesbei:
+                                type_breakdown[op_key]['Sujeta']['Exenta'][
+                                    'CausaExencion'] = 'E5'
                         else:
-                            taxes_sii['DesgloseFactura']['Sujeta']['Exenta'][
-                                'BaeImponible'] += line.price_subtotal
+                            type_breakdown[op_key]['Sujeta']['Exenta'][
+                                'BaseImponible'] += line.price_subtotal
                     # TODO Facturas no sujetas
                     if tax_line in taxes_sfess:
                         if 'NoExenta' not in type_breakdown[
@@ -452,7 +458,7 @@ class AccountInvoice(osv.osv):
                 tipo_facturea = 'R4'
             desglose_factura = self._get_sii_in_taxes(cr, uid, invoice)
             cuota_deducible = 0
-            cuota_deducible = invoice.amount_tax
+#             cuota_deducible = invoice.amount_tax
             if 'DesgloseIVA' in desglose_factura:
                 for desglose in desglose_factura['DesgloseIVA']['DetalleIVA']:
                     cuota_deducible += desglose['CuotaSoportada']
@@ -550,7 +556,7 @@ class AccountInvoice(osv.osv):
                 #     'account.fp_intra').id:
                 #     res = serv.SuministroLRDetOperacionIntracomunitaria(
                 #         header, invoices)
-                if res['EstadoEnvio'] in ['Correcto', 'AceptadoConErrores']:
+                if res['EstadoEnvio'] in ['Correcto', 'ParcialmenteCorrecto']:
                     return_vals = {'sii_sent': True, 'sii_csv': res['CSV'],
                                    'sii_return': res}
                 else:
@@ -582,20 +588,33 @@ class AccountInvoice(osv.osv):
         return super(AccountInvoice, self).copy(cr, uid, id, default, context=context)
 
     def _get_sii_identifier(self, cr, uid, invoice, context=None):
-        codPais = invoice.partner_id.country.code
         dic_ret = {}
-        if codPais != 'ES':
-            if invoice.fiscal_position.name == u'Régimen Intracomunitario':
-                idType = '02'
-            else:
-                idType = '04'
+        vat = ''.join(e for e in invoice.partner_id.vat if e.isalnum()).upper()
+        if invoice.fiscal_position.name == u'Régimen Intracomunitario':
             dic_ret = {
                 "IDOtro": {
-                    "CodigoPais": codPais,
-                    "IDType": idType,
-                    "ID": invoice.partner_id.vat
+                    "CodigoPais":
+                        invoice.address_invoice_id.country_id and
+                        invoice.address_invoice_id.country_id.code or
+                        vat[:2],
+                    "IDType": '02',
+                    "ID": vat
                 }
             }
+        elif invoice.fiscal_position.name == \
+                u'Régimen Extracomunitario':
+            dic_ret = {
+                "IDOtro": {
+                    "CodigoPais":
+                        invoice.address_invoice_id.country_id and
+                        invoice.address_invoice_id.country_id.code or
+                        vat[:2],
+                    "IDType": '04',
+                    "ID": vat
+                  }
+            }
+        elif vat.startswith('ESN'):
+            dic_ret = {"NIF": invoice.partner_id.vat[2:]}
         else:
             dic_ret = {"NIF": invoice.partner_id.vat[2:]}
         return dic_ret
