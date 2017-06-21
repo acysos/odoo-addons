@@ -182,8 +182,6 @@ class AccountInvoice(models.Model):
         if not company.vat:
             raise exceptions.Warning(_(
                 "No VAT configured for the company '{}'").format(company.name))
-        print company
-        print company.sii_test
         if not company.sii_test:
             id_version_sii = self.env['ir.config_parameter'].get_param(
                 'l10n_es_aeat_sii.version', False)
@@ -289,34 +287,24 @@ class AccountInvoice(models.Model):
         for line in self.invoice_line:
             for tax_line in line.invoice_line_tax_id:
                 if tax_line in taxes_sfesb or tax_line in taxes_sfesisp or \
-                        tax_line in taxes_sfens or tax_line in taxes_sfesbe or \
-                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
+                        tax_line in taxes_sfens or tax_line in taxes_sfesbe:
                     if 'DesgloseFactura' not in taxes_sii:
                         taxes_sii['DesgloseFactura'] = {}
                     inv_breakdown = taxes_sii['DesgloseFactura']
                     if tax_line in taxes_sfesb or tax_line in taxes_sfesbe or \
-                        tax_line in taxes_sfesbei or tax_line in taxes_sfesbee:
+                            tax_line in taxes_sfesbee:
                         if 'Sujeta' not in inv_breakdown:
                             inv_breakdown['Sujeta'] = {}
                         # TODO l10n_es no tiene impuesto exento de bienes
                         # corrientes nacionales
-                        if tax_line in taxes_sfesbe or \
-                            tax_line in taxes_sfesbei or \
-                            tax_line in taxes_sfesbee:
+                        if tax_line in taxes_sfesbe:
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {
                                     'BaseImponible': line.price_subtotal}
-                                if tax_line in taxes_sfesbei:
-                                    inv_breakdown['Sujeta']['Exenta'][
-                                        'CausaExencion'] = 'E5'
-                                if tax_line in taxes_sfesbee:
-                                    inv_breakdown['Sujeta']['Exenta'][
-                                        'CausaExencion'] = 'E2'
                             else:
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'BaseImponible'] += line.price_subtotal
-                                
-                        # TODO Facturas No sujetas
+
                         if tax_line in taxes_sfesb or \
                                 tax_line in taxes_sfesisp:
                             if 'NoExenta' not in inv_breakdown[
@@ -346,25 +334,49 @@ class AccountInvoice(models.Model):
                                 taxes_f = self._update_sii_tax_line(
                                     taxes_f, tax_line, line,
                                     line.invoice_line_tax_id)
-                if tax_line in taxes_sfess or tax_line in taxes_sfesse:
+                    # TODO l10n_es no dispone de NoSujetas de bienes
+                if tax_line in taxes_sfess or tax_line in taxes_sfesse or \
+                    tax_line in taxes_sfens or tax_line in taxes_sfesbee or \
+                        tax_line in taxes_sfesbei:
                     if 'DesgloseTipoOperacion' not in taxes_sii:
                         taxes_sii['DesgloseTipoOperacion'] = {}
                     type_breakdown = taxes_sii['DesgloseTipoOperacion']
-                    if 'PrestacionServicios' not in type_breakdown:
-                        type_breakdown['PrestacionServicios'] = {}
-                    if 'Sujeta' not in type_breakdown['PrestacionServicios']:
-                        type_breakdown['PrestacionServicios']['Sujeta'] = {}
-                    if tax_line in taxes_sfesse:
-                        if 'Exenta' not in taxes_sii['DesgloseTipoOperacion'][
-                                'PrestacionServicios']['Sujeta']:
-                            taxes_sii['DesgloseTipoOperacion'][
-                                'PrestacionServicios']['Sujeta']['Exenta'] = {
-                                'BaseImponible': line.price_subtotal}
+                    if tax_line in taxes_sfess or \
+                            tax_line in taxes_sfesse or tax_line in taxes_sfens:
+                        if 'PrestacionServicios' not in type_breakdown:
+                            type_breakdown['PrestacionServicios'] = {}
+                        op_key = 'PrestacionServicios'
+                    if tax_line in taxes_sfesbee or tax_line in taxes_sfesbei:
+                        if 'Entrega' not in type_breakdown:
+                            type_breakdown['Entrega'] = {}
+                        op_key = 'Entrega'
+                    if tax_line in taxes_sfens:
+                        if 'NoSujeta' not in inv_breakdown:
+                            type_breakdown[op_key]['NoSujeta'] = {}
+                            type_breakdown[op_key]['NoSujeta'][
+                                'ImportePorArticulos7_14_Otros'] = line.price_subtotal
                         else:
-                            taxes_sii['DesgloseTipoOperacion'][
-                                'PrestacionServicios']['Sujeta']['Exenta'][
+                            type_breakdown[op_key]['NoSujeta'][
+                                'ImportePorArticulos7_14_Otros'] += line.price_subtotal
+                    else:
+                        if 'Sujeta' not in type_breakdown[op_key]:
+                            type_breakdown[op_key]['Sujeta'] = {}
+                    if tax_line in taxes_sfesse or \
+                            tax_line in taxes_sfesbee or \
+                            tax_line in taxes_sfesbei:
+                        if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
+                            type_breakdown[op_key]['Sujeta'][
+                                'Exenta'] = {
+                                    'BaseImponible': line.price_subtotal}
+                            if tax_line in taxes_sfesbee:
+                                type_breakdown[op_key]['Sujeta']['Exenta'][
+                                    'CausaExencion'] = 'E2'
+                            if tax_line in taxes_sfesbei:
+                                type_breakdown[op_key]['Sujeta']['Exenta'][
+                                    'CausaExencion'] = 'E5'
+                        else:
+                            type_breakdown[op_key]['Sujeta']['Exenta'][
                                 'BaseImponible'] += line.price_subtotal
-                    # TODO Facturas no sujetas
                     if tax_line in taxes_sfess:
                         if 'NoExenta' not in type_breakdown[
                                 'PrestacionServicios']['Sujeta']:
@@ -411,7 +423,6 @@ class AccountInvoice(models.Model):
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
-        print taxes_sii
         return taxes_sii
 
     @api.multi
@@ -543,8 +554,7 @@ class AccountInvoice(models.Model):
                     "DescripcionOperacion": self.sii_description[0:500],
                     "DesgloseFactura": desglose_factura,
                     "Contraparte": {
-                        "NombreRazon": self.partner_id.name[0:120],
-                        "NIF": self.partner_id.vat[2:]
+                        "NombreRazon": self.partner_id.name[0:120]
                     },
                     "FechaRegContable": invoice_date,
                     "CuotaDeducible": self.amount_tax
