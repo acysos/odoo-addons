@@ -29,7 +29,9 @@
                         <group string="SII Result">
                             <field name="sii_sent" />
                             <field name="sii_csv"/>
-                            <field name="sii_return" />
+<!--                             <field name="sii_return" /> -->
+                            <label for="sii_results" colspan="4"/>
+                            <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
                             <field name="sii_recc_sent" />
                             <field name="sii_recc_csv"/>
                             <field name="sii_recc_return" />
@@ -77,7 +79,9 @@
                         <group string="SII Result">
                             <field name="sii_sent" />
                             <field name="sii_csv"/>
-                            <field name="sii_return" />
+                            <!-- <field name="sii_return" /> -->
+                            <label for="sii_results" colspan="4"/>
+                            <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
                             <field name="sii_recc_sent"/>
                             <field name="sii_recc_csv"/>
                             <field name="sii_recc_return" />

@@ -69,12 +69,11 @@ Known issues / Roadmap
 ======================
 
 * Comunicación de cobros y pagos RECC con conector
-* Comunicación de cobros y pagos en métalico
+* Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
 * Factura simplificada
-* Facturas No sujetas según el art 7.14 y no sujetas en el TAI (PR Enviado)
 * Asistente para consultar los documentos comunicados
-* Libro de bienes de inversión (Libro anual se crea un módulo aparte)
+* Operación anual. Libro de bienes de inversión (Libro anual se crea un módulo aparte)
 * Regimenes especial de seguros y agencias de viaje
 * Envio de facturas del primer semestre (Parcial, esta el botón de envio manual, falta un asistente de envio masivo)
 

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 16:57+0000\n"
-"PO-Revision-Date: 2017-06-18 19:07+0200\n"
+"POT-Creation-Date: 2017-06-22 21:12+0000\n"
+"PO-Revision-Date: 2017-06-22 23:21+0200\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -57,6 +57,12 @@ msgid "Aeat SII Registration Keys"
 msgstr "Aeat SII Tabla de claves"
 
 #. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_tree
+msgid "Aeat SII Result"
+msgstr "Resultado SII"
+
+#. module: l10n_es_aeat_sii
 #: selection:res.company,send_mode:0
 msgid "At fixed time"
 msgstr "A hora fija"
@@ -80,6 +86,11 @@ msgstr "Por diferencias"
 #: selection:account.invoice,refund_type:0
 msgid "By substitution"
 msgstr "Por sustitución"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,csv:0 field:aeat.sii.result,registry_csv:0
+msgid "CSV"
+msgstr "CSV"
 
 #. module: l10n_es_aeat_sii
 #: view:l10n.es.aeat.sii.password:l10n_es_aeat_sii.l10n_es_sii_password_wizard_view
@@ -109,6 +120,11 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,name:0
+msgid "Company Name"
+msgstr "NombreRazon"
+
+#. module: l10n_es_aeat_sii
 #: field:l10n.es.aeat.sii,company_id:0
 msgid "Compañía"
 msgstr "Compañía"
@@ -119,10 +135,15 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,country_code:0
+msgid "Country Code"
+msgstr "CodigoPais"
+
+#. module: l10n_es_aeat_sii
 #: field:aeat.sii.map,create_uid:0 field:aeat.sii.map.lines,create_uid:0
 #: field:aeat.sii.mapping.registration.keys,create_uid:0
 #: field:aeat.sii.payment.mode.key,create_uid:0
-#: field:l10n.es.aeat.sii,create_uid:0
+#: field:aeat.sii.result,create_uid:0 field:l10n.es.aeat.sii,create_uid:0
 #: field:l10n.es.aeat.sii.password,create_uid:0
 msgid "Created by"
 msgstr "Creado por"
@@ -131,10 +152,15 @@ msgstr "Creado por"
 #: field:aeat.sii.map,create_date:0 field:aeat.sii.map.lines,create_date:0
 #: field:aeat.sii.mapping.registration.keys,create_date:0
 #: field:aeat.sii.payment.mode.key,create_date:0
-#: field:l10n.es.aeat.sii,create_date:0
+#: field:aeat.sii.result,create_date:0 field:l10n.es.aeat.sii,create_date:0
 #: field:l10n.es.aeat.sii.password,create_date:0
 msgid "Created on"
 msgstr "Creado en"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,date:0
+msgid "Date Invoice"
+msgstr "FechaExpedicionFacturaEmisor"
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.sii.map,date_from:0
@@ -165,7 +191,7 @@ msgstr "Tiempo de retardo"
 #: field:aeat.sii.map,display_name:0 field:aeat.sii.map.lines,display_name:0
 #: field:aeat.sii.mapping.registration.keys,display_name:0
 #: field:aeat.sii.payment.mode.key,display_name:0
-#: field:l10n.es.aeat.sii,display_name:0
+#: field:aeat.sii.result,display_name:0 field:l10n.es.aeat.sii,display_name:0
 #: field:l10n.es.aeat.sii.password,display_name:0
 msgid "Display Name"
 msgstr "Nombre"
@@ -247,12 +273,23 @@ msgid "Group By..."
 msgstr "Agrupar por..."
 
 #. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Header"
+msgstr "Cabecera"
+
+#. module: l10n_es_aeat_sii
 #: field:aeat.sii.map,id:0 field:aeat.sii.map.lines,id:0
 #: field:aeat.sii.mapping.registration.keys,id:0
-#: field:aeat.sii.payment.mode.key,id:0 field:l10n.es.aeat.sii,id:0
+#: field:aeat.sii.payment.mode.key,id:0 field:aeat.sii.result,id:0
+#: field:aeat.sii.result,number_id:0 field:l10n.es.aeat.sii,id:0
 #: field:l10n.es.aeat.sii.password,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,id_version_sii:0
+msgid "ID Version SII"
+msgstr "IDVersionSii"
 
 #. module: l10n_es_aeat_sii
 #: code:addons/l10n_es_aeat_sii/models/aeat_sii.py:35
@@ -262,6 +299,7 @@ msgid "Insert Password"
 msgstr "Introduzca Contraseña"
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,invoice_id:0
 #: model:ir.model,name:l10n_es_aeat_sii.model_account_invoice
 msgid "Invoice"
 msgstr "Factura"
@@ -274,6 +312,21 @@ msgid "Invoice Jobs"
 msgstr "Trabajos factura"
 
 #. module: l10n_es_aeat_sii
+#: model:ir.model,name:l10n_es_aeat_sii.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Invoice information"
+msgstr "Información factura"
+
+#. module: l10n_es_aeat_sii
+#: field:account.invoice,sii_results:0
+msgid "Invoice results"
+msgstr "Resultados de la factura"
+
+#. module: l10n_es_aeat_sii
 #: model:ir.model,name:l10n_es_aeat_sii.model_account_move_line
 msgid "Journal Items"
 msgstr "Apuntes contables"
@@ -282,7 +335,7 @@ msgstr "Apuntes contables"
 #: field:aeat.sii.map,__last_update:0 field:aeat.sii.map.lines,__last_update:0
 #: field:aeat.sii.mapping.registration.keys,__last_update:0
 #: field:aeat.sii.payment.mode.key,__last_update:0
-#: field:l10n.es.aeat.sii,__last_update:0
+#: field:aeat.sii.result,__last_update:0 field:l10n.es.aeat.sii,__last_update:0
 #: field:l10n.es.aeat.sii.password,__last_update:0
 msgid "Last Modified on"
 msgstr "Últ. modificación en"
@@ -291,7 +344,7 @@ msgstr "Últ. modificación en"
 #: field:aeat.sii.map,write_uid:0 field:aeat.sii.map.lines,write_uid:0
 #: field:aeat.sii.mapping.registration.keys,write_uid:0
 #: field:aeat.sii.payment.mode.key,write_uid:0
-#: field:l10n.es.aeat.sii,write_uid:0
+#: field:aeat.sii.result,write_uid:0 field:l10n.es.aeat.sii,write_uid:0
 #: field:l10n.es.aeat.sii.password,write_uid:0
 msgid "Last Updated by"
 msgstr "Últ. actualización por"
@@ -300,10 +353,15 @@ msgstr "Últ. actualización por"
 #: field:aeat.sii.map,write_date:0 field:aeat.sii.map.lines,write_date:0
 #: field:aeat.sii.mapping.registration.keys,write_date:0
 #: field:aeat.sii.payment.mode.key,write_date:0
-#: field:l10n.es.aeat.sii,write_date:0
+#: field:aeat.sii.result,write_date:0 field:l10n.es.aeat.sii,write_date:0
 #: field:l10n.es.aeat.sii.password,write_date:0
 msgid "Last Updated on"
 msgstr "Últ. actualización en"
+
+#. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Line reply"
+msgstr "RespuestaLinea"
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.sii.map,map_lines:0
@@ -343,7 +401,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:183
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:186
 #, python-format
 msgid "No VAT configured for the company '{}'"
 msgstr "Sin NIF configurado para la compañía '{}'"
@@ -371,6 +429,11 @@ msgid "OpenSSL version is not supported. Upgrade to 0.15 or greater."
 msgstr "Versión OpenSSL no esta soportada. Actualiza a la versión 0.15 o superior."
 
 #. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Owner"
+msgstr "Titular"
+
+#. module: l10n_es_aeat_sii
 #: field:l10n.es.aeat.sii.password,password:0
 msgid "Password"
 msgstr "Contraseña"
@@ -379,6 +442,11 @@ msgstr "Contraseña"
 #: model:ir.model,name:l10n_es_aeat_sii.model_payment_mode
 msgid "Payment Mode"
 msgstr "Modo de pago"
+
+#. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Presentation Data"
+msgstr "DatosPresentacion"
 
 #. module: l10n_es_aeat_sii
 #: field:l10n.es.aeat.sii,private_key:0
@@ -417,10 +485,30 @@ msgid "Registration key"
 msgstr "Clave del registro"
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,registry_error_code:0
+msgid "Registry Error Code"
+msgstr "CodigoErrorRegistro"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,registry_error_description:0
+msgid "Registry Error Description"
+msgstr "DescripcionErrorRegistro"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,registry_state:0
+msgid "Registry State"
+msgstr "EstadoRegistro"
+
+#. module: l10n_es_aeat_sii
 #: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
 #: view:account.invoice:l10n_es_aeat_sii.invoice_supplier_sii_form
 msgid "Requeue"
 msgstr "Re-encolar"
+
+#. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Result"
+msgstr "Resultado"
 
 #. module: l10n_es_aeat_sii
 #: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
@@ -476,11 +564,6 @@ msgstr "Pago SII RECC enviado"
 #: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
 #: view:account.invoice:l10n_es_aeat_sii.invoice_supplier_sii_form
 msgid "SII Result"
-msgstr "Resultado SII"
-
-#. module: l10n_es_aeat_sii
-#: field:account.invoice,sii_return:0
-msgid "SII Return"
 msgstr "Resultado SII"
 
 #. module: l10n_es_aeat_sii
@@ -540,9 +623,24 @@ msgid "Send mode"
 msgstr "Modo de envío"
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,sent_state:0
+msgid "Sent State"
+msgstr "EstadoEnvio"
+
+#. module: l10n_es_aeat_sii
 #: field:res.company,sent_time:0
 msgid "Sent time"
 msgstr "Hora de envío"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,serial_number:0
+msgid "Serial number"
+msgstr "NumSerieFacturaEmisor"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,serial_number_resume:0
+msgid "Serial number end resume"
+msgstr "NumSerieFacturaEmisorResumenFin"
 
 #. module: l10n_es_aeat_sii
 #: field:l10n.es.aeat.sii,date_start:0
@@ -565,10 +663,15 @@ msgid "Test Enviroment"
 msgstr "Entorno de pruebas"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:444
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:478
 #, python-format
 msgid "The partner has not a VAT configured."
 msgstr "La empresa no tiene un NIF configurado."
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,timestamp_presentation:0
+msgid "Timestamp Presentation"
+msgstr "TimestampPresentacion"
 
 #. module: l10n_es_aeat_sii
 #: view:l10n.es.aeat.sii:l10n_es_aeat_sii.l10n_es_sii_form_view
@@ -587,9 +690,39 @@ msgid "Type"
 msgstr "Tipo"
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,type_communication:0
+msgid "Type Communication"
+msgstr "TipoComunicacion"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,type_id:0
+msgid "Type ID"
+msgstr "IDType"
+
+#. module: l10n_es_aeat_sii
 #: field:res.company,use_connector:0
 msgid "Use connector"
 msgstr "Usar conector"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,vat:0
+msgid "Vat"
+msgstr "NIF"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,vat_agent:0
+msgid "Vat Agent"
+msgstr "NIFRepresentante"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,vat_emitting:0
+msgid "Vat Emitting"
+msgstr "NIF Emisor"
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,vat_presenter:0
+msgid "Vat Presenter"
+msgstr "NIFPresentador"
 
 #. module: l10n_es_aeat_sii
 #: selection:res.company,send_mode:0
@@ -597,13 +730,13 @@ msgid "With delay"
 msgstr "Con retardo"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:762
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:796
 #, python-format
 msgid "You can not cancel this invoice because there is a job running!"
 msgstr "No puede cancelar una factura porque hay un trabajo ejecutándose!"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:453
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:487
 #, python-format
 msgid "You have to select what account chart template use this company."
 msgstr "Debe seleccionar que plan contable utiliza esta compañía"

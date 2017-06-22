@@ -53,7 +53,10 @@ class AccountInvoice(models.Model):
         required=True)
     sii_sent = fields.Boolean(string='SII Sent', copy=False)
     sii_csv = fields.Char(string='SII CSV', copy=False)
-    sii_return = fields.Text(string='SII Return', copy=False)
+#     sii_return = fields.Text(string='SII Return', copy=False)
+    sii_results = fields.One2many(
+        comodel_name='aeat.sii.result', inverse_name='invoice_id',
+        string='Invoice results')
     sii_send_error = fields.Text(string='SII Send Error')
     sii_recc_sent = fields.Boolean(string='SII Payment RECC Sent', copy=False)
     sii_recc_csv = fields.Char(string='SII Payment RECC CSV', copy=False)
@@ -317,8 +320,8 @@ class AccountInvoice(models.Model):
                                 tipo_no_exenta = 'S1'
                             inv_breakdown['Sujeta']['NoExenta'][
                                 'TipoNoExenta'] = tipo_no_exenta
-                            if 'DesgloseIVA' not in taxes_sii[
-                                    'DesgloseFactura']['Sujeta']['NoExenta']:
+                            if 'DesgloseIVA' not in inv_breakdown[
+                                    'Sujeta']['NoExenta']:
                                 inv_breakdown['Sujeta'][
                                     'NoExenta']['DesgloseIVA'] = {}
                                 inv_breakdown['Sujeta'][
@@ -662,7 +665,7 @@ class AccountInvoice(models.Model):
                     self.sii_csv = res['CSV']
                 else:
                     self.sii_sent = False
-                self.sii_return = res
+                self.env['aeat.sii.result'].create_result(invoice, res, False)
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
@@ -671,7 +674,8 @@ class AccountInvoice(models.Model):
                         unicode(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error
             except Exception as fault:
-                self.sii_return = fault
+#                 self.sii_return = fault
+#                 self.env['aeat.sii.result'].create_result(invoice, False, fault)
                 self.sii_send_error = fault
 
     @api.multi

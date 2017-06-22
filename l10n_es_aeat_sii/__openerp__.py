@@ -29,6 +29,7 @@
         "views/res_company_view.xml",
         "views/account_invoice_view.xml",
         "views/aeat_sii_view.xml",
+        "views/aeat_sii_result_view.xml",
         "wizard/aeat_sii_password_view.xml",
         "views/aeat_sii_mapping_registration_keys_view.xml",
         "data/aeat_sii_mapping_registration_keys_data.xml",
