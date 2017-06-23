@@ -98,18 +98,19 @@ class AeatSiiResult(models.Model):
                             vals['vat_emitting'] = \
                                 reply['IDFactura']['IDEmisorFactura']['NIF']
                         if 'IDOtro' in reply['IDFactura']['IDEmisorFactura']:
-                            if 'CodigoPais' in reply['IDFactura'][
-                                    'IDEmisorFactura']['IDOtro']:
-                                vals['country_code'] = reply['IDFactura'][
-                                    'IDEmisorFactura']['IDOtro']['CodigoPais']
-                            if 'IDType' in reply['IDFactura'][
-                                    'IDEmisorFactura']['IDOtro']:
-                                vals['type_id'] = reply['IDFactura'][
-                                    'IDEmisorFactura']['IDOtro']['IDType']
-                            if 'ID' in reply['IDFactura'][
-                                    'IDEmisorFactura']['IDOtro']:
-                                vals['number_id'] = reply['IDFactura'][
-                                    'IDEmisorFactura']['IDOtro']['ID']
+                            if reply['IDFactura']['IDEmisorFactura']['IDOtro']:
+                                if 'CodigoPais' in reply['IDFactura'][
+                                        'IDEmisorFactura']['IDOtro']:
+                                    vals['country_code'] = reply['IDFactura'][
+                                        'IDEmisorFactura']['IDOtro']['CodigoPais']
+                                if 'IDType' in reply['IDFactura'][
+                                        'IDEmisorFactura']['IDOtro']:
+                                    vals['type_id'] = reply['IDFactura'][
+                                        'IDEmisorFactura']['IDOtro']['IDType']
+                                if 'ID' in reply['IDFactura'][
+                                        'IDEmisorFactura']['IDOtro']:
+                                    vals['number_id'] = reply['IDFactura'][
+                                        'IDEmisorFactura']['IDOtro']['ID']
                     if 'NumSerieFacturaEmisor' in reply['IDFactura']:
                         vals['serial_number'] = \
                             reply['IDFactura']['NumSerieFacturaEmisor']

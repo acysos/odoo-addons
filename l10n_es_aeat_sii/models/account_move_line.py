@@ -20,10 +20,6 @@ class AccountMoveLine(models.Model):
             if move.invoice:
                 if move.invoice.registration_key and \
                         move.invoice.registration_key.code == '07':
-                    company = move.invoice.company_id
-                    if company.sii_enabled and move.invoice.is_sii_invoice():
-                        move.invoice.send_recc_payment(move)
-                    else:
-                        print 'TODO Use connector'
+                    move.invoice.send_recc_payment(move)
         return res
         

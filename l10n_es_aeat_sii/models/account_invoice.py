@@ -679,7 +679,7 @@ class AccountInvoice(models.Model):
                 self.sii_send_error = fault
 
     @api.multi
-    def send_recc_payment(self, move):
+    def send_recc_payment_registry(self, move):
         for invoice in self:
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = self.env['ir.config_parameter'].get_param(
@@ -749,6 +749,17 @@ class AccountInvoice(models.Model):
             except Exception as fault:
                 invoice.sii_recc_return = fault
                 invoice.sii_recc_send_error = fault
+
+    @api.multi
+    def send_recc_payment(self, move):
+        for invoice in self:
+            company = self.company_id
+            if company.sii_enabled and company.sii_method == 'auto' and \
+                    invoice.is_sii_invoice():
+                if not company.use_connector:
+                    invoice.send_recc_payment_registry(move)
+                else:
+                    print "TODO Connector"
 
     @api.multi
     def invoice_validate(self):
