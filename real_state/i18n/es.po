@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-11 16:17+0000\n"
-"PO-Revision-Date: 2017-05-12 12:15+0200\n"
+"POT-Creation-Date: 2017-06-06 16:45+0000\n"
+"PO-Revision-Date: 2017-06-06 19:15+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -290,6 +290,11 @@ msgid "Document Mount"
 msgstr "Montaje de documentos"
 
 #. module: real_state
+#: view:res.company:real_state.view_company_form_real_state
+msgid "Domain Configuration"
+msgstr "Configuración del Dominio"
+
+#. module: real_state
 #: field:real.state.top,email:0
 msgid "E-Mail"
 msgstr "E-Mail"
@@ -436,6 +441,21 @@ msgstr "M2 de jardin"
 #: field:real.state.top,gas_ref:0
 msgid "Gas Reference"
 msgstr "Referencia Gas"
+
+#. module: real_state
+#: field:res.users,partner_latitude:0
+msgid "Geo Latitude"
+msgstr "Geo Latitude"
+
+#. module: real_state
+#: field:res.users,date_localization:0
+msgid "Geo Localization Date"
+msgstr "Geo Localization Date"
+
+#. module: real_state
+#: field:res.users,partner_longitude:0
+msgid "Geo Longitude"
+msgstr "Geo Longitude"
 
 #. module: real_state
 #: field:real.state.top,chalet_ground:0
@@ -610,7 +630,7 @@ msgstr "Información del Terreno"
 #: field:real.state.top.subsivision,__last_update:0
 #: field:real.state.zone,__last_update:0 field:rental.agreement,__last_update:0
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr "Last Modified on"
 
 #. module: real_state
 #: field:real.state.heating,write_uid:0 field:real.state.hotwater,write_uid:0
@@ -620,7 +640,7 @@ msgstr "Última modificación en"
 #: field:real.state.top.subsivision,write_uid:0
 #: field:real.state.zone,write_uid:0 field:rental.agreement,write_uid:0
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr "Last Updated by"
 
 #. module: real_state
 #: field:real.state.heating,write_date:0 field:real.state.hotwater,write_date:0
@@ -630,12 +650,12 @@ msgstr "Última actualización por"
 #: field:real.state.top.subsivision,write_date:0
 #: field:real.state.zone,write_date:0 field:rental.agreement,write_date:0
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Last Updated on"
 
 #. module: real_state
 #: field:real.state.top,write_date:0
 msgid "Last Write Date"
-msgstr "Última fecha de escritura"
+msgstr "Last Write Date"
 
 #. module: real_state
 #: field:res.users,opportunity_ids:0
@@ -911,6 +931,16 @@ msgid "Real State"
 msgstr "Inmobiliaria"
 
 #. module: real_state
+#: model:res.groups,name:real_state.group_real_state_manager
+msgid "Real State / Manager"
+msgstr "Real State / Manager"
+
+#. module: real_state
+#: model:res.groups,name:real_state.group_real_state_user
+msgid "Real State / User"
+msgstr "Real State / User"
+
+#. module: real_state
 #: view:res.users:real_state.view_users_form_real_state
 #: view:res.users:real_state.view_users_form_simple_modif_real_state
 msgid "Real State Configuration"
@@ -927,6 +957,7 @@ msgid "Real State Subtype"
 msgstr "Real State Subtype"
 
 #. module: real_state
+#: view:real.state.top:real_state.crm_top_meetings_view
 #: view:real.state.top:real_state.real_state_top_filter
 #: view:real.state.top:real_state.real_state_top_filter_flat
 #: view:real.state.top:real_state.real_state_top_filter_hotel_industry
@@ -1165,7 +1196,7 @@ msgstr "Subtipo"
 #: model:ir.actions.act_window,name:real_state.real_state_subtype_act
 #: model:ir.ui.menu,name:real_state.menu_real_state_subtype_list
 msgid "Subtypes"
-msgstr "Subtipos"
+msgstr "Subtipo"
 
 #. module: real_state
 #: view:res.partner:real_state.view_res_partner_filter_real_state
@@ -1228,6 +1259,16 @@ msgstr "Aseos"
 #: field:real.state.top.subsivision,top_id:0 field:rental.agreement,top_id:0
 msgid "Top"
 msgstr "Inmueble"
+
+#. module: real_state
+#: view:real.state.top:real_state.crm_top_meetings_view
+msgid "Top Meeting"
+msgstr "Visitas Inmueble"
+
+#. module: real_state
+#: field:real.state.top,top_meetings:0
+msgid "Top Meetings"
+msgstr "Top Meetings"
 
 #. module: real_state
 #: field:real.state.subtype,type:0
@@ -1377,6 +1418,11 @@ msgstr "Zona"
 #: model:ir.ui.menu,name:real_state.menu_real_state_zone_list
 msgid "Zones"
 msgstr "Zonas"
+
+#. module: real_state
+#: field:res.company,domain:0
+msgid "domain"
+msgstr "dominio"
 
 #. module: real_state
 #: field:res.users,self:0

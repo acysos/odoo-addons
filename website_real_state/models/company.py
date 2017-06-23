@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2014 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify

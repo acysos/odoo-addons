@@ -1,20 +1,19 @@
 $(document).ready(function(){
 	if(parseInt($(".js_numbers").find("span").html()) == 2){
-		$(".operation #touch").on("click", function(){
-	    	
-	    	if (($(this).val() == "sale") || ($(this).val() == "transfer")){
+		$("select").change(function(){
+		    if (($(this).children(":selected").val() == "sale") || ($(this).children(":selected").val() == "transfer")){
 	    		$(".attributes_searchbar").find("div").eq(4).attr("class", "show salepricefrom col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(5).attr("class", "show salepriceto col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "hidden rentpricefrom col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(7).attr("class", "hidden rentpriceto col-md-2");
 	    	}
-	    	else if ($(this).val() == "rent"){
+	    	else if ($(this).children(":selected").val() == "rent"){
 	    		$(".attributes_searchbar").find("div").eq(4).attr("class", "hidden salepricefrom col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(5).attr("class", "hidden salepriceto col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "show rentpricefrom col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(7).attr("class", "show rentpriceto col-md-2");
 	    	}
-	    	else if (($(this).val() == "sale_rent") || ($(this).val() == "rent_sale_option")){
+	    	else if (($(this).children(":selected").val() == "sale_rent") || ($(this).children(":selected").val() == "rent_sale_option")){
 	    		$(".attributes_searchbar").find("div").eq(4).attr("class", "show salepricefrom col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(5).attr("class", "show salepriceto col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "show rentpricefrom col-md-2");
@@ -26,10 +25,7 @@ $(document).ready(function(){
 	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "hidden rentpricefrom col-md-2");
 	    		$(".attributes_searchbar").find("div").eq(7).attr("class", "hidden rentpriceto col-md-2");
 	    	}
-	    	
-	    	
-	    
-	    });
+		});
 
 		}
 });

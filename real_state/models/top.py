@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -350,6 +351,9 @@ class real_state_top(models.Model):
     land_cons_m2 = fields.Float('Usage Land M2')
     land_type = fields.Many2one('real.state.land.type','Land Type')
     land_state = fields.Many2one('real.state.land.state','Land State')
+    #meetings
+    top_meetings = fields.Integer(compute='tops_meetings_count',
+                                  string='Top Meetings', store=False)
     
     @api.model
     def create(self, vals):
@@ -357,7 +361,13 @@ class real_state_top(models.Model):
         res = super(real_state_top, self).create(vals)
         return res
     
-    
+    @api.multi
+    def tops_meetings_count(self):
+        for top in self:
+            num_meetings = len(self.env['calendar.event'].search(
+                [('top_id', '=', top.id)]))
+            print num_meetings
+            top.top_meetings = num_meetings
 
 
     

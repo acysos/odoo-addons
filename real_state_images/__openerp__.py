@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-# © 2014-2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
-# © 2015 Antiun Ingeniería S.L. - Jairo Llopis
+# © 2013 Ignacio Ibeas <ignacio@acysos.com>
+# © 2017 Daniel Pascal <daniel@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     "name": "Multiple Images in Products",
     "version": "8.0.2.0.0",
-    "author": "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
-              "Antiun Ingeniería, "
-              "Tecnativa, "
+    "author": "Acysos S.L.,"
               "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "http://www.serviciosbaeza.com",

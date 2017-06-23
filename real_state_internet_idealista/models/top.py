@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -249,6 +250,9 @@ class real_state_top(models.Model):
     
     @api.multi
     def xml_idealista(self):
+        
+         dominio = self.env.user.company_id
+        
          raiz = etree.Element('clients')
          cliente = etree.SubElement(raiz, 'client')
          aggregator = etree.SubElement(cliente, 'aggregator')
@@ -325,7 +329,7 @@ class real_state_top(models.Model):
                  for image in top.image_ids:
                      imagexml = etree.SubElement(images, 'image')
                      url2 = etree.SubElement(imagexml, 'url')
-                     url2.text = ''
+                     url2.text = dominio.domain + 'website/image/base_multi_image.image/' + str(image.id) + '/file_db_store'
                      code2 = etree.SubElement(imagexml, 'code')
                      code2.text = str(image.sequence)
              features = etree.SubElement(property, 'features')

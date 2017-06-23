@@ -34,8 +34,27 @@
 			  <xpath expr="//label[@string='Address']" position="replace">
 			  	<label for="street" string="Information"/>
 			  </xpath>
+			  
+			  
           </field>
         </record>
+        <record id="invisible_partner_view_buttons" model="ir.ui.view">
+            <field name="name">invisible.partner.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.partner_view_button_journal_item_count"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']/button[4]" position="attributes">
+			  		<attribute name="invisible">1</attribute>
+			  	</xpath>
+			  	<xpath expr="//div[@name='buttons']/button[5]" position="attributes">
+			  		<attribute name="invisible">1</attribute>
+			  	</xpath>
+			  	<xpath expr="//div[@name='buttons']/button[@name='177']" position="attributes">
+			  		<attribute name="invisible">1</attribute>
+			  	</xpath>
+            </field>
+        </record>
+        
         <record id="view_partner_tree_real_state1" model="ir.ui.view">
             <field name="name">res.partner.tree.real.state</field>
             <field name="model">res.partner</field>
@@ -51,6 +70,8 @@
                 </field>
             </field>
         </record>
+        
+        
         <record id="view_res_partner_filter_real_state" model="ir.ui.view">
             <field name="name">res.partner.select</field>
             <field name="model">res.partner</field>

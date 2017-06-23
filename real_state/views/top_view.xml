@@ -15,7 +15,8 @@
           <field name="model">real.state.top</field>
           <field name="type">form</field>
           <field name="arch" type="xml">
-              <form string="Real State Top">
+              <sheet>
+              		<form string="Real State Top">
                 <group colspan="4" col="8">
                 	<field name="operation" />
                     <field name="type" />
@@ -269,7 +270,8 @@
                         
                     </page>
                 </notebook>
-              </form>
+              		</form>
+              </sheet>
           </field>
       </record>
       <record model="ir.ui.view" id="real_state_top_tree">

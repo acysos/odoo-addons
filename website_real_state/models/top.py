@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -23,6 +24,11 @@
 
 from openerp import models, fields, api, _
 
+class real_state_cities(models.Model):
+    _name = 'real.state.cities'
+    city_id = fields.Many2one('res.better.zip')
+
+
 class real_state_top(models.Model):
     _inherit = 'real.state.top'
     
@@ -38,4 +44,23 @@ class real_state_top(models.Model):
             ('sold','Sold'),
             ('rented','Rented'),
              ],    'State', select=True, readonly=False)
+
+    @api.model
+    def create(self, vals):
+        res = super(real_state_top, self).create(vals)
+        if not self.env['real.state.cities'].search(
+                [('city_id', '=', res.city_id.id)]):
+            self.env['real.state.cities'].create({'city_id': res.city_id.id})
+        return res
     
+    @api.multi
+    def write(self, vals):
+        if 'city_id' in vals:
+            for top in self:
+                if not self.env['real.state.cities'].search(
+                    [('city_id', '=', top.city_id.id)]):
+                    self.env['real.state.cities'].create({'city_id': top.city_id.id})
+        super(real_state_top, self).write(vals)
+        return True
+            
+            

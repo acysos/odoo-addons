@@ -9,11 +9,8 @@
 			<span>1</span>
 		</div>
     	<div class="container mainTop">
-    		<div id="ip_toolbar" class="row">
-    		
-    		</div>
     		<div class="row">          
-				  <div class="col-md-7 ip_mapleft">
+				  <div class="col-md-7 col-sm-6 ip_mapleft">
 				  	<div class="superior_left row">
 				  		<div class="buttonback">
 				  			<t t-if="tops.image_ids">
@@ -59,7 +56,7 @@
 				  	</div>
 				  	<div class="inferior_left row">
 				  		<t t-foreach="tops.image_ids" t-as="topimage">
-				  			<div class="image1 col-md-4">
+				  			<div class="image1 col-md-4 col-sm-4">
 					  				<t t-if="tops.image_ids">
 						       	 		<span t-field="topimage[0].file_db_store"
 		                                        t-field-options='{"widget": "image", "class": "img-responsive"}'/>
@@ -68,41 +65,51 @@
 				  		</t>
 				  	</div>
 				  </div>
-			      <div class="col-md-5 ip_mapright">
+			      <div class="col-md-5 col-sm-6 ip_mapright">
 			         <div class="superior_right">
-			         	 <t t-set="completeAddress" t-value="tops.zone.name+' - '+tops.address"/><span t-esc="completeAddress"/>
+			         	 <t t-set="completeAddress" t-value="tops.zone.name+' - '+tops.address"/><span id="black_color" t-esc="completeAddress"/>
 			         	 <t t-if="(tops.original_sale_price != '') and (tops.original_sale_price &gt; 0)">
-			       	 		<span id="origsaleprice" t-field="tops.original_sale_price"/>
+			       	 		<span id="origsaleprice" t-field="tops.original_sale_price"/><span id="eur">€</span>
 			       	 		<span class="hidden" id="1"/>
 				       	 </t>
 				       	 <t t-if="(tops.sale_price != '') and (tops.sale_price &gt; 0)">
-				       	 	<span t-field="tops.sale_price"/>
+				       	 	<span id="saleprice" t-field="tops.sale_price"/><span id="eur1">€</span>
 				       	 	<span class="hidden" id="2"/>
 				       	 </t>
 				       	 <t t-if="(tops.original_rent_price != '') and (tops.original_rent_price &gt; 0)">
-				       	 	<span id="origrentprice" t-field="tops.original_rent_price"/>
+				       	 	<span id="origrentprice" t-field="tops.original_rent_price"/><span id="eur">€/mes</span>
 				       	 	<span class="hidden" id="3"/>
 				       	 </t>
 				       	 <t t-if="(tops.rent_price &gt; 0) and (tops.rent_price &gt; 0)">
-				       	 	<span t-field="tops.rent_price"/>
+				       	 	<span id="rentprice" t-field="tops.rent_price"/><span id="eur1">€/mes</span>
 				       	 	<span class="hidden" id="4"/>
 				       	 </t>
 				       	 <br/><br/>
-				       	 <p>M2: <span t-field="tops.m2"/></p><p>N° Ref: <span id="reference" t-field="tops.name"/></p>
-				       	 <p>Energy Efficiency: <span t-field="tops.energy_efficiency"/></p><br/><span t-field="tops.internet_description"/><br/><br/>
+				       	 <p><b>M2:</b> <span t-field="tops.m2"/></p><p><b>N° Ref:</b> <span id="reference" t-field="tops.name"/></p>
+				       	 <div class="energy_colors">
+				       	 	<div class="energy_title col-md-6 col-sm-6 col-xs-5">
+				       	 		<span id="pos_text"><b>Energy Efficiency:</b></span>
+				       	 	</div>
+				       	 	<div class="energy_type col-md-6 col-sm-6 col-xs-7" style="background-image: url('/website_real_state/static/img/images/white.png'); background-repeat: no-repeat; background-size: contain;">
+				       	 		<t t-if="(tops.energy_doc)">
+						       		<a t-attf-href="/web/binary/saveas?model=real.state.top&amp;field=energy_doc&amp;filename_field=name&amp;id={{ tops.id }}"><span id="pos_text" t-field="tops.energy_efficiency"/></a>
+						       	</t>
+				       	 	</div>
+				       	 </div>
+				       	 <br/><br/><span t-field="tops.internet_description"/><br/><br/>
 			         </div>
 			       	 <div class="inferior_right">
 			       	 	 <div class="row tabs" id="mapPane">
-						    <div class="tabs req_panel col-md-6" style="cursor: pointer;">
-						        <span>Contact agency</span>
+						    <div class="tabs req_panel col-md-6 col-xs-6" style="cursor: pointer;">
+						        <span id="orange_color">Contact agency</span>
 						    </div>
-						    <div class="tabs calc_panel col-md-6" style="cursor: pointer;">
+						    <div class="tabs calc_panel col-md-6 col-xs-6" style="cursor: pointer;">
 						        <span id="text1">Mortgage calculate</span>
 						    </div>
-						    <div class="tabs map_panel col-md-6" style="cursor: pointer;">
-						        <span>Show map</span>
+						    <div class="tabs map_panel col-md-6 col-xs-6" style="cursor: pointer;">
+						        <span id="orange_color">Show map</span>
 						    </div>
-						    <div class="tabs share_panel col-md-6" style="cursor: pointer;">
+						    <div class="tabs share_panel col-md-6 col-xs-6" style="cursor: pointer;">
 						        <span id="text2">Share</span><br/><br/>
 						    </div>
 						</div>
@@ -163,7 +170,7 @@
 							</div>
 							<div class="hidden" id="share">
 								<div class="oe_share s_share">
-				                  <h3>Share 
+				                  <h3><span id="orange_color">Share:</span>
 				                    <a class="oe_share_facebook" t-attf-href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_Blank"><i class="fa fa-facebook-square"/> </a>
 				                    <a class="oe_share_twitter" t-attf-href="https://twitter.com/intent/tweet?text={{completeAddress + ' - ' + tops.name}}&amp;url={url}" target="_Blank"><i class="fa fa-twitter"/> </a>
 				                    <a class="oe_share_linkedin" t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={url}&amp;title={{completeAddress + ' - ' + tops.name}}" target="_Blank"><i class="fa fa-linkedin"/> </a>
@@ -175,6 +182,9 @@
 						</div>
 			       	 </div>
 			      </div>
+			      <div class="text_video_bottom col-md-12 col-sm-12 col-xs-12 oe_structure">
+						
+				</div>
 			 </div>
     	</div>
     	

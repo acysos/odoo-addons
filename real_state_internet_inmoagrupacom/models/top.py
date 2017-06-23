@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -66,6 +67,9 @@ class real_state_top(models.Model):
     
     @api.multi
     def xml_inmoagrupacom(self):
+        
+        dominio = self.env.user.company_id
+        
         raiz = etree.Element('Inmuebles')
         for top in self.search([('inmoagrupacom','=',True),
                                     ('available','=',True)]):
@@ -257,7 +261,7 @@ class real_state_top(models.Model):
                 for image in top.image_ids:
                     foto = etree.SubElement(fotos, 'foto')
                     url_foto = etree.SubElement(foto, 'url_foto')
-                    url_foto.text = etree.CDATA(str(image.filename))
+                    url_foto.text = etree.CDATA(dominio.domain + 'website/image/base_multi_image.image/' + str(image.id) + '/file_db_store')
                     descripcion_foto = etree.SubElement(foto, 'descripcion_foto')
                     descripcion_foto.text = etree.CDATA(str(image.comments or ''))
                     principal_01 = etree.SubElement(foto, 'principal_01')
@@ -289,7 +293,10 @@ class real_state_top(models.Model):
             eficiencia_energetica_energia = etree.SubElement(inmueble, 'eficiencia_energetica_energia')
             eficiencia_energetica_energia.text = str(top.energy_number or '')
             url_doc_efic_energetica = etree.SubElement(inmueble, 'url_doc_efic_energetica')
-            url_doc_efic_energetica.text = top.energy_doc_url or ''
+            if top.energy_doc:
+                url_doc_efic_energetica.text = dominio.domain + 'web/binary/saveas?model=real.state.top&field=energy_doc&filename_field=name&id=' + str(top.id)     
+            else:
+                url_doc_efic_energetica.text = ''
             sucursal = etree.SubElement(inmueble, 'sucursal')
             nombre_sucursal = etree.SubElement(sucursal, 'nombre_sucursal')
             nombre_sucursal.text = 'Inmobiliaria Urbasa'

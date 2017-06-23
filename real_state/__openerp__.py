@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -52,6 +53,7 @@
         'data/rental_agreement_sequence.xml',
         'views/rental_agreement_view.xml',
         'views/calendar_view.xml',
+        'views/top_meetings_view.xml',
         ],
     "active": False,
     "installable": True

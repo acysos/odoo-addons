@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -33,6 +34,9 @@ class res_company(models.Model):
     default_document_client = fields.Selection([('win','Windows Client'),
                                 ('unix','Linux/MacOSX Client'),
                                 ('web','Web Client')], 'Default Document Client')
+    
+    
+    domain = fields.Char('domain')
     
     
     

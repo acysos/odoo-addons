@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- © 2015 Antiun Ingeniería S.L. - Jairo Llopis
-     © 2014-2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
-     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3). -->
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <openerp>
 <data>
 
@@ -12,6 +11,11 @@
         <field name="arch" type="xml">
             <field name="attachments_url" position="after">
                   <separator string="Web Images" colspan="4" />
+                  	<group colspan="8">
+                  	<button name="launch_wizard" type="object"
+                        string="Add Multiple Images to the Top"/>
+                    </group>
+                    <group>
                     <field name="image_ids" nolabel="1" context="{
                     		   'default_owner_model': 'real.state.top',
                                'default_owner_id': id,
@@ -68,8 +72,30 @@
 				            </group>
 				        </form>
                     </field>
+                    </group>
               </field>
         </field>
     </record>
+    
+    <record id="adding_pictures_form_view" model="ir.ui.view">
+    <field name="name">adding_pictures_form</field>
+    <field name="model">multimages.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Multiple Images to the Top">
+            <group>
+                <field name="zip_tops_images"/>
+            </group>
+        
+        <group col="4" colspan="2">
+        <button name="add_pics" type="object"
+                        string="Confirm" class="oe_highlight"/>
+         or
+                        <button special="cancel" string="Cancel"/>
+        </group>
+        </form>
+    </field>
+    </record>
+    
+    
 </data>
 </openerp>

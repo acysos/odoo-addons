@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -105,6 +106,9 @@ class real_state_top(models.Model):
     
     @api.multi
     def xml_pisoscom(self):
+        
+        dominio = self.env.user.company_id
+        
         raiz = etree.Element('Publicacion')
         table = etree.SubElement(raiz, 'Table')
         table.attrib['Name'] = 'Inmuebles'
@@ -151,7 +155,7 @@ class real_state_top(models.Model):
             if top.image_ids != False:
                 for image in top.image_ids:
                     Foto = etree.SubElement(Fotos, 'Foto'+str(image.sequence))
-                    Foto.text = str(image.filename)
+                    Foto.text = dominio.domain + 'website/image/base_multi_image.image/' + str(image.id) + '/file_db_store'
             NombreCalle = etree.SubElement(inmueble, 'NombreCalle')
             NombreCalle.text = smart_unicode(top.address or '')
             NumeroCalle = etree.SubElement(inmueble, 'NumeroCalle')

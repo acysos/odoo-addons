@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-12 10:17+0000\n"
-"PO-Revision-Date: 2017-05-12 12:27+0200\n"
+"PO-Revision-Date: 2017-05-24 18:35+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -123,12 +123,12 @@ msgstr "Última modificación por"
 #. module: real_state_crm
 #: view:crm.lead:real_state_crm.crm_case_form_view_oppor_real_state
 msgid "Lead"
-msgstr "Iniciativa"
+msgstr "Correo"
 
 #. module: real_state_crm
 #: model:ir.model,name:real_state_crm.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr "Iniciativa/Oportunidad"
+msgstr "Correo/Oportunidad"
 
 #. module: real_state_crm
 #: field:crm.lead,m2:0

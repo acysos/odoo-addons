@@ -1,0 +1,22 @@
+<openerp>
+    <data>
+    	<record id="crm_top_meetings_view" model="ir.ui.view">
+            <field name="name">crm.top.meetings.view</field>
+            <field name="model">real.state.top</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="real_state.real_state_top_form"/>
+            <field name="arch" type="xml">
+                <form string="Real State Top" position="before">
+                	<div class="oe_right oe_button_box" name="buttons1">
+                		<button class="oe_inline oe_stat_button" type="action"
+          						name="%(calendar.action_calendar_event)d"
+                      			icon="fa-calendar"
+                      			context="{'search_default_top_id': active_id}">
+                            <field string="Top Meeting" name="top_meetings" widget="statinfo"/>
+                        </button>
+                	</div>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

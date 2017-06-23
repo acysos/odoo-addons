@@ -4,6 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
+#                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -122,7 +123,7 @@ class top_view(http.Controller):
         
         zones1 = request.env['real.state.zone'].search([('id', '>', 0)])
         
-        tops1 = request.env['real.state.top'].search([('id', '>', 0)])
+        cities = request.env['real.state.cities'].sudo().search([('id', '>', 0)])
         
         type1 = [('unlimited','unlimited'),
              ('flat','Flat'),
@@ -146,19 +147,27 @@ class top_view(http.Controller):
         
         
         cities_ids = {}
+        pamp = {}
         
-        cities = tops1.mapped('city_id')
+        cities1 = cities.mapped('city_id')
         
         
-        for city in cities:
-            if not city.city in cities_ids:
-                cities_ids[city.city] = str(city.id)
+        for city in cities1:
+            if 'Pamplona' in city.city:
+                if not city.city in pamp:
+                    pamp[city.city] = str(city.id)
+                else:
+                    pamp[city.city] += '-'+str(city.id)
             else:
-                cities_ids[city.city] += '-'+str(city.id)
+                if not city.city in cities_ids:
+                    cities_ids[city.city] = str(city.id)
+                else:
+                    cities_ids[city.city] += '-'+str(city.id)
         
+        citieswithoutpamp = sorted(cities_ids.items(), key=operator.itemgetter(0))
+        pampcity = sorted(pamp.items(), key=operator.itemgetter(0))
         
-        result = sorted(cities_ids.items(), key=operator.itemgetter(0))
-        
+        orderedcities = pampcity + citieswithoutpamp
         
         
         
@@ -235,7 +244,7 @@ class top_view(http.Controller):
             
             
             
-        
+        print domain
         
         tops = pool.get('real.state.top')
         
@@ -253,7 +262,7 @@ class top_view(http.Controller):
             'zone' : zones1,
             'operations' : operations1,
             'type1' : type1,
-            'cities' : result,
+            'cities' : orderedcities,
             'companies' : company,
             'topids': top_ids,
             'operation_sel':  operation_sel,

@@ -2,6 +2,7 @@
 ########################################################################
 #
 # @authors: Ignacio Ibeas <ignacio@acysos.com>
+#           Daniel Pascal <daniel@acysos.com>
 # Copyright (C) 2013  Acysos S.L.
 #
 #This program is free software: you can redistribute it and/or modify

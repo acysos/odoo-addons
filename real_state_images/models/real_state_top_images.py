@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-# © 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3).
+# © 2013 Ignacio Ibeas <ignacio@acysos.com>
+# © 2017 Daniel Pascal <daniel@acysos.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from openerp import api, fields, models, _
 
 
 class RealStateTop(models.Model):
@@ -10,10 +11,28 @@ class RealStateTop(models.Model):
     _inherit = [_name, "base_multi_image.owner"]
 
     # Make this field computed for getting only the available images
-    image_ids = fields.One2many(comodel_name="base_multi_image.image")
+    
     image_main = fields.Binary(inverse="_inverse_main_image_large")
     image_main_medium = fields.Binary(inverse="_inverse_main_image_medium")
     image_main_small = fields.Binary(inverse="_inverse_main_image_small")
+    
+    @api.multi
+    def launch_wizard(self):
+        context = self.env.context.copy()
+        context['active_ids'] = self.ids
+        wizard_model = 'multimages.wizard'
+        return {
+            'name': _('Add Images to the Top'),
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': wizard_model,
+            'domain': [],
+            'context': context,
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'nodestroy': True,
+            }
+    
 
     @api.multi
     def _inverse_main_image(self, image):

@@ -59,9 +59,9 @@
                   </page>
               </page>
               
-              <field name="energy_doc" position="after">
+              <!--<field name="energy_doc" position="after">
               		<field name="energy_doc_url" widget="url" readonly="1"/>
-              </field>
+              </field>   -->
           </field>
       </record>
       
