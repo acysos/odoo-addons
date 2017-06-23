@@ -38,13 +38,17 @@ class AccountInvoice(models.Model):
 
     def _get_default_key(self):
         sii_key_obj = self.env['aeat.sii.mapping.registration.keys']
-        type = self.env.context.get('type')
-        if type in ['in_invoice', 'in_refund']:
+        inv_type = self.env.context.get('type')
+        if not inv_type:
+            inv_type = self.env.context.get('inv_type')
+        if inv_type in ['in_invoice', 'in_refund']:
             key = sii_key_obj.search(
                 [('code', '=', '01'), ('type', '=', 'purchase')], limit=1)
-        else:
+        elif inv_type in ['out_invoice', 'out_refund']:
             key = sii_key_obj.search(
                 [('code', '=', '01'), ('type', '=', 'sale')], limit=1)
+        else:
+            key = None
         return key
 
     sii_description = fields.Text(

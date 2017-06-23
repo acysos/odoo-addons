@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-22 21:13+0000\n"
-"PO-Revision-Date: 2017-06-22 21:13+0000\n"
+"POT-Creation-Date: 2017-06-23 21:41+0000\n"
+"PO-Revision-Date: 2017-06-23 21:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -177,28 +177,19 @@ msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: field:account.fiscal.position,sii_registration_key_purchase:0
+#: field:account.fiscal.position.template,sii_registration_key_purchase:0
 msgid "Default SII Resgistration Key for Purchases"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: field:account.fiscal.position,sii_registration_key_sale:0
+#: field:account.fiscal.position.template,sii_registration_key_sale:0
 msgid "Default SII Resgistration Key for Sales"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: field:res.company,delay_time:0
 msgid "Delay time"
-msgstr ""
-
-#. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,display_name:0
-#: field:aeat.sii.map.lines,display_name:0
-#: field:aeat.sii.mapping.registration.keys,display_name:0
-#: field:aeat.sii.payment.mode.key,display_name:0
-#: field:aeat.sii.result,display_name:0
-#: field:l10n.es.aeat.sii,display_name:0
-#: field:l10n.es.aeat.sii.password,display_name:0
-msgid "Display Name"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -237,7 +228,6 @@ msgid "E6"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: field:account.invoice,sii_enabled:0
 #: field:res.company,sii_enabled:0
 msgid "Enable SII"
 msgstr ""
@@ -321,11 +311,6 @@ msgid "Invoice Jobs"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model,name:l10n_es_aeat_sii.model_account_invoice_line
-msgid "Invoice Line"
-msgstr ""
-
-#. module: l10n_es_aeat_sii
 #: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
 msgid "Invoice information"
 msgstr ""
@@ -338,17 +323,6 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: model:ir.model,name:l10n_es_aeat_sii.model_account_move_line
 msgid "Journal Items"
-msgstr ""
-
-#. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,__last_update:0
-#: field:aeat.sii.map.lines,__last_update:0
-#: field:aeat.sii.mapping.registration.keys,__last_update:0
-#: field:aeat.sii.payment.mode.key,__last_update:0
-#: field:aeat.sii.result,__last_update:0
-#: field:l10n.es.aeat.sii,__last_update:0
-#: field:l10n.es.aeat.sii.password,__last_update:0
-msgid "Last Modified on"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -417,7 +391,7 @@ msgid "Name"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:186
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:190
 #, python-format
 msgid "No VAT configured for the company '{}'"
 msgstr ""
@@ -674,12 +648,29 @@ msgid "Taxes"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.model,name:l10n_es_aeat_sii.model_account_fiscal_position_template
+msgid "Template for Fiscal Position"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: field:res.company,sii_test:0
 msgid "Test Enviroment"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:478
+#: code:addons/l10n_es_aeat_sii/wizard/wizard_update_charts_accounts.py:21
+#, python-format
+msgid "The SII Purchase registration is different"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/wizard/wizard_update_charts_accounts.py:18
+#, python-format
+msgid "The SII Sale registration is different"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:482
 #, python-format
 msgid "The partner has not a VAT configured."
 msgstr ""
@@ -746,13 +737,13 @@ msgid "With delay"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:796
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:811
 #, python-format
 msgid "You can not cancel this invoice because there is a job running!"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:487
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:491
 #, python-format
 msgid "You have to select what account chart template use this company."
 msgstr ""

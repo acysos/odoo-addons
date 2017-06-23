@@ -17,5 +17,17 @@
             </field>
         </record>
 
+        <record id="view_account_position_template_form" model="ir.ui.view">
+            <field name="name">account.fiscal.position.template.form</field>
+            <field name="model">account.fiscal.position.template</field>
+            <field name="inherit_id" ref="account.view_account_position_template_form"/>
+            <field name="arch" type="xml">
+                <field name="chart_template_id" position="after">
+                    <field name="sii_registration_key_sale"/>
+                    <field name="sii_registration_key_purchase"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>

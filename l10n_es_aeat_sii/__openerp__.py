@@ -40,7 +40,8 @@
         "security/aeat_sii.xml",
         "views/product_view.xml",
         "views/account_view.xml",
-        "views/account_payment_mode_view.xml"
+        "views/account_payment_mode_view.xml",
+        "data/account_fiscal_position_data.xml"
     ],
     "post_init_hook": "add_key_to_existing_invoices",
 }
