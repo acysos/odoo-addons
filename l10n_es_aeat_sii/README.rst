@@ -18,6 +18,9 @@ Para instalar esté módulo necesita:
 #. Libreria Python Requests, se puede instalar con el comando 'pip install requests'
 #. Libreria pyOpenSSL, versión 0.15 o posterior
 
+Una vez instalado ejecute Account Chart Update para actualizar las claves
+de las posiciones fiscales.
+
 Configuration
 =============
 
@@ -90,6 +93,7 @@ Contributors
 * Pablo Fuentes - Studio73 <pablo@studio73.es>
 * Jordi Tolsà - Studio73 <jordi@studio73.es>
 * Omar Castiñeira - Comunitea S.L. <omar@comunitea.com>
+* Ismael Calvo - Factor Libre S.L.
 
 
 Maintainer

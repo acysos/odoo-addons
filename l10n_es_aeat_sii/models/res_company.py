@@ -13,6 +13,16 @@ class ResCompany(models.Model):
 
     sii_enabled = fields.Boolean(string='Enable SII')
     sii_test = fields.Boolean(string='Test Enviroment')
+    sii_description_method = fields.Selection(
+        string='SII Description Method',
+        selection=[('auto', 'Automatic'), ('fixed', 'Fixed'),
+                   ('manual', 'Manual')],
+        default='manual',
+        help='By default the description is writed by the user. If the option'
+        'is auto is generated from the invoice lines')
+    sii_description = fields.Char(string="SII Description")
+    sii_header_sale = fields.Char(string="SII Sale header")
+    sii_header_purchase = fields.Char(string="SII Purchase header")
     chart_template_id = fields.Many2one(
         comodel_name='account.chart.template', string='Chart Template')
     sii_method = fields.Selection(

@@ -22,8 +22,7 @@
         "account_refund_original",
         "l10n_es_aeat",
         "connector",
-        "account_payment_partner",
-        "account_chart_update"
+        "account_payment_partner"
     ],
     "data": [
         "data/ir_config_parameter.xml",

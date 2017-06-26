@@ -7,7 +7,7 @@ from openerp import api, models, fields, _
 
 class AeatSiiPaymentModeKey(models.Model):
     _name = 'aeat.sii.payment.mode.key'
-    
+
     code = fields.Char(string='Code', required=True)
     name = fields.Char(string='Name')
 

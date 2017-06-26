@@ -35,26 +35,28 @@ except ImportError:
 
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
-
-    def _get_default_key(self):
-        sii_key_obj = self.env['aeat.sii.mapping.registration.keys']
+    
+    def _get_default_sii_description(self):
         inv_type = self.env.context.get('type')
         if not inv_type:
             inv_type = self.env.context.get('inv_type')
-        if inv_type in ['in_invoice', 'in_refund']:
-            key = sii_key_obj.search(
-                [('code', '=', '01'), ('type', '=', 'purchase')], limit=1)
-        elif inv_type in ['out_invoice', 'out_refund']:
-            key = sii_key_obj.search(
-                [('code', '=', '01'), ('type', '=', 'sale')], limit=1)
-        else:
-            key = None
-        return key
+        company = self.env.user.company_id
+        method_desc = company.sii_description_method
+        header_sale = company.sii_header_sale
+        header_purchase = company.sii_header_purchase
+        fixed_desc = company.sii_description
+        description = '/'
+        if inv_type in ['out_invoice', 'out_refund'] and header_sale:
+            description = header_sale
+        if inv_type in ['in_invoice', 'in_refund'] and header_purchase:
+            description = header_purchase
+        if method_desc in ['fixed']:
+            description += fixed_desc
+        return description
 
     sii_description = fields.Text(
-        'SII Description',
-        default="/",
-        required=True)
+        string='SII Description', required=True,
+        default=_get_default_sii_description)
     sii_sent = fields.Boolean(string='SII Sent', copy=False)
     sii_csv = fields.Char(string='SII CSV', copy=False)
 #     sii_return = fields.Text(string='SII Return', copy=False)
@@ -71,7 +73,7 @@ class AccountInvoice(models.Model):
         string="Refund Type")
     registration_key = fields.Many2one(
         comodel_name='aeat.sii.mapping.registration.keys',
-        string="Registration key", required=True, default=_get_default_key)
+        string="Registration key", required=True)
     sii_enabled = fields.Boolean(string='Enable SII',
                                  related='company_id.sii_enabled')
     invoice_jobs_ids = fields.Many2many(
@@ -98,6 +100,23 @@ class AccountInvoice(models.Model):
             elif invoice.fiscal_position:
                 invoice.registration_key = \
                     invoice.fiscal_position.sii_registration_key_purchase
+
+    @api.onchange('invoice_line')
+    def _get_sii_description_from_lines(self):
+        for invoice in self:
+            company = invoice.company_id
+            method_desc = company.sii_description_method
+            header_sale = company.sii_header_sale
+            header_purchase = company.sii_header_purchase
+            description = '/'
+            if invoice.type in ['out_invoice', 'out_refund']:
+                description = header_sale
+            if invoice.type in ['in_invoice', 'in_refund']:
+                description = header_purchase
+            if method_desc == 'auto':
+                for line in invoice.invoice_line:
+                    description += line.name + ' - '
+                invoice.sii_description = description
 
     @api.model
     def create(self, vals):
@@ -763,7 +782,14 @@ class AccountInvoice(models.Model):
                 if not company.use_connector:
                     invoice.send_recc_payment_registry(move)
                 else:
-                    print "TODO Connector"
+                    eta = company._get_sii_eta()
+                    session = ConnectorSession.from_env(self.env)
+                    new_delay = send_recc_payment_job.delay(
+                        session, 'account.move.line', move.id, eta=eta)
+                    queue_ids = queue_obj.search([
+                        ('uuid', '=', new_delay)
+                    ], limit=1)
+                    move.invoice.invoice_jobs_ids |= queue_ids
 
     @api.multi
     def invoice_validate(self):
@@ -869,3 +895,11 @@ def confirm_one_invoice(session, model_name, invoice_id):
 
     invoice._send_invoice_to_sii()
     session.cr.commit()
+
+@job(default_channel='root.invoice_recc_payment_sii')
+def send_recc_payment_job(session, model_name, move_id):
+    model = session.env[model_name]
+    move = model.browse(move_id)
+    if move.exists() and move.invoice:
+        move.invoice.send_recc_payment(move)
+
