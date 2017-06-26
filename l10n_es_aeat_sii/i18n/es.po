@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* l10n_es_aeat_sii
+# 	* l10n_es_aeat_sii
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-26 21:34+0000\n"
-"PO-Revision-Date: 2017-06-26 21:34+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2017-06-26 23:53+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: l10n_es_aeat_sii
 #: view:res.company:l10n_es_aeat_sii.view_company_sii_form
@@ -92,8 +94,7 @@ msgid "By substitution"
 msgstr "Por sustitución"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.result,csv:0
-#: field:aeat.sii.result,registry_csv:0
+#: field:aeat.sii.result,csv:0 field:aeat.sii.result,registry_csv:0
 msgid "CSV"
 msgstr "CSV"
 
@@ -142,7 +143,7 @@ msgstr "Configuración"
 #. module: l10n_es_aeat_sii
 #: view:res.company:l10n_es_aeat_sii.view_company_sii_form
 msgid "Connector config"
-msgstr "Connector config"
+msgstr "Configuración del conector"
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.sii.result,country_code:0
@@ -150,23 +151,19 @@ msgid "Country Code"
 msgstr "CodigoPais"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,create_uid:0
-#: field:aeat.sii.map.lines,create_uid:0
+#: field:aeat.sii.map,create_uid:0 field:aeat.sii.map.lines,create_uid:0
 #: field:aeat.sii.mapping.registration.keys,create_uid:0
 #: field:aeat.sii.payment.mode.key,create_uid:0
-#: field:aeat.sii.result,create_uid:0
-#: field:l10n.es.aeat.sii,create_uid:0
+#: field:aeat.sii.result,create_uid:0 field:l10n.es.aeat.sii,create_uid:0
 #: field:l10n.es.aeat.sii.password,create_uid:0
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,create_date:0
-#: field:aeat.sii.map.lines,create_date:0
+#: field:aeat.sii.map,create_date:0 field:aeat.sii.map.lines,create_date:0
 #: field:aeat.sii.mapping.registration.keys,create_date:0
 #: field:aeat.sii.payment.mode.key,create_date:0
-#: field:aeat.sii.result,create_date:0
-#: field:l10n.es.aeat.sii,create_date:0
+#: field:aeat.sii.result,create_date:0 field:l10n.es.aeat.sii,create_date:0
 #: field:l10n.es.aeat.sii.password,create_date:0
 msgid "Created on"
 msgstr "Creado en"
@@ -206,15 +203,13 @@ msgstr "Tiempo de retardo"
 #. module: l10n_es_aeat_sii
 #: view:res.company:l10n_es_aeat_sii.view_company_sii_form
 msgid "Description config"
-msgstr "Description config"
+msgstr "Configuración de la descripción"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,display_name:0
-#: field:aeat.sii.map.lines,display_name:0
+#: field:aeat.sii.map,display_name:0 field:aeat.sii.map.lines,display_name:0
 #: field:aeat.sii.mapping.registration.keys,display_name:0
 #: field:aeat.sii.payment.mode.key,display_name:0
-#: field:aeat.sii.result,display_name:0
-#: field:l10n.es.aeat.sii,display_name:0
+#: field:aeat.sii.result,display_name:0 field:l10n.es.aeat.sii,display_name:0
 #: field:l10n.es.aeat.sii.password,display_name:0
 msgid "Display Name"
 msgstr "Nombre"
@@ -255,8 +250,7 @@ msgid "E6"
 msgstr "E6"
 
 #. module: l10n_es_aeat_sii
-#: field:account.invoice,sii_enabled:0
-#: field:res.company,sii_enabled:0
+#: field:account.invoice,sii_enabled:0 field:res.company,sii_enabled:0
 msgid "Enable SII"
 msgstr "Activar SII"
 
@@ -289,7 +283,7 @@ msgstr "Posición fiscal"
 #. module: l10n_es_aeat_sii
 #: selection:res.company,sii_description_method:0
 msgid "Fixed"
-msgstr "Fixed"
+msgstr "Fijo"
 
 #. module: l10n_es_aeat_sii
 #: field:l10n.es.aeat.sii,folder:0
@@ -299,7 +293,7 @@ msgstr "Nombre Carpeta"
 #. module: l10n_es_aeat_sii
 #: view:res.company:l10n_es_aeat_sii.view_company_sii_form
 msgid "General config"
-msgstr "General config"
+msgstr "Configuración general"
 
 #. module: l10n_es_aeat_sii
 #: view:aeat.sii.mapping.registration.keys:l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_view_search
@@ -312,13 +306,10 @@ msgid "Header"
 msgstr "Cabecera"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,id:0
-#: field:aeat.sii.map.lines,id:0
+#: field:aeat.sii.map,id:0 field:aeat.sii.map.lines,id:0
 #: field:aeat.sii.mapping.registration.keys,id:0
-#: field:aeat.sii.payment.mode.key,id:0
-#: field:aeat.sii.result,id:0
-#: field:aeat.sii.result,number_id:0
-#: field:l10n.es.aeat.sii,id:0
+#: field:aeat.sii.payment.mode.key,id:0 field:aeat.sii.result,id:0
+#: field:aeat.sii.result,number_id:0 field:l10n.es.aeat.sii,id:0
 #: field:l10n.es.aeat.sii.password,id:0
 msgid "ID"
 msgstr "ID"
@@ -369,34 +360,28 @@ msgid "Journal Items"
 msgstr "Apuntes contables"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,__last_update:0
-#: field:aeat.sii.map.lines,__last_update:0
+#: field:aeat.sii.map,__last_update:0 field:aeat.sii.map.lines,__last_update:0
 #: field:aeat.sii.mapping.registration.keys,__last_update:0
 #: field:aeat.sii.payment.mode.key,__last_update:0
-#: field:aeat.sii.result,__last_update:0
-#: field:l10n.es.aeat.sii,__last_update:0
+#: field:aeat.sii.result,__last_update:0 field:l10n.es.aeat.sii,__last_update:0
 #: field:l10n.es.aeat.sii.password,__last_update:0
 msgid "Last Modified on"
 msgstr "Últ. modificación en"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,write_uid:0
-#: field:aeat.sii.map.lines,write_uid:0
+#: field:aeat.sii.map,write_uid:0 field:aeat.sii.map.lines,write_uid:0
 #: field:aeat.sii.mapping.registration.keys,write_uid:0
 #: field:aeat.sii.payment.mode.key,write_uid:0
-#: field:aeat.sii.result,write_uid:0
-#: field:l10n.es.aeat.sii,write_uid:0
+#: field:aeat.sii.result,write_uid:0 field:l10n.es.aeat.sii,write_uid:0
 #: field:l10n.es.aeat.sii.password,write_uid:0
 msgid "Last Updated by"
 msgstr "Últ. actualización por"
 
 #. module: l10n_es_aeat_sii
-#: field:aeat.sii.map,write_date:0
-#: field:aeat.sii.map.lines,write_date:0
+#: field:aeat.sii.map,write_date:0 field:aeat.sii.map.lines,write_date:0
 #: field:aeat.sii.mapping.registration.keys,write_date:0
 #: field:aeat.sii.payment.mode.key,write_date:0
-#: field:aeat.sii.result,write_date:0
-#: field:l10n.es.aeat.sii,write_date:0
+#: field:aeat.sii.result,write_date:0 field:l10n.es.aeat.sii,write_date:0
 #: field:l10n.es.aeat.sii.password,write_date:0
 msgid "Last Updated on"
 msgstr "Últ. actualización en"
@@ -440,8 +425,7 @@ msgstr "Modelo"
 #. module: l10n_es_aeat_sii
 #: field:aeat.sii.map.lines,name:0
 #: field:aeat.sii.mapping.registration.keys,name:0
-#: field:aeat.sii.payment.mode.key,name:0
-#: field:l10n.es.aeat.sii,name:0
+#: field:aeat.sii.payment.mode.key,name:0 field:l10n.es.aeat.sii,name:0
 msgid "Name"
 msgstr "Nombre"
 
@@ -575,15 +559,14 @@ msgid "SII Certificate"
 msgstr "Certificado SII"
 
 #. module: l10n_es_aeat_sii
-#: field:account.invoice,sii_description:0
-#: field:res.company,sii_description:0
+#: field:account.invoice,sii_description:0 field:res.company,sii_description:0
 msgid "SII Description"
 msgstr "Descripción SII"
 
 #. module: l10n_es_aeat_sii
 #: field:res.company,sii_description_method:0
 msgid "SII Description Method"
-msgstr "SII Description Method"
+msgstr "Método para la descripción"
 
 #. module: l10n_es_aeat_sii
 #: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
@@ -614,7 +597,7 @@ msgstr "Pago SII RECC enviado"
 #. module: l10n_es_aeat_sii
 #: field:res.company,sii_header_purchase:0
 msgid "SII Purchase header"
-msgstr "SII Purchase header"
+msgstr "Cabecera para compras"
 
 #. module: l10n_es_aeat_sii
 #: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
@@ -625,12 +608,12 @@ msgstr "Resultado SII"
 #. module: l10n_es_aeat_sii
 #: field:res.company,sii_header_sale:0
 msgid "SII Sale header"
-msgstr "SII Sale header"
+msgstr "Cabecera para ventas"
 
 #. module: l10n_es_aeat_sii
 #: field:account.invoice,sii_send_error:0
 msgid "SII Send Error"
-msgstr "SII Send Error"
+msgstr "SII Error de envío"
 
 #. module: l10n_es_aeat_sii
 #: field:account.invoice,sii_sent:0
@@ -823,4 +806,3 @@ msgstr "Debe seleccionar que plan contable utiliza esta compañía"
 #: view:l10n.es.aeat.sii.password:l10n_es_aeat_sii.l10n_es_sii_password_wizard_view
 msgid "or"
 msgstr "o"
-
