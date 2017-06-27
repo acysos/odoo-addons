@@ -486,10 +486,22 @@ class AccountInvoice(models.Model):
                             taxes_f = self._update_sii_tax_line(
                                 taxes_f, tax_line, line,
                                 line.invoice_line_tax_id)
-        for key, line in taxes_f.iteritems():
-            taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
-        for key, line in taxes_isp.iteritems():
-            taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(line)
+        if len(taxes_f) > 0:
+            for key, line in taxes_f.iteritems():
+                if line.get('CuotaSoportada', False):
+                    line['CuotaSoportada'] = \
+                        round(line['CuotaSoportada'], 2)
+                if line.get('TipoImpositivo', False):
+                    line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
+                taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
+        if len(taxes_isp) > 0:
+            for key, line in taxes_isp.iteritems():
+                if line.get('CuotaSoportada', False):
+                    line['CuotaSoportada'] = \
+                        round(line['CuotaSoportada'], 2)
+                if line.get('TipoImpositivo', False):
+                    line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
+                taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(line)
         return taxes_sii
 
     @api.multi
@@ -561,6 +573,10 @@ class AccountInvoice(models.Model):
             if self.type == 'in_refund':
                 tipo_facturea = 'R4'
             desglose_factura = self._get_sii_in_taxes()
+            cuota_deducible = 0
+            if 'DesgloseIVA' in desglose_factura:
+                for desglose in desglose_factura['DesgloseIVA']['DetalleIVA']:
+                    cuota_deducible += desglose['CuotaSoportada']
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {},
@@ -581,7 +597,7 @@ class AccountInvoice(models.Model):
                         "NombreRazon": self.partner_id.name[0:120]
                     },
                     "FechaRegContable": invoice_date,
-                    "CuotaDeducible": self.amount_tax
+                    "CuotaDeducible": round(cuota_deducible, 2)
                 }
             }
             id_emisor = self._get_sii_identifier()
