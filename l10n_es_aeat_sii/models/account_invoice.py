@@ -77,10 +77,8 @@ class AccountInvoice(models.Model):
     sii_enabled = fields.Boolean(string='Enable SII',
                                  related='company_id.sii_enabled')
     invoice_jobs_ids = fields.Many2many(
-        'queue.job',
-        'invoice_id',
-        'job_id',
-        string="Invoice Jobs")
+        comodel_name='queue.job', column1='invoice_id', column2='job_id',
+        string="Invoice Jobs", copy=False)
 
     @api.onchange('refund_type')
     def onchange_refund_type(self):
@@ -656,7 +654,6 @@ class AccountInvoice(models.Model):
                 wsdl = self.env['ir.config_parameter'].get_param(
                     'l10n_es_aeat_sii.wsdl_in', False)
                 port_name = 'SuministroFactRecibidas'
-            serv = invoice._connect_wsdl(wsdl, port_name)
             if not invoice.sii_sent:
                 tipo_comunicacion = 'A0'
             else:
@@ -672,6 +669,7 @@ class AccountInvoice(models.Model):
                 new_cr.close()
                 raise
             try:
+                serv = invoice._connect_wsdl(wsdl, port_name)
                 if invoice.type in ['out_invoice', 'out_refund']:
                     res = serv.SuministroLRFacturasEmitidas(
                         header, invoices)
@@ -698,7 +696,7 @@ class AccountInvoice(models.Model):
                 self.sii_send_error = send_error
             except Exception as fault:
 #                 self.sii_return = fault
-#                 self.env['aeat.sii.result'].create_result(invoice, False, fault)
+                self.env['aeat.sii.result'].create_result(invoice, False, fault)
                 self.sii_send_error = fault
 
     @api.multi
@@ -775,6 +773,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def send_recc_payment(self, move):
+        queue_obj = self.env['queue.job']
         for invoice in self:
             company = self.company_id
             if company.sii_enabled and company.sii_method == 'auto' and \
@@ -901,5 +900,5 @@ def send_recc_payment_job(session, model_name, move_id):
     model = session.env[model_name]
     move = model.browse(move_id)
     if move.exists() and move.invoice:
-        move.invoice.send_recc_payment(move)
+        move.invoice.send_recc_payment_registry(move)
 
