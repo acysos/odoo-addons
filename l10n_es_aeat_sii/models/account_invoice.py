@@ -842,6 +842,14 @@ class AccountInvoice(models.Model):
                     'date_done': date.today()})
         return super(AccountInvoice, self).action_cancel()
 
+
+    @api.multi
+    def _fix_country_code(self, dic_ret):
+        if dic_ret['IDOtro']['CodigoPais'] == 'UK':
+            dic_ret['IDOtro']['CodigoPais'] = 'GB'
+        return dic_ret
+        
+
     @api.multi
     def _get_sii_identifier(self):
         self.ensure_one()
@@ -858,6 +866,7 @@ class AccountInvoice(models.Model):
                     "ID": vat
                 }
             }
+            dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position.name == \
                 u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
             dic_ret = {
@@ -870,6 +879,7 @@ class AccountInvoice(models.Model):
                     "ID": vat
                   }
             }
+            dic_ret = self._fix_country_code(dic_ret)
         elif vat.startswith('ESN'):
             dic_ret = {"NIF": self.partner_id.vat[2:]}
         else:
