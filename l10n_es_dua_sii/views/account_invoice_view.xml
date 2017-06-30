@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record id="invoice_supplier_sii_dua_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.sii.dua.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="l10n_es_aeat_sii.invoice_supplier_sii_form"/>
+            <field name="arch" type="xml">
+                <field name="refund_type" position="after">
+                    <field name="is_dua"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

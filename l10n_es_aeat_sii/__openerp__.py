@@ -3,10 +3,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Suministro Inmediato de Información en el IVA",
-    "version": "6.0.0.3",
+    "version": "6.0.0.4",
     "category": "Accounting & Finance",
     "website": "https://www.acysos.com",
-    "author": "Acysos S.L., Alberto Martín Cortada - Guadaltehch",
+    "author": "Acysos S.L.",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
@@ -18,7 +18,8 @@
         "base",
         "account",
         "l10n_es_aeat",
-        "account_refund_original"
+        "account_refund_original",
+        "account_chart_update"
     ],
     "data": [
         "views/res_company_view.xml",
@@ -28,7 +29,11 @@
         "views/aeat_sii_mapping_registration_keys_view.xml",
         "wizard/aeat_sii_password_view.xml",
         "data/ir_config_parameter.xml",
-        'data/aeat_sii_mapping_registration_keys_data.xml',
-        'data/aeat_sii_map_data.xml',
+        "data/aeat_sii_mapping_registration_keys_data.xml",
+        "data/aeat_sii_map_data.xml",
+        "security/aeat_sii.xml",
+        "security/ir.model.access.csv",
+        "views/account_view.xml",
+#         "data/account_fiscal_position_data.xml"
     ],
 }
