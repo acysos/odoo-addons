@@ -7,7 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Suministro Inmediato de Información en el IVA",
-    "version": "8.0.1.1.3",
+    "version": "8.0.1.1.4",
     "category": "Accounting & Finance",
     "website": "https://www.acysos.com",
     "author": "Acysos S.L.",
@@ -22,7 +22,8 @@
         "account_refund_original",
         "l10n_es_aeat",
         "connector",
-        "account_payment_partner"
+        "account_payment_partner",
+        "account_chart_update"
     ],
     "data": [
         "data/ir_config_parameter.xml",

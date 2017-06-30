@@ -118,15 +118,15 @@ class AccountInvoice(models.Model):
 
     @api.model
     def create(self, vals):
-        invoice = super(AccountInvoice, self).create(vals)
         if not vals.get('registration_key', False) and \
                 vals.get('fiscal_position', False):
-            if 'out' in invoice.type:
-                invoice.registration_key = \
-                    invoice.fiscal_position.sii_registration_key_sale
-            else:
-                invoice.registration_key = \
-                    invoice.fiscal_position.sii_registration_key_purchase
+            fp = self.env['account.fiscal.position'].browse(
+                vals['fiscal_position'])
+            if vals['type'] in ['out_invoice', 'out_refund']:
+                vals['registration_key'] = fp.sii_registration_key_sale.id
+            if vals['type'] in ['in_invoice', 'in_refund']:
+                vals['registration_key'] = fp.sii_registration_key_purchase.id
+        invoice = super(AccountInvoice, self).create(vals)
         return invoice
 
     @api.multi
@@ -206,12 +206,8 @@ class AccountInvoice(models.Model):
         if not company.vat:
             raise exceptions.Warning(_(
                 "No VAT configured for the company '{}'").format(company.name))
-        if not company.sii_test:
-            id_version_sii = self.env['ir.config_parameter'].get_param(
-                'l10n_es_aeat_sii.version', False)
-        else:
-            id_version_sii = self.env['ir.config_parameter'].get_param(
-                'l10n_es_aeat_sii.version.pruebas', False)
+        id_version_sii = self.env['ir.config_parameter'].get_param(
+            'l10n_es_aeat_sii.version', False)
         header = {
             "IDVersionSii": id_version_sii,
             "Titular": {
