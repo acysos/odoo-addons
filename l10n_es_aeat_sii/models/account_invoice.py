@@ -118,6 +118,10 @@ class AccountInvoice(models.Model):
 
     @api.model
     def create(self, vals):
+        if not vals.get('fiscal_position', False):
+            partner = self.env['res.partner'].browse(vals['partner_id'])
+            raise exceptions.Warning(_(
+                "No Fiscal Position configured for the partner %s") % (partner.name))
         if not vals.get('registration_key', False) and \
                 vals.get('fiscal_position', False):
             fp = self.env['account.fiscal.position'].browse(

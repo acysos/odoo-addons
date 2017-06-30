@@ -94,6 +94,7 @@ Contributors
 * Jordi Tolsà - Studio73 <jordi@studio73.es>
 * Omar Castiñeira - Comunitea S.L. <omar@comunitea.com>
 * Ismael Calvo - Factor Libre S.L.
+* Alberto Martín Cortada - Guadaltehch
 
 
 Maintainer

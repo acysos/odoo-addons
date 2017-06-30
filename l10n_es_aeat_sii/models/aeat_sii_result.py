@@ -64,7 +64,7 @@ class AeatSiiResult(models.Model):
         else:
             if 'CSV' in res:
                 vals['csv'] = res['CSV']
-            if 'DatosPresentacion' in res:
+            if 'DatosPresentacion' in res and res['DatosPresentacion']:
                 if 'NIFPresentador' in res['DatosPresentacion']:
                     vals['vat_presenter'] = res['DatosPresentacion']['NIFPresentador']
                 if 'TimestampPresentacion' in res['DatosPresentacion']:
@@ -129,5 +129,7 @@ class AeatSiiResult(models.Model):
                         reply['DescripcionErrorRegistro']
                 if 'CSV' in reply:
                     vals['registry_csv'] = reply['CSV']
+        print "Create result"
+        print vals
         self.create(vals)
 
