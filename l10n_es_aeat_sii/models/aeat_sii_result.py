@@ -129,7 +129,5 @@ class AeatSiiResult(models.Model):
                         reply['DescripcionErrorRegistro']
                 if 'CSV' in reply:
                     vals['registry_csv'] = reply['CSV']
-        print "Create result"
-        print vals
         self.create(vals)
 
