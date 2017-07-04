@@ -248,14 +248,15 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_sii_tax_line(self, tax_line, line, line_taxes):
         self.ensure_one()
-        tax_type = tax_line.amount * 100
+        tax_type = tax_line.amount
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
-            self._get_line_price_subtotal(line),
-            line.quantity, line.product_id, line.invoice_id.partner_id)
+            price_unit=self._get_line_price_subtotal(line),
+            quantity=line.quantity, product=line.product_id,
+            partner=line.invoice_id.partner_id)
         tax_sii = {
             "TipoImpositivo": tax_type,
-            "BaseImponible": taxes['total']
+            "BaseImponible": taxes['base']
         }
         if tax_line_req:
             tipo_recargo = tax_line_req['percentage'] * 100
@@ -275,15 +276,15 @@ class AccountInvoice(models.Model):
         tax_type = tax_type = tax_line.amount * 100
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
-            self._get_line_price_subtotal(line),
-            line.quantity, line.product_id, line.invoice_id.partner_id)
+            price_unit=self._get_line_price_subtotal(line),
+            quantity=line.quantity, product=line.product_id, partner=line.invoice_id.partner_id)
         if tax_line_req:
             tipo_recargo = tax_line_req['percentage'] * 100
             cuota_recargo = tax_line_req['taxes'][0]['amount']
             tax_sii[str(tax_type)]['TipoRecargoEquivalencia'] += tipo_recargo
             tax_sii[str(tax_type)]['CuotaRecargoEquivalencia'] += cuota_recargo
 
-        tax_sii[str(tax_type)]['BaseImponible'] += taxes['total']
+        tax_sii[str(tax_type)]['BaseImponible'] += taxes['base']
         if self.type in ['out_invoice', 'out_refund']:
             tax_sii[str(tax_type)]['CuotaRepercutida'] += \
                 taxes['taxes'][0]['amount']
@@ -308,8 +309,8 @@ class AccountInvoice(models.Model):
         taxes_sfess = self._get_taxes_map(['SFESS'], self.date_invoice)
         taxes_sfesse = self._get_taxes_map(['SFESSE'], self.date_invoice)
 
-        for line in self.invoice_line:
-            for tax_line in line.invoice_line_tax_id:
+        for line in self.invoice_line_ids:
+            for tax_line in line.invoice_line_tax_ids:
                 if tax_line in taxes_sfesb or tax_line in taxes_sfesisp or \
                         tax_line in taxes_sfens or tax_line in taxes_sfesbe:
                     if 'DesgloseFactura' not in taxes_sii:
@@ -353,11 +354,11 @@ class AccountInvoice(models.Model):
                                 taxes_f[str(tax_type)] = \
                                     self._get_sii_tax_line(
                                         tax_line, line,
-                                        line.invoice_line_tax_id)
+                                        line.invoice_line_tax_ids)
                             else:
                                 taxes_f = self._update_sii_tax_line(
                                     taxes_f, tax_line, line,
-                                    line.invoice_line_tax_id)
+                                    line.invoice_line_tax_ids)
                     # TODO l10n_es no dispone de NoSujetas de bienes
                 if tax_line in taxes_sfess or tax_line in taxes_sfesse or \
                     tax_line in taxes_sfens or tax_line in taxes_sfesbee or \
@@ -428,11 +429,11 @@ class AccountInvoice(models.Model):
                                 taxes_to[str(tax_type)] = \
                                     self._get_sii_tax_line(
                                         tax_line, line,
-                                        line.invoice_line_tax_id)
+                                        line.invoice_line_tax_ids)
                             else:
                                 taxes_to = self._update_sii_tax_line(
                                     taxes_to, tax_line, line,
-                                    line.invoice_line_tax_id)
+                                    line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
             for key, line in taxes_f.iteritems():
                 if line.get('CuotaRepercutida', False):
@@ -457,8 +458,8 @@ class AccountInvoice(models.Model):
         taxes_isp = {}
         taxes_sfrs = self._get_taxes_map(['SFRS'], self.date_invoice)
         taxes_sfrisp = self._get_taxes_map(['SFRISP'], self.date_invoice)
-        for line in self.invoice_line:
-            for tax_line in line.invoice_line_tax_id:
+        for line in self.invoice_line_ids:
+            for tax_line in line.invoice_line_tax_ids:
                 if tax_line in taxes_sfrs or tax_line in taxes_sfrisp:
                     if tax_line in taxes_sfrisp:
                         if 'InversionSujetoPasivo' not in taxes_sii:
@@ -468,11 +469,11 @@ class AccountInvoice(models.Model):
                         tax_type = tax_line.amount * 100
                         if str(tax_type) not in taxes_isp:
                             taxes_isp[str(tax_type)] = self._get_sii_tax_line(
-                                tax_line, line, line.invoice_line_tax_id)
+                                tax_line, line, line.invoice_line_tax_ids)
                         else:
                             taxes_isp = self._update_sii_tax_line(
                                 taxes_isp, tax_line, line,
-                                line.invoice_line_tax_id)
+                                line.invoice_line_tax_ids)
                     else:
                         if 'DesgloseIVA' not in taxes_sii:
                             taxes_sii['DesgloseIVA'] = {}
@@ -481,11 +482,11 @@ class AccountInvoice(models.Model):
                         tax_type = tax_line.amount * 100
                         if str(tax_type) not in taxes_f:
                             taxes_f[str(tax_type)] = self._get_sii_tax_line(
-                                tax_line, line, line.invoice_line_tax_id)
+                                tax_line, line, line.invoice_line_tax_ids)
                         else:
                             taxes_f = self._update_sii_tax_line(
                                 taxes_f, tax_line, line,
-                                line.invoice_line_tax_id)
+                                line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
             for key, line in taxes_f.iteritems():
                 if line.get('CuotaSoportada', False):
@@ -513,9 +514,9 @@ class AccountInvoice(models.Model):
         invoice_date = self._change_date_format(self.date_invoice)
         company = self.company_id
         ejercicio = fields.Date.from_string(
-            self.period_id.fiscalyear_id.date_start).year
+            self.date_invoice).year
         periodo = '%02d' % fields.Date.from_string(
-            self.period_id.date_start).month
+            self.date_invoice).month
         if not company.chart_template_id:
             raise exceptions.Warning(_(
                 'You have to select what account chart template use this'
@@ -871,7 +872,7 @@ class AccountInvoice(models.Model):
         self.ensure_one()
         dic_ret = {}
         vat = ''.join(e for e in self.partner_id.vat if e.isalnum()).upper()
-        if self.fiscal_position.name == u'Régimen Intracomunitario':
+        if self.fiscal_position_id.name == u'Régimen Intracomunitario':
             dic_ret = {
                 "IDOtro": {
                     "CodigoPais":
@@ -883,7 +884,7 @@ class AccountInvoice(models.Model):
                 }
             }
             dic_ret = self._fix_country_code(dic_ret)
-        elif self.fiscal_position.name == \
+        elif self.fiscal_position_id.name == \
                 u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
             dic_ret = {
                 "IDOtro": {
