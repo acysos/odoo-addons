@@ -1,9 +1,0 @@
-#. module: acy_virena
-#: view:website:account.report_invoice_document
-msgid "Invoice Address:"
-msgstr "Dirección de facturación:"
-
-#. module: acy_virena
-#: view:website:account.report_invoice_document
-msgid "Shipping Address:"
-msgstr "Dirección de envio:"
