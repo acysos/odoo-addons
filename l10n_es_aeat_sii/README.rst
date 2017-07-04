@@ -71,7 +71,6 @@ de AEAT.
 Known issues / Roadmap
 ======================
 
-* Comunicación de cobros y pagos RECC con conector
 * Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
 * Factura simplificada
