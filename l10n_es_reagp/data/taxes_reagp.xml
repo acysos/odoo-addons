@@ -4,7 +4,7 @@
 <openerp>
 	<data noupdate="0">
 	
-		<record id="l10n_es.account_tax_template_s_irpf2" model="account.tax.template">
+		<record id="l10n_es.account_tax_template_p_irpf2" model="account.tax.template">
 			  <field name="sequence">2</field>
 		</record>
 
