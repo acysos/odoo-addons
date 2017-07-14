@@ -21,7 +21,7 @@ class AccountInvoice(models.Model):
         """
         res = super(AccountInvoice, self)._get_invoices()
         if res.get('FacturaRecibida', False):
-            if invoice.is_dua:
+            if self.is_dua_sii_invoice():
                 res['FacturaRecibida']['TipoFactura'] = 'F5'
                 res['FacturaRecibida'].pop('FechaOperacion', None)
                 res['FacturaRecibida']['IDEmisorFactura'] = \
@@ -32,7 +32,7 @@ class AccountInvoice(models.Model):
                     self.company_id.vat[2:]
                 res['FacturaRecibida']['Contraparte']['NombreRazon'] = \
                     self.company_id.name
-            if invoice.registration_key.code == '13':
+            if self.registration_key.code == '13':
                 res['FacturaRecibida']['TipoFactura'] = 'F6'
         return res
 
