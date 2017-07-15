@@ -116,7 +116,7 @@ class real_state_top(models.Model):
                                     ('available','=',True)]):
             inmueble = etree.SubElement(table, 'Inmueble')
             IdInmobiliariaExterna = etree.SubElement(inmueble, 'IdInmobiliariaExterna')
-            IdInmobiliariaExterna.text = 'InmobiliariaUrbasa'
+            IdInmobiliariaExterna.text = ''
             IdPisoExterno = etree.SubElement(inmueble, 'IdPisoExterno')
             IdPisoExterno.text = top.name or ''
             FechaHoraModificado = etree.SubElement(inmueble, 'FechaHoraModificado')
@@ -146,9 +146,9 @@ class real_state_top(models.Model):
             Expediente = etree.SubElement(inmueble, 'Expediente')
             Expediente.text = top.name or ''
             Email = etree.SubElement(inmueble, 'Email')
-            Email.text = 'alquiler@inmobiliariaurbasa.com'
+            Email.text = ''
             Telefono = etree.SubElement(inmueble, 'Telefono')
-            Telefono.text = '948211314'
+            Telefono.text = ''
             Descripcion = etree.SubElement(inmueble, 'Descripcion')
             Descripcion.text = smart_unicode(top.internet_description or '')
             Fotos = etree.SubElement(inmueble, 'Fotos')
