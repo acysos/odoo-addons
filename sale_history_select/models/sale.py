@@ -28,17 +28,24 @@ class sale_order_line(models.Model):
                                     string='Product', required=False,
                                     states={'draft': [('readonly', False)]})
     
-    def onchange_order_line_id(self, cr, uid, ids, order_line_id, context=None):
-        line = self.browse(cr, uid, order_line_id, context)
+    @api.onchange('order_line_id')    
+    def onchange_order_line_id(self):
+        self.name = self.order_line_id.name
+        self.price_unit = self.order_line_id.price_unit
+        self.discount = self.order_line_id.discount
 
-        return {'value':{'name': line.name, 'price_unit': line.price_unit,
-                'discount': line.discount }}
-        
-    def name_get(self, cr, uid, ids, context=None):
-        res = super(sale_order_line, self).name_get(cr, uid, ids, context)
+    @api.multi
+    def name_get(self):
+        res = super(sale_order_line, self).name_get()
         res = []
-        for line in self.browse(cr, uid, ids, context):
-            name = line.order_id.date_order or '' + '-' + line.name + ' - ' + str(line.product_uom_qty) + ' - ' + str(line.price_unit) + ' - ' + line.order_partner_id.name
+        for line in self:
+            name = line.order_id.date_order 
+            name += ' - ' + line.name 
+            name += ' - ' + str(line.product_uom_qty) 
+            name += ' ' + str(line.product_uom.name) 
+            name += ' - ' + str(line.price_unit) 
+            name += ' ' + line.order_id.currency_id.symbol
+            name += ' - ' + line.order_partner_id.name
             res.append((line.id, name))
         return res
         
