@@ -436,15 +436,25 @@ class AccountInvoice(models.Model):
                                     line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
             for key, line in taxes_f.iteritems():
-                if line.get('CuotaRepercutida', False):
-                    line['CuotaRepercutida'] = \
-                        round(line['CuotaRepercutida'], 2)
+                if self.type == 'out_refund' and self.refund_type == 'I':
+                    if line.get('CuotaRepercutida', False):
+                        line['CuotaRepercutida'] = \
+                            -round(line['CuotaRepercutida'], 2)
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)                 
+                else:
+                    if line.get('CuotaRepercutida', False):
+                        line['CuotaRepercutida'] = \
+                            round(line['CuotaRepercutida'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
             for key, line in taxes_to.iteritems():
+                if self.type == 'out_refund' and self.refund_type == 'I':
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['CuotaRepercutida'] = \
+                        -round(line['CuotaRepercutida'], 2)                      
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -489,17 +499,29 @@ class AccountInvoice(models.Model):
                                 line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
             for key, line in taxes_f.iteritems():
-                if line.get('CuotaSoportada', False):
-                    line['CuotaSoportada'] = \
-                        round(line['CuotaSoportada'], 2)
+                if self.type == 'in_refund' and self.refund_type == 'I':
+                    if line.get('CuotaSoportada', False):
+                        line['CuotaSoportada'] = \
+                            -round(line['CuotaSoportada'], 2)
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                else:
+                    if line.get('CuotaSoportada', False):
+                        line['CuotaSoportada'] = \
+                            round(line['CuotaSoportada'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_isp) > 0:
             for key, line in taxes_isp.iteritems():
-                if line.get('CuotaSoportada', False):
-                    line['CuotaSoportada'] = \
-                        round(line['CuotaSoportada'], 2)
+                if self.type == 'in_refund' and self.refund_type == 'I':
+                    if line.get('CuotaSoportada', False):
+                        line['CuotaSoportada'] = \
+                            -round(line['CuotaSoportada'], 2)
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                else:
+                    if line.get('CuotaSoportada', False):
+                        line['CuotaSoportada'] = \
+                            round(line['CuotaSoportada'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(line)
@@ -528,6 +550,10 @@ class AccountInvoice(models.Model):
             if self.type == 'out_refund':
                 tipo_factura = 'R4'
             tipo_desglose = self._get_sii_out_taxes()
+            if self.type == 'out_refund' and self.refund_type == 'I':
+                    importe_total = -abs(self.amount_total)
+            else:
+                importe_total = self.amount_total
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {
@@ -547,7 +573,7 @@ class AccountInvoice(models.Model):
                         "NombreRazon": self.partner_id.name[0:120],
                     },
                     "TipoDesglose": tipo_desglose,
-                    "ImporteTotal": self.amount_total
+                    "ImporteTotal": importe_total
                 }
             }
             # Uso condicional de IDOtro/NIF
