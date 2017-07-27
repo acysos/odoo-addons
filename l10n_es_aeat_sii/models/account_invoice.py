@@ -475,7 +475,10 @@ class AccountInvoice(osv.osv):
             if invoice.type == 'out_refund':
                 tipo_factura = 'R4'
             tipo_desglose = self._get_sii_out_taxes(cr, uid, invoice)
-
+            if invoice.type == 'out_refund' and invoice.refund_type == 'I':
+                    importe_total = -abs(invoice.amount_total)
+            else:
+                importe_total = invoice.amount_total
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {
@@ -494,7 +497,8 @@ class AccountInvoice(osv.osv):
                     "Contraparte": {
                         "NombreRazon": invoice.partner_id.name[0:120],
                     },
-                    "TipoDesglose": tipo_desglose
+                    "TipoDesglose": tipo_desglose,
+                    "ImporteTotal": importe_total
                 }
             }
             invoices['FacturaExpedida']['Contraparte'].update(
@@ -564,7 +568,7 @@ class AccountInvoice(osv.osv):
                         'BaseRectificada': base_rectificada,
                         'CuotaRectificada': cuota_rectificada
                     }
-
+                    
         return invoices
 
     def _connect_sii(self, cr, uid, wsdl):
