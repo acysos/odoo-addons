@@ -79,23 +79,23 @@ class AccountInvoice(osv.osv):
 
     def create(self, cr, uid, vals, context=None):
         fp = None
-        if not vals.get('registration_key', False) and \
-                vals.get('fiscal_position', False):
-            fp = self.pool.get('account.fiscal.position').browse(cr, uid,
-                vals['fiscal_position'])
-        if not fp and vals.get('address_invoice_id', False):
-            partner = self.pool.get('res.partner.address').browse(
-                cr, uid, vals['address_invoice_id'])
-            fp = partner.partner_id.property_account_position
-        if not fp and vals.get('partner_id', False):
-            partner = self.pool.get('res.partner').browse(
-                cr, uid, vals['partner_id'])
-            fp = partner.property_account_position
-        if fp:
-            if vals['type'] in ['out_invoice', 'out_refund']:
-                vals['registration_key'] = fp.sii_registration_key_sale.id
-            if vals['type'] in ['in_invoice', 'in_refund']:
-                vals['registration_key'] = fp.sii_registration_key_purchase.id
+        if not vals.get('registration_key', False):
+            if vals.get('fiscal_position', False):
+                fp = self.pool.get('account.fiscal.position').browse(
+                    cr, uid, vals['fiscal_position'])
+            if not fp and vals.get('address_invoice_id', False):
+                partner = self.pool.get('res.partner.address').browse(
+                    cr, uid, vals['address_invoice_id'])
+                fp = partner.partner_id.property_account_position
+            if not fp and vals.get('partner_id', False):
+                partner = self.pool.get('res.partner').browse(
+                    cr, uid, vals['partner_id'])
+                fp = partner.property_account_position
+            if fp:
+                if vals['type'] in ['out_invoice', 'out_refund']:
+                    vals['registration_key'] = fp.sii_registration_key_sale.id
+                if vals['type'] in ['in_invoice', 'in_refund']:
+                    vals['registration_key'] = fp.sii_registration_key_purchase.id
         invoice = super(AccountInvoice, self).create(cr, uid, vals, context)
         return invoice
 
@@ -361,18 +361,35 @@ class AccountInvoice(osv.osv):
                                     cr, uid, taxes_to, tax_line, line,
                                     line.invoice_line_tax_id, invoice)
         if len(taxes_f) > 0:
-            for key, line in taxes_f.iteritems():
-                line['BaseImponible'] = round(line['BaseImponible'],2)
-                line['CuotaRepercutida'] = round(line['CuotaRepercutida'],2)
-                taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
-                    'DesgloseIVA']['DetalleIVA'].append(line)
+            if invoice.type == 'out_refund' and invoice.refund_type == 'I':
+                for key, line in taxes_f.iteritems():
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['CuotaRepercutida'] = -round(
+                        line['CuotaRepercutida'],2)
+                    taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
+                        'DesgloseIVA']['DetalleIVA'].append(line)
+            else:
+                for key, line in taxes_f.iteritems():
+                    line['BaseImponible'] = round(line['BaseImponible'],2)
+                    line['CuotaRepercutida'] = round(line['CuotaRepercutida'],2)
+                    taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
+                        'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.iteritems():
-                line['BaseImponible'] = round(line['BaseImponible'],2)
-                line['CuotaRepercutida'] = round(line['CuotaRepercutida'],2)
-                taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
-                    'Sujeta']['NoExenta']['DesgloseIVA'][
-                        'DetalleIVA'].append(line)
+            if invoice.type == 'in_refund' and invoice.refund_type == 'I':
+                for key, line in taxes_to.iteritems():
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['CuotaRepercutida'] = -round(
+                        line['CuotaRepercutida'],2)
+                    taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
+                        'Sujeta']['NoExenta']['DesgloseIVA'][
+                            'DetalleIVA'].append(line)
+            else:
+                for key, line in taxes_to.iteritems():
+                    line['BaseImponible'] = round(line['BaseImponible'],2)
+                    line['CuotaRepercutida'] = round(line['CuotaRepercutida'],2)
+                    taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
+                        'Sujeta']['NoExenta']['DesgloseIVA'][
+                            'DetalleIVA'].append(line)
         return taxes_sii
 
     def _get_sii_in_taxes(self, cr, uid, invoice):
@@ -531,6 +548,7 @@ class AccountInvoice(osv.osv):
                         'BaseRectificada': base_rectificada,
                         'CuotaRectificada': cuota_rectificada
                     }
+
         return invoices
 
     def _connect_sii(self, cr, uid, wsdl):
@@ -574,7 +592,6 @@ class AccountInvoice(osv.osv):
                 header = self._get_header(cr, uid, invoice.id, company,
                                           tipo_comunicacion)
                 invoices = self._get_invoices(cr, uid, company, invoice)
-
                 if invoice.type in ['out_invoice', 'out_refund']:
                     res = serv.SuministroLRFacturasEmitidas(
                         header, invoices)
@@ -608,6 +625,7 @@ class AccountInvoice(osv.osv):
             company = invoice.company_id
             if company.sii_enabled and company.sii_method == 'auto':
                 self._send_invoice_to_sii(cr, uid, [invoice.id])
+        return True
 
     def copy(self, cr, uid, id, default, context={}):
 
