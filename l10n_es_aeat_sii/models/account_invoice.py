@@ -568,7 +568,6 @@ class AccountInvoice(osv.osv):
                         'BaseRectificada': base_rectificada,
                         'CuotaRectificada': cuota_rectificada
                     }
-                    
         return invoices
 
     def _connect_sii(self, cr, uid, wsdl):
