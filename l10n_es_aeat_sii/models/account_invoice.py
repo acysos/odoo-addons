@@ -432,14 +432,30 @@ class AccountInvoice(osv.osv):
                                 cr, uid,
                                 taxes_f, tax_line, line,
                                 line.invoice_line_tax_id, invoice)
-        for key, line in taxes_f.iteritems():
-            line['BaseImponible'] = round(line['BaseImponible'],2)
-            line['CuotaSoportada'] = round(line['CuotaSoportada'],2)
-            taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
-        for key, line in taxes_isp.iteritems():
-            line['BaseImponible'] = round(line['BaseImponible'],2)
-            line['CuotaSoportada'] = round(line['CuotaSoportada'],2)
-            taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(line)
+        if len(taxes_f) > 0:
+            if invoice.type == 'in_refund' and invoice.refund_type == 'I':
+                for key, line in taxes_f.iteritems():
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['CuotaSoportada'] = -round(line['CuotaSoportada'],2)
+                    taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
+            else:
+                for key, line in taxes_f.iteritems():
+                    line['BaseImponible'] = round(line['BaseImponible'],2)
+                    line['CuotaSoportada'] = round(line['CuotaSoportada'],2)
+                    taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
+        if len(taxes_isp) > 0:
+            if invoice.type == 'in_refund' and invoice.refund_type == 'I':
+                for key, line in taxes_isp.iteritems():
+                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['CuotaSoportada'] = -round(line['CuotaSoportada'],2)
+                    taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(
+                        line)
+            else:
+                for key, line in taxes_isp.iteritems():
+                    line['BaseImponible'] = round(line['BaseImponible'],2)
+                    line['CuotaSoportada'] = round(line['CuotaSoportada'],2)
+                    taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(
+                        line)
         return taxes_sii
 
     def _get_invoices(self, cr, uid, company, invoice):
