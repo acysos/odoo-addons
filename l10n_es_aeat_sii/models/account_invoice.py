@@ -375,7 +375,7 @@ class AccountInvoice(osv.osv):
                     taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                         'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            if invoice.type == 'in_refund' and invoice.refund_type == 'I':
+            if invoice.type == 'out_refund' and invoice.refund_type == 'I':
                 for key, line in taxes_to.iteritems():
                     line['BaseImponible'] = -round(line['BaseImponible'],2)
                     line['CuotaRepercutida'] = -round(
