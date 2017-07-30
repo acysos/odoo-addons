@@ -24,8 +24,8 @@
 {
     "name" : "Product Extra Price",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
-    "website" : "www.acysos.com, gatakka.net",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """Allow to add a second price to the product. This is usefull for company that have a extra variable price and need to show it in the invoice.
     

@@ -27,9 +27,7 @@
     "author" : "Acysos S.L.",
     "category" : "Generic Modules/Inventory Control",
     "website" : "www.acysos.com",
-    "description": """Change the price of a product and update all sale order not invoiced
-    
-    Sponsored by Polux S.A y Gatakka S.L.""",
+    "description": """Change the price of a product and update all sale order not invoiced""",
     "license" : "AGPL-3",
     "depends" : [
         "base",

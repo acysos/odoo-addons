@@ -24,8 +24,8 @@
 {
     "name" : "Product Partner Reference",
     "version" : "1.0",
-    "author" : "Acysos S.L. sponsored by Gatakka and Polux",
-    "website" : "www.acysos.com, gatakka.net",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """Field to add the partner reference when is different to the internal reference""",
     "license" : "AGPL-3",

@@ -29,7 +29,7 @@
     "website" : "www.acysos.com",
     "description": """Change the price extra of a product and update all sale order not invoiced
     
-    Sponsored by Polux S.A y Gatakka S.L.""",
+    """,
     "license" : "AGPL-3",
     "depends" : [
         "base",

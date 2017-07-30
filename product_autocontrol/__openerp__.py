@@ -25,12 +25,12 @@
     "name" : "Product Autocontrol",
     "version" : "1.0",
     "author" : "Acysos S.L.",
-    "website" : "www.acysos.com, gatakka.net",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Production',
     "description": """Autocontrol checks for production order. 
         Set the test to make in the manufacturing product.
         
-        Sponsored by Gatakka and Polux""",
+        """,
     "license" : "AGPL-3",
     "depends" : ["product","sale","mrp"],
     "init_xml" : [],
