@@ -32,7 +32,7 @@
     "category" : "Specific Industry Applications",
     "depends" : [
         "base",
-        "real_estate"
+        "real_estate_base"
         ],
     "init_xml" : [],
     "demo_xml" : [],

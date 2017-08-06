@@ -2,13 +2,13 @@
 <openerp>
     <data noupdate="1">
         
-       <record id="real_estate.group_real_estate_user" model="res.groups">
+       <record id="real_estate_base.group_real_estate_user" model="res.groups">
             <field name="name">Real Estate / User</field>
         </record>
         
-         <record id="real_estate.group_real_estate_manager" model="res.groups">
+         <record id="real_estate_base.group_real_estate_manager" model="res.groups">
             <field name="name">Real Estate / Manager</field>
-            <field name="implied_ids" eval="[(4, ref('real_estate.group_real_estate_user'))]"/>
+            <field name="implied_ids" eval="[(4, ref('real_estate_base.group_real_estate_user'))]"/>
         </record>
         
         

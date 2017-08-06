@@ -23,7 +23,7 @@
 ##############################################################################
 
 {
-    "name" : "Real Estate",
+    "name" : "Real Estate Base",
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
@@ -41,8 +41,8 @@
     "init_xml" : [],
     "demo_xml" : [],
     "data" :[
-       'security/real_estate_security.xml',
-       'security/ir.model.access.csv',
+        'security/real_estate_security.xml',
+        'security/ir.model.access.csv',
 #        'report/generic_list.xml',
         'views/top_view.xml',
         'views/partner_view.xml',

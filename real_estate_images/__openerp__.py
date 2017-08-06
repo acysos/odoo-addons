@@ -12,7 +12,7 @@
     "category": "Sales Management",
     "depends": [
         "base_multi_image",
-        "real_estate"
+        "real_estate_base"
     ],
     "init_xml": [],
     "demo_xml": [],

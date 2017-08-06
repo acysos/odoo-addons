@@ -24,7 +24,7 @@
 
 {
     # Theme information
-    'name': "Inmuebles",
+    'name': "Real Estate Website",
     'description': """
     """,
     'category': 'Theme',
@@ -33,8 +33,9 @@
                 'website',
                 'website_crm',
                 'base_geolocalize',
-                'real_estate',
+                'real_estate_base',
                 'real_estate_internet_common',
+                'base_multi_image',
                 ],
 
     # templates, pages, and snippets

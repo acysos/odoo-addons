@@ -4,7 +4,7 @@
             <field name="name">crm.top.meetings.view</field>
             <field name="model">real.estate.top</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="real_estate.real_estate_top_form"/>
+            <field name="inherit_id" ref="real_estate_base.real_estate_top_form"/>
             <field name="arch" type="xml">
                 <form string="Real Estate Top" position="before">
                 	<div class="oe_right oe_button_box" name="buttons1">

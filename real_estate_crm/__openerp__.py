@@ -27,7 +27,7 @@
     "complexity": "normal",
     "category": "Specific Industry",
     "depends": ['base', 
-                'real_estate',  
+                'real_estate_base',  
                 'email_template',
                 'crm'],
     

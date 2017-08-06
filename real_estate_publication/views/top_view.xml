@@ -18,7 +18,7 @@
           <field name="name">real.estate.top.form.publication</field>
           <field name="model">real.estate.top</field>
           <field name="type">form</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_form"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_form"/>
           <field name="arch" type="xml">
               <page string="Images and documents" position="before">
                   <page string="Publications">
@@ -69,7 +69,7 @@
           <field name="name">real.estate.top.filter.publication</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="publications" />
@@ -82,7 +82,7 @@
           <field name="name">real.estate.top.filter.flat.publication</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_flat"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_flat"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="publications" />
@@ -94,7 +94,7 @@
           <field name="name">real.estate.top.filter.industrial.publication</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_industrial"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_industrial"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="publications" />
@@ -103,10 +103,10 @@
           </field>
       </record>
       <record model="ir.ui.view" id="real_estate_top_filter_shop_publication">
-          <field name="name">real.estate.top.filter..shop.publication</field>
+          <field name="name">real.estate.top.filter.shop.publication</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_shop"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_shop"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="publications" />
@@ -118,7 +118,7 @@
           <field name="name">real.estate.top.filter.office.publication</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_office"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_office"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="publications" />
@@ -130,7 +130,7 @@
           <field name="name">real.estate.top.filter.land.publication</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_land"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_land"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="publications" />

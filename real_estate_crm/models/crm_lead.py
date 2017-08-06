@@ -205,7 +205,7 @@ class crm_lead(models.Model):
         top_obj = self.env['real.estate.top']
         sug_obj = self.env['crm.top.suggested']
         for crm_lead in self:
-            if crm_lead.estate in ['open', 'pending']:
+            if crm_lead.state in ['open', 'pending']:
                 sug_ids = [sug.id for sug in crm_lead.top_suggested_ids]
                 domain = []
                 if crm_lead.zone_ids:
@@ -269,7 +269,7 @@ class crm_lead(models.Model):
                             vals = {'name': top.id, 'crm_id': crm_lead.id,
                                     'interested': False, 'updated': True}
                             sug = sug_obj.create(vals)
-                            sug.write({'estate': crm_lead.estate})
+                            sug.write({'state': crm_lead.state})
                             send_mail = True
                         else:
                             if top.write_date >= crm_lead.write_date:
@@ -277,7 +277,7 @@ class crm_lead(models.Model):
                                               {'interested': True,
                                                'updated': True})
                                 self.write([crm_lead.id],
-                                           {'estate': crm_lead.estate})
+                                           {'estate': crm_lead.state})
                                 send_mail = True
                             if len(sug_ids) > 0:
                                 if exist[0] in sug_ids:

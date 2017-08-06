@@ -32,7 +32,7 @@
     "category" : "Specific Industry Applications",
     "depends" : [
         "base",
-        "real_estate",
+        "real_estate_base",
         "real_estate_publication",
 #        "smile_export",
 #        "smile_export_file",

@@ -3,15 +3,15 @@
         <record model="ir.ui.view" id="view_company_form_real_estate_pisoscom">
             <field name="name">res.company.form.real.estate.pisoscom</field>
             <field name="model">res.company</field>
-            <field name="inherit_id" ref="real_estate_crm.view_company_form_real_estate_crm"/>
+            <field name="inherit_id" ref="real_estate_base.view_company_form_real_estate"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <field name="realestate_template" position="after">
+                <page string="Real Estate" position="inside">
                 		<separator string="Pisos.com Configuration" colspan="4"/>
                         <group>
                         	<field name="pisoscom" />
                         </group>
-                </field>
+                </page>
             </field>
         </record>
     </data>

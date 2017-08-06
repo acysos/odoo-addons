@@ -47,7 +47,7 @@
           <field name="name">real.estate.top.filter.inmoagrupacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="inmoagrupacom"/>
@@ -59,7 +59,7 @@
           <field name="name">real.estate.top.filter.flat.inmoagrupacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_flat"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_flat"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="inmoagrupacom"/>
@@ -70,7 +70,7 @@
           <field name="name">real.estate.top.filter.industrial.inmoagrupacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_industrial"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_industrial"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="inmoagrupacom"/>
@@ -81,7 +81,7 @@
           <field name="name">real.estate.top.filter..shop.inmoagrupacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_shop"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_shop"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="inmoagrupacom" />
@@ -92,7 +92,7 @@
           <field name="name">real.estate.top.filter.office.inmoagrupacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_office"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_office"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="inmoagrupacom"/>
@@ -103,7 +103,7 @@
           <field name="name">real.estate.top.filter.land.inmoagrupacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate.real_estate_top_filter_land"/>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_land"/>
           <field name="arch" type="xml">
           		<field name="partner_id" position="after">
           			<field name="inmoagrupacom"/>
