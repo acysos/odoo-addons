@@ -51,7 +51,7 @@
    ],
 
     # Your information
-    'application':True,
+    'installable': True,
     'author': "Acysos S.L.",
     'website': "www.acysos.com",
 }
