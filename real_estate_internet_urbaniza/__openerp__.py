@@ -23,11 +23,11 @@
 ##############################################################################
 
 {
-    "name" : "Real Estate Web Inmoagrupa.com",
+    "name" : "Real Estate Web Urbaniza.com",
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Publish top in inmoagrupa.com""",
+    "description": """Publish top in urbaniza.com""",
     "license" : "AGPL-3",
     "category" : "Specific Industry Applications",
     "depends" : [
