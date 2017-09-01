@@ -15,16 +15,6 @@
         <field name="code">107</field>
         <field name="level">3</field>
     </record>
-    <record model="account.hierarchy.label" id="level_3_code_118">
-        <field name="name">Aportaciones de socios o propietarios</field>
-        <field name="code">118</field>
-        <field name="level">3</field>
-    </record>
-    <record model="account.hierarchy.label" id="level_3_code_150">
-        <field name="name">Acciones o participaciones a largo plazo consideradas como pasivos financieros</field>
-        <field name="code">150</field>
-        <field name="level">3</field>
-    </record>
     <record model="account.hierarchy.label" id="level_4_code_1502">
         <field name="name">Capital Social Cooperativo a largo plazo considerado pasivo financiero: socios colaboradores y asociados o adheridos</field>
         <field name="code">1502</field>
