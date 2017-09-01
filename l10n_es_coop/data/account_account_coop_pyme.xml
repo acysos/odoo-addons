@@ -41,14 +41,6 @@
         <field name="user_type_id" ref="l10n_es.account_type_capital"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
-    <!-- Analizar si pasar hierachy -->
-<!--     <record id="pgc_coop_pyme_1002_child" model="account.account.template">
-        <field name="code">1002</field>
-        <field name="reconcile" eval="False"/>
-        <field name="name">Capital social cooperativo: socios colaboradores y asociados o adheridos</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
-        <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
-    </record> -->
     <record id="pgc_coop_pyme_10020_child" model="account.account.template">
         <field name="code">10020</field>
         <field name="reconcile" eval="False"/>
@@ -63,37 +55,20 @@
         <field name="user_type_id" ref="l10n_es.account_type_capital"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
-
-    <!-- Analizar si pasar hierachy -->
-<!--     <record id="pgc_coop_pyme_1045_child" model="account.account.template">
-        <field name="code">1045</field>
-        <field name="reconcile" eval="False"/>
-        <field name="name">Fondo de reembolso o actualizacion</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
-        <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
-    </record> -->
-    <record id="pgc_coop_pyme_10450_child" model="account.account.template">
-        <field name="code">10450</field>
+    <record id="pgc_coop_pyme_11450_child" model="account.account.template">
+        <field name="code">11450</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Fondo por incorporacion de beneficios</field>
         <field name="user_type_id" ref="l10n_es.account_type_capital"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_10451_child" model="account.account.template">
-        <field name="code">10451</field>
+        <field name="code">11451</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Fondo por incorporacion de beneficios</field>
         <field name="user_type_id" ref="l10n_es.account_type_capital"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
-    <!-- Analizar si pasar hierachy -->
-<!--     <record id="pgc_coop_pyme_107_child" model="account.account.template">
-        <field name="code">107</field>
-        <field name="reconcile" eval="False"/>
-        <field name="name">Fondo de participaciones y otros fondos subordinados con vencimiento en la liquidación</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
-        <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
-    </record> -->
     <record id="pgc_coop_pyme_1070_child" model="account.account.template">
         <field name="code">1070</field>
         <field name="reconcile" eval="False"/>
@@ -150,14 +125,6 @@
         <field name="user_type_id" ref="l10n_es.account_type_capital"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
-    <!-- Analizar si pasar hierachy -->
-<!--     <record id="pgc_coop_pyme_1502_child" model="account.account.template">
-        <field name="code">1502</field>
-        <field name="reconcile" eval="False"/>
-        <field name="name">Capital Social Cooperativo a largo plazo considerado pasivo financiero: socios colaboradores y asociados o adheridos</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
-        <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
-    </record> -->
     <record id="pgc_coop_pyme_15020_child" model="account.account.template">
         <field name="code">15020</field>
         <field name="reconcile" eval="False"/>
@@ -375,14 +342,6 @@
         <field name="user_type_id" ref="account.data_account_type_revenue"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
-    <!-- Analizar si pasar hierachy -->
-<!--     <record id="pgc_coop_pyme_757_child" model="account.account.template">
-        <field name="code">757</field>
-        <field name="reconcile" eval="False"/>
-        <field name="name">Ingresos imputables al Fondo de Educación, Formación y Promoción</field>
-        <field name="user_type_id" ref="account.data_account_type_revenue"/>
-        <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
-    </record> -->
     <record id="pgc_coop_pyme_7570_child" model="account.account.template">
         <field name="code">7570</field>
         <field name="reconcile" eval="False"/>
