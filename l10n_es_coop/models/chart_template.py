@@ -13,6 +13,7 @@ class AccountChartTemplate(models.Model):
             company, account_template, code_acc, tax_template_ref)
         search_charts = [
             self.env.ref('l10n_es_coop.account_chart_template_coop_pyme').name,
+            self.env.ref('l10n_es_coop.account_chart_template_coop_full').name,
         ]
         if account_template.chart_template_id.name in search_charts:
             search_accounts = [
