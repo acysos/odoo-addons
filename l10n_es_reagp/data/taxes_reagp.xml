@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+	<record id="l10n_es.account_tax_template_p_irpf2" model="account.tax.template">
+		  <field name="sequence">2</field>
+	</record>
+
+    <record id="account_tax_template_p_iva105_gan" model="account.tax.template">
+        <field name="description">P_IVA105_GAN</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="l10n_es.pgc_472_child"/>
+        <field name="name">10,5% IVA Soportado régimen ganadero o pesca</field>
+        <field name="refund_account_id" ref="l10n_es.pgc_472_child"/>
+        <field name="chart_template_id" ref="l10n_es.account_chart_template_common"/>
+        <field name="amount" eval="10.5"/>
+        <field name="amount_type">percent</field>
+        <field name="include_base_amount" eval="1"/>
+    </record>
+
+</odoo>
