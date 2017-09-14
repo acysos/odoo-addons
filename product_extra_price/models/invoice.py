@@ -54,6 +54,32 @@ class account_invoice(osv.osv):
         res = super(account_invoice,self).write(cr, uid, ids, vals, context)
         self.expand_extra_prices(cr, uid, ids, context)
         return res
+
+    def prepare_extra_invoice_vals(self, line, sequence, tax_ids):
+        dis_policy = line.product_id.discount_policy
+        if dis_policy == 'same':
+            discount = line.discount
+        elif dis_policy == 'only' and line.discount == 100.00:
+            discount = 100.00
+        else:
+            discount = 0
+        vals = {'name': '-- '+(line.product_id.name_extra_price or ''),
+                'origin': line.origin,
+                'invoice_id': line.invoice_id.id,
+                'uos_id': line.uos_id.id,
+                'account_id': line.account_id.id,
+                'price_unit': line.product_id.extra_price,
+                'quantity': line.quantity,
+                'discount': discount,
+                'invoice_line_tax_id': [(6, 0, tax_ids)],
+                'account_analytic_id': line.account_analytic_id.id or None,
+                'company_id': line.company_id.id,
+                'partner_id': line.partner_id.id,
+                'extra_parent_line_id': line.id,
+                'sequence': sequence,
+                'product_id': line.product_id.product_id_extra.id or None,
+                }
+        return vals
     
     def expand_extra_prices(self, cr, uid, ids, context={}):
         if type(ids) in [int, long]:
@@ -61,7 +87,6 @@ class account_invoice(osv.osv):
         updated_invoices = []
         for invoice in self.browse(cr, uid, ids, context):
             fiscal_position = invoice.fiscal_position and self.pool.get('account.fiscal.position').browse(cr, uid, invoice.fiscal_position.id, context) or False
-            
             sequence = -1
             reorder = []
             if invoice.type not in ['out_invoice','out_refund']:
@@ -74,7 +99,6 @@ class account_invoice(osv.osv):
                     }, context)
                 else:
                     sequence = line.sequence
-
                 #if line.state != 'draft':
                     #continue
                 if not line.product_id:
@@ -83,33 +107,13 @@ class account_invoice(osv.osv):
                     continue
                 if line.extra_child_line_id:
                     continue
-                
                 sequence += 1
                 tax_ids = self.pool.get('account.fiscal.position').map_tax(cr, uid, fiscal_position, line.product_id.taxes_id)
-                vals = {
-                    'name': '-- '+(line.product_id.name_extra_price or ''),
-                    'origin': line.origin,
-                    'invoice_id': line.invoice_id.id,
-                    'uos_id': line.uos_id.id,
-                    'account_id': line.account_id.id,
-                    'price_unit': line.product_id.extra_price,
-                    'quantity': line.quantity,
-                    'discount': line.discount,
-                    'invoice_line_tax_id': [(6,0,tax_ids)],
-                    'note': line.note,
-                    'account_analytic_id': line.account_analytic_id.id or None,
-                    'company_id': line.company_id.id,
-                    'partner_id': line.partner_id.id,
-                    'extra_parent_line_id': line.id,
-                    'sequence': sequence,
-                    'product_id': line.product_id.product_id_extra.id or None,
-                }
+                vals = self.prepare_extra_invoice_vals(line, sequence, tax_ids)
                 extra_line = self.pool.get('account.invoice.line').create(cr, uid, vals, context)
                 if not invoice.id in updated_invoices:
-                    updated_invoices.append( invoice.id )
-
+                    updated_invoices.append(invoice.id)
                 self.pool.get('account.invoice.line').write(cr,uid,[line.id],{'extra_child_line_id':extra_line})
-
                 for id in reorder:
                     sequence += 1
                     self.pool.get('account.invoice.line').write(cr, uid, [id], {

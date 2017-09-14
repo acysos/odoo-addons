@@ -27,13 +27,15 @@
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
-    "description": """Allow to add a second price to the product. This is usefull for company that have a extra variable price and need to show it in the invoice.
+    "description": """Allow to add a second price to the product. 
+        This is usefull for company that have a extra variable price and 
+        need to show it in the invoice.
     
-    Example of a invoice line:
-        Description         Quantity        Unit Price      Subtotal
-        Product Name               2           50,00 €      100,00 €
-            Extra Price              2            2,53 €        5,06 €
-                                                Total Invoice   105,06 €
+        Example of a invoice line:
+            Description         Quantity        Unit Price      Subtotal
+            Product Name               2           50,00 €      100,00 €
+                Extra Price              2            2,53 €        5,06 €
+                                                    Total Invoice   105,06 €
     """,
     "license" : "AGPL-3",
     "depends" : ["base", "product", "sale", "decimal_precision","account"],

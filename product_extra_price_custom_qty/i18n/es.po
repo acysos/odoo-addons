@@ -1,0 +1,132 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_extra_price_custom_qty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-04 10:42+0000\n"
+"PO-Revision-Date: 2017-08-04 10:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,available_in_pos:0
+msgid "Available in the Point of Sale"
+msgstr "Disponible en TPV"
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,to_weight:0
+msgid "Check if the product should be weighted using the hardware scale integration"
+msgstr "Check if the product should be weighted using the hardware scale integration"
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,available_in_pos:0
+msgid "Check if you want this product to appear in the Point of Sale"
+msgstr "Check if you want this product to appear in the Point of Sale"
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,income_pdt:0
+msgid "Check if, this is a product you can use to put cash into a statement for the point of sale backend."
+msgstr "Check if, this is a product you can use to put cash into a statement for the point of sale backend."
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,expense_pdt:0
+msgid "Check if, this is a product you can use to take cash from a statement for the point of sale backend, example: money lost, transfer to bank, etc."
+msgstr "Check if, this is a product you can use to take cash from a statement for the point of sale backend, example: money lost, transfer to bank, etc."
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,name_extra_price:0
+msgid "Description Extra Price"
+msgstr "Descripción coste extra"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,discount_policy:0
+msgid "Discount policy"
+msgstr "Politica descuentos"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,extra_price:0
+msgid "Extra Price"
+msgstr "Coste extra"
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,extra_price:0
+msgid "Extra price to show in the invoice like a line"
+msgstr "Coste extra a mostras en factura como una linea"
+
+#. module: product_extra_price_custom_qty
+#: model:ir.model,name:product_extra_price_custom_qty.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: product_extra_price_custom_qty
+#: model:ir.model,name:product_extra_price_custom_qty.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,income_pdt:0
+msgid "Point of Sale Cash In"
+msgstr "Point of Sale Cash In"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,expense_pdt:0
+msgid "Point of Sale Cash Out"
+msgstr "Point of Sale Cash Out"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,pos_categ_id:0
+msgid "Point of Sale Category"
+msgstr "Categoria en TPV"
+
+#. module: product_extra_price_custom_qty
+#: model:ir.model,name:product_extra_price_custom_qty.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,product_id_extra:0
+msgid "Product for extra price"
+msgstr "Producto coste extra"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,extra_price_purchase:0
+msgid "Purchase Extra Price"
+msgstr "Coste extra en compra"
+
+#. module: product_extra_price_custom_qty
+#: model:ir.model,name:product_extra_price_custom_qty.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,extra_price_purchase:0
+msgid "Purchase extra price to show in the invoice like a line"
+msgstr "Coste extra en compras para ser mostrado en factura como una linea"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,extra_price_qty:0
+msgid "Quantity per unit"
+msgstr "Cantidad por unidad"
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,name_extra_price:0
+msgid "This description is used for the description of the line"
+msgstr "Esta descripción se muestra en la linea del coste extra"
+
+#. module: product_extra_price_custom_qty
+#: help:product.product,pos_categ_id:0
+msgid "Those categories are used to group similar products for point of sale."
+msgstr "Estas categorias se utilizan para agrupar productos similaren en el TPV"
+
+#. module: product_extra_price_custom_qty
+#: field:product.product,to_weight:0
+msgid "To Weigh With Scale"
+msgstr "To Weigh With Scale"
+

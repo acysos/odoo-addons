@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 10:21+0000\n"
-"PO-Revision-Date: 2017-08-04 10:21+0000\n"
+"POT-Creation-Date: 2017-08-04 10:20+0000\n"
+"PO-Revision-Date: 2017-08-04 10:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,84 +18,84 @@ msgstr ""
 #. module: product_extra_price
 #: field:product.template,name_extra_price:0
 msgid "Description Extra Price"
-msgstr "Descripción precio extra"
+msgstr ""
 
 #. module: product_extra_price
 #: field:product.template,discount_policy:0
 msgid "Discount policy"
-msgstr "Politica descuentos"
+msgstr ""
 
 #. module: product_extra_price
 #: field:account.invoice.line,extra_parent_line_id:0
 #: field:product.template,extra_price:0
 #: field:sale.order.line,extra_parent_line_id:0
 msgid "Extra Price"
-msgstr "Precio Extra"
+msgstr ""
 
 #. module: product_extra_price
 #: help:product.template,extra_price:0
 msgid "Extra price to show in the invoice like a line"
-msgstr "Precio extra a mostrar en la factura como una linea"
+msgstr ""
 
 #. module: product_extra_price
 #: selection:product.template,discount_policy:0
 msgid "Independect"
-msgstr "Indepenciente"
+msgstr ""
 
 #. module: product_extra_price
 #: model:ir.model,name:product_extra_price.model_account_invoice
 msgid "Invoice"
-msgstr "Factura"
+msgstr ""
 
 #. module: product_extra_price
 #: model:ir.model,name:product_extra_price.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Línea de factura"
+msgstr ""
 
 #. module: product_extra_price
 #: field:account.invoice.line,extra_child_line_id:0
 #: field:sale.order.line,extra_child_line_id:0
 msgid "Line extra price"
-msgstr "Linea precio extra"
+msgstr ""
 
 #. module: product_extra_price
 #: selection:product.template,discount_policy:0
 msgid "Only 100%"
-msgstr "Solo 100%"
+msgstr ""
 
 #. module: product_extra_price
 #: model:ir.model,name:product_extra_price.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr ""
 
 #. module: product_extra_price
 #: field:product.template,product_id_extra:0
 msgid "Product for extra price"
-msgstr "Producto coste extra"
+msgstr ""
 
 #. module: product_extra_price
 #: model:ir.model,name:product_extra_price.model_sale_order
 msgid "Sales Order"
-msgstr "Pedido de venta"
+msgstr ""
 
 #. module: product_extra_price
 #: model:ir.model,name:product_extra_price.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Línea pedido de venta"
+msgstr ""
 
 #. module: product_extra_price
 #: selection:product.template,discount_policy:0
 msgid "Same as product"
-msgstr "Mismo que origen"
+msgstr ""
 
 #. module: product_extra_price
 #: help:account.invoice.line,extra_parent_line_id:0
 #: help:sale.order.line,extra_parent_line_id:0
 msgid "The line that contain the product with the extra price"
-msgstr "La linea que contiene el producto con precio extra"
+msgstr ""
 
 #. module: product_extra_price
 #: help:product.template,name_extra_price:0
 msgid "This description is used for the description of the line"
-msgstr "Esta descripción se utiliza para la descripción de la linea"
+msgstr ""
 

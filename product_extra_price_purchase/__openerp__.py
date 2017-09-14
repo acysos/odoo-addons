@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2011 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2017 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #    $Id$
 #
@@ -27,7 +27,8 @@
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
-    "description": """Add extre price in Supplier Info and add extra price line in purchase order
+    "description": """Add extra price in Supplier Info and add extra price 
+        line in purchase order
     """,
     "license" : "AGPL-3",
     "depends" : ["base", "product", "purchase", "decimal_precision","account",
