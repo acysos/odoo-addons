@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="tolua_frontend" inherit_id="web.assets_common">
+          <xpath expr="." position="inside">
+              <script type="text/javascript" src="/pos_extra_price/static/src/js/models.js"></script>
+              <script type="text/javascript" src="/pos_extra_price/static/src/js/main.js"></script>
+          </xpath>
+        </template>
+    </data>
+</openerp>
