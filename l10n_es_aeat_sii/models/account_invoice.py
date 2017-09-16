@@ -55,6 +55,20 @@ class AccountInvoice(models.Model):
             description += fixed_desc
         return description
 
+    @api.multi
+    @api.depends('invoice_line_ids')
+    def _is_sii_mapped(self):
+        for invoice in self:
+            taxes = invoice._get_taxes_map(
+                ['SFESB', 'SFESISP', 'SFENS', 'SFESS', 'SFESBE', 'SFESBEI',
+                 'SFESBEE', 'SFESSE', 'SFRS', 'SFRISP', 'SFRBI', 'RE'],
+                invoice.date_invoice)
+            invoice.is_sii_mapped = False
+            for line in invoice.invoice_line_ids:
+                for tax_line in line.invoice_line_tax_ids:
+                    if tax_line in taxes:
+                        invoice.is_sii_mapped = True
+
     sii_description = fields.Text(
         string='SII Description', required=True,
         default=_get_default_sii_description)
@@ -74,12 +88,14 @@ class AccountInvoice(models.Model):
         string="Refund Type")
     registration_key = fields.Many2one(
         comodel_name='aeat.sii.mapping.registration.keys',
-        string="Registration key", required=True)
+        string="Registration key", required=False)
     sii_enabled = fields.Boolean(string='Enable SII',
                                  related='company_id.sii_enabled')
     invoice_jobs_ids = fields.Many2many(
         comodel_name='queue.job', column1='invoice_id', column2='job_id',
         string="Invoice Jobs", copy=False)
+    is_sii_mapped = fields.Boolean(
+        string='Is SII mapped', compute='_is_sii_mapped', store=True)
 
     @api.onchange('refund_type')
     def onchange_refund_type(self):
@@ -676,7 +692,7 @@ class AccountInvoice(models.Model):
         history = HistoryPlugin()
         client = Client(wsdl=wsdl, transport=transport, plugins=[history])
         return client
-    
+
     @api.multi
     def _connect_wsdl(self, wsdl, port_name):
         self.ensure_one()
@@ -689,7 +705,8 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def _send_invoice_to_sii(self):
-        for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
+        for invoice in self.filtered(
+                lambda i: i.state in ['open', 'paid'] and i.is_sii_mapped):
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = self.env['ir.config_parameter'].get_param(
                     'l10n_es_aeat_sii.wsdl_out', False)

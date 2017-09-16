@@ -112,13 +112,22 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.view_account_invoice_filter" />
             <field name="arch" type="xml">
-                <filter name="unpaid" position="after">
-                    <filter name="sii_not_sent" string="SII not send"
-                            domain="[('sii_sent','=',False)]" />
-                    <filter name="sii_sent" string="SII send"
-                            domain="[('sii_sent','=',True)]"/>
-                    <filter name="sii_send_state" string="SII failed"
-                            domain="[('sii_send_error','!=',False)]"/>
+                <filter name="late" position="after">
+                    <separator />
+                    <group name="sii_sent">
+	                    <filter name="sii_not_sent" string="SII not send"
+	                            domain="[('sii_sent','=',False)]" />
+	                    <filter name="sii_sent" string="SII send"
+	                            domain="[('sii_sent','=',True)]"/>
+	                    <filter name="sii_send_state" string="SII failed"
+	                            domain="[('sii_send_error','!=',False)]"/>
+                    </group>
+                    <group name="sii_mapped">
+	                    <filter name="sii_sent" string="SII mapped"
+	                            domain="[('is_sii_mapped','=',True)]"/>
+	                    <filter name="sii_sent" string="SII not mapped"
+	                            domain="[('is_sii_mapped','=',False)]"/>
+                    </group>
                 </filter>
                 <xpath expr="//group" position="inside">
                     <separator/>
