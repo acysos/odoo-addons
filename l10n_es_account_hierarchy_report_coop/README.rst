@@ -16,7 +16,7 @@ Installation
 
 To install this module, you need to:
 
-* l10n_es
+* l10n_es_coop
 * l10n_es_account_hierarchy_report
 
 Bug Tracker
