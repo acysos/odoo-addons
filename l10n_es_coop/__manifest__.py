@@ -11,11 +11,11 @@
     "license": "AGPL-3",
     "depends": [
         "l10n_es",
-        "account_balance_reporting",
     ],
     "data": [
         "data/account_chart_template.xml",
         "data/account_account_coop_pyme.xml",
+        "data/account_account_coop_full.xml",
         "data/account_chart_template_post.xml",
     ],
     'installable': True,

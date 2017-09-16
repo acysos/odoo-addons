@@ -9,7 +9,6 @@ Plan contable e impuestos de España (PGCE 2008) - Cooperativas
 * Define las siguientes plantillas de cuentas:
 
   * Plan general de cuentas español 2008 para cooperativas.
-  * Define los informes de cuentas anuales para cooperativas
 
 https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
 
@@ -22,12 +21,11 @@ Installation
 To install this module, you need to:
 
 * l10n_es
-* account_balance_reporting
 
 TODO
 ====
 
-* Informes de cuentas anuales
+* Adaptación al plan completo (cuentas 8 y 9)
 
 Bug Tracker
 ===========
