@@ -1,0 +1,133 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_payment_direct_debit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20131224-002412\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-25 11:27+0000\n"
+"PO-Revision-Date: 2014-01-25 11:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_direct_debit
+#: model:account.payment.term,note:account_payment_direct_debit.payment_term_direct_debit
+msgid "Direct debit in 14 days"
+msgstr "Adeudos directos en 14 días"
+
+#. module: account_payment_direct_debit
+#: model:ir.model,name:account_payment_direct_debit.model_payment_order
+msgid "Payment Order"
+msgstr "Orden de pago"
+
+#. module: account_payment_direct_debit
+#: field:payment.type,payment_order_type:0
+msgid "Payment order type"
+msgstr "Tipo de orden de pago"
+
+#. module: account_payment_direct_debit
+#: model:ir.model,name:account_payment_direct_debit.model_payment_line
+msgid "Payment Line"
+msgstr "Línea de pago"
+
+#. module: account_payment_direct_debit
+#: model:ir.model,name:account_payment_direct_debit.model_payment_mode
+msgid "Payment Mode"
+msgstr "Modo de pago"
+
+#. module: account_payment_direct_debit
+#: code:addons/account_payment_direct_debit/model/payment_line.py:140
+#, python-format
+msgid "Can not reconcile"
+msgstr "No se puede reconciliar"
+
+#. module: account_payment_direct_debit
+#: view:account.invoice:0
+msgid "Debit Denied"
+msgstr "Adeudo denegado"
+
+#. module: account_payment_direct_debit
+#: code:addons/account_payment_direct_debit/model/account_invoice.py:147
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: account_payment_direct_debit
+#: view:account.invoice:0
+msgid "Show only invoices with state Debit denied"
+msgstr "Mostrar solo las facturas con adeudo denegado"
+
+#. module: account_payment_direct_debit
+#: model:ir.model,name:account_payment_direct_debit.model_account_move_line
+msgid "Journal Items"
+msgstr "Apuntes contables"
+
+#. module: account_payment_direct_debit
+#: selection:payment.type,payment_order_type:0
+msgid "Payment"
+msgstr "Pago"
+
+#. module: account_payment_direct_debit
+#: view:account.invoice:0
+msgid "Debit denied"
+msgstr "Adeudo denegado"
+
+#. module: account_payment_direct_debit
+#: model:account.payment.term,name:account_payment_direct_debit.payment_term_direct_debit
+#: selection:payment.type,payment_order_type:0
+msgid "Direct debit"
+msgstr "Adeudo directo"
+
+#. module: account_payment_direct_debit
+#: code:addons/account_payment_direct_debit/model/account_invoice.py:148
+#, python-format
+msgid "You cannot set invoice '%s' to state 'debit denied', as it is still reconciled."
+msgstr "No puede cambiar la factura '%s' a estado 'Adeudo denegado', porque esta aun conciliada."
+
+#. module: account_payment_direct_debit
+#: code:addons/account_payment_direct_debit/model/account_invoice.py:152
+#, python-format
+msgid "Invoice '%s': direct debit is denied."
+msgstr "Factura '%s': adeudo directo es denegado."
+
+#. module: account_payment_direct_debit
+#: model:ir.model,name:account_payment_direct_debit.model_payment_order_create
+msgid "payment.order.create"
+msgstr "pago.orden.crear"
+
+#. module: account_payment_direct_debit
+#: field:payment.line,storno:0
+msgid "Storno"
+msgstr "Anulación"
+
+#. module: account_payment_direct_debit
+#: help:payment.line,storno:0
+msgid "If this is true, the debit order has been canceled by the bank or by the customer"
+msgstr "Si esta seleccionado, el adeudo directo ha sido cancelado por el banco o el cliente"
+
+#. module: account_payment_direct_debit
+#: model:ir.model,name:account_payment_direct_debit.model_payment_type
+msgid "Payment type"
+msgstr "Tipo de pago"
+
+#. module: account_payment_direct_debit
+#: code:addons/account_payment_direct_debit/model/payment_line.py:141
+#, python-format
+msgid "Cancelation of payment line '%s' has already been processed"
+msgstr "La cancelación de la linea de pago '%s' ha sido procesada"
+
+#. module: account_payment_direct_debit
+#: field:account.move.line,amount_to_receive:0
+msgid "Amount to receive"
+msgstr "Cantidad a recibir"
+
+#. module: account_payment_direct_debit
+#: model:ir.model,name:account_payment_direct_debit.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
