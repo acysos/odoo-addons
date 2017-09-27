@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="account_payment_sepa_credit_transfer.view_payment_type_form_inherit">
+            <field name="name">view.payment.type.form</field>
+            <field name="model">payment.type</field>
+            <field name="inherit_id" ref="account_payment_extension.view_payment_type_form"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">    
+                    <field name="sepa_category_purpose" attrs="{'invisible': [('code', 'not in',['pain.001.001.02','pain.001.001.03','pain.001.001.04','pain.001.001.05'])]}"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

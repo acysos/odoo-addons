@@ -1,0 +1,663 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_payment_sepa_direct_debit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-05 06:51+0000\n"
+"PO-Revision-Date: 2014-03-05 06:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Tipo de pago:"
+msgstr "Tipo de pago:"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,description:account_payment_sepa_direct_debit.mandate_valid
+msgid "SEPA Direct Debit Mandate Validated"
+msgstr "Mandato de aduedo directo SEPA validado"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,filename:0
+#: field:banking.export.sdd.wizard,filename:0
+msgid "Filename"
+msgstr "Nombre de archivo"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Por favor devolver firmado a su comercial asignado para uso exclusivo del Acreedor. Puede obtener información adicional sobre sus derechos en su entidad financiera."
+msgstr "Por favor devolver firmado a su comercial asignado para uso exclusivo del Acreedor. Puede obtener información adicional sobre sus derechos en su entidad financiera."
+
+#. module: account_payment_sepa_direct_debit
+#: selection:sdd.mandate,recurrent_sequence_type:0
+msgid "Final"
+msgstr "Final"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd.wizard,state:0
+msgid "Finish"
+msgstr "Finalizar"
+
+#. module: account_payment_sepa_direct_debit
+#: view:res.partner:0
+#: view:res.partner.bank:0
+msgid "SDD Mandates"
+msgstr "Mandatos SDD"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Referen"
+msgstr "Referen"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd,state:0
+msgid "Reconciled"
+msgstr "Conciliado"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,recurrent_sequence_type:0
+msgid "Sequence Type for Next Debit"
+msgstr "Tipo de secuencia para el siguiente adeudo"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd,charge_bearer:0
+#: selection:banking.export.sdd.wizard,charge_bearer:0
+msgid "Borne by Creditor"
+msgstr "Sufragado por el acreedor"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.actions.act_window,name:account_payment_sepa_direct_debit.sdd_mandate_action
+#: model:ir.ui.menu,name:account_payment_sepa_direct_debit.sdd_mandate_menu
+#: view:res.partner.bank:0
+#: field:res.partner.bank,sdd_mandate_ids:0
+msgid "SEPA Direct Debit Mandates"
+msgstr "Mandatos Adeudos Diretos SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: view:banking.export.sdd.wizard:0
+#: view:sdd.mandate:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,description:account_payment_sepa_direct_debit.recurrent_sequence_type_recurring
+#: model:mail.message.subtype,name:account_payment_sepa_direct_debit.recurrent_sequence_type_recurring
+msgid "Sequence Type set to Recurring"
+msgstr "Establecer tipo de secuancia a recurrente"
+
+#. module: account_payment_sepa_direct_debit
+#: view:banking.export.sdd.wizard:0
+msgid "Generate"
+msgstr "Generar"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,description:account_payment_sepa_direct_debit.mandate_cancel
+msgid "SEPA Direct Debit Mandate Cancelled"
+msgstr "Mandatos Adeudos Diretos SEPA Cancelado"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd,charge_bearer:0
+#: selection:banking.export.sdd.wizard,charge_bearer:0
+msgid "Borne by Debtor"
+msgstr "Sufragados por el deudor"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,message_ids:0
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,unique_mandate_reference:0
+msgid "Unique Mandate Reference"
+msgstr "Referencia única del mandato"
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+#: selection:sdd.mandate,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: account_payment_sepa_direct_debit
+#: help:sdd.mandate,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Hay nuevos mensajes que requieren su atención."
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd.wizard,file_id:0
+msgid "SDD File"
+msgstr "Archivo SDD"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,description:account_payment_sepa_direct_debit.mandate_expired
+msgid "SEPA Direct Debit Mandate has Expired"
+msgstr "El mandato de Adeudo Directo SEPA ha expirado"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "El titular de la cuenta autoriza al Acreedor al tratamiento informatizado de sus datos personales para la finalidad del Mandato SEPA, así como la cesión de los mismos, que se producirá para la gestión del adeudo, informándole que podrá acceder, rectificar, cancelar y oponerse al contenido de sus datos mediante comunicación dirigida al Responsable del fichero de datos personales,"
+msgstr "El titular de la cuenta autoriza al Acreedor al tratamiento informatizado de sus datos personales para la finalidad del Mandato SEPA, así como la cesión de los mismos, que se producirá para la gestión del adeudo, informándole que podrá acceder, rectificar, cancelar y oponerse al contenido de sus datos mediante comunicación dirigida al Responsable del fichero de datos personales,"
+
+#. module: account_payment_sepa_direct_debit
+#: help:banking.export.sdd,charge_bearer:0
+#: help:banking.export.sdd.wizard,charge_bearer:0
+msgid "Following service level : transaction charges are to be applied following the rules agreed in the service level and/or scheme (SEPA Core messages must use this). Shared : transaction charges on the creditor side are to be borne by the creditor, transaction charges on the debtor side are to be borne by the debtor. Borne by creditor : all transaction charges are to be borne by the creditor. Borne by debtor : all transaction charges are to be borne by the debtor."
+msgstr "Acuerdo de nivel de servicio : los costes de la transacción se aplican siguiendo las reglas acordadas en el nivel de servicio (los mensajes Core de SEPA deben usar esta opción). Compartido : los costes cargados en la parte deudora deben ser sufragados por el deudor, los costes cargados en la parte acreedora deben ser sufragados por el acreedor. Sufragados por el acreedor : todos los costes son sufragados por el acreedor. Sufragados por el deudor : todos los costes son sufragados por el deudor."
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: account_payment_sepa_direct_debit
+#: view:banking.export.sdd:0
+msgid "SEPA Direct Debit"
+msgstr "Adeudo directo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: view:banking.export.sdd.wizard:0
+msgid "SEPA Direct Debit XML file generation"
+msgstr "Creación de archivo de Adeudo Directo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: help:sdd.mandate,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Almacena el resumen de mensajes número de mensajes, ...). Este resumen está en formato html para que pueda ser incrustado en las vistas kanban."
+
+#. module: account_payment_sepa_direct_debit
+#: model:payment.type,name:account_payment_sepa_direct_debit.export_sdd_008_001_02
+msgid "SEPA Direct Debit v02 (recommended)"
+msgstr "Adeudo directo SEPA v02 (recommended)"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.model,name:account_payment_sepa_direct_debit.model_payment_line
+msgid "Payment Line"
+msgstr "Línea de pago"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,create_date:0
+msgid "Generation Date"
+msgstr "Fecha de creación"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd.wizard,state:0
+msgid "Create"
+msgstr "Crear"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,nb_transactions:0
+#: field:banking.export.sdd.wizard,nb_transactions:0
+msgid "Number of Transactions"
+msgstr "Número de transacciones"
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+#: selection:sdd.mandate,type:0
+msgid "One-Off"
+msgstr "Único"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,state:0
+#: field:banking.export.sdd.wizard,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+#: selection:sdd.mandate,state:0
+msgid "Valid"
+msgstr "Válido"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,message_follower_ids:0
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,message_unread:0
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: account_payment_sepa_direct_debit
+#: view:banking.export.sdd:0
+#: field:banking.export.sdd,payment_order_ids:0
+#: field:banking.export.sdd.wizard,payment_order_ids:0
+msgid "Payment Orders"
+msgstr "Ordenes de pago"
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd,state:0
+msgid "Sent"
+msgstr "Enviado"
+
+#. module: account_payment_sepa_direct_debit
+#: field:res.company,original_creditor_identifier:0
+msgid "Original Creditor Identifier"
+msgstr "Identificar original del acreedor"
+
+#. module: account_payment_sepa_direct_debit
+#: constraint:payment.line:0
+#: constraint:sdd.mandate:0
+msgid "Error msg in raise"
+msgstr "Error msg in raise"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:sdd.mandate,recurrent_sequence_type:0
+msgid "Recurring"
+msgstr "Recurrente"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "BIC:"
+msgstr "BIC:"
+
+#. module: account_payment_sepa_direct_debit
+#: help:res.company,sepa_creditor_identifier:0
+msgid "Enter the Creditor Identifier that has been attributed to your company to make SEPA Direct Debits. This identifier is composed of :\n"
+"- your country ISO code (2 letters)\n"
+"- a 2-digits checkum\n"
+"- a 3-letters business code\n"
+"- a country-specific identifier"
+msgstr "Introduzca el identificador SEPA de su empresa para hacer las órdenes de adeudo directo SEPA. Normalmente debe componerse de:\n"
+"- código ISO del país (2 letras)\n"
+"- un código de control de 2 dígitos\n"
+"- un código de empresa de 3 letras\n"
+"- un identificar específico del país"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "El Deudor (*)"
+msgstr "El Deudor (*)"
+
+#. module: account_payment_sepa_direct_debit
+#: sql_constraint:sdd.mandate:0
+msgid "A Mandate with the same reference already exists for this company !"
+msgstr "Existe un mandato con la misma referencia en esta compañia !"
+
+#. module: account_payment_sepa_direct_debit
+#: help:sdd.mandate,state:0
+msgid "Only valid mandates can be used in a payment line. A cancelled mandate is a mandate that has been cancelled by the customer. A one-off mandate expires after its first use. A recurrent mandate expires after it's final use or if it hasn't been used for 36 months."
+msgstr "Sólo pueden incluirse líneas de pago con mandatos válidos. Un mandato cancelado es un mandato que ha sido cancelado por el cliente. Un mandato único expira después de su primer uso. Un mandato recurrente expira después de su último uso o si no ha sido usado en 36 meses."
+
+#. module: account_payment_sepa_direct_debit
+#: help:sdd.mandate,recurrent_sequence_type:0
+msgid "This field is only used for Recurrent mandates, not for One-Off mandates."
+msgstr "Este campo solo se utiliza en los mandatos recurrentes, no para los mandatos únicos."
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+msgid "Signature Date"
+msgstr "Fecha de la firma"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,charge_bearer:0
+#: field:banking.export.sdd.wizard,charge_bearer:0
+msgid "Charge Bearer"
+msgstr "Cargado al portador"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:sdd.mandate,recurrent_sequence_type:0
+msgid "First"
+msgstr "Inicial"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,signature_date:0
+msgid "Date of Signature of the Mandate"
+msgstr "Fecha de firma del mandato"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Dirección: _____________________________________________________________"
+msgstr "Dirección: _____________________________________________________________"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,name:account_payment_sepa_direct_debit.mandate_cancel
+msgid "Mandate Cancelled"
+msgstr "Mandato cancelado"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.actions.act_window,name:account_payment_sepa_direct_debit.act_banking_export_sdd_payment_order
+msgid "Generated SEPA Direct Debit Files"
+msgstr "Archivo de aduedo directo SEPA creado"
+
+#. module: account_payment_sepa_direct_debit
+#: help:sdd.mandate,sepa_migrated:0
+msgid "If this field is not active, the mandate section of the next direct debit file that include this mandate will contain the 'Original Mandate Identification' and the 'Original Creditor Scheme Identification'. This is required in a few countries (Belgium for instance), but not in all countries. If this is not required in your country, you should keep this field always active."
+msgstr "Si este campo no está activo, la sección mandato del siguiente fichero de adeudo directo que incluya este mandato contendrá la 'Identificación Original del Mandato' y la 'Identificación Original del Acreedor'. Esto no es requerido en todos los países. Si en su país no es requerido debería mantener este campo activo."
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.model,name:account_payment_sepa_direct_debit.model_banking_export_sdd_wizard
+msgid "Export SEPA Direct Debit File"
+msgstr "Exportar archivo de Adeudo directo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: help:banking.export.sdd,batch_booking:0
+#: help:banking.export.sdd.wizard,batch_booking:0
+msgid "If true, the bank statement will display only one credit line for all the direct debits of the SEPA file ; if false, the bank statement will display one credit line per direct debit of the SEPA file."
+msgstr "Si se marca, el extracto bancario mostrará una sola línea para todas los adeudos del fichero SEPA ; en caso contrario mostrará una línea por línea de adeudo del fichero SEPA."
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd,state:0
+#: view:sdd.mandate:0
+#: selection:sdd.mandate,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd,charge_bearer:0
+#: selection:banking.export.sdd.wizard,charge_bearer:0
+msgid "Shared"
+msgstr "Compartidos"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,batch_booking:0
+#: field:banking.export.sdd.wizard,batch_booking:0
+msgid "Batch Booking"
+msgstr "Procesamiento en lotes"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,sepa_migrated:0
+msgid "Migrated to SEPA"
+msgstr "Migrado a SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: account_payment_sepa_direct_debit
+#: model:payment.type,name:account_payment_sepa_direct_debit.export_sdd_008_001_04
+msgid "SEPA Direct Debit v04"
+msgstr "Adeudo directo SEPA v04"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,total_amount:0
+#: field:banking.export.sdd.wizard,total_amount:0
+msgid "Total Amount"
+msgstr "Total"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.actions.act_window,name:account_payment_sepa_direct_debit.action_account_banking_sdd
+#: model:ir.ui.menu,name:account_payment_sepa_direct_debit.menu_account_banking_sdd
+msgid "SEPA Direct Debit Files"
+msgstr "Archivos Adeudo directo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: selection:banking.export.sdd,charge_bearer:0
+#: selection:banking.export.sdd.wizard,charge_bearer:0
+msgid "Following Service Level"
+msgstr "Acuerdo de nivel de servicio"
+
+#. module: account_payment_sepa_direct_debit
+#: model:payment.type,name:account_payment_sepa_direct_debit.export_sdd_008_001_03
+msgid "SEPA Direct Debit v03"
+msgstr "Adeudo directo SEPA v03"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,description:account_payment_sepa_direct_debit.recurrent_sequence_type_final
+#: model:mail.message.subtype,name:account_payment_sepa_direct_debit.recurrent_sequence_type_final
+msgid "Sequence Type set to Final"
+msgstr "Establecer tipo de secuancia a Último"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Es un seguidor"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "(*) Si el titular de la cuenta fuera distinto al Deudor definido, como deudor completar:"
+msgstr "(*) Si el titular de la cuenta fuera distinto al Deudor definido, como deudor completar:"
+
+#. module: account_payment_sepa_direct_debit
+#: help:sdd.mandate,original_mandate_identification:0
+msgid "When the field 'Migrated to SEPA' is not active, this field will be used as the Original Mandate Identification in the Direct Debit file."
+msgstr "Cuando el campo 'Migrado a SEPA' no está activo, este campo se usará como la Identificación de Mandato Original en el archivo de Adeudo Directo."
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.actions.report.xml,name:account_payment_sepa_direct_debit.sdd_mandate_report
+#: view:payment.order:0
+msgid "SDD Mandate"
+msgstr "Mandato SDD"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,original_mandate_identification:0
+msgid "Original Mandate Identification"
+msgstr "Identificación original del mandato"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.model,name:account_payment_sepa_direct_debit.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,message_summary:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: account_payment_sepa_direct_debit
+#: model:res.groups,name:account_payment_sepa_direct_debit.group_original_mandate_required
+msgid "Original Mandate Required (SEPA)"
+msgstr "Mandato original requerido (SEPA)"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Entidad prestadora del servicio/Acreedor:"
+msgstr "Entidad prestadora del servicio/Acreedor:"
+
+#. module: account_payment_sepa_direct_debit
+#: field:account.invoice,sdd_mandate_id:0
+#: model:ir.model,name:account_payment_sepa_direct_debit.model_sdd_mandate
+#: field:payment.line,sdd_mandate_id:0
+#: view:sdd.mandate:0
+msgid "SEPA Direct Debit Mandate"
+msgstr "Mandato Adeudo directo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,scan:0
+msgid "Scan of the Mandate"
+msgstr "Mandato escaneado"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,last_debit_date:0
+msgid "Date of the Last Debit"
+msgstr "Fecha del último adeudo"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,name:account_payment_sepa_direct_debit.mandate_expired
+msgid "Mandate Expired"
+msgstr "Mandato expirado"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Tomador del servicio/Deudor:"
+msgstr "Tomador del servicio/Deudor:"
+
+#. module: account_payment_sepa_direct_debit
+#: constraint:res.company:0
+msgid "Invalid SEPA Creditor Identifier."
+msgstr "Identificador SEPA del acreedor no válido."
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.actions.act_window,name:account_payment_sepa_direct_debit.action_res_partner_bank_account_form_sdd
+#: model:ir.model,name:account_payment_sepa_direct_debit.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Cuentas bancarias"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Domicilio de cobro:"
+msgstr "Domicilio de cobro:"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.actions.act_window,help:account_payment_sepa_direct_debit.sdd_mandate_action
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"        Click to create a new SEPA Direct Debit Mandate.\n"
+"        </p><p>\n"
+"        A SEPA Direct Debit Mandate is a document signed by your customer that gives you the autorization to do one or several direct debits on his bank account.\n"
+"        </p>\n"
+"    "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"        Pulse para crear un nuevo Mandato de Adeudo Directo SEPA.\n"
+"        </p><p>\n"
+"        Un Mandato de Adeudo Directo SEPA es un documento firmado por sus clientes que le da autorización para realizar uno o varios adeudos directos sobre su cuenta bancaria.\n"
+"        </p>\n"
+"    "
+
+#. module: account_payment_sepa_direct_debit
+#: view:banking.export.sdd:0
+msgid "General Information"
+msgstr "Información general"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Lugar y fecha de la firma: ________________________, a ________ de _____________________ de"
+msgstr "Lugar y fecha de la firma: ________________________, a ________ de _____________________ de"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.model,name:account_payment_sepa_direct_debit.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: account_payment_sepa_direct_debit
+#: view:banking.export.sdd.wizard:0
+#: view:sdd.mandate:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+#: field:sdd.mandate,payment_line_ids:0
+msgid "Related Payment Lines"
+msgstr "Líneas de pago relacionadas"
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+#: selection:sdd.mandate,type:0
+msgid "Recurrent"
+msgstr "Recurrente"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,type:0
+msgid "Type of Mandate"
+msgstr "Tipo de mandato"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd,file:0
+msgid "SEPA File"
+msgstr "Archivo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,name:account_payment_sepa_direct_debit.mandate_valid
+msgid "Mandate Validated"
+msgstr "Mandato validado"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Mediante la firma de esta orden de domiciliación, el Deudor autoriza a"
+msgstr "Mediante la firma de esta orden de domiciliación, el Deudor autoriza a"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Nombre y apellidos o razón social: ____________________________________________________________"
+msgstr "Nombre y apellidos o razón social: ____________________________________________________________"
+
+#. module: account_payment_sepa_direct_debit
+#: field:res.company,sepa_creditor_identifier:0
+msgid "SEPA Creditor Identifier"
+msgstr "Identificador SEPA del acreedor"
+
+#. module: account_payment_sepa_direct_debit
+#: model:ir.model,name:account_payment_sepa_direct_debit.model_banking_export_sdd
+msgid "SEPA Direct Debit export"
+msgstr "Exportar Adeudo directo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "Como parte de sus derechos, el Deudor está legitimado al reembolso por su Entidad en los términos y condiciones del contrato suscrito con la misma. La solicitud de reembolso deberá efectuarse dentro de las ocho semanas que siguen a la fecha de adeudo en cuenta."
+msgstr "Como parte de sus derechos, el Deudor está legitimado al reembolso por su Entidad en los términos y condiciones del contrato suscrito con la misma. La solicitud de reembolso deberá efectuarse dentro de las ocho semanas que siguen a la fecha de adeudo en cuenta."
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+#: selection:sdd.mandate,state:0
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "MANDATO DE ADEUDO DIRECTO SEPA"
+msgstr "MANDATO DE ADEUDO DIRECTO SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: field:sdd.mandate,partner_bank_id:0
+msgid "Bank Account"
+msgstr "Cuenta bancaria"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "IBAN:"
+msgstr "IBAN:"
+
+#. module: account_payment_sepa_direct_debit
+#: model:mail.message.subtype,description:account_payment_sepa_direct_debit.recurrent_sequence_type_first
+#: model:mail.message.subtype,name:account_payment_sepa_direct_debit.recurrent_sequence_type_first
+msgid "Sequence Type set to First"
+msgstr "Tipo de secuencia establecida a Inicial"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "NIF :"
+msgstr "NIF :"
+
+#. module: account_payment_sepa_direct_debit
+#: help:sdd.mandate,message_ids:0
+msgid "Messages and communication history"
+msgstr "Historial de mensajes y comunicación"
+
+#. module: account_payment_sepa_direct_debit
+#: view:sdd.mandate:0
+msgid "Search SEPA Direct Debit Mandates"
+msgstr "Buscar mandatos de Adeudo directo SEPA"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "NIF: ______________________________"
+msgstr "NIF: ______________________________"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "cia:"
+msgstr "cia:"
+
+#. module: account_payment_sepa_direct_debit
+#: report:sdd.mandate:0
+msgid "CP y localidad: __________________________________________________________________"
+msgstr "CP y localidad: __________________________________________________________________"
+
+#. module: account_payment_sepa_direct_debit
+#: field:banking.export.sdd.wizard,file:0
+msgid "File"
+msgstr "Archivo"
+

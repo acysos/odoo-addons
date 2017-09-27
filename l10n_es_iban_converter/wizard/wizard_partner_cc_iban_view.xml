@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_partner_cc_iban_view" model="ir.ui.view">
+            <field name="name">wizard.partner.cc.iban.view</field>
+            <field name="model">wizard.partner.cc.iban</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Convert CCC &lt;-&gt; IBAN" version="7.0">
+                    <group colspan="4">
+                        <separator colspan="4" />
+                        <label
+                            string="You are going to update account number in partners banks, select which type to do you want to change" />
+                        <field name="bank_state" nolabel="1" />
+                    </group>
+                    <footer>
+                        <group colspan="8" col="8">
+                            <button name="update_cc_iban" string="Convert"
+                                type="object" class="oe_highlight" />
+                            or
+                            <button special="cancel" string="Cancel" />
+                        </group>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

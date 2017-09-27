@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_es_iban_converter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-04 14:05+0000\n"
+"PO-Revision-Date: 2014-08-04 14:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_es_iban_converter
+#: field:wizard.partner.cc.iban,bank_state:0
+msgid "Bank Account Type"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: model:ir.model,name:l10n_es_iban_converter.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: view:wizard.partner.cc.iban:0
+msgid "Cancel"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: view:wizard.partner.cc.iban:0
+msgid "Convert"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: model:ir.actions.act_window,name:l10n_es_iban_converter.action_partner_to_cciban
+#: view:wizard.partner.cc.iban:0
+msgid "Convert CCC <-> IBAN"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: field:wizard.partner.cc.iban,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: field:wizard.partner.cc.iban,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: field:wizard.partner.cc.iban,id:0
+msgid "ID"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: field:wizard.partner.cc.iban,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: field:wizard.partner.cc.iban,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: model:ir.model,name:l10n_es_iban_converter.model_wizard_partner_cc_iban
+msgid "Wizard Partner CC IBAN"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: view:wizard.partner.cc.iban:0
+msgid "You are going to update account number in partners banks, select which type to do you want to change"
+msgstr ""
+
+#. module: l10n_es_iban_converter
+#: view:wizard.partner.cc.iban:0
+msgid "or"
+msgstr ""
+

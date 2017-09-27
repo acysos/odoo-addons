@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- ACTION partner To CC IBAN -->
+        <act_window id="action_partner_to_cciban" key2="client_action_multi"
+            name="Convert CCC &lt;-&gt; IBAN" res_model="wizard.partner.cc.iban"
+            src_model="res.partner" view_id="wizard_partner_cc_iban_view"
+            view_mode="form" target="new" view_type="form" />
+    </data>
+</openerp>
