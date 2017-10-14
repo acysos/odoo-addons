@@ -21,7 +21,7 @@
 {
     "name": "Bloqueo de fecha factura en vista calendario",
     "version": "8.0",
-    "author": "Acysos S.L., Odoo Community Association (OCA)",
+    "author": "Acysos S.L.",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
     "category": "Accounting",
