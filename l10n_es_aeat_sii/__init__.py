@@ -4,4 +4,4 @@
 
 from . import models
 from . import wizard
-from .hooks import add_key_to_existing_invoices
+from .hooks import post_init_sii_hook

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # Copyright © 2017 Oihane Crucelaegui - AvanzOSC
+# Copyright © 2017 Ignacio Ibeas - Acysos S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from openerp import SUPERUSER_ID
 
 
-def add_key_to_existing_invoices(cr, registry):
+def post_init_sii_hook(cr, registry):
     """This post-init-hook will update all existing invoices"""
     invoice_obj = registry['account.invoice']
     invoices = invoice_obj.search(cr, SUPERUSER_ID, [])
@@ -33,3 +34,10 @@ def add_key_to_existing_invoices(cr, registry):
             ALTER TABLE account_invoice
             ALTER COLUMN registration_key SET NOT NULL;
             """)
+        cr.execute("""
+            UPDATE account_invoice
+            SET sii_registration_date = create_date
+            WHERE type in ('in_invoice', 'in_refund');
+            """)
+
+        
