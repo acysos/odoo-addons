@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_multi_image
+# 	* real_estate_images
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-12 10:28+0000\n"
-"PO-Revision-Date: 2017-05-12 12:41+0200\n"
+"POT-Creation-Date: 2017-10-03 16:07+0000\n"
+"PO-Revision-Date: 2017-10-03 18:11+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,121 +17,133 @@ msgstr ""
 "Language: es\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#. module: product_multi_image
-#: view:base_multi_image.image:product_multi_image.image_form_view
-msgid "(keep empty for being visible for all variants)"
-msgstr "(dejar vacío para hacerlo visible para todas las variantes)"
+#. module: real_estate_images
+#: code:addons/real_estate_images/models/real_estate_top_images.py:24
+#, python-format
+msgid "Add Images to the Top"
+msgstr "Añadir imágenes al inmueble"
 
-#. module: product_multi_image
-#: field:product.product,available_in_pos:0
-msgid "Available in the Point of Sale"
-msgstr "Available in the Point of Sale"
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Add Multiple Images to the Top"
+msgstr "Añadir múltiples imágenes al inmueble"
 
-#. module: product_multi_image
-#: help:product.product,to_weight:0
-msgid "Check if the product should be weighted using the hardware scale integration"
-msgstr "Check if the product should be weighted using the hardware scale integration"
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "Cancel"
+msgstr "Cancelar"
 
-#. module: product_multi_image
-#: help:product.product,available_in_pos:0
-msgid "Check if you want this product to appear in the Point of Sale"
-msgstr "Check if you want this product to appear in the Point of Sale"
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Comments"
+msgstr "Comentarios"
 
-#. module: product_multi_image
-#: help:product.product,income_pdt:0
-msgid "Check if, this is a product you can use to put cash into a estatement for the point of sale backend."
-msgstr "Check if, this is a product you can use to put cash into a estatement for the point of sale backend."
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "Confirm"
+msgstr "Confirmar"
 
-#. module: product_multi_image
-#: help:product.product,expense_pdt:0
-msgid "Check if, this is a product you can use to take cash from a estatement for the point of sale backend, example: money lost, transfer to bank, etc."
-msgstr "Check if, this is a product you can use to take cash from a estatement for the point of sale backend, example: money lost, transfer to bank, etc."
+#. module: real_estate_images
+#: field:multimages.wizard,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
 
-#. module: product_multi_image
-#: help:base_multi_image.image,product_variant_ids:0
-msgid "If you leave it empty, all variants will show this image. Selecting one or several of the available variants, you restrict the availability of the image to those variants."
-msgstr "If you leave it empty, all variants will show this image. Selecting one or several of the available variants, you restrict the availability of the image to those variants."
+#. module: real_estate_images
+#: field:multimages.wizard,create_date:0
+msgid "Created on"
+msgstr "Creado en"
 
-#. module: product_multi_image
-#: field:product.product,image_ids:0
-#: view:product.template:product_multi_image.view_product_template_form_img_inh
-#: field:product.template,image_ids:0
+#. module: real_estate_images
+#: field:multimages.wizard,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: real_estate_images
+#: field:multimages.wizard,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Image"
+msgstr "Imagen"
+
+#. module: real_estate_images
+#: field:real.estate.top,image_ids:0
 msgid "Images"
 msgstr "Imágenes"
 
-#. module: product_multi_image
-#: field:product.product,image_main:0 field:product.template,image_main:0
+#. module: real_estate_images
+#: field:multimages.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: real_estate_images
+#: field:multimages.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: real_estate_images
+#: field:multimages.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: real_estate_images
+#: field:real.estate.top,image_main:0
 msgid "Main image"
 msgstr "Imagen principal"
 
-#. module: product_multi_image
-#: field:product.product,image_main_medium:0
-#: field:product.template,image_main_medium:0
+#. module: real_estate_images
+#: field:real.estate.top,image_main_medium:0
 msgid "Medium image"
 msgstr "Imagen media"
 
-#. module: product_multi_image
-#: field:product.product,income_pdt:0
-msgid "Point of Sale Cash In"
-msgstr "Point of Sale Cash In"
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "Multiple Images to the Top"
+msgstr "Múltiples imagenes al inmueble"
 
-#. module: product_multi_image
-#: field:product.product,expense_pdt:0
-msgid "Point of Sale Cash Out"
-msgstr "Point of Sale Cash Out"
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Name"
+msgstr "Nombre"
 
-#. module: product_multi_image
-#: field:product.product,pos_categ_id:0
-msgid "Point of Sale Category"
-msgstr "Point of Sale Category"
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Options"
+msgstr "Opciones"
 
-#. module: product_multi_image
-#: model:ir.model,name:product_multi_image.model_product_product
-msgid "Product"
-msgstr "Producto"
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Owner"
+msgstr "Propietario"
 
-#. module: product_multi_image
-#: model:ir.model,name:product_multi_image.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Preview"
+msgstr "Vista previa"
 
-#. module: product_multi_image
-#: field:base_multi_image.image,product_variant_count:0
-msgid "Product variant count"
-msgstr "Nº de variantes"
-
-#. module: product_multi_image
-#: field:product.product,image_main_small:0
-#: field:product.template,image_main_small:0
+#. module: real_estate_images
+#: field:real.estate.top,image_main_small:0
 msgid "Small image"
 msgstr "Imagen pequeña"
 
-#. module: product_multi_image
-#: help:product.product,pos_categ_id:0
-msgid "Those categories are used to group similar products for point of sale."
-msgstr "Those categories are used to group similar products for point of sale."
+#. module: real_estate_images
+#: field:multimages.wizard,zip_tops_images:0
+msgid "Upload a zip file with images"
+msgstr "Sube un zip con imágenes"
 
-#. module: product_multi_image
-#: field:product.product,to_weight:0
-msgid "To Weigh With Scale"
-msgstr "Pesar con Escala"
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Web Images"
+msgstr "Imágenes Web"
 
-#. module: product_multi_image
-#: view:base_multi_image.image:product_multi_image.image_kanban_view
-msgid "Visible in"
-msgstr "Visible en"
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "or"
+msgstr "or"
 
-#. module: product_multi_image
-#: view:base_multi_image.image:product_multi_image.image_kanban_view
-msgid "Visible in all variants"
-msgstr "Visible en todas las variantes"
-
-#. module: product_multi_image
-#: field:base_multi_image.image,product_variant_ids:0
-msgid "Visible in these variants"
-msgstr "Visible en estas variantes"
-
-#. module: product_multi_image
-#: view:base_multi_image.image:product_multi_image.image_kanban_view
-msgid "variant(s)"
-msgstr "variante(s)"
+#. module: real_estate_images
+#: field:multimages.wizard,top_id:0
+msgid "topid"
+msgstr "topid"

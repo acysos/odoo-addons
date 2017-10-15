@@ -116,7 +116,7 @@ class real_estate_top(models.Model):
                                     ('available','=',True)]):
             inmueble = etree.SubElement(table, 'Inmueble')
             IdInmobiliariaExterna = etree.SubElement(inmueble, 'IdInmobiliariaExterna')
-            IdInmobiliariaExterna.text = 'InmobiliariaUrbasa'
+            IdInmobiliariaExterna.text = company.idpisoscom
             IdPisoExterno = etree.SubElement(inmueble, 'IdPisoExterno')
             IdPisoExterno.text = top.name or ''
             FechaHoraModificado = etree.SubElement(inmueble, 'FechaHoraModificado')
@@ -135,6 +135,8 @@ class real_estate_top(models.Model):
             Situacion1.text = smart_unicode(top.zone.name or '')
             SuperficieUtil = etree.SubElement(inmueble, 'SuperficieUtil')
             SuperficieUtil.text = str(top.m2 or '')
+            SuperficieConstruida = etree.SubElement(inmueble, 'SuperficieConstruida')
+            SuperficieConstruida.text = str(top.cons_m2 or '')
             HabitacionesDobles = etree.SubElement(inmueble, 'HabitacionesDobles')
             HabitacionesDobles.text = str(top.pisoscom_number_doblehab or '')
             HabitacionesSimples = etree.SubElement(inmueble, 'HabitacionesSimples')
@@ -146,7 +148,7 @@ class real_estate_top(models.Model):
             Expediente = etree.SubElement(inmueble, 'Expediente')
             Expediente.text = top.name or ''
             Email = etree.SubElement(inmueble, 'Email')
-            Email.text = 'alquiler@inmobiliariaurbasa.com'
+            Email.text = company.email
             Telefono = etree.SubElement(inmueble, 'Telefono')
             Telefono.text = '948211314'
             Descripcion = etree.SubElement(inmueble, 'Descripcion')
@@ -155,15 +157,15 @@ class real_estate_top(models.Model):
             if top.image_ids != False:
                 for image in top.image_ids:
                     Foto = etree.SubElement(Fotos, 'Foto'+str(image.sequence))
-                    Foto.text = company.domain + 'website/image/base_multi_image.image/' + str(image.id) + '/file_db_store'
+                    Foto.text = 'http://' + company.domain + '/web/binary/saveas?model=base_multi_image.image&field=file_db_store&filename_field=name&id=' + str(image.id)
             NombreCalle = etree.SubElement(inmueble, 'NombreCalle')
             NombreCalle.text = smart_unicode(top.address or '')
             NumeroCalle = etree.SubElement(inmueble, 'NumeroCalle')
             NumeroCalle.text = top.number or ''
-            Escalera = etree.SubElement(inmueble, 'Escalera')
-            Escalera.text = top.stair or ''
-            Piso = etree.SubElement(inmueble, 'Piso')
-            Piso.text = top.floor or ''
+#             Escalera = etree.SubElement(inmueble, 'Escalera')
+#             Escalera.text = top.stair or ''
+#             Piso = etree.SubElement(inmueble, 'Piso')
+#             Piso.text = top.floor or ''
             Cocina_tiene = etree.SubElement(inmueble, 'Cocina_tiene')
             if top.kitchen > 0:
                 Cocina_tiene.text = str(1)
@@ -269,27 +271,35 @@ class real_estate_top(models.Model):
                 Vestuarios_tiene.text = str(0)
             Vestuarios_comentario = etree.SubElement(inmueble, 'Vestuarios_comentario')
             Vestuarios_comentario.text = ''
-            CertificacionEnergetica_tiene = etree.SubElement(inmueble, 'CertificacionEnergetica_tiene')
-            if top.energy_efficiency not in ['in_process', 'exempt', 'yes']:
-                CertificacionEnergetica_tiene.text = str(1)
-            else:
-                CertificacionEnergetica_tiene.text = str(0)
-            CertificacionEnergetica_comentario = etree.SubElement(inmueble, 'CertificacionEnergetica_comentario')
-            if top.energy_efficiency not in ['in_process', 'exempt', 'yes']:
-                CertificacionEnergetica_comentario.text = top.energy_efficiency or ''
-            else:
-                CertificacionEnergetica_comentario.text = ''
-            PrestacionEnergetica_tiene = etree.SubElement(inmueble, 'PrestacionEnergetica_tiene')
-            if top.energy_efficiency not in ['in_process', 'exempt', 'yes']:
-                PrestacionEnergetica_tiene.text = str(1)
-            else:
-                PrestacionEnergetica_tiene.text = str(0)
-            PrestacionEnergetica_comentario = etree.SubElement(inmueble, 'PrestacionEnergetica_comentario')
-            PrestacionEnergetica_comentario.text = str(top.energy_number or '')
-            CalificacionEmisionesEnergeticas = etree.SubElement(inmueble, 'CalificacionEmisionesEnergeticas')
-            CalificacionEmisionesEnergeticas.text = ''
-            EmisionesEnergeticas = etree.SubElement(inmueble, 'EmisionesEnergeticas')
-            EmisionesEnergeticas.text = str(top.energy_emission or '')
+#             CertificacionEnergetica_tiene = etree.SubElement(inmueble, 'CertificacionEnergetica_tiene')
+#             if top.energy_efficiency not in ['in_process', 'exempt', 'yes']:
+#                 CertificacionEnergetica_tiene.text = str(1)
+#             else:
+#                 CertificacionEnergetica_tiene.text = str(0)
+#             CertificacionEnergetica_comentario = etree.SubElement(inmueble, 'CertificacionEnergetica_comentario')
+#             if top.energy_efficiency not in ['in_process', 'exempt', 'yes']:
+#                 CertificacionEnergetica_comentario.text = top.energy_efficiency or ''
+#             else:
+#                 CertificacionEnergetica_comentario.text = ''
+#             PrestacionEnergetica_tiene = etree.SubElement(inmueble, 'PrestacionEnergetica_tiene')
+#             if top.energy_efficiency not in ['in_process', 'exempt', 'yes']:
+#                 PrestacionEnergetica_tiene.text = str(1)
+#             else:
+#                 PrestacionEnergetica_tiene.text = str(0)
+#             PrestacionEnergetica_comentario = etree.SubElement(inmueble, 'PrestacionEnergetica_comentario')
+#             PrestacionEnergetica_comentario.text = str(top.energy_number or '')
+#             CalificacionEmisionesEnergeticas = etree.SubElement(inmueble, 'CalificacionEmisionesEnergeticas')
+#             CalificacionEmisionesEnergeticas.text = ''
+#             EmisionesEnergeticas = etree.SubElement(inmueble, 'EmisionesEnergeticas')
+#             EmisionesEnergeticas.text = str(top.energy_emission or '')
+            if top.energy_efficiency not in ['in_process', 'exempt']:
+                EnergiaConsumoValor = etree.SubElement(inmueble, 'EnergiaConsumoValor')
+                EnergiaConsumoValor.text = str(top.energy_number)
+                EnergiaEmisionCategoria = etree.SubElement(inmueble, 'EnergiaEmisionCategoria')
+                EnergiaEmisionCategoria.text = str(top.energy_efficiency)
+                EnergiaEmisionValor = etree.SubElement(inmueble, 'EnergiaEmisionValor')
+                EnergiaEmisionValor.text = str(top.energy_emission)
+
             
         prueba = etree.tostring(raiz, encoding='UTF-8',
             xml_declaration=True)

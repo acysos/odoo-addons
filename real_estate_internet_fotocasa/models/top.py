@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2014 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
@@ -23,9 +23,28 @@
 ##############################################################################
 
 from openerp import models, fields, api, _
+from openerp.exceptions import except_orm, Warning, RedirectWarning
 
-class res_company(models.Model):
-    _inherit = 'res.company'
-
-    urbaniza_name = fields.Char('Nombre') 
+class real_estate_top(models.Model):
+    _inherit = 'real.estate.top'
+    
+    @api.multi
+    @api.onchange('fotocasa')
+    def onchange_fotocasa(self):
+        fotocasa_tops = self.search([('fotocasa','=',True),
+                                    ('available','=',True)])
         
+        user  = self.env.user
+        
+        if len(fotocasa_tops) >= user.company_id.fotocasa:
+            raise except_orm(_('Limit excedido!'),
+                _('Ha superado el limite de Fotocasa'))
+        
+        return True
+    
+    
+    fotocasa = fields.Boolean('Publicado en fotocasa.com')
+    
+    
+    
+    

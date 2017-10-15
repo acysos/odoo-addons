@@ -23,9 +23,11 @@
 ##############################################################################
 
 from openerp import models, fields, api, _
+import openerp.addons.decimal_precision as dp
+import time
 
 class res_company(models.Model):
     _inherit = 'res.company'
 
-    urbaniza_name = fields.Char('Nombre') 
+    fotocasa = fields.Integer('Límite Fotocasa') 
         

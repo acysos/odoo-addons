@@ -21,6 +21,85 @@
                 </page>
           </field>
       </record>
-      
+
+      <record model="ir.ui.view" id="real_estate_top_filter_common">
+          <field name="name">real.estate.top.filter.common</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter"/>
+          <field name="arch" type="xml">
+             <group name="price-area" position="after">
+                <group string="Internet" name="internet"/>
+             </group>
+          </field>
+      </record>
+
+    <record model="ir.ui.view" id="real_estate_top_filter_common_flat">
+          <field name="name">real.estate.top.filter.flat.common</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_flat"/>
+          <field name="arch" type="xml">
+             <group name="price-area" position="after">
+                <group string="Internet" name="internet"/>
+             </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_industrial">
+          <field name="name">real.estate.top.filter.industrial.common</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_industrial"/>
+          <field name="arch" type="xml">
+             <group name="price-area" position="after">
+                <group string="Internet" name="internet"/>
+             </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_shop">
+          <field name="name">real.estate.top.filter.shop.common</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_shop"/>
+          <field name="arch" type="xml">
+             <group name="price-area" position="after">
+                <group string="Internet" name="internet"/>
+             </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_office">
+          <field name="name">real.estate.top.filter.office.common</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_office"/>
+          <field name="arch" type="xml">
+             <group name="price-area" position="after">
+                <group string="Internet" name="internet"/>
+             </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_hotel_industry">
+          <field name="name">real.estate.top.filter.hotel.industry.common</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_hotel_industry"/>
+          <field name="arch" type="xml">
+             <group name="price-area" position="after">
+                <group string="Internet" name="internet"/>
+             </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_land">
+          <field name="name">real.estate.top.filter.land.common</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_land"/>
+          <field name="arch" type="xml">
+             <group name="price-area" position="after">
+                <group string="Internet" name="internet"/>
+             </group>
+          </field>
+      </record>
+
   </data>
 </openerp>

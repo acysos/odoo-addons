@@ -13,19 +13,22 @@
 		    		<div class="filters_bar row">
 				    			<div class="top_filters col-md-12">
 				    				<div class="titles_searchbar row">
-								<div class="title1 col-md-6">
-									<h4>Tops seeker</h4>
+								<div class="title1 col-md-6 col-sm-6 col-xs-6">
+									<h4>Buscador de Inmuebles</h4>
 							    </div>
-							    <div class="title2 col-md-6">
-							        <h4>Find all you need</h4>
+							    <div class="title2 col-md-6 col-sm-6 col-xs-6">
+							        <h4>Encuentra lo que necesites</h4>
 							    </div>
 							</div>
+							<div class="hidden ocultbutton" id="pruebax">
+								<button type="button" class="btn btn-info" id='pruebaclick'>Buscador</button>
+							</div>
 							<div class="attributes_searchbar row">
-								<form action="/realestate/searchmap" method="post">
+								<form action="/realestate/search" method="post">
 									<div class="operation col-md-2">
 										<select name="operations">
 											<t t-if="operation_sel == 'operation'">
-				  								<option id="touch" value="operation" selected="selected">Operation</option>
+				  								<option id="touch" value="operation" selected="selected">Operación</option>
 				  							</t>
 											<t t-foreach="operations" t-as="topoperations">
 												<t t-if="topoperations[0] == operation_sel">
@@ -40,7 +43,7 @@
 									<div class="category col-md-2">
 										<select name="category">
 											<t t-if="category_sel == 'category'">
-				  								<option value="category" selected="selected">Category</option>
+				  								<option value="category" selected="selected">Categoría</option>
 				  							</t>
 											<t t-foreach="type1" t-as="toptype">
 												<t t-if="toptype[0] == category_sel">
@@ -55,7 +58,7 @@
 									<div class="city col-md-2">
 										<select name="city">
 											<t t-if="city_sel == 'city'">
-				  								<option value="city" selected="selected">Location</option>
+				  								<option value="city" selected="selected">Localidad</option>
 				  							</t>
 											<t t-foreach="cities" t-as="topcity">
 												<t t-if="topcity[1] == city_sel">
@@ -70,7 +73,7 @@
 									<div class="zone col-md-2">
 										<select name="zone">
 				  							<t t-if="zone_sel == 'zone'">
-				  								<option value="zone" selected="selected">Zone</option>
+				  								<option value="zone" selected="selected">Zona</option>
 				  							</t>
 				  							<t t-foreach="zone" t-as="topzones">
 				  								<t t-if="topzones.id == zone_sel">
@@ -87,7 +90,7 @@
 											<input id="spf" type="text" name="salepricefrom" t-att-value="salepricefrom_def"/>
 										</t>
 										<t t-if="salepricefrom_def == 0">
-											<input id="spf" type="text" name="salepricefrom" value="Sale price from"/>
+											<input id="spf" type="text" name="salepricefrom" value="Precio venta desde"/>
 				  						</t>
 									</div>
 									<div class="hidden salepriceto col-md-2">
@@ -95,7 +98,7 @@
 											<input id="spt" type="text" name="salepriceto" t-att-value="salepriceto_def"/>
 										</t>
 										<t t-if="salepriceto_def == 0">
-											<input id="spt" type="text" name="salepriceto" value="Sale price to"/>
+											<input id="spt" type="text" name="salepriceto" value="Precio venta hasta"/>
 				  						</t>
 									</div>
 									<div class="hidden rentpricefrom col-md-2">
@@ -103,7 +106,7 @@
 											<input id="rpf" type="text" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
 										</t>
 										<t t-if="rentpricefrom_def == 0">
-											<input id="rpf" type="text" name="rentpricefrom" value="Rent price from"/>
+											<input id="rpf" type="text" name="rentpricefrom" value="Precio alquiler desde"/>
 				  						</t>
 									</div>
 									<div class="hidden rentpriceto col-md-2">
@@ -111,7 +114,7 @@
 											<input id="rpt" type="text" name="rentpriceto" t-att-value="rentpriceto_def"/>
 										</t>
 										<t t-if="rentpriceto_def == 0">
-											<input id="rpt" type="text" name="rentpriceto" value="Rent price to"/>
+											<input id="rpt" type="text" name="rentpriceto" value="Precio alquiler hasta"/>
 				  						</t>
 									</div>
 									<div class="areafrom col-md-2">
@@ -119,7 +122,7 @@
 											<input id="af" type="text" name="areafrom" t-att-value="areafrom_def"/>
 										</t>
 										<t t-if="areafrom_def == 0">
-											<input id="af" type="text" name="areafrom" value="area from"/>
+											<input id="af" type="text" name="areafrom" value="M2 desde"/>
 				  						</t>
 									</div>
 									<div class="areato col-md-2">
@@ -127,7 +130,7 @@
 											<input id="at" type="text" name="areato" t-att-value="areato_def"/>
 										</t>
 										<t t-if="areato_def == 0">
-											<input id="at" type="text" name="areato" value="area to"/>
+											<input id="at" type="text" name="areato" value="M2 hasta"/>
 				  						</t>
 									</div>
 									<div class="reference col-md-2">
@@ -135,16 +138,16 @@
 											<input id="refer" type="text" name="reference" t-att-value="reference_def"/>
 										</t>
 										<t t-if="reference_def == 'reference'">
-											<input id="refer" type="text" name="reference" value="reference"/>
+											<input id="refer" type="text" name="reference" value="referencia"/>
 				  						</t>
 									</div>
 									<div class="btnsearch col-md-2">
-										<input type="submit" id="btnSearch" value="Search" />
+										<input type="submit" id="btnSearch" value="Buscar" />
 									</div>
 								</form>
 							</div>
 							<div class="hidden advanced_searchbar row">
-								<a href="" class="advanced_search1">Advanced search</a>
+								<a href="" class="advanced_search1">Busqueda avanzada</a>
 							</div>
 		    			</div>
 		    			<div class="selector_view col-md-12 text-center">
@@ -162,7 +165,7 @@
 								    <input type="hidden" name="areato" t-att-value="areato_def"/>
 								    <input type="hidden" name="reference" t-att-value="reference_def"/>
 								    <a t-attf-href="/realestate/search">
-								        <input type="submit" id="btnlist" value="list" />
+								        <input type="submit" id="btnlist" value="lista" />
 								    </a>
 								    
 								</form>
@@ -181,7 +184,7 @@
 								    <input type="hidden" name="areato" t-att-value="areato_def"/>
 								    <input type="hidden" name="reference" t-att-value="reference_def"/>
 								    <a t-attf-href="/realestate/searchmap">
-								        <input type="submit" id="btnmap" value="map" />
+								        <input type="submit" id="btnmap" value="mapa" />
 								    </a>
 								    
 								</form>
@@ -200,7 +203,7 @@
 								    <input type="hidden" name="areato" t-att-value="areato_def"/>
 								    <input type="hidden" name="reference" t-att-value="reference_def"/>
 								    <a t-attf-href="/realestate/search/page/{{page}}">
-								        <input type="submit" id="btnlist" value="list" />
+								        <input type="submit" id="btnlist" value="lista" />
 								    </a>
 								    
 								</form>
@@ -219,7 +222,7 @@
 								    <input type="hidden" name="areato" t-att-value="areato_def"/>
 								    <input type="hidden" name="reference" t-att-value="reference_def"/>
 								    <a t-attf-href="/realestate/searchmap/page/{{page}}">
-								        <input type="submit" id="btnmap" value="map" />
+								        <input type="submit" id="btnmap" value="mapa" />
 								    </a>
 								    
 								</form>
@@ -231,8 +234,9 @@
 		    			</div>
 		    		</div>
 		    		<div class="tops_and_maps row">
+		    			<span class="hidden url_param_proof" t-esc="url_bases"/>
 		    			<div class="tops_maps">
-		    				<div id="map" style="height: 500px; overflow: hidden;"/>
+		    				<div id="map" style="height: 500px; width: auto; overflow: hidden;"/>
 		    			</div>
 		    		</div>
 			  		<div class="products_pager col-md-12 col-sm-12 col-xs-12">

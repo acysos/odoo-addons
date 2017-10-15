@@ -81,7 +81,7 @@ class real_estate_top(models.Model):
             pais = etree.SubElement(inmueble, 'pais')
             pais.text = etree.CDATA(top.city_id.country_id.name or '')
             provincia = etree.SubElement(inmueble, 'provincia')
-            provincia.text = etree.CDATA(top.city_id.estate_id.name or '')
+            provincia.text = etree.CDATA(top.city_id.state_id.name or '')
             poblacion = etree.SubElement(inmueble, 'poblacion')
             poblacion.text = etree.CDATA(top.city_id.city or '')
             zona = etree.SubElement(inmueble, 'zona')
@@ -217,7 +217,7 @@ class real_estate_top(models.Model):
             posicion_exacta_01 = etree.SubElement(inmueble, 'posicion_exacta_01')
             posicion_exacta_01.text = str(0)
             estado_vivienda = etree.SubElement(inmueble, 'estado_vivienda')
-            estado_vivienda.text = top.top_estate or ''
+            estado_vivienda.text = top.top_state or ''
             garaje_012 = etree.SubElement(inmueble, 'garaje_012')
             if top.parking > 0:
                 garaje_012.text = str(1)
@@ -261,7 +261,8 @@ class real_estate_top(models.Model):
                 for image in top.image_ids:
                     foto = etree.SubElement(fotos, 'foto')
                     url_foto = etree.SubElement(foto, 'url_foto')
-                    url_foto.text = etree.CDATA(company.domain + 'website/image/base_multi_image.image/' + str(image.id) + '/file_db_store')
+                    url_foto_extension = image.name.split('.')[-1]
+                    url_foto.text = etree.CDATA('http://' + company.domain + 'website/image/base_multi_image.image/' + str(image.id) + '/file_db_store/image.' + url_foto_extension.lower())
                     descripcion_foto = etree.SubElement(foto, 'descripcion_foto')
                     descripcion_foto.text = etree.CDATA(str(image.comments or ''))
                     principal_01 = etree.SubElement(foto, 'principal_01')
@@ -276,7 +277,10 @@ class real_estate_top(models.Model):
             url_externa = etree.SubElement(inmueble, 'url_externa')
             url_externa.text = ''
             url_doc_exclusividad = etree.SubElement(inmueble, 'url_doc_exclusividad')
-            url_doc_exclusividad.text = top.inmoagrupacom_exclusivity_doc_url or ''
+            if top.inmoagrupacom_exclusivity_doc:
+                url_doc_exclusividad.text = 'http://' + company.domain + 'website/pdf/real.estate.top/inmoagrupacom_exclusivity_doc/' + str(top.id) + '/inmoagrupacom_exclusivity_doc_filename/pdf.pdf'     
+            else:
+                url_doc_exclusividad.text = ''
             fecha_captacion = etree.SubElement(inmueble, 'fecha_captacion')
             fecha_captacion.text = top.inmoagrupacom_capt_date or ''
             fecha_fin_mandato = etree.SubElement(inmueble, 'fecha_fin_mandato')
@@ -294,26 +298,29 @@ class real_estate_top(models.Model):
             eficiencia_energetica_energia.text = str(top.energy_number or '')
             url_doc_efic_energetica = etree.SubElement(inmueble, 'url_doc_efic_energetica')
             if top.energy_doc:
-                url_doc_efic_energetica.text = company.domain + 'web/binary/saveas?model=real.estate.top&field=energy_doc&filename_field=name&id=' + str(top.id)     
+                url_doc_efic_energetica.text = 'http://' + company.domain + 'website/pdf/real.estate.top/energy_doc/' + str(top.id) + '/doc_filename/pdf.pdf'  
             else:
                 url_doc_efic_energetica.text = ''
             sucursal = etree.SubElement(inmueble, 'sucursal')
             nombre_sucursal = etree.SubElement(sucursal, 'nombre_sucursal')
-            nombre_sucursal.text = company.urbaniza_name
+            nombre_sucursal.text = str(company.urbaniza_name)
             email_sucursal = etree.SubElement(sucursal, 'email_sucursal')
             email_sucursal.text = company.email
             poblacion_sucursal = etree.SubElement(sucursal, 'poblacion_sucursal')
             poblacion_sucursal.text = company.city
             provincia_sucursal = etree.SubElement(sucursal, 'provincia_sucursal')
-            provincia_sucursal.text = company.state_id.name
+            provincia_sucursal.text = company.state_id.name or ''
             telefono_sucursal = etree.SubElement(sucursal, 'telefono_sucursal')
             telefono_sucursal.text = company.phone
             latitud_sucursal = etree.SubElement(sucursal, 'latitud_sucursal')
             longitud_sucursal = etree.SubElement(sucursal, 'longitud_sucursal')            
             
-        prueba = etree.tostring(raiz, encoding='ISO-8859-15',
-            xml_declaration=True)
+        prueba = etree.tostring(raiz, encoding='ISO-8859-15', xml_declaration=True)
+        
         return prueba.decode('ISO-8859-15')
+    
+        
+        
     
     
     FEE_TYPE = [('P','Porcentaje'),
@@ -410,8 +417,8 @@ class real_estate_top(models.Model):
                                                   select=True, readonly=False)
     inmoagrupacom_heating = fields.Char(compute='_get_inmoagrupacom_heating', 
                                            method=True, store=False)
+    inmoagrupacom_exclusivity_doc_filename = fields.Char("Doc Filename") 
     inmoagrupacom_exclusivity_doc = fields.Binary('Documento Exclusividad')
-    inmoagrupacom_exclusivity_doc_url = fields.Char('Documento Exclusividad URL', size=512)
     capt_date = fields.Date('Fecha de captación')
     inmoagrupacom_capt_date = fields.Char(compute='_get_inmoagrupacom_capt_date', 
                                            method=True, store=False)

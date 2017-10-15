@@ -85,19 +85,18 @@ class res_partner(models.Model):
                 client = user.document_client
             else:
                 client = company.default_document_client
+                
             model_id = self.env['ir.model'].search([('model','=',
                                                      'res.partner')])
             dir_obj = self.env['document.directory']
             dir_id = dir_obj.search([('ressource_type_id','=',model_id.id)])
-            print mount
-            print dir_id.name
-            print partner.ref
             path = ''
-            if client == 'unix':
-                path = mount + dir_id.name + '/' + partner.ref + '/'
-            elif client == 'win':
-                path = mount + dir_id.name + '\\' + partner.ref + '\\'
-            partner.partner_attachments_url = path
+            if partner.ref:
+                if client == 'unix':
+                    path = mount + dir_id.name + '/' + partner.ref + '/'
+                elif client == 'win':
+                    path = mount + dir_id.name + '\\' + partner.ref + '\\'
+                partner.partner_attachments_url = path
         
 
     

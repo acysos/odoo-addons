@@ -29,5 +29,6 @@ import time
 class res_company(models.Model):
     _inherit = 'res.company'
 
+    idpisoscom = fields.Char('ID Pisos.com')
     pisoscom = fields.Integer('Límite Pisos.com') 
         

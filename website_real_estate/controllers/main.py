@@ -171,12 +171,12 @@ class top_view(http.Controller):
         
         
         
-        
+         
         operation_sel = 'operation'
         zone_sel = 'zone'
         city_sel = 'city'
         category_sel = 'category'
-        reference_def = 'reference'
+        reference_def = 'referencia'
         salepricefrom_def = 0
         salepriceto_def = 0
         rentpricefrom_def = 0
@@ -184,67 +184,61 @@ class top_view(http.Controller):
         areafrom_def = 0
         areato_def = 0
         
-        
-        
-        try:
+
+        if 'zone' in post:
             if (post['zone'] != 'zone'):
                 domain += [('zone', '=', int(post['zone']))]
                 zone_sel = int(post['zone'])
-                
+        if 'category' in post:
             if (post['category'] != 'category'):
                 domain += [('type', '=', post['category'])]
                 category_sel = post['category']
-                
+        if 'category' in post:        
             if (post['operations'] != 'operation'):
                 domain += [('operation', '=', post['operations'])]
                 operation_sel = post['operations']
-            
-            if (post['reference'] != 'reference'):
+        if 'reference' in post:    
+            if (post['reference'] != 'referencia'):
                 domain += [('name', '=', post['reference'])]
                 reference_def = post['reference']
-                
+        if 'salepricefrom' in post:        
             if (splitnumber(post['salepricefrom']) > 0):
                 domain += [('sale_price', '>=', splitnumber(post['salepricefrom']))]
                 salepricefrom_def = post['salepricefrom']
-                
+        if 'salepriceto' in post:        
             if (splitnumber(post['salepriceto']) > 0):
                 domain += [('sale_price', '<=', splitnumber(post['salepriceto']))]
                 salepriceto_def = post['salepriceto']
-                
+        if 'rentpricefrom' in post:        
             if (splitnumber(post['rentpricefrom']) > 0):
                 domain += [('rent_price', '>=', float(post['rentpricefrom']))]
                 rentpricefrom_def = post['rentpricefrom']
-                
+        if 'rentpriceto' in post:        
             if (splitnumber(post['rentpriceto']) > 0):
                 domain += [('rent_price', '<=', splitnumber(post['rentpriceto']))]
                 rentpriceto_def = post['rentpriceto']
-                
+        if 'areafrom' in post:        
             if (splitnumber(post['areafrom']) > 0):
                 domain += [('m2', '>=', splitnumber(post['areafrom']))]
                 areafrom_def = post['areafrom']
-                
+        if 'areato' in post:        
             if (splitnumber(post['areato']) > 0):
                 domain += [('m2', '<=', splitnumber(post['areato']))]
                 areato_def = post['areato']
-                
+            
+        if 'city' in post:
             if (post['city'] != 'city'):
                 prooftonumber = []
                 proofforstring = str(post['city']).split('-')
                 for index in range(len(proofforstring)):
                     prooftonumber.append(int(proofforstring[index]))
                     
-                
+                print prooftonumber
                 domain += [('city_id', 'in', prooftonumber)] 
-                city_sel = post['city']   
-                       
-            
+                city_sel = post['city']                     
         
-        except:
-            print "error"
-            
-            
-            
-        print domain
+        print domain   
+        print post
         
         tops = pool.get('real.estate.top')
         
@@ -255,6 +249,8 @@ class top_view(http.Controller):
         
         top_ids = tops.search(cr, uid, domain, limit=PPG, offset=pager['offset'], context=context)
         topss = tops.browse(cr, uid, top_ids, context=context)
+        
+        
         
         listToMap = [[],[],[],[],[],[],[],[]]
         
@@ -270,10 +266,14 @@ class top_view(http.Controller):
                     listToMap[2].append(t.id)
                     listToMap[3].append(image_id)
                     listToMap[4].append(t.zone.name)
-                    listToMap[5].append(t.address)
+                    listToMap[5].append(t.address.replace(',', ';'))
                     listToMap[6].append(t.m2)
                     listToMap[7].append(t.name)
-        print listToMap
+        
+                   
+        
+        url_base = str(request.env['ir.config_parameter'].get_param(
+            'web.base.url', False))
         
         values = {
             'top' : topss,
@@ -296,7 +296,7 @@ class top_view(http.Controller):
             'rentpriceto_def': rentpriceto_def,
             'areafrom_def': areafrom_def,
             'areato_def': areato_def,
-            
+            'url_bases': url_base,
             }
         return values
     

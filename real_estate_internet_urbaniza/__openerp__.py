@@ -23,11 +23,11 @@
 ##############################################################################
 
 {
-    "name" : "Real Estate Web Urbaniza.com",
+    "name" : "Real Estate Web Inmoagrupa.com",
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Publish top in urbaniza.com""",
+    "description": """Publish top in inmoagrupa.com""",
     "license" : "AGPL-3",
     "category" : "Specific Industry Applications",
     "depends" : [
@@ -44,7 +44,8 @@
     "data" :[
         'views/top_view.xml',
         'views/inmoagrupacom_template.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'views/company_view.xml'
         ],
     "active": False,
     "installable": True

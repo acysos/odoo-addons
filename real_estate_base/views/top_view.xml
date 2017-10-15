@@ -228,7 +228,7 @@
                             <field name="energy_date" />
                             <field name="energy_emission" />
                             <field name="energy_number" />
-                            <field name="energy_doc" attrs="{'invisible': [('type', 'in', ['land'])], 'required': [('energy_efficiency','in',['a','b','c','d','e','f','g'])]}" />
+                            <field name="energy_doc" filename="doc_filename" attrs="{'invisible': [('type', 'in', ['land'])], 'required': [('energy_efficiency','in',['a','b','c','d','e','f','g'])]}" />
                         </group>
                         <group>
                             <separator string="Administrator Information" colspan="4"/>
@@ -251,17 +251,21 @@
                                 <field name="rent_attachments_url" colspan="4" widget="url" />
                                 <field name="notes" colspan="4" />
                             </form>  
-                            <tree string="Rental Agreements" editable="top">
+                            <tree string="Rental Agreements">
+                              <group>
                                 <field name="name" />
                                 <field name="partner_id" />
                                 <field name="start_date" />
                                 <field name="end_date" />
                                 <field name="rent_price" />
+                              </group>
                             </tree> 
                         </field>
                     </page>   
                     <page string="Buyer" attrs="{'invisible': [('operation', 'not in', ['sale','sale_rent']),]}">
-						<field name="buyer_id" />
+						<group>
+							<field name="buyer_id" />
+						</group>
                     </page>
                     <page string="Images and documents"> 
                     <group>
@@ -305,7 +309,7 @@
           <field name="priority" eval="5"/>
           <field name="arch" type="xml">
               <search string="Real Estate Top">
-                  <group col="10" colspan="4">
+                  <group col="10" colspan="4" string="Real Estate" name="real-estate">
                   	  <filter string="Available" domain="[('available','=',1)]"/>
                   	  <filter string="Not Available" domain="[('available','=',0)]"/>
                   	  <separator orientation="vertical"/>
@@ -320,8 +324,7 @@
                       <field name="zone"/>
                       <field name="city_id" />
                   </group>
-                  <newline/>
-                  <group col="10" colspan="4">
+                  <group col="10" colspan="4" string="Prices and area" name="price-area">
                       <field name="sale_price" string="Sale price from"
 						filter_domain="[('sale_price','&gt;=',self)]" />
                       <field name="sale_price"  string="Sale Price to"
@@ -330,9 +333,12 @@
 						filter_domain="[('rent_price','&gt;=',self)]" />
                       <field name="rent_price" string="Rent price to"
 						filter_domain="[('rent_price','&lt;=',self)]" />
+					  <field name="m2" string="m2 from"
+						filter_domain="[('m2','&gt;=',self)]" />
+                      <field name="m2" string="m2 to"
+						filter_domain="[('m2','&lt;=',self)]" />
                   </group>
-                  <newline/>
-                  <group expand="0" string="Advanced search...">
+                  <group expand="0" string="Advanced search..." name="advanced-search">
                       <field name="address" />
                       <field name="partner_id" />
                    </group>
@@ -360,45 +366,49 @@
           <field name="type">search</field>
           <field name="arch" type="xml">
               <search string="Real Estate Top">
-                  <group col="10" colspan="4">
-                  	  <filter string="Available" domain="[('available','=',1)]"/>
-                  	  <filter string="Not Available" domain="[('available','=',0)]"/>
-                  	  <separator orientation="vertical"/>
+                  <group col="10" colspan="4" string="Real Estate" name="real-estate">
+                      <filter string="Available" domain="[('available','=',1)]"/>
+                      <filter string="Not Available" domain="[('available','=',0)]"/>
+                      <separator orientation="vertical"/>
                       <filter string="Sale" domain="[('operation','in',('sale','sale_rent','rent_sale_option'))]"/>
                       <filter string="Rent" domain="[('operation','in',('rent','sale_rent','rent_sale_option'))]"/>
-                   	  <filter string="Transfer" domain="[('operation','=','transfer')]"/>
+                      <filter string="Transfer" domain="[('operation','=','transfer')]"/>
                       <filter string="Valuation" domain="[('operation','=','valuation')]"/>
                       <separator orientation="vertical"/>
                       <field name="name" />
+                      <field name="type" />
                       <field name="subtype" widget="selection" />
                       <field name="zone"/>
                       <field name="city_id" />
-                      <field name="sale_price" string="Sale price from"
-						filter_domain="[('sale_price','&gt;=',self)]" />
-                      <field name="sale_price"  string="Sale Price to"
-						filter_domain="[('sale_price','&lt;=',self)]"/>
-                      <field name="rent_price" string="Rent price from"
-						filter_domain="[('rent_price','&gt;=',self)]" />
-                      <field name="rent_price" string="Rent price to"
-						filter_domain="[('rent_price','&lt;=',self)]" />
                   </group>
-                  <newline />
-                  <group col="10" colspan="4">
-                      <field name="m2" />  
+                  <group col="10" colspan="4" string="Prices and area" name="price-area">
+                      <field name="sale_price" string="Sale price from"
+                        filter_domain="[('sale_price','&gt;=',self)]" />
+                      <field name="sale_price"  string="Sale Price to"
+                        filter_domain="[('sale_price','&lt;=',self)]"/>
+                      <field name="rent_price" string="Rent price from"
+                        filter_domain="[('rent_price','&gt;=',self)]" />
+                      <field name="rent_price" string="Rent price to"
+                        filter_domain="[('rent_price','&lt;=',self)]" />
+                      <field name="m2" string="m2 from"
+                        filter_domain="[('m2','&gt;=',self)]" />
+                      <field name="m2" string="m2 to"
+                        filter_domain="[('m2','&lt;=',self)]" />
+                  </group>
+                  <group col="10" colspan="4" string="Flat" name="flat">
                       <field name="rooms" />
                       <field name="bathroom" />
                       <field name="parking" />
-                      <field name="furnished" />
+                      <filter string="Full Furnished" domain="[('furnished','=','yes')]"/>
+                      <filter string="Half Furnished" domain="[('furnished','=','half')]"/>
+                      <filter string="No Furnished" domain="[('furnished','=','no')]"/>
+                      <separator orientation="vertical"/>
+                      <filter string="Students" domain="[('students','=',True)]"/>
                   </group>
-                  <newline/>
-                  <group expand="0" string="Other fields...">
-                      <field name="students" />
-                  </group>
-                  <newline />
-                  <group expand="0" string="Advanced search...">
+                  <group expand="0" string="Advanced search..." name="advanced-search">
                       <field name="address" />
                       <field name="partner_id" />
-                  </group>
+                   </group>
               </search>
           </field>
       </record>
@@ -409,34 +419,39 @@
           <field name="type">search</field>
           <field name="arch" type="xml">
               <search string="Real Estate Top">
-                  <group col="10" colspan="4">
-                  	  <filter string="Available" domain="[('available','=',1)]"/>
-                  	  <filter string="Not Available" domain="[('available','=',0)]"/>
-                  	  <separator orientation="vertical"/>
+                  <group col="10" colspan="4" string="Real Estate" name="real-estate">
+                      <filter string="Available" domain="[('available','=',1)]"/>
+                      <filter string="Not Available" domain="[('available','=',0)]"/>
+                      <separator orientation="vertical"/>
                       <filter string="Sale" domain="[('operation','in',('sale','sale_rent','rent_sale_option'))]"/>
                       <filter string="Rent" domain="[('operation','in',('rent','sale_rent','rent_sale_option'))]"/>
-                   	  <filter string="Transfer" domain="[('operation','=','transfer')]"/>
+                      <filter string="Transfer" domain="[('operation','=','transfer')]"/>
                       <filter string="Valuation" domain="[('operation','=','valuation')]"/>
                       <separator orientation="vertical"/>
                       <field name="name" />
+                      <field name="type" />
+                      <field name="subtype" widget="selection" />
                       <field name="zone"/>
-                      <field name="city_id" /> 
+                      <field name="city_id" />
+                  </group>
+                  <group col="10" colspan="4" string="Prices and area" name="price-area">
                       <field name="sale_price" string="Sale price from"
-						filter_domain="[('sale_price','&gt;=',self)]" />
+                        filter_domain="[('sale_price','&gt;=',self)]" />
                       <field name="sale_price"  string="Sale Price to"
-						filter_domain="[('sale_price','&lt;=',self)]"/>
+                        filter_domain="[('sale_price','&lt;=',self)]"/>
                       <field name="rent_price" string="Rent price from"
-						filter_domain="[('rent_price','&gt;=',self)]" />
+                        filter_domain="[('rent_price','&gt;=',self)]" />
                       <field name="rent_price" string="Rent price to"
-						filter_domain="[('rent_price','&lt;=',self)]" />
+                        filter_domain="[('rent_price','&lt;=',self)]" />
+                      <field name="m2" string="m2 from"
+                        filter_domain="[('m2','&gt;=',self)]" />
+                      <field name="m2" string="m2 to"
+                        filter_domain="[('m2','&lt;=',self)]" />
                   </group>
-                  <newline/>
-                  <group col="10" colspan="4">
-                  	  <field name="m2"/>
-                      <field name="industrial_prepared" />
+                  <group col="10" colspan="4" string="Industrial" name="industrial">
+                      <filter string="Industrial Prepared" domain="[('industrial_prepared','=',True)]"/>
                   </group>
-                  <newline/>
-                  <group expand="0" string="Advanced search...">
+                  <group expand="0" string="Advanced search..." name="advanced-search">
                       <field name="address" />
                       <field name="partner_id" />
                    </group>
@@ -450,34 +465,39 @@
           <field name="type">search</field>
           <field name="arch" type="xml">
               <search string="Real Estate Top">
-                  <group col="10" colspan="4">
-                  	  <filter string="Available" domain="[('available','=',1)]"/>
-                  	  <filter string="Not Available" domain="[('available','=',0)]"/>
-                  	  <separator orientation="vertical"/>
+                  <group col="10" colspan="4" string="Real Estate" name="real-estate">
+                      <filter string="Available" domain="[('available','=',1)]"/>
+                      <filter string="Not Available" domain="[('available','=',0)]"/>
+                      <separator orientation="vertical"/>
                       <filter string="Sale" domain="[('operation','in',('sale','sale_rent','rent_sale_option'))]"/>
                       <filter string="Rent" domain="[('operation','in',('rent','sale_rent','rent_sale_option'))]"/>
-                   	  <filter string="Transfer" domain="[('operation','=','transfer')]"/>
+                      <filter string="Transfer" domain="[('operation','=','transfer')]"/>
                       <filter string="Valuation" domain="[('operation','=','valuation')]"/>
                       <separator orientation="vertical"/>
                       <field name="name" />
+                      <field name="type" />
+                      <field name="subtype" widget="selection" />
                       <field name="zone"/>
                       <field name="city_id" />
+                  </group>
+                  <group col="10" colspan="4" string="Prices and area" name="price-area">
                       <field name="sale_price" string="Sale price from"
-						filter_domain="[('sale_price','&gt;=',self)]" />
+                        filter_domain="[('sale_price','&gt;=',self)]" />
                       <field name="sale_price"  string="Sale Price to"
-						filter_domain="[('sale_price','&lt;=',self)]"/>
+                        filter_domain="[('sale_price','&lt;=',self)]"/>
                       <field name="rent_price" string="Rent price from"
-						filter_domain="[('rent_price','&gt;=',self)]" />
+                        filter_domain="[('rent_price','&gt;=',self)]" />
                       <field name="rent_price" string="Rent price to"
-						filter_domain="[('rent_price','&lt;=',self)]" />
+                        filter_domain="[('rent_price','&lt;=',self)]" />
+                      <field name="m2" string="m2 from"
+                        filter_domain="[('m2','&gt;=',self)]" />
+                      <field name="m2" string="m2 to"
+                        filter_domain="[('m2','&lt;=',self)]" />
                   </group>
-                  <newline/>
-                  <group col="10" colspan="4">
-                  	  <field name="m2" />
-                      <field name="shop_prepared" />
+                  <group col="10" colspan="4" string="Shop" name="shop">
+                      <filter string="Shop Prepared" domain="[('shop_prepared','=',True)]"/>
                   </group>
-                  <newline/>
-                  <group expand="0" string="Advanced search...">
+                  <group expand="0" string="Advanced search..." name="advanced-search">
                       <field name="address" />
                       <field name="partner_id" />
                    </group>
@@ -491,34 +511,43 @@
           <field name="type">search</field>
           <field name="arch" type="xml">
               <search string="Real Estate Top">
-                  <group col="10" colspan="4">
-                  	  <filter string="Available" domain="[('available','=',1)]"/>
-                  	  <filter string="Not Available" domain="[('available','=',0)]"/>
-                  	  <separator orientation="vertical"/>
+                  <group col="10" colspan="4" string="Real Estate" name="real-estate">
+                      <filter string="Available" domain="[('available','=',1)]"/>
+                      <filter string="Not Available" domain="[('available','=',0)]"/>
+                      <separator orientation="vertical"/>
                       <filter string="Sale" domain="[('operation','in',('sale','sale_rent','rent_sale_option'))]"/>
                       <filter string="Rent" domain="[('operation','in',('rent','sale_rent','rent_sale_option'))]"/>
-                   	  <filter string="Transfer" domain="[('operation','=','transfer')]"/>
+                      <filter string="Transfer" domain="[('operation','=','transfer')]"/>
                       <filter string="Valuation" domain="[('operation','=','valuation')]"/>
                       <separator orientation="vertical"/>
                       <field name="name" />
+                      <field name="type" />
+                      <field name="subtype" widget="selection" />
                       <field name="zone"/>
                       <field name="city_id" />
+                  </group>
+                  <group col="10" colspan="4" string="Prices and area" name="price-area">
                       <field name="sale_price" string="Sale price from"
-						filter_domain="[('sale_price','&gt;=',self)]" />
+                        filter_domain="[('sale_price','&gt;=',self)]" />
                       <field name="sale_price"  string="Sale Price to"
-						filter_domain="[('sale_price','&lt;=',self)]"/>
+                        filter_domain="[('sale_price','&lt;=',self)]"/>
                       <field name="rent_price" string="Rent price from"
-						filter_domain="[('rent_price','&gt;=',self)]" />
+                        filter_domain="[('rent_price','&gt;=',self)]" />
                       <field name="rent_price" string="Rent price to"
-						filter_domain="[('rent_price','&lt;=',self)]" />
+                        filter_domain="[('rent_price','&lt;=',self)]" />
+                      <field name="m2" string="m2 from"
+                        filter_domain="[('m2','&gt;=',self)]" />
+                      <field name="m2" string="m2 to"
+                        filter_domain="[('m2','&lt;=',self)]" />
                   </group>
-                  <newline/>
-                  <group col="10" colspan="4">
-                      <field name="m2" />
+                  <group col="10" colspan="4" string="Office" name="office">
                       <field name="office_cons_m2" />
+                      <field name="office_cons_m2" string="m2 from"
+                        filter_domain="[('office_cons_m2','&gt;=',self)]" />
+                      <field name="office_cons_m2" string="m2 to"
+                        filter_domain="[('office_cons_m2','&lt;=',self)]" />
                   </group>
-                  <newline/>
-                  <group expand="0" string="Advanced search...">
+                  <group expand="0" string="Advanced search..." name="advanced-search">
                       <field name="address" />
                       <field name="partner_id" />
                    </group>
@@ -533,13 +562,13 @@
           <field name="priority" eval="5"/>
           <field name="arch" type="xml">
               <search string="Real Estate Top">
-                  <group col="10" colspan="4">
-                  	  <filter string="Available" domain="[('available','=',1)]"/>
-                  	  <filter string="Not Available" domain="[('available','=',0)]"/>
-                  	  <separator orientation="vertical"/>
+                  <group col="10" colspan="4" string="Real Estate" name="real-estate">
+                      <filter string="Available" domain="[('available','=',1)]"/>
+                      <filter string="Not Available" domain="[('available','=',0)]"/>
+                      <separator orientation="vertical"/>
                       <filter string="Sale" domain="[('operation','in',('sale','sale_rent','rent_sale_option'))]"/>
                       <filter string="Rent" domain="[('operation','in',('rent','sale_rent','rent_sale_option'))]"/>
-                   	  <filter string="Transfer" domain="[('operation','=','transfer')]"/>
+                      <filter string="Transfer" domain="[('operation','=','transfer')]"/>
                       <filter string="Valuation" domain="[('operation','=','valuation')]"/>
                       <separator orientation="vertical"/>
                       <field name="name" />
@@ -548,20 +577,21 @@
                       <field name="zone"/>
                       <field name="city_id" />
                   </group>
-                  <newline/>
-                  <group col="10" colspan="4">
+                  <group col="10" colspan="4" string="Prices and area" name="price-area">
                       <field name="sale_price" string="Sale price from"
-						filter_domain="[('sale_price','&gt;=',self)]" />
+                        filter_domain="[('sale_price','&gt;=',self)]" />
                       <field name="sale_price"  string="Sale Price to"
-						filter_domain="[('sale_price','&lt;=',self)]"/>
+                        filter_domain="[('sale_price','&lt;=',self)]"/>
                       <field name="rent_price" string="Rent price from"
-						filter_domain="[('rent_price','&gt;=',self)]" />
+                        filter_domain="[('rent_price','&gt;=',self)]" />
                       <field name="rent_price" string="Rent price to"
-						filter_domain="[('rent_price','&lt;=',self)]" />
-                      <field name="m2" />
+                        filter_domain="[('rent_price','&lt;=',self)]" />
+                      <field name="m2" string="m2 from"
+                        filter_domain="[('m2','&gt;=',self)]" />
+                      <field name="m2" string="m2 to"
+                        filter_domain="[('m2','&lt;=',self)]" />
                   </group>
-                  <newline/>
-                  <group expand="0" string="Advanced search...">
+                  <group expand="0" string="Advanced search..." name="advanced-search">
                       <field name="address" />
                       <field name="partner_id" />
                    </group>
@@ -575,34 +605,40 @@
           <field name="type">search</field>
           <field name="arch" type="xml">
               <search string="Real Estate Top">
-                  <group col="10" colspan="4">
-                  	  <filter string="Available" domain="[('available','=',1)]"/>
-                  	  <filter string="Not Available" domain="[('available','=',0)]"/>
-                  	  <separator orientation="vertical"/>
+                  <group col="10" colspan="4" string="Real Estate" name="real-estate">
+                      <filter string="Available" domain="[('available','=',1)]"/>
+                      <filter string="Not Available" domain="[('available','=',0)]"/>
+                      <separator orientation="vertical"/>
                       <filter string="Sale" domain="[('operation','in',('sale','sale_rent','rent_sale_option'))]"/>
                       <filter string="Rent" domain="[('operation','in',('rent','sale_rent','rent_sale_option'))]"/>
-                   	  <filter string="Transfer" domain="[('operation','=','transfer')]"/>
+                      <filter string="Transfer" domain="[('operation','=','transfer')]"/>
                       <filter string="Valuation" domain="[('operation','=','valuation')]"/>
                       <separator orientation="vertical"/>
                       <field name="name" />
+                      <field name="type" />
+                      <field name="subtype" widget="selection" />
                       <field name="zone"/>
                       <field name="city_id" />
-                      <field name="sale_price" string="Sale price from"
-						filter_domain="[('sale_price','&gt;=',self)]" />
-                      <field name="sale_price"  string="Sale Price to"
-						filter_domain="[('sale_price','&lt;=',self)]"/>
-                      <field name="rent_price" string="Rent price from"
-						filter_domain="[('rent_price','&gt;=',self)]" />
-                      <field name="rent_price" string="Rent price to"
-						filter_domain="[('rent_price','&lt;=',self)]" />
                   </group>
-                  <newline/>
-                  <group col="10" colspan="4">
+                  <group col="10" colspan="4" string="Prices and area" name="price-area">
+                      <field name="sale_price" string="Sale price from"
+                        filter_domain="[('sale_price','&gt;=',self)]" />
+                      <field name="sale_price"  string="Sale Price to"
+                        filter_domain="[('sale_price','&lt;=',self)]"/>
+                      <field name="rent_price" string="Rent price from"
+                        filter_domain="[('rent_price','&gt;=',self)]" />
+                      <field name="rent_price" string="Rent price to"
+                        filter_domain="[('rent_price','&lt;=',self)]" />
+                      <field name="m2" string="m2 from"
+                        filter_domain="[('m2','&gt;=',self)]" />
+                      <field name="m2" string="m2 to"
+                        filter_domain="[('m2','&lt;=',self)]" />
+                  </group>
+                  <group col="10" colspan="4" string="Land" name="land">
                       <field name="land_type" />
                       <field name="land_state" />
                   </group>
-                  <newline />
-                  <group expand="0" string="Advanced search...">
+                  <group expand="0" string="Advanced search..." name="advanced-search">
                       <field name="address" />
                       <field name="partner_id" />
                    </group>

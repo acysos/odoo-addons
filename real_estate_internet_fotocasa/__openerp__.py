@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2014 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
@@ -22,10 +22,28 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, _
-
-class res_company(models.Model):
-    _inherit = 'res.company'
-
-    urbaniza_name = fields.Char('Nombre') 
-        
+{
+    "name" : "Real Estate Web Fotocasa.com",
+    "version" : "1.0",
+    "author" : "Acysos S.L.",
+    "website" : "www.acysos.com",
+    "description": """Publish top in fotocasa.com""",
+    "license" : "AGPL-3",
+    "category" : "Specific Industry Applications",
+    "depends" : [
+        "base",
+        "real_estate_base",
+        "real_estate_publication",
+#        "smile_export",
+#        "smile_export_file",
+#        "acy_smile_export_file_extended",
+        ],
+    "init_xml" : [],
+    "demo_xml" : [],
+    "data" :[
+        'views/top_view.xml',
+        'views/company_view.xml',
+        ],
+    "active": False,
+    "installable": True
+}

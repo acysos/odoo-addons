@@ -38,6 +38,21 @@
 			  
           </field>
         </record>
+        
+        <record model="ir.ui.view" id="invisible_partner_view_vat">
+          <field name="name">invisible.partner.view.vat</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base_vat.view_partner_form"/>
+          <field name="arch" type="xml">
+          	<xpath expr="//label[@for='vat']" position="replace">
+			</xpath>
+          	<xpath expr="//div[@name='vat_info']" position="replace">
+			</xpath>
+          </field>
+        </record>
+        
+        
+        
         <record id="invisible_partner_view_buttons" model="ir.ui.view">
             <field name="name">invisible.partner.view.buttons</field>
             <field name="model">res.partner</field>

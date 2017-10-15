@@ -10,7 +10,7 @@
             <field eval="False" name="doall"/>
             <field name="model">crm.lead</field>
             <field name="function">run_search_top_suggested</field>
-            <field name="args">()</field>
+            <field eval="'(None, )'" name="args" /> 
         </record>
     </data>
 </openerp>

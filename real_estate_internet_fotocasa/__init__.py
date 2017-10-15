@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2014 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #                       Daniel Pascal <daniel@acysos.com>
 #    $Id$
@@ -22,10 +22,4 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, _
-
-class res_company(models.Model):
-    _inherit = 'res.company'
-
-    urbaniza_name = fields.Char('Nombre') 
-        
+from . import models

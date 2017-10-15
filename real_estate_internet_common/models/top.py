@@ -28,17 +28,17 @@ class real_estate_top(models.Model):
     _inherit = 'real.estate.top'
     
     TOP_STATE = [
-            ('0','Unknown'),
-            ('1','New'),
-            ('2','Well-conserved'),
-            ('3','New construction'),
-            ('4','To remodelate'),
-            ('5','Remodelated'),
+            ('0','Desconocido'),
+            ('1','Nuevo'),
+            ('2','Bien Conservado'),
+            ('3','Nueva Construcción'),
+            ('4','Para Reformar'),
+            ('5','Reformado'),
              ]
 
-    door = fields.Char(string='Door')
-    latitude = fields.Char('Latitude')
-    longitude = fields.Char('Longitude')
+    door = fields.Char(string='Puerta')
+    latitude = fields.Char('Latitud')
+    longitude = fields.Char('Longitud')
     top_state = fields.Selection(TOP_STATE,
-                                 'State of conservation', select=True)
+                                 'Estado de conservación', select=True)
     

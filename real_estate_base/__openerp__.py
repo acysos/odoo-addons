@@ -36,6 +36,7 @@
          'base_location',
          'crm',
          'document',
+         'account'
 #        "document_ftp",
         ],
     "init_xml" : [],

@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-12 10:46+0000\n"
-"PO-Revision-Date: 2017-05-12 12:48+0200\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2017-10-10 16:03+0000\n"
+"PO-Revision-Date: 2017-10-10 18:03+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,10 +18,20 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: real_estate_internet_idealista
+#: field:res.company,idealista_aggregator:0
+msgid "Agregador"
+msgstr "Agregador"
+
+#. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 #: selection:real.estate.hotwater,idealistacom_type:0
 msgid "Central"
 msgstr "Central"
+
+#. module: real_estate_internet_idealista
+#: field:res.company,idealista_code:0
+msgid "Code"
+msgstr "Code"
 
 #. module: real_estate_internet_idealista
 #: model:ir.model,name:real_estate_internet_idealista.model_res_company
@@ -35,7 +45,7 @@ msgid "Desconocido"
 msgstr "Desconocido"
 
 #. module: real_estate_internet_idealista
-#: code:addons/real_estate_internet_idealista/models/top.py:246
+#: code:addons/real_estate_internet_idealista/models/top.py:247
 #, python-format
 msgid "Ha superado el limite de Idealista"
 msgstr "Ha superado el limite de Idealista"
@@ -91,9 +101,9 @@ msgid "Idealistacom outside"
 msgstr "Idealistacom outside"
 
 #. module: real_estate_internet_idealista
-#: field:real.estate.top,idealistacom_estate:0
-msgid "Idealistacom estate"
-msgstr "Idealistacom estate"
+#: field:real.estate.top,idealistacom_state:0
+msgid "Idealistacom state"
+msgstr "Idealistacom state"
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_type:0
@@ -107,21 +117,26 @@ msgid "Independiente"
 msgstr "Independiente"
 
 #. module: real_estate_internet_idealista
-#: code:addons/real_estate_internet_idealista/models/top.py:245
+#: code:addons/real_estate_internet_idealista/models/top.py:246
 #, python-format
 msgid "Limite excedido!"
 msgstr "Limite excedido!"
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista:0
-msgid "Límite Idealista"
-msgstr "Límite Idealista"
+msgid "Límite"
+msgstr "Límite"
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 #: selection:real.estate.hotwater,idealistacom_type:0
 msgid "No disponible"
 msgstr "No disponible"
+
+#. module: real_estate_internet_idealista
+#: field:res.company,idealista_prefix:0
+msgid "Prefijo"
+msgstr "Prefijo"
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
@@ -133,6 +148,21 @@ msgstr "Preinstalación"
 #: field:real.estate.top,idealista:0
 msgid "Publicado en idealista.com"
 msgstr "Publicado en idealista.com"
+
+#. module: real_estate_internet_idealista
+#: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_flat_idealista
+#: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_idealista
+#: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_industrial_idealista
+#: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_land_idealista
+#: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_office_idealista
+#: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_shop_idealista
+msgid "Publish in idealista.com"
+msgstr "Publicado en idealista.com"
+
+#. module: real_estate_internet_idealista
+#: view:res.company:real_estate_internet_idealista.view_company_form_real_estate_idealista
+msgid "Real Estate"
+msgstr "Inmobiliaria"
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.heating,idealistacom_type:0

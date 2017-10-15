@@ -277,7 +277,7 @@ class crm_lead(models.Model):
                                               {'interested': True,
                                                'updated': True})
                                 self.write([crm_lead.id],
-                                           {'estate': crm_lead.state})
+                                           {'state': crm_lead.state})
                                 send_mail = True
                             if len(sug_ids) > 0:
                                 if exist[0] in sug_ids:
@@ -299,7 +299,7 @@ class crm_lead(models.Model):
     
     @api.multi
     def run_search_top_suggested(self):
-        ids = self.search([('estate', 'in', ['open', 'pending'])])
+        ids = self.search([('state', 'in', ['open', 'pending'])])
         context = self._context.copy()
         context['cron']= True
         sug_obj = self.env['crm.top.suggested']
@@ -328,7 +328,7 @@ class crm_lead(models.Model):
     @api.multi
     def change_statep(self):
         self.ensure_one()
-        self.state = self._context['estate']
+        self.state = self._context['state']
     
     
     

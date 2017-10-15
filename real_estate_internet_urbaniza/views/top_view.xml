@@ -34,8 +34,7 @@
                         <field name="inmoagrupacom_fee_colaborador" />
                         <field name="inmoagrupacom_commission_refer" />
                         <separator colspan="4"/>
-                        <field name="inmoagrupacom_exclusivity_doc" />
-                        <field name="inmoagrupacom_exclusivity_doc_url" widget="url" readonly="1"/>
+                        <field name="inmoagrupacom_exclusivity_doc" filename="inmoagrupacom_exclusivity_doc_filename" />
                         <field name="capt_date" />
                         <field name="end_date" />
                     </group>
@@ -43,71 +42,71 @@
           </field>
       </record>
       
-      <record model="ir.ui.view" id="real_estate_top_filter_inmoagrupacom">
-          <field name="name">real.estate.top.filter.inmoagrupacom</field>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_urbaniza">
+          <field name="name">real.estate.top.filter.common.urbaniza</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter"/>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common"/>
           <field name="arch" type="xml">
-          		<field name="partner_id" position="after">
-          			<field name="inmoagrupacom"/>
-          		</field>
+                <group name="internet" position="inside">
+                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                </group>
           </field>
       </record>
 
-      <record model="ir.ui.view" id="real_estate_top_filter_flat_inmoagrupacom">
-          <field name="name">real.estate.top.filter.flat.inmoagrupacom</field>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_flat_urbaniza">
+          <field name="name">real.estate.top.filter.common.flat.urbaniza</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_flat"/>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_flat"/>
           <field name="arch" type="xml">
-          		<field name="partner_id" position="after">
-          			<field name="inmoagrupacom"/>
-          		</field>
+                <group name="internet" position="inside">
+                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                </group>
           </field>
       </record>
-      <record model="ir.ui.view" id="real_estate_top_filter_industrial_inmoagrupacom">
-          <field name="name">real.estate.top.filter.industrial.inmoagrupacom</field>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_industrial_urbaniza">
+          <field name="name">real.estate.top.filter.common.industrial.urbaniza</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_industrial"/>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_industrial"/>
           <field name="arch" type="xml">
-          		<field name="partner_id" position="after">
-          			<field name="inmoagrupacom"/>
-          		</field>
+                <group name="internet" position="inside">
+                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                </group>
           </field>
       </record>
-      <record model="ir.ui.view" id="real_estate_top_filter_shop_inmoagrupacom">
-          <field name="name">real.estate.top.filter..shop.inmoagrupacom</field>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_shop_urbaniza">
+          <field name="name">real.estate.top.filter.common.shop.urbaniza</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_shop"/>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_shop"/>
           <field name="arch" type="xml">
-          		<field name="partner_id" position="after">
-          			<field name="inmoagrupacom" />
-          		</field>
+                <group name="internet" position="inside">
+                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                </group>
           </field>
       </record>
-      <record model="ir.ui.view" id="real_estate_top_filter_office_inmoagrupacom">
-          <field name="name">real.estate.top.filter.office.inmoagrupacom</field>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_office_urbaniza">
+          <field name="name">real.estate.top.filter.common.office.urbaniza</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_office"/>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_office"/>
           <field name="arch" type="xml">
-          		<field name="partner_id" position="after">
-          			<field name="inmoagrupacom"/>
-          		</field>
+                <group name="internet" position="inside">
+                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                </group>
           </field>
       </record>
-      <record model="ir.ui.view" id="real_estate_top_filter_land_inmoagrupacom">
-          <field name="name">real.estate.top.filter.land.inmoagrupacom</field>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_land_urbaniza">
+          <field name="name">real.estate.top.filter.common.land.urbaniza</field>
           <field name="model">real.estate.top</field>
           <field name="type">search</field>
-          <field name="inherit_id" ref="real_estate_base.real_estate_top_filter_land"/>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_land"/>
           <field name="arch" type="xml">
-          		<field name="partner_id" position="after">
-          			<field name="inmoagrupacom"/>
-          		</field>
+                <group name="internet" position="inside">
+                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                </group>
           </field>
       </record>
       

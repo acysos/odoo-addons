@@ -85,7 +85,14 @@
 				       	 	<span class="hidden" id="4"/>
 				       	 </t>
 				       	 <br/><br/>
-				       	 <p><b>M2:</b> <span t-field="tops.m2"/></p><p><b>N° Ref:</b> <span id="reference" t-field="tops.name"/></p>
+				       	 <t t-if="((tops.type == 'flat') or (tops.type == 'chalet') or (tops.type == 'house'))">
+				       	 	<p><b>Rooms:</b> <span t-field="tops.rooms"/></p><p><b>Bathroom:</b> <span t-field="tops.bathroom"/></p>
+				       	 </t>
+				       	 <p><b>M2:</b> <span t-field="tops.m2"/></p>
+				       	 <t t-if="((tops.type == 'chalet') or (tops.type == 'house'))">
+				       	 	<p><b>Planta:</b> <span t-field="tops.floor_number"/></p>
+				       	 </t>
+				       	 <p><b>N° Ref:</b> <span id="reference" t-field="tops.name"/></p>
 				       	 <div class="energy_colors">
 				       	 	<div class="energy_title col-md-6 col-sm-6 col-xs-5">
 				       	 		<span id="pos_text"><b>Energy Efficiency:</b></span>
@@ -160,11 +167,11 @@
 							<div class="show" id="maps">
 								<span class="hidden" t-field="tops.latitude"/>
 								<span class="hidden" t-field="tops.longitude"/>							
-								
+								<a href="" class="hidden urltomaps">Abrir Mapa</a>
 								<t t-if="tops.latitude and tops.longitude">
-				       	 			<section class="s_google_map" data-map-type="ROADMAP" data-map-color="" data-map-zoom="12" t-att-data-map-gps="'('+ tops.latitude + ',' + tops.longitude + ')'" data-pin-style="flat" style="height: 488px; overflow: hidden;">
-							      		<div class="map_container" /> 
-							    	</section>
+				       	 			<div id="probandoo" class="show">
+				       	 				<div id="map" style="height: 400px; overflow: hidden;"/> 
+				       	 			</div>
 				       	 		</t>
 								
 							</div>

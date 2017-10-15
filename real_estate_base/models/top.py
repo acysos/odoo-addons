@@ -247,6 +247,7 @@ class real_estate_top(models.Model):
     energy_emission = fields.Integer('Energy Emission')
     energy_number = fields.Integer('Energy Number')
     energy_doc = fields.Binary('Energy Certificate')
+    doc_filename = fields.Char("Doc Filename") 
     retribution = fields.Char('Retribution', size=256)
     buyer_id = fields.Many2one('res.partner','Buyer', 
                                domain= [('real_estate_type','=','buyer')])

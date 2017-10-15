@@ -174,7 +174,7 @@ class real_estate_top(models.Model):
             value = ''
             if top.top_state=='0':
                 value = '0'
-            if top.top_state=='1' or top.top_estate == '3':
+            if top.top_state=='1' or top.top_state == '3':
                 value = '1'
             if top.top_state=='2':
                 value = '3'
@@ -256,9 +256,9 @@ class real_estate_top(models.Model):
          raiz = etree.Element('clients')
          cliente = etree.SubElement(raiz, 'client')
          aggregator = etree.SubElement(cliente, 'aggregator')
-         aggregator.text = company.idealista_aggregator
+         aggregator.text = company.idealista_aggregator or ''
          code = etree.SubElement(cliente, 'code')
-         code.text = company.idealista_code
+         code.text = company.idealista_code or ''
          contact = etree.SubElement(cliente, 'contact')
          name = etree.SubElement(contact, 'name')
          name.text = company.name
@@ -267,7 +267,7 @@ class real_estate_top(models.Model):
          phones = etree.SubElement(contact, 'phones')
          phone = etree.SubElement(phones, 'phone')
          prefix = etree.SubElement(phone, 'prefix')
-         prefix.text = company.idealista_prefix
+         prefix.text = company.idealista_prefix or ''
          number = etree.SubElement(phone, 'number')
          number.text = company.phone
          availabilityHour = etree.SubElement(phone, 'availabilityHour')
@@ -308,6 +308,21 @@ class real_estate_top(models.Model):
              floor.text = top.floor or ''
              block = etree.SubElement(address, 'block')
              block.text = ''
+             stair = etree.SubElement(address, 'stair')
+             stair.text = top.stair or ''
+             door = etree.SubElement(address, 'door')
+             door.text = top.door or ''
+             postalcode = etree.SubElement(address, 'postalcode')
+             postalcode.text = top.city_id.name or ''
+             cityName = etree.SubElement(address, 'cityName')
+             cityName.text = top.city_id.city or ''
+             coordinates = etree.SubElement(address, 'coordinates')
+             precision = etree.SubElement(coordinates, 'precision')
+             precision.text = str(2)
+             latitude = etree.SubElement(coordinates, 'latitude')
+             latitude.text = top.latitude or ''
+             longitude = etree.SubElement(coordinates, 'longitude')
+             longitude.text = top.longitude or ''
              links = etree.SubElement(property, 'links')
              link = etree.SubElement(links, 'link')
              language = etree.SubElement(link, 'language')
@@ -329,7 +344,7 @@ class real_estate_top(models.Model):
                  for image in top.image_ids:
                      imagexml = etree.SubElement(images, 'image')
                      url2 = etree.SubElement(imagexml, 'url')
-                     url2.text = company.domain + 'website/image/base_multi_image.image/' + str(image.id) + '/file_db_store'
+                     url2.text = 'http://' + company.domain + '/web/binary/saveas?model=base_multi_image.image&field=file_db_store&filename_field=name&id=' + str(image.id)
                      code2 = etree.SubElement(imagexml, 'code')
                      code2.text = str(image.sequence)
              features = etree.SubElement(property, 'features')
@@ -345,7 +360,7 @@ class real_estate_top(models.Model):
              bathrooms = etree.SubElement(features, 'bathrooms')
              bathrooms.text = top.idealistacom_bathroom or ''
              buildingType = etree.SubElement(features, 'buildingType')
-             buildingType.text = top.idealistacom_estate or ''
+             buildingType.text = top.idealistacom_state or ''
              conditionedAir = etree.SubElement(features, 'conditionedAir')
              conditionedAir.text = top.idealistacom_air or ''
              heatingType = etree.SubElement(features, 'heatingType')
