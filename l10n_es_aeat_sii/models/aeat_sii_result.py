@@ -123,8 +123,12 @@ class AeatSiiResult(models.Model):
                         vals['serial_number_resume'] = \
                             reply['IDFactura']['NumSerieFacturaEmisorResumenFin']
                     if 'FechaExpedicionFacturaEmisor' in reply['IDFactura']:
-                        vals['date'] = \
-                            reply['IDFactura']['FechaExpedicionFacturaEmisor']
+                        date = datetime.datetime.strptime(
+                            reply['IDFactura']['FechaExpedicionFacturaEmisor'],
+                            '%d-%m-%Y')
+                        new_date = datetime.datetime.strftime(
+                            date, '%Y-%m-%d')
+                        vals['date'] = new_date
                 if 'EstadoRegistro' in reply:
                     vals['registry_state'] = reply['EstadoRegistro']
                 if 'CodigoErrorRegistro' in reply:
