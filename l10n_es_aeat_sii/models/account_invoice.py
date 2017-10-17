@@ -1045,3 +1045,11 @@ def send_recc_payment_job(session, model_name, move_id):
     if move.exists() and move.invoice:
         move.invoice.send_recc_payment_registry(move)
 
+@job(default_channel='root.invoice_check_sii')
+def check_one_invoice(session, model_name, invoice_id):
+    model = session.env[model_name]
+    invoice = model.browse(invoice_id)
+
+    invoice._check_invoice()
+    session.cr.commit()
+
