@@ -25,7 +25,7 @@
                     	<group>
                     		<field name="city_id" />
                     		<field name="address" /> 
-                    		<field name="zone" widget="selection" />
+                    		<field name="zone" />
                     		<field name="partner_id"/>
                     		<field name="date" />
                     		<field name="updated_date"/>
