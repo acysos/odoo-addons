@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+    
+   		<report
+            id="real_estate_top_generic_list"
+			string="**Top List"
+			model="real.estate.top"
+			name="real.estate.top.generic.list"
+			rml="acy_real_estate/report/generic_list.rml"
+			header="True"
+			auto="False"
+			menu="True"/>
+    
+    </data>
+</odoo>

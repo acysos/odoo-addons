@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+		 <record model="ir.ui.view" id="calendar_case_form_view_meet_form_realestate1">
+                <field name="name">calendar.form.realestate1</field>
+                <field name="model">calendar.event</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+                <field name="arch" type="xml">
+                        <field name="partner_ids" position="after">
+                        	<group>
+                        		<field name="top_id" string="Inmueble"/>
+                        	</group>
+                        	
+                       	</field>
+                </field>
+            </record>
+            
+		<record model="ir.ui.view" id="calendar_case_tree_view_meet_tree_realestate1">
+                <field name="name">calendar.tree.realestate1</field>
+                <field name="model">calendar.event</field>
+                <field name="type">tree</field>
+                <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+                <field name="arch" type="xml">
+                        <field name="partner_ids" position="after">
+                        	<field name="top_id"/>
+                        </field>
+                </field>
+            </record>
+            
+    <record id="view_crm_case_meetings_filter_realestate1" model="ir.ui.view">
+        <field name="name">Calendar Search</field>
+        <field name="model">calendar.event</field>
+        <field name="type">search</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+        <field name="arch" type="xml">
+                        <field name="partner_ids" position="after">
+                        	<field name="top_id"/>
+                        </field>
+        </field>
+    </record>
+    
+ <!--   <record model="ir.ui.view" id="crm_case_calendar_view_meet_realestate1">
+        <field name="name">CRM - Meetings Calendar</field>
+        <field name="model">crm.meeting</field>
+        <field name="type">calendar</field>
+        <field name="inherit_id" ref="crm.crm_case_calendar_view_meet"/>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+                        <field name="name" position="replace">
+                 	        <field name="name"/>
+			                <field name="location"/>
+                        </field>
+                        <field name="partner_id" position="replace"/>
+                        <field name="section_id" position="replace"/>
+        </field>
+    </record>   --> 
+
+    </data>
+</odoo>

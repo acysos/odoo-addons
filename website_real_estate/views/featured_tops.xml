@@ -1,0 +1,144 @@
+<odoo>
+    <data>
+    <template id="featured_tops">
+		    <t t-call="website.layout">
+		    	<div class="hidden js_numbers">
+					<span>3</span>
+				</div>
+		    	<div class="show container listfeatured1">
+		    		<h4 id="title_featured">Featured</h4>
+		    		<t t-foreach="top" t-as="topdatas">
+		    			<div class="top_featured col-md-4 col-sm-6">          
+							<div class="tops_image col-md-12">
+					        	<t t-if="topdatas.image_ids">
+					        		<a t-attf-href="/realestate/top/{{topdatas.id}}"><span t-field="topdatas.image_ids[0].file_db_store"
+		                                    t-field-options='{"widget": "image", "class": "img-responsive"}'/></a>
+		                        </t>
+					        </div>
+					        <div class="offer">
+					  			<t t-if="topdatas.image_ids">
+					  				<t t-if="((topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)) or ((topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0))">
+					  					<img src="/website_real_estate/static/img/images/banner_offer.png" id="offer1"/>
+					  				</t>
+					  			</t>
+					  		</div>
+					  		<div class="pending">
+					  			<div class="hidden">
+					  				<span t-field='topdatas.website_actsta'/>
+					  			</div>	
+					  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending1"/>
+					  		</div>
+					  		<div class="opportunity">
+					  			<t t-if="topdatas.website_opportunity">
+					  				<img src="/website_real_estate/static/img/images/banner_featured.png" id="opportunity1"/>
+					  			</t>
+					  		</div>
+					  		<div class="new">
+					  			<div class="hidden">
+					  				<span t-field="topdatas.date"/>
+					  				<span t-field="companies.new_top_date"/>
+					  			</div>
+					  			<img class="hidden" src="/website_real_estate/static/img/images/banner_new.png" id="novelty"/>
+					  			
+					  		</div>
+					        <div class="top_description">
+					        	<p><a t-attf-href="/realestate/top/{{topdatas.id}}" class="ip_featured_title"><t t-set="completeAddress2" t-value="topdatas.zone.name+' - '+topdatas.address"/><span id="black_color" t-esc="completeAddress2"/></a> 
+					        		<t t-if="(topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)">
+						       	 		<span id="origsaleprice2" t-field="topdatas.original_sale_price"/><span id="eur">€</span>
+						       	 		<span class="hidden" id="1"/>
+							       	 </t>
+							       	 <t t-if="(topdatas.sale_price != '') and (topdatas.sale_price &gt; 0)">
+							       	 	<span id="saleprice" t-field="topdatas.sale_price"/><span id="eur1">€</span>
+							       	 	<span class="hidden" id="2"/>
+							       	 </t>
+							       	 <t t-if="(topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0)">
+							       	 	<span id="origrentprice2" t-field="topdatas.original_rent_price"/><span id="eur">€/mes</span>
+							       	 	<span class="hidden" id="3"/>
+							       	 </t>
+							       	 <t t-if="(topdatas.rent_price &gt; 0) and (topdatas.rent_price &gt; 0)">
+							       	 	<span id="rentprice" t-field="topdatas.rent_price"/><span id="eur1">€/mes</span>
+							       	 	<span class="hidden" id="4"/>
+							       	 </t><br/><em></em>
+					        	</p>
+					        	<p><span id="internet_description1" t-field="topdatas.internet_description"/> 
+					        		<a id="more_info" t-attf-href="/realestate/top/{{topdatas.id}}"><br/>More info</a>
+					        	</p>
+					        </div>
+			       		</div>
+		    		</t>
+		    		<hr id="separator2"></hr>
+		    		<span id="more_featured">Show more featured tops</span>
+		    	</div>
+		    	<div class="hidden container listfeatured2">
+		    		<h4 id="title_featured">Featured</h4>
+		    		<div class="all_featured_tops col-md-12">
+		    			<t t-foreach="tops" t-as="topdatas">
+		    			<div class="top_featured col-md-4 col-sm-6">          
+							<div class="tops_image col-md-12">
+					        	<t t-if="topdatas.image_ids">
+					        		<a t-attf-href="/realestate/top/{{topdatas.id}}"><span t-field="topdatas.image_ids[0].file_db_store"
+		                                    t-field-options='{"widget": "image", "class": "img-responsive"}'/></a>
+		                        </t>
+					        </div>
+					        <div class="offer">
+					  			<t t-if="topdatas.image_ids">
+					  				<t t-if="((topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)) or ((topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0))">
+					  					<img src="/website_real_estate/static/img/images/banner_offer.png" id="offer2"/>
+					  				</t>
+					  			</t>
+					  		</div>
+					  		<div class="pending">
+					  			<div class="hidden">
+					  				<span t-field='topdatas.website_actsta'/>
+					  			</div>	
+					  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending2"/>
+					  		</div>
+					  		<div class="opportunity">
+					  			<t t-if="topdatas.website_opportunity">
+					  				<img src="/website_real_estate/static/img/images/banner_featured.png" id="opportunity2"/>
+					  			</t>
+					  		</div>
+					  		<div class="new">
+					  			<div class="hidden">
+					  				<span t-field="topdatas.date"/>
+					  				<span t-field="companies.new_top_date"/>
+					  			</div>
+					  			<img class="hidden" src="/website_real_estate/static/img/images/banner_new.png" id="novelty1"/>
+					  			
+					  		</div>
+					        <div class="top_description1">
+					        	<p><a t-attf-href="/realestate/top/{{topdatas.id}}" class="ip_featured_title"><t t-set="completeAddress2" t-value="topdatas.zone.name+' - '+topdatas.address"/><span id="black_color" t-esc="completeAddress2"/></a> 
+					        		<t t-if="(topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)">
+						       	 		<span id="origsaleprice2" t-field="topdatas.original_sale_price"/><span id="eur">€</span>
+						       	 		<span class="hidden" id="1"/>
+							       	 </t>
+							       	 <t t-if="(topdatas.sale_price != '') and (topdatas.sale_price &gt; 0)">
+							       	 	<span id="saleprice" t-field="topdatas.sale_price"/><span id="eur1">€</span>
+							       	 	<span class="hidden" id="2"/>
+							       	 </t>
+							       	 <t t-if="(topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0)">
+							       	 	<span id="origrentprice2" t-field="topdatas.original_rent_price"/><span id="eur">€/mes</span>
+							       	 	<span class="hidden" id="3"/>
+							       	 </t>
+							       	 <t t-if="(topdatas.rent_price &gt; 0) and (topdatas.rent_price &gt; 0)">
+							       	 	<span id="rentprice" t-field="topdatas.rent_price"/><span id="eur1">€/mes</span>
+							       	 	<span class="hidden" id="4"/>
+							       	 </t><br/><em></em>
+					        	</p>
+					        	<p><span id="internet_description2" t-field="topdatas.internet_description"/> 
+					        		<a id="more_info" t-attf-href="/realestate/top/{{topdatas.id}}"><br/>More info</a>
+					        	</p>
+					        </div>
+			       		</div>
+		    		</t>
+		    		</div>
+		    		<div class="products_pager col-md-12 col-sm-12 col-xs-12">
+		              <t t-call="website.pager"/>
+		            </div>
+		    	</div>
+		    </t>
+	</template>
+	
+	       		
+    </data>
+    </odoo>

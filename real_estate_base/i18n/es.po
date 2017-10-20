@@ -1,0 +1,1530 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-18 10:58+0000\n"
+"PO-Revision-Date: 2017-10-18 13:26+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_address
+msgid "Address"
+msgstr "Dirección"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Aditional Information"
+msgstr "Información Adicional"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_administrator
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Administrator Information"
+msgstr "Información del Administrador"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Advanced search..."
+msgstr "Busqueda Avanzada..."
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.action_partner_agreement
+msgid "Agreements"
+msgstr "Contratos"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_air_conditioning
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_shop_air_conditioning
+msgid "Air Conditioning"
+msgstr "Aire acondicionado"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.action_partner_all_form
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_all
+#: selection:real.estate.top,orientation:0
+msgid "All"
+msgstr "Todos"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_aqua_ref
+msgid "Aqua Reference"
+msgstr "Referencia Agua"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_attachments_url
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_rent_attachments_url
+#: model:ir.model.fields,field_description:real_estate_base.field_res_partner_partner_attachments_url
+#: model:ir.model.fields,field_description:real_estate_base.field_res_users_partner_attachments_url
+msgid "Attachments URL"
+msgstr "URL de Archivos Adjuntos"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_available
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Available"
+msgstr "Disponible"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_balcony
+msgid "Balcony"
+msgstr "Balcón-Terraza"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_chalet_basement
+msgid "Basement"
+msgstr "Sótano"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_basement_m2
+msgid "Basement M2"
+msgstr "M2 Sótano"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_bathroom
+msgid "Bathroom"
+msgstr "Baño"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_bath_description
+msgid "Bathroom Description"
+msgstr "Descripción de Baño"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_bedrooms
+msgid "Bedrooms"
+msgstr "Dormitorios"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_box_room_act
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_box_room
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_boxroom
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_box_room_list
+msgid "Box Room"
+msgstr "Trastero"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_box_room_description
+msgid "Box Room Description"
+msgstr "Descripción de Trastero"
+
+#. module: real_estate_base
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Box room"
+msgstr "Trastero"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_built_in_closet
+msgid "Built-in Closet"
+msgstr "Armario Empotrado"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_buyer_id
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+#: selection:res.partner,real_estate_type:0
+msgid "Buyer"
+msgstr "Comprador"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.action_partner_buyer_form
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_buyer
+msgid "Buyers"
+msgstr "Compradores"
+
+#. module: real_estate_base
+#: model:ir.ui.menu,name:real_estate_base.mail_menu_calendar_real_estate
+msgid "Calendar"
+msgstr "Calendario"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_chalet_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_chalet_list
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Chalet"
+msgstr "Chalet"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Chalet and House Information"
+msgstr "Información de Chalets y Casas de pueblo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_users_document_client
+msgid "Client"
+msgstr "Cliente"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_res_company
+#: model:ir.ui.menu,name:real_estate_base.company_info
+#: model:ir.ui.menu,name:real_estate_base.menu_action_res_company_form_real_estate
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: real_estate_base
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_conf
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_chalet_cons_m2
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_cons_m2
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_flat_cons_m2
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_ground_cons_m2
+msgid "Constructed M2"
+msgstr "M2 Construidos"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_cons_m2
+msgid "Constructed Office M2"
+msgstr "M2 Construidos de Oficina"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_create_date
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone_create_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating_create_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater_create_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state_create_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type_create_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_create_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_create_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone_create_date
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Customer Partners"
+msgstr "Clientes"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_energy_date
+msgid "Date Energy Efficiency"
+msgstr "Fecha de Eficiencia Energética"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_company_default_document_client
+msgid "Default Document Client"
+msgstr "Cliente por Defecto"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_company_default_document_mount
+msgid "Default Document Mount"
+msgstr "Default Document Mount"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_company_default_mount_agreement
+#: model:ir.model.fields,field_description:real_estate_base.field_res_users_default_mount_agreement
+msgid "Default Mount Rental Agreement"
+msgstr "Punto de Montaje"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_deposit
+msgid "Deposit"
+msgstr "Fianza"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone_display_name
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_doc_filename
+msgid "Doc Filename"
+msgstr "Nombre de Archivo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_users_document_mount
+msgid "Document Mount"
+msgstr "Montaje de Documentos"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_company_form_real_estate
+msgid "Domain Configuration"
+msgstr "Configuración del Dominio"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_email
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "East"
+msgstr "Este"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "East-West"
+msgstr "Este-Oeste"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_electricity
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_electricity
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_shop_electricity
+msgid "Eletricity"
+msgstr "Eletricidad"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_elevator
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_elevator
+msgid "Elevator"
+msgstr "Ascensor"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_end_date
+msgid "End date"
+msgstr "Fecha final"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_energy_doc
+msgid "Energy Certificate"
+msgstr "Certificado Energético"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_energy_efficiency
+msgid "Energy Efficiency"
+msgstr "Eficiencia Energética"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_energy_emission
+msgid "Energy Emission"
+msgstr "Emisiones"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_energy_number
+msgid "Energy Number"
+msgstr "Energía"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_students
+msgid "Estudiantes"
+msgstr "Estudiantes"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_calendar_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_exclusive
+msgid "Exclusive"
+msgstr "Exclusivo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_exclusive_date
+msgid "Exclusive Date"
+msgstr "Fecha Exclusividad"
+
+#. module: real_estate_base
+#: selection:real.estate.top,energy_efficiency:0
+msgid "Exempt"
+msgstr "Exento"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Extended Filter..."
+msgstr "Filtro Extendido..."
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_shop_facade
+msgid "Facade"
+msgstr "Fachada"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_fire_fighting
+msgid "Fire-Fighting"
+msgstr "Anti-Incendios"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_first_floor
+msgid "First Floor"
+msgstr "Primera Planta"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_flat_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_flat_list
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Flat"
+msgstr "Vivienda"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Flat Information"
+msgstr "Información de la Vivienda"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_floor
+msgid "Floor"
+msgstr "Piso"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_floor_number
+msgid "Floor Number"
+msgstr "Nº de Pisos"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+msgid "Full Furnished"
+msgstr "Amueblado"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_fumes_vent
+msgid "Fumes Vent"
+msgstr "Salida de Humos"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_furnished
+msgid "Furnished"
+msgstr "Amueblado"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_furnished_description
+msgid "Furnished Description"
+msgstr "Descripción de Amueblado"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_gantry_crane
+msgid "Gantry Crane"
+msgstr "Puente Grúa"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_garden_m2
+msgid "Garden M2"
+msgstr "M2 de Jardin"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_gas_ref
+msgid "Gas Reference"
+msgstr "Referencia Gas"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_chalet_ground
+msgid "Ground"
+msgstr "Bajo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_ground_m2
+msgid "Ground M2"
+msgstr "M2 Bajo"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Group By..."
+msgstr "Agrupado por..."
+
+#. module: real_estate_base
+#: selection:real.estate.top,furnished:0
+msgid "Half"
+msgstr "Semi"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+msgid "Half Furnished"
+msgstr "Semiamueblado"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_hall
+msgid "Hall"
+msgstr "Salón"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_hall_description
+msgid "Hall Description"
+msgstr "Descripción de Salón"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_heating_act
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_chalet_heating
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_flat_heating
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_heating
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_shop_heating
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_heating_list
+msgid "Heating"
+msgstr "Calefacción"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_height
+msgid "Height"
+msgstr "Altura"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_homeowners_expenses
+msgid "Homeowners Expenses"
+msgstr "Gastos de Comunidad"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_hotwater_act
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_chalet_hotwater
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_flat_hotwater
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_hotwater_list
+msgid "Hot Water"
+msgstr "Agua Caliente"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_hotel_industry_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_hotel_industry_list
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Hotel Industry"
+msgstr "Hostelería"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Hotel industry information"
+msgstr "Información para Hostelería"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_house_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_house_list
+msgid "House"
+msgstr "Casa de Pueblo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone_id
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_id
+msgid "ID"
+msgstr "ID"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Images and documents"
+msgstr "Imágenes y Documentos"
+
+#. module: real_estate_base
+#: selection:real.estate.top,energy_efficiency:0
+msgid "In process"
+msgstr "En Proceso"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_homeowners_expenses_included
+msgid "Included"
+msgstr "Incluido"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+msgid "Industrial"
+msgstr "Industrial"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+msgid "Industrial Prepared"
+msgstr "Acondicionado"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_industrial_unit_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_industrial_unit_list
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Industrial Unit"
+msgstr "Nave Industrial"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Industrial Unit information"
+msgstr "Información para Naves Industriales"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+#: model:ir.ui.view,arch_db:real_estate_base.view_partner_form_real_estate
+msgid "Information"
+msgstr "Información"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.calendar_case_form_view_meet_form_realestate1
+msgid "Inmueble"
+msgstr "Inmueble"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_kitchen
+msgid "Kitchen"
+msgstr "Cocina"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_kitchen_description
+msgid "Kitchen Description"
+msgstr "Descripción de Cocina"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_land_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_land_list
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Land"
+msgstr "Terreno"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_land_m2
+msgid "Land M2"
+msgstr "M2 Terreno"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_land_state_act
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state_name
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_land_estate_list
+msgid "Land State"
+msgstr "Estado del Terreno"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_land_type_act
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_land_type
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_land_type_list
+msgid "Land Type"
+msgstr "Tipo de Terreno"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Land information"
+msgstr "Información del Terreno"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_land_state
+msgid "Land state"
+msgstr "Estado del Terreno"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone___last_update
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone_write_uid
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_heating_write_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_hotwater_write_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_state_write_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_land_type_write_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_write_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_write_date
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone_write_date
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_write_date
+msgid "Last Write Date"
+msgstr "Última Fecha de Escritura"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_light_ref
+msgid "Light Reference"
+msgstr "Referencia Luz"
+
+#. module: real_estate_base
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Linux/MacOSX Client"
+msgstr "Cliente Linux/MacOSX"
+
+#. module: real_estate_base
+#: model:ir.model.fields,help:real_estate_base.field_res_company_default_document_mount
+#: model:ir.model.fields,help:real_estate_base.field_res_users_document_mount
+msgid "Local mount point"
+msgstr "Punto de Montaje Local"
+
+#. module: real_estate_base
+#: model:ir.model.fields,help:real_estate_base.field_res_company_default_mount_agreement
+#: model:ir.model.fields,help:real_estate_base.field_res_users_default_mount_agreement
+msgid "Local mount point for rental agreement"
+msgstr "Punto de Montaje Local para Contratos de Alquiler"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_city_id
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_locker_room
+msgid "Locker Room"
+msgstr "Vestuarios"
+
+#. module: real_estate_base
+#: model:ir.ui.menu,name:real_estate_base.menu_crm_case_phone_inbound
+msgid "Logged Calls"
+msgstr "Llamadas registradas"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_m2
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_m2
+msgid "M2"
+msgstr "M2"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.action_partner_manage_form
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_manage
+#: selection:res.partner,real_estate_type:0
+msgid "Manage"
+msgstr "Gestionar"
+
+#. module: real_estate_base
+#: model:ir.ui.menu,name:real_estate_base.calendar_meeting
+msgid "Meetings"
+msgstr "Reuniones"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_mezzanine_m2
+msgid "Mezzanine M2"
+msgstr "M2 Entreplanta"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_company_form_real_estate
+msgid "Mount FTP Configuration"
+msgstr "Configuración Punto de Montaje FTP"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "My Partners"
+msgstr "Mis empresas"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: real_estate_base
+#: selection:real.estate.top,furnished:0
+msgid "No"
+msgstr "No"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+msgid "No Furnished"
+msgstr "No amueblado"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "North"
+msgstr "Norte"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "North-South"
+msgstr "Norte-Sur"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "Northeast"
+msgstr "Noreste"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "Northwest"
+msgstr "Noroeste"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Not Available"
+msgstr "No Disponible"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_note
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_note_flat
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_notes
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_number
+msgid "Number"
+msgstr "Número"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_number_keys
+msgid "Number of Keys"
+msgstr "Nº de Llaves"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_office_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_office_list
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Office"
+msgstr "Oficina"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_m2
+msgid "Office M2"
+msgstr "M2 de Oficina"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Office information"
+msgstr "Información de Oficina"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_offices
+msgid "Offices"
+msgstr "Oficinas"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_open_field_m2
+msgid "Open Field M2"
+msgstr "M2 Campa"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_operation
+msgid "Operation"
+msgstr "Operación"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_orientation
+msgid "Orientation"
+msgstr "Orientación"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_outside
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_outside
+msgid "Outside"
+msgstr "Exterior"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_partner_id
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_owner_id
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_partner
+#: selection:res.partner,real_estate_type:0
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.action_partner_owner_form
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_owner
+msgid "Owners"
+msgstr "Propietarios"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_parking_act
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_parking
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_parking
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_parking_list
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Parking"
+msgstr "Garaje"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_parking_description
+msgid "Parking Description"
+msgstr "Descripción de Garaje"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: real_estate_base
+#: model:ir.ui.menu,name:real_estate_base.menu_crm_case_phone
+msgid "Phone Calls"
+msgstr "Llamadas"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_plot_m2
+msgid "Plot M2"
+msgstr "M2 Parcela"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_premise_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_premise_list
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Premise"
+msgstr "Local"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Premise information"
+msgstr "Información del Local"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_premise_office_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_premise_office_list
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Premise-Office"
+msgstr "Local-Oficina"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_industrial_prepared
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_shop_prepared
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Prepared"
+msgstr "Acondicionado"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Prices and area"
+msgstr "Precio y Area"
+
+#. module: real_estate_base
+#: model:ir.ui.menu,name:real_estate_base.menu_base_real_estate
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+#: model:ir.ui.view,arch_db:real_estate_base.view_company_form_real_estate
+msgid "Real Estate"
+msgstr "Inmobiliaria"
+
+#. module: real_estate_base
+#: model:res.groups,name:real_estate_base.group_real_estate_manager
+msgid "Real Estate / Manager"
+msgstr "Real Estate / Manager"
+
+#. module: real_estate_base
+#: model:res.groups,name:real_estate_base.group_real_estate_user
+msgid "Real Estate / User"
+msgstr "Real Estate / User"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_users_form_real_estate
+#: model:ir.ui.view,arch_db:real_estate_base.view_users_form_simple_modif_real_estate
+msgid "Real Estate Configuration"
+msgstr "Configuración Inmobiliaria"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_subdivision_tree
+msgid "Real Estate Subdivisions"
+msgstr "Real Estate Subdivisions"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_subtype_tree
+msgid "Real Estate Subtype"
+msgstr "Real Estate Subtype"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_tree
+#: model:ir.ui.view,arch_db:real_estate_base.rental_agreement_form
+msgid "Real Estate Top"
+msgstr "Real Estate Top"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_name
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_name
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+#: selection:real.estate.top,operation:0
+msgid "Rent"
+msgstr "Alquiler"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Rent Information"
+msgstr "Información de Alquiler"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_rent_price
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_rent_price
+msgid "Rent Price"
+msgstr "Precio Alquiler"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Rent price from"
+msgstr "Precio alquiler desde"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Rent price to"
+msgstr "Precio alquiler hasta"
+
+#. module: real_estate_base
+#: selection:real.estate.top,operation:0
+msgid "Rent with sale option"
+msgstr "ALquiler con opción a compra"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.rental_agreement_act
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_agreements
+#: model:ir.ui.menu,name:real_estate_base.menu_rental_agreement_list
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+#: model:ir.ui.view,arch_db:real_estate_base.rental_agreement_filter
+#: model:ir.ui.view,arch_db:real_estate_base.rental_agreement_tree
+msgid "Rental Agreements"
+msgstr "Contratos de Alquiler"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_retribution
+msgid "Retribution"
+msgstr "Honorarios"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_room_description
+msgid "Room Description"
+msgstr "Descripción de Habitaciones"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_rooms
+msgid "Rooms"
+msgstr "Habitaciones"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+#: selection:real.estate.top,operation:0
+msgid "Sale"
+msgstr "Venta"
+
+#. module: real_estate_base
+#: selection:real.estate.top,operation:0
+msgid "Sale & Rent"
+msgstr "Alquiler y Venta"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_sale_price
+msgid "Sale Price"
+msgstr "Precio Venta"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Sale Price to"
+msgstr "Precio venta hasta"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Sale price from"
+msgstr "Precio venta desde"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Salesman"
+msgstr "Vendedor"
+
+#. module: real_estate_base
+#: model:ir.ui.menu,name:real_estate_base.menu_crm_case_phone_outbound
+msgid "Scheduled Calls"
+msgstr "Llamadas planificadas"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Search Partner"
+msgstr "Buscar empresa"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_second_floor
+msgid "Second Floor"
+msgstr "Segunda Planta"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_partner_name2
+#: model:ir.model.fields,field_description:real_estate_base.field_res_users_name2
+msgid "Second Owner"
+msgstr "Segundo Propietario"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_partner_vat2
+#: model:ir.model.fields,field_description:real_estate_base.field_res_users_vat2
+msgid "Second VAT"
+msgstr "2º NIF"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Second Vat"
+msgstr "2º NIF"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Service Contracts Information"
+msgstr "Información de contratos de servicio"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_shop_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_shop_list
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Shop"
+msgstr "Negocio"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "Shop Prepared"
+msgstr "Negocio Acondicionado"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_shop_window
+msgid "Shop Window"
+msgstr "Escaparate"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Shop information"
+msgstr "Información del Negocio"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_signing_date
+msgid "Signing date"
+msgstr "Fecha de Firma"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "South"
+msgstr "Sur"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "South West"
+msgstr "Suroeste"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "South-Easth"
+msgstr "Sureste"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_stair
+msgid "Stair"
+msgstr "Escalera"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_start_date
+msgid "Start date"
+msgstr "Fecha de inicio"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_structural_barriers
+msgid "Structural Barriers"
+msgstr "Barreras Estructurales"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+msgid "Students"
+msgstr "Estudiantes"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subdivision_ids
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Subdivisions"
+msgstr "Subdivisiones"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_name
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subtype
+msgid "Subtype"
+msgstr "Subtipo"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_subtype_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_subtype_list
+msgid "Subtypes"
+msgstr "Subtipo"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Supplier Partners"
+msgstr "Proveedores"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.view_res_partner_filter_real_estate
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Supplies"
+msgstr "Suministros"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_swimming_pool
+msgid "Swimming Pool"
+msgstr "Piscina"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_administrator_phone
+msgid "Telephone"
+msgstr "Teléfono"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_partner_id
+#: selection:res.partner,real_estate_type:0
+msgid "Tenant"
+msgstr "Inquilino"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.action_partner_tenant_form
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_tenant
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "Tenants"
+msgstr "Inquilinos"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_industrial_toilet
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_shop_toilet
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_toilet
+msgid "Toilet"
+msgstr "Aseo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_toilet_description
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_toilet_description
+msgid "Toilet Description"
+msgstr "Descripción de Aseo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_office_toilets
+msgid "Toilets"
+msgstr "Aseos"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_top_act
+#: model:ir.model.fields,field_description:real_estate_base.field_calendar_event_top_id
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_subsivision_top_id
+#: model:ir.model.fields,field_description:real_estate_base.field_rental_agreement_top_id
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_top_list
+msgid "Top"
+msgstr "Inmueble"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.crm_top_meetings_view
+msgid "Top Meeting"
+msgstr "Visitas Inmueble"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_top_meetings
+msgid "Top Meetings"
+msgstr "Visitas al Inmueble"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_subtype_type
+msgid "Top Type"
+msgstr "Tipo de Inmueble"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_top_subsivision
+msgid "Top subdivision that can be rented individually"
+msgstr "Subdivisión de la propiedad que se puede alquilar individualmente"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.action_partner_tops
+msgid "Tops"
+msgstr "Inmuebles"
+
+#. module: real_estate_base
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "Town House"
+msgstr "Casa de pueblo"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+#: selection:real.estate.top,operation:0
+msgid "Transfer"
+msgstr "Traspaso"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_triphase
+msgid "Triphase"
+msgstr "Trifásica"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_type
+#: model:ir.model.fields,field_description:real_estate_base.field_res_partner_real_estate_type
+#: model:ir.model.fields,field_description:real_estate_base.field_res_users_real_estate_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_updated_date
+msgid "Updated Date"
+msgstr "Fecha de Actualización"
+
+#. module: real_estate_base
+#: model:ir.model.fields,help:real_estate_base.field_real_estate_top_city_id
+msgid "Usa el nombre o el C.P para buscar la localización"
+msgstr "Usa el nombre o el C.P para buscar la localización"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_land_cons_m2
+msgid "Usage Land M2"
+msgstr "M2 de Terreno Útiles"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_chalet_usage_m2
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_flat_usage_m2
+msgid "Usage M2"
+msgstr "M2 Útiles"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+#: selection:real.estate.top,operation:0
+msgid "Valuation"
+msgstr "Valoración"
+
+#. module: real_estate_base
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Web Client"
+msgstr "Cliente Web"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_website
+msgid "Website"
+msgstr "Página web"
+
+#. module: real_estate_base
+#: model:ir.model.fields,help:real_estate_base.field_real_estate_top_website
+msgid "Website of Administrator"
+msgstr "Página Web del Administrador"
+
+#. module: real_estate_base
+#: selection:real.estate.top,orientation:0
+msgid "West"
+msgstr "Oeste"
+
+#. module: real_estate_base
+#: selection:res.company,default_document_client:0
+#: selection:res.users,document_client:0
+msgid "Windows Client"
+msgstr "Cliente Windows"
+
+#. module: real_estate_base
+#: selection:real.estate.top,energy_efficiency:0
+#: selection:real.estate.top,furnished:0
+msgid "Yes"
+msgstr "Sí"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_top_zone
+#: model:ir.model.fields,field_description:real_estate_base.field_real_estate_zone_name
+msgid "Zone"
+msgstr "Zona"
+
+#. module: real_estate_base
+#: model:ir.actions.act_window,name:real_estate_base.real_estate_zone_act
+#: model:ir.ui.menu,name:real_estate_base.menu_real_estate_zone_list
+msgid "Zones"
+msgstr "Zonas"
+
+#. module: real_estate_base
+#: model:ir.model.fields,field_description:real_estate_base.field_res_company_domain
+msgid "domain"
+msgstr "dominio"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "m2 from"
+msgstr "m2 desde"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_flat
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_hotel_industry
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_industrial
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_land
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_office
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_filter_shop
+msgid "m2 to"
+msgstr "m2 hasta"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_heating
+msgid "real.estate.heating"
+msgstr "real.estate.heating"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_hotwater
+msgid "real.estate.hotwater"
+msgstr "real.estate.hotwater"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_land_state
+msgid "real.estate.land.state"
+msgstr "real.estate.land.state"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_land_type
+msgid "real.estate.land.type"
+msgstr "real.estate.land.type"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_subtype
+msgid "real.estate.subtype"
+msgstr "real.estate.subtype"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_top
+msgid "real.estate.top"
+msgstr "real.estate.top"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_real_estate_zone
+msgid "real.estate.zone"
+msgstr "real.estate.zone"
+
+#. module: real_estate_base
+#: model:ir.model,name:real_estate_base.model_rental_agreement
+msgid "rental.agreement"
+msgstr "rental.agreement"
+
+#. module: real_estate_base
+#: selection:real.estate.subtype,type:0 selection:real.estate.top,type:0
+msgid "unlimited"
+msgstr "ilimitado"

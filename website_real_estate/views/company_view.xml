@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_company_form_website_real_estate">
+            <field name="name">res.company.form.website.real.estate</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="real_estate_base.view_company_form_real_estate"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <!-- <page string="Real Estate" position="inside">
+               		<separator string="Mortgage Configuration" colspan="4"/>
+                       <group>
+                       	<field name="interest" />
+                       	<field name="payments" />
+                       </group>
+                       <separator string="Configuration Period Novelty." colspan="4"/>
+                       <group>
+                       	<field name="new_top_date"/>
+                       </group>
+                </page>    -->   
+                <xpath expr="//notebook/page[2]" position="inside">
+                	<separator string="Mortgage Configuration" colspan="4"/>
+                       <group>
+                       	<field name="interest" />
+                       	<field name="payments" />
+                       </group>
+                       <separator string="Configuration Period Novelty." colspan="4"/>
+                       <group>
+                       	<field name="new_top_date"/>
+                       </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
