@@ -8,6 +8,9 @@ import datetime
 
 class AeatSiiResult(models.Model):
     _name = 'aeat.sii.result'
+
+    TYPE = [('normal','Normal'),
+            ('recc','RECC')]
     
     csv = fields.Char(string='CSV')
     vat_presenter = fields.Char(string='Vat Presenter')
@@ -30,12 +33,13 @@ class AeatSiiResult(models.Model):
     registry_error_description = fields.Char(
         string='Registry Error Description')
     registry_csv = fields.Char(string='CSV')
+    type = fields.Selection(TYPE, 'Type')
     invoice_id = fields.Many2one(comodel_name='account.invoice',
                                  string='Invoice')
 
     _order = 'id desc'
 
-    def create_result(self, invoice, res, fault):
+    def create_result(self, invoice, res, type, fault):
         vals = {
             'csv': False,
             'vat_presenter': False,
@@ -57,6 +61,7 @@ class AeatSiiResult(models.Model):
             'registry_error_code': False,
             'registry_error_description': False,
             'registry_csv': False,
+            'type': type,
             'invoice_id': invoice.id,
         }
         if fault:
