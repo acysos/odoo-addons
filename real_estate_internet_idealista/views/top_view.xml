@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+      
+      <record model="ir.ui.view" id="real_estate_top_form_publication_idealista">
+          <field name="name">real.estate.top.form.publication.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_estate_publication.real_estate_top_form_publication"/>
+          <field name="arch" type="xml">
+                <field name="internet_wo" position="before">
+                    <field name="idealista" on_change="onchange_idealista()"/>
+                </field>
+          </field>
+      </record>
+      
+     <record model="ir.ui.view" id="real_estate_top_filter_common_idealista">
+          <field name="name">real.estate.top.filter.common.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in idealista.com" domain="[('idealista','=',True)]"/>
+                </group>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="real_estate_top_filter_common_flat_idealista">
+          <field name="name">real.estate.top.filter.common.flat.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_flat"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in idealista.com" domain="[('idealista','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_industrial_idealista">
+          <field name="name">real.estate.top.filter.common.industrial.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_industrial"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in idealista.com" domain="[('idealista','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_shop_idealista">
+          <field name="name">real.estate.top.filter.common.shop.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_shop"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in idealista.com" domain="[('idealista','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_office_idealista">
+          <field name="name">real.estate.top.filter.common.office.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_office"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in idealista.com" domain="[('idealista','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_land_idealista">
+          <field name="name">real.estate.top.filter.common.land.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_land"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in idealista.com" domain="[('idealista','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      
+  </data>
+</openerp>

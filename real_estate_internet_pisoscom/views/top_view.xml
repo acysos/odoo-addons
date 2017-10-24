@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+  
+      <record model="ir.ui.view" id="real_estate_top_form_publication_pisoscom">
+          <field name="name">real.estate.top.form.publication.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_estate_publication.real_estate_top_form_publication"/>
+          <field name="arch" type="xml">
+                <field name="internet_wo" position="before">
+                    <field name="pisoscom" on_change="onchange_pisoscom()"/>
+                </field>
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="real_estate_top_form_publication_common_pisoscom">
+          <field name="name">real.estate.top.form.publication.common.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_form_publication_common"/>
+          <field name="arch" type="xml">
+                <field name="door" position="after">
+                    <group colspan="4" col="4">
+                        <separator string="Pisos.com" colspan="4"/>
+                        <field name="pisoscom_type" />
+                        <field name="pisoscom_number_doblehab" />
+                        <field name="pisoscom_number_indhab" />
+                        <field name="pisoscom_number_banocomp" />
+                        <field name="pisoscom_number_banoaux" />
+                	</group>
+                </field>
+          </field>
+      </record>
+      
+     <record model="ir.ui.view" id="real_estate_top_filter_common_pisoscom">
+          <field name="name">real.estate.top.filter.common.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in pisos.com" domain="[('pisoscom','=',True)]"/>
+                </group>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="real_estate_top_filter_common_flat_pisoscom">
+          <field name="name">real.estate.top.filter.common.flat.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_flat"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in pisos.com" domain="[('pisoscom','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_industrial_pisoscom">
+          <field name="name">real.estate.top.filter.common.industrial.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_industrial"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in pisos.com" domain="[('pisoscom','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_shop_pisoscom">
+          <field name="name">real.estate.top.filter.common.shop.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_shop"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in pisos.com" domain="[('pisoscom','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_office_pisoscom">
+          <field name="name">real.estate.top.filter.common.office.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_office"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in pisos.com" domain="[('pisoscom','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_land_pisoscom">
+          <field name="name">real.estate.top.filter.common.land.pisoscom</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_land"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in pisos.com" domain="[('pisoscom','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      
+  </data>
+</odoo>

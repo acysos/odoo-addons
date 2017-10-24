@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_company_form_real_estate_pisoscom">
+            <field name="name">res.company.form.real.estate.pisoscom</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="real_estate_base.view_company_form_real_estate"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <!-- <page string="Real Estate" position="inside">
+                		<separator string="Pisos.com Configuration" colspan="4"/>
+                        <group>
+                        	<field name="pisoscom" />
+                        </group>
+                </page> -->
+                <xpath expr="//notebook/page[2]" position="inside">
+                	<separator string="Pisos.com Configuration" colspan="4"/>
+                    <group>
+                    	<field name="pisoscom" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

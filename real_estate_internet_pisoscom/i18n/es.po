@@ -1,0 +1,170 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_internet_pisoscom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-10 16:03+0000\n"
+"PO-Revision-Date: 2017-10-10 18:04+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Casas"
+msgstr "Casas"
+
+#. module: real_estate_internet_pisoscom
+#: model:ir.model,name:real_estate_internet_pisoscom.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Garajes"
+msgstr "Garajes"
+
+#. module: real_estate_internet_pisoscom
+#: code:addons/real_estate_internet_pisoscom/models/top.py:102
+#, python-format
+msgid "Ha superado el limite de Pisos.com"
+msgstr "Ha superado el limite de Pisos.com"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Habitaciones"
+msgstr "Habitaciones"
+
+#. module: real_estate_internet_pisoscom
+#: code:addons/real_estate_internet_pisoscom/models/top.py:101
+#, python-format
+msgid "Limite excedido!"
+msgstr "Limite excedido!"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Locales"
+msgstr "Locales"
+
+#. module: real_estate_internet_pisoscom
+#: field:res.company,pisoscom:0
+msgid "Límite Pisos.com"
+msgstr "Límite Pisos.com"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Naves"
+msgstr "Naves"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_number_banocomp:0
+msgid "Nº Baños completos"
+msgstr "Nº Baños completos"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_number_banoaux:0
+msgid "Nº Baños simples"
+msgstr "Nº Baños simples"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_number_doblehab:0
+msgid "Nº Habitaciones dobles"
+msgstr "Nº Habitaciones dobles"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_number_indhab:0
+msgid "Nº Habitaciones simples"
+msgstr "Nº Habitaciones simples"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Oficinas"
+msgstr "Oficinas"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Pisos"
+msgstr "Pisos"
+
+#. module: real_estate_internet_pisoscom
+#: view:real.estate.top:real_estate_internet_pisoscom.real_estate_top_form_publication_common_pisoscom
+msgid "Pisos.com"
+msgstr "Pisos.com"
+
+#. module: real_estate_internet_pisoscom
+#: view:res.company:real_estate_internet_pisoscom.view_company_form_real_estate_pisoscom
+msgid "Pisos.com Configuration"
+msgstr "Configuración Pisos.com"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_air:0
+msgid "Pisoscom air"
+msgstr "Pisoscom aire"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_furnished:0
+msgid "Pisoscom furnished"
+msgstr "Pisoscom amueblado"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_garaje:0
+msgid "Pisoscom garaje"
+msgstr "Pisoscom garaje"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_heating:0
+msgid "Pisoscom heating"
+msgstr "Pisoscom calefacción"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_operacion:0
+msgid "Pisoscom operacion"
+msgstr "Pisoscom operacion"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_precio:0
+msgid "Pisoscom precio"
+msgstr "Pisoscom precio"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom:0
+msgid "Publicado en pisos.com"
+msgstr "Publicado en pisos.com"
+
+#. module: real_estate_internet_pisoscom
+#: view:real.estate.top:real_estate_internet_pisoscom.real_estate_top_filter_common_flat_pisoscom
+#: view:real.estate.top:real_estate_internet_pisoscom.real_estate_top_filter_common_industrial_pisoscom
+#: view:real.estate.top:real_estate_internet_pisoscom.real_estate_top_filter_common_land_pisoscom
+#: view:real.estate.top:real_estate_internet_pisoscom.real_estate_top_filter_common_office_pisoscom
+#: view:real.estate.top:real_estate_internet_pisoscom.real_estate_top_filter_common_pisoscom
+#: view:real.estate.top:real_estate_internet_pisoscom.real_estate_top_filter_common_shop_pisoscom
+msgid "Publish in pisos.com"
+msgstr "Publicado en pisos.com"
+
+#. module: real_estate_internet_pisoscom
+#: view:res.company:real_estate_internet_pisoscom.view_company_form_real_estate_pisoscom
+msgid "Real Estate"
+msgstr "Inmobiliaria"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Terrenos"
+msgstr "Terrenos"
+
+#. module: real_estate_internet_pisoscom
+#: field:real.estate.top,pisoscom_type:0
+msgid "Tipo en pisos.com"
+msgstr "Tipo en pisos.com"
+
+#. module: real_estate_internet_pisoscom
+#: selection:real.estate.top,pisoscom_type:0
+msgid "Trasteros"
+msgstr "Trasteros"

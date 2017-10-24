@@ -11,14 +11,11 @@
                   <field name="name" colspan="4"/>
               </field>
               <field name="street" position="before">
-                  <group>
-                  	<field name='vat'/>
-                  	<field name="name2" />
-                    <field name="vat2"/>
-                    <field name="real_estate_type" />
-                    <field name="ref"/>
-                    <field name="partner_attachments_url" colspan="2" widget="url" />
-                  </group>
+                 <field name="name2" placeholder="Second Owner"/>
+                    <field name="vat2" placeholder="2º NIF"/>
+                    <field name="real_estate_type" placeholder="Type"/>
+                    <field name="ref" placeholder="Reference"/>
+                    <field name="partner_attachments_url" placeholder="Attachment url" colspan="2" widget="url" />
               </field>
               <field name="supplier" position="after">
                   <field name="active"/>
@@ -39,7 +36,7 @@
           </field>
         </record>
         
-        <record model="ir.ui.view" id="invisible_partner_view_vat">
+    <!--     <record model="ir.ui.view" id="invisible_partner_view_vat">
           <field name="name">invisible.partner.view.vat</field>
           <field name="model">res.partner</field>
           <field name="inherit_id" ref="l10n_es_aeat_mod347.view_partner_form_mod347"/>
@@ -49,7 +46,7 @@
           	<xpath expr="//div[@name='vat_info']" position="replace">
 			</xpath>
           </field>
-        </record>
+        </record> -->
         
         
         
