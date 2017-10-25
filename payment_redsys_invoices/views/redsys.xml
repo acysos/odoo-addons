@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <template id="redsys_order_invoices" name="Redsys " inherit_id="payment_redsys.order">
+            <xpath expr="//div[@id='shipping_address']" position="after">
+               <t t-set="invoices" t-value="[i for i in order.invoice_ids if i.state not in ['draft', 'cancel']]"/>
+               <t t-if="invoices">
+                 <div class='col-md-6'>
+	                 <div>
+	                   <strong>Invoices</strong>
+	                 </div>
+	                 <div>
+	                   <t t-foreach="invoices" t-as="i">
+	                     <t t-set="report_url" t-value="'/report/pdf/account.report_invoice/%s' % i.id"/>
+	                     <div>
+	                       <a t-att-href="report_url"><span class="fa fa-download"/></a>
+	                       <a t-att-href="report_url"><span t-esc="i.number"/></a>
+	                       <span class="text-muted" t-field="i.date_invoice"/>
+	                       <t t-if="i.state == 'paid'">
+	                         <span class="label label-success orders_label_text_align"><i class="fa fa-fw fa-check"/> Paid</span>
+	                       </t>
+	                       <t t-if="i.state != 'paid'">
+	                         <span class="label label-info orders_label_text_align"><i class="fa fa-fw fa-clock-o"/> Waiting</span>
+	                       </t>
+	                     </div>
+	                   </t>
+	                 </div>
+                 </div>
+               </t>
+            </xpath>
+        </template>
+    
+    </data>
+</openerp>
