@@ -3,17 +3,19 @@
    :alt: License: AGPL-3
 
 =============================================
-Redsys Payment Acquirer - Invoices
+Redsys Payment Acquirer - Sale Digital
 =============================================
 
-If exists show the invoices related to the order in the Redsys return url.
+Payment Acquirer: if exist add downloable documents to the Redsys return url.
 
 Installation
 ============
 
-You need to installa the module payment_redsys. This module is in the same repository.
+You need to install the module payment_redsys. This module is in the same repository.
 https://github.com/acysos/odoo-addons/
 * Temporal out of depends until OCA repository approve it
+
+Also depends of website_digital.
 
 Configuration
 =============

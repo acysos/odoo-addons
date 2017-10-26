@@ -12,7 +12,6 @@
     "application": False,
     "installable": True,
     "depends": [
-        "payment_redsys",
         "website_sale_digital"
     ],
     "data": [
