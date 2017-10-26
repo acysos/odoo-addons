@@ -21,6 +21,9 @@ Para instalar esté módulo necesita:
 Una vez instalado ejecute Account Chart Update para actualizar las claves
 de las posiciones fiscales.
 
+Depende de l10n_es_aeat, eliminado de depends hasta que OCA lo cargue. Se puede descargar del mismo repositorio.
+https://github.com/acysos
+
 Configuration
 =============
 
@@ -74,10 +77,8 @@ Known issues / Roadmap
 * Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
 * Factura simplificada
-* Asistente para consultar los documentos comunicados
 * Operación anual. Libro de bienes de inversión (Libro anual se crea un módulo aparte)
 * Regimenes especial de seguros y agencias de viaje
-* Envio de facturas del primer semestre (Parcial, esta el botón de envio manual, falta un asistente de envio masivo)
 
 Credits
 =======
