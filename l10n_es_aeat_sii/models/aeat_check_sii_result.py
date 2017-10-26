@@ -97,8 +97,12 @@ class AeatCheckSiiResult(models.Model):
             vals['vat_partner'] = data[key]['Contraparte']['NIF']
             vals['other_id_partner'] = data[key]['Contraparte']['IDOtro']
             vals['vat_presenter'] = data['DatosPresentacion']['NIFPresentador']
-            vals['timestamp_presentation'] = data[
-                'DatosPresentacion']['TimestampPresentacion']
+            date = datetime.datetime.strptime(
+                data['DatosPresentacion']['TimestampPresentacion'],
+                '%d-%m-%Y %H:%M:%S')
+            new_date = datetime.datetime.strftime(
+                date, '%Y-%m-%d %H:%M:%S')
+            vals['timestamp_presentation'] = new_date
             vals['csv'] = data['DatosPresentacion']['CSV']
             vals['reconcile_state'] = data['EstadoFactura']['EstadoCuadre']
             invoice.sii_reconcile_state = vals['reconcile_state']
@@ -119,5 +123,5 @@ class AeatCheckSiiResult(models.Model):
             vals['description_error'] = data[
                 'EstadoFactura']['DescripcionErrorRegistro']
             vals['reconcile_description'] = data['DatosDescuadreContraparte']
-        
+
         self.create(vals)
