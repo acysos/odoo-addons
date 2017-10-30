@@ -73,7 +73,6 @@ Known issues / Roadmap
 
 * Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
-* Factura simplificada
 * Operación anual. Libro de bienes de inversión (Libro anual se crea un módulo aparte)
 * Regimenes especial de seguros y agencias de viaje
 
