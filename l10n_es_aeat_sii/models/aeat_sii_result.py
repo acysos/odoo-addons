@@ -39,7 +39,7 @@ class AeatSiiResult(models.Model):
 
     _order = 'id desc'
 
-    def create_result(self, invoice, res, type, fault):
+    def _prepare_vals(self, model_id, res, type, fault, model):
         vals = {
             'csv': False,
             'vat_presenter': False,
@@ -62,8 +62,9 @@ class AeatSiiResult(models.Model):
             'registry_error_description': False,
             'registry_csv': False,
             'type': type,
-            'invoice_id': invoice.id,
         }
+        if model == 'account.invoice':
+            vals['invoice_id'] = model_id.id
         if fault:
             vals['registry_error_description'] = fault
         else:
@@ -138,5 +139,9 @@ class AeatSiiResult(models.Model):
                         reply['DescripcionErrorRegistro']
                 if 'CSV' in reply:
                     vals['registry_csv'] = reply['CSV']
+        return vals
+
+    def create_result(self, model_id, res, type, fault, model):
+        vals = self._prepare_vals(model_id, res, type, fault, model)
         self.create(vals)
 

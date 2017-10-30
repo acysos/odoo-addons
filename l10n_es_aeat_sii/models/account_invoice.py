@@ -754,7 +754,7 @@ class AccountInvoice(models.Model):
                 else:
                     self.sii_sent = False
                 self.env['aeat.sii.result'].create_result(
-                    invoice, res, 'normal', False)
+                    invoice, res, 'normal', False, 'account.invoice')
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
@@ -764,7 +764,7 @@ class AccountInvoice(models.Model):
                 self.sii_send_error = send_error
             except Exception as fault:
                 self.env['aeat.sii.result'].create_result(
-                    invoice, False, 'normal', fault)
+                    invoice, False, 'normal', fault, 'account.invoice')
                 self.sii_send_error = fault
 
     @api.multi
@@ -828,7 +828,7 @@ class AccountInvoice(models.Model):
                 else:
                     invoice.sii_recc_sent = False
                 self.env['aeat.sii.result'].create_result(
-                    invoice, res, 'recc', False)
+                    invoice, res, 'recc', False, 'account.invoice')
                 send_recc_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
@@ -838,7 +838,7 @@ class AccountInvoice(models.Model):
                 invoice.sii_recc_send_error = send_recc_error
             except Exception as fault:
                 self.env['aeat.sii.result'].create_result(
-                    invoice, False, 'recc', fault)
+                    invoice, False, 'recc', fault, 'account.invoice')
                 invoice.sii_recc_send_error = fault
 
     @api.multi
@@ -1024,10 +1024,10 @@ class AccountInvoice(models.Model):
                     res = serv.ConsultaLRFacturasRecibidas(
                         header, query)
                 self.env['aeat.check.sii.result'].create_result(
-                    invoice, res, False)
+                    invoice, res, False, 'account.invoice')
             except Exception as fault:
                 self.env['aeat.check.sii.result'].create_result(
-                    invoice, False, fault)
+                    invoice, False, fault, 'account.invoice')
 
 
 @job(default_channel='root.invoice_validate_sii')

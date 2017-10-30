@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_es_aeat_sii_pos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-28 23:37+0000\n"
+"PO-Revision-Date: 2017-10-28 23:37+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "Check SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: model:ir.actions.server,name:l10n_es_aeat_sii_pos.action_check_sii_simplified
+msgid "Check Simplified SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_check_results:0
+msgid "Check results"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: selection:pos.order,sii_reconcile_state:0
+msgid "Contrastada"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: selection:pos.order,sii_reconcile_state:0
+msgid "En proceso de contraste"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_enabled:0
+msgid "Enable SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "Invoice Jobs"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: code:addons/l10n_es_aeat_sii_pos/models/pos_order.py:77
+#, python-format
+msgid "No VAT configured for the company '{}'"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: selection:pos.order,sii_reconcile_state:0
+msgid "No contrastable"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: selection:pos.order,sii_reconcile_state:0
+msgid "No contrastada"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:aeat.check.sii.result,pos_order_id:0
+#: field:aeat.sii.result,pos_order_id:0
+msgid "POS Order"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,simplified_jobs_ids:0
+msgid "POS Order Jobs"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_results:0
+msgid "POS order results"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: selection:pos.order,sii_reconcile_state:0
+msgid "Parcialmente contrastada"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: model:ir.model,name:l10n_es_aeat_sii_pos.model_pos_order
+msgid "Point of Sale"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_order_sii_filter
+msgid "Posted"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_reconcile_state:0
+msgid "Reconcile State"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "Requeue"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_csv:0
+msgid "SII CSV"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_description:0
+msgid "SII Description"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "SII Information"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "SII Result"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_send_error:0
+msgid "SII Send Error"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: field:pos.order,sii_sent:0
+msgid "SII Sent"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "SII Verification"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_order_sii_filter
+msgid "SII error"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_order_sii_filter
+msgid "SII failed"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_order_sii_filter
+msgid "SII not send"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_order_sii_filter
+msgid "SII send"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: view:pos.order:l10n_es_aeat_sii_pos.view_pos_pos_sii_form
+msgid "Send SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: model:ir.actions.server,name:l10n_es_aeat_sii_pos.action_send_sii_simplified
+msgid "Send Simplified SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii_pos
+#: code:addons/l10n_es_aeat_sii_pos/models/pos_order.py:288
+#, python-format
+msgid "You have to select what account chart template use this company."
+msgstr ""
+

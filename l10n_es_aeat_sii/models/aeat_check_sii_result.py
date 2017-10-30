@@ -52,31 +52,41 @@ class AeatCheckSiiResult(models.Model):
         string='Registry Error Description')
     invoice_id = fields.Many2one(comodel_name='account.invoice',
                                  string='Invoice')
-    
-    def create_result(self, invoice, res, fault):
+
+    def _get_data(self, model_id, res, model):
+        data = {}
+        key = ''
+        key_type = ''
+        if model == 'account.invoice':
+            if model_id.type in ('out_invoice', 'out_refund'):
+                data = res['RegistroRespuestaConsultaLRFacturasEmitidas'][0]
+                key = 'DatosFacturaEmitida'
+                key_type = 'sale'
+            if model_id.type in ('in_invoice', 'in_refund'):
+                data = res['RegistroRespuestaConsultaLRFacturasRecibidas'][0]
+                key = 'DatosFacturaRecibida'
+                key_type = 'purchase'
+        return data, key, key_type
+            
+
+    def _prepare_vals(self, model_id, res, fault, model):
         vals = {
-            'check_date': fields.Datetime.now(),
-            'invoice_id': invoice.id
+            'check_date': fields.Datetime.now()
         }
+        if model == 'account.invoice':
+            vals['invoice_id'] = model_id.id
         if fault:
             vals['registry_error_description'] = fault
         else:
             vals['result_query'] = res['ResultadoConsulta']
-            key = ''
-            if invoice.type in ('out_invoice', 'out_refund'):
-                data = res['RegistroRespuestaConsultaLRFacturasEmitidas'][0]
-                key = 'DatosFacturaEmitida'
-                key_type = 'sale'
-            if invoice.type in ('in_invoice', 'in_refund'):
-                data = res['RegistroRespuestaConsultaLRFacturasRecibidas'][0]
-                key = 'DatosFacturaRecibida'
-                key_type = 'purchase'
+            data, key, key_type = self._get_data(model_id, res, model)
         if 'result_query' in vals and vals['result_query'] == 'ConDatos':
             key_obj = self.env['aeat.sii.mapping.registration.keys']
             vals['vat'] = data['IDFactura']['IDEmisorFactura']['NIF']
-            if invoice.type in ('in_invoice', 'in_refund'):
-                vals['other_id'] = data[
-                    'IDFactura']['IDEmisorFactura']['IDOtro']
+            if model == 'account.invoice':
+                if model_id.type in ('in_invoice', 'in_refund'):
+                    vals['other_id'] = data[
+                        'IDFactura']['IDEmisorFactura']['IDOtro']
             vals['invoice_number'] = data['IDFactura']['NumSerieFacturaEmisor']
             date = datetime.datetime.strptime(
                 data['IDFactura']['FechaExpedicionFacturaEmisor'],
@@ -93,9 +103,10 @@ class AeatCheckSiiResult(models.Model):
             vals['registration_key'] = registration_key.id
             vals['amount_total'] = data[key]['ImporteTotal']
             vals['description'] = data[key]['DescripcionOperacion']
-            vals['name'] = data[key]['Contraparte']['NombreRazon']
-            vals['vat_partner'] = data[key]['Contraparte']['NIF']
-            vals['other_id_partner'] = data[key]['Contraparte']['IDOtro']
+            if 'Contraparte' in data[key] and data[key]['Contraparte']:
+                vals['name'] = data[key]['Contraparte']['NombreRazon']
+                vals['vat_partner'] = data[key]['Contraparte']['NIF']
+                vals['other_id_partner'] = data[key]['Contraparte']['IDOtro']
             vals['vat_presenter'] = data['DatosPresentacion']['NIFPresentador']
             date = datetime.datetime.strptime(
                 data['DatosPresentacion']['TimestampPresentacion'],
@@ -105,7 +116,7 @@ class AeatCheckSiiResult(models.Model):
             vals['timestamp_presentation'] = new_date
             vals['csv'] = data['DatosPresentacion']['CSV']
             vals['reconcile_state'] = data['EstadoFactura']['EstadoCuadre']
-            invoice.sii_reconcile_state = vals['reconcile_state']
+            model_id.sii_reconcile_state = vals['reconcile_state']
             date = datetime.datetime.strptime(
                 data['EstadoFactura']['TimestampEstadoCuadre'],
                 '%d-%m-%Y %H:%M:%S')
@@ -123,5 +134,9 @@ class AeatCheckSiiResult(models.Model):
             vals['description_error'] = data[
                 'EstadoFactura']['DescripcionErrorRegistro']
             vals['reconcile_description'] = data['DatosDescuadreContraparte']
+        return vals
+
+    def create_result(self, model_id, res, fault, model):
+        vals = self._prepare_vals(model_id, res, fault, model)
         
         self.create(vals)
