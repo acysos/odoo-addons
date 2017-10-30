@@ -19,6 +19,7 @@ Para instalar esté módulo necesita:
 #. Libreria pyOpenSSL, versión 0.15 o posterior
 
 Módulos necesario:
+
 * l10n_es_aeat_sii: https://www.odoo.com/apps/modules/8.0/l10n_es_aeat_sii/
 * l10n_es_pos: https://www.odoo.com/apps/modules/8.0/l10n_es_pos/
 
