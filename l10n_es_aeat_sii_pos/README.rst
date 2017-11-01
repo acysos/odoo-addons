@@ -19,7 +19,6 @@ Para instalar esté módulo necesita:
 #. Libreria pyOpenSSL, versión 0.15 o posterior
 
 Módulos necesario:
-
 * l10n_es_aeat_sii: https://www.odoo.com/apps/modules/8.0/l10n_es_aeat_sii/
 * l10n_es_pos: https://www.odoo.com/apps/modules/8.0/l10n_es_pos/
 
@@ -47,6 +46,6 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://acysos.com/website_logo.png
+.. image:: https://acysos.com/logo.png
    :alt: Acysos S.L.
    :target: https://www.acysos.com
