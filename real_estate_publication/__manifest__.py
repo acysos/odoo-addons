@@ -27,7 +27,6 @@
     "version" : "1.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
-    "description": """Base module to manage top publication in web or press""",
     "license" : "AGPL-3",
     "category" : "Specific Industry Applications",
     "depends" : [
