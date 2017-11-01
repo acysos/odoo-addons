@@ -2,22 +2,21 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================================
-Account Hierarchy Report - Cooperativas
-=======================================
+====================
+Real Estate Fotocasa
+====================
 
-Extiende la funcionalidad de l10n_es_account_hierarchy_report a cooperativas
+Basic implementation for Spanish Portal Fotocasa
 
-**IMPORTANTE:** Este módulo se basa en el módulo  *l10n_es* de OCA. No se puede
-utilizar la versión estándar de Odoo.
+Usage
+=====
 
-Installation
-============
+No additional configuration is needed to enable features for this module after installation.
 
-To install this module, you need to:
+Known issues / Roadmap
+======================
 
-* l10n_es_coop
-* l10n_es_account_hierarchy_report
+* Export to XML
 
 Bug Tracker
 ===========
@@ -33,7 +32,8 @@ Credits
 Contributors
 ------------
 
-* Ignacio Ibeas <ignacio@acysos.com>
+* Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>
+* Daniel Pascal - Acysos S.L. <daniel@acysos.com>
 
 
 Maintainer

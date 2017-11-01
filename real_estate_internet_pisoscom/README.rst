@@ -2,22 +2,17 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================================
-Account Hierarchy Report - Cooperativas
-=======================================
+=====================
+Real Estate Pisos.com
+=====================
 
-Extiende la funcionalidad de l10n_es_account_hierarchy_report a cooperativas
+This module extends Real Estate to create an export XML for the Spanish portal
+Pisos.com
 
-**IMPORTANTE:** Este módulo se basa en el módulo  *l10n_es* de OCA. No se puede
-utilizar la versión estándar de Odoo.
+Usage
+=====
 
-Installation
-============
-
-To install this module, you need to:
-
-* l10n_es_coop
-* l10n_es_account_hierarchy_report
+The xml url is http://<domain>/realestateportal/pisoscom.xml
 
 Bug Tracker
 ===========
@@ -33,7 +28,8 @@ Credits
 Contributors
 ------------
 
-* Ignacio Ibeas <ignacio@acysos.com>
+* Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>
+* Daniel Pascal - Acysos S.L. <daniel@acysos.com>
 
 
 Maintainer

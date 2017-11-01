@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
+=====================================
 Informes de cuentas anuales españoles
-==============
+=====================================
 
 Incluye las siguientes plantillas para el motor de informes de cuentas provisto
 por el módulo *account_balance_reporting*:
@@ -32,7 +32,7 @@ To install this module, you need to:
 Known issues / Roadmap
 ======================
 
-* Cuenta de pérdidas y ganancias para pequeñas y medianas cooperativas
+* Cuenta de pérdidas y ganancias para cooperativas
 
 
 Bug Tracker
@@ -55,6 +55,6 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://acysos.com/website_logo.png
+.. image:: https://acysos.com/logo.png
    :alt: Acysos S.L.
    :target: https://www.acysos.com

@@ -9,9 +9,6 @@ Régimen especial de agricultura, ganadería y pesca
 Módulo para el tratamiento especial del régimen de agricultura, ganadería y pesca
 http://www.agenciatributaria.es/AEAT.internet/Inicio/_Segmentos_/Empresas_y_profesionales/Empresarios_individuales_y_profesionales/IVA/Regimenes_de_tributacion/Regimenes_especiales_para_empresarios_individuales/Regimen_especial_de_la_agricultura__ganaderia_y_pesca/Regimen_especial_de_la_agricultura__ganaderia_y_pesca.shtml
 
-**IMPORTANTE:** Este módulo se basa en el módulo  *l10n_es* de OCA. No se puede
-utilizar la versión estándar de Odoo.
-
 Installation
 ============
 
@@ -33,6 +30,6 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://acysos.com/website_logo.png
+.. image:: https://acysos.com/logo.png
    :alt: Acysos S.L.
    :target: https://www.acysos.com
