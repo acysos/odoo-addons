@@ -25,8 +25,6 @@
 {
     # Theme information
     'name': "Real Estate Website",
-    'description': """
-    """,
     'category': 'Theme',
     'version': '1.0',
     'depends': ['base',

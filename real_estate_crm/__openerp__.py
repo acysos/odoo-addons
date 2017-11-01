@@ -23,7 +23,6 @@
     "version": "1.0",
     "author": "Acysos S.L.",
     "website": "http://www.acysos.com",
-    "description": """ """,
     "complexity": "normal",
     "category": "Specific Industry",
     "depends": ['base', 

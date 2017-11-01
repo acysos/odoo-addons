@@ -5,8 +5,7 @@
 {
     "name": "Multiple Images in Tops",
     "version": "8.0.2.0.0",
-    "author": "Acysos S.L., "
-              "Odoo Community Association (OCA)",
+    "author": "Acysos S.L."
     "license": "AGPL-3",
     "website": "http://www.acysos.com",
     "category": "Sales Management",
