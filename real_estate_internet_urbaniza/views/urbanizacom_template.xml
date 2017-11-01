@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-       <template id="inmoagrupacom_template"><t t-raw="xml"/></template>
+       <template id="urbanizacom_template"><t t-raw="xml"/></template>
     </data>
 </openerp>

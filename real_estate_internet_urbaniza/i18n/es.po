@@ -18,102 +18,102 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Almacén"
 msgstr "Almacén"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Apartamento"
 msgstr "Apartamento"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Avenida"
 msgstr "Avenida"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Bajo"
 msgstr "Bajo"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Balneario"
 msgstr "Balneario"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Bar"
 msgstr "Bar"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Barrio"
 msgstr "Barrio"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Bulevar"
 msgstr "Bulevar"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Bungalow"
 msgstr "Bungalow"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Cabaña"
 msgstr "Cabaña"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Calle"
 msgstr "Calle"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Cantón"
 msgstr "Cantón"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Casa"
 msgstr "Casa"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Casa Prefabricada"
 msgstr "Casa Prefabricada"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Caserio"
 msgstr "Caserio"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Casona"
 msgstr "Casona"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Chalet Adosado"
 msgstr "Chalet Adosado"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Chalet Individual"
 msgstr "Chalet Individual"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Chalet Pareado"
 msgstr "Chalet Pareado"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_commission_refer:0
+#: field:real.estate.top,urbaniza_commission_refer:0
 msgid "Comisión referido"
 msgstr "Comisión referido"
 
@@ -123,43 +123,43 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Cortijo"
 msgstr "Cortijo"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Cueva"
 msgstr "Cueva"
 
 #. module: real_estate_internet_urbaniza
 #: field:real.estate.top,doc_filename:0
-#: field:real.estate.top,inmoagrupacom_exclusivity_doc_filename:0
+#: field:real.estate.top,urbaniza_exclusivity_doc_filename:0
 msgid "Doc Filename"
 msgstr "Doc Filename"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_exclusivity_doc:0
+#: field:real.estate.top,urbaniza_exclusivity_doc:0
 msgid "Documento Exclusividad"
 msgstr "Documento Exclusividad"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Duplex"
 msgstr "Duplex"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Edificio"
 msgstr "Edificio"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Estudio"
 msgstr "Estudio"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_fee_type:0
+#: selection:real.estate.top,urbaniza_fee_type:0
 msgid "Euros"
 msgstr "Euros"
 
@@ -174,113 +174,113 @@ msgid "Fecha fin de mandato"
 msgstr "Fecha fin de mandato"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Finca"
 msgstr "Finca"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Finca Agraria"
 msgstr "Finca Agraria"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Finca Rustica"
 msgstr "Finca Rustica"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Finca Urbanizable"
 msgstr "Finca Urbanizable"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Garaje"
 msgstr "Garaje"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Granja"
 msgstr "Granja"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_fee_captador:0
+#: field:real.estate.top,urbaniza_fee_captador:0
 msgid "Honorarios captador"
 msgstr "Honorarios captador"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_fee_colaborador:0
+#: field:real.estate.top,urbaniza_fee_colaborador:0
 msgid "Honorarios colaborador"
 msgstr "Honorarios colaborador"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Hostal-Pensión"
 msgstr "Hostal-Pensión"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Hotel"
 msgstr "Hotel"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_capt_date:0
-msgid "Inmoagrupacom capt date"
-msgstr "Inmoagrupacom fecha captura"
+#: field:real.estate.top,urbaniza_capt_date:0
+msgid "Urbanizacom capt date"
+msgstr "Urbanizacom fecha captura"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_end_date:0
-msgid "Inmoagrupacom end date"
-msgstr "Inmoagrupacom fecha fin"
+#: field:real.estate.top,urbaniza_end_date:0
+msgid "Urbanizacom end date"
+msgstr "Urbanizacom fecha fin"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_energy_date:0
-msgid "Inmoagrupacom energy date"
-msgstr "Inmoagrupacom fecha de energía"
+#: field:real.estate.top,urbaniza_energy_date:0
+msgid "Urbanizacom energy date"
+msgstr "Urbanizacom fecha de energía"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_heating:0
-msgid "Inmoagrupacom heating"
-msgstr "Inmoagrupacom calefacción"
+#: field:real.estate.top,urbaniza_heating:0
+msgid "Urbanizacom heating"
+msgstr "Urbanizacom calefacción"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_latitude:0
+#: field:real.estate.top,urbaniza_latitude:0
 msgid "Latitud"
 msgstr "Latitud"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_letra:0
+#: field:real.estate.top,urbaniza_letra:0
 msgid "Letra"
 msgstr "Letra"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Loft"
 msgstr "Loft"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_longitude:0
+#: field:real.estate.top,urbaniza_longitude:0
 msgid "Longitud"
 msgstr "Longitud"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Mansión"
 msgstr "Mansión"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Masía"
 msgstr "Masía"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Nave Industrial"
 msgstr "Nave Industrial"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_bank:0
-#: selection:real.estate.top,inmoagrupacom_vpo:0
+#: selection:real.estate.top,urbaniza_bank:0
+#: selection:real.estate.top,urbaniza_vpo:0
 msgid "No"
 msgstr "No"
 
@@ -290,86 +290,86 @@ msgid "Nombre"
 msgstr "Nombre"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Oficina"
 msgstr "Oficina"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Otro [Casas/Chalets]"
 msgstr "Otro [Casas/Chalets]"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Otro [Explotaciones]"
 msgstr "Otro [Explotaciones]"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Otro [Locales]"
 msgstr "Otro [Locales]"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Otro [Naves]"
 msgstr "Otro [Naves]"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Otro [Pisos]"
 msgstr "Otro [Pisos]"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Otro [Terrenos]"
 msgstr "Otro [Terrenos]"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Paseo"
 msgstr "Paseo"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Peña Gastronómica"
 msgstr "Peña Gastronómica"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_piso:0
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: field:real.estate.top,urbaniza_piso:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Piso"
 msgstr "Piso"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_bank:0
+#: field:real.estate.top,urbaniza_bank:0
 msgid "Piso Banco"
 msgstr "Piso Banco"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_vpo:0
+#: field:real.estate.top,urbaniza_vpo:0
 msgid "Piso VPO"
 msgstr "Piso VPO"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Plaza"
 msgstr "Plaza"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Polígono"
 msgstr "Polígono"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_fee_type:0
+#: selection:real.estate.top,urbaniza_fee_type:0
 msgid "Porcentaje"
 msgstr "Porcentaje"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom:0
-msgid "Publicado en inmoagrupa.com"
-msgstr "Publicado en inmoagrupa.com"
+#: field:real.estate.top,urbanizacom:0
+msgid "Publicado en urbaniza.com"
+msgstr "Publicado en urbaniza.com"
 
 #. module: real_estate_internet_urbaniza
 #: view:real.estate.top:real_estate_internet_urbaniza.real_estate_top_filter_common_flat_urbaniza
@@ -379,7 +379,7 @@ msgstr "Publicado en inmoagrupa.com"
 #: view:real.estate.top:real_estate_internet_urbaniza.real_estate_top_filter_common_shop_urbaniza
 #: view:real.estate.top:real_estate_internet_urbaniza.real_estate_top_filter_common_urbaniza
 msgid "Publish in urbaniza.com"
-msgstr "Publicado en inmoagrupa.com"
+msgstr "Publicado en urbaniza.com"
 
 #. module: real_estate_internet_urbaniza
 #: view:res.company:real_estate_internet_urbaniza.view_company_form_real_estate_urbaniza
@@ -387,63 +387,63 @@ msgid "Real Estate"
 msgstr "Inmobiliaria"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Residencia"
 msgstr "Residencia"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Restaurante"
 msgstr "Restaurante"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Ronda"
 msgstr "Ronda"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_bank:0
-#: selection:real.estate.top,inmoagrupacom_vpo:0
+#: selection:real.estate.top,urbaniza_bank:0
+#: selection:real.estate.top,urbaniza_vpo:0
 msgid "Si"
 msgstr "Si"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Solar"
 msgstr "Solar"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_street_type:0
+#: field:real.estate.top,urbaniza_street_type:0
 msgid "Tipo de calle"
 msgstr "Tipo de calle"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_type:0
-msgid "Tipo en inmoagrupa.com"
-msgstr "Tipo en inmoagrupa.com"
+#: field:real.estate.top,urbaniza_type:0
+msgid "Tipo en urbaniza.com"
+msgstr "Tipo en urbaniza.com"
 
 #. module: real_estate_internet_urbaniza
-#: field:real.estate.top,inmoagrupacom_fee_type:0
+#: field:real.estate.top,urbaniza_fee_type:0
 msgid "Tipo honarios"
 msgstr "Tipo honarios"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Trastero"
 msgstr "Trastero"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_street_type:0
+#: selection:real.estate.top,urbaniza_street_type:0
 msgid "Travesía"
 msgstr "Travesía"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Triplex"
 msgstr "Triplex"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Txoko"
 msgstr "Txoko"
 
@@ -453,16 +453,16 @@ msgid "Urbaniza Configuration"
 msgstr "Configuración Urbaniza"
 
 #. module: real_estate_internet_urbaniza
-#: view:real.estate.top:real_estate_internet_urbaniza.real_estate_top_form_publication_common_inmoagrupacom
-msgid "Urbaniza-Inmoagrupa"
-msgstr "Urbaniza-Inmoagrupa"
+#: view:real.estate.top:real_estate_internet_urbaniza.real_estate_top_form_publication_common_urbanizacom
+msgid "Urbaniza"
+msgstr "Urbaniza"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Villa"
 msgstr "Villa"
 
 #. module: real_estate_internet_urbaniza
-#: selection:real.estate.top,inmoagrupacom_type:0
+#: selection:real.estate.top,urbaniza_type:0
 msgid "Ático"
 msgstr "Ático"

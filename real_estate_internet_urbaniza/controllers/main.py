@@ -1,38 +1,19 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
-#                       Ignacio Ibeas <ignacio@acysos.com>
-#                       Daniel Pascal <daniel@acysos.com>
-#    $Id$
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
-import werkzeug.urls
+# -*- coding: utf-8 -*-
+# Copyright (c) 2013 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#                    Ignacio Ibeas <ignacio@acysos.com>
+#                    Daniel Pascal <daniel@acysos.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+import werkzeug.wrappers
 import base64
 import urllib2
-from werkzeug.exceptions import NotFound
+import logging
 
 from openerp import http
-from openerp import tools
-from openerp.http import request
-from openerp.tools.translate import _
-from openerp.addons.website.models.website import slug
+from openerp.http import request, STATIC_CACHE
 from openerp.tools import ustr
+
+logger = logging.getLogger(__name__)
+
 
 def content_disposition(filename):
     filename = ustr(filename)
@@ -46,19 +27,21 @@ def content_disposition(filename):
     else:
         return "attachment; filename*=UTF-8''%s" % escaped
 
+
 class idealista_event(http.Controller):
-    @http.route(['/realestateportal/urbaniza.xml'], type='http', auth="public", website=True)
-    
+    @http.route(['/realestateportal/urbaniza.xml'], type='http', auth="public",
+                website=True)
+
     def event_register(self, **post):
-        xml = request.env['real.estate.top'].xml_inmoagrupacom()
+        xml = request.env['real.estate.top'].xml_urbanizacom()
         values = {
             'xml': xml
         }
 
         return request.render(
-            "real_estate_internet_urbaniza.inmoagrupacom_template",
+            "real_estate_internet_urbaniza.urbanizacom_template",
             values, mimetype='application/xml;charset=utf-8')
-        
+
     @http.route([
         '/website/image/<model>/<id>/<field>/image.jpg',
         '/website/image/<model>/<id>/<field>/image.JPG',
@@ -87,11 +70,12 @@ class idealista_event(http.Controller):
             id = idsha[0]
             response = werkzeug.wrappers.Response()
             return request.registry['website']._image(
-                request.cr, request.uid, model, id, field, response, max_width, max_height,
-                cache=STATIC_CACHE if len(idsha) > 1 else None)
+                request.cr, request.uid, model, id, field, response, max_width,
+                max_height, cache=STATIC_CACHE if len(idsha) > 1 else None)
         except Exception:
-            logger.exception("Cannot render image field %r of record %s[%s] at size(%s,%s)",
-                             field, model, id, max_width, max_height)
+            logger.exception(
+                "Cannot render image field %r of record %s[%s] at size(%s,%s)",
+                field, model, id, max_width, max_height)
             response = werkzeug.wrappers.Response()
             return self.placeholder(response)
 
@@ -136,7 +120,3 @@ class idealista_event(http.Controller):
                 filecontent, [('Content-Type', content_type),
                               ('Content-Disposition',
                                content_disposition(filename))])
-
-
-
-    

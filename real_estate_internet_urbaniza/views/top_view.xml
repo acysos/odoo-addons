@@ -2,39 +2,39 @@
 <openerp>
   <data>
       
-      <record model="ir.ui.view" id="real_estate_top_form_publication_inmoagrupacom">
-          <field name="name">real.estate.top.form.publication.inmoagrupacom</field>
+      <record model="ir.ui.view" id="real_estate_top_form_publication_urbanizacom">
+          <field name="name">real.estate.top.form.publication.urbanizacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">form</field>
           <field name="inherit_id" ref="real_estate_publication.real_estate_top_form_publication"/>
           <field name="arch" type="xml">
                 <field name="internet_wo" position="before">
-                    <field name="inmoagrupacom"/>
+                    <field name="urbanizacom"/>
                 </field>
           </field>
       </record>
       
-        <record model="ir.ui.view" id="real_estate_top_form_publication_common_inmoagrupacom">
-          <field name="name">real.estate.top.form.publication.common.inmoagrupacom</field>
+        <record model="ir.ui.view" id="real_estate_top_form_publication_common_urbanizacom">
+          <field name="name">real.estate.top.form.publication.common.urbanizacom</field>
           <field name="model">real.estate.top</field>
           <field name="type">form</field>
           <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_form_publication_common"/>
           <field name="arch" type="xml">
                 <field name="door" position="after">
                     <group colspan="4" col="4" >
-                        <separator string="Urbaniza-Inmoagrupa" colspan="4"/>
-                        <field name="inmoagrupacom_street_type" />
-                        <field name="inmoagrupacom_piso" />
-                        <field name="inmoagrupacom_bank" />
-                        <field name="inmoagrupacom_vpo" />
-                        <field name="inmoagrupacom_type" />
+                        <separator string="Urbaniza" colspan="4"/>
+                        <field name="urbaniza_street_type" />
+                        <field name="urbaniza_piso" />
+                        <field name="urbaniza_bank" />
+                        <field name="urbaniza_vpo" />
+                        <field name="urbaniza_type" />
                         <separator colspan="4"/>
-                        <field name="inmoagrupacom_fee_type" />
-                        <field name="inmoagrupacom_fee_captador" />
-                        <field name="inmoagrupacom_fee_colaborador" />
-                        <field name="inmoagrupacom_commission_refer" />
+                        <field name="urbaniza_fee_type" />
+                        <field name="urbaniza_fee_captador" />
+                        <field name="urbaniza_fee_colaborador" />
+                        <field name="urbaniza_commission_refer" />
                         <separator colspan="4"/>
-                        <field name="inmoagrupacom_exclusivity_doc" filename="inmoagrupacom_exclusivity_doc_filename" />
+                        <field name="urbaniza_exclusivity_doc" filename="urbaniza_exclusivity_doc_filename" />
                         <field name="capt_date" />
                         <field name="end_date" />
                     </group>
@@ -49,7 +49,7 @@
           <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common"/>
           <field name="arch" type="xml">
                 <group name="internet" position="inside">
-                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                    <filter string="Publish in urbaniza.com" domain="[('urbanizacom','=',True)]"/>
                 </group>
           </field>
       </record>
@@ -61,7 +61,7 @@
           <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_flat"/>
           <field name="arch" type="xml">
                 <group name="internet" position="inside">
-                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                    <filter string="Publish in urbaniza.com" domain="[('urbanizacom','=',True)]"/>
                 </group>
           </field>
       </record>
@@ -72,7 +72,7 @@
           <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_industrial"/>
           <field name="arch" type="xml">
                 <group name="internet" position="inside">
-                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                    <filter string="Publish in urbaniza.com" domain="[('urbanizacom','=',True)]"/>
                 </group>
           </field>
       </record>
@@ -83,7 +83,7 @@
           <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_shop"/>
           <field name="arch" type="xml">
                 <group name="internet" position="inside">
-                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                    <filter string="Publish in urbaniza.com" domain="[('urbanizacom','=',True)]"/>
                 </group>
           </field>
       </record>
@@ -94,7 +94,7 @@
           <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_office"/>
           <field name="arch" type="xml">
                 <group name="internet" position="inside">
-                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                    <filter string="Publish in urbaniza.com" domain="[('urbanizacom','=',True)]"/>
                 </group>
           </field>
       </record>
@@ -105,7 +105,7 @@
           <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_land"/>
           <field name="arch" type="xml">
                 <group name="internet" position="inside">
-                    <filter string="Publish in urbaniza.com" domain="[('urbaniza','=',True)]"/>
+                    <filter string="Publish in urbaniza.com" domain="[('urbanizacom','=',True)]"/>
                 </group>
           </field>
       </record>

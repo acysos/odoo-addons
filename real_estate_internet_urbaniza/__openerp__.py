@@ -23,30 +23,27 @@
 ##############################################################################
 
 {
-    "name" : "Real Estate Web Inmoagrupa.com",
-    "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "website" : "www.acysos.com",
-    "description": """Publish top in inmoagrupa.com""",
-    "license" : "AGPL-3",
-    "category" : "Specific Industry Applications",
-    "depends" : [
+    "name": "Real Estate Web Urbaniza.com",
+    "version": "1.0",
+    "author": "Acysos S.L.",
+    "website": "www.acysos.com",
+    "description": """Publish top in urbaniza.com""",
+    "license": "AGPL-3",
+    "category": "Specific Industry Applications",
+    "depends": [
         "base",
         "real_estate_base",
         "real_estate_publication",
-#        "smile_export",
-#        "smile_export_file",
-#        "acy_smile_export_file_extended",
         "real_estate_internet_common",
-        ],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "data" :[
+    ],
+    "init_xml": [],
+    "demo_xml": [],
+    "data": [
         'views/top_view.xml',
-        'views/inmoagrupacom_template.xml',
+        'views/urbanizacom_template.xml',
         'security/ir.model.access.csv',
         'views/company_view.xml'
-        ],
+    ],
     "active": False,
     "installable": True
 }
