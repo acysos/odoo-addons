@@ -1,0 +1,168 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_es_account_asset_change_value
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-05 15:57+0000\n"
+"PO-Revision-Date: 2017-11-05 17:03+0100\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value.history,asset:0
+#: field:account.invoice.line,asset:0
+#: model:ir.model,name:l10n_es_account_asset_change_value.model_account_asset_asset
+msgid "Asset"
+msgstr "Activo"
+
+#. module: l10n_es_account_asset_change_value
+#: view:account.asset.change.value.history:l10n_es_account_asset_change_value.view_account_asset_change_value_history_form
+msgid "Asset History"
+msgstr "Historial activo"
+
+#. module: l10n_es_account_asset_change_value
+#: view:account.asset.change.value.history:l10n_es_account_asset_change_value.view_account_asset_change_value
+#: history_tree
+msgid "Asset history"
+msgstr "Historial activo"
+
+#. module: l10n_es_account_asset_change_value
+#: view:account.asset.change.value:l10n_es_account_asset_change_value.account_asset_change_value_wiz_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_es_account_asset_change_value
+#: view:account.asset.asset:l10n_es_account_asset_change_value.view_account_asset_asset_change_value_form
+msgid "Change Asset Value"
+msgstr "Cambiar valor del activo"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,change_date:0
+#: field:account.asset.change.value.history,name:0
+msgid "Change Date"
+msgstr "Fecha de cambio"
+
+#. module: l10n_es_account_asset_change_value
+#: view:account.asset.change.value:l10n_es_account_asset_change_value.account_asset_change_value_wiz_form_view
+#: field:account.asset.change.value,change_value:0
+msgid "Change Value"
+msgstr "Importe añadido"
+
+#. module: l10n_es_account_asset_change_value
+#: model:ir.actions.act_window,name:l10n_es_account_asset_change_value.account_asset_change_value_wiz_action
+msgid "Change asset value"
+msgstr "Cambiar valor del activo"
+
+#. module: l10n_es_account_asset_change_value
+#: code:addons/l10n_es_account_asset_change_value/models/account_invoice.py:59
+#: code:addons/l10n_es_account_asset_change_value/wizards/account_asset_change_value.py:22
+#, python-format
+msgid "Change asset with method time percentage is not allowed!"
+msgstr "No se puede cambiar el valor con el método de tiempo porcentaje!"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.asset,change_value_history:0
+msgid "Change value history"
+msgstr "Historial de cambios de valor"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value.history,create_date:0
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,create_uid:0
+#: field:account.asset.change.value.history,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.invoice.line,dep_history:0
+msgid "Dep history"
+msgstr "Historial de depreciaciones"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value.history,dep_line1:0
+#: field:account.asset.change.value.history,dep_line2:0
+msgid "Depreciation line"
+msgstr "Linea de depreciación"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,display_name:0
+#: field:account.asset.change.value.history,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,id:0
+#: field:account.asset.change.value.history,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_es_account_asset_change_value
+#: model:ir.model,name:l10n_es_account_asset_change_value.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_es_account_asset_change_value
+#: model:ir.model,name:l10n_es_account_asset_change_value.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de factura"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,__last_update:0
+#: field:account.asset.change.value.history,__last_update:0
+msgid "Last Modified on"
+msgstr "Últ. Modificación en"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,write_uid:0
+#: field:account.asset.change.value.history,write_uid:0
+msgid "Last Updated by"
+msgstr "Últ. Modificación por"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value,write_date:0
+#: field:account.asset.change.value.history,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value.history,invoice_line:0
+msgid "Origin line invoice"
+msgstr "Línea de factura origen"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.asset,times_changed_value:0
+msgid "Times change value"
+msgstr "Veces que se ha cambiado el valor"
+
+#. module: l10n_es_account_asset_change_value
+#: field:account.asset.change.value.history,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: l10n_es_account_asset_change_value
+#: code:addons/l10n_es_account_asset_change_value/models/account_asset.py:32
+#, python-format
+msgid "You can't decrease the value. If the asset has minor value, you have to make a manual depreciation!"
+msgstr "No se puede cambiar el valor. Si el activo tiene un menor valor, debe realizar una depreciación manual!"
+
+#. module: l10n_es_account_asset_change_value
+#: view:account.asset.change.value:l10n_es_account_asset_change_value.account_asset_change_value_wiz_form_view
+msgid "or"
+msgstr "o"

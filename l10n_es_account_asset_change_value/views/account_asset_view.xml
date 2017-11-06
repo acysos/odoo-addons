@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+    <data>
+	    <record model="ir.ui.view" id="view_account_asset_asset_change_value_form">
+	        <field name="name">account.asset.asset.change.value.form</field>
+	        <field name="model">account.asset.asset</field>
+	        <field name="inherit_id" ref="account_asset.view_account_asset_asset_form"/>
+	        <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <button name="%(l10n_es_account_asset_change_value.account_asset_change_value_wiz_action)d" 
+                        type="action" string="Change Asset Value" 
+                        attrs="{'invisible': ['|', ('method_time', '=', 'percentage'),('state', '!=', 'open')]}"/>
+                </field>
+                <field name="history_ids" position="after">
+                    <field name="change_value_history" readonly="1"/>
+                </field>
+	        </field>
+	    </record>
+
+	    <record model="ir.ui.view" id="view_account_asset_change_value_history_form">
+	        <field name="name">account.asset.change.value.history.form</field>
+	        <field name="model">account.asset.change.value.history</field>
+	        <field name="arch" type="xml">
+	            <form string="Asset History">
+	                <group>
+	                    <group>
+	                        <field name="create_date"/>
+	                        <field name="name"/>
+	                        <field name="user_id"/>
+	                    </group>
+	                    <group>
+	                        <field name="dep_line1"/>
+	                        <field name="dep_line2"/>
+	                        <field name="invoice_line"/>
+	                    </group>
+	                </group>
+	            </form>
+	        </field>
+	    </record>
+	
+	    <record model="ir.ui.view" id="view_account_asset_change_value history_tree">
+	        <field name="name">account.asset.change.value.history.tree</field>
+	        <field name="model">account.asset.change.value.history</field>
+	        <field name="arch" type="xml">
+	            <tree string="Asset history">
+	                <field name="create_date"/>
+	                <field name="name"/>
+	                <field name="user_id"/>
+	                <field name="dep_line1"/>
+	                <field name="dep_line2"/>
+	                <field name="invoice_line"/>
+	            </tree>
+	        </field>
+	    </record>
+
+    </data>
+</openerp>

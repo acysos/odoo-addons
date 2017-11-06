@@ -42,9 +42,9 @@ class AccountInvoice(models.Model):
             inv_type = self.env.context.get('inv_type')
         company = self.env.user.company_id
         method_desc = company.sii_description_method
-        header_sale = company.sii_header_sale
-        header_purchase = company.sii_header_purchase
-        fixed_desc = company.sii_description
+        header_sale = company.sii_header_sale or ''
+        header_purchase = company.sii_header_purchase or ''
+        fixed_desc = company.sii_description or ''
         description = '/'
         if inv_type in ['out_invoice', 'out_refund'] and header_sale:
             description = header_sale

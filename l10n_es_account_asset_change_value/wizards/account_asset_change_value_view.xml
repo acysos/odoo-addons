@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+    <data>
+        <record id="account_asset_change_value_wiz_form_view" model="ir.ui.view">
+            <field name="name">account.asset.change.value.wiz.form.view</field>
+            <field name="model">account.asset.change.value</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="change_date"/>
+                        <field name="change_value" />
+                    </group>
+                    <footer>
+                        <button name="action_change_value" string="Change Value"
+                                type="object" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_asset_change_value_wiz_action" model="ir.actions.act_window">
+            <field name="name">Change asset value</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.asset.change.value</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="account_asset_change_value_wiz_form_view"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

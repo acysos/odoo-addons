@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+    <data>
+
+        <!-- Fiscal Year -->
+        <record model="ir.ui.view" id="view_account_invoice_asset_change_value_form">
+            <field name="name">account.invoice.line.change.valueform</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_form"/>
+            <field name="arch" type="xml">
+                <field name="account_id" position="after">
+                    <field name="asset"/>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_invoice_asset_change_value">
+            <field name="name">account.invoice.supplier.change.value.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='quantity']" position="before">
+                    <field name="asset"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
