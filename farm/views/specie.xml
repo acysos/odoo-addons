@@ -55,6 +55,7 @@
 						<field name="lost_found_location"/>
 						<field name="future_maders_location"/>
 						<field name="feed_lost_found_location"/>
+						<field name="consumed_feed_location"/>
 					</group>
 					</sheet>
 				</form>

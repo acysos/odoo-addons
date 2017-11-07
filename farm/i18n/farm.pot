@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-18 09:16+0000\n"
-"PO-Revision-Date: 2016-10-18 09:16+0000\n"
+"POT-Creation-Date: 2017-10-20 10:15+0000\n"
+"PO-Revision-Date: 2017-10-20 10:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -97,6 +97,17 @@ msgid "Animal Group Weigth"
 msgstr ""
 
 #. module: farm
+#: view:farm.move.event:farm.view_move_event_form
+msgid "Animal Move"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.location_open_animal_moves
+#: view:stock.location:farm.stock_location_form_farm_view
+msgid "Animal Moves"
+msgstr ""
+
+#. module: farm
 #: field:farm.abort.event,animal_type:0
 #: field:farm.event,animal_type:0
 #: field:farm.event.feed_mixin,animal_type:0
@@ -150,6 +161,11 @@ msgid "Animals"
 msgstr ""
 
 #. module: farm
+#: view:farm.move.event:farm.view_move_event_tree
+msgid "Animals Moves"
+msgstr ""
+
+#. module: farm
 #: field:farm.animal,arrival_date:0
 #: field:farm.animal.group,arrival_date:0
 msgid "Arrival Date"
@@ -193,6 +209,27 @@ msgid "Calc. Doses"
 msgstr ""
 
 #. module: farm
+#: field:farm.semen_extraction.event,semen_calculated_qty:0
+msgid "Calc. Semen Produced Qty"
+msgstr ""
+
+#. module: farm
+#: field:farm.semen_extraction.event,solvent_calculated_qty:0
+msgid "Calc. semen solvent Qty"
+msgstr ""
+
+#. module: farm
+#: field:farm.semen_extraction.event,dose_calculated_units:0
+msgid "Calculated Doses"
+msgstr ""
+
+#. module: farm
+#: help:farm.semen_extraction.event,dose_calculated_units:0
+msgid "Calculates the number of doses based on Container (BoM) and Semen Produced Qty. The quantity is expressed in the UoM of the Container.\n"
+"You have to save the event to see this calculated value."
+msgstr ""
+
+#. module: farm
 #: selection:farm.feed.inventory,state:0
 #: selection:farm.feed.inventory.mixin,state:0
 #: selection:farm.feed.provisional_inventory,state:0
@@ -200,7 +237,7 @@ msgid "Cancelled"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/purchse_analytics.py:60
+#: code:addons/farm/models/purchse_analytics.py:86
 #, python-format
 msgid "Choose farm or yard"
 msgstr ""
@@ -265,6 +302,11 @@ msgid "Consumed Feed Account"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.group,consumed_feed:0
+msgid "Consumed Feed per Animal (kg)"
+msgstr ""
+
+#. module: farm
 #: field:farm.feed.animal_location_date,consumed_qty:0
 msgid "Consumed Qty"
 msgstr ""
@@ -277,6 +319,11 @@ msgstr ""
 #. module: farm
 #: field:farm.semen_extraction.dose,bom:0
 msgid "Container"
+msgstr ""
+
+#. module: farm
+#: field:mrp.analitic.remain,qty_per_unit:0
+msgid "Cost per unit"
 msgstr ""
 
 #. module: farm
@@ -318,8 +365,8 @@ msgstr ""
 #: field:farm.transit.locations,create_uid:0
 #: field:farm.weaning.event,create_uid:0
 #: field:farm.weaning.event_female_cycle,create_uid:0
+#: field:mrp.analitic.remain,create_uid:0
 #: field:purchase.analitic.remain,create_uid:0
-#: field:res.user_stock.location,create_uid:0
 #: field:stock.location.silo_stock.location,create_uid:0
 #: field:stock.lot_farm.animal,create_uid:0
 #: field:stock.lot_farm.animal.group,create_uid:0
@@ -365,12 +412,17 @@ msgstr ""
 #: field:farm.transit.locations,create_date:0
 #: field:farm.weaning.event,create_date:0
 #: field:farm.weaning.event_female_cycle,create_date:0
+#: field:mrp.analitic.remain,create_date:0
 #: field:purchase.analitic.remain,create_date:0
-#: field:res.user_stock.location,create_date:0
 #: field:stock.location.silo_stock.location,create_date:0
 #: field:stock.lot_farm.animal,create_date:0
 #: field:stock.lot_farm.animal.group,create_date:0
 msgid "Created on"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal,current_cycle:0
+msgid "Current Cycle"
 msgstr ""
 
 #. module: farm
@@ -385,8 +437,23 @@ msgid "Current Location"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal,current_weight:0
+msgid "Current Weight"
+msgstr ""
+
+#. module: farm
 #: field:farm.animal.group,location:0
 msgid "Current location"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal.group,current_weight:0
+msgid "Current weight"
+msgstr ""
+
+#. module: farm
+#: field:res.users,customer_payment_mode:0
+msgid "Customer Payment Mode"
 msgstr ""
 
 #. module: farm
@@ -397,6 +464,7 @@ msgstr ""
 #. module: farm
 #: field:farm.consume.stock,date:0
 #: field:farm.feed.animal_location_date,date:0
+#: field:mrp.analitic.remain,date:0
 msgid "Date"
 msgstr ""
 
@@ -435,6 +503,27 @@ msgid "Date for ordination"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.group,transition_days:0
+msgid "Days in Transition"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal.group,fattening_days:0
+msgid "Days in fatening"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal.female_cycle,dead:0
+#: field:farm.farrowing.event,dead:0
+msgid "Dead"
+msgstr ""
+
+#. module: farm
+#: field:res.users,property_delivery_carrier:0
+msgid "Delivery Method"
+msgstr ""
+
+#. module: farm
 #: field:farm.move.event,to_location:0
 #: field:farm.transformation.event,to_location:0
 msgid "Destination"
@@ -457,6 +546,7 @@ msgid "Destination animal type no compatible"
 msgstr ""
 
 #. module: farm
+#: view:farm.consume.stock:farm.farm_consume_stock_search_view
 #: field:farm.consume.stock,to_location:0
 msgid "Destinity"
 msgstr ""
@@ -464,6 +554,57 @@ msgstr ""
 #. module: farm
 #: field:farm.animal.female_cycle,diagnosis_events:0
 msgid "Diagnosis"
+msgstr ""
+
+#. module: farm
+#: field:farm.abort.event,display_name:0
+#: field:farm.animal,display_name:0
+#: field:farm.animal.female_cycle,display_name:0
+#: field:farm.animal.group,display_name:0
+#: field:farm.animal.group.weight,display_name:0
+#: field:farm.animal.weight,display_name:0
+#: field:farm.consume.stock,display_name:0
+#: field:farm.event,display_name:0
+#: field:farm.event.feed_mixin,display_name:0
+#: field:farm.event.import.mixin,display_name:0
+#: field:farm.event.order,display_name:0
+#: field:farm.farrowing.event,display_name:0
+#: field:farm.farrowing.event_female_cycle,display_name:0
+#: field:farm.farrowing.event_group,display_name:0
+#: field:farm.farrowing.problem,display_name:0
+#: field:farm.feed.animal_location_date,display_name:0
+#: field:farm.feed.event,display_name:0
+#: field:farm.feed.inventory,display_name:0
+#: field:farm.feed.inventory.mixin,display_name:0
+#: field:farm.feed.provisional_inventory,display_name:0
+#: field:farm.feed.stock.location,display_name:0
+#: field:farm.foster.event,display_name:0
+#: field:farm.foster.locations,display_name:0
+#: field:farm.future_maders.locations,display_name:0
+#: field:farm.insemination.event,display_name:0
+#: field:farm.medication.event,display_name:0
+#: field:farm.move.event,display_name:0
+#: field:farm.pregnancy_diagnosis.event,display_name:0
+#: field:farm.removal.event,display_name:0
+#: field:farm.removal.reason,display_name:0
+#: field:farm.removal.type,display_name:0
+#: field:farm.semen_extraction.dose,display_name:0
+#: field:farm.semen_extraction.event,display_name:0
+#: field:farm.specie,display_name:0
+#: field:farm.specie.breed,display_name:0
+#: field:farm.specie.farm_line,display_name:0
+#: field:farm.specie.ir.model,display_name:0
+#: field:farm.tags,display_name:0
+#: field:farm.transformation.event,display_name:0
+#: field:farm.transit.locations,display_name:0
+#: field:farm.weaning.event,display_name:0
+#: field:farm.weaning.event_female_cycle,display_name:0
+#: field:mrp.analitic.remain,display_name:0
+#: field:purchase.analitic.remain,display_name:0
+#: field:stock.location.silo_stock.location,display_name:0
+#: field:stock.lot_farm.animal,display_name:0
+#: field:stock.lot_farm.animal.group,display_name:0
+msgid "Display Name"
 msgstr ""
 
 #. module: farm
@@ -486,6 +627,11 @@ msgstr ""
 #. module: farm
 #: field:farm.semen_extraction.dose,dose_product:0
 msgid "Dose Product"
+msgstr ""
+
+#. module: farm
+#: field:farm.semen_extraction.event,doses_semen_qty:0
+msgid "Dose Semen Qty"
 msgstr ""
 
 #. module: farm
@@ -596,6 +742,8 @@ msgstr ""
 #: view:farm.consume.stock:farm.view_consume_stock_tree
 #: view:farm.event:farm.view_abstract_event_form
 #: view:farm.event:farm.view_abstract_event_tree
+#: view:farm.move.event:farm.view_move_event_form
+#: view:farm.move.event:farm.view_move_event_tree
 #: field:farm.semen_extraction.dose,event:0
 msgid "Event"
 msgstr ""
@@ -646,6 +794,7 @@ msgid "Factory"
 msgstr ""
 
 #. module: farm
+#: field:account.invoice.line,farm:0
 #: field:farm.abort.event,farm:0
 #: view:farm.animal:farm.animal_search_view
 #: view:farm.animal.group:farm.animal_group_search_view
@@ -655,6 +804,7 @@ msgstr ""
 #: field:farm.event.import.mixin,farm:0
 #: field:farm.event.order,farm:0
 #: field:farm.farrowing.event,farm:0
+#: view:farm.feed.event:farm.feed_event_search_view
 #: field:farm.feed.event,farm:0
 #: field:farm.foster.event,farm:0
 #: field:farm.insemination.event,farm:0
@@ -670,6 +820,7 @@ msgstr ""
 #: model:ir.ui.menu,name:farm.menu_farm
 #: view:product.template:farm.product_template_form_farm_view
 #: field:purchase.analitic.remain,farm:0
+#: view:purchase.order.line:farm.farm_purchase_line_search_view
 #: field:purchase.order.line,farm:0
 msgid "Farm"
 msgstr ""
@@ -679,6 +830,11 @@ msgstr ""
 #: view:farm.specie.farm_line:farm.view_farm_line_tree
 #: model:ir.ui.menu,name:farm.menu_farm_configuration_farm_line
 msgid "Farm Line"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_purchase_line
+msgid "Farm Purchase Line"
 msgstr ""
 
 #. module: farm
@@ -693,13 +849,7 @@ msgstr ""
 
 #. module: farm
 #: field:farm.specie,farm_lines:0
-#: field:res.users,farm:0
 msgid "Farms"
-msgstr ""
-
-#. module: farm
-#: help:res.users,farm:0
-msgid "Farms to which this user is assigned.Determine animals that he/she can manage."
 msgstr ""
 
 #. module: farm
@@ -778,6 +928,19 @@ msgstr ""
 #. module: farm
 #: field:farm.medication.event,feed_product_uom_category:0
 msgid "Feed Uom Category"
+msgstr ""
+
+#. module: farm
+#: view:farm.feed.event:farm.farm_feed_event_graph_view
+msgid "Feed diagram"
+msgstr ""
+
+#. module: farm
+#: view:farm.animal:farm.view_animal_form
+#: view:farm.animal.group:farm.view_animal_group
+#: model:ir.actions.act_window,name:farm.animal_group2_open_feed_events
+#: model:ir.actions.act_window,name:farm.animal_open_feed_events
+msgid "Feed events"
 msgstr ""
 
 #. module: farm
@@ -866,6 +1029,17 @@ msgid "Females' Sequence"
 msgstr ""
 
 #. module: farm
+#: code:addons/farm/models/purchse_analytics.py:102
+#, python-format
+msgid "Final date after current date"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal,first_mating:0
+msgid "First Mating"
+msgstr ""
+
+#. module: farm
 #: field:farm.semen_extraction.event,formula_result:0
 msgid "Formula Result"
 msgstr ""
@@ -911,7 +1085,12 @@ msgid "General Expense"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/purchse_analytics.py:58
+#: model:ir.ui.menu,name:farm.menu_farm_purchase_line
+msgid "General expenses"
+msgstr ""
+
+#. module: farm
+#: code:addons/farm/models/purchse_analytics.py:84
 #, python-format
 msgid "General expenses can't mixin with other purchases"
 msgstr ""
@@ -971,6 +1150,9 @@ msgstr ""
 #. module: farm
 #: view:farm.animal:farm.animal_search_view
 #: view:farm.animal.group:farm.animal_group_search_view
+#: view:farm.consume.stock:farm.farm_consume_stock_search_view
+#: view:farm.feed.event:farm.feed_event_search_view
+#: view:purchase.order.line:farm.farm_purchase_line_search_view
 msgid "Group by..."
 msgstr ""
 
@@ -1048,8 +1230,8 @@ msgstr ""
 #: field:farm.transit.locations,id:0
 #: field:farm.weaning.event,id:0
 #: field:farm.weaning.event_female_cycle,id:0
+#: field:mrp.analitic.remain,id:0
 #: field:purchase.analitic.remain,id:0
-#: field:res.user_stock.location,id:0
 #: field:stock.location.silo_stock.location,id:0
 #: field:stock.lot_farm.animal,id:0
 #: field:stock.lot_farm.animal.group,id:0
@@ -1072,8 +1254,13 @@ msgid "Imported"
 msgstr ""
 
 #. module: farm
-#: field:purchase.order,imputed:0
-msgid "Imputed"
+#: model:ir.actions.server,name:farm.impute_analitics_action
+msgid "Impute analitics"
+msgstr ""
+
+#. module: farm
+#: selection:farm.consume.stock,state:0
+msgid "In progress"
 msgstr ""
 
 #. module: farm
@@ -1171,8 +1358,18 @@ msgid "Initial quantity"
 msgstr ""
 
 #. module: farm
+#: field:purchase.order.line,imputed:0
+msgid "Inputed"
+msgstr ""
+
+#. module: farm
 #: field:farm.event.order,insemination_events:0
 msgid "Insemination"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal,days_from_insemination:0
+msgid "Insemination Days"
 msgstr ""
 
 #. module: farm
@@ -1226,6 +1423,67 @@ msgid "Lactating"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.female_cycle,days_between_farrowing_weaning:0
+msgid "Lactating Days"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal,last_extraction:0
+msgid "Last Extraction"
+msgstr ""
+
+#. module: farm
+#: field:farm.abort.event,__last_update:0
+#: field:farm.animal,__last_update:0
+#: field:farm.animal.female_cycle,__last_update:0
+#: field:farm.animal.group,__last_update:0
+#: field:farm.animal.group.weight,__last_update:0
+#: field:farm.animal.weight,__last_update:0
+#: field:farm.consume.stock,__last_update:0
+#: field:farm.event,__last_update:0
+#: field:farm.event.feed_mixin,__last_update:0
+#: field:farm.event.import.mixin,__last_update:0
+#: field:farm.event.order,__last_update:0
+#: field:farm.farrowing.event,__last_update:0
+#: field:farm.farrowing.event_female_cycle,__last_update:0
+#: field:farm.farrowing.event_group,__last_update:0
+#: field:farm.farrowing.problem,__last_update:0
+#: field:farm.feed.animal_location_date,__last_update:0
+#: field:farm.feed.event,__last_update:0
+#: field:farm.feed.inventory,__last_update:0
+#: field:farm.feed.inventory.mixin,__last_update:0
+#: field:farm.feed.provisional_inventory,__last_update:0
+#: field:farm.feed.stock.location,__last_update:0
+#: field:farm.foster.event,__last_update:0
+#: field:farm.foster.locations,__last_update:0
+#: field:farm.future_maders.locations,__last_update:0
+#: field:farm.insemination.event,__last_update:0
+#: field:farm.medication.event,__last_update:0
+#: field:farm.move.event,__last_update:0
+#: field:farm.pregnancy_diagnosis.event,__last_update:0
+#: field:farm.removal.event,__last_update:0
+#: field:farm.removal.reason,__last_update:0
+#: field:farm.removal.type,__last_update:0
+#: field:farm.semen_extraction.dose,__last_update:0
+#: field:farm.semen_extraction.event,__last_update:0
+#: field:farm.specie,__last_update:0
+#: field:farm.specie.breed,__last_update:0
+#: field:farm.specie.farm_line,__last_update:0
+#: field:farm.specie.ir.model,__last_update:0
+#: field:farm.tags,__last_update:0
+#: field:farm.transformation.event,__last_update:0
+#: field:farm.transit.locations,__last_update:0
+#: field:farm.weaning.event,__last_update:0
+#: field:farm.weaning.event_female_cycle,__last_update:0
+#: field:mrp.analitic.remain,__last_update:0
+#: field:purchase.analitic.remain,__last_update:0
+#: field:stock.location.silo_stock.location,__last_update:0
+#: field:stock.lot_farm.animal,__last_update:0
+#: field:stock.lot_farm.animal.group,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: farm
 #: field:farm.abort.event,write_uid:0
 #: field:farm.animal,write_uid:0
 #: field:farm.animal.female_cycle,write_uid:0
@@ -1264,8 +1522,8 @@ msgstr ""
 #: field:farm.transit.locations,write_uid:0
 #: field:farm.weaning.event,write_uid:0
 #: field:farm.weaning.event_female_cycle,write_uid:0
+#: field:mrp.analitic.remain,write_uid:0
 #: field:purchase.analitic.remain,write_uid:0
-#: field:res.user_stock.location,write_uid:0
 #: field:stock.location.silo_stock.location,write_uid:0
 #: field:stock.lot_farm.animal,write_uid:0
 #: field:stock.lot_farm.animal.group,write_uid:0
@@ -1311,12 +1569,17 @@ msgstr ""
 #: field:farm.transit.locations,write_date:0
 #: field:farm.weaning.event,write_date:0
 #: field:farm.weaning.event_female_cycle,write_date:0
+#: field:mrp.analitic.remain,write_date:0
 #: field:purchase.analitic.remain,write_date:0
-#: field:res.user_stock.location,write_date:0
 #: field:stock.location.silo_stock.location,write_date:0
 #: field:stock.lot_farm.animal,write_date:0
 #: field:stock.lot_farm.animal.group,write_date:0
 msgid "Last Updated on"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal,last_produced_group:0
+msgid "Last produced group"
 msgstr ""
 
 #. module: farm
@@ -1325,6 +1588,7 @@ msgid "Line Num"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.female_cycle,live:0
 #: field:farm.farrowing.event,live:0
 msgid "Live"
 msgstr ""
@@ -1333,13 +1597,14 @@ msgstr ""
 #: view:farm.animal:farm.animal_search_view
 #: view:farm.animal.group:farm.animal_group_search_view
 #: field:farm.event.feed_mixin,location:0
+#: view:farm.feed.event:farm.feed_event_search_view
 #: field:farm.feed.event,location:0
 #: field:farm.feed.stock.location,location:0
 #: field:farm.foster.locations,location:0
 #: field:farm.future_maders.locations,location:0
 #: field:farm.medication.event,location:0
 #: field:farm.transit.locations,location:0
-#: field:res.user_stock.location,location:0
+#: view:purchase.order.line:farm.farm_purchase_line_search_view
 #: field:stock.location.silo_stock.location,location:0
 msgid "Location"
 msgstr ""
@@ -1372,9 +1637,24 @@ msgid "Lost Stock  Move"
 msgstr ""
 
 #. module: farm
+#: field:farm.abort.event,lot:0
 #: field:farm.animal.group,lot:0
 #: field:farm.consume.stock,lot_id:0
+#: field:farm.event,lot:0
+#: field:farm.event.feed_mixin,lot:0
+#: field:farm.event.import.mixin,lot:0
+#: field:farm.farrowing.event,lot:0
+#: field:farm.feed.event,lot:0
+#: field:farm.foster.event,lot:0
+#: field:farm.insemination.event,lot:0
+#: field:farm.medication.event,lot:0
+#: field:farm.move.event,lot:0
+#: field:farm.pregnancy_diagnosis.event,lot:0
+#: field:farm.removal.event,lot:0
 #: field:farm.semen_extraction.dose,lot:0
+#: field:farm.semen_extraction.event,lot:0
+#: field:farm.transformation.event,lot:0
+#: field:farm.weaning.event,lot:0
 #: field:stock.lot_farm.animal,lot:0
 #: field:stock.lot_farm.animal.group,lot:0
 msgid "Lot"
@@ -1472,6 +1752,14 @@ msgid "Medication Event"
 msgstr ""
 
 #. module: farm
+#: view:farm.animal:farm.view_animal_form
+#: view:farm.animal.group:farm.view_animal_group
+#: model:ir.actions.act_window,name:farm.animal_group_open_medication_events
+#: model:ir.actions.act_window,name:farm.animal_open_medication_events
+msgid "Medication events"
+msgstr ""
+
+#. module: farm
 #: field:farm.medication.event,medication_in_feed:0
 msgid "Medication in feed"
 msgstr ""
@@ -1487,19 +1775,24 @@ msgid "Model"
 msgstr ""
 
 #. module: farm
+#: view:farm.feed.event:farm.feed_event_search_view
+msgid "Month"
+msgstr ""
+
+#. module: farm
 #: code:addons/farm/models/semen_extration_event.py:109
 #, python-format
 msgid "More semen in doses than produced"
 msgstr ""
 
 #. module: farm
-#: field:farm.semen_extraction.event,semen_move:0
-msgid "Move"
+#: field:farm.animal.group,mother:0
+msgid "Mother"
 msgstr ""
 
 #. module: farm
-#: view:farm.move.event:farm.view_move_event_form
-msgid "Move Event"
+#: field:farm.semen_extraction.event,semen_move:0
+msgid "Move"
 msgstr ""
 
 #. module: farm
@@ -1577,13 +1870,29 @@ msgid "Num. of animals"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal,number:0
+#: field:farm.animal.group,number:0
+msgid "Number"
+msgstr ""
+
+#. module: farm
 #: help:farm.feed.animal_location_date,inventory_qty:0
 msgid "Number of Inventories which includethis date."
 msgstr ""
 
 #. module: farm
+#: help:farm.animal.female_cycle,days_between_farrowing_weaning:0
+msgid "Number of days between Farrowing and Weaning."
+msgstr ""
+
+#. module: farm
 #: field:farm.animal.group.weight,quantity:0
 msgid "Number of individuals"
+msgstr ""
+
+#. module: farm
+#: help:farm.animal.female_cycle,removed:0
+msgid "Number of removed animals from Produced Group. Diference between born live and weaned, computing Fostered diference."
 msgstr ""
 
 #. module: farm
@@ -1684,6 +1993,7 @@ msgstr ""
 #. module: farm
 #: field:farm.animal,origin:0
 #: field:farm.animal.group,origin:0
+#: view:farm.consume.stock:farm.farm_consume_stock_search_view
 #: field:farm.consume.stock,origin:0
 #: field:farm.move.event,from_location:0
 #: field:farm.removal.event,from_location:0
@@ -1717,6 +2027,7 @@ msgid "Pregnancy Diagnosis"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.female_cycle,pregnant:0
 #: selection:farm.animal.female_cycle,state:0
 msgid "Pregnat"
 msgstr ""
@@ -1743,6 +2054,7 @@ msgstr ""
 
 #. module: farm
 #: field:farm.consume.stock,product_id:0
+#: view:purchase.order.line:farm.farm_purchase_line_search_view
 msgid "Product"
 msgstr ""
 
@@ -1778,9 +2090,24 @@ msgid "Purchase Order Line"
 msgstr ""
 
 #. module: farm
+#: view:purchase.order.line:farm.view_farm_purchase_line_form
+msgid "Purchase line"
+msgstr ""
+
+#. module: farm
+#: view:purchase.order.line:farm.view_farm_purchase_line_tree
+msgid "Purchase lines"
+msgstr ""
+
+#. module: farm
 #: selection:farm.animal,origin:0
 #: selection:farm.animal.group,origin:0
 msgid "Purchased"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_purchases
+msgid "Purchases"
 msgstr ""
 
 #. module: farm
@@ -1808,9 +2135,9 @@ msgid "Quantity"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/removal_event.py:163
-#: code:addons/farm/models/removal_event.py:166
-#: code:addons/farm/models/transformation_event.py:88
+#: code:addons/farm/models/removal_event.py:183
+#: code:addons/farm/models/removal_event.py:186
+#: code:addons/farm/models/transformation_event.py:107
 #, python-format
 msgid "Quantity no compatible"
 msgstr ""
@@ -1839,6 +2166,11 @@ msgstr ""
 #. module: farm
 #: field:farm.event.order,name:0
 msgid "Reference"
+msgstr ""
+
+#. module: farm
+#: field:farm.semen_extraction.event,semen_remaining_qty:0
+msgid "Remaining Semen"
 msgstr ""
 
 #. module: farm
@@ -1874,6 +2206,11 @@ msgid "Removed Location"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.female_cycle,removed:0
+msgid "Removed Quantity"
+msgstr ""
+
+#. module: farm
 #: selection:farm.animal,purpose:0
 msgid "Replacement"
 msgstr ""
@@ -1895,12 +2232,33 @@ msgstr ""
 
 #. module: farm
 #: view:farm.animal.group:farm.animal_group_search_view
+#: view:purchase.order.line:farm.farm_purchase_line_search_view
 msgid "Search Animal group"
+msgstr ""
+
+#. module: farm
+#: view:farm.consume.stock:farm.farm_consume_stock_search_view
+msgid "Search consume stock"
+msgstr ""
+
+#. module: farm
+#: view:farm.feed.event:farm.feed_event_search_view
+msgid "Search feed event"
 msgstr ""
 
 #. module: farm
 #: help:farm.transformation.event,to_animal_group:0
 msgid "Select a Destination Group if youwant to add the transformed animals tothis group. To create a new group leave it empty."
+msgstr ""
+
+#. module: farm
+#: help:res.users,customer_payment_mode:0
+msgid "Select the default payment mode for this customer."
+msgstr ""
+
+#. module: farm
+#: help:res.users,supplier_payment_mode:0
+msgid "Select the default payment mode for this supplier."
 msgstr ""
 
 #. module: farm
@@ -1936,6 +2294,11 @@ msgstr ""
 #. module: farm
 #: field:farm.semen_extraction.event,semen_qty:0
 msgid "Semen Producec Quantity"
+msgstr ""
+
+#. module: farm
+#: field:farm.semen_extraction.dose,semen_qty:0
+msgid "Semen Qty"
 msgstr ""
 
 #. module: farm
@@ -2021,6 +2384,7 @@ msgstr ""
 #: field:farm.move.event,specie:0
 #: field:farm.pregnancy_diagnosis.event,specie:0
 #: field:farm.removal.event,specie:0
+#: field:farm.semen_extraction.dose,specie:0
 #: field:farm.semen_extraction.event,specie:0
 #: view:farm.specie:farm.view_specie_form
 #: view:farm.specie:farm.view_specie_tree
@@ -2060,12 +2424,14 @@ msgstr ""
 #: field:farm.animal.female_cycle,state:0
 #: view:farm.animal.group:farm.animal_group_search_view
 #: field:farm.animal.group,state:0
+#: view:farm.consume.stock:farm.farm_consume_stock_search_view
 #: field:farm.consume.stock,state:0
 #: field:farm.event,state:0
 #: field:farm.event.feed_mixin,state:0
 #: field:farm.event.import.mixin,state:0
 #: field:farm.event.order,state:0
 #: field:farm.farrowing.event,state:0
+#: view:farm.feed.event:farm.feed_event_search_view
 #: field:farm.feed.event,state:0
 #: field:farm.foster.event,state:0
 #: field:farm.insemination.event,state:0
@@ -2106,6 +2472,11 @@ msgstr ""
 #. module: farm
 #: field:farm.insemination.event,move:0
 msgid "Stock move"
+msgstr ""
+
+#. module: farm
+#: field:res.users,supplier_payment_mode:0
+msgid "Supplier Payment Mode"
 msgstr ""
 
 #. module: farm
@@ -2185,6 +2556,26 @@ msgid "There are no event associated with this work order"
 msgstr ""
 
 #. module: farm
+#: help:res.users,property_delivery_carrier:0
+msgid "This delivery method will be used when invoicing from picking."
+msgstr ""
+
+#. module: farm
+#: selection:farm.animal,state:0
+msgid "To review"
+msgstr ""
+
+#. module: farm
+#: view:farm.feed.event:farm.view_feed_event_tree
+msgid "Tot. feed quantity"
+msgstr ""
+
+#. module: farm
+#: view:purchase.order.line:farm.view_farm_purchase_line_tree
+msgid "Tot. price"
+msgstr ""
+
+#. module: farm
 #: field:farm.weaning.event,transformation_event:0
 msgid "Transformation Event"
 msgstr ""
@@ -2197,6 +2588,11 @@ msgstr ""
 #. module: farm
 #: selection:farm.animal.group,state:0
 msgid "Transition"
+msgstr ""
+
+#. module: farm
+#: field:stock.location,transport:0
+msgid "Transport"
 msgstr ""
 
 #. module: farm
@@ -2232,6 +2628,11 @@ msgid "Undetermined"
 msgstr ""
 
 #. module: farm
+#: help:farm.animal,number:0
+msgid "Unique Serial Number"
+msgstr ""
+
+#. module: farm
 #: field:farm.move.event,unit_price:0
 msgid "Unit Price"
 msgstr ""
@@ -2263,6 +2664,16 @@ msgid "Unmated"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.female_cycle,days_between_wearing_and_insemination:0
+msgid "Unmated Days"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal,days_from_farrowing:0
+msgid "Unpregnat Days"
+msgstr ""
+
+#. module: farm
 #: field:farm.animal.group.weight,uom:0
 #: field:farm.animal.weight,uom:0
 msgid "Uom"
@@ -2270,7 +2681,6 @@ msgstr ""
 
 #. module: farm
 #: model:res.groups,name:farm.group_farm_user
-#: field:res.user_stock.location,user:0
 msgid "User"
 msgstr ""
 
@@ -2354,6 +2764,11 @@ msgid "Weanings"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.female_cycle,weared:0
+msgid "Weared"
+msgstr ""
+
+#. module: farm
 #: field:farm.weaning.event,weared_move:0
 msgid "Weared Stock Move"
 msgstr ""
@@ -2402,13 +2817,17 @@ msgstr ""
 
 #. module: farm
 #: selection:farm.consume.stock,type:0
-#: field:purchase.order.line,location_id:0
 msgid "Yard"
 msgstr ""
 
 #. module: farm
 #: field:purchase.analitic.remain,quantity:0
 msgid "amount"
+msgstr ""
+
+#. module: farm
+#: field:purchase.order.line,aux_price_subtotal:0
+msgid "amount_untaxed"
 msgstr ""
 
 #. module: farm
@@ -2429,6 +2848,11 @@ msgid "dose already defined"
 msgstr ""
 
 #. module: farm
+#: field:farm.animal.group,fatten_date:0
+msgid "fatten day"
+msgstr ""
+
+#. module: farm
 #: field:farm.event.order,feed_events:0
 msgid "feed"
 msgstr ""
@@ -2440,20 +2864,14 @@ msgid "female's cycle is not compatible to be bred"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/animal_group.py:229
+#: code:addons/farm/models/animal_group.py:283
 #, python-format
 msgid "group intial quantity and product quantity are diferent"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/animal_group.py:226
-#, python-format
-msgid "group location and product location are diferent"
-msgstr ""
-
-#. module: farm
-#: code:addons/farm/models/analitic_sales.py:99
-#: code:addons/farm/models/stock.py:57
+#: code:addons/farm/models/analitic_sales.py:95
+#: code:addons/farm/models/stock.py:62
 #, python-format
 msgid "group sold not found"
 msgstr ""
@@ -2479,9 +2897,14 @@ msgid "lot"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/animal_group.py:195
+#: code:addons/farm/models/animal_group.py:248
 #, python-format
 msgid "lots can not be mixed in an initial group, create a group for each lot and then group them into the desired group"
+msgstr ""
+
+#. module: farm
+#: view:purchase.order.line:farm.farm_purchase_line_search_view
+msgid "month"
 msgstr ""
 
 #. module: farm
@@ -2503,7 +2926,7 @@ msgstr ""
 
 #. module: farm
 #: code:addons/farm/models/animal.py:126
-#: code:addons/farm/models/animal_group.py:223
+#: code:addons/farm/models/animal_group.py:275
 #, python-format
 msgid "no product in farms for this lot"
 msgstr ""
@@ -2514,7 +2937,7 @@ msgid "production"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/transformation_event.py:91
+#: code:addons/farm/models/transformation_event.py:110
 #, python-format
 msgid "quantity is biger than group quantity"
 msgstr ""
@@ -2526,7 +2949,7 @@ msgid "quantity is biger than incoming group quantity"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/transformation_event.py:94
+#: code:addons/farm/models/transformation_event.py:113
 #, python-format
 msgid "quantity is smaler than one"
 msgstr ""
@@ -2560,45 +2983,51 @@ msgid "state"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/purchse_analytics.py:54
-#: code:addons/farm/models/purchse_analytics.py:208
+#: code:addons/farm/models/purchse_analytics.py:80
+#: code:addons/farm/models/purchse_analytics.py:293
 #, python-format
 msgid "the bill should have lower starting date to the final"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/transformation_event.py:103
-#: code:addons/farm/models/transformation_event.py:109
+#: code:addons/farm/models/transformation_event.py:122
+#: code:addons/farm/models/transformation_event.py:128
 #, python-format
 msgid "the destination is different from the location of the destination group"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/transformation_event.py:113
+#: code:addons/farm/models/transformation_event.py:132
 #, python-format
 msgid "the destination of animal is the same of the locationof the origin group"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/removal_event.py:178
+#: code:addons/farm/models/removal_event.py:198
 #, python-format
 msgid "the origin is different from the location of the animal"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/removal_event.py:173
+#: code:addons/farm/models/removal_event.py:193
 #, python-format
 msgid "the origin is different from the location of the group"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/animal_group.py:219
+#: code:addons/farm/models/stock.py:88
+#, python-format
+msgid "there are insufficient nº of animals"
+msgstr ""
+
+#. module: farm
+#: code:addons/farm/models/animal_group.py:271
 #, python-format
 msgid "this lot iis in use, please create new lot"
 msgstr ""
 
 #. module: farm
-#: code:addons/farm/models/animal_group.py:236
+#: code:addons/farm/models/animal_group.py:290
 #, python-format
 msgid "this lot is in use from oder group"
 msgstr ""
@@ -2617,5 +3046,10 @@ msgstr ""
 #. module: farm
 #: field:farm.event.order,weaning_events:0
 msgid "weaning"
+msgstr ""
+
+#. module: farm
+#: field:farm.animal.group,weaning_day:0
+msgid "weaning_day"
 msgstr ""
 

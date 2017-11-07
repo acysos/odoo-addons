@@ -8,6 +8,8 @@
             parent="menu_farm"/>
         <menuitem name="Animals" id="menu_farm_animals" sequence="100" 
             parent="menu_farm"/>
+        <menuitem name="Purchases" id="menu_farm_purchases" sequence="120" 
+            parent="menu_farm"/>
         <record id="farm_specie_view" model="ir.actions.act_window">
             <field name="name">Specie</field>
             <field name="type">ir.actions.act_window</field>
@@ -79,7 +81,15 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_removal_event_tree"/>
-        </record>    
+        </record>
+        <record id="farm_purchase_line" model="ir.actions.act_window">
+            <field name="domain">[('start_date', '!=', False)]</field>
+            <field name="name">Farm Purchase Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>   
         <menuitem action="farm_specie_view" id="menu_farm_configuration_specie"
             name="Specie" parent="menu_farm_configuration" sequence="2"/>
         <menuitem action="farm_farm_line_view" id="menu_farm_configuration_farm_line"
@@ -97,6 +107,8 @@
         <menuitem action="farm_animal_view" id="menu_farm_animal"
             name="Animal" parent="menu_farm_animals" sequence="4"/>
         <menuitem action="farm_animal_group_view" id="menu_farm_animal_group"
-            name="Animal group" parent="menu_farm_animals" sequence="6"/> 
+            name="Animal group" parent="menu_farm_animals" sequence="6"/>
+        <menuitem action="farm_purchase_line" id="menu_farm_purchase_line"
+            name="General expenses" parent="menu_farm_purchases" sequence="50"/>
     </data>
 </openerp>

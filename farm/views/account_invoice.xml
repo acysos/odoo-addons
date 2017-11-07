@@ -12,12 +12,12 @@
         </field>
     </record>
     <template id="report_invoice_n_animals" inherit_id="account.report_invoice_document">
-            <xpath expr="//table/thead/tr/th[2]" position="before">
+            <xpath expr="//table/thead/tr/th[1]" position="before">
                 <t t-if="o.invoice_line[0].animal_qty">
                 <th class="text-right">Num. Animals</th>
                 </t>
             </xpath>
-            <xpath expr="//tbody/tr/td[2]" position="before">
+            <xpath expr="//tbody/tr/td[1]" position="before">
             <t t-if="l.animal_qty">
             <td class="text-right">
             <span t-field="l.animal_qty"/>

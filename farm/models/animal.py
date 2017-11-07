@@ -135,8 +135,18 @@ class Animal(models.Model):
         self.create_first_move(res)
         res.location = res.initial_location
         analy_ac_obj = self.env['account.analytic.account']
+        top_account = analy_ac_obj.search([
+            ('name', '=', res.farm.name)])
+        if not top_account:
+            gen_account = analy_ac_obj.search([
+                ('name', '=', 'General Account')])
+            if not gen_account:
+                gen_account = analy_ac_obj.create({'name': 'General Account'})
+            top_account = analy_ac_obj.create({'name': res.farm.name,
+                                               'parent_id': gen_account.id})
         new_account = analy_ac_obj.create({
-            'name': 'AA-'+res.type+'-'+res.number})
+            'name': 'AA-'+res.type+'-'+res.number,
+            'parent_id': top_account.id})
         res.account = new_account
         if res.type == 'female':
             nom_eti = '-unmated'

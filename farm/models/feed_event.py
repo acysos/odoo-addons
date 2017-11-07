@@ -87,6 +87,8 @@ class FeedEvent(models.Model):
                     if len(res.move.quant_ids) > 0:
                         res.feed_lot = res.move.quant_ids[-1].lot_id
 
+    
+
     @api.one
     def confirm(self):
         quants_obj = self.env['stock.quant']
@@ -98,23 +100,9 @@ class FeedEvent(models.Model):
             self.animal.consumed_feed += self.feed_quantity
             self.set_cost(
                 self.animal.account, self.feed_lot, self.feed_quantity)
-        consumed_quants = quants_obj.search([
-            ('lot_id', '=', self.feed_lot.id),
-            ('location_id', '=', self.location.id)])
-        if not consumed_quants:
-            consumed_quants = quants_obj.search([
-                ('location_id', '=', self.location.id)])
-        consumed_feed = self.feed_quantity
-        for q in consumed_quants:
-            if q.qty >= consumed_feed:
-                q.qty -= consumed_feed
-                consumed_feed = 0
-                if q.qty == 0:
-                    q.unlink()
-            else:
-                consumed_feed -= q.qty
-                q.qty = 0
-                q.unlink()
+        self.consume_feed('consume_feed', self.end_date, self.feed_product,
+                          self.feed_lot, self.specie, self.location,
+                          self.feed_quantity, self.uom)
         super(FeedEvent, self).confirm()
 
     @api.one
@@ -154,6 +142,7 @@ class FeedEvent(models.Model):
         analytic_line_obj.create({
             'name': self.job_order.name,
             'date': self.end_date,
+            'ref': 'feed',
             'amount': -(cost),
             'unit_amount': qty,
             'account_id': account.id,

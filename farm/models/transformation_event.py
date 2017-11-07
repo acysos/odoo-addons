@@ -346,7 +346,19 @@ class TransformationEvent(models.Model):
             q.reservation_id = m_g_move.id
         self.move = m_g_move
         self.animal_group.location = self.to_location
-        self.animal_group.farm = self.get_farm(self.to_location)
+        new_farm = self.get_farm(self.to_location)
+        self.animal_group.farm = new_farm
+        analy_ac_obj = self.env['account.analytic.account']
+        top_account = analy_ac_obj.search([
+            ('name', '=', new_farm.name)])
+        if not top_account:
+            gen_account = analy_ac_obj.search([
+                ('name', '=', 'General Account')])
+            if not gen_account:
+                gen_account = analy_ac_obj.create({'name': 'General Account'})
+            top_account = analy_ac_obj.create({'name': new_farm.name,
+                                               'parent_id': gen_account.id})
+        self.animal_group.account.parent_id = top_account
         transition_location = []
         for loc in self.specie.lost_found_location:
             transition_location.append(loc.id)

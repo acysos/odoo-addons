@@ -28,6 +28,8 @@ class stock_move(models.Model):
                             res['product_id'] = alter_prod.id
                             res['uos_id'] = alter_prod.uos_id.id
                             res['quantity'] = 1
+                            farm = move.location_id.get_farm_warehouse().id
+                            res['farm'] = farm
 
         return res
 
@@ -42,7 +44,9 @@ class stock_move(models.Model):
                 for lot in line.quant_ids:
                     lots.append(lot.lot_id.name)
                 animals_obj = self.env['farm.animal.group']
-                partys = animals_obj.search([('state', '!=', 'sold')])
+                partys = animals_obj.search([
+                    ('state', '!=', 'sold'),
+                    ('location', 'child_of', line.location_id.id)])
                 sale_animal = []
                 for party in partys:
                     for lot in lots:
@@ -51,7 +55,8 @@ class stock_move(models.Model):
                 if len(sale_animal) > 0:
                     self.sale_group(sale_animal)
                 else:
-                    species_obj = self.env['farm.specie']
+                    species_obj = self.env['farm.specie'].search(
+                        [(True, '=', True)])
                     for specie in species_obj:
                         if line.product_id.id == specie.group_product.id:
                             raise Warning(_('group sold not found'))
@@ -77,19 +82,17 @@ class stock_move(models.Model):
                             'quantity': lot.qty,
                             'unit_price': 1,
                             'move': self.id,
-                            })
+                        })
                     else:
-                        raise Warning(_('there are insufficient nº of animals'))
+                        raise Warning(
+                            _('there are insufficient nº of animals'))
 
     @api.one
     def totalSale(self, group, qty):
         group.state = 'sold'
+        group.removal_date = self.date
         farm_mov_obj = self.env['farm.move.event']
-        if group.quantity < group.initial_quantity:
-            old_movs = farm_mov_obj.search([
-                ('animal_group', '=', group.id)])
-            if len(old_movs) > 0:
-                group.quantity = group.initial_quantity
+        group.quantity = 0
         farm_mov_obj.create({
             'animal_type': 'group',
             'specie': group.specie.id,
@@ -161,6 +164,7 @@ class Location(models.Model):
     silo = fields.Boolean(string='Silo', select=True, default=False,
                           help='Indicates that the location is a silo.')
     factory = fields.Boolean(string='Factory', default=False)
+    transport = fields.Boolean(string='Transport', default=False)
     farm_yard = fields.Boolean(string='Farm Yard', select=True, default=False)
     locations_to_fed = fields.One2many(
         comodel_name='stock.location.silo_stock.location',

@@ -20,7 +20,7 @@
             <field name="arch" type="xml">
                 <form string="Consume stock">
                 <header>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                    <field name="state" widget="statusbar"/>
                     <button name="confirm" states="draft" 
                         string="Confirm Consume" id="consume_confirm"
                         type="object" />
@@ -37,6 +37,29 @@
                     </group>
                 </sheet>
                 </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="farm_consume_stock_search_view">
+            <field name="name">farm.consume.stock.search</field>
+            <field name="model">farm.consume.stock</field>
+            <field name="arch" type="xml">
+                <search string="Search consume stock">
+                    <group>
+                        <field name="product_id" />
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group by...">
+                        <filter string="Origin"
+                                domain="[]"
+                                context="{'group_by': 'origin'}" />
+                        <filter string="Destinity"
+                                domain="[]"
+                                context="{'group_by': 'to_location'}" />
+                        <filter string="State"
+                                domain="[]"
+                                context="{'group_by': 'state'}" />
+                    </group>
+                </search>
             </field>
         </record>
 </data>

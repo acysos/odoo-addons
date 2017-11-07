@@ -17,6 +17,20 @@ DAFORTMAT = "%Y-%m-%d"
 class purchase_order_line(models.Model):
     _inherit = 'purchase.order.line'
 
+    @api.multi
+    @api.depends('order_id.imputed')
+    def _get_imputed(self):
+        for res in self:
+            if res.order_id.imputed:
+                res.imputed = res.order_id.imputed
+
+    @api.multi
+    @api.depends('price_unit', 'product_qty')
+    def _get_aux_price_subtotal(self):
+        for res in self:
+            if res.price_unit and res.product_qty:
+                res.aux_price_subtotal = res.price_unit * res.product_qty
+
     farm = fields.Many2one(comodel_name='stock.location', string='Farm',
                            domain=[('usage', '=', 'view')])
     location_id = fields.Many2one(comodel_name='stock.location', string='Yard',
@@ -25,6 +39,16 @@ class purchase_order_line(models.Model):
     start_date = fields.Datetime(string='Bill start day')
     end_date = fields.Datetime(string='Bill end date')
     general_expense = fields.Boolean(string='General Expense', default=False)
+    imputed = fields.Boolean(string='Inputed', compute='_get_imputed',
+                             store=True)
+    aux_price_subtotal = fields.Float(string='amount_untaxed',
+                                      compute='_get_aux_price_subtotal',
+                                      store=True)
+
+    @api.multi
+    def impute_purchase_order(self):
+        for res in self:
+            res.order_id.set_purchase_analitics()
 
 
 class Purchase_analitic_remain(models.Model):
@@ -60,8 +84,7 @@ class PurchaseOrder(models.Model):
                         _("General expenses can't mixin with other purchases"))
                 if line.farm and line.location_id:
                     raise Warning(_('Choose farm or yard'))
-            if control:
-                res.state = 'done'
+            print res.state
         return True
 
     @api.multi
@@ -69,18 +92,24 @@ class PurchaseOrder(models.Model):
         for res in self:
             if not res.imputed:
                 res.imputed = True
+                control = res.order_line[0].general_expense
                 for line in res.order_line:
                     if line.start_date and line.end_date:
+                        end_date = datetime.strptime(
+                                line.end_date, DFORMAT).date()
+                        if end_date >= datetime.today().date():
+                            raise Warning(
+                                _('Final date after current date'))
                         if line.farm and line.farm.factory:
                             self.set_factory_cost(line)
                         else:
                             start_date = \
                                 datetime.strptime(
                                     line.start_date, DFORMAT).date()
-                            end_date = datetime.strptime(
-                                line.end_date, DFORMAT).date()
                             num_days = (end_date - start_date).days+1
-                            if line.farm or line.location_id:
+                            if line.farm and line.farm.transport:
+                                self.set_transport_cost(line)
+                            elif line.farm or line.location_id:
                                 afected_animals = self.get_party_per_day(
                                     start_date, end_date, line.farm,
                                     line.location_id)
@@ -108,8 +137,8 @@ class PurchaseOrder(models.Model):
                                         self.set_analytics, (
                                             afected_animals, line,
                                             num_days, line.farm))
-                            else:
-                                self.set_transport_cost(line)
+                if control:
+                    res.wkf_po_done()
 
     @api.multi
     def set_transport_cost(self, line):
@@ -158,7 +187,7 @@ class PurchaseOrder(models.Model):
                 ('location', '=', dest_loc.id)])
             groups = an_group_obj.search([
                 ('location', '=', dest_loc.id),
-                 ('state', '!=', 'sold')])
+                ('state', '!=', 'sold')])
             tot_animals = len(animals)
             for group in groups:
                 tot_animals = tot_animals + group.quantity
@@ -184,11 +213,11 @@ class PurchaseOrder(models.Model):
                 self.set_party_cost(group, transport.date_done,
                                     cost_per_animal)
 
-    def set_factory_cost(self, line):
+    def set_factory_cost_old(self, line):
         analitic_remain_ob = self.env['purchase.analitic.remain']
         analitic_remain = analitic_remain_ob.search([
                                     ('farm', '=', line.farm.id)])
-        amount = line.price_unit * line.product_qty
+        amount = self.get_unit_price(line) * line.product_qty
         if len(analitic_remain) == 0:
                                     analitic_remain_ob.create({
                                         'farm': line.farm.id,
@@ -196,6 +225,60 @@ class PurchaseOrder(models.Model):
         else:
             analitic_remain.quantity = \
                 analitic_remain.quantity + amount
+
+    def set_factory_cost(self, line):
+        new_cr = sql_db.db_connect(
+            self.env.cr.dbname).cursor()
+        uid, context = \
+            self.env.uid, self.env.context
+        with api.Environment.manage():
+            new_env = api.Environment(
+                new_cr, uid, context)
+            productions = new_env['mrp.production'].search(
+                [('date_finished', '>=', line.start_date),
+                 ('date_finished', '<', line.end_date)])
+            moves = []
+            afected_lots = []
+            total_feed = 0
+            for production in productions:
+                total_feed = total_feed + production.product_qty
+                for mov in production.move_created_ids2:
+                    moves.append(mov)
+            amount = self.get_unit_price(line, new_env) * line.product_qty
+            cost_per_kg = amount/total_feed
+            for mov in moves:
+                for quant in mov.quant_ids:
+                    lot = quant.lot_id
+                    if lot.id not in afected_lots:
+                        afected_lots.append(lot.id)
+                        lot.unit_cost = lot.unit_cost + cost_per_kg
+                        self.set_afected_feed_events(lot, cost_per_kg, line,
+                                                     new_env)
+            new_env.cr.commit()
+            new_cr.close()
+            return True
+ 
+    def set_afected_feed_events(self, lot, cost_kg, line,new_env):
+        feed_events = new_env['farm.feed.event'].search(
+            [('state', '=', 'validated'),
+             ('feed_lot', '=', lot.id),
+             ('animal_type', '=', 'group')])
+        journal = new_env['account.analytic.journal'].with_context(
+            {}).search([('code', '=', 'PUR')])
+        analytic_line_obj = new_env['account.analytic.line']
+        for event in feed_events:
+            company = new_env['res.company'].with_context({}).search([
+            ('id', '=', 1)])
+            amount = event.feed_quantity * cost_kg
+            analytic_line_obj.create({
+                'name': 'mrp-cost-' + self.name,
+                'date': line.start_date,
+                'amount': -amount,
+                'unit_amount': 1,
+                'account_id': event.animal_group.account.id,
+                'general_account_id': company.feed_account.id,
+                'journal_id': journal.id,
+                })
 
     def get_farm(self, location):
         while(location.location_id.id != 1):
@@ -243,7 +326,7 @@ class PurchaseOrder(models.Model):
                     condition1 = party.farm == farm
                     condition2 = self.get_farm(party.initial_location) == farm
                 else:
-                    condition1 = sale_move.from_location == location_id
+                    condition1 = sale_move[-1].from_location == location_id
                     condition2 = party.initial_location == location_id
                 if (start_date - sale_day).days < 0 and condition1:
                     if end_date < sale_day:
@@ -338,7 +421,7 @@ class PurchaseOrder(models.Model):
         with api.Environment.manage():
             new_env = api.Environment(
                 new_cr, uid, context)
-            cost_per_day = (line.price_unit * line.product_qty)/num_days
+            cost_per_day = (self.get_unit_price(line, new_env) * line.product_qty)/num_days
             animals = {}
             for d, partys in afected_animals[0].iteritems():
                 remain = 0
@@ -412,3 +495,12 @@ class PurchaseOrder(models.Model):
             'general_account_id': company.feed_account.id,
             'journal_id': journal.id,
             })
+
+    @api.multi
+    def get_unit_price(self, line, new_env):
+        invoice_line = new_env['account.invoice.line'].search(
+            [('purchase_line_id', '=', line.id)])
+        if invoice_line:
+            return invoice_line[0].price_unit
+        else:
+            return line.price_unit

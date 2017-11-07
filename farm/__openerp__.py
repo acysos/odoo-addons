@@ -20,7 +20,7 @@
 ##############################################################################
 {
     "name": "Addon for Animal farms",
-    "version": "1.0",
+    "version": "8.1",
     "license": "AGPL-3",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",

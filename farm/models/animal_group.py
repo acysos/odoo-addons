@@ -23,7 +23,7 @@ class AnimalGroup(models.Model):
     lot = fields.One2many(comodel_name='stock.lot_farm.animal.group',
                           inverse_name='animal_group', column1='lot',
                           string='Lot')
-    number = fields.Char(string='Number', compute='get_number')
+    number = fields.Char(string='Number', compute='get_number', store=True)
     location = fields.Many2one(comodel_name='stock.location',
                                string='Current location',
                                domain=[('usage', '!=', 'view'), ])
@@ -85,6 +85,8 @@ class AnimalGroup(models.Model):
                                     compute='get_fattenig_days')
     account = fields.Many2one(comodel_name='account.analytic.account',
                               string='Analytic Account')
+    fatten_date = fields.Date(string='fatten day', compute='_get_fatten_day',
+                              store=True)
     weaning_day = fields.Datetime(string='weaning_day', compute='get_weaning_day')
 
     @api.multi
@@ -134,7 +136,25 @@ class AnimalGroup(models.Model):
                 ('farrowing_group', '=', self.id)])
             if len(wean) != 0:
                 self.weaning_day = datetime.strptime(wean.timestamp, DFORMAT)
-    
+
+    @api.multi
+    @api.depends('location')
+    def _get_fatten_day(self):
+        for res in self:
+            if res.state not in ('lactating', 'transition'):
+                transformation_obj = self.env['farm.transformation.event']
+                transition_location = []
+                for loc in res.specie.lost_found_location:
+                    transition_location.append(loc.location.id)
+                transition = transformation_obj.search([
+                    ('animal_group', '=', res.id),
+                    ('from_location.id', 'in', transition_location),
+                    ('to_location.id', 'not in', transition_location)])
+                if transition:
+                    res.fatten_date = transition[-1].timestamp
+                else:
+                    res.fatten_date = res.arrival_date
+
     @api.one
     def get_transit_days(self):
         if self.state == 'lactating':
@@ -167,9 +187,7 @@ class AnimalGroup(models.Model):
                 ('to_location.id', 'not in', transition_location)])
             if transition:
                 transition_finish = datetime.strptime(
-                    transition.timestamp, DFORMAT)
-                transition_finish = datetime.strptime(
-                    transition.timestamp, DFORMAT)
+                    transition[-1].timestamp, DFORMAT)
                 self.transition_days = (transition_finish - wean_day).days
             else:
                 self.transition_days = 0
@@ -192,7 +210,7 @@ class AnimalGroup(models.Model):
                     self.arrival_date, '%Y-%m-%d')
             else:
                 transition_finish = datetime.strptime(
-                    transition.timestamp, DFORMAT)
+                    transition[-1].timestamp, DFORMAT)
             if self.state == 'fatten':
                 self.fattening_days = (
                     datetime.today() - transition_finish).days
@@ -278,8 +296,18 @@ class AnimalGroup(models.Model):
         self.create_first_move(res)
         res.quantity = res.initial_quantity
         analy_ac_obj = self.env['account.analytic.account']
+        top_account = analy_ac_obj.search([
+            ('name', '=', res.farm.name)])
+        if not top_account:
+            gen_account = analy_ac_obj.search([
+                ('name', '=', 'General Account')])
+            if not gen_account:
+                gen_account = analy_ac_obj.create({'name': 'General Account'})
+            top_account = analy_ac_obj.create({'name': res.farm.name,
+                                               'parent_id': gen_account.id})
         new_account = analy_ac_obj.create({
-            'name': 'AA-group-'+res.number})
+            'name': 'AA-group-'+res.number,
+            'parent_id': top_account.id})
         res.account = new_account
         return res
 
@@ -295,6 +323,8 @@ class AnimalGroup(models.Model):
                 displayName.append((group.id, group.number))
         return displayName
 
+    @api.multi
+    @api.depends('lot')
     def get_number(self):
         for group in self:
             result = '*'
@@ -314,8 +344,8 @@ class AnimalGroup(models.Model):
 
     @api.one
     def get_consumed_feed(self):
-        if self.feed_quantity == 0 or self.quantity == 0:
-            self.consumed_feed = 0
+        if self.quantity == 0:
+            self.consumed_feed = self.feed_quantity/self.initial_quantity
         else:
             self.consumed_feed = self.feed_quantity/self.quantity
 
@@ -332,7 +362,7 @@ class AnimalGroupWeight(models.Model):
                                 default=fields.Datetime.now())
     quantity = fields.Integer(string='Number of individuals', required=True)
     uom = fields.Many2one(comodel_name='product.uom', string='Uom')
-    weight = fields.Float(string='Weihht', digits=(3, 2))
+    weight = fields.Float(string='Weihht', digits=(3, 2), required=True)
 
     @api.onchange('timestamp')
     def get_defaults(self):

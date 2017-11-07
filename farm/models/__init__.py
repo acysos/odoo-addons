@@ -4,5 +4,5 @@ from . import semen_extration_event, farrowing_event, foster_event
 from . import removal_event, abort_event, insemination_event
 from . import feed_abstract_event, medication_event, event_order
 from . import transformation_event, feed_event, feed_inventory, move_event
-from . import product, user, res_company, purchse_analytics, analitic_sales
+from . import product, res_company, purchse_analytics, analitic_sales
 from . import account_invoice, consume_stock

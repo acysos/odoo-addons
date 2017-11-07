@@ -62,7 +62,10 @@
                         <field name="farm_yard"/>
                         <field name="animal_max" 
                             attrs="{'invisible': [('farm_yard', '=', False)]}"/>
-                        <field name="factory"/>
+                        <field name="factory"
+                            attrs="{'invisible': [('usage', '!=', 'view')]}"/>
+                        <field name="transport"
+                            attrs="{'invisible': [('usage', '!=', 'view')]}"/>
                         <field name="silo"/>
                         <field name="locations_to_fed"
                             attrs="{'invisible':[('silo','!=', True)]}"/>

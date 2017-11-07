@@ -52,16 +52,16 @@ class analitic_account_invoice(models.Model):
                 lots = []
                 for move in moves:
                     for lot in move.quant_ids:
-                        qty = self.env['stock.pack.operation'].search([
+                        operations = self.env['stock.pack.operation'].search([
                             ('picking_id', '=', move.picking_id.id),
-                            ('lot_id', '=', lot.lot_id.id)]).product_qty
-                        lots.append([lot.lot_id.name, qty])
+                            ('lot_id', '=', lot.lot_id.id)])
+                        for op in operations:
+                            lots.append([lot.lot_id.name, op.product_qty])
                 animals_obj = self.env['farm.animal.group']
                 partys = animals_obj.search([(True, '=', True)])
                 for party in partys:
                     for lot in lots:
                         if party.number == lot[0]:
-                            print party
                             sale_animal.append([party, lot[1]])
                             animal_total = animal_total + lot[1]
         if len(sale_animal) > 0:
@@ -71,7 +71,6 @@ class analitic_account_invoice(models.Model):
                     + line.price_subtotal
             if line_name == 'invoice-cancel':
                 total_price = total_price * -1
-            print animal_total
             price_unit = total_price/animal_total
             for group in sale_animal:
                 company = self.env['res.company'].search([
@@ -80,9 +79,6 @@ class analitic_account_invoice(models.Model):
                     'account.analytic.journal'].search([
                         ('code', '=', 'FAR')])
                 amount = price_unit * group[1]
-                print '********'
-                print amount
-                print group[1]
                 analytic_line_obj.create({
                     'name': line_name,
                     'date': res.date_invoice,

@@ -65,6 +65,10 @@ class Specie(models.Model):
         comodel_name='stock.location', inverse_name='specie',
         string='Feed transit',
         domain=[('usage', '=', 'transit')])
+    consumed_feed_location = fields.Many2one(
+        comodel_name='stock.location', string='consumed feed location',
+        domain=[('usage', '=', 'inventory'), ('scrap_location', '=', True)],
+        required=True)
 
     @api.onchange('male_enabled')
     def onChange_male_enabled(self):

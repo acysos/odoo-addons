@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <button name="action_cancel" position="after">
                 <field name="imputed" attrs="{'invisible': True}"/>
-                <button name="set_purchase_analitics" states="confirmed" string="Set Analitics"
+                <button name="set_purchase_analitics" states="draft,confirmed" string="Set Analitics"
                 type="object" attrs="{'invisible': [('imputed', '=', True)]}"/>
             </button>
             <xpath expr="//field[@name='order_line']/tree" position="inside">
@@ -21,5 +21,85 @@
             </xpath>
         </field>
     </record>
+    <record model="ir.ui.view" id="view_farm_purchase_line_tree">
+            <field name="name">farm.purchase.line.tree</field>
+            <field name="model">purchase.order.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase lines">
+                    <field name="product_id"/>
+                    <field name="farm"/>
+                    <field name="location_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="aux_price_subtotal" sum="Tot. price"/>
+                    <field name="imputed"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_farm_purchase_line_form">
+            <field name="name">farm.purchase.line.form</field>
+            <field name="model">purchase.order.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Purchase line">
+                    <sheet>
+                        <group col="4" colspan="2">
+                            <field name="order_id" attrs="{'readonly':True}"/>
+                            <field name="farm"/>
+		                    <field name="location_id"/>
+		                    <field name="start_date"/>
+		                    <field name="end_date"/>
+		                    <field name="price_subtotal" attrs="{'readonly':True}"/>
+		                    <field name="imputed" attrs="{'readonly':True}"/>
+                        </group>
+                    </sheet>
+                  </form>
+             </field>
+             </record>
+    <record model="ir.ui.view" id="farm_purchase_line_search_view">
+            <field name="name">farm.purchase.line.search</field>
+            <field name="model">purchase.order.line</field>
+            <field name="arch" type="xml">
+                <search string="Search Animal group">
+                    <group>
+                        <field name="farm"/>
+                        <field name="location_id"/>
+                        <field name="product_id"/>
+                        <field name="start_date"/>
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group by...">
+                        <filter string="Farm"
+                                domain="[]"
+                                context="{'group_by': 'farm'}" />
+                        <filter string="Product"
+                                domain="[]"
+                                context="{'group_by': 'product_id'}" />
+                        <filter string="Location"
+                                domain="[]"
+                                context="{'group_by': 'location'}" />
+                        <filter string="month"
+                                domain="[]"
+                                context="{'group_by': 'start_date:month'}" />
+                    </group>
+                </search>
+             </field>
+       </record>
+       <record id="impute_analitics_action" model="ir.actions.server">
+        <field name="name">Impute analitics</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_purchase_order_line"/>
+        <field name="state">code</field>
+        <field name="code">self.browse(cr,uid,context.get('active_ids', [])).impute_purchase_order()</field>
+</record>
+<record id="impute analitics" model="ir.values">
+        <field name="name">impute_analitics</field>
+        <field name="key">action</field>
+        <field name="key2">client_action_multi</field>
+        <field name="model">purchase.order.line</field>
+        <field name="value" eval="'ir.actions.server,%d'%impute_analitics_action"/>
+      
+</record>
 </data>
 </openerp>

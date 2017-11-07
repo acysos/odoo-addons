@@ -67,10 +67,10 @@
             <field name="arch" type="xml">
                 <search string="Search Animal group">
                     <group>
+                        <field name="number" />
                         <field name="state" />
                         <field name="specie" />
                         <field name="breed" />
-                        <field name="number" />
                     </group>
                     <newline />
                     <group expand="0" string="Group by...">

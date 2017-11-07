@@ -57,3 +57,26 @@ class FeedEventMixin(models.Model):
             self.quantity = self.animal_group.quantity
         else:
             self.quantity = 1
+
+    @api.multi
+    def consume_feed(self, name, end_date, product, lot, specie, origin,
+                     qty, uom):
+        quants_obj = self.env['stock.quant']
+        moves_obj = self.env['stock.move']
+        target_quant = quants_obj.search([
+            ('lot_id', '=', lot.id),
+            ('location_id', '=', origin.id)])
+        new_move = moves_obj.create({
+                'name': name,
+                'create_date': fields.Date.today(),
+                'date': end_date,
+                'product_id': product.id,
+                'product_uom_qty': qty,
+                'product_uom': uom.id,
+                'location_id': origin.id,
+                'location_dest_id': specie.consumed_feed_location.id,
+                'company_id': origin.company_id.id,
+                })
+        for q in target_quant:
+            q.reservation_id = new_move.id
+        new_move.action_done()

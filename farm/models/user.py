@@ -12,7 +12,6 @@ class User(models.Model):
     farm = fields.Many2many(comodel_name='res.user_stock.location',
                             inverse_name='user', colum1='location',
                             string='Farms',
-                            domain=[('usage', '=', 'view'), ],
                             help="Farms to which this user is assigned."
                             "Determine animals that he/she can manage.")
 
@@ -24,4 +23,6 @@ class UserLocation(models.Model):
                            ondelete='CASCADE', required=True, select=True)
     location = fields.Many2one(comodel_name='stock.location',
                                string='Location', ondelete='CASCADE',
-                               required=True, select=True)
+                               domain=[('usage', '=', 'view'), ],
+                               required=True, select=True
+                               )

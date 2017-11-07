@@ -27,6 +27,7 @@ class MrpAnaliticRemain(models.Model):
 class MrpProduction(models.Model):
     _inherit = 'mrp.production'
 
+    '''
     @api.multi
     def calculateCost(self, wiz):
         super(MrpProduction, self).calculateCost(wiz)
@@ -52,8 +53,10 @@ class MrpProduction(models.Model):
                 - (wiz.product_qty * analitic_remain.quantity_per_unit)
             history = remain_history.search([('date', '=', today)])
             if not history:
-                remain_history.create({'date': today,
-                                       'qty_per_unit': analitic_remain.quantity_per_unit})
+                remain_history.create({
+                    'date': today,
+                    'qty_per_unit': analitic_remain.quantity_per_unit})
+    '''
 
     @api.multi
     def get_last_productions(self, analitic_remain, today):

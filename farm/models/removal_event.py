@@ -93,8 +93,7 @@ class RemovalEvent(models.Model):
     def remove_group(self):
         moves_obj = self.env['stock.move']
         quants_obj = self.env['stock.quant']
-        scrap_loc = self.env['stock.location'].search([
-            ('scrap_location', '=', True)])[0]
+        scrap_loc = self.animal_group.specie.removed_location
         if len(self.specific_lot) == 0:
             if len(self.animal_group.lot) < 3:
                 lot = self.animal_group.lot[0].lot
@@ -127,10 +126,6 @@ class RemovalEvent(models.Model):
         self.animal_group.quantity -= self.quantity
         if self.animal_group.quantity < 1:
             self.animal_group.removal_date = self.timestamp
-            rem_loc = self.animal_group.specie.removed_location
-            rem_farm = rem_loc.get_farm_warehouse().view_location_id
-            self.animal_group.location = rem_loc
-            self.animal_group.farm = rem_farm
             tags_obj = self.env['farm.tags']
             for tag in self.animal_group.tags:
                 tag.animal_group = [(3, self.animal_group.id)]
@@ -140,6 +135,7 @@ class RemovalEvent(models.Model):
                 new_tag = tags_obj.create(
                     {'name': 'Removed Animals', })
             self.animal_group.tags = [(6, 0, [new_tag.id, ])]
+            self.animal_group.state = 'sold'
 
     @api.one
     def remove_animal(self):

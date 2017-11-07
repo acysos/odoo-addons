@@ -64,6 +64,10 @@ class AbstractEvent(models.Model):
                 self.specie = animal.specie
                 self.animal_type = animal.type
                 self.farm = animal.location.location_id
+            for animal in self.animal_group:
+                self.specie = animal.specie
+                self.animal_type = animal.type
+                self.farm = animal.location.location_id
 
 
 class ImportedEventMixin(models.Model):

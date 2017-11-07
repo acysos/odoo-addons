@@ -47,23 +47,9 @@ class MedicationEvent(models.Model):
                 for q in target_quant:
                     q.reservation_id = new_move.id
                 new_move.action_done()
-            consumed_quants = quants_obj.search([
-                ('lot_id', '=', self.feed_lot.id),
-                ('location_id', '=', self.location.id)])
-            if not consumed_quants:
-                consumed_quants = quants_obj.search([
-                    ('location_id', '=', self.location.id)])
-            consumed_feed = self.feed_quantity
-            for q in consumed_quants:
-                if q.qty >= consumed_feed:
-                    q.qty -= consumed_feed
-                    consumed_feed = 0
-                    if q.qty == 0:
-                        q.unlink()
-                else:
-                    consumed_feed -= q.qty
-                    q.qty = 0
-                    q.unlink()
+            self.consume_feed('consume_feed', self.end_date, self.feed_product,
+                              self.feed_lot, self.specie, self.location,
+                              self.feed_quantity, self.uom)
             if self.animal_type == 'group':
                 account = self.animal_group.account
             else:

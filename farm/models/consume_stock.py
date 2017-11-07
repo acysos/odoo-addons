@@ -103,7 +103,10 @@ class ConsumeStock(models.Model):
 
     @api.multi
     def confirm(self):
+        moves_obj = self.env['stock.move']
         quants_obj = self.env['stock.quant']
+        scrap = self.env['stock.location'].search(
+            [('scrap_location', '=', True)])[0]
         for res in self:
             species = self.env['farm.specie'].search(
                 [(True, '=', True)])
@@ -145,22 +148,25 @@ class ConsumeStock(models.Model):
                 else:
                     analitic_remain.quantity = analitic_remain.quantity\
                         + cost
-            consumed_quants = False
+            consumed_quants = []
             if res.lot_id:
                 consumed_quants = quants_obj.search([
                         ('lot_id', '=', res.lot_id.id),
                         ('location_id', '=', res.origin.id)])
-            if not consumed_quants:
-                consumed_quants = quants_obj.search([
-                    ('location_id', '=', res.origin.id)])
-            consumed_goods = res.quantity
+            new_move = moves_obj.create({
+                'name': 'consume',
+                'create_date': fields.Date.today(),
+                'date': res.date,
+                'product_id': res.product_id.id,
+                'product_uom_qty': res.quantity,
+                'product_uom': res.product_id.product_tmpl_id.uom_id.id,
+                'location_id': res.origin.id,
+                'location_dest_id': scrap.id,
+                'company_id': res.origin.company_id.id,
+                })
             for q in consumed_quants:
-                if q.qty >= consumed_goods:
-                    q.qty -= consumed_goods
-                    consumed_goods = 0
-                else:
-                    consumed_goods -= q.qty
-                    q.qty = 0
+                q.reservation_id = new_move.id
+            new_move.action_done()
             res.state = 'confirmed'
 
     def get_farm(self, location):

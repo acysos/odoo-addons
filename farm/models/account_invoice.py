@@ -10,3 +10,4 @@ class AccountInvoiceLine(models.Model):
     _inherit = 'account.invoice.line'
 
     animal_qty = fields.Integer(string = 'Num of animals')
+    farm = fields.Many2one(string='Farm', comodel_name='stock.warehouse')

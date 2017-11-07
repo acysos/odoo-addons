@@ -32,7 +32,7 @@
 	            <field name="inherit_id" ref="view_abstract_event_tree"/>
 	            <field name="arch" type="xml">
 	                <field name="lot" position="after">
-	                        <field name="feed_quantity"/>
+	                        <field name="feed_quantity" sum="Tot. feed quantity"/>
 	                        <field name="feed_product"/>
 	                        <field name="feed_lot"/>
 	                </field>     
@@ -62,6 +62,33 @@
                         <field name="move"/>
                 </field>     
             </field>
-        </record>   
+        </record>
+        <record model="ir.ui.view" id="feed_event_search_view">
+            <field name="name">farm.feed.event.search</field>
+            <field name="model">farm.feed.event</field>
+            <field name="arch" type="xml">
+                <search string="Search feed event">
+                    <group>
+                        <field name="farm" />
+                        <field name="feed_product" />
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group by...">
+                        <filter string="Farm"
+                                domain="[]"
+                                context="{'group_by': 'farm'}" />
+                        <filter string="Month"
+                                domain="[]"
+                                context="{'group_by': 'start_date:month'}" />
+                        <filter string="Location"
+                                domain="[]"
+                                context="{'group_by': 'location'}" />
+                        <filter string="State"
+                                domain="[]"
+                                context="{'group_by': 'state'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
         </data>
     </openerp>
