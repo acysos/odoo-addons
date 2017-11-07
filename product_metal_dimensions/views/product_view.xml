@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+    <data>
+	    <record id="product_normal_form_metal_dimensions_view" model="ir.ui.view">
+	        <field name="name">product.normal.form.metal.dimensions</field>
+	        <field name="model">product.template</field>
+	        <field name="type">form</field>
+	        <field name="inherit_id" ref="product.product_template_form_view"/>
+	        <field name="arch" type="xml">
+	            <field name="weight_net" position="after">
+	                <field name="density"/>
+	                <field name="thickness"/>
+	                <field name="wide"/>
+	                <field name="diameter"/>
+	                <field name="length"/>
+	            </field>
+	        </field>
+	    </record>
+    </data>
+</openerp>

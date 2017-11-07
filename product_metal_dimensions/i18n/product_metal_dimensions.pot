@@ -1,0 +1,72 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_metal_dimensions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-07 19:45+0000\n"
+"PO-Revision-Date: 2017-11-07 19:45+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_metal_dimensions
+#: help:product.template,density:0
+msgid "Density is in kg/m3. Calculated from net weight and volume."
+msgstr ""
+
+#. module: product_metal_dimensions
+#: field:product.template,diameter:0
+msgid "Diameter"
+msgstr ""
+
+#. module: product_metal_dimensions
+#: help:product.template,diameter:0
+msgid "Diameter is in mm."
+msgstr ""
+
+#. module: product_metal_dimensions
+#: help:product.template,length:0
+msgid "Lenght is in mm."
+msgstr ""
+
+#. module: product_metal_dimensions
+#: field:product.template,length:0
+msgid "Length"
+msgstr ""
+
+#. module: product_metal_dimensions
+#: model:ir.model,name:product_metal_dimensions.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_metal_dimensions
+#: field:product.template,density:0
+msgid "Thickness"
+msgstr ""
+
+#. module: product_metal_dimensions
+#: help:product.template,thickness:0
+msgid "Thickness is in mm."
+msgstr ""
+
+#. module: product_metal_dimensions
+#: field:product.template,wide:0
+msgid "Wide"
+msgstr ""
+
+#. module: product_metal_dimensions
+#: help:product.template,wide:0
+msgid "Wide is in mm."
+msgstr ""
+
+#. module: product_metal_dimensions
+#: field:product.template,thickness:0
+msgid "thickness"
+msgstr ""
+

@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_metal_dimensions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-07 19:46+0000\n"
+"PO-Revision-Date: 2017-11-07 20:47+0100\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: product_metal_dimensions
+#: help:product.template,density:0
+msgid "Density is in kg/m3. Calculated from net weight and volume."
+msgstr "Densidad en kg/m3. Calculado a partir del peso neto y el volumen."
+
+#. module: product_metal_dimensions
+#: field:product.template,diameter:0
+msgid "Diameter"
+msgstr "Diámetro"
+
+#. module: product_metal_dimensions
+#: help:product.template,diameter:0
+msgid "Diameter is in mm."
+msgstr "Diámetro en mm."
+
+#. module: product_metal_dimensions
+#: help:product.template,length:0
+msgid "Lenght is in mm."
+msgstr "Longitud in mm."
+
+#. module: product_metal_dimensions
+#: field:product.template,length:0
+msgid "Length"
+msgstr "Longitud"
+
+#. module: product_metal_dimensions
+#: model:ir.model,name:product_metal_dimensions.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_metal_dimensions
+#: field:product.template,density:0
+msgid "Thickness"
+msgstr "Espesor"
+
+#. module: product_metal_dimensions
+#: help:product.template,thickness:0
+msgid "Thickness is in mm."
+msgstr "Espesor en mm."
+
+#. module: product_metal_dimensions
+#: field:product.template,wide:0
+msgid "Wide"
+msgstr "Ancho"
+
+#. module: product_metal_dimensions
+#: help:product.template,wide:0
+msgid "Wide is in mm."
+msgstr "Ancho en mm."
+
+#. module: product_metal_dimensions
+#: field:product.template,thickness:0
+msgid "thickness"
+msgstr "Espesor"
