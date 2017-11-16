@@ -9,6 +9,8 @@ Régimen especial de agricultura, ganadería y pesca
 Módulo para el tratamiento especial del régimen de agricultura, ganadería y pesca
 http://www.agenciatributaria.es/AEAT.internet/Inicio/_Segmentos_/Empresas_y_profesionales/Empresarios_individuales_y_profesionales/IVA/Regimenes_de_tributacion/Regimenes_especiales_para_empresarios_individuales/Regimen_especial_de_la_agricultura__ganaderia_y_pesca/Regimen_especial_de_la_agricultura__ganaderia_y_pesca.shtml
 
+Basado en las explicación de Gafic https://www.youtube.com/watch?v=89sBpKHeVyk
+
 Installation
 ============
 
