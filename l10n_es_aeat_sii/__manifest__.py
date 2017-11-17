@@ -20,10 +20,9 @@
     },
     "depends": [
         "account_invoice_refund_link",
-#        "l10n_es_aeat",
-        "connector",
+        "l10n_es_aeat",
+        "queue_job",
         "account_payment_partner",
-#         "account_chart_update"
     ],
     "data": [
         "data/ir_config_parameter.xml",
@@ -31,6 +30,7 @@
         "views/account_invoice_view.xml",
         "views/aeat_sii_view.xml",
         "views/aeat_sii_result_view.xml",
+        "views/aeat_check_sii_result_view.xml",
         "wizard/aeat_sii_password_view.xml",
         "views/aeat_sii_mapping_registration_keys_view.xml",
         "data/aeat_sii_mapping_registration_keys_data.xml",
@@ -44,5 +44,5 @@
         "views/account_payment_mode_view.xml",
 #         "data/account_fiscal_position_data.xml"
     ],
-    "post_init_hook": "add_key_to_existing_invoices",
+    "post_init_hook": "post_init_sii_hook",
 }

@@ -33,9 +33,12 @@ de Odoo.
 #. Preparar el certificado. El certificado enviado por la FMNT es en formato
 p12, este certificado no se puede usar directamente con Zeep. Se tiene que
 extraer la clave pública y la clave privada.
+
 El linux se pueden usar los siguientes comandos:
+
 - Clave pública: "openssl pkcs12 -in Certificado.p12 -nokeys -out publicCert.crt -nodes"
 - Clave privada: "openssl pkcs12 -in Certifcado.p12 -nocerts -out privateKey.pem -nodes"
+
 Connector:
 
 #. Ajustar variables de configuración:
@@ -73,8 +76,19 @@ Known issues / Roadmap
 
 * Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
+* Factura simplificada (Disponible en V8, pendiente de migrar a V10)
 * Operación anual. Libro de bienes de inversión (Libro anual se crea un módulo aparte)
 * Regimenes especial de seguros y agencias de viaje
+
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/acysos/odoo-addons/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smashing it by providing a detailed and welcomed feedback.
+
 
 Credits
 =======
@@ -96,6 +110,6 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://acysos.com/logo.png
+.. image:: https://acysos.com/website_logo.png
    :alt: Acysos S.L.
    :target: https://www.acysos.com

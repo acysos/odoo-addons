@@ -91,6 +91,7 @@
                         </group>
                         <group string="SII Result">
                             <field name="sii_sent" />
+                            <field name="sii_registration_date" />
                             <field name="sii_csv"/>
                             <label for="sii_results" colspan="4"/>
                             <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
