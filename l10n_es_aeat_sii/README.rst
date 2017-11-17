@@ -6,6 +6,8 @@
 Suministro Inmediato de Información en el IVA
 =============================================
 
+AVISO: pendiente de actualizar. Versiones actualizadas 8.0 y 10.0
+
 Módulo para la presentación inmediata del IVA
 http://www.agenciatributaria.es/AEAT.internet/SII.html
 
