@@ -35,7 +35,7 @@ except ImportError:
 
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
-    
+
     def _get_default_sii_description(self):
         inv_type = self.env.context.get('type')
         if not inv_type:
@@ -67,13 +67,13 @@ class AccountInvoice(models.Model):
     sii_csv = fields.Char(string='SII CSV', copy=False)
     sii_results = fields.One2many(
         comodel_name='aeat.sii.result', inverse_name='invoice_id',
-        string='Invoice results', domain=[('type', '=', 'normal')])
+        string='Invoice results', domain=[('inv_type', '=', 'normal')])
     sii_send_error = fields.Text(string='SII Send Error')
     sii_recc_sent = fields.Boolean(string='SII Payment RECC Sent', copy=False)
     sii_recc_csv = fields.Char(string='SII Payment RECC CSV', copy=False)
     sii_recc_results = fields.One2many(
         comodel_name='aeat.sii.result', inverse_name='invoice_id',
-        string='Invoice results', domain=[('type', '=', 'recc')])
+        string='Invoice results', domain=[('inv_type', '=', 'recc')])
     sii_recc_send_error = fields.Text(string='SII Payment RECC Send Error')
     refund_type = fields.Selection(
         selection=[('S', 'By substitution'), ('I', 'By differences')],
@@ -135,7 +135,8 @@ class AccountInvoice(models.Model):
         if not vals.get('fiscal_position', False):
             partner = self.env['res.partner'].browse(vals['partner_id'])
             raise exceptions.Warning(_(
-                "No Fiscal Position configured for the partner %s") % (partner.name))
+                "No Fiscal Position configured for the partner %s") % (
+                    partner.name))
         if not vals.get('registration_key', False) and \
                 vals.get('fiscal_position', False):
             fp = self.env['account.fiscal.position'].browse(
@@ -286,7 +287,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _update_sii_tax_line(self, tax_sii, tax_line, line, line_taxes):
         self.ensure_one()
-        tax_type = tax_type = tax_line.amount * 100
+        tax_type = tax_line.amount * 100
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
             self._get_line_price_subtotal(line),
@@ -380,7 +381,8 @@ class AccountInvoice(models.Model):
                         taxes_sii['DesgloseTipoOperacion'] = {}
                     type_breakdown = taxes_sii['DesgloseTipoOperacion']
                     if tax_line in taxes_sfess or \
-                            tax_line in taxes_sfesse or tax_line in taxes_sfens:
+                            tax_line in taxes_sfesse or \
+                            tax_line in taxes_sfens:
                         if 'PrestacionServicios' not in type_breakdown:
                             type_breakdown['PrestacionServicios'] = {}
                         op_key = 'PrestacionServicios'
@@ -392,10 +394,12 @@ class AccountInvoice(models.Model):
                         if 'NoSujeta' not in inv_breakdown:
                             type_breakdown[op_key]['NoSujeta'] = {}
                             type_breakdown[op_key]['NoSujeta'][
-                                'ImportePorArticulos7_14_Otros'] = line.price_subtotal
+                                'ImportePorArticulos7_14_Otros'] = \
+                                line.price_subtotal
                         else:
                             type_breakdown[op_key]['NoSujeta'][
-                                'ImportePorArticulos7_14_Otros'] += line.price_subtotal
+                                'ImportePorArticulos7_14_Otros'] += \
+                                line.price_subtotal
                     else:
                         if 'Sujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['Sujeta'] = {}
@@ -453,7 +457,7 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             -round(line['CuotaRepercutida'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'],2)                 
+                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
@@ -465,9 +469,9 @@ class AccountInvoice(models.Model):
         if len(taxes_to) > 0:
             for key, line in taxes_to.iteritems():
                 if self.type == 'out_refund' and self.refund_type == 'I':
-                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                     line['CuotaRepercutida'] = \
-                        -round(line['CuotaRepercutida'], 2)                      
+                        -round(line['CuotaRepercutida'], 2)
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -516,7 +520,7 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
@@ -530,7 +534,7 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'],2)
+                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
@@ -695,7 +699,7 @@ class AccountInvoice(models.Model):
         history = HistoryPlugin()
         client = Client(wsdl=wsdl, transport=transport, plugins=[history])
         return client
-    
+
     @api.multi
     def _connect_wsdl(self, wsdl, port_name):
         self.ensure_one()
@@ -707,16 +711,28 @@ class AccountInvoice(models.Model):
         return serv
 
     @api.multi
+    def _get_wsdl(self, key):
+        wsdl = self.env['ir.config_parameter'].get_param(key, False)
+        return wsdl
+
+    @api.multi
+    def _send_soap(self, wsdl, port_name, operation, param1, param2):
+        self.ensure_one()
+        serv = self._connect_wsdl(wsdl, port_name)
+        res = serv[operation](param1, param2)
+        return res
+
+    @api.multi
     def _send_invoice_to_sii(self):
         for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = self.env['ir.config_parameter'].get_param(
-                    'l10n_es_aeat_sii.wsdl_out', False)
+                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_out')
                 port_name = 'SuministroFactEmitidas'
+                operation = 'SuministroLRFacturasEmitidas'
             elif self.type in ['in_invoice', 'in_refund']:
-                wsdl = self.env['ir.config_parameter'].get_param(
-                    'l10n_es_aeat_sii.wsdl_in', False)
+                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_in')
                 port_name = 'SuministroFactRecibidas'
+                operation = 'SuministroLRFacturasRecibidas'
             if not invoice.sii_sent:
                 tipo_comunicacion = 'A0'
             else:
@@ -732,13 +748,8 @@ class AccountInvoice(models.Model):
                 new_cr.close()
                 raise
             try:
-                serv = invoice._connect_wsdl(wsdl, port_name)
-                if invoice.type in ['out_invoice', 'out_refund']:
-                    res = serv.SuministroLRFacturasEmitidas(
-                        header, invoices)
-                elif invoice.type in ['in_invoice', 'in_refund']:
-                    res = serv.SuministroLRFacturasRecibidas(
-                        header, invoices)
+                res = invoice._send_soap(
+                    wsdl, port_name, operation, header, invoices)
                 # TODO Facturas intracomunitarias 66 RIVA
                 # elif invoice.fiscal_position.id == self.env.ref(
                 #     'account.fp_intra').id:
@@ -771,16 +782,15 @@ class AccountInvoice(models.Model):
     def send_recc_payment_registry(self, move):
         for invoice in self:
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = self.env['ir.config_parameter'].get_param(
-                    'l10n_es_aeat_sii.wsdl_pr', False)
+                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_pr')
                 port_name = 'SuministroCobrosEmitidas'
+                operation = 'SuministroLRCobrosEmitidas'
                 importe = move.debit
             elif invoice.type in ['in_invoice', 'in_refund']:
-                wsdl = self.env['ir.config_parameter'].get_param(
-                    'l10n_es_aeat_sii.wsdl_ps', False)
+                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_ps')
                 port_name = 'SuministroPagosRecibidas'
+                operation = 'SuministroLRPagosRecibidas'
                 importe = move.credit
-            serv = invoice._connect_wsdl(wsdl, port_name)
             header = invoice._get_header(False)
             fecha = self._change_date_format(move.reconcile_id.create_date)
             pay = {
@@ -802,8 +812,6 @@ class AccountInvoice(models.Model):
                     payment['Cobros'] = {}
                     payment['Cobros']['Cobro'] = []
                     payment['Cobros']['Cobro'].append(pay)
-                    res = serv.SuministroLRCobrosEmitidas(
-                        header, payment)
                 elif invoice.type in ['in_invoice', 'in_refund']:
                     payment = {
                         "IDFactura": {
@@ -820,8 +828,8 @@ class AccountInvoice(models.Model):
                     payment['Pagos'] = {}
                     payment['Pagos']['Pago'] = []
                     payment['Pagos']['Pago'].append(pay)
-                    res = serv.SuministroLRPagosRecibidas(
-                        header, payment)
+                res = invoice._send_soap(
+                    wsdl, port_name, operation, header, payment)
                 if res['EstadoEnvio'] in ['Correcto', 'AceptadoConErrores']:
                     invoice.sii_recc_sent = True
                     invoice.sii_recc_csv = res['CSV']
@@ -912,13 +920,11 @@ class AccountInvoice(models.Model):
                     'date_done': date.today()})
         return super(AccountInvoice, self).action_cancel()
 
-
     @api.multi
     def _fix_country_code(self, dic_ret):
         if dic_ret['IDOtro']['CodigoPais'] == 'UK':
             dic_ret['IDOtro']['CodigoPais'] = 'GB'
         return dic_ret
-        
 
     @api.multi
     def _get_sii_identifier(self):
@@ -989,14 +995,14 @@ class AccountInvoice(models.Model):
         """ Request information to AEAT """
         for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = self.env['ir.config_parameter'].get_param(
-                    'l10n_es_aeat_sii.wsdl_out', False)
+                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_out')
                 port_name = 'SuministroFactEmitidas'
+                operation = 'ConsultaLRFacturasEmitidas'
                 number = invoice.number[0:60]
             elif self.type in ['in_invoice', 'in_refund']:
-                wsdl = self.env['ir.config_parameter'].get_param(
-                    'l10n_es_aeat_sii.wsdl_in', False)
+                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_in')
                 port_name = 'SuministroFactRecibidas'
+                operation = 'ConsultaLRFacturasRecibidas'
                 number = invoice.supplier_invoice_number and \
                     invoice.supplier_invoice_number[0:60]
             header = invoice._get_header(False)
@@ -1006,7 +1012,6 @@ class AccountInvoice(models.Model):
                 invoice.period_id.date_start).month
             invoice_date = self._change_date_format(invoice.date_invoice)
             try:
-                serv = invoice._connect_wsdl(wsdl, port_name)
                 query = {
                     "PeriodoImpositivo": {
                         "Ejercicio": ejercicio,
@@ -1017,12 +1022,8 @@ class AccountInvoice(models.Model):
                         "FechaExpedicionFacturaEmisor": invoice_date
                     }
                 }
-                if invoice.type in ['out_invoice', 'out_refund']:
-                    res = serv.ConsultaLRFacturasEmitidas(
-                        header, query)
-                elif invoice.type in ['in_invoice', 'in_refund']:
-                    res = serv.ConsultaLRFacturasRecibidas(
-                        header, query)
+                res = invoice._send_soap(
+                    wsdl, port_name, operation, header, query)
                 self.env['aeat.check.sii.result'].create_result(
                     invoice, res, False, 'account.invoice')
             except Exception as fault:
@@ -1038,12 +1039,14 @@ def confirm_one_invoice(session, model_name, invoice_id):
     invoice._send_invoice_to_sii()
     session.cr.commit()
 
+
 @job(default_channel='root.invoice_recc_payment_sii')
 def send_recc_payment_job(session, model_name, move_id):
     model = session.env[model_name]
     move = model.browse(move_id)
     if move.exists() and move.invoice:
         move.invoice.send_recc_payment_registry(move)
+
 
 @job(default_channel='root.invoice_check_sii')
 def check_one_invoice(session, model_name, invoice_id):
@@ -1052,4 +1055,3 @@ def check_one_invoice(session, model_name, invoice_id):
 
     invoice._check_invoice()
     session.cr.commit()
-

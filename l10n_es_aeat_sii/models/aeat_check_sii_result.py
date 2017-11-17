@@ -5,13 +5,13 @@
 from openerp import _, api, fields, models
 import openerp.addons.decimal_precision as dp
 import datetime
-    
+
 
 class AeatCheckSiiResult(models.Model):
     _name = 'aeat.check.sii.result'
 
-    RESULTS = [('ConDatos','Con datos'),
-               ('SinDatos','Sin datos')]
+    RESULTS = [('ConDatos', 'Con datos'),
+               ('SinDatos', 'Sin datos')]
 
     RECONCILE = [('1', 'No contrastable'),
                  ('2', 'En proceso de contraste'),
@@ -67,7 +67,6 @@ class AeatCheckSiiResult(models.Model):
                 key = 'DatosFacturaRecibida'
                 key_type = 'purchase'
         return data, key, key_type
-            
 
     def _prepare_vals(self, model_id, res, fault, model):
         vals = {
@@ -97,7 +96,8 @@ class AeatCheckSiiResult(models.Model):
             vals['invoice_type'] = data[key]['TipoFactura']
             vals['refund_type'] = data[key]['TipoRectificativa']
             registration_key = key_obj.search(
-                [('code', '=', data[key]['ClaveRegimenEspecialOTrascendencia']),
+                [('code', '=', data[key][
+                    'ClaveRegimenEspecialOTrascendencia']),
                  ('type', '=', key_type)]
             )
             vals['registration_key'] = registration_key.id
@@ -138,5 +138,4 @@ class AeatCheckSiiResult(models.Model):
 
     def create_result(self, model_id, res, fault, model):
         vals = self._prepare_vals(model_id, res, fault, model)
-        
         self.create(vals)

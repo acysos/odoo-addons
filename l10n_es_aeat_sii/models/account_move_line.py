@@ -22,4 +22,3 @@ class AccountMoveLine(models.Model):
                         move.invoice.registration_key.code == '07':
                     move.invoice.send_recc_payment(move)
         return res
-        

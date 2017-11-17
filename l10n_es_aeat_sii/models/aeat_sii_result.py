@@ -9,9 +9,9 @@ import datetime
 class AeatSiiResult(models.Model):
     _name = 'aeat.sii.result'
 
-    TYPE = [('normal','Normal'),
-            ('recc','RECC')]
-    
+    TYPE = [('normal', 'Normal'),
+            ('recc', 'RECC')]
+
     csv = fields.Char(string='CSV')
     vat_presenter = fields.Char(string='Vat Presenter')
     timestamp_presentation = fields.Datetime(string='Timestamp Presentation')
@@ -33,13 +33,13 @@ class AeatSiiResult(models.Model):
     registry_error_description = fields.Char(
         string='Registry Error Description')
     registry_csv = fields.Char(string='CSV')
-    type = fields.Selection(TYPE, 'Type')
+    inv_type = fields.Selection(TYPE, 'Type')
     invoice_id = fields.Many2one(comodel_name='account.invoice',
                                  string='Invoice')
 
     _order = 'id desc'
 
-    def _prepare_vals(self, model_id, res, type, fault, model):
+    def _prepare_vals(self, model_id, res, inv_type, fault, model):
         vals = {
             'csv': False,
             'vat_presenter': False,
@@ -61,7 +61,7 @@ class AeatSiiResult(models.Model):
             'registry_error_code': False,
             'registry_error_description': False,
             'registry_csv': False,
-            'type': type,
+            'inv_type': inv_type,
         }
         if model == 'account.invoice':
             vals['invoice_id'] = model_id.id
@@ -72,7 +72,8 @@ class AeatSiiResult(models.Model):
                 vals['csv'] = res['CSV']
             if 'DatosPresentacion' in res and res['DatosPresentacion']:
                 if 'NIFPresentador' in res['DatosPresentacion']:
-                    vals['vat_presenter'] = res['DatosPresentacion']['NIFPresentador']
+                    vals['vat_presenter'] = res[
+                        'DatosPresentacion']['NIFPresentador']
                 if 'TimestampPresentacion' in res['DatosPresentacion']:
                     date = datetime.datetime.strptime(
                         res['DatosPresentacion']['TimestampPresentacion'],
@@ -85,7 +86,8 @@ class AeatSiiResult(models.Model):
                     vals['id_version_sii'] = res['Cabecera']['IDVersionSii']
                 if 'Titular' in res['Cabecera']:
                     if 'NombreRazon' in res['Cabecera']['Titular']:
-                        vals['name'] = res['Cabecera']['Titular']['NombreRazon']
+                        vals['name'] = res['Cabecera']['Titular'][
+                            'NombreRazon']
                     if 'NIFRepresentante' in res['Cabecera']['Titular']:
                         vals['vat_agent'] = res['Cabecera']['Titular'][
                             'NIFRepresentante']
@@ -108,7 +110,8 @@ class AeatSiiResult(models.Model):
                                 if 'CodigoPais' in reply['IDFactura'][
                                         'IDEmisorFactura']['IDOtro']:
                                     vals['country_code'] = reply['IDFactura'][
-                                        'IDEmisorFactura']['IDOtro']['CodigoPais']
+                                        'IDEmisorFactura']['IDOtro'][
+                                            'CodigoPais']
                                 if 'IDType' in reply['IDFactura'][
                                         'IDEmisorFactura']['IDOtro']:
                                     vals['type_id'] = reply['IDFactura'][
@@ -122,7 +125,8 @@ class AeatSiiResult(models.Model):
                             reply['IDFactura']['NumSerieFacturaEmisor']
                     if 'NumSerieFacturaEmisorResumenFin' in reply['IDFactura']:
                         vals['serial_number_resume'] = \
-                            reply['IDFactura']['NumSerieFacturaEmisorResumenFin']
+                            reply['IDFactura'][
+                                'NumSerieFacturaEmisorResumenFin']
                     if 'FechaExpedicionFacturaEmisor' in reply['IDFactura']:
                         date = datetime.datetime.strptime(
                             reply['IDFactura']['FechaExpedicionFacturaEmisor'],
@@ -141,7 +145,6 @@ class AeatSiiResult(models.Model):
                     vals['registry_csv'] = reply['CSV']
         return vals
 
-    def create_result(self, model_id, res, type, fault, model):
-        vals = self._prepare_vals(model_id, res, type, fault, model)
+    def create_result(self, model_id, res, inv_type, fault, model):
+        vals = self._prepare_vals(model_id, res, inv_type, fault, model)
         self.create(vals)
-
