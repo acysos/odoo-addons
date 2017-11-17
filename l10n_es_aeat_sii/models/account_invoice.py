@@ -719,12 +719,17 @@ class AccountInvoice(models.Model):
         return client
 
     @api.multi
+    def _get_test_mode(self, port_name):
+        self.ensure_one()
+        if self.company_id.sii_test:
+            port_name += 'Pruebas'
+        return port_name
+
+    @api.multi
     def _connect_wsdl(self, wsdl, port_name):
         self.ensure_one()
-        company = self.company_id
         client = self._connect_sii(wsdl)
-        if company.sii_test:
-            port_name += 'Pruebas'
+        port_name = self._get_test_mode(port_name)
         serv = client.bind('siiService', port_name)
         return serv
 
