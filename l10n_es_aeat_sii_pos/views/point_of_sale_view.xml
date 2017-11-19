@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_pos_pos_sii_form">
+            <field name="name">pos.order.sii</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+            <field name="arch" type="xml">
+                <button name="refund" position="after">
+                    <button type="object" string="Send SII"
+                            name="send_sii" groups="l10n_es_aeat.group_account_aeat"
+                            states="open,paid" />
+                    <button type="object" string="Check SII"
+                            name="check_sii" groups="l10n_es_aeat.group_account_aeat"
+                            states="open,paid" attrs="{'invisible': [('sii_sent', '=', False)]}" />
+                </button>
+                <notebook position="inside">
+                    <page string="SII" groups="account.group_account_manager" attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                        <group string="SII Information">
+                            <field name="sii_description"/>
+                            <field name="sii_enabled" invisible="1"/>
+                        </group>
+                        <group string="SII Result">
+                            <field name="sii_sent" />
+                            <field name="sii_csv"/>
+                            <label for="sii_results" colspan="4"/>
+                            <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+
+                        <group string="SII Verification">
+                            <field name="sii_reconcile_state"/>
+                            <label for="sii_check_results" colspan="4"/>
+                            <field name="sii_check_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+
+                        <group string="Invoice Jobs">
+                            <field name="simplified_jobs_ids" nolabel="1"
+                                   readonly="1">
+                                <tree>
+                                    <field name="date_created"/>
+                                    <field name="date_done"/>
+                                    <field name="state"/>
+                                    <button type="object"
+                                            name="requeue"
+                                            string="Requeue"
+                                            class="oe_highlight"
+                                            attrs="{'invisible': [('state', '!=', 'failed')]}"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="view_pos_order_sii_filter" model="ir.ui.view">
+            <field name="name">pos.order.list.select.sii</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_filter" />
+            <field name="arch" type="xml">
+                <field name="user_id" positon="before">
+                    <filter name="sii_not_sent" string="SII not send"
+                            domain="[('sii_sent','=',False)]" />
+                    <filter name="sii_sent" string="SII send"
+                            domain="[('sii_sent','=',True)]"/>
+                    <filter name="sii_send_state" string="SII failed"
+                            domain="[('sii_send_error','!=',False)]"/>
+                </field>
+                <xpath expr="//group" position="inside">
+                    <separator/>
+                    <filter string="SII error"
+                        domain="[('sii_send_error','!=',False)]"
+                        context="{'group_by':'sii_send_error'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_send_sii_simplified" model="ir.actions.server">
+            <field name="name">Send Simplified SII</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="point_of_sale.model_pos_order" />
+            <field name="code">self.send_sii(cr, uid, context.get('active_ids', []), context)</field>
+        </record>
+
+        <record id="action_send_sii_simplified_value" model="ir.values">
+            <field name="name">Send Simplified SII</field>
+            <field name="key">action</field>
+            <field name="key2">client_action_multi</field>
+            <field name="model">pos.order</field>
+            <field name="value"
+                   eval="'ir.actions.server,%d' % ref('l10n_es_aeat_sii_pos.action_send_sii_simplified')" />
+        </record>
+
+        <record id="action_check_sii_simplified" model="ir.actions.server">
+            <field name="name">Check Simplified SII</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="point_of_sale.model_pos_order" />
+            <field name="code">self.check_sii(cr, uid, context.get('active_ids', []), context)</field>
+        </record>
+
+        <record id="action_check_sii_simplified_value" model="ir.values">
+            <field name="name">Check Simplified SII</field>
+            <field name="key">action</field>
+            <field name="key2">client_action_multi</field>
+            <field name="model">pos.order</field>
+            <field name="value"
+                   eval="'ir.actions.server,%d' % ref('l10n_es_aeat_sii_pos.action_check_sii_simplified')" />
+        </record>
+
+    </data>
+</openerp>
