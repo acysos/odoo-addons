@@ -23,9 +23,8 @@
 
 
 {
-    # Theme information
     'name': "Real Estate Website",
-    'category': 'Theme',
+    'category': 'Specific Industry Applications',
     'version': '1.0',
     'depends': ['base',
                 'website',
@@ -36,7 +35,6 @@
                 'base_multi_image',
                 ],
 
-    # templates, pages, and snippets
     'data': [
         'views/featured_tops.xml',
         'views/top_view.xml',
@@ -48,7 +46,6 @@
         'views/company_view.xml'
    ],
 
-    # Your information
     'application':True,
     'author': "Acysos S.L.",
     'website': "www.acysos.com",
