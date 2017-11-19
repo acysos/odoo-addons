@@ -20,7 +20,7 @@ Para instalar esté módulo necesita:
 
 Módulos necesario:
 * l10n_es_aeat_sii: https://www.odoo.com/apps/modules/10.0/l10n_es_aeat_sii/
-* l10n_es_pos: https://www.odoo.com/apps/modules/10.0/l10n_es_pos/
+* l10n_es_pos: https://github.com/acysos/odoo-addons/tree/10.0
 
 
 Usage

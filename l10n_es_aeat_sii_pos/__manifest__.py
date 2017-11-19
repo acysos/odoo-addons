@@ -17,7 +17,7 @@
     "depends": [
         "l10n_es",
         "l10n_es_aeat_sii",
-        "l10n_es_pos"
+#         "l10n_es_pos"
     ],
     "data": [
         'views/point_of_sale_view.xml'
