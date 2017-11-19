@@ -2,9 +2,9 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
-from openerp import models, fields, api
+from openerp import models, exceptions, fields, api, _
 from openerp.modules.registry import RegistryManager
-from datetime import datetime, date
+from datetime import datetime
 from requests import Session
 
 _logger = logging.getLogger(__name__)
@@ -168,7 +168,7 @@ class PosOrder(models.Model):
     @api.multi
     def _update_sii_tax_line(self, tax_sii, tax_line, line, line_taxes):
         self.ensure_one()
-        tax_type = tax_type = tax_line.amount * 100
+        tax_type = tax_line.amount * 100
         taxes = tax_line.compute_all(
             self._get_line_price_subtotal(line),
             line.qty, line.product_id, line.order_id.partner_id)
@@ -194,7 +194,7 @@ class PosOrder(models.Model):
                     inv_breakdown = taxes_sii['DesgloseFactura']
                     if 'Sujeta' not in inv_breakdown:
                         inv_breakdown['Sujeta'] = {}
-                    
+
                     if tax_line in taxes_sfesb:
                         if 'NoExenta' not in inv_breakdown[
                                 'Sujeta']:
@@ -268,12 +268,11 @@ class PosOrder(models.Model):
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.iteritems():                     
+            for key, line in taxes_to.iteritems():
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
         return taxes_sii
-
 
     @api.multi
     def _get_simplified(self):
@@ -314,7 +313,7 @@ class PosOrder(models.Model):
                 "ImporteTotal": importe_total
             }
         }
-        
+
         if self.partner_id:
             orders['FacturaExpedida']['Contraparte'] = {
                 "NombreRazon": self.partner_id.name[0:120]
@@ -358,7 +357,7 @@ class PosOrder(models.Model):
         history = HistoryPlugin()
         client = Client(wsdl=wsdl, transport=transport, plugins=[history])
         return client
-    
+
     @api.multi
     def _connect_wsdl(self, wsdl, port_name):
         self.ensure_one()
@@ -471,7 +470,7 @@ class PosOrder(models.Model):
                     order, res, False, 'pos.order')
             except Exception as fault:
                 self.env['aeat.check.sii.result'].create_result(
-                    invoice, False, fault, 'account.invoice')
+                    order, False, fault, 'account.invoice')
 
     @api.multi
     def check_sii(self):
@@ -491,6 +490,7 @@ class PosOrder(models.Model):
                     ], limit=1)
                     order.simplified_jobs_ids |= queue_ids
 
+
 @job(default_channel='root.simplified_validate_sii')
 def confirm_one_simplified(session, model_name, order_id):
     model = session.env[model_name]
@@ -498,6 +498,7 @@ def confirm_one_simplified(session, model_name, order_id):
 
     order._send_simplified_to_sii()
     session.cr.commit()
+
 
 @job(default_channel='root.invoice_check_sii')
 def check_one_simplified(session, model_name, order_id):
