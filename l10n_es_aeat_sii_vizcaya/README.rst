@@ -7,10 +7,11 @@ Suministro Inmediato de Información en el IVA - Pais Vasco - Vizcaya/Bizkaia
 ============================================================================
 
 Módulo para la presentación inmediata del IVA, extensión para la provincia 
-de Guipúzcoa/Gizpuzkoa en el País Vasco.
+de Vizcaya/Bizkaia en el País Vasco.
+
 http://www.bizkaia.eus/home2/Temas/DetalleTema.asp?Tem_Codigo=10617&idioma=CA&dpto_biz=5&codpath_biz=5|10616|10617
 
-AVISO: No disponen aún de entorno de pruebas
+*AVISO*: No disponen aún de entorno de pruebas
 
 Installation
 ============
@@ -35,7 +36,7 @@ Foral de Vizcaya/Bizkaia
 Known issues / Roadmap
 ======================
 
-* Ninguna
+* No disponen aún de entorno de pruebas
 
 Credits
 =======

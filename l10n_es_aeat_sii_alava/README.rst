@@ -8,7 +8,10 @@ Suministro Inmediato de Información en el IVA - Pais Vasco - Álava/Araba
 
 Módulo para la presentación inmediata del IVA, extensión para la provincia 
 de Álava/Araba en el País Vasco.
+
 http://www.araba.eus/cs/Satellite?c=Page&cid=1224025371656&language=es_ES&pagename=DiputacionAlava%2FPage%2FDPA_B_contenidoFinal
+
+*AVISO*: el entorno de pruebas estará activo a finales de Noviembre
 
 Installation
 ============
@@ -33,7 +36,7 @@ Foral de Álava/Araba
 Known issues / Roadmap
 ======================
 
-* Ninguna
+* Realizar pruebas en el entorno de pruebas, activo a finales de Noviembre
 
 Credits
 =======
