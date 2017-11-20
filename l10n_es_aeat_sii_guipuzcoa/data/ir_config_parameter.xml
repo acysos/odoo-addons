@@ -40,7 +40,7 @@
         </record>
         <record id="config_parameter_sii_url_soap_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.url_soap.20</field>
-            <field name="value">https://prep9.gipuzkoa.eus/JBS/HACI/SSIIFACT/ws/fe/SiiFactFEV1SOAP</field>
+            <field name="value">https://prep9.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fe/SiiFactFEV1SOAP</field>
             <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
         </record>
     </data>
