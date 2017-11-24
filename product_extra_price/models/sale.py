@@ -1,59 +1,43 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (c) 2015 Acysos S.L. (http://acysos.com) All Rights Reserved.
-#                       Ignacio Ibeas <ignacio@acysos.com>
-#    $Id$
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
-from openerp import models, fields, api
-from openerp.tools.translate import _
+# -*- coding: utf-8 -*-
+# Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+# Copyright 2017 Alexander Ezquebo <alexander@acysos.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 import openerp.addons.decimal_precision as dp
 
-class sale_order_line(models.Model):
+
+class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     extra_parent_line_id = fields.Many2one(
         comodel_name='sale.order.line', string='Extra Price',
         help='The line that contain the product with the extra price')
     extra_child_line_id = fields.Many2one(comodel_name='sale.order.line',
-                                          string='Line extra price', help='')
+                                          string='Line extra price', help='',
+                                          copy=False)
+    total_extra_price = fields.Float(string="Total extra price",
+                                     digits=dp.get_precision('Product Price'))
 
-    def button_cancel(self, cr, uid, ids, context=None):
-        lines = self.browse(cr, uid, ids, context=context)
-        for line in lines:
+    @api.multi
+    def button_cancel(self):
+        for line in self:
             if not line.extra_parent_line_id and line.invoiced:
                 raise Warning(_('Invalid Action!'),
                               _('You cannot cancel a sales order line'
                                 ' that has already been invoiced.'))
-        procurement_obj = self.pool['procurement.order']
-        procurement_obj.cancel(
-            cr, uid, sum([l.procurement_ids.ids for l in lines], []),
-            context=context)
-        return self.write(cr, uid, ids, {'state': 'cancel'})
+        procurement_obj = self.env['procurement.order']
+        procurement_obj.cancel(sum([l.procurement_ids.ids for l in self], []))
+        return self.write({'state': 'cancel'})
 
     @api.multi
     def unlink(self):
         for res in self:
             if res.extra_child_line_id:
                 res.extra_child_line_id.unlink()
-            return super(sale_order_line, self).unlink()
+            if res.extra_parent_line_id:
+                res.extra_parent_line_id.extra_child_line_id = False
+            return super(SaleOrderLine, self).unlink()
 
     @api.multi
     def update_child(self, line, vals):
@@ -65,41 +49,76 @@ class sale_order_line(models.Model):
     def write(self, vals):
         for res in self:
             self.update_child(res, vals)
-            return super(sale_order_line, self).write(vals)
+            return super(SaleOrderLine, self).write(vals)
 
 
-class sale_order(models.Model):
+class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    def create(self, cr, uid, vals, context=None):
-        result = super(sale_order,self).create(cr, uid, vals, context)
-        self.expand_extra_prices(cr, uid, [result], context)
+    @api.multi
+    def _get_total_extra(self):
+        for order in self:
+            for line in order.order_line:
+                order.total_extra_price += line.total_extra_price
+
+    total_extra_price = fields.Float(
+        string="Total extra price",
+        digits=dp.get_precision('Product Price'),
+        compute=_get_total_extra)
+
+    @api.one
+    def copy(self, default=None):
+        res = super(SaleOrder, self).copy(default)
+        for line in res.order_line:
+            if line.extra_parent_line_id:
+                line_in = self.env['sale.order.line'].search(
+                    [('extra_child_line_id', '=', line.id),
+                     ('order_id', '=', res.id)])
+                if not line_in:
+                    line.unlink()
+        return res
+
+    @api.model
+    def create(self, vals):
+        result = super(SaleOrder, self).create(vals)
+        result.expand_extra_prices()
         return result
 
-    def write(self, cr, uid, ids, vals, context=None):
-        result = super(sale_order,self).write(cr, uid, ids, vals, context)
-        self.expand_extra_prices(cr, uid, ids, context)
+    @api.multi
+    def write(self, vals):
+        result = super(SaleOrder, self).write(vals)
+        self.expand_extra_prices()
         return result
-    
+
     def prepare_expand_extra_price_vals(self, line, order, sequence, tax_ids):
+        dis_policy = line.product_id.discount_policy
+        if dis_policy == 'same':
+            discount = line.discount
+        elif dis_policy == 'only' and line.discount == 100.00:
+            discount = 100.00
+        else:
+            discount = 0
+        if line.product_id.extra_price != 0:
+            price_unit = line.product_id.extra_price
+        else:
+            price_unit = line.product_id.product_id_extra.list_price
         vals = {
                     'order_id': order.id,
                     'name': '-- '+line.product_id.name_extra_price or ' ',
                     'sequence': sequence,
                     'delay': line.product_id.sale_delay or 0.0,
                     'route_id': line.route_id and line.route_id.id or False,
-                    'price_unit': line.product_id.extra_price,
-                    'tax_id': [(6,0,tax_ids)],
-                    #'type': line.product_id.procure_method,
-                    'property_ids': [(6,0,[])],
+                    'price_unit': price_unit,
+                    'tax_id': [(6, 0, tax_ids.ids)],
+                    'property_ids': [(6, 0, [])],
                     'address_allotment_id': False,
                     'product_uom_qty': line.product_uom_qty,
                     'product_uom': line.product_id.uom_id.id,
                     'product_uos_qty': line.product_uos_qty,
                     'product_uos': line.product_uos.id,
                     'product_packaging': False,
-                    'move_ids': [(6,0,[])],
-                    'discount': line.discount,
+                    'move_ids': [(6, 0, [])],
+                    'discount': discount,
                     'invoiced': True,
                     'number_packages': False,
                     'notes': False,
@@ -110,20 +129,20 @@ class sale_order(models.Model):
                 }
         return vals
 
-    def expand_extra_prices(self, cr, uid, ids, context={}):
-        if type(ids) in [int, long]:
-            ids = [ids]
+    @api.multi
+    def expand_extra_prices(self):
         updated_orders = []
-        for order in self.browse(cr, uid, ids, context):
-            fiscal_position = order.fiscal_position and self.pool.get('account.fiscal.position').browse(cr, uid, order.fiscal_position.id, context) or False
+        order_line_obj = self.env['sale.order.line']
+        fiscalp_obj = self.env['account.fiscal.position']
+        for order in self:
+            fiscal_position = order.fiscal_position and fiscalp_obj.browse(
+                    order.fiscal_position.id) or False
             sequence = -1
             reorder = []
             for line in order.order_line:
                 sequence += 1
                 if sequence > line.sequence:
-                    self.pool.get('sale.order.line').write(cr, uid, [line.id], {
-                        'sequence': sequence,
-                    }, context)
+                    line.sequence = sequence
                 else:
                     sequence = line.sequence
                 if line.state != 'draft':
@@ -135,18 +154,18 @@ class sale_order(models.Model):
                 if line.extra_child_line_id:
                     continue
                 sequence += 1
-                tax_ids = self.pool.get('account.fiscal.position').map_tax(cr, uid, fiscal_position, line.product_id.product_id_extra.taxes_id)
+                tax_ids = fiscal_position.map_tax(
+                    line.product_id.product_id_extra.taxes_id)
                 vals = self.prepare_expand_extra_price_vals(
                     line, order, sequence, tax_ids)
 
-                extra_line = self.pool.get('sale.order.line').create(cr, uid, vals, context)
-                if not order.id in updated_orders:
-                    updated_orders.append( order.id )
-
-                self.pool.get('sale.order.line').write(cr,uid,[line.id],{'extra_child_line_id':extra_line})
-                for id in reorder:
+                extra_line = order_line_obj.create(vals)
+                if order.id not in updated_orders:
+                    updated_orders.append(order.id)
+                line.extra_child_line_id = extra_line.id
+                line.total_extra_price = extra_line.price_subtotal
+                if order.company_id.price_extra_included_sale:
+                    extra_line.unlink()
+                for line_id in reorder:
+                    line_id.sequence = sequence
                     sequence += 1
-                    self.pool.get('sale.order.line').write(cr, uid, [id], {
-                        'sequence': sequence,
-                    }, context)
-        return

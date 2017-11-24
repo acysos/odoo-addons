@@ -40,7 +40,7 @@ msgstr "Precio extra a mostrar en la factura como una linea"
 #. module: product_extra_price
 #: selection:product.template,discount_policy:0
 msgid "Independect"
-msgstr "Indepenciente"
+msgstr "Independiente"
 
 #. module: product_extra_price
 #: model:ir.model,name:product_extra_price.model_account_invoice

@@ -1,58 +1,65 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (c) 2015 Acysos S.L. (http://acysos.com) All Rights Reserved.
-#                       Ignacio Ibeas <ignacio@acysos.com>
-#    $Id$
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#############################################################################
-
-import itertools
-from lxml import etree
+# -*- coding: utf-8 -*-
+# Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+# Copyright 2017 Alexander Ezquebo <alexander@acysos.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from openerp import models, fields, api, _
 import openerp.addons.decimal_precision as dp
 
-from openerp.osv import fields, osv, orm
-from openerp.tools.translate import _
 
-class account_invoice_line(osv.osv):
+class AccountInvoiceLine(models.Model):
     _inherit = 'account.invoice.line'
-    _columns = {
-        'extra_parent_line_id': fields.many2one('account.invoice.line', 'Extra Price', help='The line that contain the product with the extra price'),
-        'extra_child_line_id': fields.many2one('account.invoice.line', 'Line extra price', help=''),
-        'sequence': fields.integer('Sequence', help="Gives the sequence order when displaying a list of invoice lines."),
-    }
-    
-    _order = 'sequence, id desc'
-    
-    _defaults = {
-        'sequence': 10,
-    }
+    extra_parent_line_id = fields.Many2one(
+        comodel_name='account.invoice.line', string='Extra Price',
+        help='The line that contain the product with the extra price')
+    extra_child_line_id = fields.Many2one(
+        comodel_name='account.invoice.line', string='Line extra price',
+        help='', copy=False)
+    sequence = fields.Integer(
+        string='Sequence', default=100,
+        help="Gives the sequence order when displaying a list of invoice "
+        "lines.")
+    total_extra_price = fields.Float(string="Total extra price",
+                                     digits=dp.get_precision('Account'))
 
-class account_invoice(osv.osv):
+    _order = 'sequence, id desc'
+
+
+class AccountInvoice(models.Model):
     _inherit = "account.invoice"
-    
-    def create(self, cr, uid, vals, context=None):
-        res = super(account_invoice, self).create(cr, uid, vals, context)
-        self.expand_extra_prices(cr, uid, [res], context)
+
+    @api.multi
+    def _get_total_extra(self):
+        for invoice in self:
+            for line in invoice.invoice_line:
+                invoice.total_extra_price += line.total_extra_price
+
+    total_extra_price = fields.Float(
+        string="Total extra price",
+        digits=dp.get_precision('Account'),
+        compute=_get_total_extra)
+
+    @api.one
+    def copy(self, default=None):
+        res = super(AccountInvoice, self).copy(default)
+        for line in res.invoice_line:
+            if line.extra_parent_line_id:
+                line_in = self.env['account.invoice.line'].search(
+                    [('extra_child_line_id', '=', line.id),
+                     ('invoice_id', '=', res.id)])
+                if not line_in:
+                    line.unlink()
         return res
-    
-    def write(self, cr, uid, ids, vals, context=None):
-        res = super(account_invoice,self).write(cr, uid, ids, vals, context)
-        self.expand_extra_prices(cr, uid, ids, context)
+
+    @api.model
+    def create(self, vals):
+        result = super(AccountInvoice, self).create(vals)
+        result.expand_extra_prices()
+        return result
+
+    @api.multi
+    def write(self, vals):
+        res = super(AccountInvoice, self).write(vals)
+        self.expand_extra_prices()
         return res
 
     def prepare_extra_invoice_vals(self, line, sequence, tax_ids):
@@ -63,15 +70,19 @@ class account_invoice(osv.osv):
             discount = 100.00
         else:
             discount = 0
+        if line.product_id.extra_price != 0:
+            price_unit = line.product_id.extra_price
+        else:
+            price_unit = line.product_id.product_id_extra.list_price
         vals = {'name': '-- '+(line.product_id.name_extra_price or ''),
                 'origin': line.origin,
                 'invoice_id': line.invoice_id.id,
                 'uos_id': line.uos_id.id,
                 'account_id': line.account_id.id,
-                'price_unit': line.product_id.extra_price,
+                'price_unit': price_unit,
                 'quantity': line.quantity,
                 'discount': discount,
-                'invoice_line_tax_id': [(6, 0, tax_ids)],
+                'invoice_line_tax_id': tax_ids,
                 'account_analytic_id': line.account_analytic_id.id or None,
                 'company_id': line.company_id.id,
                 'partner_id': line.partner_id.id,
@@ -80,27 +91,24 @@ class account_invoice(osv.osv):
                 'product_id': line.product_id.product_id_extra.id or None,
                 }
         return vals
-    
-    def expand_extra_prices(self, cr, uid, ids, context={}):
-        if type(ids) in [int, long]:
-            ids = [ids]
+
+    def expand_extra_prices(self):
         updated_invoices = []
-        for invoice in self.browse(cr, uid, ids, context):
-            fiscal_position = invoice.fiscal_position and self.pool.get('account.fiscal.position').browse(cr, uid, invoice.fiscal_position.id, context) or False
+        inv_line_obj = self.env['account.invoice.line']
+        fiscalp_obj = self.env['account.fiscal.position']
+        for invoice in self:
+            fiscal_position = invoice.fiscal_position and fiscalp_obj.browse(
+                    invoice.fiscal_position.id) or False
             sequence = -1
             reorder = []
-            if invoice.type not in ['out_invoice','out_refund']:
+            if invoice.type not in ['out_invoice', 'out_refund']:
                 continue
             for line in invoice.invoice_line:
                 sequence += 1
                 if sequence > line.sequence:
-                    self.pool.get('account.invoice.line').write(cr, uid, [line.id], {
-                        'sequence': sequence,
-                    }, context)
+                    line.sequence = sequence
                 else:
                     sequence = line.sequence
-                #if line.state != 'draft':
-                    #continue
                 if not line.product_id:
                     continue
                 if line.product_id.extra_price == 0:
@@ -108,45 +116,53 @@ class account_invoice(osv.osv):
                 if line.extra_child_line_id:
                     continue
                 sequence += 1
-                tax_ids = self.pool.get('account.fiscal.position').map_tax(cr, uid, fiscal_position, line.product_id.taxes_id)
+                tax_ids = fiscal_position.map_tax(
+                    line.product_id.product_id_extra.taxes_id)
                 vals = self.prepare_extra_invoice_vals(line, sequence, tax_ids)
-                extra_line = self.pool.get('account.invoice.line').create(cr, uid, vals, context)
-                if not invoice.id in updated_invoices:
+                extra_line = inv_line_obj.create(vals)
+                if invoice.id not in updated_invoices:
                     updated_invoices.append(invoice.id)
-                self.pool.get('account.invoice.line').write(cr,uid,[line.id],{'extra_child_line_id':extra_line})
-                for id in reorder:
+                line.extra_child_line_id = extra_line.id
+                line.total_extra_price = extra_line.price_subtotal
+                if invoice.company_id.price_extra_included_sale:
+                    extra_line.unlink()
+                for line_id in reorder:
+                    line_id.sequence = sequence
                     sequence += 1
-                    self.pool.get('account.invoice.line').write(cr, uid, [id], {
-                        'sequence': sequence,
-                    }, context)
-            if context is None:
-                context = {}
-            ctx = context.copy()
-            ait_obj = self.pool.get('account.invoice.tax')
-            for id in ids:
-                cr.execute("DELETE FROM account_invoice_tax WHERE invoice_id=%s AND manual is False", (id,))
-                partner = self.browse(cr, uid, id, context=ctx).partner_id
+
+            account_invoice_tax = self.env['account.invoice.tax']
+            ctx = dict(self._context)
+            for invoice in self:
+                self._cr.execute(
+                    "DELETE FROM account_invoice_tax WHERE invoice_id"
+                    "=%s AND manual is False", (invoice.id,))
+                self.invalidate_cache()
+                partner = invoice.partner_id
                 if partner.lang:
-                    ctx.update({'lang': partner.lang})
-                for taxe in ait_obj.compute(cr, uid, id, context=ctx).values():
-                    ait_obj.create(cr, uid, taxe)
-        return
-    
-    def _refund_cleanup_lines(self, cr, uid, lines):
+                    ctx['lang'] = partner.lang
+                for taxe in account_invoice_tax.compute(
+                        invoice.with_context(ctx)).values():
+                    account_invoice_tax.create(taxe)
+
+    def _refund_cleanup_lines(self, lines):
         lines2 = []
         for line in lines:
-            if line.has_key('extra_parent_line_id') and line.has_key('extra_child_line_id'):
-                if line['extra_parent_line_id'] == False and line['extra_child_line_id'] == False:
+            if 'extra_parent_line_id' in line and \
+                    'extra_child_line_id' in line:
+                if not line['extra_parent_line_id'] and not line[
+                        'extra_child_line_id']:
                     lines2.append(line)
             else:
                 lines2.append(line)
-        
+
         for line in lines2:
             del line['id']
             del line['invoice_id']
-            for field in ('company_id', 'partner_id', 'account_id', 'product_id',
-                        'uos_id', 'account_analytic_id', 'tax_code_id', 'base_code_id'):
+            for field in ('company_id', 'partner_id', 'account_id',
+                          'product_id', 'uos_id', 'account_analytic_id',
+                          'tax_code_id', 'base_code_id'):
                 line[field] = line.get(field, False) and line[field][0]
             if 'invoice_line_tax_id' in line:
-                line['invoice_line_tax_id'] = [(6,0, line.get('invoice_line_tax_id', [])) ]
-        return map(lambda x: (0,0,x), lines2)
+                line['invoice_line_tax_id'] = [(6, 0, line.get(
+                    'invoice_line_tax_id', []))]
+        return map(lambda x: (0, 0, x), lines2)

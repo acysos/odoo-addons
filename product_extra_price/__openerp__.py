@@ -22,26 +22,27 @@
 ##############################################################################
 
 {
-    "name" : "Product Extra Price",
-    "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "website" : "www.acysos.com",
+    "name": "Product Extra Price",
+    "version": "8.1",
+    "author": "Acysos S.L.",
+    "website": "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
-    "description": """Allow to add a second price to the product. 
-        This is usefull for company that have a extra variable price and 
-        need to show it in the invoice.
-    
-        Example of a invoice line:
-            Description         Quantity        Unit Price      Subtotal
-            Product Name               2           50,00 €      100,00 €
-                Extra Price              2            2,53 €        5,06 €
-                                                    Total Invoice   105,06 €
+    "description": """Allow to add a second price to the product. This is
+        usefull for company that have a extra variable price and need to show
+        it in the invoice.
+
+    Example of a invoice line:
+        Description         Quantity        Unit Price      Subtotal
+        Product Name               2           50,00 €      100,00 €
+            Extra Price              2            2,53 €        5,06 €
+                                                Total Invoice   105,06 €
     """,
-    "license" : "AGPL-3",
-    "depends" : ["base", "product", "sale", "decimal_precision","account"],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" :["views/product.xml"],
+    "license": "AGPL-3",
+    "depends": ["base", "product", "sale", "decimal_precision", "account"],
+    "update_xml": ["views/product.xml",
+                   "views/res_company_view.xml",
+                   "views/sale_order_view.xml",
+                   "views/account_invoice_view.xml"],
     "active": False,
     "installable": True
 }
