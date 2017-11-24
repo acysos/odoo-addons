@@ -1,30 +1,12 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (c) 2017 Acysos S.L. (http://acysos.com) All Rights Reserved.
-#                       Ignacio Ibeas <ignacio@acysos.com>
-#    $Id$
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# -*- coding: utf-8 -*-
+# Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+# Copyright 2017 Alexander Ezquebo <alexander@acysos.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields, api
 import openerp.addons.decimal_precision as dp
 
-    
+
 class pricelist_partnerinfo(models.Model):
     _inherit = 'pricelist.partnerinfo'
 
@@ -55,6 +37,18 @@ class product_template(models.Model):
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'
+
+    @api.multi
+    def is_extra_product(self):
+        product_obj = self.env['product.product']
+        for res in self:
+            products = product_obj.search(
+                [('product_extra_price', '!=', False)])
+            ids = []
+            for product in products:
+                if product.product_extra_price not in ids:
+                    ids.append(product.product_extra_price)
+            return ids
 
     @api.onchange('product_id_extra')
     @api.multi

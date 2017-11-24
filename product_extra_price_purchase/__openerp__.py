@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (c) 2017 Acysos S.L. (http://acysos.com) All Rights Reserved.
+#    Copyright (c) 2011 Acysos S.L. (http://acysos.com) All Rights Reserved.
 #                       Ignacio Ibeas <ignacio@acysos.com>
 #    $Id$
 #
@@ -22,20 +22,18 @@
 ##############################################################################
 
 {
-    "name" : "Product Extra Price for Purchase",
-    "version" : "1.0",
-    "author" : "Acysos S.L.",
-    "website" : "www.acysos.com",
+    "name": "Product Extra Price for Purchase",
+    "version": "1.0",
+    "author": "Acysos S.L.",
+    "website": "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
-    "description": """Add extra price in Supplier Info and add extra price 
-        line in purchase order
-    """,
-    "license" : "AGPL-3",
-    "depends" : ["base", "product", "purchase", "decimal_precision","account",
-                 "product_extra_price"],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" :["views/product.xml"],
+    "description": """Add extre price in Supplier Info and add extra price
+    line in purchase order""",
+    "license": "AGPL-3",
+    "depends": ["base", "product", "purchase", "decimal_precision", "account",
+                "product_extra_price"],
+    "data": ["views/product.xml",
+             "views/res_company_view.xml"],
     "active": False,
     "installable": True
 }
