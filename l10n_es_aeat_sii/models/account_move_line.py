@@ -2,7 +2,7 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, models, fields, _
+from odoo import api, models
 
 
 class AccountMoveLine(models.Model):
@@ -22,4 +22,3 @@ class AccountMoveLine(models.Model):
                         move.invoice.registration_key.code == '07':
                     move.invoice.send_recc_payment(move)
         return res
-        

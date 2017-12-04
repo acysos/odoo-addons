@@ -8,9 +8,9 @@ import logging
 from datetime import datetime, date
 from requests import Session
 
-from openerp import _, api, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-from openerp.modules.registry import RegistryManager
+from odoo.modules.registry import RegistryManager
 
 _logger = logging.getLogger(__name__)
 
@@ -563,6 +563,17 @@ class AccountInvoice(models.Model):
         return taxes_sii
 
     @api.multi
+    def _get_tipo_factura(self):
+        # TODO Los 5 tipos de facturas rectificativas
+        self.ensure_one()
+        tipo_factura = ''
+        if self.type in ['out_invoice', 'in_invoice']:
+            tipo_factura = 'F1'
+        if self.type in ['out_refund', 'in_refund']:
+            tipo_factura = 'R4'
+        return tipo_factura
+
+    @api.multi
     def _get_invoices(self):
         self.ensure_one()
         if not self.partner_id.vat:
@@ -579,11 +590,8 @@ class AccountInvoice(models.Model):
                 'You have to select what account chart template use this'
                 ' company.'))
         key = self.registration_key.code
+        tipo_factura = self._get_tipo_factura()
         if self.type in ['out_invoice', 'out_refund']:
-            tipo_factura = 'F1'
-            # TODO Los 5 tipos de facturas rectificativas
-            if self.type == 'out_refund':
-                tipo_factura = 'R4'
             tipo_desglose = self._get_sii_out_taxes()
             if self.type == 'out_refund' and self.refund_type == 'I':
                     importe_total = -abs(self.amount_total)
@@ -630,10 +638,6 @@ class AccountInvoice(models.Model):
                     }
 
         if self.type in ['in_invoice', 'in_refund']:
-            # TODO Los 5 tipos de facturas rectificativas
-            tipo_facturea = 'F1'
-            if self.type == 'in_refund':
-                tipo_facturea = 'R4'
             desglose_factura = self._get_sii_in_taxes()
             cuota_deducible = 0
             if 'DesgloseIVA' in desglose_factura:
@@ -657,7 +661,7 @@ class AccountInvoice(models.Model):
                     "Periodo": periodo
                 },
                 "FacturaRecibida": {
-                    "TipoFactura": tipo_facturea,
+                    "TipoFactura": tipo_factura,
                     "ClaveRegimenEspecialOTrascendencia": key,
                     "DescripcionOperacion": self.sii_description[0:500],
                     "DesgloseFactura": desglose_factura,
