@@ -52,10 +52,5 @@ class AccountInvoiceLine(models.Model):
     def update_asset(self, lines):
         for line in lines:
             if line.asset:
-                if line.asset.method_time != 'percentage':
-                    line.asset.with_context(line_id=line.id).update_asset(
-                        line.invoice_id.date_invoice, line.price_subtotal)
-                else:
-                    raise exceptions.Warning(_(
-                        'Change asset with method time percentage is not'
-                        ' allowed!'))
+                line.asset.with_context(line_id=line.id).update_asset(
+                    line.invoice_id.date_invoice, line.price_subtotal)

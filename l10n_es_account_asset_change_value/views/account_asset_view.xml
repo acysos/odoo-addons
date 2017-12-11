@@ -11,7 +11,7 @@
                 <field name="state" position="before">
                     <button name="%(l10n_es_account_asset_change_value.account_asset_change_value_wiz_action)d" 
                         type="action" string="Change Asset Value" 
-                        attrs="{'invisible': ['|', ('method_time', '=', 'percentage'),('state', '!=', 'open')]}"/>
+                        attrs="{'invisible': [('state', '!=', 'open')]}"/>
                 </field>
                 <field name="history_ids" position="after">
                     <field name="change_value_history" readonly="1"/>
@@ -47,6 +47,7 @@
 	            <tree string="Asset history">
 	                <field name="create_date"/>
 	                <field name="name"/>
+	                <field name="amount"/>
 	                <field name="user_id"/>
 	                <field name="dep_line1"/>
 	                <field name="dep_line2"/>

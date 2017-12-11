@@ -16,10 +16,5 @@ class AccountAssetChangeValue(models.TransientModel):
         self.ensure_one()
         asset_id = self.env.context.get('active_id')
         asset = self.env['account.asset.asset'].browse(asset_id)
-        if asset.method_time != 'percentage':
-            asset.update_asset(self.change_date, self.change_value)
-        else:
-            raise exceptions.Warning(_(
-                'Change asset with method time percentage is not'
-                ' allowed!'))
+        asset.update_asset(self.change_date, self.change_value)
         return True
