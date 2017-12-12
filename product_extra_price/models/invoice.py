@@ -82,7 +82,7 @@ class AccountInvoice(models.Model):
                 'price_unit': price_unit,
                 'quantity': line.quantity,
                 'discount': discount,
-                'invoice_line_tax_id': tax_ids,
+                'invoice_line_tax_id': [(6, 0, tax_ids.ids)],
                 'account_analytic_id': line.account_analytic_id.id or None,
                 'company_id': line.company_id.id,
                 'partner_id': line.partner_id.id,

@@ -99,7 +99,7 @@ class PurchaseOrder(models.Model):
         vals = {'name': '-- ' + extra_price_name,
                 'product_qty': line.product_qty,
                 'date_planned': line.date_planned,
-                'taxes_id': tax_ids,
+                'taxes_id': [(6, 0, tax_ids.ids)],
                 'product_uom': line.product_uom.id,
                 'move_ids': [(6, 0, [])],
                 'move_dest_id': False,
@@ -115,7 +115,8 @@ class PurchaseOrder(models.Model):
                 }
         return vals
 
-    def expand_extra_prices(self, cr, uid, ids, context={}):
+    @api.multi
+    def expand_extra_prices(self):
         updated_orders = []
         order_line_obj = self.env['purchase.order.line']
         fiscalp_obj = self.env['account.fiscal.position']

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="stock_move_extra_price_tree" model="ir.ui.view">
+        <field name="name">stock.move.extra.price.tree</field>
+        <field name="model">stock.move</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+        <field name="arch" type="xml">
+            <field name="picking_id" position="after">
+            <field name="name_extra_price"/>
+            <field name="qty_extra_price"/>
+        </field>
+        </field>
+    </record>
+      <record model="ir.ui.view" id="view_picking_extra_cost_form_valued">
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock_valued.view_picking_form_valued"/>
+            <field name="arch" type="xml">
+                <field name="amount_untaxed" position="after">
+                    <field name="extra_price_untax_total"/>
+                    <field name="extra_price_amount_total"/>
+                    <newline/>
+                </field>
+            </field>
+        </record>
+</data>
+</openerp>

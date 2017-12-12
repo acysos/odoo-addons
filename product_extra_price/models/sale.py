@@ -19,6 +19,20 @@ class SaleOrderLine(models.Model):
     total_extra_price = fields.Float(string="Total extra price",
                                      digits=dp.get_precision('Product Price'))
 
+    def button_cancel(self, cr, uid, ids, context=None):
+        lines = self.browse(cr, uid, ids, context=context)
+        for line in lines:
+            if not line.extra_parent_line_id and line.invoiced:
+                raise Warning(_('Invalid Action!'),
+                              _('You cannot cancel a sales order line'
+                                ' that has already been invoiced.'))
+        procurement_obj = self.pool['procurement.order']
+        procurement_obj.cancel(
+            cr, uid, sum([l.procurement_ids.ids for l in lines], []),
+            context=context)
+        return self.write(cr, uid, ids, {'state': 'cancel'})
+    
+    '''
     @api.multi
     def button_cancel(self):
         for line in self:
@@ -29,6 +43,7 @@ class SaleOrderLine(models.Model):
         procurement_obj = self.env['procurement.order']
         procurement_obj.cancel(sum([l.procurement_ids.ids for l in self], []))
         return self.write({'state': 'cancel'})
+    '''
 
     @api.multi
     def unlink(self):
@@ -137,6 +152,8 @@ class SaleOrder(models.Model):
         for order in self:
             fiscal_position = order.fiscal_position and fiscalp_obj.browse(
                     order.fiscal_position.id) or False
+            if not fiscal_position:
+                raise Warning('Customer does not have a fiscal position')
             sequence = -1
             reorder = []
             for line in order.order_line:

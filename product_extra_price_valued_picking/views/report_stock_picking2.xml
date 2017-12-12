@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="report_extra_price_picking_valued" inherit_id="stock_valued.report_picking_valued">
+			<xpath
+				expr="//table[@t-if='not o.pack_operation_ids']/tbody/tr[contains(@t-foreach, 'o.move_lines')]"
+				position="replace">
+				<t t-foreach="o.move_lines" t-as="move">
+					<tr>
+						<t
+							t-if="(o.state != 'partially_available') or (move.reserved_availability > 0)">
+							<td>
+								<span t-field="move.product_id" />
+							</td>
+							<td class="text-right">
+								<t t-if="o.state == 'partially_available'">
+									<span t-field="move.reserved_availability" />
+									<span t-field="move.product_id.uom_id" groups="product.group_uom" />
+								</t>
+								<t t-if="o.state != 'partially_available'">
+									<span t-field="move.product_uom_qty" />
+									<span t-field="move.product_uom" groups="product.group_uom" />
+								</t>
+							</td>
+							<t t-if="o.picking_type_id.code != 'incoming'">
+								<td>
+									<span t-field="move.location_id" />
+								</td>
+							</t>
+							<td>
+								<span t-if="move.product_id and move.product_id.ean13">
+									<img
+										t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', move.product_id.ean13, 600, 100)"
+										style="width:300px;height:50px" />
+								</span>
+							</td>
+							<t t-if="o.picking_type_id.code != 'outgoing'">
+								<td>
+									<span t-field="move.location_dest_id" />
+								</td>
+							</t>
+						</t>
+						<t t-if="o.partner_id.stock_valued or o.stock_valued">
+							<td>
+								<span t-field="move.sale_price_unit" />
+							</td>
+							<td>
+								<span t-field="move.sale_discount" />
+							</td>
+							<td>
+								<span t-field="move.sale_subtotal" />
+							</td>
+						</t>
+					</tr>
+					<tr>
+						<td>
+							<span t-field="move.name_extra_price" />
+						</td>
+						<td>
+							<span t-field="move.qty_extra_price" />
+						</td>
+						<td>
+							<br />
+						</td>
+						<td>
+							<br />
+						</td>
+						<t t-if="o.partner_id.stock_valued or o.stock_valued">
+							<td>
+								<span t-field="move.product_id.extra_price" />
+							</td>
+							<td>
+								<br />
+							</td>
+
+							<td>
+								<span t-esc="move.get_amount_total(move)[1]" />
+							</td>
+						</t>
+					</tr>
+				</t>
+			</xpath>
+			<xpath
+				expr="//table[@t-if='o.pack_operation_ids']/tbody/tr[contains(@t-foreach, 'o.pack_operation_ids')]"
+				position="replace">
+				<t t-foreach="o.move_lines" t-as="move">
+                    <tr>
+                        <t
+                            t-if="(o.state != 'partially_available') or (move.reserved_availability > 0)">
+                            <td>
+                                <span t-field="move.product_id" />
+                            </td>
+                            <td class="text-right">
+                                <t t-if="o.state == 'partially_available'">
+                                    <span t-field="move.reserved_availability" />
+                                    <span t-field="move.product_id.uom_id" groups="product.group_uom" />
+                                </t>
+                                <t t-if="o.state != 'partially_available'">
+                                    <span t-field="move.product_uom_qty" />
+                                    <span t-field="move.product_uom" groups="product.group_uom" />
+                                </t>
+                            </td>
+                            <t t-if="o.picking_type_id.code != 'incoming'">
+                                <td>
+                                    <span t-field="move.location_id" />
+                                </td>
+                            </t>
+                            <td>
+                                <span t-if="move.product_id and move.product_id.ean13">
+                                    <img
+                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', move.product_id.ean13, 600, 100)"
+                                        style="width:300px;height:50px" />
+                                </span>
+                            </td>
+                            <t t-if="o.picking_type_id.code != 'outgoing'">
+                                <td>
+                                    <span t-field="move.location_dest_id" />
+                                </td>
+                            </t>
+                        </t>
+                        <t t-if="o.partner_id.stock_valued or o.stock_valued">
+                            <td>
+                                <span t-field="move.sale_price_unit" />
+                            </td>
+                            <td>
+                                <span t-field="move.sale_discount" />
+                            </td>
+                            <td>
+                                <span t-field="move.sale_subtotal" />
+                            </td>
+                        </t>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-field="move.name_extra_price" />
+                        </td>
+                        <td>
+                            <span t-field="move.qty_extra_price" />
+                        </td>
+                        <td>
+                            <br />
+                        </td>
+                        <td>
+                            <br />
+                        </td>
+                        <t t-if="o.partner_id.stock_valued or o.stock_valued">
+                            <td>
+                                <span t-field="move.product_id.extra_price" />
+                            </td>
+                            <td>
+                                <br />
+                            </td>
+
+                            <td>
+                                <span t-esc="move.get_amount_total(move)[1]" />
+                            </td>
+                        </t>
+                    </tr>
+                </t>
+			</xpath>
+			<xpath expr="//table[3]" position="after">
+				<t t-if="o.partner_id.stock_valued or o.stock_valued">
+					<table class="table table-condensed">
+						<tbody>
+							<tr>
+								<td>
+									Total sigaus sin tasas:
+									<span t-field="o.extra_price_untax_total" />
+								</td>
+								<td>
+									Total sigaus:<span t-field="o.extra_price_amount_total" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</t>
+			</xpath>
+		</template>
+	</data>
+</openerp>

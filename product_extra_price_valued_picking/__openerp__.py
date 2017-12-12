@@ -19,17 +19,16 @@
 #
 ##############################################################################
 {
-    "name": "Product extra price customizable quantity",
+    "name": "Product extra price valued picking",
     "version": "1",
     "author": "Acysos S.L., Odoo Community Association (OCA)",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
     "category": "",
     "license": "AGPL-3",
-    "depends": [
-                'product_extra_price_purchase'
+    "depends": ['product_extra_price_custom_qty'
     ],
-    "data": ['views/product.xml',
+    "data": ['views/stock.xml'
     ],
     "installable": True,
 }
