@@ -10,7 +10,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_test_mode(self, port_name):
         self.ensure_one()
-        if self.company_id.state_id.code == '01' and self.company_id.sii_test:
+        if self.company_id.state_id.code == 'VI' and self.company_id.sii_test:
             return port_name
         else:
             return super(AccountInvoice, self)._get_test_mode(port_name)
@@ -19,7 +19,7 @@ class AccountInvoice(models.Model):
     def _connect_wsdl(self, wsdl, port_name):
         self.ensure_one()
         company = self.company_id
-        if company.state_id.code == '01' and not company.sii_test:
+        if company.state_id.code == 'VI' and not company.sii_test:
             client = self._connect_sii(wsdl)
             client._default_service_name = 'siiService'
             port_name = self._get_test_mode(port_name)
@@ -34,7 +34,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_wsdl(self, key):
         self.ensure_one()
-        if self.company_id.state_id.code == '01':
+        if self.company_id.state_id.code == 'VI':
             return self.env['ir.config_parameter'].get_param(key+'.01', False)
         else:
             return super(AccountInvoice, self)._get_wsdl(key)

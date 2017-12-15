@@ -10,7 +10,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_test_mode(self, port_name):
         self.ensure_one()
-        if self.company_id.state_id.code == '48' and self.company_id.sii_test:
+        if self.company_id.state_id.code == 'BI' and self.company_id.sii_test:
             return port_name
         else:
             return super(AccountInvoice, self)._get_test_mode(port_name)
@@ -18,7 +18,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_wsdl(self, key):
         self.ensure_one()
-        if self.company_id.state_id.code == '48':
+        if self.company_id.state_id.code == 'BI':
             return self.env['ir.config_parameter'].get_param(key+'.48', False)
         else:
             return super(AccountInvoice, self)._get_wsdl(key)
