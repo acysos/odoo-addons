@@ -46,13 +46,10 @@ class AccountInvoice(models.Model):
             invoices['FacturaRecibida']['DesgloseFactura'][
                 'DesgloseIVA']['DetalleIVA'] = []
             for line in lines:
-                print line
                 if 'PorcentCompensacionREAGYP' in line:
                     line.pop('TipoImpositivo')
                     line.pop('CuotaSoportada')
                 invoices['FacturaRecibida']['DesgloseFactura'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
-        print invoices['FacturaRecibida']['DesgloseFactura'][
-                    'DesgloseIVA']['DetalleIVA']
         return invoices
 
