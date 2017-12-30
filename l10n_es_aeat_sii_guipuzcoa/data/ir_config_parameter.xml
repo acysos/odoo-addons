@@ -38,9 +38,29 @@
             <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroPagosRecibidas.wsdl</field>
             <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
         </record>
-        <record id="config_parameter_sii_url_soap_20" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.url_soap.20</field>
+        <record id="config_parameter_sii_url_test_soap_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_test_soap.20</field>
             <field name="value">https://prep9.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fe/SiiFactFEV1SOAP</field>
+            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+        </record>
+        <record id="config_parameter_sii_url_soap_out_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_out.20</field>
+            <field name="value">https://prep9.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fe/SiiFactFEV1SOAP</field>
+            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+        </record>
+        <record id="config_parameter_sii_url_soap_in_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_in.20</field>
+            <field name="value">https://prep9.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fr/SiiFactFRV1SOAP</field>
+            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+        </record>
+        <record id="config_parameter_sii_url_soap_pr_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_pr.20</field>
+            <field name="value">https://prep9.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fe/SiiFactCOBV1SOAP</field>
+            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+        </record>
+        <record id="config_parameter_sii_url_soap_ps_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_ps.20</field>
+            <field name="value">https://prep9.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fr/SiiFactPAGV1SOAP</field>
             <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
         </record>
     </data>
