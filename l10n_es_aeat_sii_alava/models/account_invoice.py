@@ -25,9 +25,24 @@ class AccountInvoice(models.Model):
             port_name = self._get_test_mode(port_name)
             client._default_port_name = port_name
             binding_name = '{'+wsdl+'}siiBinding'
-            url = self.env['ir.config_parameter'].get_param(
-                'l10n_es_aeat_sii.url_soap.01', False)
-            return client.create_service(binding_name, url)
+            url = False
+            if port_name == 'SuministroFactEmitidas':
+                url = self.env['ir.config_parameter'].get_param(
+                    'l10n_es_aeat_sii.url_soap_out.01', False)
+            if port_name == 'SuministroFactRecibidas':
+                url = self.env['ir.config_parameter'].get_param(
+                    'l10n_es_aeat_sii.url_soap_in.01', False)
+            if port_name == 'SuministroCobrosEmitidas':
+                url = self.env['ir.config_parameter'].get_param(
+                    'l10n_es_aeat_sii.url_soap_pr.01', False)
+            if port_name == 'SuministroPagosRecibidas':
+                url = self.env['ir.config_parameter'].get_param(
+                    'l10n_es_aeat_sii.url_soap_ps.01', False)
+            if url:
+                return client.create_service(binding_name, url)
+            else:
+                return super(AccountInvoice, self)._connect_wsdl(
+                    wsdl, port_name)
         else:
             return super(AccountInvoice, self)._connect_wsdl(wsdl, port_name)
 
