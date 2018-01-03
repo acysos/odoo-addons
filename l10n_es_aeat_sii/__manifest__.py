@@ -19,10 +19,10 @@
                    "requests"],
     },
     "depends": [
-        "account_invoice_refund_link",
+#        "account_invoice_refund_link",
         "l10n_es_aeat",
-        "queue_job",
-        "account_payment_partner",
+#        "queue_job",
+#        "account_payment_partner",
     ],
     "data": [
         "data/ir_config_parameter.xml",

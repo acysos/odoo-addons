@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-	<data>
-	   <template id="pisoscom_template"><t t-raw="xml"/></template>
-	</data>
-</odoo>
