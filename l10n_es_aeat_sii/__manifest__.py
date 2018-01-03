@@ -20,7 +20,7 @@
     },
     "depends": [
 #        "account_invoice_refund_link",
-        "l10n_es_aeat",
+#        "l10n_es_aeat",
 #        "queue_job",
 #        "account_payment_partner",
     ],

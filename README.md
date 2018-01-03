@@ -1,4 +1,4 @@
-odoo-addons-10.0
+odoo-addons-11.0
 ===============
 
-Extra modules for Odoo 10.0
+Extra modules for Odoo 11.0
