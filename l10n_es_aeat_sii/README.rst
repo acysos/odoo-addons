@@ -2,7 +2,7 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-DEVELOPMENT STATUS
+EN DESARROLLO, DISPONIBLE EN 6.0, 8.0, 9.0 y 10.0   
    
 =============================================
 Suministro Inmediato de Información en el IVA
