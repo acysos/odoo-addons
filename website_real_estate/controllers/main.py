@@ -117,9 +117,24 @@ class top_view(http.Controller):
         
         company = user.company_id
          
-        zones1 = request.env['real.estate.zone'].search([('id', '>', 0)])
-         
-        cities = request.env['real.estate.cities'].sudo().search([('id', '>', 0)])
+        zones_domain = [('id', '>', 0)]
+        city_sel = 'city'
+        if 'city' in post:
+            if (post['city'] != 'city'):
+                prooftonumber = []
+                proofforstring = str(post['city']).split('-')
+                for index in range(len(proofforstring)):
+                    prooftonumber.append(int(proofforstring[index]))
+                domain += [('city_id', 'in', prooftonumber)]
+                city_sel = post['city']
+                zones_domain = ['|',
+                                ('city_id', 'in', prooftonumber),
+                                ('city_id', '=', None)]
+
+        zones1 = request.env['real.estate.zone'].search(zones_domain)
+
+        cities = request.env['real.estate.cities'].sudo().search(
+            [('id', '>', 0)])
          
         type1 = [('unlimited','unlimited'),
              ('flat','Flat'),
@@ -143,34 +158,17 @@ class top_view(http.Controller):
          
          
         cities_ids = {}
-        pamp = {}
-         
         cities1 = cities.mapped('city_id')
-         
-         
         for city in cities1:
-            if 'Pamplona' in city.city:
-                if not city.city in pamp:
-                    pamp[city.city] = str(city.id)
-                else:
-                    pamp[city.city] += '-'+str(city.id)
+            if city.city not in cities_ids:
+                cities_ids[city.city] = str(city.id)
             else:
-                if not city.city in cities_ids:
-                    cities_ids[city.city] = str(city.id)
-                else:
-                    cities_ids[city.city] += '-'+str(city.id)
-         
-        citieswithoutpamp = sorted(cities_ids.items(), key=operator.itemgetter(0))
-        pampcity = sorted(pamp.items(), key=operator.itemgetter(0))
-         
-        orderedcities = pampcity + citieswithoutpamp
-         
-         
-         
-          
+                cities_ids[city.city] += '-'+str(city.id)
+
+        orderedcities = sorted(cities_ids.items(), key=operator.itemgetter(0))
+
         operation_sel = 'operation'
         zone_sel = 'zone'
-        city_sel = 'city'
         category_sel = 'category'
         reference_def = 'reference'
         salepricefrom_def = 0
@@ -221,20 +219,6 @@ class top_view(http.Controller):
             if (splitnumber(post['areato']) > 0):
                 domain += [('m2', '<=', splitnumber(post['areato']))]
                 areato_def = post['areato']
-             
-        if 'city' in post:
-            if (post['city'] != 'city'):
-                prooftonumber = []
-                proofforstring = str(post['city']).split('-')
-                for index in range(len(proofforstring)):
-                    prooftonumber.append(int(proofforstring[index]))
-                     
-                print prooftonumber
-                domain += [('city_id', 'in', prooftonumber)] 
-                city_sel = post['city']                     
-         
-        print domain   
-        print post
          
         top_obj = request.env['real.estate.top']
          
@@ -247,9 +231,7 @@ class top_view(http.Controller):
         tops_ids = set([v[0].id for v in top_ids_object])
         
         topss = top_obj.browse(tops_ids)
-         
-         
-         
+
         listToMap = [[],[],[],[],[],[],[],[]]
          
         for t in topss:
@@ -341,17 +323,9 @@ class top_view(http.Controller):
         return request.render("website_real_estate.featured_tops", values)
      
      
-#     @http.route(['/realestate/maptops'], type='json', auth="public", website=True)
-#     def maptops(self, topsids):
-#         lists = http.request.env['real.estate.top'].sudo().search(([('id','in',topsids)])).read()
-#         return json.dumps(lists)
-#     
-#     
-#     
-#     
-#     
-#     
-#     
-#     
+    @http.route(['/realestate/maptops'], type='json', auth="public", website=True)
+    def maptops(self, topsids):
+        lists = http.request.env['real.estate.top'].sudo().search(([('id','in',topsids)])).read()
+        return json.dumps(lists)
 
     
