@@ -11,9 +11,6 @@ class FarmAccountSalesReport(models.Model):
     _name = 'farm.report.account.sales'
     _auto = False
 
-    sale_order_id = fields.Many2one(string='Account',
-                                    comodel_name='account.account',
-                                    readonly=True)
     period_id = fields.Many2one(string='Period', comodel_name='account.period',
                                 readonly=True)
     amount_total = fields.Float(string='total', readonly=True)
@@ -34,29 +31,25 @@ class FarmAccountSalesReport(models.Model):
                              readonly=True)
 
     def init(self, cr):
-        tools.drop_view_if_exists(cr, 'report_account_sales')
+        tools.drop_view_if_exists(cr, 'farm_report_account_sales')
         cr.execute("""create or replace view farm_report_account_sales as (
             select
                min(inv_line.id) as id,
-               to_char(inv.date_invoice,'MM') as month,
+               to_char(inv.date_invoice,'MM') as mes,
                sum(inv_line.price_subtotal) as amount_total,
                inv.period_id,
                inv_line.product_id,
                sum(inv_line.quantity) as weight,
-               sal_or.id as sale_order_id,
                sum(inv_line.animal_qty) as animal_qty,
-               warehouse_id as farm,
-               sal_or.partner_id
+               inv_line.farm as farm,
+               inv.partner_id
                
-            from
-                sale_order sal_or
-            inner join sale_order_invoice_rel sa_in_rel 
-                on sal_or.id = sa_in_rel.order_id 
-            inner join account_invoice inv on inv.id = sa_in_rel.invoice_id 
+            from account_invoice inv
             inner join account_invoice_line inv_line on inv.id = inv_line.invoice_id
             inner join account_account account on account.id = inv_line.account_id
             where
-                inv.state in ('open','paid')
+                inv.state in ('open','paid') and inv.type='out_invoice'
             group by
-                to_char(inv.date_invoice, 'YYYY'),to_char(inv.date_invoice,'MM'), inv.period_id, inv_line.product_id, sal_or.id
+                to_char(inv.date_invoice, 'YYYY'),to_char(inv.date_invoice,'MM'), inv.period_id, inv_line.product_id, inv_line.farm, inv.partner_id
+                order by product_id
             )""")

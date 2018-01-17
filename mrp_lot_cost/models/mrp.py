@@ -55,7 +55,6 @@ class MRP_production(models.Model):
     def calculateCost(self, wiz):
         stock_quant_obj = self.env['stock.quant']
         stock_move_obj = self.env['stock.move']
-        purchases = self.env['purchase.order'].search([(True, '=', True)])
         totalCost = 0.0
         for line in wiz.consume_lines:
             if line.lot_id:

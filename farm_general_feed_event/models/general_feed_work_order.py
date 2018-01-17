@@ -4,6 +4,21 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, fields, api, _
+import logging
+
+_logger = logging.getLogger(__name__)
+
+try:
+    from openerp.addons.connector.queue.job import job
+    from openerp.addons.connector.session import ConnectorSession
+except ImportError:
+    _logger.debug('Can not `import connector`.')
+    import functools
+
+    def empty_decorator_factory(*argv, **kwargs):
+        return functools.partial
+    job = empty_decorator_factory
+
 
 EVENT_STATES = [
     ('draft', 'Draft'),
@@ -116,7 +131,9 @@ class GeneralFeedEventOrder(models.Model):
         self.standard_feed(res, new_move)
         if new_move.state != 'done':
             res.move.action_done()
-        self.do_old_events(res)
+        session = ConnectorSession.from_env(self.env)
+        confirm_feed_event.delay(
+            session, 'farm.general.feed.event', res.id)
         return res
 
     @api.multi
@@ -255,3 +272,11 @@ class GeneralFeedEventOrder(models.Model):
             event.end_date = self.end_date 
         self.job_order.confirm()
         self.state = 'validated'
+
+
+@job(default_channel='root.farm_feed_validate')
+def confirm_feed_event(session, model_name, order_id):
+    model = session.env[model_name]
+    order = model.browse(order_id)
+    order.do_old_events(order)
+    session.cr.commit()

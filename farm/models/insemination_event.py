@@ -84,7 +84,7 @@ class InseminationEvent(models.Model):
             'product_uom_qty': 1,
             'product_uom': self.dose_product.uom_id.id,
             'location_id': target_quant[0].location_id.id,
-            'location_dest_id': self.animal.initial_location.id,
+            'location_dest_id': self.specie.consumed_feed_location.id,
             'company_id': self.animal.initial_location.company_id.id,
             'origin': self.job_order.name,
             })
@@ -92,20 +92,6 @@ class InseminationEvent(models.Model):
             q.reservation_id = new_move.id
         new_move.action_done()
         self.move = new_move
-        consumed_quants = quants_obj.search([
-            ('lot_id', '=', self.dose_lot.id),
-            ('location_id', '=', self.animal.initial_location.id)])
-        consumed_q = 1
-        for q in consumed_quants:
-            if q.qty >= consumed_q:
-                q.qty -= consumed_q
-                consumed_q = 0
-                if q.qty == 0:
-                    q.unlink()
-            else:
-                q.qty = 0
-                consumed_q -= q.qty
-                q.unlink()
 
     def is_compatible(self):
         if self.animal_type == 'female':

@@ -133,7 +133,7 @@ class EventOrder(models.Model):
                     _('The values of farm are diferent on order and events'))
             elif self.animal_type:
                 if event.animal_type != self.animal_type:
-                    if event.event_type != 'medication':
+                    if self.event_type != 'medication':
                         raise Warning(
                             _('The values of animal type are diferent on order'
                               ' and events'))

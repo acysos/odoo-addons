@@ -69,7 +69,6 @@ class PurchaseOrder(models.Model):
     def wkf_approve_order(self):
         super(PurchaseOrder, self).wkf_approve_order()
         for res in self:
-            control = res.order_line[0].general_expense
             for line in res.order_line:
                 if line.start_date:
                     end_date = datetime.strptime(line.end_date, DFORMAT)
@@ -79,9 +78,9 @@ class PurchaseOrder(models.Model):
                         raise Warning(
                             _('the bill should have lower starting date '
                               'to the final'))
-                if line.general_expense != control:
+                if line.general_expense:
                     raise Warning(
-                        _("General expenses can't mixin with other purchases"))
+                        _("General expenses can't aprove"))
                 if line.farm and line.location_id:
                     raise Warning(_('Choose farm or yard'))
             print res.state
@@ -100,6 +99,8 @@ class PurchaseOrder(models.Model):
                         if end_date >= datetime.today().date():
                             raise Warning(
                                 _('Final date after current date'))
+                        if control and res.state != 'done':
+                            res.wkf_po_done()
                         if line.farm and line.farm.factory:
                             self.set_factory_cost(line)
                         else:
@@ -137,8 +138,6 @@ class PurchaseOrder(models.Model):
                                         self.set_analytics, (
                                             afected_animals, line,
                                             num_days, line.farm))
-                if control:
-                    res.wkf_po_done()
 
     @api.multi
     def set_transport_cost(self, line):
@@ -195,7 +194,7 @@ class PurchaseOrder(models.Model):
             cost_per_animal = tot_cost/tot_animals
             for animal in animals:
                 self.set_animal_cost(animal, transport.date_done,
-                                     cost_per_animal)
+                                     cost_per_animal, self.env)
 
     def set_out_transport(self, transports, cost_per_trans):
         an_group_obj = self.env['farm.animal.group']
@@ -456,7 +455,7 @@ class PurchaseOrder(models.Model):
                         animals[animal.id] = [animal, cost_per_animal_day, d]
             for key in animals.iterkeys():
                 an = animals[key]
-                self.set_animal_cost(an[0], an[2], an[1], new_env)
+                new_env['purchase.order'].set_animal_cost(an[0], an[2], an[1], new_env)
             num_days -= num_days-1
             new_env.cr.commit()
             new_cr.close()

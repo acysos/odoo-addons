@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 09:02+0000\n"
-"PO-Revision-Date: 2016-09-20 09:02+0000\n"
+"POT-Creation-Date: 2017-06-09 09:57+0000\n"
+"PO-Revision-Date: 2017-06-09 09:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr "Fecha y Hora"
 #. module: farm_general_feed_event
 #: field:farm.general.feed.event,distribution_type:0
 msgid "Distribution Type"
-msgstr "Distribution Type"
+msgstr "Tipo de distribución"
 
 #. module: farm_general_feed_event
 #: selection:farm.general.feed.event,state:0
@@ -76,6 +76,7 @@ msgid "Event order"
 msgstr "Orden de Evento"
 
 #. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
 #: selection:farm.general.feed.event,distribution_type:0
 #: field:farm.general.feed.event,farm:0
 msgid "Farm"
@@ -94,7 +95,7 @@ msgstr "Alimento"
 #. module: farm_general_feed_event
 #: field:product.template,feed_lactating:0
 msgid "Feed For Lactaing Animals"
-msgstr "Feed For Lactaing Animals"
+msgstr "Alimento para lactantes"
 
 #. module: farm_general_feed_event
 #: field:farm.general.feed.event,feed_lot:0
@@ -109,7 +110,12 @@ msgstr "Fuente de Alimento"
 #. module: farm_general_feed_event
 #: field:farm.general.feed.event,location_dest:0
 msgid "Feed destity location"
-msgstr "Feed destity location"
+msgstr "Localización destino pienso"
+
+#. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.gf_event_graph_view
+msgid "Feed diagram"
+msgstr "Diagrama pienso"
 
 #. module: farm_general_feed_event
 #: field:product.template,feed_transit:0
@@ -132,6 +138,11 @@ msgid "General feed event Order"
 msgstr "Orden General de Alimentación"
 
 #. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
+msgid "Group by..."
+msgstr "Agrupar por..."
+
+#. module: farm_general_feed_event
 #: field:farm.general.feed.event,id:0
 msgid "ID"
 msgstr "ID"
@@ -152,6 +163,11 @@ msgid "Last Updated on"
 msgstr "Ultima actualización en"
 
 #. module: farm_general_feed_event
+#: view:farm.consume.stock:farm_general_feed_event.gf_consume_stock_form_view
+msgid "Long Confirm Consume"
+msgstr "Confirmar 2º plano"
+
+#. module: farm_general_feed_event
 #: field:farm.general.feed.event,notes:0
 msgid "Notes"
 msgstr "Notas"
@@ -165,6 +181,11 @@ msgstr "Plantilla de producto"
 #: field:farm.general.feed.event,name:0
 msgid "Reference"
 msgstr "Referencia"
+
+#. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
+msgid "Search General feed event"
+msgstr "Buscar evento general alimentación"
 
 #. module: farm_general_feed_event
 #: field:farm.general.feed.event,specie:0
@@ -182,6 +203,7 @@ msgid "Start date of the period inwhich the given quantity of product wasconsume
 msgstr "Fecha de inicio del periodo en que se da el producto a consumir."
 
 #. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
 #: field:farm.general.feed.event,state:0
 msgid "State"
 msgstr "Estado"
@@ -208,14 +230,8 @@ msgid "Yard"
 msgstr "Corral/Nave"
 
 #. module: farm_general_feed_event
-#: code:addons/farm_general_feed_event/models/general_feed_work_order.py:201
+#: code:addons/farm_general_feed_event/models/general_feed_work_order.py:223
 #, python-format
 msgid "Yard empty"
 msgstr "Corral vacio"
-
-#. module: farm_general_feed_event
-#: code:addons/farm_general_feed_event/models/general_feed_work_order.py:150
-#, python-format
-msgid "Yard empty or bad comfiguration of feed"
-msgstr "Corral vacio o pienso mal configurado"
 

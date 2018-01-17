@@ -5,7 +5,7 @@
         <field name="name">mrp.lot.cost.report.graph</field>
         <field name="model">mrp.lot.cost.report</field>
         <field name="arch" type="xml">
-            <graph string="Lot Cost" type="bar">
+            <graph string="Lot Cost" type="pivot">
                 <field name="product_id" type="col"/>
                 <field name="dates" type="row"/>
                 <field name="lot_cost" type="measure"/>

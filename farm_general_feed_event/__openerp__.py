@@ -22,14 +22,16 @@
     "name": "farm general feed order",
     "version": "1",
     "license": "AGPL-3",
-    "author": "Acysos S.L.",
+    "author": "Acysos S.L., \
+    Odoo Community Association (OCA)",
     "category": "Specific industry",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo alexander@acysos.com', ],
     "images": [],
     "depends": [
         "farm",
-        "product"
+        "product",
+        "connector",
     ],
     "data": [
         "views/general_feed_work_order.xml",

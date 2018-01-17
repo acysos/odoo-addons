@@ -165,6 +165,21 @@ class Animal(models.Model):
         if self.weight:
             self.current_weight = self.weight[0].id
 
+    @api.multi
+    def name_get(self):
+        result = ''
+        displayName = []
+        for animal in self:
+            if animal.tags:
+                result = ''
+                for tag in animal.tags:
+                    result = result + tag.name + '/' 
+                displayName.append(
+                    (animal.id, animal.number + '-' + result))
+            else:
+                displayName.append((animal.id, animal.number))
+        return displayName
+
 
 class AnimalWeight(models.Model):
     _name = 'farm.animal.weight'

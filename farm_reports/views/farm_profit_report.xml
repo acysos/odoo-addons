@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="farm_profit_report_graph">
+        <field name="name">farm.sales.report.graph</field>
+        <field name="model">farm.report.profit</field>
+        <field name="arch" type="xml">
+            <graph string="Sales" type="pivot">
+                <field name="farm" type="col"/>
+                <field name="date" type="row"/>
+                <field name="number" type="row"/>
+                <field name="profit" type="measure"/>
+                <field name="profit_per_kg" type="measure"/>
+                <field name="profit_per_unit" type="measure"/>
+                <field name="weight" type="measure"/>
+                <field name="feed_qty" type="measure"/>
+                <field name="feed_cost" type="measure"/>
+                <field name="transition_cost" type="measure"/>
+                <field name="other_cost" type="measure"/>
+                <field name="total_cost" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="farm_profit_report_search_view">
+            <field name="name">farm.report.profit.search</field>
+            <field name="model">farm.report.profit</field>
+            <field name="arch" type="xml">
+                <search string="Search Animal group">
+                    <group>
+                        <field name="farm"/>
+                        <field name="number"/>
+                    </group>
+                </search>
+             </field>
+       </record>
+</data>
+</openerp>

@@ -1,0 +1,226 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* farm_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-19 10:24+0000\n"
+"PO-Revision-Date: 2017-05-19 10:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: farm_reports
+#: field:farm.report.account.sales,sale_order_id:0
+msgid "Account"
+msgstr ""
+
+#. module: farm_reports
+#: model:ir.ui.menu,name:farm_reports.menu_farm_profit_report
+msgid "Animal Profit"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "April"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "August"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "December"
+msgstr ""
+
+#. module: farm_reports
+#: model:ir.ui.menu,name:farm_reports.farm_reports
+msgid "Farm"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "February"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,feed_cost:0
+msgid "Feed cost"
+msgstr ""
+
+#. module: farm_reports
+#: model:ir.ui.menu,name:farm_reports.menu_farm_report_feed_event
+msgid "Feed event"
+msgstr ""
+
+#. module: farm_reports
+#: model:ir.actions.act_window,name:farm_reports.farm_report_feed_events
+msgid "Feed events"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,number:0
+msgid "Group lot"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,id:0
+#: field:farm.report.profit,id:0
+msgid "ID"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "January"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "July"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "June"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "March"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "May"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "November"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "October"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,other_cost:0
+msgid "Other cost"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,period_id:0
+msgid "Period"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: farm_reports
+#: model:ir.actions.act_window,name:farm_reports.farm_profit_report
+msgid "Profit report"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,date:0
+msgid "Sale date"
+msgstr ""
+
+#. module: farm_reports
+#: model:ir.actions.act_window,name:farm_reports.farm_sales_report
+msgid "Sale report"
+msgstr ""
+
+#. module: farm_reports
+#: view:farm.report.account.sales:farm_reports.farm_sales_report_graph
+#: view:farm.report.profit:farm_reports.farm_profit_report_graph
+#: model:ir.ui.menu,name:farm_reports.menu_farm_sales_report
+msgid "Sales"
+msgstr ""
+
+#. module: farm_reports
+#: view:farm.report.profit:farm_reports.farm_profit_report_search_view
+msgid "Search Animal group"
+msgstr ""
+
+#. module: farm_reports
+#: selection:farm.report.account.sales,month:0
+msgid "September"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,total_cost:0
+msgid "Total cost"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,transition_cost:0
+msgid "Transition cost"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,weight:0
+msgid "Weight"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,farm:0
+#: field:farm.report.profit,farm:0
+msgid "farm"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,feed_qty:0
+msgid "feed_quantity"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,month:0
+msgid "month"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,animal_qty:0
+msgid "num. of animals"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,profit:0
+msgid "profit"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,profit_per_kg:0
+msgid "profit per kg"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,profit_per_unit:0
+msgid "profit per unit"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.account.sales,amount_total:0
+msgid "total"
+msgstr ""
+
+#. module: farm_reports
+#: field:farm.report.profit,weight:0
+msgid "weight"
+msgstr ""
+

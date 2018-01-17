@@ -138,7 +138,7 @@ class AnimalGroup(models.Model):
                 self.weaning_day = datetime.strptime(wean.timestamp, DFORMAT)
 
     @api.multi
-    @api.depends('location')
+    @api.depends('location', 'state')
     def _get_fatten_day(self):
         for res in self:
             if res.state not in ('lactating', 'transition'):

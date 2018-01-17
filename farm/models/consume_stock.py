@@ -71,7 +71,7 @@ class ConsumeStock(models.Model):
             res.quantity = total
 
     @api.multi
-    def get_cost(self, lot, qty):
+    def get_cost(self, lot, qty, product_id):
         cost = 0
         if lot and lot.unit_cost and lot.unit_cost > 0:
             cost = lot.unit_cost * qty
@@ -98,7 +98,7 @@ class ConsumeStock(models.Model):
                 if cost == 0:
                     cost = lot.product_id.product_tmpl_id.list_price * qty
             else:
-                cost = lot.product_id.product_tmpl_id.list_price * qty
+                cost = product_id.product_tmpl_id.list_price * qty
         return cost
 
     @api.multi
@@ -126,7 +126,7 @@ class ConsumeStock(models.Model):
             num_ani = len(afected_ani)
             for party in afected_gro:
                 num_ani = num_ani + party.quantity
-            cost = self.get_cost(res.lot_id, res.quantity)
+            cost = self.get_cost(res.lot_id, res.quantity, res.product_id)
             if num_ani > 0:
                 cost_p_an = cost/num_ani
                 for gro in afected_gro:

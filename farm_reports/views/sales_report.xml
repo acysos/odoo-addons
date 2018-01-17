@@ -5,7 +5,7 @@
         <field name="name">farm.sales.report.graph</field>
         <field name="model">farm.report.account.sales</field>
         <field name="arch" type="xml">
-            <graph string="Sales" type="bar">
+            <graph string="Sales" type="pivot">
                 <field name="farm" type="col"/>
                 <field name="period_id" type="row"/>
                 <field name="amount_total" type="measure"/>

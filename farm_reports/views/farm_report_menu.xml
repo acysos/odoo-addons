@@ -10,8 +10,27 @@
             <field name="view_type">form</field>
             <field name="view_mode">graph</field>
             <field name="view_id" ref="farm_sales_report_graph"/>
-        </record>     
+        </record>
+        
+        <record id="farm_profit_report" model="ir.actions.act_window">
+            <field name="name">Profit report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.report.profit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="farm_profit_report_graph"/>
+        </record>
+        <record model="ir.actions.act_window" id="farm_report_feed_events">
+            <field name="name">Feed events</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,graph</field>
+            <field name="res_model">farm.feed.event</field>
+        </record>    
     <menuitem action="farm_sales_report" id="menu_farm_sales_report"
             name="Sales" parent="farm_reports" sequence="2"/>
+    <menuitem action="farm_profit_report" id="menu_farm_profit_report"
+            name="Animal Profit" parent="farm_reports" sequence="1"/>
+    <menuitem action="farm_report_feed_events" id="menu_farm_report_feed_event"
+            name="Feed event" parent="farm_reports" sequence="20"/>
 </data>
 </openerp>

@@ -67,6 +67,11 @@ class WeaningEvent(models.Model):
         if not self.is_ready():
             raise Warning(
                 _("Only lactating females can wean a group"))
+        company = self.env['res.company'].search([
+            (True, '=', True)])[0]
+        journal = self.env['account.analytic.journal'].search([
+            ('code', '=', 'FAR')])
+        analytic_line_obj = self.env['account.analytic.line']
         far_event = self.animal.current_cycle.farrowing_event
         self.farrowing_group = \
             far_event.event.produced_group.animal_group
@@ -82,9 +87,29 @@ class WeaningEvent(models.Model):
                 self.trasform_group()
             self.animal.current_cycle.update_state(self)
             self.farrowing_group.state = 'transition'
+            tot_cost = 0
             for line in self.animal.account.line_ids:
-                line.account_id = self.weared_group.account
-                line.name = 'wean Cost'
+                tot_cost = tot_cost + line.amount
+            analytic_line_obj.create({
+                'name': 'weaning Cost',
+                'date': self.timestamp,
+                'ref': 'farrow',
+                'amount': tot_cost,
+                'unit_amount': 1,
+                'account_id': self.weared_group.account.id,
+                'general_account_id': company.feed_account.id,
+                'journal_id': journal.id,
+                })
+            analytic_line_obj.create({
+                'name': 'weaning Cost',
+                'date': self.timestamp,
+                'ref': 'farrow',
+                'amount': -(tot_cost),
+                'unit_amount': 1,
+                'account_id': self.animal.account.id,
+                'general_account_id': company.feed_account.id,
+                'journal_id': journal.id,
+                })
         self.animal.current_cycle.update_state(self)
         super(WeaningEvent, self).confirm()
 

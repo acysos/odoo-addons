@@ -31,6 +31,7 @@
     ],
     "data": [
              "views/sales_report.xml",
+             "views/farm_profit_report.xml",
              "views/farm_report_menu.xml",
              "security/ir.model.access.csv"
     ],

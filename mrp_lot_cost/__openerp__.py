@@ -21,7 +21,7 @@
 {
     "name": "MRP Lot Unit Cost",
     "version": "1",
-    "author": "Acysos S.L.",
+    "author": "Acysos S.L., Odoo Community Association (OCA)",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
     "category": "Manufacturing",

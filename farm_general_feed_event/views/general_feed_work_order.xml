@@ -13,6 +13,7 @@
                 </graph>
             </field>
         </record>
+        
 		<record model="ir.ui.view" id="view_general_feed_order_tree">
 			<field name="name">event_order.tree</field>
 			<field name="model">farm.general.feed.event</field>
@@ -66,5 +67,38 @@
                 </form>
             </field>
         </record>
+        <record model="ir.ui.view" id="general_feed_event_search_view">
+            <field name="name">general.feed.event.search</field>
+            <field name="model">farm.general.feed.event</field>
+            <field name="arch" type="xml">
+                <search string="Search General feed event">
+                    <group>
+                        <field name="name" />
+                        <field name="feed_product" />
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group by...">
+                        <filter string="Farm"
+                                domain="[]"
+                                context="{'group_by': 'farm'}" />
+                        <filter string="State"
+                                domain="[]"
+                                context="{'group_by': 'state'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="gf_consume_stock_form_view" model="ir.ui.view">
+            <field name="name">gf.comsume.stock.form</field>
+            <field name="model">farm.consume.stock</field>
+            <field name="inherit_id" ref="farm.view_consume_stock_form"/>
+            <field name="arch" type="xml">
+                <button name="confirm" position="after">
+                       <button name="long_confirm" states="draft" 
+                        string="Long Confirm Consume" id="long_consume_confirm"
+                        type="object" /> 
+                </button>
+            </field>
+    </record>
 	</data>
 </openerp>

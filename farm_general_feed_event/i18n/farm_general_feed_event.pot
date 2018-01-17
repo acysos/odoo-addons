@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 09:57+0000\n"
-"PO-Revision-Date: 2015-12-21 09:57+0000\n"
+"POT-Creation-Date: 2017-06-09 09:56+0000\n"
+"PO-Revision-Date: 2017-06-09 09:56+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,11 @@ msgid "Date & Time"
 msgstr ""
 
 #. module: farm_general_feed_event
+#: field:farm.general.feed.event,distribution_type:0
+msgid "Distribution Type"
+msgstr ""
+
+#. module: farm_general_feed_event
 #: selection:farm.general.feed.event,state:0
 msgid "Draft"
 msgstr ""
@@ -71,6 +76,8 @@ msgid "Event order"
 msgstr ""
 
 #. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
+#: selection:farm.general.feed.event,distribution_type:0
 #: field:farm.general.feed.event,farm:0
 msgid "Farm"
 msgstr ""
@@ -86,6 +93,11 @@ msgid "Feed"
 msgstr ""
 
 #. module: farm_general_feed_event
+#: field:product.template,feed_lactating:0
+msgid "Feed For Lactaing Animals"
+msgstr ""
+
+#. module: farm_general_feed_event
 #: field:farm.general.feed.event,feed_lot:0
 msgid "Feed Lot"
 msgstr ""
@@ -96,13 +108,23 @@ msgid "Feed Source"
 msgstr ""
 
 #. module: farm_general_feed_event
-#: field:product.template,feed_lactating:0
-msgid "Feed fFor Lactaing Animals"
+#: field:farm.general.feed.event,location_dest:0
+msgid "Feed destity location"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.gf_event_graph_view
+msgid "Feed diagram"
 msgstr ""
 
 #. module: farm_general_feed_event
 #: field:product.template,feed_transit:0
 msgid "Feed for Transition Animals"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:product.template,feed_general:0
+msgid "General Feed"
 msgstr ""
 
 #. module: farm_general_feed_event
@@ -113,6 +135,11 @@ msgstr ""
 #. module: farm_general_feed_event
 #: field:farm.event.order,general_feed_event:0
 msgid "General feed event Order"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
+msgid "Group by..."
 msgstr ""
 
 #. module: farm_general_feed_event
@@ -136,6 +163,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: farm_general_feed_event
+#: view:farm.consume.stock:farm_general_feed_event.gf_consume_stock_form_view
+msgid "Long Confirm Consume"
+msgstr ""
+
+#. module: farm_general_feed_event
 #: field:farm.general.feed.event,notes:0
 msgid "Notes"
 msgstr ""
@@ -148,6 +180,11 @@ msgstr ""
 #. module: farm_general_feed_event
 #: field:farm.general.feed.event,name:0
 msgid "Reference"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
+msgid "Search General feed event"
 msgstr ""
 
 #. module: farm_general_feed_event
@@ -166,8 +203,14 @@ msgid "Start date of the period inwhich the given quantity of product wasconsume
 msgstr ""
 
 #. module: farm_general_feed_event
+#: view:farm.general.feed.event:farm_general_feed_event.general_feed_event_search_view
 #: field:farm.general.feed.event,state:0
 msgid "State"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,move:0
+msgid "Stock Move"
 msgstr ""
 
 #. module: farm_general_feed_event
@@ -178,5 +221,17 @@ msgstr ""
 #. module: farm_general_feed_event
 #: selection:farm.general.feed.event,state:0
 msgid "Validated"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: field:farm.general.feed.event,dest_yard:0
+#: selection:farm.general.feed.event,distribution_type:0
+msgid "Yard"
+msgstr ""
+
+#. module: farm_general_feed_event
+#: code:addons/farm_general_feed_event/models/general_feed_work_order.py:223
+#, python-format
+msgid "Yard empty"
 msgstr ""
 

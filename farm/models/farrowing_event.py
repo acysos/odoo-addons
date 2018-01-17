@@ -49,17 +49,27 @@ class FarrowingEvent(models.Model):
         if self.dead == 0 and self.live == 0:
             raise Warning(
                 _('no deads and no lives'))
+        company = self.env['res.company'].search([
+            (True, '=', True)])[0]
+        journal = self.env['account.analytic.journal'].search([
+            ('code', '=', 'FAR')])
+        analytic_line_obj = self.env['account.analytic.line']
         farrowing_cycle_obj = self.env['farm.farrowing.event_female_cycle']
         farrrowing_animalGroup_obj = self.env['farm.farrowing.event_group']
         location_obj = self.env['farm.foster.locations']
         foster_locations = []
         for loc in self.animal.specie.foster_location:
             foster_locations.append(loc.id)
+            print loc.location
+            print loc.location.location_id
+        print foster_locations
+        print self.farm.id
         foster_location = location_obj.search(
-            [('location.location_id', '=', self.farm.id),
+            [('location.location_id.location_id', '=', self.farm.id),
              ('id', 'in', foster_locations),
              ],
             ).location
+        print foster_location
         farrowing_cycle_obj.create({
             'event': self.id,
             'cycle': self.animal.cycles[-1].id})
@@ -71,9 +81,29 @@ class FarrowingEvent(models.Model):
                 'animal_group': new_group[0].id
                 })
             self.animal.current_cycle.update_state(self)
+            tot_cost = 0
             for line in self.animal.account.line_ids:
-                line.account_id = new_group[0].account
-                line.name = 'Farrow Cost'
+                tot_cost = tot_cost + line.amount
+            analytic_line_obj.create({
+                'name': 'Farrow Cost',
+                'date': self.timestamp,
+                'ref': 'farrow',
+                'amount': tot_cost,
+                'unit_amount': 1,
+                'account_id': new_group[0].account.id,
+                'general_account_id': company.feed_account.id,
+                'journal_id': journal.id,
+                })
+            analytic_line_obj.create({
+                'name': 'Farrow Cost',
+                'date': self.timestamp,
+                'ref': 'farrow',
+                'amount': -(tot_cost),
+                'unit_amount': 1,
+                'account_id': self.animal.account.id,
+                'general_account_id': company.feed_account.id,
+                'journal_id': journal.id,
+                })
         super(FarrowingEvent, self).confirm()
 
     @api.one
@@ -142,7 +172,7 @@ class FarrowingEvent(models.Model):
             return False
 
     def is_ready(self):
-        if self.animal.current_cycle.state == 'pregnat':
+        if self.animal.current_cycle.state in ['pregnat', 'mated']:
             return True
         else:
             return False

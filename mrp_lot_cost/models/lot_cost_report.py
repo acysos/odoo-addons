@@ -13,7 +13,8 @@ class LotCostReport(models.Model):
 
     product_id = fields.Many2one(string='Product',
                                  comodel_name='product.product', readonly=True)
-    lot_cost = fields.Float(string='Lot Cost', digits=(10, 4))
+    lot_cost = fields.Float(string='Lot Cost', digits=(10, 4),
+                            group_operator = 'avg')
     dates = fields.Date(string='Date')
 
     def init(self, cr):

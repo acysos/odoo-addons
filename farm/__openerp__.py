@@ -20,7 +20,7 @@
 ##############################################################################
 {
     "name": "Addon for Animal farms",
-    "version": "8.1",
+    "version": "8.2",
     "license": "AGPL-3",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
@@ -34,6 +34,7 @@
         "mrp_lot_cost",
         "purchase",
         "account",
+        "sale",
     ],
     "data": [
         "views/specie.xml",
