@@ -13,6 +13,7 @@ class AccountInvoice(models.Model):
         updated_invoices = []
         inv_line_obj = self.env['account.invoice.line']
         fiscalp_obj = self.env['account.fiscal.position']
+        has_extra = False
         for invoice in self:
             if invoice.type in ['out_invoice', 'out_refund']:
                 super(AccountInvoice, self).expand_extra_prices()
@@ -48,7 +49,8 @@ class AccountInvoice(models.Model):
                     for line_id in reorder:
                         line_id.sequence = sequence
                         sequence += 1
-
+                    has_extra = True
+        if has_extra:
             account_invoice_tax = self.env['account.invoice.tax']
             ctx = dict(self._context)
             for invoice in self:
