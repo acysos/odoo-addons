@@ -154,9 +154,9 @@ class AccountInvoice(models.Model):
                 "No Fiscal Position configured for the partner %s") % (
                     partner.name))
         if not vals.get('registration_key', False) and \
-                vals.get('fiscal_position', False):
+                vals.get('fiscal_position_id', False):
             fp = self.env['account.fiscal.position'].browse(
-                vals['fiscal_position'])
+                vals['fiscal_position_id'])
             if vals['type'] in ['out_invoice', 'out_refund']:
                 vals['registration_key'] = fp.sii_registration_key_sale.id
             if vals['type'] in ['in_invoice', 'in_refund']:
@@ -167,16 +167,16 @@ class AccountInvoice(models.Model):
     @api.multi
     def write(self, vals):
         res = super(AccountInvoice, self).write(vals)
-        if vals.get('fiscal_position', False) and not \
+        if vals.get('fiscal_position_id', False) and not \
                 vals.get('registration_key', False):
             for invoice in self:
                 if not invoice.registration_key:
                     if 'out' in invoice.type:
                         invoice.registration_key = \
-                            invoice.fiscal_position.sii_registration_key_sale
+                            invoice.fiscal_position_id.sii_registration_key_sale
                     else:
                         invoice.registration_key = invoice.\
-                            fiscal_position.sii_registration_key_purchase
+                            fiscal_position_id.sii_registration_key_purchase
 
         return res
 
