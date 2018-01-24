@@ -137,9 +137,11 @@ class AccountInvoice(models.Model):
             header_sale = company.sii_header_sale
             header_purchase = company.sii_header_purchase
             description = '/'
-            if invoice.type in ['out_invoice', 'out_refund']:
+            if 'out' in invoice.type:
+                print "Out"
                 description = header_sale
-            if invoice.type in ['in_invoice', 'in_refund']:
+            if 'in' in invoice.type:
+                print "In"
                 description = header_purchase
             if method_desc == 'auto':
                 for line in invoice.invoice_line_ids:
@@ -153,31 +155,24 @@ class AccountInvoice(models.Model):
             raise UserError(_(
                 "No Fiscal Position configured for the partner %s") % (
                     partner.name))
-        if not vals.get('registration_key', False) and \
-                vals.get('fiscal_position_id', False):
-            fp = self.env['account.fiscal.position'].browse(
-                vals['fiscal_position_id'])
-            if vals['type'] in ['out_invoice', 'out_refund']:
-                vals['registration_key'] = fp.sii_registration_key_sale.id
-            if vals['type'] in ['in_invoice', 'in_refund']:
-                vals['registration_key'] = fp.sii_registration_key_purchase.id
+        if vals.get('sii_enabled', False):
+            vals.pop('sii_enabled')
         invoice = super(AccountInvoice, self).create(vals)
+        if (vals.get('fiscal_position_id') and
+                not vals.get('sii_registration_key')):
+            invoice.onchange_fiscal_position()
+        if not vals.get('sii_description'):
+            invoice._get_sii_description_from_lines()
         return invoice
 
     @api.multi
     def write(self, vals):
         res = super(AccountInvoice, self).write(vals)
-        if vals.get('fiscal_position_id', False) and not \
-                vals.get('registration_key', False):
-            for invoice in self:
-                if not invoice.registration_key:
-                    if 'out' in invoice.type:
-                        invoice.registration_key = \
-                            invoice.fiscal_position_id.sii_registration_key_sale
-                    else:
-                        invoice.registration_key = invoice.\
-                            fiscal_position_id.sii_registration_key_purchase
-
+        if (vals.get('fiscal_position_id') and
+                not vals.get('sii_registration_key')):
+            self.onchange_fiscal_position()
+        if not vals.get('sii_description'):
+            self._get_sii_description_from_lines()
         return res
 
     @api.multi
