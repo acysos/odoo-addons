@@ -137,31 +137,24 @@ class AccountInvoice(models.Model):
             raise exceptions.Warning(_(
                 "No Fiscal Position configured for the partner %s") % (
                     partner.name))
-        if not vals.get('registration_key', False) and \
-                vals.get('fiscal_position', False):
-            fp = self.env['account.fiscal.position'].browse(
-                vals['fiscal_position'])
-            if vals['type'] in ['out_invoice', 'out_refund']:
-                vals['registration_key'] = fp.sii_registration_key_sale.id
-            if vals['type'] in ['in_invoice', 'in_refund']:
-                vals['registration_key'] = fp.sii_registration_key_purchase.id
+        if vals.get('sii_enabled', False):
+            vals.pop('sii_enabled')
         invoice = super(AccountInvoice, self).create(vals)
+        if (vals.get('fiscal_position_id') and
+                not vals.get('sii_registration_key')):
+            invoice.onchange_fiscal_position()
+        if not vals.get('sii_description'):
+            invoice._get_sii_description_from_lines()
         return invoice
 
     @api.multi
     def write(self, vals):
         res = super(AccountInvoice, self).write(vals)
-        if vals.get('fiscal_position', False) and not \
-                vals.get('registration_key', False):
-            for invoice in self:
-                if not invoice.registration_key:
-                    if 'out' in invoice.type:
-                        invoice.registration_key = \
-                            invoice.fiscal_position.sii_registration_key_sale
-                    else:
-                        invoice.registration_key = invoice.\
-                            fiscal_position.sii_registration_key_purchase
-
+        if (vals.get('fiscal_position_id') and
+                not vals.get('sii_registration_key')):
+            self.onchange_fiscal_position()
+        if not vals.get('sii_description'):
+            self._get_sii_description_from_lines()
         return res
 
     @api.multi
@@ -627,6 +620,9 @@ class AccountInvoice(models.Model):
                     importe_total = -abs(self.amount_total)
             else:
                 importe_total = self.amount_total
+            if not self.supplier_invoice_number:
+                raise exceptions.Warning(_(
+                    'The invoice supplier number is required'))
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {},
@@ -950,21 +946,28 @@ class AccountInvoice(models.Model):
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position.name == \
                 u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            dic_ret = {
-                "IDOtro": {
-                    "CodigoPais":
-                        self.partner_id.country_id and
-                        self.partner_id.country_id.code or
-                        vat[:2],
-                    "IDType": '04',
-                    "ID": vat
-                  }
-            }
-            dic_ret = self._fix_country_code(dic_ret)
+            _logger.info(vat)
+            if vat[:2] == 'ES':
+                _logger.info("Canarias")
+                dic_ret = {"NIF": self.partner_id.vat[2:]}
+            else:
+                _logger.info("Otro")
+                dic_ret = {
+                    "IDOtro": {
+                        "CodigoPais":
+                            self.partner_id.country_id and
+                            self.partner_id.country_id.code or
+                            vat[:2],
+                        "IDType": '04',
+                        "ID": vat
+                      }
+                }
+                dic_ret = self._fix_country_code(dic_ret)
         elif vat.startswith('ESN'):
             dic_ret = {"NIF": self.partner_id.vat[2:]}
         else:
             dic_ret = {"NIF": self.partner_id.vat[2:]}
+        _logger.info(dic_ret)
         return dic_ret
 
     def is_sii_invoice(self):
