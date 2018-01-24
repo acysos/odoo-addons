@@ -642,6 +642,9 @@ class AccountInvoice(models.Model):
                     importe_total = -abs(self.amount_total)
             else:
                 importe_total = self.amount_total
+            if not self.reference:
+                raise UserError(_(
+                    'The invoice supplier number is required'))
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {},
@@ -967,16 +970,21 @@ class AccountInvoice(models.Model):
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position_id.name == \
                 u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            dic_ret = {
-                "IDOtro": {
-                    "CodigoPais":
-                        self.partner_id.country_id and
-                        self.partner_id.country_id.code or
-                        vat[:2],
-                    "IDType": '04',
-                    "ID": vat
-                  }
-            }
+            if vat[:2] == 'ES':
+                _logger.info("Canarias")
+                dic_ret = {"NIF": self.partner_id.vat[2:]}
+            else:
+                _logger.info("Otro")
+                dic_ret = {
+                    "IDOtro": {
+                        "CodigoPais":
+                            self.partner_id.country_id and
+                            self.partner_id.country_id.code or
+                            vat[:2],
+                        "IDType": '04',
+                        "ID": vat
+                      }
+                }
             dic_ret = self._fix_country_code(dic_ret)
         elif vat.startswith('ESN'):
             dic_ret = {"NIF": self.partner_id.vat[2:]}
