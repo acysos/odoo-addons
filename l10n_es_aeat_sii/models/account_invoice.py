@@ -138,10 +138,8 @@ class AccountInvoice(models.Model):
             header_purchase = company.sii_header_purchase
             description = '/'
             if 'out' in invoice.type:
-                print "Out"
                 description = header_sale
             if 'in' in invoice.type:
-                print "In"
                 description = header_purchase
             if method_desc == 'auto':
                 for line in invoice.invoice_line_ids:
