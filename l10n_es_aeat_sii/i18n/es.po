@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-14 10:19+0000\n"
-"PO-Revision-Date: 2017-10-14 12:31+0200\n"
+"POT-Creation-Date: 2018-01-25 18:25+0000\n"
+"PO-Revision-Date: 2018-01-25 19:28+0100\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "SII - Lineas de mapeo"
 #: model:ir.actions.act_window,name:l10n_es_aeat_sii.action_aeat_sii_mapping_registration_keys
 #: model:ir.ui.menu,name:l10n_es_aeat_sii.menu_aeat_sii_mapping_registration_keys
 msgid "Aeat SII Registration Keys"
-msgstr "Aeat SII Tabla de claves"
+msgstr "Aeat SII Tabla de claves: régimen especial/identificación operaciones con transedencia tributaria"
 
 #. module: l10n_es_aeat_sii
 #: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
@@ -71,7 +71,7 @@ msgstr "Resultado SII"
 #. module: l10n_es_aeat_sii
 #: field:aeat.check.sii.result,amount_total:0
 msgid "Amount total"
-msgstr "Amount total"
+msgstr "Total"
 
 #. module: l10n_es_aeat_sii
 #: selection:res.company,send_mode:0
@@ -87,12 +87,12 @@ msgstr "Automático"
 #. module: l10n_es_aeat_sii
 #: help:res.company,sii_description_method:0
 msgid "By default the description is writed by the user. If the optionis auto is generated from the invoice lines"
-msgstr "Por defecto la descripción es indicada por el usuario. Si la opción auto esta seleccionada se generará a partir de la líneas de facturas"
+msgstr "Por defecto la descripción es rellenada por el usuario. Si la opción es auto se generá a partir de las líneas de la factura."
 
 #. module: l10n_es_aeat_sii
 #: help:res.company,sii_method:0
 msgid "By default the invoice send in validate process, with manual method, there a button to send the invoice."
-msgstr "Por defecto, la factura se envía en el proceso de validación, con la forma manual hay un botón para enviarla."
+msgstr "Por defecto la factura se envía al validad, con método manual, hay un botón que permite enviar la factura."
 
 #. module: l10n_es_aeat_sii
 #: selection:account.invoice,refund_type:0
@@ -178,7 +178,7 @@ msgstr "Configuración"
 #. module: l10n_es_aeat_sii
 #: view:res.company:l10n_es_aeat_sii.view_company_sii_form
 msgid "Connector config"
-msgstr "Configuración conector"
+msgstr "Configuración del conector"
 
 #. module: l10n_es_aeat_sii
 #: selection:account.invoice,sii_reconcile_state:0
@@ -261,7 +261,7 @@ msgstr "Descripción error"
 #. module: l10n_es_aeat_sii
 #: view:res.company:l10n_es_aeat_sii.view_company_sii_form
 msgid "Description config"
-msgstr "Descripción configuración"
+msgstr "Configuración de la descripción"
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.check.sii.result,display_name:0 field:aeat.sii.map,display_name:0
@@ -338,7 +338,7 @@ msgstr "Código error"
 #: code:addons/l10n_es_aeat_sii/models/aeat_sii_map.py:39
 #, python-format
 msgid "Error! The dates of the record overlap with an existing record."
-msgstr "¡Error! Las fecha del registro se superponen con otro registro"
+msgstr "Error! Las fecha del registro se superponen con otro registro"
 
 #. module: l10n_es_aeat_sii
 #: field:product.template,sii_exempt_cause:0
@@ -412,12 +412,7 @@ msgstr "Factura"
 #: view:account.invoice:l10n_es_aeat_sii.invoice_supplier_sii_form
 #: field:account.invoice,invoice_jobs_ids:0
 msgid "Invoice Jobs"
-msgstr "Trabajos factura"
-
-#. module: l10n_es_aeat_sii
-#: model:ir.model,name:l10n_es_aeat_sii.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Línea de factura"
+msgstr "Invoice Jobs"
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.check.sii.result,invoice_date:0
@@ -530,7 +525,6 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:131
 #: code:addons/l10n_es_aeat_sii/models/account_invoice.py:137
 #, python-format
 msgid "No Fiscal Position configured for the partner %s"
@@ -538,10 +532,9 @@ msgstr "La empresa %s no tiene posición fiscal"
 
 #. module: l10n_es_aeat_sii
 #: code:addons/l10n_es_aeat_sii/models/account_invoice.py:219
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:225
 #, python-format
 msgid "No VAT configured for the company '{}'"
-msgstr "Sin NIF configurado para la compañía '{}'"
+msgstr "La compañía no tiene CIF/NIF configurado '{}'"
 
 #. module: l10n_es_aeat_sii
 #: selection:account.invoice,sii_reconcile_state:0
@@ -558,10 +551,10 @@ msgstr "No contrastada"
 #. module: l10n_es_aeat_sii
 #: selection:product.template,sii_exempt_cause:0
 msgid "None"
-msgstr "Ninguno"
+msgstr "None"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.result,type:0
+#: selection:aeat.sii.result,inv_type:0
 msgid "Normal"
 msgstr "Normal"
 
@@ -641,7 +634,7 @@ msgid "Purchase"
 msgstr "Compras"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.result,type:0
+#: selection:aeat.sii.result,inv_type:0
 msgid "RECC"
 msgstr "RECC"
 
@@ -739,7 +732,7 @@ msgstr "Descripción SII"
 #. module: l10n_es_aeat_sii
 #: field:res.company,sii_description_method:0
 msgid "SII Description Method"
-msgstr "SII Método de descripción"
+msgstr "Método para la descripción"
 
 #. module: l10n_es_aeat_sii
 #: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
@@ -765,7 +758,7 @@ msgstr "Pago SII RECC enviado"
 #. module: l10n_es_aeat_sii
 #: field:res.company,sii_header_purchase:0
 msgid "SII Purchase header"
-msgstr "SII Cabecera compra"
+msgstr "Cabecera para compras"
 
 #. module: l10n_es_aeat_sii
 #: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
@@ -776,7 +769,7 @@ msgstr "Resultado SII"
 #. module: l10n_es_aeat_sii
 #: field:res.company,sii_header_sale:0
 msgid "SII Sale header"
-msgstr "SII Cabecera venta"
+msgstr "Cabecera para ventas"
 
 #. module: l10n_es_aeat_sii
 #: field:account.invoice,sii_send_error:0
@@ -908,8 +901,13 @@ msgid "The SII Sale registration is different"
 msgstr "La clave de registro SII para ventas es diferente"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:519
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:547
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:624
+#, python-format
+msgid "The invoice supplier number is required"
+msgstr "El número de factura de proveedor es obligatorio"
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:544
 #, python-format
 msgid "The partner has not a VAT configured."
 msgstr "La empresa no tiene un NIF configurado."
@@ -931,14 +929,10 @@ msgid "To Active"
 msgstr "Activar"
 
 #. module: l10n_es_aeat_sii
-#: view:account.invoice:l10n_es_aeat_sii.invoice_supplier_sii_form
-msgid "True"
-msgstr "Verdadero"
-
-#. module: l10n_es_aeat_sii
 #: field:aeat.check.sii.result,result_query:0
 #: view:aeat.sii.mapping.registration.keys:l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_view_search
-#: field:aeat.sii.mapping.registration.keys,type:0 field:aeat.sii.result,type:0
+#: field:aeat.sii.mapping.registration.keys,type:0
+#: field:aeat.sii.result,inv_type:0
 msgid "Type"
 msgstr "Tipo"
 
@@ -955,7 +949,7 @@ msgstr "IDType"
 #. module: l10n_es_aeat_sii
 #: field:res.company,use_connector:0
 msgid "Use connector"
-msgstr "Usar conector"
+msgstr "Usar connector"
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.sii.result,vat:0
@@ -975,7 +969,7 @@ msgstr "NIF Emisor"
 #. module: l10n_es_aeat_sii
 #: field:aeat.sii.result,vat_presenter:0
 msgid "Vat Presenter"
-msgstr "NIF Presentador"
+msgstr "NIFPresentador"
 
 #. module: l10n_es_aeat_sii
 #: selection:res.company,send_mode:0
@@ -983,15 +977,13 @@ msgid "With delay"
 msgstr "Con retardo"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:860
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:906
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:907
 #, python-format
 msgid "You can not cancel this invoice because there is a job running!"
 msgstr "No puede cancelar una factura porque hay un trabajo ejecutándose!"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:528
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:556
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:553
 #, python-format
 msgid "You have to select what account chart template use this company."
 msgstr "Debe seleccionar que plan contable utiliza esta compañía"

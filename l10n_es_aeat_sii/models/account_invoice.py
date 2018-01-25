@@ -739,15 +739,7 @@ class AccountInvoice(models.Model):
             else:
                 tipo_comunicacion = 'A1'
             header = invoice._get_header(tipo_comunicacion)
-            try:
-                invoices = invoice._get_invoices()
-            except Exception as fault:
-                new_cr = RegistryManager.get(self.env.cr.dbname).cursor()
-                env = api.Environment(new_cr, self.env.uid, self.env.context)
-                self.with_env(env).sii_send_error = fault
-                new_cr.commit()
-                new_cr.close()
-                raise
+            invoices = invoice._get_invoices()
             try:
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, invoices)
@@ -946,7 +938,6 @@ class AccountInvoice(models.Model):
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position.name == \
                 u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            _logger.info(vat)
             if vat[:2] == 'ES':
                 _logger.info("Canarias")
                 dic_ret = {"NIF": self.partner_id.vat[2:]}
