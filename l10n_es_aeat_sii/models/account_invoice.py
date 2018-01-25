@@ -9,7 +9,7 @@ from datetime import datetime, date
 from requests import Session
 
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, RedirectWarning, ValidationError
 from odoo.modules.registry import RegistryManager
 
 _logger = logging.getLogger(__name__)
@@ -762,15 +762,7 @@ class AccountInvoice(models.Model):
             else:
                 tipo_comunicacion = 'A1'
             header = invoice._get_header(tipo_comunicacion)
-            try:
-                invoices = invoice._get_invoices()
-            except Exception as fault:
-                new_cr = RegistryManager.get(self.env.cr.dbname).cursor()
-                env = api.Environment(new_cr, self.env.uid, self.env.context)
-                self.with_env(env).sii_send_error = fault
-                new_cr.commit()
-                new_cr.close()
-                raise
+            invoices = invoice._get_invoices()
             try:
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, invoices)

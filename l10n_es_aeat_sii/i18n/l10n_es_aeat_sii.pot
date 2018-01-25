@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0+e\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-20 11:15+0000\n"
-"PO-Revision-Date: 2017-10-20 11:15+0000\n"
+"POT-Creation-Date: 2018-01-25 18:17+0000\n"
+"PO-Revision-Date: 2018-01-25 18:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,12 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: selection:l10n.es.aeat.sii,state:0
 msgid "Active"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_tree
+msgid "Aeat Check SII Result"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -108,6 +114,11 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.l10n_es_sii_password_wizard_view
 msgid "Cancel"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.actions.server,name:l10n_es_aeat_sii.action_check_sii_invoices
+msgid "Check Invoices SII"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -311,6 +322,11 @@ msgid "End Date"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
+msgid "Error"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result_error_code
 msgid "Error code"
 msgstr ""
@@ -407,6 +423,7 @@ msgid "Invoice date"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_form
 msgid "Invoice information"
 msgstr ""
@@ -525,13 +542,13 @@ msgid "Name"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:154
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:153
 #, python-format
 msgid "No Fiscal Position configured for the partner %s"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:242
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:235
 #, python-format
 msgid "No VAT configured for the company '{}'"
 msgstr ""
@@ -554,7 +571,7 @@ msgid "None"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.result,type:0
+#: selection:aeat.sii.result,inv_type:0
 msgid "Normal"
 msgstr ""
 
@@ -593,6 +610,11 @@ msgid "Parcialmente contrastada"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
+msgid "Partner information"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password_password
 msgid "Password"
 msgstr ""
@@ -603,6 +625,7 @@ msgid "Payment Modes"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_form
 msgid "Presentation Data"
 msgstr ""
@@ -628,8 +651,18 @@ msgid "Purchase"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.result,type:0
+#: model:ir.model,name:l10n_es_aeat_sii.model_queue_job
+msgid "Queue Job"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: selection:aeat.sii.result,inv_type:0
 msgid "RECC"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
+msgid "Reconcile"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -683,6 +716,7 @@ msgid "Requeue"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_form
 msgid "Result"
 msgstr ""
@@ -899,6 +933,12 @@ msgid "The SII Sale registration is different"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:646
+#, python-format
+msgid "The invoice supplier number is required"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result_timestamp_last
 msgid "Timestamp Last Update "
 msgstr ""
@@ -917,7 +957,7 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result_result_query
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys_type
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_type
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_inv_type
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_view_search
 msgid "Type"
 msgstr ""
@@ -963,13 +1003,13 @@ msgid "With delay"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:925
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:931
 #, python-format
 msgid "You can not cancel this invoice because there is a job running!"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:574
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:582
 #, python-format
 msgid "You have to select what account chart template use this company."
 msgstr ""
