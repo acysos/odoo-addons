@@ -112,7 +112,7 @@ class AccountInvoice(models.Model):
 
     @api.onchange('refund_type')
     def onchange_refund_type(self):
-        if self.refund_type == 'S' and not self.origin_invoices_ids:
+        if self.refund_type == 'S' and not self.origin_invoice_ids:
             self.refund_type = False
             return {
                 'warning': {'message': 'Debes tener al menos una factura '
@@ -679,7 +679,7 @@ class AccountInvoice(models.Model):
                 if self.refund_type == 'S':
                     base_rectificada = 0
                     cuota_rectificada = 0
-                    for s in self.origin_invoices_ids:
+                    for s in self.origin_invoice_ids:
                         base_rectificada += s.amount_untaxed
                         cuota_rectificada += s.amount_tax
                     invoices['FacturaRecibida']['ImporteRectificacion'] = {
