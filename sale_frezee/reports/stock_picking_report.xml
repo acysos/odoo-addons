@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <template id="frezee_picking_report" inherit_id="stock.report_picking">
+            <xpath expr="//h2" position="after">
+            <div><span>Refrigeration Type:</span>
+            <span t-field="o.refrigeration_type"></span></div>
+            </xpath>
+            </template>
+</data>
+</openerp>
