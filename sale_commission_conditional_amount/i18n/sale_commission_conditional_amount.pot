@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_commission_automatic_sections
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-29 17:44+0000\n"
+"PO-Revision-Date: 2018-01-29 17:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,amount_base_type:0
+msgid "Base"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: selection:sale.commission.condition,commission_type:0
+msgid "By sections"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: model:ir.model,name:sale_commission_automatic_sections.model_sale_commission
+msgid "Commission in sales"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: model:ir.model,name:sale_commission_automatic_sections.model_sale_commission_section
+msgid "Commission section"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: view:sale.commission.condition:sale_commission_automatic_sections.sale_commission_condition_form
+msgid "Condition"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission,condition_ids:0
+msgid "Conditions"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,partner_ids:0
+msgid "Customers"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,default_commission:0
+msgid "Default Section"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: selection:sale.commission.condition,commission_type:0
+#: field:sale.commission.condition,fix_qty:0
+msgid "Fixed percentage"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: selection:sale.commission.condition,amount_base_type:0
+msgid "Gross Amount"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,id:0
+msgid "ID"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,name:0
+msgid "Name"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: selection:sale.commission.condition,amount_base_type:0
+msgid "Net Amount"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,commission_id:0
+msgid "Parent_commission"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,product_ids:0
+msgid "Products"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: view:sale.commission:sale_commission_automatic_sections.sale_commission_form_variable
+#: view:sale.commission.condition:sale_commission_automatic_sections.sale_commission_condition_form
+msgid "Rates definition"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,sections:0
+msgid "Sections"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: field:sale.commission.condition,commission_type:0
+msgid "Type"
+msgstr ""
+
+#. module: sale_commission_automatic_sections
+#: view:sale.commission.condition:sale_commission_automatic_sections.sale_commission_condition_form
+msgid "sections"
+msgstr ""
+

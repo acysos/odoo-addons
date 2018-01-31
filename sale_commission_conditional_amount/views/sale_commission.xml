@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="sale_commission_form_variable">
+            <field name="name">sale.commission.form.variable</field>
+            <field name="model">sale.commission</field>
+            <field name="inherit_id" ref="sale_commission.sale_commission_form"/>
+            <field name="arch" type="xml">
+                <group string="Rates definition" position="inside">
+                <field name="condition_ids" attrs="{'invisible':[('commission_type', '!=', 'variable')]}"/> 
+                </group>
+            </field>
+            </record>
+   <record model="ir.ui.view" id="sale_commission_condition_form">
+            <field name="name">Sales commissions condition form</field>
+            <field name="model">sale.commission.condition</field>
+            <field name="arch" type="xml">
+                <form string="Condition">
+                    <group colspan="4">
+                        <field name="name"/>
+                        <field name="commission_type"/>
+                        <field name="amount_base_type" />
+                        <field name="default_commission"/>
+                        <field name="partner_ids"/>
+                        <field name="product_ids"/>
+                    </group>
+                     <group string="Rates definition" colspan="4">
+                        <field name="fix_qty"
+                               attrs="{'invisible': [('commission_type', '!=', 'fixed')], 'required': [('commission_type', '=', 'fixed')]}" />
+                        <field name="sections" widget="one2many_list"
+                               colspan="4"
+                               nolabel="1"
+                               attrs="{'invisible': [('commission_type', '!=', 'section')]}">
+                            <tree string="sections" editable="bottom">
+                                <field name="amount_from" />
+                                <field name="amount_to" />
+                                <field name="percent" />
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+            </record>
+</data>
+</openerp>
