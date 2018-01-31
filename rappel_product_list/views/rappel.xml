@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="rappel_prodroduct_list" model="ir.ui.view">
+            <field name="name">inherit_rappel_product_list</field>
+            <field name="model">rappel</field>
+            <field name="inherit_id" ref="rappel.rappel_form"/>
+            <field name="arch" type="xml">
+            <field name="product_id" position="replace">
+                <field name="product_ids" widget="many2many_tags"/>
+            </field>
+     
+            </field>
+            </record>
+</data>
+</openerp>
