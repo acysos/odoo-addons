@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+     <record id="view_order_agent_pa_form_inherit" model="ir.ui.view">
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_commission.view_order_agent_form_inherit"/>
+            <field name="arch" type="xml">
+                <field name="order_line" position="attributes">
+                    <attribute name="context">{'partner_id': partner_id, 'delivery_ad': partner_shipping_id}</attribute>
+                </field>
+            </field>
+            </record>
+    
+</data>
+</openerp>
