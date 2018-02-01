@@ -468,11 +468,11 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             -round(line['CuotaRepercutida'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             round(line['CuotaRepercutida'], 2)
+                line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
@@ -480,9 +480,9 @@ class AccountInvoice(models.Model):
         if len(taxes_to) > 0:
             for key, line in taxes_to.iteritems():
                 if self.type == 'out_refund' and self.refund_type == 'I':
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                     line['CuotaRepercutida'] = \
                         -round(line['CuotaRepercutida'], 2)
+                line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -531,11 +531,11 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             round(line['CuotaSoportada'], 2)
+                line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
@@ -545,11 +545,11 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             round(line['CuotaSoportada'], 2)
+                line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(line)
