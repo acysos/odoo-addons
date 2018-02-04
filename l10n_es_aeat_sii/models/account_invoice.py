@@ -137,9 +137,9 @@ class AccountInvoice(models.Model):
             header_sale = company.sii_header_sale
             header_purchase = company.sii_header_purchase
             description = '/'
-            if 'out' in invoice.type:
+            if invoice.type in ['out_invoice', 'out_refund'] and header_sale:
                 description = header_sale
-            if 'in' in invoice.type:
+            if if invoice.type in ['in_invoice', 'in_refund'] and header_purchase:
                 description = header_purchase
             if method_desc == 'auto':
                 for line in invoice.invoice_line_ids:
