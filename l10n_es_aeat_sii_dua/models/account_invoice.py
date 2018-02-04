@@ -42,7 +42,7 @@ class AccountInvoice(models.Model):
         :return:
         """
         self.ensure_one()
-        if self.fiscal_position.name == u'Importación con DUA':
+        if self.fiscal_position_id.name == u'Importación con DUA':
             if self.tax_line.filtered(
                     lambda x: x.tax_code_id.code in
                     ['DIBYSCC21', 'DIBYSCC10', 'DIBYSCC04']
@@ -60,7 +60,7 @@ class AccountInvoice(models.Model):
             :return: bool
         """
         self.ensure_one()
-        if self.fiscal_position.name == u'Importación con DUA' and \
+        if self.fiscal_position_id.name == u'Importación con DUA' and \
                 not self.is_dua_sii_invoice():
             return False
         return True
