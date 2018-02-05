@@ -139,7 +139,7 @@ class AccountInvoice(models.Model):
             description = '/'
             if invoice.type in ['out_invoice', 'out_refund'] and header_sale:
                 description = header_sale
-            if if invoice.type in ['in_invoice', 'in_refund'] and header_purchase:
+            if invoice.type in ['in_invoice', 'in_refund'] and header_purchase:
                 description = header_purchase
             if method_desc == 'auto':
                 for line in invoice.invoice_line_ids:
