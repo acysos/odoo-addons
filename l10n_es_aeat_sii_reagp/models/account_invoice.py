@@ -49,6 +49,8 @@ class AccountInvoice(models.Model):
                 if 'PorcentCompensacionREAGYP' in line:
                     line.pop('TipoImpositivo')
                     line.pop('CuotaSoportada')
+                    line['ImporteCompensacionREAGYP'] = \
+                        round(line['ImporteCompensacionREAGYP'], 2)
                 invoices['FacturaRecibida']['DesgloseFactura'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         return invoices
