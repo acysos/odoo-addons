@@ -910,8 +910,7 @@ class AccountInvoice(models.Model):
         queue_obj = self.env['queue.job'].sudo()
         for invoice in self:
             company = invoice.company_id
-            if company.sii_enabled and company.sii_method == 'auto' and \
-                    invoice.is_sii_invoice():
+            if company.sii_enabled and invoice.is_sii_invoice():
                 if not company.use_connector:
                     invoice._send_invoice_to_sii()
                 else:
