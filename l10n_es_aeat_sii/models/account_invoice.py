@@ -137,9 +137,9 @@ class AccountInvoice(models.Model):
             header_sale = company.sii_header_sale
             header_purchase = company.sii_header_purchase
             description = '/'
-            if 'out' in invoice.type:
+            if invoice.type in ['out_invoice', 'out_refund'] and header_sale:
                 description = header_sale
-            if 'in' in invoice.type:
+            if invoice.type in ['in_invoice', 'in_refund'] and header_purchase:
                 description = header_purchase
             if method_desc == 'auto':
                 for line in invoice.invoice_line_ids:
@@ -468,11 +468,11 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             -round(line['CuotaRepercutida'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             round(line['CuotaRepercutida'], 2)
+                line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
@@ -480,9 +480,9 @@ class AccountInvoice(models.Model):
         if len(taxes_to) > 0:
             for key, line in taxes_to.iteritems():
                 if self.type == 'out_refund' and self.refund_type == 'I':
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                     line['CuotaRepercutida'] = \
                         -round(line['CuotaRepercutida'], 2)
+                line['BaseImponible'] = round(line['BaseImponible'], 2)
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -531,11 +531,11 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             round(line['CuotaSoportada'], 2)
+                line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
@@ -545,11 +545,11 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             round(line['CuotaSoportada'], 2)
+                line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(line)
@@ -622,7 +622,7 @@ class AccountInvoice(models.Model):
                 if self.refund_type == 'S':
                     base_rectificada = 0
                     cuota_rectificada = 0
-                    for s in self.origin_invoice_ids:
+                    for s in self.origin_invoices_ids:
                         base_rectificada += s.amount_untaxed
                         cuota_rectificada += s.amount_tax
                     invoices['FacturaExpedida']['ImporteRectificacion'] = {
@@ -910,8 +910,7 @@ class AccountInvoice(models.Model):
         queue_obj = self.env['queue.job'].sudo()
         for invoice in self:
             company = invoice.company_id
-            if company.sii_enabled and company.sii_method == 'auto' and \
-                    invoice.is_sii_invoice():
+            if company.sii_enabled and invoice.is_sii_invoice():
                 if not company.use_connector:
                     invoice._send_invoice_to_sii()
                 else:
