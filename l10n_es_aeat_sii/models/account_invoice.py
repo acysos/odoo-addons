@@ -471,7 +471,7 @@ class AccountInvoice(models.Model):
                 else:
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
-                            round(line['CuotaRepercutida'], 2)
+                            abs(round(line['CuotaRepercutida'], 2))
                 line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
@@ -534,7 +534,7 @@ class AccountInvoice(models.Model):
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
-                            round(line['CuotaSoportada'], 2)
+                            abs(round(line['CuotaSoportada'], 2))
                 line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
@@ -622,7 +622,7 @@ class AccountInvoice(models.Model):
                 if self.refund_type == 'S':
                     base_rectificada = 0
                     cuota_rectificada = 0
-                    for s in self.origin_invoice_ids:
+                    for s in self.origin_invoices_ids:
                         base_rectificada += s.amount_untaxed
                         cuota_rectificada += s.amount_tax
                     invoices['FacturaExpedida']['ImporteRectificacion'] = {
@@ -679,7 +679,7 @@ class AccountInvoice(models.Model):
                 if self.refund_type == 'S':
                     base_rectificada = 0
                     cuota_rectificada = 0
-                    for s in self.origin_invoice_ids:
+                    for s in self.origin_invoices_ids:
                         base_rectificada += s.amount_untaxed
                         cuota_rectificada += s.amount_tax
                     invoices['FacturaRecibida']['ImporteRectificacion'] = {
@@ -763,6 +763,7 @@ class AccountInvoice(models.Model):
                 tipo_comunicacion = 'A1'
             header = invoice._get_header(tipo_comunicacion)
             invoices = invoice._get_invoices()
+            print invoices
             try:
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, invoices)
