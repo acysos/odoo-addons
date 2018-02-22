@@ -763,7 +763,6 @@ class AccountInvoice(models.Model):
                 tipo_comunicacion = 'A1'
             header = invoice._get_header(tipo_comunicacion)
             invoices = invoice._get_invoices()
-            print invoices
             try:
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, invoices)
