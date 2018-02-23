@@ -139,10 +139,19 @@ class AccountInvoice(models.Model):
                     partner.name))
         if vals.get('sii_enabled', False):
             vals.pop('sii_enabled')
+        if 'type' in vals:
+            fiscal_position = self.env['account.fiscal.position'].browse(
+                vals['fiscal_position'])
+            if vals.get('type') in ['out_invoice', 'out_refund']:
+                vals['registration_key'] = \
+                    fiscal_position.sii_registration_key_sale.id
+            if vals.get('type') in ['in_invoice', 'in_refund']:
+                vals['registration_key'] = \
+                    fiscal_position.sii_registration_key_purchase.id
+        else:
+            raise exceptions.Warning(_(
+                "The invoice type is not defined"))
         invoice = super(AccountInvoice, self).create(vals)
-        if (vals.get('fiscal_position_id') and
-                not vals.get('sii_registration_key')):
-            invoice.onchange_fiscal_position()
         if not vals.get('sii_description'):
             invoice._get_sii_description_from_lines()
         return invoice
@@ -151,7 +160,7 @@ class AccountInvoice(models.Model):
     def write(self, vals):
         res = super(AccountInvoice, self).write(vals)
         if (vals.get('fiscal_position_id') and
-                not vals.get('sii_registration_key')):
+                not vals.get('registration_key')):
             self.onchange_fiscal_position()
         if not vals.get('sii_description'):
             self._get_sii_description_from_lines()
