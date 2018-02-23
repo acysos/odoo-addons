@@ -28,7 +28,7 @@
     "website" : "www.acysos.com",
     "category": "Generic Modules/Production",
     "description": """Assign to the manufacturing order the operator that have produced the product. Registry products produced by operator. 
-    Sponsored by Gatakka and Polux""",
+    """,
     "license" : "AGPL-3",
     "depends" : ["base", "mrp", "hr","stock"],
     "init_xml" : [],

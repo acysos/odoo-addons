@@ -29,7 +29,7 @@
     "website" : "www.acysos.com",
     "description": """Finish a sale order when you don't send more products.
     
-    Sponsored by Polux S.A y Gatakka S.L.""",
+    """,
     "license" : "AGPL-3",
     "depends" : [
         "base",

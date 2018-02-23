@@ -28,7 +28,7 @@
     "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """Add extre price in Supplier Info and add extra price line in purchase order
-     Sponsored by Gatakka and Polux
+     
     """,
     "license" : "AGPL-3",
     "depends" : ["base", "product", "purchase", "decimal_precision","account","acy_product_extra_price"],

@@ -29,7 +29,7 @@
     "category": 'Generic Modules/Inventory Control',
     "description": """Create the invoice with name, date and subtotal for each picking. Needs Account Invoice Layout.
     
-    Sponsored by Polux and Gatakka.
+    .
     """,
     "license" : "AGPL-3",
     "depends" : ["base", "stock", "decimal_precision", "account", "account_invoice_layout"],

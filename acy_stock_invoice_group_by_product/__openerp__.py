@@ -28,7 +28,7 @@
     "website" : "www.acysos.com",
     "category": 'Generic Modules/Accounting',
     "description": """Create the invoice from picking ordering by product and create a new line with total of each product.
-    Sponsored by Gatakka and Polux""",
+    """,
     "license" : "AGPL-3",
     "depends" : ["base", "account", "product", "stock"],
     "init_xml" : [],

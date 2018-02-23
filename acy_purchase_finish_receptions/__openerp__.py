@@ -29,7 +29,7 @@
     "website" : "www.acysos.com",
     "description": """Finish a purchase order when you don't receive more pickings
     
-    Sponsored by Polux S.A y Gatakka S.L.""",
+    """,
     "license" : "AGPL-3",
     "depends" : [
         "base",

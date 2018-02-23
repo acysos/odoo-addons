@@ -31,7 +31,7 @@
     
     Need module stock_merge_picking https://launchpad.net/bremskerl-addons.
     
-    Sponsored by Gatakka and Polux""",
+    """,
     "license" : "AGPL-3",
     "depends" : ["stock","stock_merge_picking"],
     "init_xml" : [],

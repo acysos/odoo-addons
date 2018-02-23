@@ -28,7 +28,7 @@
     "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """Field to add the partner reference when is different to the internal reference.
-    Sponsored by Gatakka and Polux""",
+    """,
     "license" : "AGPL-3",
     "depends" : ["base", "product"],
     "init_xml" : [],
