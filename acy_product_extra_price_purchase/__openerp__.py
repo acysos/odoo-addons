@@ -25,7 +25,7 @@
     "name" : "Product Extra Price for Purchase",
     "version" : "1.0",
     "author" : "Acysos S.L.",
-    "website" : "www.acysos.com, gatakka.net",
+    "website" : "www.acysos.com",
     "category": 'Generic Modules/Inventory Control',
     "description": """Add extre price in Supplier Info and add extra price line in purchase order
      Sponsored by Gatakka and Polux
