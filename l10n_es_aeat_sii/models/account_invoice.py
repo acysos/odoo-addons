@@ -155,13 +155,15 @@ class AccountInvoice(models.Model):
                     partner.name))
         if vals.get('sii_enabled', False):
             vals.pop('sii_enabled')
-        if 'type' in vals:
+        if self.env.context.get('type') or vals.get('type'):
             fiscal_position = self.env['account.fiscal.position'].browse(
                 vals['fiscal_position_id'])
-            if vals.get('type') in ['out_invoice', 'out_refund']:
+            if self.env.context.get('type') in ['out_invoice', 'out_refund']\
+                    or vals.get('type') in ['out_invoice', 'out_refund']:
                 vals['registration_key'] = \
                     fiscal_position.sii_registration_key_sale.id
-            if vals.get('type') in ['in_invoice', 'in_refund']:
+            if self.env.context.get('type') in ['in_invoice', 'in_refund']\
+                    or vals.get('type') in ['in_invoice', 'in_refund']:
                 vals['registration_key'] = \
                     fiscal_position.sii_registration_key_purchase.id
         else:
@@ -271,9 +273,13 @@ class AccountInvoice(models.Model):
             for tax in line_taxes:
                 if tax in taxes_re:
                     price = self._get_line_price_subtotal(line)
+#                     taxes = tax.compute_all(
+#                         price, line.quantity, line.product_id,
+#                         line.invoice_id.partner_id)
                     taxes = tax.compute_all(
-                        price, line.quantity, line.product_id,
-                        line.invoice_id.partner_id)
+                        price_unit=price,
+                        quantity=line.quantity, product=line.product_id,
+                        partner=line.invoice_id.partner_id)
                     taxes['percentage'] = tax.amount
                     return taxes
         return taxes
@@ -292,7 +298,7 @@ class AccountInvoice(models.Model):
             "BaseImponible": taxes['total_excluded']
         }
         if tax_line_req:
-            tipo_recargo = tax_line_req['percentage'] * 100
+            tipo_recargo = tax_line_req['percentage']
             cuota_recargo = tax_line_req['taxes'][0]['amount']
             tax_sii['TipoRecargoEquivalencia'] = tipo_recargo
             tax_sii['CuotaRecargoEquivalencia'] = cuota_recargo
@@ -313,9 +319,7 @@ class AccountInvoice(models.Model):
             quantity=line.quantity, product=line.product_id,
             partner=line.invoice_id.partner_id)
         if tax_line_req:
-            tipo_recargo = tax_line_req['percentage'] * 100
             cuota_recargo = tax_line_req['taxes'][0]['amount']
-            tax_sii[str(tax_type)]['TipoRecargoEquivalencia'] += tipo_recargo
             tax_sii[str(tax_type)]['CuotaRecargoEquivalencia'] += cuota_recargo
 
         tax_sii[str(tax_type)]['BaseImponible'] += taxes['total_excluded']
@@ -477,11 +481,12 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             -round(line['CuotaRepercutida'], 2)
+                        line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             abs(round(line['CuotaRepercutida'], 2))
-                line['BaseImponible'] = round(line['BaseImponible'], 2)
+                        line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
@@ -491,7 +496,7 @@ class AccountInvoice(models.Model):
                 if self.type == 'out_refund' and self.refund_type == 'I':
                     line['CuotaRepercutida'] = \
                         -round(line['CuotaRepercutida'], 2)
-                line['BaseImponible'] = round(line['BaseImponible'], 2)
+                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -540,11 +545,12 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
+                        line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             abs(round(line['CuotaSoportada'], 2))
-                line['BaseImponible'] = round(line['BaseImponible'], 2)
+                        line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
@@ -688,7 +694,7 @@ class AccountInvoice(models.Model):
                 if self.refund_type == 'S':
                     base_rectificada = 0
                     cuota_rectificada = 0
-                    for s in self.origin_invoices_ids:
+                    for s in self.origin_invoice_ids:
                         base_rectificada += s.amount_untaxed
                         cuota_rectificada += s.amount_tax
                     invoices['FacturaRecibida']['ImporteRectificacion'] = {
