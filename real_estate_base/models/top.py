@@ -42,9 +42,6 @@ TYPES = [('unlimited', 'unlimited'),
 class real_estate_zone(models.Model):
     _name = 'real.estate.zone'
     name = fields.Char('Zone', required=True, size=64)
-    city_id = fields.Many2one(
-        'res.better.zip', 'Location', required=False,
-        help='Usa el nombre o el C.P para buscar la localización')
     _order = "name"
 
 
