@@ -16,7 +16,7 @@
           <field name="type">form</field>
           <field name="arch" type="xml">
               <sheet>
-              		<form string="Real Estate Top">
+               <form string="Real Estate Top">
                 <group colspan="4" col="8">
                 	<field name="operation" />
                     <field name="type" />
@@ -85,16 +85,7 @@
 	                                <field name="toilet" />
 	                                <field name="parking" />
 	                                <field name="box_room" />
-	                            </group>
-	                       <!--   <group col="1">
-	                                <field name="room_description" nolabel="1"/>
-	                                <field name="hall_description" nolabel="1"/>
-	                                <field name="kitchen_description"  nolabel="1"/>
-	                                <field name="bath_description" nolabel="1" />
-	                                <field name="toilet_description" nolabel="1" />
-	                                <field name="parking_description" nolabel="1" />
-	                                <field name="box_room_description" nolabel="1" />
-	                            </group>  -->   
+	                            </group> 
 	                            <group col="2">
 	                                <field name="room_description" />
 	                                <field name="hall_description"/>
@@ -186,6 +177,7 @@
                             <separator string="Prepared" colspan="8"/>
                             <field name="office_electricity" />
                             <field name="office_toilets" />
+                            <field name="office_toilet_description" />
                             <field name="office_heating" widget="selection" />
                             <field name="office_air_conditioning"/>
                             <field name="structural_barriers"  />
@@ -242,6 +234,7 @@
                    <page string="Tenants" attrs="{'invisible': [('operation', 'in', ['sale','valuation'])]}">
                         <field colspan="4" name="agreements" nolabel="1">
                           <form string="Rental Agreements">
+                              <group>
                                  <field name="name" />
                                 <field name="partner_id" />
                                 <field name="signing_date" />
@@ -250,15 +243,14 @@
                                 <field name="rent_price" />
                                 <field name="rent_attachments_url" colspan="4" widget="url" />
                                 <field name="notes" colspan="4" />
+                              </group>
                             </form>  
                             <tree string="Rental Agreements">
-                              <group>
                                 <field name="name" />
                                 <field name="partner_id" />
                                 <field name="start_date" />
                                 <field name="end_date" />
                                 <field name="rent_price" />
-                              </group>
                             </tree> 
                         </field>
                     </page>   
@@ -288,7 +280,7 @@
                 <field name="operation" />
                 <field name="type" />
                 <field name="subtype" widget="selection" />
-                <field name="zone" widget="selection"/>
+                <field name="zone"/>
                 <field name="city_id" />
                 <field name="address"/>
                 <field name="number"/>

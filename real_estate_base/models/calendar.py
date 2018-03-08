@@ -36,9 +36,9 @@ class CalendarEvent(models.Model):
             name = self.top_id.name + '-' + self.top_id.address
             if self.top_id.number != False: 
                 name += ' ' + self.top_id.number            
-            if self.floor != False: 
+            if self.top_id.floor != False: 
                 name += ' ' + self.top_id.floor           
-            if self.stair != False: 
+            if self.top_id.stair != False: 
                 name += ' ' + self.top_id.stair
             self.location = name
         
