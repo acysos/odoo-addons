@@ -82,7 +82,7 @@ class AccountInvoice(models.Model):
         string='SII registration date', readonly=True, copy=False)
     registration_key = fields.Many2one(
         comodel_name='aeat.sii.mapping.registration.keys',
-        string="Registration key", required=True)
+        string="Registration key")
     sii_enabled = fields.Boolean(string='Enable SII',
                                  related='company_id.sii_enabled')
     invoice_jobs_ids = fields.Many2many(
@@ -141,7 +141,7 @@ class AccountInvoice(models.Model):
             vals.pop('sii_enabled')
         invoice = super(AccountInvoice, self).create(vals)
         if (vals.get('fiscal_position') and
-                not vals.get('sii_registration_key')):
+                not vals.get('registration_key')):
             invoice.onchange_fiscal_position()
         if not vals.get('sii_description'):
             invoice._get_sii_description_from_lines()
@@ -151,7 +151,7 @@ class AccountInvoice(models.Model):
     def write(self, vals):
         res = super(AccountInvoice, self).write(vals)
         if (vals.get('fiscal_position') and
-                not vals.get('sii_registration_key')):
+                not vals.get('registration_key')):
             self.onchange_fiscal_position()
         if not vals.get('sii_description'):
             self._get_sii_description_from_lines()
