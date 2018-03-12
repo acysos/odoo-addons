@@ -157,7 +157,7 @@ class AccountInvoice(models.Model):
             vals.pop('sii_enabled')
         invoice = super(AccountInvoice, self).create(vals)
         if (vals.get('fiscal_position_id') and
-                not vals.get('sii_registration_key')):
+                not vals.get('registration_key')):
             invoice.onchange_fiscal_position()
         if not vals.get('sii_description'):
             invoice._get_sii_description_from_lines()
