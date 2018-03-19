@@ -20,12 +20,15 @@
                 	<group colspan="2" col="6">
                 		<field name="operation" />
 	                    <field name="type" />
-	                    <field name="subtype" domain="[('type','=',type)]" />
+	                    <field name="subtype" domain="['|', ('type','=',type), ('type', '=', False)]" />
+	                    <field name="top_class" widget="selection"/>
+	                    <field name="investiment" widget="selection"/>
+	                    <field name="status" widget="selection"/>
                 	</group>
                     <group colspan="8" col="2">
                     	<group>
                     		<field name="city_id" />
-                    		<field name="address" /> 
+                    		<field name="address" />
                     		<field name="zone" />
                     		<field name="partner_id"/>
                     		<field name="date" />
@@ -39,6 +42,7 @@
                     		<field name="number_keys" />
                     		<field name="available" />
                     		<field name="exclusive" />
+                    		<field name="resale"/>
                     		<field name="name" />
                     	</group>
                     </group>
@@ -48,11 +52,14 @@
 	                        <group colspan="2" col="6">
 	                            <field name="sale_price" attrs="{'invisible': [('operation', 'in', ['rent','rent_sale_option']),]}" />
 	                            <field name="rent_price" attrs="{'invisible': [('operation', 'in', ['sale','valuation']),]}" />
+	                            <field name="rental_type" attrs="{'invisible': [('operation', 'in', ['sale','valuation', 'transfer']),]}" />
 	                            <field name="deposit" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}" />
+                                <field name="deposit_date" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}"/>
+                                <field name="deposit_amount" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}"/>
 	                        </group>
 	                        <group colspan="2" col="6">
-	                            <field name="homeowners_expenses" />
 	                            <field name="homeowners_expenses_included" />
+	                            <field name="homeowners_expenses" nolabel="True" placeholder="Homeowners Amount"/>
 	                            <field name="retribution" />
 	                        </group>
                         <group colspan="8" attrs="{'invisible': [('type', 'not in', ['flat','chalet','house'])]}">
@@ -67,11 +74,12 @@
                             </group>
                             <group colspan="8" col="2" attrs="{'invisible': [('type', 'not in', ['chalet','house'])]}">
                                 <separator string="Chalet and House Information" colspan="8"/>
-                                <group colspan="1" col="2">
+                                <group colspan="8" col="8">
                                 	<field name="chalet_usage_m2" />
 	                                <field name="chalet_cons_m2" />
 	                                <field name="plot_m2" />
-	                                <field name="garden_m2" />
+	                                <newline />
+                                    <field name="garden_m2"/>
 	                                <field name="chalet_heating" widget="selection"  />
 	                                <field name="chalet_hotwater" widget="selection"  />
 	                                <field name="floor_number" />
@@ -81,46 +89,48 @@
 	                                <field name="second_floor" />
                                 </group>
                             </group>
-                            <group colspan="8" col="2">
-                            	<group col="2">
+                            <group colspan="8" col="8">
+                            	<group colspan="2" col="2">
 	                                <field name="rooms" />
 	                                <field name="hall" />
 	                                <field name="kitchen" />
+                                    <field name="dinningroom"/>
 	                                <field name="bathroom" />
 	                                <field name="toilet" />
 	                                <field name="parking" />
 	                                <field name="box_room" />
 	                            </group> 
-	                            <group col="2">
-	                                <field name="room_description" />
-	                                <field name="hall_description"/>
-	                                <field name="kitchen_description"/>
-	                                <field name="bath_description" />
-	                                <field name="toilet_description"/>
-	                                <field name="parking_description" />
-	                                <field name="box_room_description"/>
+	                            <group colspan="6" col="6">
+	                                <field name="room_description" colspan="6" />
+	                                <field name="hall_description" colspan="6"/>
+	                                <field name="kitchen_description" colspan="6"/>
+	                                <field name="dinningroom_description" colspan="6"/>
+	                                <field name="bath_description" colspan="6"/>
+	                                <field name="toilet_description" colspan="6"/>
+	                                <field name="parking_type" colspan="2"/>
+	                                <field name="parking_description" colspan="4"/>
+	                                <field name="box_room_description" colspan="6"/>
 	                            </group> 
 	                       </group>
                             <group colspan="8">
                                 <separator string="Notes" colspan="8"/>
                         			<field name="note_flat" colspan="8" nolabel="1" />
                             </group>
-                            <group colspan="8" col="6">
-                            <separator string="Aditional Information" colspan="8"/>
+                            <group colspan="8" col="4">
+                                <separator string="Aditional Information" colspan="4"/>
                                 <field name="outside" />
-                                <field name="orientation" />
                                 <field name="elevator" />
                                 <field name="balcony" />
-                                <field name="swimming_pool" attrs="{'invisible': [('type', 'not in', ['chalet','house'])]}" />
-                        		
+                                <field name="home_air_conditioning" widget="selection"/>
                             </group>
                         </group>
                         
                         <group colspan="8" attrs="{'invisible': [('type', 'not in', ['chalet','house','flat'])]}">
                             <group colspan="8" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}">
                                 <separator string="Rent Information" colspan="8"/>
-                                <group colspan="8" col="4">
+                                <group colspan="8" col="6">
                                 	<field name="furnished" />
+                                	<field name="furniture" widget="selection"/>
                                 	<field name="furnished_description"/>
                                 </group>
                                 <group colspan="8" col="6">
@@ -224,18 +234,195 @@
 	                        </field>
                         </group>
                     </page>
+                    <page string="Extra">
+                        <group col="8" colspan="4">
+                            <group string="Over &amp; Under">
+                                <field name="attics"/>
+                                <field name="basements"/>
+                                <field name="cellars"/>
+                                <field name="lofts"/>
+                                <field name="insulation_under"/>
+                                <field name="insulation_over"/>
+                            </group>
+                            <group string="Applicances">
+                                <field name="tumbledryers"/>
+                                <field name="dishwashers"/>
+                                <field name="homecinemas"/>
+                                <field name="pooltables"/>
+                                <field name="refrigerators"/>
+                                <field name="stoves"/>
+                                <field name="tvs"/>
+                                <field name="tvflat"/>
+                                <field name="ventilators"/>
+                                <field name="washingmachines"/>
+                            </group>
+                            <group string="Features">
+                                <field name="barbacue"/>
+                                <field name="fireplaces"/>
+                                <field name="phonelines"/>
+                                <field name="awning" widget="selections"/>
+                                <field name="alarm"/>
+                                <field name="broadband"/>
+                                <field name="satellite"/>
+                                <field name="cable"/>
+                                <field name="gas"/>
+                                <field name="safe"/>
+                                <field name="tv"/>
+                            </group>
+                            <group string="Location">
+                                <field name="access" widget="selection"/>
+                                <field name="situation" widget="selection"/>
+                                <field name="noise_level" widget="selection"/>
+                                <field name="orientation" />
+                                <field name="sunny" widget="selection"/>
+                                <field name="view" widget="selection"/>
+                                <field name="pet_friendly_prop"/>
+                                <field name="pet_friendly_loc"/>
+                                <field name="elevated"/>
+                                <field name="hiking"/>
+                                <field name="cycling"/>
+                            </group>
+                            <group string="Pools &amp; SPAs" colspan="2" col="3">
+                                <field name="swimming_pool" colspan="3"/>
+                                <label for="swimming_pool_sea_public"/>
+                                <field name="swimming_pool_sea_private" nolabel="1"/>
+                                <field name="swimming_pool_sea_public" nolabel="1"/>
+                                <label for="swimming_pool_indoor_public"/>
+                                <field name="swimming_pool_indoor_private" nolabel="1"/>
+                                <field name="swimming_pool_indoor_public" nolabel="1"/>
+                                <label for="swimming_pool_outdoor_public"/>
+                                <field name="swimming_pool_outdoor_private" nolabel="1"/>
+                                <field name="swimming_pool_outdoor_public" nolabel="1"/>
+                                <label for="swimming_pool_heated_public"/>
+                                <field name="swimming_pool_heated_private" nolabel="1"/>
+                                <field name="swimming_pool_heated_public" nolabel="1"/>
+                                <label for="swimming_pool_kids_public"/>
+                                <field name="swimming_pool_kids_private" nolabel="1"/>
+                                <field name="swimming_pool_kids_public" nolabel="1"/>
+                                <label for="spa_public"/>
+                                <field name="spa_private" nolabel="1"/>
+                                <field name="spa_public" nolabel="1"/>
+                            </group>
+                            <group string="Construction">
+                                <field name="construction_year"/>
+                                <field name="levels"/>
+                                <field name="floor_type" widget="selection"/>
+                                <field name="window_glass" widget="selection"/>
+                                <field name="sewerage" widget="selection"/>
+                                <field name="window" widget="selection"/>
+                                <field name="appfloor"/>
+                                <field name="electricity"/>
+                                <field name="breeze_through"/>
+                                <field name="electricity_generator"/>
+                                <field name="elevator"/>
+                                <field name="security_doors"/>
+                                <field name="sound_proof"/>
+                                <field name="heated_floors"/>
+                                <field name="solar_heater"/>
+                                <field name="solar_panels"/>
+                                <field name="window_screens"/>
+                                <field name="window_shutters"/>
+                                <field name="wind_mill"/>
+                            </group>
+                            <group string="Outdoors" colspan="2" col="3">
+                                <label for="balcony_public"/>
+                                <field name="balcony_private" nolabel="1"/>
+                                <field name="balcony_public" nolabel="1"/>
+                                <field name="conservatories" colspan="3"/>
+                                <label for="croft_public"/>
+                                <field name="croft_private" nolabel="1"/>
+                                <field name="croft_public" nolabel="1"/>
+                                <label for="garden_public"/>
+                                <field name="garden_private" nolabel="1"/>
+                                <field name="garden_public" nolabel="1"/>
+                                <label for="gardenshed_public"/>
+                                <field name="gardenshed_private" nolabel="1"/>
+                                <field name="gardenshed_public" nolabel="1"/>
+                                <label for="roof_terraces_private"/>
+                                <field name="roof_terraces_private" nolabel="1"/>
+                                <field name="roof_terraces_public" nolabel="1"/>
+                                <label for="terraces_private"/>
+                                <field name="terraces_private" nolabel="1"/>
+                                <field name="terraces_public" nolabel="1"/>
+                            </group>
+                            <group string="Prof./Study Rooms">
+                                <field name="libraries"/>
+                                <field name="offices"/>
+                                <field name="studyrooms"/>
+                            </group>
+                            <group string="Water">
+                                <field name="auto_watering"/>
+                                <field name="waterwell"/>
+                                <field name="water"/>
+                                <field name="water_drill"/>
+                            </group>
+                            <group string="Support Rooms">
+                                <field name="playrooms"/>
+                                <field name="gym"/>
+                                <field name="gym_type"/>
+                                <field name="guestrooms"/>
+                                <field name="laundryrooms"/>
+                                <field name="storagerooms"/>
+                                <field name="workshop"/>
+                            </group>
+                            <group string="Vehicle">
+                                <field name="parkingspot_public"/>
+                                <field name="parkingspot_private"/>
+                                <field name="driveway"/>
+                            </group>
+                            <group string="Special needs">
+                                <field name="special_site_acces"/>
+                                <field name="special_bathrooms"/>
+                                <field name="special_entrance"/>
+                                <field name="special_kitchen"/>
+                                <field name="special_elderly"/>
+                                <field name="cotbeds"/>
+                                <field name="playpens"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Rental information" attrs="{'invisible': [('operation', 'in', ['sale','valuation','transfer']),]}">
+                        <group colspan="4" col="8">
+                            <field name="managed"/>
+                            <field name="sleeps"/>
+                            <field name="blankets"/>
+                            <field name="linen"/>
+                            <field name="towels"/>
+                            <field name="irons"/>
+                            <field name="ironing_boards"/>
+                            <field name="kettles"/>
+                            <field name="toasters"/>
+                            <field name="microwaves"/>
+                            <field name="coffee_makers"/>
+                            <field name="dinnerware"/>
+                            <field name="cookware"/>
+                            <field name="hairdryers"/>
+                            <field name="hifi"/>
+                            <field name="dvd"/>
+                            <field name="tennis_court_public"/>
+                            <field name="tennis_court_private"/>
+                            <field name="play_area_public"/>
+                            <field name="play_area_private"/>
+                        </group>
+                    </page>
                     <page string="Supplies">
                     <group colspan="8" col="2">
                         <group>
                             <separator string="Service Contracts Information" colspan="4"/>
                             <group colspan="12" col="2">
 	                            <field name="light_ref" />
+	                            <field name="light_fee_included"/>
+                                <field name="light_fee" nolabel="True" placeholder="Light Amount"/>
 	                            <field name="gas_ref" />
-	                            <field name="aqua_ref" />
+	                            <field name="gas_fee_included"/>
+                                <field name="gas_fee" nolabel="True" placeholder="Gas Amount"/>
+	                            <field name="water_ref" />
+	                            <field name="water_fee_included"/>
+	                            <field name="water_fee" nolabel="True" placeholder="Water Amount"/>
 	                            <field name="energy_efficiency" attrs="{'invisible': [('type', 'in', ['land'])], 'required': [('type', 'not in', ['industrial_unit','land'])]}" />
-	                            <field name="energy_date" />
-	                            <field name="energy_emission" />
-	                            <field name="energy_number" />
+	                            <field name="energy_date" attrs="{'invisible': [('type', 'in', ['land'])], 'required': [('type', 'not in', ['industrial_unit','land'])]}"/>
+	                            <field name="energy_emission" attrs="{'invisible': [('type', 'in', ['land'])], 'required': [('type', 'not in', ['industrial_unit','land'])]}"/>
+	                            <field name="energy_number" attrs="{'invisible': [('type', 'in', ['land'])], 'required': [('type', 'not in', ['industrial_unit','land'])]}"/>
 	                            <field name="energy_doc" filename="doc_filename" attrs="{'invisible': [('type', 'in', ['land'])], 'required': [('energy_efficiency','in',['a','b','c','d','e','f','g'])]}" />
                        		</group>
                         </group>
@@ -357,16 +544,15 @@
           </field>
       </record>
       
-      <record model="ir.actions.act_window" id="real_estate_top_act">
+<!--       <record model="ir.actions.act_window" id="real_estate_top_act">
           <field name="name">Top</field>
           <field name="res_model">real.estate.top</field>
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="context">{"search_default_available":1}</field>
           <field name="search_view_id" ref="real_estate_top_filter"/>
-      </record>
+      </record> -->
       <menuitem
-               action="real_estate_top_act"
                id="menu_real_estate_top_list"
                parent="menu_real_estate_top"
       sequence="10"/>
@@ -656,7 +842,22 @@
               </search>
           </field>
       </record>
-      
+
+      <record model="ir.actions.act_window" id="real_estate_top_all_act">
+          <field name="name">All</field>
+          <field name="res_model">real.estate.top</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+          <field name="domain">[]</field>
+          <field name="context">{"search_default_available":1}</field>
+          <field name="search_view_id" ref="real_estate_top_filter"/>
+      </record>
+      <menuitem
+               action="real_estate_top_all_act"
+               id="menu_real_estate_top_all_list"
+               parent="menu_real_estate_top_list"
+      sequence="5"/>
+
       <record model="ir.actions.act_window" id="real_estate_top_flat_act">
           <field name="name">Flat</field>
           <field name="res_model">real.estate.top</field>
@@ -843,7 +1044,19 @@
                id="menu_real_estate_zone_list"
                parent="menu_real_estate_conf"
       sequence="10"/>
-      
+
+      <record model="ir.actions.act_window" id="real_estate_situacion_act">
+          <field name="name">Situations</field>
+          <field name="res_model">real.estate.situation</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_situacion_act"
+               id="menu_real_estate_situation_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
       <record model="ir.actions.act_window" id="real_estate_heating_act">
           <field name="name">Heating</field>
           <field name="res_model">real.estate.heating</field>
@@ -891,7 +1104,91 @@
                id="menu_real_estate_land_estate_list"
                parent="menu_real_estate_conf"
       sequence="10"/>
-      
+
+      <record model="ir.actions.act_window" id="real_estate_class_act">
+          <field name="name">Class</field>
+          <field name="res_model">real.estate.class</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_class_act"
+               id="menu_real_estate_class_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_investiment_act">
+          <field name="name">Investiment</field>
+          <field name="res_model">real.estate.investiment</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_investiment_act"
+               id="menu_real_estate_investiment_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_status_act">
+          <field name="name">Status</field>
+          <field name="res_model">real.estate.status</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_status_act"
+               id="menu_real_estate_status_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_ac_act">
+          <field name="name">Air Conditioning</field>
+          <field name="res_model">real.estate.ac</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_ac_act"
+               id="menu_real_estate_ac_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_noise_level_act">
+          <field name="name">Noise Level</field>
+          <field name="res_model">real.estate.noise.level</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_noise_level_act"
+               id="menu_real_estate_noise_level_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_access_act">
+          <field name="name">Access</field>
+          <field name="res_model">real.estate.access</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_access_act"
+               id="menu_real_estate_access_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_floor_type_act">
+          <field name="name">Floor Type</field>
+          <field name="res_model">real.estate.floor.type</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_floor_type_act"
+               id="menu_real_estate_floor_type_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
       <record model="ir.actions.act_window" id="real_estate_subtype_act">
           <field name="name">Subtypes</field>
           <field name="res_model">real.estate.subtype</field>
@@ -927,5 +1224,89 @@
               </tree>
           </field>
       </record>
-      
+
+      <record model="ir.actions.act_window" id="real_estate_window_act">
+          <field name="name">Windows</field>
+          <field name="res_model">real.estate.window</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_window_act"
+               id="menu_real_estate_window_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_windowglass_act">
+          <field name="name">Window Glass</field>
+          <field name="res_model">real.estate.windowglass</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_windowglass_act"
+               id="menu_real_estate_windowglass_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_sunny_act">
+          <field name="name">Sunny</field>
+          <field name="res_model">real.estate.sunny</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_sunny_act"
+               id="menu_real_estate_sunny_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_view_act">
+          <field name="name">Views</field>
+          <field name="res_model">real.estate.view</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_view_act"
+               id="menu_real_estate_view_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_furniture_act">
+          <field name="name">Furniture</field>
+          <field name="res_model">real.estate.furniture</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_furniture_act"
+               id="menu_real_estate_furniture_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_sewerage_act">
+          <field name="name">Sewerage</field>
+          <field name="res_model">real.estate.sewerage</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_sewerage_act"
+               id="menu_real_estate_sewerage_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
+      <record model="ir.actions.act_window" id="real_estate_awning_act">
+          <field name="name">Awning</field>
+          <field name="res_model">real.estate.awning</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_type">form</field>
+      </record>
+      <menuitem
+               action="real_estate_awning_act"
+               id="menu_real_estate_awning_list"
+               parent="menu_real_estate_conf"
+      sequence="10"/>
+
 </odoo>

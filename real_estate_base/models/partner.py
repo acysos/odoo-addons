@@ -69,12 +69,9 @@ class res_partner(models.Model):
             res[partner.id] = path
         return res
     ''' 
-    
-    #prueba
 
     @api.multi
     def _get_mount_point(self):
-        return ''
         user = self.env.user
         company = user.company_id
         for partner in self:
@@ -89,14 +86,18 @@ class res_partner(models.Model):
                 
             model_id = self.env['ir.model'].search([('model','=',
                                                      'res.partner')])
-            dir_obj = self.env['document.directory']
-            dir_id = dir_obj.search([('ressource_type_id','=',model_id.id)])
+#             dir_obj = self.env['document.directory']
+#             dir_id = dir_obj.search([('ressource_type_id','=',model_id.id)])
             path = ''
             if partner.ref:
+#                 if client == 'unix':
+#                     path = mount + dir_id.name + '/' + partner.ref + '/'
+#                 elif client == 'win':
+#                     path = mount + dir_id.name + '\\' + partner.ref + '\\'
                 if client == 'unix':
-                    path = mount + dir_id.name + '/' + partner.ref + '/'
+                    path = mount + '/' + '/' + partner.ref + '/'
                 elif client == 'win':
-                    path = mount + dir_id.name + '\\' + partner.ref + '\\'
+                    path = mount + '\\' + '\\' + partner.ref + '\\'
                 partner.partner_attachments_url = path
         
 
@@ -113,5 +114,8 @@ class res_partner(models.Model):
     partner_attachments_url = fields.Char(compute='_get_mount_point', 
                                           store=False, size=1024, 
                                           string='Attachments URL')
+    spoken_lang = fields.Many2many(
+        comodel_name='res.lang', string='Spoken languages')
+    date_first_contact = fields.Datetime(string='First contact')
     
     

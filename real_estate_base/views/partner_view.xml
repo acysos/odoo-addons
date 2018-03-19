@@ -15,7 +15,6 @@
                     <field name="vat2" placeholder="2º NIF"/>
                     <field name="real_estate_type" placeholder="Type"/>
                     <field name="ref" placeholder="Reference"/>
-                    <field name="partner_attachments_url" placeholder="Attachment url" colspan="2" widget="url" />
               </field>
               <field name="supplier" position="after">
                   <field name="active"/>
@@ -31,7 +30,11 @@
 			  <xpath expr="//label[@for='street']" position="replace">
 			  	<label for="street" string="Information"/>
 			  </xpath>
-			  
+			  <field name="lang" position="after">
+			     <field name="spoken_lang" widget="many2many_tags"/>
+			     <field name="create_date"/>
+			     <field name="date_first_contact"/>
+			  </field>
 			  
           </field>
         </record>
