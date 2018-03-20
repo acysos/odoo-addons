@@ -235,7 +235,7 @@
                         </group>
                     </page>
                     <page string="Extra">
-                        <group col="8" colspan="4">
+                        <group col="6" colspan="4">
                             <group string="Over &amp; Under">
                                 <field name="attics"/>
                                 <field name="basements"/>
@@ -303,27 +303,6 @@
                                 <field name="spa_private" nolabel="1"/>
                                 <field name="spa_public" nolabel="1"/>
                             </group>
-                            <group string="Construction">
-                                <field name="construction_year"/>
-                                <field name="levels"/>
-                                <field name="floor_type" widget="selection"/>
-                                <field name="window_glass" widget="selection"/>
-                                <field name="sewerage" widget="selection"/>
-                                <field name="window" widget="selection"/>
-                                <field name="appfloor"/>
-                                <field name="electricity"/>
-                                <field name="breeze_through"/>
-                                <field name="electricity_generator"/>
-                                <field name="elevator"/>
-                                <field name="security_doors"/>
-                                <field name="sound_proof"/>
-                                <field name="heated_floors"/>
-                                <field name="solar_heater"/>
-                                <field name="solar_panels"/>
-                                <field name="window_screens"/>
-                                <field name="window_shutters"/>
-                                <field name="wind_mill"/>
-                            </group>
                             <group string="Outdoors" colspan="2" col="3">
                                 <label for="balcony_public"/>
                                 <field name="balcony_private" nolabel="1"/>
@@ -378,6 +357,27 @@
                                 <field name="special_elderly"/>
                                 <field name="cotbeds"/>
                                 <field name="playpens"/>
+                            </group>
+                            <group string="Construction" colspan="4" col="4">
+                                <field name="construction_year"/>
+                                <field name="levels"/>
+                                <field name="floor_type" widget="selection"/>
+                                <field name="window_glass" widget="selection"/>
+                                <field name="sewerage" widget="selection"/>
+                                <field name="window" widget="selection"/>
+                                <field name="appfloor"/>
+                                <field name="electricity"/>
+                                <field name="breeze_through"/>
+                                <field name="electricity_generator"/>
+                                <field name="elevator"/>
+                                <field name="security_doors"/>
+                                <field name="sound_proof"/>
+                                <field name="heated_floors"/>
+                                <field name="solar_heater"/>
+                                <field name="solar_panels"/>
+                                <field name="window_screens"/>
+                                <field name="window_shutters"/>
+                                <field name="wind_mill"/>
                             </group>
                         </group>
                     </page>
@@ -465,7 +465,7 @@
 							<field name="buyer_id" />
 						</group>
                     </page>
-                    <page string="Images and documents"> 
+                    <page string="Images and documents" id="real_estate_image"> 
                     <group>
                     	<!-- <field name="attachments_url" colspan="4" widget="url" />  -->
                     </group> 

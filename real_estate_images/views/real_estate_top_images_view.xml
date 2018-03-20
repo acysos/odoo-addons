@@ -74,7 +74,7 @@
                     </field>
                     </group>
               </field> -->
-              <xpath expr="/form/sheet/notebook/page[5]" position="inside">
+              <page id="real_estate_image" position="inside">
               		<separator string="Web Images" colspan="4" />
                   	<group colspan="8">
                   	<button name="launch_wizard" type="object"
@@ -138,7 +138,7 @@
 				        </form>
                     </field>
                     </group>
-              </xpath>
+              </page>
         </field>
     </record>
     
