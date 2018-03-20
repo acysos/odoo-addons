@@ -283,6 +283,7 @@
                                 <field name="cycling"/>
                             </group>
                             <group string="Pools &amp; SPAs" colspan="2" col="3">
+                                <span></span><span style="font-weight:bold">Private</span><span style="font-weight:bold">Public</span>
                                 <field name="swimming_pool" colspan="3"/>
                                 <label for="swimming_pool_sea_public"/>
                                 <field name="swimming_pool_sea_private" nolabel="1"/>
@@ -304,6 +305,7 @@
                                 <field name="spa_public" nolabel="1"/>
                             </group>
                             <group string="Outdoors" colspan="2" col="3">
+                                <span></span><span style="font-weight:bold">Private</span><span style="font-weight:bold">Public</span>
                                 <label for="balcony_public"/>
                                 <field name="balcony_private" nolabel="1"/>
                                 <field name="balcony_public" nolabel="1"/>

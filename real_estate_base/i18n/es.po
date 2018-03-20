@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-18 18:04+0000\n"
-"PO-Revision-Date: 2018-03-18 19:33+0100\n"
+"POT-Creation-Date: 2018-03-20 18:27+0000\n"
+"PO-Revision-Date: 2018-03-20 19:27+0100\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,11 @@ msgstr ""
 #: model:ir.ui.view,arch_db:real_estate_base.view_partner_form_real_estate
 msgid "2º NIF"
 msgstr "2º NIF"
+
+#. module: real_estate_base
+#: model:ir.ui.view,arch_db:real_estate_base.real_estate_top_form
+msgid "<span/><span style=\"font-weight:bold\">Private</span><span style=\"font-weight:bold\">Public</span>"
+msgstr "<span/><span style=\"font-weight:bold\">Privado</span><span style=\"font-weight:bold\">Comunitario</span>"
 
 #. module: real_estate_base
 #: model:ir.actions.act_window,name:real_estate_base.real_estate_access_act
@@ -1589,12 +1594,12 @@ msgstr "Inmobiliaria"
 #. module: real_estate_base
 #: model:res.groups,name:real_estate_base.group_real_estate_manager
 msgid "Real Estate / Manager"
-msgstr "Inmobiliaria / Gestor"
+msgstr "Real Estate / Manager"
 
 #. module: real_estate_base
 #: model:res.groups,name:real_estate_base.group_real_estate_user
 msgid "Real Estate / User"
-msgstr "Inmobiliaria / Usuario"
+msgstr "Real Estate / User"
 
 #. module: real_estate_base
 #: model:ir.ui.view,arch_db:real_estate_base.view_users_form_real_estate
