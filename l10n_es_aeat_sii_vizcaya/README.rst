@@ -11,7 +11,6 @@ de Guipúzcoa/Gizpuzkoa en el País Vasco.
 
 http://www.bizkaia.eus/home2/Temas/DetalleTema.asp?Tem_Codigo=10617&idioma=CA&dpto_biz=5&codpath_biz=5|10616|10617
 
-*AVISO*: No disponen aún de entorno de pruebas
 
 Installation
 ============
@@ -36,7 +35,7 @@ Foral de Vizcaya/Bizkaia
 Known issues / Roadmap
 ======================
 
-* No disponen aún de entorno de pruebas
+* Parche temporal para evitar el cruce de versiones de 1.0 y 1.1. El bug esta avisado.
 
 Credits
 =======
