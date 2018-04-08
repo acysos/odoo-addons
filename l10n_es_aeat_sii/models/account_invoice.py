@@ -9,8 +9,7 @@ from datetime import datetime, date
 from requests import Session
 
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError, RedirectWarning, ValidationError
-from odoo.modules.registry import RegistryManager
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -470,7 +469,8 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             -round(line['CuotaRepercutida'], 2)
-                        line['BaseImponible'] = -round(line['BaseImponible'], 2)
+                        line['BaseImponible'] = -round(
+                            line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
@@ -534,7 +534,8 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                        line['BaseImponible'] = -round(line['BaseImponible'], 2)
+                        line['BaseImponible'] = -round(
+                            line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \

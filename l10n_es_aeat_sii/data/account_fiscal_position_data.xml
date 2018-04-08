@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
-    <data noupdate="0">
-    
+<odoo>
+	<data noupdate="0">
         <record id="l10n_es.fp_nacional" model="account.fiscal.position.template">
             <field name="sii_registration_key_sale" ref="aeat_sii_mapping_registration_keys_01"/>
             <field name="sii_registration_key_purchase" ref="aeat_sii_mapping_registration_keys_16"/>
@@ -84,6 +83,5 @@
             <field name="sii_registration_key_sale" ref="aeat_sii_mapping_registration_keys_01"/>
             <field name="sii_registration_key_purchase" ref="aeat_sii_mapping_registration_keys_16"/>
         </record>
-    
-    </data>
-</openerp>
+	</data>
+</odoo>

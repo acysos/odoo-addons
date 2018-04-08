@@ -2,7 +2,7 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import _, api, fields, models
+from odoo import fields, models
 
 
 class AeatSiiResult(models.Model):
@@ -16,5 +16,4 @@ class AeatSiiResult(models.Model):
             model_id, res, type, fault, model)
         if model == 'pos.order':
             vals['pos_order_id'] = model_id.id
-        
         return vals

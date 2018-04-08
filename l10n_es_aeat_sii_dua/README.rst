@@ -11,6 +11,12 @@ Configuration
 
 Para configurar este módulo necesitas tener bien configurado el módulo l10n_es_dua tal y como se explica en dicho módulo.
 
+Installation
+============
+
+Módulos necesario:
+* l10n_es_aeat_sii: https://www.odoo.com/apps/modules/10.0/l10n_es_aeat_sii/
+
 Usage
 =====
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
+<odoo>
     <data noupdate="0">
     
         <record id="aeat_sii_mapping_payment_keys_01" model="aeat.sii.payment.mode.key">
@@ -22,4 +22,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

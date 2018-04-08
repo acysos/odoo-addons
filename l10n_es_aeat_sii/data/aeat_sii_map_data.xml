@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
+<odoo>
     <data noupdate="1">
         <record id="aeat_sii_map" model="aeat.sii.map">
             <field name="name">SII</field>
@@ -149,4 +149,4 @@
             <field name="name">SuministroFact Recargo Equivalencia</field>
         </record>
     </data>
-</openerp>
+</odoo>

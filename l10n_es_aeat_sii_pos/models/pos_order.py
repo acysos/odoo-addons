@@ -2,8 +2,8 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
-from openerp import models, exceptions, fields, api, _
-from openerp.modules.registry import RegistryManager
+from odoo import models, exceptions, fields, api, _
+from odoo.modules.registry import RegistryManager
 from datetime import datetime
 from requests import Session
 
@@ -17,8 +17,8 @@ except (ImportError, IOError) as err:
     _logger.debug(err)
 
 try:
-    from openerp.addons.connector.queue.job import job
-    from openerp.addons.connector.session import ConnectorSession
+    from odoo.addons.connector.queue.job import job
+    from odoo.addons.connector.session import ConnectorSession
 except ImportError:
     _logger.debug('Can not `import connector`.')
     import functools

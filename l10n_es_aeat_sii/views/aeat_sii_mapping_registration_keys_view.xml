@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
     
         <!-- Tree view -->
@@ -44,4 +44,4 @@
                   name="Aeat SII Registration Keys"/>
 
     </data>
-</openerp>
+</odoo>

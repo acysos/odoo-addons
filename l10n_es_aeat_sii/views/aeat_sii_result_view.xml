@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
+<odoo>
     <data>
     
         <record id="aeat_sii_result_view_tree" model="ir.ui.view">
@@ -69,4 +69,4 @@
         </record>
     
     </data>
-</openerp>
+</odoo>

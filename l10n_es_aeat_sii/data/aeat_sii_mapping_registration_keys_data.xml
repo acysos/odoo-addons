@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
+<odoo>
     <data noupdate="0">
     
         <record id="aeat_sii_mapping_registration_keys_01" model="aeat.sii.mapping.registration.keys">
@@ -153,4 +153,4 @@
             <field name="type">purchase</field>
         </record>
     </data>
-</openerp>
+</odoo>
