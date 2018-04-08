@@ -71,7 +71,7 @@ class PosConfig(models.Model):
     simplified_invoice_limit = fields.Float(string='Sim.Inv limit amount',
                                             digits=dp.get_precision('Account'),
                                             help='Over this amount is not '
-                                                 'legally posible to create a '
+                                                 'legally possible to create a '
                                                  'simplified invoice',
                                             default=3000)
 

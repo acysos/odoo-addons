@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from openerp import _, api, fields, models
+from odoo import api, models
 
 
 class AccountInvoice(models.Model):
@@ -49,6 +49,8 @@ class AccountInvoice(models.Model):
                 if 'PorcentCompensacionREAGYP' in line:
                     line.pop('TipoImpositivo')
                     line.pop('CuotaSoportada')
+                    line['ImporteCompensacionREAGYP'] = \
+                        round(line['ImporteCompensacionREAGYP'], 2)
                 invoices['FacturaRecibida']['DesgloseFactura'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         return invoices

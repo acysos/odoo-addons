@@ -2,8 +2,6 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-EN DESARROLLO, DISPONIBLE EN 6.0, 8.0, 9.0 y 10.0   
-   
 ============================================================================
 Suministro Inmediato de Información en el IVA - Pais Vasco - Vizcaya/Bizkaia
 ============================================================================
@@ -13,7 +11,6 @@ de Guipúzcoa/Gizpuzkoa en el País Vasco.
 
 http://www.bizkaia.eus/home2/Temas/DetalleTema.asp?Tem_Codigo=10617&idioma=CA&dpto_biz=5&codpath_biz=5|10616|10617
 
-*AVISO*: No disponen aún de entorno de pruebas
 
 Installation
 ============
@@ -25,7 +22,7 @@ Para instalar esté módulo necesita:
 #. Libreria pyOpenSSL, versión 0.15 o posterior
 
 Módulos necesario:
-* l10n_es_aeat_sii: https://www.odoo.com/apps/modules/10.0/l10n_es_aeat_sii/
+* l10n_es_aeat_sii: https://www.odoo.com/apps/modules/11.0/l10n_es_aeat_sii/
 
 
 Usage
@@ -38,7 +35,7 @@ Foral de Vizcaya/Bizkaia
 Known issues / Roadmap
 ======================
 
-* No disponen aún de entorno de pruebas
+* Parche temporal para evitar el cruce de versiones de 1.0 y 1.1. El bug esta avisado.
 
 Credits
 =======

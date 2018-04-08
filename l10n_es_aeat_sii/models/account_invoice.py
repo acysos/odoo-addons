@@ -9,8 +9,8 @@ from datetime import datetime, date
 from requests import Session
 
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError
-from odoo.modules.registry import RegistryManager
+from odoo.exceptions import UserError, RedirectWarning, ValidationError
+from odoo.modules.registry import Registry
 
 _logger = logging.getLogger(__name__)
 
@@ -112,7 +112,7 @@ class AccountInvoice(models.Model):
 
     @api.onchange('refund_type')
     def onchange_refund_type(self):
-        if self.refund_type == 'S' and not self.origin_invoices_ids:
+        if self.refund_type == 'S' and not self.origin_invoice_ids:
             self.refund_type = False
             return {
                 'warning': {'message': 'Debes tener al menos una factura '
@@ -137,9 +137,9 @@ class AccountInvoice(models.Model):
             header_sale = company.sii_header_sale
             header_purchase = company.sii_header_purchase
             description = '/'
-            if invoice.type in ['out_invoice', 'out_refund']:
+            if invoice.type in ['out_invoice', 'out_refund'] and header_sale:
                 description = header_sale
-            if invoice.type in ['in_invoice', 'in_refund']:
+            if invoice.type in ['in_invoice', 'in_refund'] and header_purchase:
                 description = header_purchase
             if method_desc == 'auto':
                 for line in invoice.invoice_line_ids:
@@ -153,31 +153,24 @@ class AccountInvoice(models.Model):
             raise UserError(_(
                 "No Fiscal Position configured for the partner %s") % (
                     partner.name))
-        if not vals.get('registration_key', False) and \
-                vals.get('fiscal_position', False):
-            fp = self.env['account.fiscal.position'].browse(
-                vals['fiscal_position'])
-            if vals['type'] in ['out_invoice', 'out_refund']:
-                vals['registration_key'] = fp.sii_registration_key_sale.id
-            if vals['type'] in ['in_invoice', 'in_refund']:
-                vals['registration_key'] = fp.sii_registration_key_purchase.id
+        if vals.get('sii_enabled', False):
+            vals.pop('sii_enabled')
         invoice = super(AccountInvoice, self).create(vals)
+        if (vals.get('fiscal_position_id') and
+                not vals.get('registration_key')):
+            invoice.onchange_fiscal_position()
+        if not vals.get('sii_description'):
+            invoice._get_sii_description_from_lines()
         return invoice
 
     @api.multi
     def write(self, vals):
         res = super(AccountInvoice, self).write(vals)
-        if vals.get('fiscal_position', False) and not \
-                vals.get('registration_key', False):
-            for invoice in self:
-                if not invoice.registration_key:
-                    if 'out' in invoice.type:
-                        invoice.registration_key = \
-                            invoice.fiscal_position.sii_registration_key_sale
-                    else:
-                        invoice.registration_key = invoice.\
-                            fiscal_position.sii_registration_key_purchase
-
+        if (vals.get('fiscal_position_id') and
+                not vals.get('registration_key')):
+            self.onchange_fiscal_position()
+        if not vals.get('sii_description'):
+            self._get_sii_description_from_lines()
         return res
 
     @api.multi
@@ -269,9 +262,13 @@ class AccountInvoice(models.Model):
             for tax in line_taxes:
                 if tax in taxes_re:
                     price = self._get_line_price_subtotal(line)
+#                     taxes = tax.compute_all(
+#                         price, line.quantity, line.product_id,
+#                         line.invoice_id.partner_id)
                     taxes = tax.compute_all(
-                        price, line.quantity, line.product_id,
-                        line.invoice_id.partner_id)
+                        price_unit=price,
+                        quantity=line.quantity, product=line.product_id,
+                        partner=line.invoice_id.partner_id)
                     taxes['percentage'] = tax.amount
                     return taxes
         return taxes
@@ -290,7 +287,7 @@ class AccountInvoice(models.Model):
             "BaseImponible": taxes['total_excluded']
         }
         if tax_line_req:
-            tipo_recargo = tax_line_req['percentage'] * 100
+            tipo_recargo = tax_line_req['percentage']
             cuota_recargo = tax_line_req['taxes'][0]['amount']
             tax_sii['TipoRecargoEquivalencia'] = tipo_recargo
             tax_sii['CuotaRecargoEquivalencia'] = cuota_recargo
@@ -311,9 +308,7 @@ class AccountInvoice(models.Model):
             quantity=line.quantity, product=line.product_id,
             partner=line.invoice_id.partner_id)
         if tax_line_req:
-            tipo_recargo = tax_line_req['percentage'] * 100
             cuota_recargo = tax_line_req['taxes'][0]['amount']
-            tax_sii[str(tax_type)]['TipoRecargoEquivalencia'] += tipo_recargo
             tax_sii[str(tax_type)]['CuotaRecargoEquivalencia'] += cuota_recargo
 
         tax_sii[str(tax_type)]['BaseImponible'] += taxes['total_excluded']
@@ -470,26 +465,27 @@ class AccountInvoice(models.Model):
                                     taxes_to, tax_line, line,
                                     line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
-            for key, line in taxes_f.iteritems():
+            for key, line in taxes_f.items():
                 if self.type == 'out_refund' and self.refund_type == 'I':
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             -round(line['CuotaRepercutida'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
+                        line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
-                            round(line['CuotaRepercutida'], 2)
+                            abs(round(line['CuotaRepercutida'], 2))
+                        line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.iteritems():
+            for key, line in taxes_to.items():
                 if self.type == 'out_refund' and self.refund_type == 'I':
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                     line['CuotaRepercutida'] = \
                         -round(line['CuotaRepercutida'], 2)
+                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -533,30 +529,31 @@ class AccountInvoice(models.Model):
                                 taxes_f, tax_line, line,
                                 line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
-            for key, line in taxes_f.iteritems():
+            for key, line in taxes_f.items():
                 if self.type == 'in_refund' and self.refund_type == 'I':
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
+                        line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
-                            round(line['CuotaSoportada'], 2)
+                            abs(round(line['CuotaSoportada'], 2))
+                        line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_isp) > 0:
-            for key, line in taxes_isp.iteritems():
+            for key, line in taxes_isp.items():
                 if self.type == 'in_refund' and self.refund_type == 'I':
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             round(line['CuotaSoportada'], 2)
+                line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['InversionSujetoPasivo']['DetalleIVA'].append(line)
@@ -649,6 +646,9 @@ class AccountInvoice(models.Model):
                     importe_total = -abs(self.amount_total)
             else:
                 importe_total = self.amount_total
+            if not self.reference:
+                raise UserError(_(
+                    'The invoice supplier number is required'))
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {},
@@ -683,7 +683,7 @@ class AccountInvoice(models.Model):
                 if self.refund_type == 'S':
                     base_rectificada = 0
                     cuota_rectificada = 0
-                    for s in self.origin_invoices_ids:
+                    for s in self.origin_invoice_ids:
                         base_rectificada += s.amount_untaxed
                         cuota_rectificada += s.amount_tax
                     invoices['FacturaRecibida']['ImporteRectificacion'] = {
@@ -766,15 +766,7 @@ class AccountInvoice(models.Model):
             else:
                 tipo_comunicacion = 'A1'
             header = invoice._get_header(tipo_comunicacion)
-            try:
-                invoices = invoice._get_invoices()
-            except Exception as fault:
-                new_cr = RegistryManager.get(self.env.cr.dbname).cursor()
-                env = api.Environment(new_cr, self.env.uid, self.env.context)
-                self.with_env(env).sii_send_error = fault
-                new_cr.commit()
-                new_cr.close()
-                raise
+            invoices = invoice._get_invoices()
             try:
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, invoices)
@@ -922,8 +914,7 @@ class AccountInvoice(models.Model):
         queue_obj = self.env['queue.job'].sudo()
         for invoice in self:
             company = invoice.company_id
-            if company.sii_enabled and company.sii_method == 'auto' and \
-                    invoice.is_sii_invoice():
+            if company.sii_enabled and invoice.is_sii_invoice():
                 if not company.use_connector:
                     invoice._send_invoice_to_sii()
                 else:
@@ -974,16 +965,21 @@ class AccountInvoice(models.Model):
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position_id.name == \
                 u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            dic_ret = {
-                "IDOtro": {
-                    "CodigoPais":
-                        self.partner_id.country_id and
-                        self.partner_id.country_id.code or
-                        vat[:2],
-                    "IDType": '04',
-                    "ID": vat
-                  }
-            }
+            if vat[:2] == 'ES':
+                _logger.info("Canarias")
+                dic_ret = {"NIF": self.partner_id.vat[2:]}
+            else:
+                _logger.info("Otro")
+                dic_ret = {
+                    "IDOtro": {
+                        "CodigoPais":
+                            self.partner_id.country_id and
+                            self.partner_id.country_id.code or
+                            vat[:2],
+                        "IDType": '04',
+                        "ID": vat
+                      }
+                }
             dic_ret = self._fix_country_code(dic_ret)
         elif vat.startswith('ESN'):
             dic_ret = {"NIF": self.partner_id.vat[2:]}

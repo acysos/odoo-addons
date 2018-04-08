@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from openerp import api, models
+from odoo import api, models
 
 
 class AccountInvoice(models.Model):
@@ -25,6 +25,7 @@ class AccountInvoice(models.Model):
             port_name = self._get_test_mode(port_name)
             client._default_port_name = port_name
             binding_name = '{'+wsdl+'}siiBinding'
+            binding_name = binding_name.replace('/v10', '')
             url = False
             if port_name == 'SuministroFactEmitidas':
                 url = self.env['ir.config_parameter'].get_param(
@@ -53,3 +54,14 @@ class AccountInvoice(models.Model):
             return self.env['ir.config_parameter'].get_param(key+'.48', False)
         else:
             return super(AccountInvoice, self)._get_wsdl(key)
+
+    @api.multi
+    def _get_invoices(self):
+        # Hacienda de Vizcaya implanta la 1.1 antes que Hacienda Nacional
+        # Fix para poder implementar los cambios de la 1.1 sin que afecte
+        # a el módulo general
+        # Parche temporal, Lantik no ha cambiado los WDSL de la V10, bug grave
+        invoices = super(AccountInvoice, self)._get_invoices()
+        invoices['PeriodoLiquidacion'] = invoices['PeriodoImpositivo']
+#         invoices.pop('PeriodoImpositivo')
+        return invoices

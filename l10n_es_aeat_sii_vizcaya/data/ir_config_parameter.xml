@@ -1,62 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2487 Ignacio Ibeas <ignacio@acysos.com>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
+<odoo>
     <data noupdate="0">
         <record id="config_parameter_sii_wsdl_out_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_out.48</field>
-            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/SuministroFactEmitidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/v10/SuministroFactEmitidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_in_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_in.48</field>
-            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/SuministroFactRecibidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/v10/SuministroFactRecibidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_pi_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_pi.48</field>
-            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/SuministroBienesInversion.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/v10/SuministroBienesInversion.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_ic_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_ic.48</field>
-            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/SuministroOpIntracomunitarias.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/v10/SuministroOpIntracomunitarias.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_pr_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_pr.48</field>
-            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/SuministroCobrosEmitidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/v10/SuministroCobrosEmitidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_ott_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_ott.48</field>
-            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/SuministroOpTrascendTribu.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/v10/SuministroOpTrascendTribu.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_ps_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_ps.48</field>
-            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/SuministroPagosRecibidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
+            <field name="value">http://www.bizkaia.eus/ogasuna/sii/documentos/v10/SuministroPagosRecibidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_url_soap_out_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.url_soap_out.48</field>
             <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fe/SiiFactFEV1SOAP?wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
         </record>
         <record id="config_parameter_sii_url_soap_in_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.url_soap_in.48</field>
             <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fr/SiiFactFRV1SOAP?wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
         </record>
         <record id="config_parameter_sii_url_soap_pr_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.url_soap_pr.48</field>
             <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fe/SiiFactCOBV1SOAP?wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
         </record>
         <record id="config_parameter_sii_url_soap_ps_48" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.url_soap_ps.48</field>
             <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fr/SiiFactPAGV1SOAP?wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
         </record>
     </data>
-</openerp>
+</odoo>

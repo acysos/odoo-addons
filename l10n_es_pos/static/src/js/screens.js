@@ -29,9 +29,9 @@ odoo.define('l10n_es_pos.screens', function (require) {
     var exports = {};
 
     screens.PaymentScreenWidget.include({
-        validate_order: function (force_validate) {
+        validate_order: function (force_validation) {
             this.pos.get_order().set_simple_inv_number();
-            this._super(force_validate);
+            this._super(force_validation);
         }
     });
 

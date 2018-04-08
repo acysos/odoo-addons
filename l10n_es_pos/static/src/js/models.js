@@ -1,8 +1,8 @@
 /****************************************************************************
  *
  *    OpenERP, Open Source Management Solution
- *    Copyright (C) 2016 Aselcis Consulting (http://www.aselcis.com). All Rights Reserved
  *    Copyright (C) 2016 David Gómez Quilón (http://www.aselcis.com). All Rights Reserved
+ *    Copyright (C) 2017 Miguel Paraíso (http://www.aselcis.com). All Rights Reserved
  *
  *    This program is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,6 @@ odoo.define('l10n_es_pos.models', function (require) {
     var ajax = require('web.ajax');
     var core = require('web.core');
     var models = require('point_of_sale.models');
-    var Model = require('web.DataModel');
     var QWeb = core.qweb;
     var _t = core._t;
     var exports = {};

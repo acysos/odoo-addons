@@ -1,8 +1,6 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-EN DESARROLLO, DISPONIBLE EN 6.0, 8.0, 9.0 y 10.0   
-
 ================================================================
 Punto de venta Punto de venta adaptado a la legislación española
 ================================================================

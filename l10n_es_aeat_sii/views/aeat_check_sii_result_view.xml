@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
+<odoo>
     <data>
     
         <record id="aeat_check_sii_result_view_tree" model="ir.ui.view">
@@ -78,17 +78,9 @@
             <field name="type">ir.actions.server</field>
             <field name="state">code</field>
             <field name="model_id" ref="account.model_account_invoice" />
+            <field name="binding_model_id" ref="model_account_invoice" />
             <field name="code">self.check_sii(cr, uid, context.get('active_ids', []), context)</field>
         </record>
 
-        <record id="action_check_sii_invoices_value" model="ir.values">
-            <field name="name">Check Invoices SII</field>
-            <field name="key">action</field>
-            <field name="key2">client_action_multi</field>
-            <field name="model">account.invoice</field>
-            <field name="value"
-                   eval="'ir.actions.server,%d' % ref('l10n_es_aeat_sii.action_check_sii_invoices')" />
-        </record>
-
     </data>
-</openerp>
+</odoo>

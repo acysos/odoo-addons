@@ -22,18 +22,18 @@ def post_init_sii_hook(cr, registry):
             if purchase_key:
                 cr.execute("""
                     UPDATE account_invoice
-                    SET sii_registration_key = %s
+                    SET registration_key = %s
                     WHERE type IN ('in_invoice', 'in_refund');""",
                            (purchase_key[0].id,))
             if sale_key:
                 cr.execute("""
                     UPDATE account_invoice
-                    SET sii_registration_key = %s
+                    SET registration_key = %s
                     WHERE type NOT IN ('in_invoice', 'in_refund');""",
                            (sale_key[0].id,))
             cr.execute("""
                 ALTER TABLE account_invoice
-                ALTER COLUMN sii_registration_key SET NOT NULL;
+                ALTER COLUMN registration_key SET NOT NULL;
                 """)
             cr.execute("""
                 UPDATE account_invoice

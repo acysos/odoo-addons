@@ -17,7 +17,7 @@ Añade todo lo necesario para adaptar el TPV a la legislación Española.
               "Aselcis Consulting, "
               "Spanish Localization Team, "
               "Odoo Community Association (OCA)",
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'depends': ['point_of_sale'],
     'license': 'AGPL-3',
     'data': [

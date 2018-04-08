@@ -2,8 +2,6 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-EN DESARROLLO, DISPONIBLE EN 6.0, 8.0, 9.0 y 10.0   
-   
 =============================================
 Suministro Inmediato de Información en el IVA
 =============================================
@@ -28,18 +26,22 @@ Configuration
 
 Para configurar este módulo necesitas:
 
-#. En la compañia se almacenan las URLs del servicio SOAP de hacienda.
-Estas URLs pueden cambiar según comunidades
-#. Los certificados deben alojarse en una carpeta accesible por la instalación
-de Odoo.
-#. Preparar el certificado. El certificado enviado por la FMNT es en formato
-p12, este certificado no se puede usar directamente con Zeep. Se tiene que
-extraer la clave pública y la clave privada.
+- En los parámetros del sistema se almacenan las URLs del servicios SOAP de hacienda. Estas URLs pueden cambiar según comunidades.
+- Los certificados deben alojarse en una carpeta accesible por la instalación de Odoo.
+- Preparar el certificado. El certificado enviado por la FMNT es en formato p12, este certificado no se puede usar directamente con Zeep. Se tiene que extraer la clave pública y la clave privada.
 
-El linux se pueden usar los siguientes comandos:
+El certificado se puede preparar de dos maneras:
 
-- Clave pública: "openssl pkcs12 -in Certificado.p12 -nokeys -out publicCert.crt -nodes"
-- Clave privada: "openssl pkcs12 -in Certifcado.p12 -nocerts -out privateKey.pem -nodes"
+- Asistente de Odoo en Contabilidad -> Configuración -> AEAT -> Certificado SII. Este asistente registrará el certificado desde Odoo y lo guardará en el disco duro.
+- Sin el asistente de Odoo. Si no quiere que se quede ningún registro en Odoo, puede extraer las claves con los siguientes comando de Linux:
+
+#. Clave pública: "openssl pkcs12 -in Certificado.p12 -nokeys -out publicCert.crt -nodes"
+#. Clave privada: "openssl pkcs12 -in Certifcado.p12 -nocerts -out privateKey.pem -nodes"
+
+Configuración de las claves de impuestos:
+
+- Manual: rellene los campos de Clave de Registro SII con el valor que corresponda
+- Automático: actualice el plan contale desde el enlace de "Update chart template" en la pantalla de configuración de Contabilidad. No disponible en Odoo 11.0.
 
 Connector:
 
@@ -76,6 +78,7 @@ de AEAT.
 Known issues / Roadmap
 ======================
 
+* Actualización de posiciones fiscales con account_chart_update (No migrado)
 * Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
 * Operación anual. Libro de bienes de inversión (Libro anual se crea un módulo aparte)
@@ -111,6 +114,6 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://acysos.com/website_logo.png
+.. image:: https://acysos.com/logo.png
    :alt: Acysos S.L.
    :target: https://www.acysos.com

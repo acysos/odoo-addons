@@ -2,8 +2,8 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
-from openerp import models, exceptions, fields, api, _
-from openerp.modules.registry import RegistryManager
+from odoo import models, exceptions, fields, api, _
+from odoo.modules.registry import Registry
 from datetime import datetime
 from requests import Session
 
@@ -17,8 +17,8 @@ except (ImportError, IOError) as err:
     _logger.debug(err)
 
 try:
-    from openerp.addons.connector.queue.job import job
-    from openerp.addons.connector.session import ConnectorSession
+    from odoo.addons.connector.queue.job import job
+    from odoo.addons.connector.session import ConnectorSession
 except ImportError:
     _logger.debug('Can not `import connector`.')
     import functools
@@ -260,7 +260,7 @@ class PosOrder(models.Model):
                                 line.tax_ids)
 
         if len(taxes_f) > 0:
-            for key, line in taxes_f.iteritems():
+            for key, line in taxes_f.items():
                 if line.get('CuotaRepercutida', False):
                     line['CuotaRepercutida'] = \
                         round(line['CuotaRepercutida'], 2)
@@ -269,7 +269,7 @@ class PosOrder(models.Model):
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.iteritems():
+            for key, line in taxes_to.items():
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -383,7 +383,7 @@ class PosOrder(models.Model):
             try:
                 orders = order._get_simplified()
             except Exception as fault:
-                new_cr = RegistryManager.get(self.env.cr.dbname).cursor()
+                new_cr = Registry.new(self.env.cr.dbname).cursor()
                 env = api.Environment(new_cr, self.env.uid, self.env.context)
                 self.with_env(env).sii_send_error = fault
                 new_cr.commit()
