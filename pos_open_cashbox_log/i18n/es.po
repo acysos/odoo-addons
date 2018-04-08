@@ -1,0 +1,116 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_open_cashbox_log
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-01 15:59+0000\n"
+"PO-Revision-Date: 2018-04-01 18:00+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_open_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Date Month"
+msgstr "Por mes"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: pos_open_cashbox_log
+#: model:ir.actions.act_window,name:pos_open_cashbox_log.action_pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_form_view
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_tree_view
+msgid "POS Open Cashbox Log"
+msgstr "TPV Registro de apertura de caja"
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.menu,name:pos_open_cashbox_log.menu_pos_open_cashbox_log
+msgid "POS Open Cashbox Logs"
+msgstr "TPV Registro de apertura de caja"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_name
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Salesman"
+msgstr "Comercial"
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Search Sales Order"
+msgstr "Buscar pedido de venta"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_session_id
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Session"
+msgstr "Sesión"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_user_id
+msgid "User"
+msgstr "Usuario"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model,name:pos_open_cashbox_log.model_pos_open_cashbox_log
+msgid "pos.open.cashbox.log"
+msgstr "pos.open.cashbox.log"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model,name:pos_open_cashbox_log.model_pos_open_cashbox_log_reg
+msgid "pos.open.cashbox.log.reg"
+msgstr ""

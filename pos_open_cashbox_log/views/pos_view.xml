@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<record id="view_pos_open_cashbox_log_tree_view" model="ir.ui.view">
+	       <field name="name">pos.open.cashbox.log.tree.view</field>
+	       <field name="model">pos.open.cashbox.log</field>
+	       <field name="arch" type="xml">
+	          <tree string="POS Open Cashbox Log">
+	              <field name="name"/>
+			      <field name="user_id"/>
+				  <field name="session_id"/>			
+				  <field name="open_date"/>	
+			  </tree>
+			</field>
+	    </record>
+
+	   <record id="view_pos_open_cashbox_log_form_view" model="ir.ui.view">
+	        <field name="name">pos.open.cashbox.log.form.view</field>
+	        <field name="model">pos.open.cashbox.log</field>
+	        <field name="arch" type="xml">
+				<form string="POS Open Cashbox Log">
+					<sheet>
+						<group>
+			              <field name="name"/>
+					      <field name="user_id"/>
+						  <field name="session_id"/>			
+						  <field name="open_date"/>	
+						</group>							
+					</sheet>
+				</form>
+	        </field>
+	    </record>
+
+	    <record id="view_pos_open_cashbox_log_filter" model="ir.ui.view">
+	        <field name="name">pos.open.cashbox.log.select</field>
+	        <field name="model">pos.open.cashbox.log</field>
+	        <field name="arch" type="xml">
+	            <search string="Search Sales Order">
+	                <field name="name"/>
+	                <field name="open_date"/>
+	                <field name="user_id"/>
+	                <field name="session_id"/>
+	                <group expand="0" string="Group By">
+	                    <filter string="Salesman" domain="[]" context="{'group_by':'user_id'}"/>
+	                    <filter string="Session" domain="[]" context="{'group_by':'session_id'}"/>
+	                    <filter string="Date Month" domain="[]" context="{'group_by':'open_date'}"/>
+	                </group>
+	            </search>
+	        </field>
+	    </record>
+
+ 		<record model="ir.actions.act_window" id="action_pos_open_cashbox_log">
+	        <field name="name">POS Open Cashbox Log</field>
+	        <field name="type">ir.actions.act_window</field>
+	        <field name="res_model">pos.open.cashbox.log</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	    </record>
+
+		<!--  Menu For POS Cash In Out -->
+		<menuitem id="menu_pos_open_cashbox_log" name="POS Open Cashbox Logs" parent="point_of_sale.menu_point_rep" action="action_pos_open_cashbox_log" sequence="10"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_open_cashbox_log
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-01 15:59+0000\n"
+"PO-Revision-Date: 2018-04-01 15:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_open_date
+msgid "Date"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Date Month"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Group By"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_id
+msgid "ID"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.actions.act_window,name:pos_open_cashbox_log.action_pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_form_view
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_tree_view
+msgid "POS Open Cashbox Log"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.menu,name:pos_open_cashbox_log.menu_pos_open_cashbox_log
+msgid "POS Open Cashbox Logs"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_name
+msgid "Reason"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Salesman"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Search Sales Order"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_session_id
+#: model:ir.ui.view,arch_db:pos_open_cashbox_log.view_pos_open_cashbox_log_filter
+msgid "Session"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model.fields,field_description:pos_open_cashbox_log.field_pos_open_cashbox_log_user_id
+msgid "User"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model,name:pos_open_cashbox_log.model_pos_open_cashbox_log
+msgid "pos.open.cashbox.log"
+msgstr ""
+
+#. module: pos_open_cashbox_log
+#: model:ir.model,name:pos_open_cashbox_log.model_pos_open_cashbox_log_reg
+msgid "pos.open.cashbox.log.reg"
+msgstr ""
+
