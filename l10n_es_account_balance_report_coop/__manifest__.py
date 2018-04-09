@@ -21,6 +21,9 @@
         'data/balance_abreviado_coop.xml',
         'data/balance_pymes_coop.xml',
         'data/balance_normal_coop.xml',
+        'data/pyg_abreviado_coop.xml',
+        'data/pyg_pymes_coop.xml',
+        'data/pyg_normal_coop.xml',
     ],
     "installable": True,
 }
