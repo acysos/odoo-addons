@@ -38,6 +38,11 @@ Contributors
 
 * Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>
 
+Financiadores
+-------------
+
+* Aizean evolution <http://www.aizean.com>
+
 
 Maintainer
 ----------
