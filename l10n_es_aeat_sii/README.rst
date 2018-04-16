@@ -6,8 +6,6 @@
 Suministro Inmediato de Información en el IVA
 =============================================
 
-AVISO: pendiente de actualizar. Versiones actualizadas 8.0 y 10.0
-
 Módulo para la presentación inmediata del IVA
 http://www.agenciatributaria.es/AEAT.internet/SII.html
 
@@ -75,11 +73,8 @@ Known issues / Roadmap
 
 * Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
-* Factura simplificada
-* Asistente para consultar los documentos comunicados
 * Operación anual. Libro de bienes de inversión (Libro anual se crea un módulo aparte)
 * Regimenes especial de seguros y agencias de viaje
-* Envio de facturas del primer semestre (Parcial, esta el botón de envio manual, falta un asistente de envio masivo)
 
 Credits
 =======
@@ -101,6 +96,6 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://acysos.com/website_logo.png
+.. image:: https://acysos.com/logo.png
    :alt: Acysos S.L.
    :target: https://www.acysos.com

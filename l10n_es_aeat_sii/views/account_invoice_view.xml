@@ -13,10 +13,10 @@
                     <button type="object" string="Send SII"
                             name="send_sii" groups="l10n_es_aeat.group_account_aeat"
                             states="open,paid" />
+                    <button type="object" string="Check SII"
+                            name="check_sii" groups="l10n_es_aeat.group_account_aeat"
+                            states="open,paid" attrs="{'invisible': [('sii_sent', '=', False)]}" />
                 </button>
-                <field name="reference" position="attributes">
-                    <attribute name="required">True</attribute>
-                </field>
                 <notebook position="inside">
                     <page string="SII" groups="account.group_account_manager"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
                         <group string="SII Information">
@@ -28,13 +28,20 @@
                         </group>
                         <group string="SII Result">
                             <field name="sii_sent" />
+                            <field name="sii_registration_date" />
                             <field name="sii_csv"/>
-<!--                             <field name="sii_return" /> -->
                             <label for="sii_results" colspan="4"/>
                             <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
                             <field name="sii_recc_sent" />
                             <field name="sii_recc_csv"/>
-                            <field name="sii_recc_return" />
+                            <label for="sii_recc_results" colspan="4"/>
+                            <field name="sii_recc_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+                        
+                        <group string="SII Verification">
+                            <field name="sii_reconcile_state"/>
+                            <label for="sii_check_results" colspan="4"/>
+                            <field name="sii_check_results" nolabel="1" colspan="4" readonly="1"/>
                         </group>
 
                         <group string="Invoice Jobs">
@@ -66,6 +73,9 @@
                     <button type="object" string="Send SII"
                             name="send_sii" groups="l10n_es_aeat.group_account_aeat"
                             states="open,paid" />
+                    <button type="object" string="Check SII"
+                            name="check_sii" groups="l10n_es_aeat.group_account_aeat"
+                            states="open,paid" attrs="{'invisible': [('sii_sent', '=', False)]}" />
                 </button>
                 <notebook position="inside">
                     <page string="SII" groups="account.group_account_manager" attrs="{'invisible': [('sii_enabled', '=', False)]}">
@@ -73,18 +83,25 @@
                             <field name="sii_description"/>
                             <field name="refund_type"
                                    attrs="{'required': [('type', 'in', ('out_refund','in_refund'))]}"/>
-                            <field name="registration_key" domain="[('type', '=', 'sale')]"/>
+                            <field name="registration_key" domain="[('type', '=', 'sale')]" attrs="{'required': [('sii_enabled', '=', True)]}"/>
                             <field name="sii_enabled" invisible="1"/>
                         </group>
                         <group string="SII Result">
                             <field name="sii_sent" />
+                            <field name="sii_registration_date" />
                             <field name="sii_csv"/>
-                            <!-- <field name="sii_return" /> -->
                             <label for="sii_results" colspan="4"/>
                             <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
                             <field name="sii_recc_sent"/>
                             <field name="sii_recc_csv"/>
-                            <field name="sii_recc_return" />
+                            <label for="sii_recc_results" colspan="4"/>
+                            <field name="sii_recc_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+
+                        <group string="SII Verification">
+                            <field name="sii_reconcile_state"/>
+                            <label for="sii_check_results" colspan="4"/>
+                            <field name="sii_check_results" nolabel="1" colspan="4" readonly="1"/>
                         </group>
 
                         <group string="Invoice Jobs">
