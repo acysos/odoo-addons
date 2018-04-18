@@ -193,9 +193,12 @@ class top_view(http.Controller):
             if (post['category'] != 'category'):
                 domain += [('type', '=', post['category'])]
                 category_sel = post['category']
-        if 'category' in post:        
+        if 'operations' in post:        
             if (post['operations'] != 'operation'):
-                domain += [('operation', '=', post['operations'])]
+                operations_domain = [post['operations']]
+                if post['operations'] in ['sale', 'rent']:
+                    operations_domain.append('sale_rent')
+                domain += [('operation', 'in', operations_domain)]
                 operation_sel = post['operations']
         if 'reference' in post:    
             if (post['reference'] != 'referencia'):
@@ -232,16 +235,11 @@ class top_view(http.Controller):
                 proofforstring = str(post['city']).split('-')
                 for index in range(len(proofforstring)):
                     prooftonumber.append(int(proofforstring[index]))
-                    
-                print prooftonumber
+
                 domain += [('city_id', 'in', prooftonumber)] 
                 city_sel = post['city']                     
         
-        print domain   
-        print post
-        
         tops = pool.get('real.estate.top')
-        
         
         top_count = tops.search_count(cr, uid, domain, context=context)
         
