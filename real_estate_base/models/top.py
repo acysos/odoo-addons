@@ -316,6 +316,13 @@ class real_estate_top(models.Model):
         comodel_name='real.estate.investiment', string='Investiment')
     status = fields.Many2one(
         comodel_name='real.estate.status', string='Status')
+    operation_state = fields.Selection([
+            ('none', 'None'),
+            ('pending_sold', 'Pending Sold'),
+            ('pending_rented', 'Pending Rented'),
+            ('sold', 'Sold'),
+            ('rented', 'Rented'),
+            ], 'State', select=True, readonly=False)
     energy_efficiency = fields.Selection(ENERGY_EFFICIENCY,
                                          'Energy Efficiency',
                                          default='in_process', required=False)
@@ -586,6 +593,7 @@ class real_estate_top(models.Model):
 #   meetings
     top_meetings = fields.Integer(compute='tops_meetings_count',
                                   string='Top Meetings', store=False)
+
 
     @api.model
     def create(self, vals):

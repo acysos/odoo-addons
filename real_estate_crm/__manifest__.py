@@ -25,15 +25,15 @@
     "website": "http://www.acysos.com",
     "complexity": "normal",
     "category": "Specific Industry",
-    "depends": ['base', 
-                'real_estate_base', 
+    "depends": ['base',
+                'real_estate_base',
                 'crm'],
-    
     "init_xml": [],
     "demo_xml": [],
-    "data": ['views/crm_lead_view.xml',
-                   'views/company_view.xml',
-                   'data/crm_lead_data.xml'],
+    "data": ['security/ir.model.access.csv',
+             'views/crm_lead_view.xml',
+             'views/company_view.xml',
+             'data/crm_lead_data.xml'],
     "active": False,
     "installable": True
 }

@@ -31,19 +31,20 @@ class real_estate_cities(models.Model):
 
 class real_estate_top(models.Model):
     _inherit = 'real.estate.top'
-    
+
     website_published = fields.Boolean('Publish in Real Estate')
     website_featured = fields.Boolean('Outstanding top')
     website_opportunity = fields.Boolean('Opportunity')
     original_sale_price = fields.Float('Original Sale Price')
     original_rent_price = fields.Float('Original Rent Price')
-    website_actsta = fields.Selection([
-            ('none','None'),
-            ('pending_sold','Pending Sold'),
-            ('pending_rented','Pending Rented'),
-            ('sold','Sold'),
-            ('rented','Rented'),
-             ],    'Estate', select=True, readonly=False)
+#    changed by top_estate in sale_rental
+#     website_actsta = fields.Selection([
+#             ('none','None'),
+#             ('pending_sold','Pending Sold'),
+#             ('pending_rented','Pending Rented'),
+#             ('sold','Sold'),
+#             ('rented','Rented'),
+#              ],    'State', select=True, readonly=False)
 
     @api.model
     def create(self, vals):
@@ -52,7 +53,7 @@ class real_estate_top(models.Model):
                 [('city_id', '=', res.city_id.id)]):
             self.env['real.estate.cities'].create({'city_id': res.city_id.id})
         return res
-    
+
     @api.multi
     def write(self, vals):
         if 'city_id' in vals:

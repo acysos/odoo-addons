@@ -24,7 +24,7 @@
 					  		</div>
 					  		<div class="pending">
 					  			<div class="hidden">
-					  				<span t-field='topdatas.website_actsta'/>
+					  				<span t-field='topdatas.operation_state'/>
 					  			</div>	
 					  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending1"/>
 					  		</div>
@@ -89,7 +89,7 @@
 					  		</div>
 					  		<div class="pending">
 					  			<div class="hidden">
-					  				<span t-field='topdatas.website_actsta'/>
+					  				<span t-field='topdatas.operation_state'/>
 					  			</div>	
 					  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending2"/>
 					  		</div>

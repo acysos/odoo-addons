@@ -37,7 +37,7 @@
 				  		</div>
 				  		<div class="pending">
 				  			<div class="hidden">
-				  				<span t-field='tops.website_actsta'/>
+				  				<span t-field='tops.operation_state'/>
 				  			</div>	
 				  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending1"/>
 				  		</div>

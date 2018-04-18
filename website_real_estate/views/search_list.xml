@@ -56,7 +56,7 @@
 										</select>
 									</div>
 									<div class="city col-md-2">
-										<select name="city">
+										<select name="city" onchange="this.form.submit()">
 											<t t-if="city_sel == 'city'">
 				  								<option value="city" selected="selected">Location</option>
 				  							</t>
@@ -256,7 +256,7 @@
 								  		</div>
 								  		<div class="pending">
 								  			<div class="hidden">
-								  				<span t-field='topdatas.website_actsta'/>
+								  				<span t-field='topdatas.operation_state'/>
 								  			</div>	
 								  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending1"/>
 								  		</div>

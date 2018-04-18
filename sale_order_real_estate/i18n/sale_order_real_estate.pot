@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_order_real_estate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-16 08:38+0000\n"
+"PO-Revision-Date: 2018-04-16 08:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_order_real_estate
+#: model:ir.model.fields,field_description:sale_order_real_estate.field_sale_order_line_estate
+msgid "Estate"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: model:ir.model.fields,field_description:sale_order_real_estate.field_sale_order_isrent
+msgid "Isrent"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: model:ir.model.fields,field_description:sale_order_real_estate.field_sale_order_line_operation
+msgid "Operation"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: selection:sale.order.line,operation:0
+msgid "Rent"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: model:ir.ui.view,arch_db:sale_order_real_estate.view_sale_order_real_estate
+msgid "Return de keys"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: selection:sale.order.line,operation:0
+msgid "Sale"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: model:ir.model,name:sale_order_real_estate.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: model:ir.model,name:sale_order_real_estate.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: sale_order_real_estate
+#: model:ir.model,name:sale_order_real_estate.model_real_estate_top
+msgid "real.estate.top"
+msgstr ""
+

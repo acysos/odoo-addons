@@ -16,7 +16,7 @@
                         	<field name="website_opportunity" />
                         	<field name="original_sale_price" />
                         	<field name="original_rent_price" />
-                        	<field name="website_actsta" />
+                        	<field name="top_estate" />
 						</group>
                 </separator>   -->     
                 
@@ -28,7 +28,7 @@
                         	<field name="website_opportunity" />
                         	<field name="original_sale_price" />
                         	<field name="original_rent_price" />
-                        	<field name="website_actsta" />
+                        	<field name="operation_state" />
 						</group>
                 </xpath>
           </field>
