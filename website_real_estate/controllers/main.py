@@ -189,9 +189,12 @@ class top_view(http.Controller):
             if (post['category'] != 'category'):
                 domain += [('type', '=', post['category'])]
                 category_sel = post['category']
-        if 'category' in post:        
+        if 'operations' in post:        
             if (post['operations'] != 'operation'):
-                domain += [('operation', '=', post['operations'])]
+                operations_domain = [post['operations']]
+                if post['operations'] in ['sale', 'rent']:
+                    operations_domain.append('sale_rent')
+                domain += [('operation', 'in', operations_domain)]
                 operation_sel = post['operations']
         if 'reference' in post:    
             if (post['reference'] != 'reference'):
