@@ -157,7 +157,7 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="template_id" ref="es_pyg_pymes_coop"/>
             <field name="code">40620</field>
             <field name="name">b) Otros gastos de personal</field>
-            <field name="current_value">64*, 7950*, 7957*</field>
+            <field name="current_value">640*,  641*, 642*, 649*, 7950*, 7957*</field>
             <field name="parent_id" ref="es_pyg_pymes_coop_40600"/>
             <field name="sequence">11</field>
             <field name="css_class">l5</field>
@@ -216,9 +216,9 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="css_class">l3</field>
         </record>
 
-        <record model="account.balance.reporting.template.line" id="es_pyg_pymes_coop_41200">
+        <record model="account.balance.reporting.template.line" id="es_pyg_pymes_coop_41210">
             <field name="template_id" ref="es_pyg_pymes_coop"/>
-            <field name="code">41200</field>
+            <field name="code">41210</field>
             <field name="name">a) Dotación</field>
             <field name="current_value">657*</field>
             <field name="parent_id" ref="es_pyg_pymes_coop_41200"/>
@@ -226,9 +226,9 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="css_class">l5</field>
         </record>
 
-        <record model="account.balance.reporting.template.line" id="es_pyg_pymes_coop_41200">
+        <record model="account.balance.reporting.template.line" id="es_pyg_pymes_coop_41220">
             <field name="template_id" ref="es_pyg_pymes_coop"/>
-            <field name="code">41200</field>
+            <field name="code">41220</field>
             <field name="name">b) Subvenciones, donaciones y ayudas y sanciones</field>
             <field name="current_value">7570*, 7571*, 7572*, 7573*</field>
             <field name="parent_id" ref="es_pyg_pymes_coop_41200"/>

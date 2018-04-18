@@ -345,9 +345,9 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="css_class">l3</field>
         </record>
 
-        <record model="account.balance.reporting.template.line" id="es_pyg_normal_coop_41200">
+        <record model="account.balance.reporting.template.line" id="es_pyg_normal_coop_41210">
             <field name="template_id" ref="es_pyg_normal_coop"/>
-            <field name="code">41200</field>
+            <field name="code">41210</field>
             <field name="name">a) Dotación</field>
             <field name="current_value">657*</field>
             <field name="parent_id" ref="es_pyg_normal_coop_41200"/>
@@ -355,9 +355,9 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="css_class">l5</field>
         </record>
 
-        <record model="account.balance.reporting.template.line" id="es_pyg_normal_coop_41200">
+        <record model="account.balance.reporting.template.line" id="es_pyg_normal_coop_41220">
             <field name="template_id" ref="es_pyg_normal_coop"/>
-            <field name="code">41200</field>
+            <field name="code">41220</field>
             <field name="name">b) Subvenciones, donaciones y ayudas y sanciones</field>
             <field name="current_value">7570*, 7571*, 7572*, 7573*</field>
             <field name="parent_id" ref="es_pyg_normal_coop_41200"/>
