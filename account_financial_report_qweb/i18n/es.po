@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 11:47+0000\n"
-"PO-Revision-Date: 2018-04-13 17:43+0200\n"
+"POT-Creation-Date: 2018-04-20 15:46+0000\n"
+"PO-Revision-Date: 2018-04-20 17:48+0200\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "Imp. moneda"
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_general_ledger_qweb_move_line_amount_currency
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_journal_qweb_move_line_amount_currency
 msgid "Amount currency"
-msgstr "Importe en moneda"
+msgstr "Monto moneda"
 
 #. module: account_financial_report_qweb
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_aged_partner_balance_qweb_line_amount_residual
@@ -366,7 +366,7 @@ msgstr "Centralizado"
 
 #. module: account_financial_report_qweb
 #: code:addons/account_financial_report_qweb/report/general_ledger.py:1143
-#: code:addons/account_financial_report_qweb/report/general_ledger.py:1229
+#: code:addons/account_financial_report_qweb/report/general_ledger.py:1257
 #, python-format
 msgid "Centralized Entries"
 msgstr "Asientos centralizados"
@@ -658,14 +658,14 @@ msgstr "Fecha vencimiento"
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_trial_balance_qweb_date_from
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_trial_balance_report_wizard_date_from
 msgid "Date from"
-msgstr "Desde fecha"
+msgstr "Fecha desde"
 
 #. module: account_financial_report_qweb
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_general_ledger_report_wizard_date_range_id
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_journal_report_wizard_date_range_id
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_trial_balance_report_wizard_date_range_id
 msgid "Date range"
-msgstr "Rango de fecha"
+msgstr "Periodo"
 
 #. module: account_financial_report_qweb
 #: code:addons/account_financial_report_qweb/report/general_ledger_xlsx.py:61
@@ -685,7 +685,7 @@ msgstr "Filtro de rango de fecha"
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_trial_balance_qweb_date_to
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_trial_balance_report_wizard_date_to
 msgid "Date to"
-msgstr "Hasta fecha"
+msgstr "Fecha hasta"
 
 #. module: account_financial_report_qweb
 #: code:addons/account_financial_report_qweb/report/general_ledger_xlsx.py:34
@@ -1103,7 +1103,7 @@ msgstr "Diario"
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_general_ledger_report_wizard_journal_exclude_ids
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_trial_balance_report_wizard_journal_exclude_ids
 msgid "Journal Exclude"
-msgstr "Journal Exclude"
+msgstr "No incluir diarios"
 
 #. module: account_financial_report_qweb
 #: model:ir.ui.menu,name:account_financial_report_qweb.journal_report_wizard_menu
@@ -1125,7 +1125,7 @@ msgstr "Journal XLSX"
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_general_ledger_qweb_journal_exclude_ids
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_trial_balance_qweb_journal_exclude_ids
 msgid "Journal exclude ids"
-msgstr "Journal exclude ids"
+msgstr "No incluir diario"
 
 #. module: account_financial_report_qweb
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_journal_qweb_journal_journal_id
@@ -1249,7 +1249,7 @@ msgstr "Última actualización el"
 #. module: account_financial_report_qweb
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_aged_partner_balance_qweb_partner_line_ids
 msgid "Line ids"
-msgstr "Líneas"
+msgstr "Ids de líneas"
 
 #. module: account_financial_report_qweb
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_general_ledger_qweb_move_line_matching_number
@@ -1275,7 +1275,7 @@ msgstr "Apunte contable"
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_general_ledger_qweb_partner_move_line_ids
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_report_open_items_qweb_partner_move_line_ids
 msgid "Move line ids"
-msgstr "Apuntes contables"
+msgstr "Ids registro movimiento"
 
 #. module: account_financial_report_qweb
 #: model:ir.model.fields,field_description:account_financial_report_qweb.field_journal_report_wizard_move_target
@@ -1322,9 +1322,9 @@ msgstr "No group"
 
 #. module: account_financial_report_qweb
 #: code:addons/account_financial_report_qweb/report/general_ledger.py:637
-#: code:addons/account_financial_report_qweb/report/general_ledger.py:692
+#: code:addons/account_financial_report_qweb/report/general_ledger.py:696
 #: code:addons/account_financial_report_qweb/report/general_ledger.py:906
-#: code:addons/account_financial_report_qweb/report/general_ledger.py:989
+#: code:addons/account_financial_report_qweb/report/general_ledger.py:1009
 #: code:addons/account_financial_report_qweb/report/open_items.py:277
 #: code:addons/account_financial_report_qweb/report/open_items.py:278
 #: code:addons/account_financial_report_qweb/report/open_items.py:523
