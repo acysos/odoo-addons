@@ -5,35 +5,31 @@
     <data noupdate="0">
         <record id="config_parameter_sii_wsdl_out_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_out.20</field>
-            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroFactEmitidas.wsdl</field>
+            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/v1.0/SuministroFactEmitidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_in_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_in.20</field>
-            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroFactRecibidas.wsdl</field>
+            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/v1.0/SuministroFactRecibidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_pi_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_pi.20</field>
-            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroBienesInversion.wsdl</field>
+            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/v1.0/SuministroBienesInversion.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_ic_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_ic.20</field>
-            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroOpIntracomunitarias.wsdl</field>
+            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/v1.0/SuministroOpIntracomunitarias.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_pr_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_pr.20</field>
-            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroCobrosEmitidas.wsdl</field>
+            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/v1.0/SuministroCobrosEmitidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_ott_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_ott.20</field>
-            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroOpTrascendTribu.wsdl</field>
+            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/v1.0/SuministroOpTrascendTribu.wsdl</field>
         </record>
         <record id="config_parameter_sii_wsdl_ps_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.wsdl_ps.20</field>
-            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/SuministroPagosRecibidas.wsdl</field>
-        </record>
-        <record id="config_parameter_sii_url_test_soap_20" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.url_test_soap.20</field>
-            <field name="value">https://prep9.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fe/SiiFactFEV1SOAP</field>
+            <field name="value">https://egoitza.gipuzkoa.eus/ogasuna/sii/ficheros/v1.0/SuministroPagosRecibidas.wsdl</field>
         </record>
         <record id="config_parameter_sii_url_soap_out_20" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.url_soap_out.20</field>

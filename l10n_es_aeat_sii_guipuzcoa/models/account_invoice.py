@@ -24,6 +24,7 @@ class AccountInvoice(models.Model):
             client._default_service_name = 'siiService'
             port_name = self._get_test_mode(port_name)
             client._default_port_name = port_name
+            wsdl = wsdl.replace('v1.0/', '')
             binding_name = '{'+wsdl+'}siiBinding'
             url = False
             if port_name == 'SuministroFactEmitidas':
