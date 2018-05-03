@@ -79,7 +79,10 @@
             <field name="state">code</field>
             <field name="model_id" ref="account.model_account_invoice" />
             <field name="binding_model_id" ref="model_account_invoice" />
-            <field name="code">self.check_sii(cr, uid, context.get('active_ids', []), context)</field>
+            <field name="code">
+                if records:
+                    action = records.check_sii()
+            </field>
         </record>
 
     </data>
