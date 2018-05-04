@@ -147,6 +147,16 @@ class AccountInvoice(models.Model):
                 invoice.sii_description = description
 
     @api.model
+    def _prepare_refund(
+            self, invoice, date_invoice=None, date=None,
+            period_id=None, description=None, journal_id=None):
+        values = super(AccountInvoice, self)._prepare_refund(
+            invoice, date_invoice, date, period_id, description,
+            journal_id)
+        values['refund_type'] = 'I'
+        return values
+
+    @api.model
     def create(self, vals):
         if not vals.get('fiscal_position_id', False):
             partner = self.env['res.partner'].browse(vals['partner_id'])
