@@ -17,9 +17,6 @@
                             name="check_sii" groups="l10n_es_aeat.group_account_aeat"
                             states="open,paid" attrs="{'invisible': [('sii_sent', '=', False)]}" />
                 </button>
-                <field name="supplier_invoice_number" position="attributes">
-                    <attribute name="required">True</attribute>
-                </field>
                 <notebook position="inside">
                     <page string="SII" groups="account.group_account_manager"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
                         <group string="SII Information">
