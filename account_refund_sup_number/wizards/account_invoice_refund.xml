@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="view_invoice_refund_sup_num">
+            <field name="name">invoice.refund.supplier.num.wiz</field>
+            <field name="model">account.invoice.refund</field>
+            <field name="inherit_id" ref="account.view_account_invoice_refund" />
+            <field name="arch" type="xml">
+                    <field name="period" position="after">
+                        <field name="invoice_type" invisible="1"/>
+                        <field name="sup_invoice_number"
+                            attrs="{'invisible':[('invoice_type','!=','in_invoice')]}"/>
+                    </field>
+            </field>
+        </record>
+</data>
+</openerp>
