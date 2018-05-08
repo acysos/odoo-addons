@@ -1,0 +1,234 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_balance_multishop
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-25 14:38+0000\n"
+"PO-Revision-Date: 2018-04-25 14:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_balance_multishop
+#: model:ir.ui.view,arch_db:pos_balance_multishop.product_balace_code_form_view
+msgid "Balance"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_product_balance_code_ids
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_template_balance_code_ids
+msgid "Balance Codes"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_model_id
+msgid "Balance Model"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_balance_ids
+#: model:ir.ui.view,arch_db:pos_balance_multishop.sale_balance_form_view
+#: model:ir.ui.view,arch_db:pos_balance_multishop.sale_balance_tree_view
+#: model:ir.ui.view,arch_db:pos_balance_multishop.view_shop_form_balance
+msgid "Balances"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.ui.view,arch_db:pos_balance_multishop.view_wizard_update_balance_codes_form
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.actions.act_window,help:pos_balance_multishop.action_sale_tree
+msgid "Click to create balance shop."
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_code
+msgid "Code"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_create_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_create_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_create_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_create_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_wizard_update_balance_codes_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_create_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_create_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_create_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_create_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_wizard_update_balance_codes_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_display_name
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_display_name
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_display_name
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_display_name
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_wizard_update_balance_codes_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_id
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_id
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_id
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_id
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_wizard_update_balance_codes_id
+msgid "ID"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_ip
+msgid "IP"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_key
+msgid "Key"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model___last_update
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop___last_update
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code___last_update
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance___last_update
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_wizard_update_balance_codes___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_write_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_write_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_write_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_write_uid
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_wizard_update_balance_codes_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_write_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_write_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_write_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_write_date
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_wizard_update_balance_codes_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_model_name
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_name
+msgid "Name"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_network
+msgid "Network Connection"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_port
+msgid "Port"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_product_product
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_product_id
+msgid "Product"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.ui.view,arch_db:pos_balance_multishop.product_balace_code_form_view
+msgid "Product Balance Codes"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.actions.act_window,name:pos_balance_multishop.action_sale_tree
+#: model:ir.ui.menu,name:pos_balance_multishop.menu_sale_tree
+msgid "Sale balance shop"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.ui.view,arch_db:pos_balance_multishop.view_shop_form_balance
+msgid "Sale_shop"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_product_balance_code_shop_id
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_sale_balance_shop_id
+msgid "Shop"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: sql_constraint:product.template:0
+msgid "The Balance Code must be unique per product and shop !"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.actions.act_window,name:pos_balance_multishop.action_update_balance_codes
+#: model:ir.ui.view,arch_db:pos_balance_multishop.view_wizard_update_balance_codes_form
+msgid "Update balance codes"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.ui.view,arch_db:pos_balance_multishop.view_wizard_update_balance_codes_form
+msgid "_Update Codes"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_balance_model
+msgid "balance.model"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_balance_sale_shop
+msgid "balance.sale.shop"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_barcode_nomenclature
+msgid "barcode.nomenclature"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_barcode_rule
+msgid "barcode.rule"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model.fields,field_description:pos_balance_multishop.field_balance_sale_shop_name
+msgid "name"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_product_balance_code
+msgid "product.balance.code"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_sale_balance
+msgid "sale.balance"
+msgstr ""
+
+#. module: pos_balance_multishop
+#: model:ir.model,name:pos_balance_multishop.model_wizard_update_balance_codes
+msgid "wizard.update.balance.codes"
+msgstr ""
+
