@@ -32,6 +32,18 @@
                         	</page>
                         </page>
                 </field>
-          </record> 	 
+          </record> 
+          
+          
+        <record id="action_update_balance_codes" model="ir.actions.server">
+            <field name="name">Update balance codes</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="product.model_product_template" />
+            <field name="code">
+             	 if records:
+                    action = records.update_codes()
+            </field>
+        </record>
+        	 
     </data>
 </odoo>

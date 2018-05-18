@@ -18,7 +18,6 @@
                 'security/ir.model.access.csv',
                 'views/product_view.xml',
                 'views/sale_view.xml',
-                'wizard/update_balance_codes_view.xml'
                    ],
     'demo_xml': [],
     'test': [],

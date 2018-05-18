@@ -25,7 +25,8 @@ class ProductTemplate(models.Model):
         ('balance_code_uniq', 'unique(balance_name, shop_id)',
          'The Balance Code must be unique per product and shop !'),
     ]
-
+    
+    
     @api.multi
     def write(self, vals):
         res = super(ProductTemplate, self).write(vals)
@@ -61,6 +62,15 @@ class ProductTemplate(models.Model):
                 control_digit = int((10 - total % 10) % 10)
                 barcode = ean + str(control_digit)
                 product.barcode = barcode
+    
+    @api.multi
+    def update_codes(self):
+        for product in self:
+            if len(product.balance_code_ids) > 0:
+                for code in product.balance_code_ids:
+                    if len(code.shop_id.balance_ids) > 0:
+                        code.remove_balance()
+                        code.update_balance()
 
 
 class product_balance_code(models.Model):
@@ -149,3 +159,13 @@ class ProductProduct(models.Model):
         self.balance_code_ids.remove_balance()
         res = super(ProductProduct, self).unlink()
         return res
+    
+    @api.multi
+    def update_codes(self):
+        for product in self:
+            if len(product.balance_code_ids) > 0:
+                for code in product.balance_code_ids:
+                    if len(code.shop_id.balance_ids) > 0:
+                        code.remove_balance()
+                        code.update_balance()
+    
