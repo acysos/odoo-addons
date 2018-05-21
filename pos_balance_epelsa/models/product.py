@@ -359,7 +359,7 @@ class ProductTemplate(models.Model):
     @api.onchange('balance_name')
     def _onchange_name(self):
         for product in self:
-            if not len(product.balance_name) == 5:
+            if product.balance_name and not len(product.balance_name) == 5:
                 raise ValidationError(_('The code must have 5 digits'))
             if not product.balance_name.isdigit():
                 raise ValidationError(_('Code between 0-9'))
