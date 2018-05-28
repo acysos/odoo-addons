@@ -277,7 +277,7 @@
 								</div>
 								<div class="col-md-8 col-sm-7 description_right">
 						         <div class="right2">
-						         	 <a id="link_top" t-attf-href="/realestate/top/{{topdatas.id}}"><t t-set="completeAddress1" t-value="topdatas.zone.name+' - '+topdatas.address"/><span id="black_color" t-esc="completeAddress1"/></a>
+						         	 <a id="link_top" t-attf-href="/realestate/top/{{topdatas.id}}"><t t-set="completeAddress1" t-value="topdatas.zone.name or ''+' - '+topdatas.address or ''"/><span id="black_color" t-esc="completeAddress1"/></a>
 						         	 <t t-if="(topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)">
 						       	 		<span id="origsaleprice1" t-field="topdatas.original_sale_price"/> <span id="eur">€</span>
 						       	 		<span class="hidden" id="1"/>

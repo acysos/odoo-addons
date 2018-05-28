@@ -69,54 +69,45 @@ class top_view(http.Controller):
     
     @http.route(['/realestate/top/<model("real.estate.top"):top>'], type='http', auth="public", website=True)
     def realestatetops(self, top, **post):
-        
-        
+
         uid = request.uid
         user = request.env['res.users'].with_context(active_test=False).search([('id', '=', uid)])
-       
         company = user.company_id
-        
-        
         values = {
-            'tops' : top,
-            'companies' : company
-            }        
+            'tops': top,
+            'companies': company
+            }
         return request.render("website_real_estate.tops_template", values)
 
-    
     @http.route(['/realestate/search',
                  '/realestate/search/page/<int:page>'], type='http', auth="public", website=True, csrf=False)
     def searchtopslist(self, page=0, **post):
-         
+
         url = "/realestate/search"
         values = self.searchtops(page, url, post)
         values['page'] = page
         return request.render("website_real_estate.search_list", values)
-     
-     
+
     @http.route(['/realestate/searchmap',
                  '/realestate/searchmap/page/<int:page>'], type='http', auth="public", website=True, csrf=False)
     def searchtopsmap(self, page=0, **post):
-           
+
         url = "/realestate/searchmap"
         values = self.searchtops(page, url, post)
         values['page'] = page
         return request.render("website_real_estate.search_map", values)
-           
-       
-      
-     
-     
+
     def searchtops(self, page=0, url="",  post={}): 
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-            
+
         domain = [('website_published', '=', True), ('available', '=', True)]
         uid = request.uid
-         
-        user = request.env['res.users'].with_context(active_test=False).search([('id', '=', uid)])
-        
+
+        user = request.env['res.users'].with_context(
+            active_test=False).search([('id', '=', uid)])
+
         company = user.company_id
-         
+
         zones_domain = [('id', '>', 0)]
         city_sel = 'city'
         if 'city' in post:
@@ -135,7 +126,7 @@ class top_view(http.Controller):
 
         cities = request.env['real.estate.cities'].sudo().search(
             [('id', '>', 0)])
-         
+
         type1 = [('unlimited','unlimited'),
              ('flat','Flat'),
              ('shop','Shop'),
@@ -149,14 +140,13 @@ class top_view(http.Controller):
              ('parking','Parking'),
              ('box_room','Box room'),
              ('land','Land')]
-         
+
         operations1 = [('sale','Sale'),
                    ('rent','Rent'),
                    ('sale_rent','Sale & Rent'),
                    ('rent_sale_option','Rent with sale option'),
                    ('transfer','Transfer')]
-         
-         
+
         cities_ids = {}
         cities1 = cities.mapped('city_id')
         for city in cities1:
@@ -177,8 +167,7 @@ class top_view(http.Controller):
         rentpriceto_def = 0
         areafrom_def = 0
         areato_def = 0
-         
- 
+
         if 'zone' in post:
             if (post['zone'] != 'zone'):
                 domain += [('zone', '=', int(post['zone']))]
@@ -222,21 +211,20 @@ class top_view(http.Controller):
             if (splitnumber(post['areato']) > 0):
                 domain += [('m2', '<=', splitnumber(post['areato']))]
                 areato_def = post['areato']
-         
+
         top_obj = request.env['real.estate.top']
-         
-         
+
         top_count = top_obj.search_count(domain)
-         
+
         pager = request.website.pager(url=url, total=top_count, page=page, step=PPG, scope=7, url_args=post)
-         
+
         top_ids_object = top_obj.search(domain, limit=NPages, offset=pager['offset'])
         tops_ids = set([v[0].id for v in top_ids_object])
-        
+
         topss = top_obj.browse(tops_ids)
 
         listToMap = [[],[],[],[],[],[],[],[]]
-         
+
         for t in topss:
             if t.image_ids:
                 image_id = t.image_ids[0].id
@@ -252,12 +240,11 @@ class top_view(http.Controller):
                     listToMap[5].append(t.address.replace(',', ';'))
                     listToMap[6].append(t.m2)
                     listToMap[7].append(t.name)
-         
-                    
-         
+
+
         url_base = str(request.env['ir.config_parameter'].get_param(
             'web.base.url', False))
-         
+
         values = {
             'top' : topss,
             'pager' : pager, 
@@ -288,47 +275,49 @@ class top_view(http.Controller):
                  '/realestate/featured/page/<int:page>'], type='http', auth="public", website=True)
     def featuredtops(self, page=0, **post): 
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-         
+
         domain = [('website_published', '=', True), ('available', '=', True), ('website_featured', '=', True)]
-         
+
         uid = request.uid
-         
+
         user = request.env['res.users'].with_context(active_test=False).search([('id', '=', uid)])
-        
+
         company = user.company_id
-         
+
         url = '/realestate/featured'
-         
+
         top_obj = request.env['real.estate.top']
-         
-         
+
         top_count = top_obj.search_count(domain)
-         
-        pager = request.website.pager(url=url, total=top_count, page=page, step=NPages, scope=7)
-         
-        top_ids_object = top_obj.search(domain, limit=NPages, offset=pager['offset'])
+
+        pager = request.website.pager(url=url, total=top_count, page=page,
+                                      step=NPages, scope=7)
+
+        top_ids_object = top_obj.search(domain, limit=NPages,
+                                        offset=pager['offset'])
         tops_ids = set([v[0].id for v in top_ids_object])
-        
+
         topss = top_obj.browse(tops_ids)
-        
-         
-         
-        prueba = random.sample(topss, 6)
-        print prueba 
-         
+        if len(topss) < 6:
+            random_length = len(topss)
+        else:
+            random_length = 6
+        random_top = random.sample(topss, random_length)
+
         values = {
-            'top' : prueba,
-            'companies' : company,
-            'pager' : pager, 
-            'tops' : topss
+            'top': random_top,
+            'companies': company,
+            'pager': pager,
+            'tops': topss
             }
-         
+
         return request.render("website_real_estate.featured_tops", values)
-     
-     
+
+
     @http.route(['/realestate/maptops'], type='json', auth="public", website=True)
     def maptops(self, topsids):
-        lists = http.request.env['real.estate.top'].sudo().search(([('id','in',topsids)])).read()
+        lists = http.request.env['real.estate.top'].sudo().search(
+            ([('id','in',topsids)])).read()
         return json.dumps(lists)
 
     
