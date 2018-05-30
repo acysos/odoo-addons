@@ -574,7 +574,7 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="template_id" ref="es_balance_abreviado_coop"/>
             <field name="code">31430</field>
             <field name="name">3. Otras deudas a largo plazo</field>
-            <field name="current_value">1615*, 1635*, 171*, 172*, 173*, 175*, 176*, 177*, 178*, 179*, 180*, 185*, 189*</field>
+            <field name="current_value">1615*, 1635*, 1710*, 1715*, 1714*, 172*, 173*, 175*, 176*, 177*, 178*, 179*, 180*, 185*, 189*</field>
             <field name="parent_id" ref="es_balance_abreviado_coop_31400"/>
             <field name="sequence">53</field>
             <field name="css_class">l4</field>
@@ -817,23 +817,23 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="template_id" ref="es_balance_abreviado_coop"/>
             <field name="code">32720</field>
             <field name="name">2. Proveedores</field>
-            <field name="current_value">400*, 401*, 403*, 404*, 405*, 406*</field>
+            <field name="current_value">4000*, 4004*, 4009*, 401*, 403*, 404*, 405*, 406*</field>
             <field name="parent_id" ref="es_balance_abreviado_coop_32700"/>
             <field name="sequence">78</field>
             <field name="css_class">l4</field>
         </record>
 
-        <record model="account.balance.reporting.template.line" id="es_balance_abreviado_coop_32590">
+        <record model="account.balance.reporting.template.line" id="es_balance_abreviado_coop_32790">
             <field name="template_id" ref="es_balance_abreviado_coop"/>
-            <field name="code">32590</field>
+            <field name="code">32790</field>
             <field name="name">3. Otros acreedores</field>
             <field name="current_value">41*, 438*, 465*, 466*, 475*, 476*, 477*</field>
-            <field name="parent_id" ref="es_balance_abreviado_coop_32500"/>
+            <field name="parent_id" ref="es_balance_abreviado_coop_32700"/>
             <field name="sequence">79</field>
             <field name="css_class">l4</field>
         </record>
 
-        <record model="account.balance.reporting.template.line" id="es_balance_abreviado_coop_32600">
+        <record model="account.balance.reporting.template.line" id="es_balance_abreviado_coop_32800">
             <field name="template_id" ref="es_balance_abreviado_coop"/>
             <field name="code">32800</field>
             <field name="name">VIII. Periodificaciones a corto plazo</field>

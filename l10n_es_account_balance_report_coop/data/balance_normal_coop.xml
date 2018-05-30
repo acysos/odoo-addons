@@ -1166,7 +1166,7 @@ https://www.boe.es/buscar/doc.php?id=BOE-A-2010-20034
             <field name="template_id" ref="es_balance_normal_coop"/>
             <field name="code">31450</field>
             <field name="name">5. Otros pasivos financieros</field>
-            <field name="current_value">1615*, 1635*, 171*, 172*, 173*, 175*, 180*, 185*, 189*</field>
+            <field name="current_value">1615*, 1635*, 1710*, 1715*, 1714*, 172*, 173*, 175*, 180*, 185*, 189*</field>
             <field name="parent_id" ref="es_balance_normal_coop_31400"/> 
             <field name="sequence">110</field>
             <field name="css_class">l4</field>
