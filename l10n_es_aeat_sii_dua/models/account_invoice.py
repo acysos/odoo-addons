@@ -34,6 +34,8 @@ class AccountInvoice(models.Model):
                     self.company_id.name
             if self.registration_key.code == '13':
                 res['FacturaRecibida']['TipoFactura'] = 'F6'
+            if self.type in ['in_refund']:
+                res['FacturaRecibida']['TipoFactura'] = 'R4'
         return res
 
     @api.multi
