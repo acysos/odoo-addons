@@ -183,6 +183,23 @@ class AccountInvoice(models.Model):
         return res
 
     @api.multi
+    def _get_sii_map(self, date):
+        self.ensure_one()
+        sii_map_obj = self.env['aeat.sii.map']
+        sii_map_line_obj = self.env['aeat.sii.map.lines']
+        sii_map = sii_map_obj.search(
+            ['|',
+             ('date_from', '<=', date),
+             ('date_from', '=', False),
+             '|',
+             ('date_to', '>=', date),
+             ('date_to', '=', False)], limit=1)
+        if not sii_map:
+            raise exceptions.Warning(_(
+                'SII Map not found. Check your configuration'))
+        return sii_map
+
+    @api.multi
     def map_tax_template(self, tax_template, mapping_taxes):
         # Adapted from account_chart_update module
         """Adds a tax template -> tax id to the mapping."""
@@ -210,15 +227,8 @@ class AccountInvoice(models.Model):
     def _get_taxes_map(self, codes, date):
         # Return the codes that correspond to that sii map line codes
         taxes = []
-        sii_map_obj = self.env['aeat.sii.map']
         sii_map_line_obj = self.env['aeat.sii.map.lines']
-        sii_map = sii_map_obj.search(
-            ['|',
-             ('date_from', '<=', date),
-             ('date_from', '=', False),
-             '|',
-             ('date_to', '>=', date),
-             ('date_to', '=', False)], limit=1)
+        sii_map = self._get_sii_map(date)
         mapping_taxes = {}
         for code in codes:
             tax_templates = sii_map_line_obj.search(
@@ -237,14 +247,13 @@ class AccountInvoice(models.Model):
         return new_date
 
     @api.multi
-    def _get_header(self, tipo_comunicacion):
+    def _get_header(self, tipo_comunicacion, sii_map):
         self.ensure_one()
         company = self.company_id
         if not company.vat:
             raise UserError(_(
                 "No VAT configured for the company '{}'").format(company.name))
-        id_version_sii = self.env['ir.config_parameter'].get_param(
-            'l10n_es_aeat_sii.version', False)
+        id_version_sii = sii_map.version
         header = {
             "IDVersionSii": id_version_sii,
             "Titular": {
@@ -271,9 +280,6 @@ class AccountInvoice(models.Model):
             for tax in line_taxes:
                 if tax in taxes_re:
                     price = self._get_line_price_subtotal(line)
-#                     taxes = tax.compute_all(
-#                         price, line.quantity, line.product_id,
-#                         line.invoice_id.partner_id)
                     taxes = tax.compute_all(
                         price_unit=price,
                         quantity=line.quantity, product=line.product_id,
@@ -749,8 +755,14 @@ class AccountInvoice(models.Model):
         return serv
 
     @api.multi
-    def _get_wsdl(self, key):
-        wsdl = self.env['ir.config_parameter'].get_param(key, False)
+    def _get_wsdl(self, sii_map, key):
+        sii_wsdl = sii_map.wsdl_url.search(
+            [('sii_map_id', '=', sii_map.id), ('key', '=', key)], limit=1)
+        if sii_wsdl:
+            wsdl = sii_wsdl.wsdl
+        else:
+            raise exceptions.Warning(_(
+                'WSDL not found. Check your configuration'))
         return wsdl
 
     @api.multi
@@ -764,19 +776,20 @@ class AccountInvoice(models.Model):
     def _send_invoice_to_sii(self):
         for invoice in self.filtered(
                 lambda i: i.state in ['open', 'paid'] and i.is_sii_mapped):
+            sii_map = invoice._get_sii_map(invoice.date_invoice)
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_out')
+                wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
                 port_name = 'SuministroFactEmitidas'
                 operation = 'SuministroLRFacturasEmitidas'
             elif self.type in ['in_invoice', 'in_refund']:
-                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_in')
+                wsdl = invoice._get_wsdl(sii_map, 'wsdl_in')
                 port_name = 'SuministroFactRecibidas'
                 operation = 'SuministroLRFacturasRecibidas'
             if not invoice.sii_sent:
                 tipo_comunicacion = 'A0'
             else:
                 tipo_comunicacion = 'A1'
-            header = invoice._get_header(tipo_comunicacion)
+            header = invoice._get_header(tipo_comunicacion, sii_map)
             invoices = invoice._get_invoices()
             try:
                 res = invoice._send_soap(
@@ -812,17 +825,18 @@ class AccountInvoice(models.Model):
     @api.multi
     def send_recc_payment_registry(self, move):
         for invoice in self:
+            sii_map = invoice._get_sii_map(move.date)
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_pr')
+                wsdl = invoice._get_wsdl(sii_map, 'wsdl_pr')
                 port_name = 'SuministroCobrosEmitidas'
                 operation = 'SuministroLRCobrosEmitidas'
                 importe = move.debit
             elif invoice.type in ['in_invoice', 'in_refund']:
-                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_ps')
+                wsdl = invoice._get_wsdl(sii_map, 'wsdl_ps')
                 port_name = 'SuministroPagosRecibidas'
                 operation = 'SuministroLRPagosRecibidas'
                 importe = move.credit
-            header = invoice._get_header(False)
+            header = invoice._get_header(False, sii_map)
             fecha = self._change_date_format(move.reconcile_id.create_date)
             pay = {
                 'Fecha': fecha,
@@ -1030,18 +1044,19 @@ class AccountInvoice(models.Model):
     def _check_invoice(self):
         """ Request information to AEAT """
         for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
+            sii_map = invoice._get_sii_map(invoice.date_invoice)
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_out')
+                wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
                 port_name = 'SuministroFactEmitidas'
                 operation = 'ConsultaLRFacturasEmitidas'
                 number = invoice.number[0:60]
             elif self.type in ['in_invoice', 'in_refund']:
-                wsdl = invoice._get_wsdl('l10n_es_aeat_sii.wsdl_in')
+                wsdl = invoice._get_wsdl(sii_map, 'wsdl_in')
                 port_name = 'SuministroFactRecibidas'
                 operation = 'ConsultaLRFacturasRecibidas'
                 number = invoice.reference and \
                     invoice.reference[0:60]
-            header = invoice._get_header(False)
+            header = invoice._get_header(False, sii_map)
             ejercicio = fields.Date.from_string(
                 self.date_invoice).year
             periodo = '%02d' % fields.Date.from_string(

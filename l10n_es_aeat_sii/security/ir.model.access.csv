@@ -13,3 +13,5 @@ access_model_aeat_sii_result_admin,aeat.sii.result admin,model_aeat_sii_result,a
 access_model_aeat_sii_result_aeat,aeat.sii.result aeat,model_aeat_sii_result,account.group_account_user,1,0,0,0
 access_model_aeat_check_sii_result_admin,aeat.check.sii.result admin,model_aeat_check_sii_result,account.group_account_manager,1,1,1,1
 access_model_aeat_check_sii_result_aeat,aeat.check.sii.result aeat,model_aeat_check_sii_result,account.group_account_user,1,0,0,0
+access_model_aeat_sii_wsdl_admin,aeat.sii.wsdl admin,model_aeat_sii_wsdl,account.group_account_manager,1,1,1,1
+access_model_aeat_sii_wsdl_aeat,aeat.sii.wsdl aeat,model_aeat_sii_wsdl,account.group_account_user,1,0,0,0

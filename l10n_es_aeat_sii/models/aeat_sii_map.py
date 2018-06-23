@@ -14,18 +14,18 @@ class AeatSiiMap(models.Model):
     @api.constrains('date_from', 'date_to')
     def _unique_date_range(self):
         # Based in l10n_es_aeat module
-        domain = [('id', '!=', self.id)]
+        domain = [('id', '!=', self.id), ('state', '=', self.state.id)]
         if self.date_from and self.date_to:
-            domain += ['|', '&',
+            domain += ['|',
                        ('date_from', '<=', self.date_to),
                        ('date_from', '>=', self.date_from),
-                       '|', '&',
+                       '|',
                        ('date_to', '<=', self.date_to),
                        ('date_to', '>=', self.date_from),
-                       '|', '&',
+                       '|',
                        ('date_from', '=', False),
                        ('date_to', '>=', self.date_from),
-                       '|', '&',
+                       '|',
                        ('date_to', '=', False),
                        ('date_from', '<=', self.date_to),
                        ]
@@ -42,10 +42,15 @@ class AeatSiiMap(models.Model):
     name = fields.Char(string='Model', required=True)
     date_from = fields.Date(string='Date from')
     date_to = fields.Date(string='Date to')
+    version = fields.Char(string='Version')
+    state = fields.Many2one(comodel_name='res.country.state')
     map_lines = fields.One2many(
         comodel_name='aeat.sii.map.lines',
         inverse_name='sii_map_id',
         string='Lines')
+    wsdl_url = fields.One2many(
+        comodel_name='aeat.sii.wsdl',
+        inverse_name='sii_map_id')
 
 
 class AeatSiiMapLines(models.Model):
@@ -56,6 +61,18 @@ class AeatSiiMapLines(models.Model):
     name = fields.Char(string='Name')
     taxes = fields.Many2many(
         comodel_name='account.tax.template', string="Taxes")
+    sii_map_id = fields.Many2one(
+        comodel_name='aeat.sii.map',
+        string='Aeat SII Map',
+        ondelete='cascade')
+
+class AeatSiiWsdl(models.Model):
+    _name = 'aeat.sii.wsdl'
+    _description = 'Aeat SII WDSL Urls'
+    
+    name = fields.Char(string='Name')
+    key = fields.Char(string='Key', readonly=True)
+    wsdl = fields.Char(string='WDSL Url')
     sii_map_id = fields.Many2one(
         comodel_name='aeat.sii.map',
         string='Aeat SII Map',
