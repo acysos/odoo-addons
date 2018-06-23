@@ -14,7 +14,7 @@ class AeatSiiMap(models.Model):
     @api.constrains('date_from', 'date_to')
     def _unique_date_range(self):
         # Based in l10n_es_aeat module
-        domain = [('id', '!=', self.id)]
+        domain = [('id', '!=', self.id), ('state', '=', self.state.id)]
         if self.date_from and self.date_to:
             domain += ['|',
                        ('date_from', '<=', self.date_to),

@@ -8,6 +8,27 @@ class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
 
     @api.multi
+    def _get_sii_map(self, date):
+        self.ensure_one()
+        if self.company_id.state_id.code == '01':
+            sii_map_obj = self.env['aeat.sii.map']
+            sii_map_line_obj = self.env['aeat.sii.map.lines']
+            sii_map = sii_map_obj.search(
+                [('state', '=', self.company_id.state_id.id),
+                 '|',
+                 ('date_from', '<=', date),
+                 ('date_from', '=', False),
+                 '|',
+                 ('date_to', '>=', date),
+                 ('date_to', '=', False)], limit=1)
+            if not sii_map:
+                raise exceptions.Warning(_(
+                    'SII Map not found. Check your configuration'))
+            return sii_map
+        else:
+            return super(AccountInvoice, self)._get_sii_map(date)
+
+    @api.multi
     def _get_test_mode(self, port_name):
         self.ensure_one()
         if self.company_id.state_id.code == '01' and self.company_id.sii_test:
@@ -45,11 +66,3 @@ class AccountInvoice(models.Model):
                     wsdl, port_name)
         else:
             return super(AccountInvoice, self)._connect_wsdl(wsdl, port_name)
-
-    @api.multi
-    def _get_wsdl(self, key):
-        self.ensure_one()
-        if self.company_id.state_id.code == '01':
-            return self.env['ir.config_parameter'].get_param(key+'.01', False)
-        else:
-            return super(AccountInvoice, self)._get_wsdl(key)

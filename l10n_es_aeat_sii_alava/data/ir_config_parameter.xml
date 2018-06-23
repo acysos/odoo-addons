@@ -3,41 +3,6 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <openerp>
     <data noupdate="0">
-        <record id="config_parameter_sii_wsdl_out_01" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.wsdl_out.01</field>
-            <field name="value">https://sii.araba.eus/documentos/SuministroFactEmitidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
-        </record>
-        <record id="config_parameter_sii_wsdl_in_01" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.wsdl_in.01</field>
-            <field name="value">https://sii.araba.eus/documentos/SuministroFactRecibidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
-        </record>
-        <record id="config_parameter_sii_wsdl_pi_01" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.wsdl_pi.01</field>
-            <field name="value">https://sii.araba.eus/documentos/SuministroBienesInversion.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
-        </record>
-        <record id="config_parameter_sii_wsdl_ic_01" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.wsdl_ic.01</field>
-            <field name="value">https://sii.araba.eus/documentos/SuministroOpIntracomunitarias.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
-        </record>
-        <record id="config_parameter_sii_wsdl_pr_01" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.wsdl_pr.01</field>
-            <field name="value">https://sii.araba.eus/documentos/SuministroCobrosEmitidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
-        </record>
-        <record id="config_parameter_sii_wsdl_ott_01" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.wsdl_ott.01</field>
-            <field name="value">https://sii.araba.eus/documentos/SuministroOpTrascendTribu.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
-        </record>
-        <record id="config_parameter_sii_wsdl_ps_01" model="ir.config_parameter" forcecreate="True">
-            <field name="key">l10n_es_aeat_sii.wsdl_ps.01</field>
-            <field name="value">https://sii.araba.eus/documentos/SuministroPagosRecibidas.wsdl</field>
-            <field name="group_ids" eval="[(6, False, [ref('account.group_account_invoice')])]" />
-        </record>
         <record id="config_parameter_sii_url_soap_out_01" model="ir.config_parameter" forcecreate="True">
             <field name="key">l10n_es_aeat_sii.url_soap_out.01</field>
             <field name="value">https://pruebas-sii.araba.eus/SSII-FACT/ws/fe/SiiFactFEV1SOAP</field>

@@ -168,6 +168,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def _get_sii_map(self, date):
+        self.ensure_one()
         sii_map_obj = self.env['aeat.sii.map']
         sii_map_line_obj = self.env['aeat.sii.map.lines']
         sii_map = sii_map_obj.search(
@@ -739,7 +740,8 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def _get_wsdl(self, sii_map, key):
-        sii_wsdl = sii_map.wsdl_url.search([('key', '=', key)], limit=1)
+        sii_wsdl = sii_map.wsdl_url.search(
+            [('sii_map_id', '=', sii_map.id), ('key', '=', key)], limit=1)
         if sii_wsdl:
             wsdl = sii_wsdl.wsdl
         else:
@@ -757,7 +759,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _send_invoice_to_sii(self):
         for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
-            sii_map = self._get_sii_map(invoice.date_invoice)
+            sii_map = invoice._get_sii_map(invoice.date_invoice)
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
                 port_name = 'SuministroFactEmitidas'
@@ -806,7 +808,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def send_recc_payment_registry(self, move):
         for invoice in self:
-            sii_map = self._get_sii_map(move.date)
+            sii_map = invoice._get_sii_map(move.date)
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = invoice._get_wsdl(sii_map, 'wsdl_pr')
                 port_name = 'SuministroCobrosEmitidas'
@@ -1026,7 +1028,7 @@ class AccountInvoice(models.Model):
     def _check_invoice(self):
         """ Request information to AEAT """
         for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
-            sii_map = self._get_sii_map(invoice.date_invoice)
+            sii_map = invoice._get_sii_map(invoice.date_invoice)
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
                 port_name = 'SuministroFactEmitidas'
@@ -1038,7 +1040,6 @@ class AccountInvoice(models.Model):
                 operation = 'ConsultaLRFacturasRecibidas'
                 number = invoice.supplier_invoice_number and \
                     invoice.supplier_invoice_number[0:60]
-            sii_map = self._get_sii_map(invoice.date_invoice)
             header = invoice._get_header(False, sii_map)
             ejercicio = fields.Date.from_string(
                 invoice.period_id.fiscalyear_id.date_start).year
