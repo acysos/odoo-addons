@@ -283,6 +283,7 @@ class PosOrder(models.Model):
     @api.multi
     def _get_simplified(self):
         self.ensure_one()
+        sii_map = self._get_sii_map()
         order_date = self._change_date_format(self.date_order)
         company = self.company_id
         period = self.env['account.period'].find(self.date_order)[:1]
@@ -307,10 +308,6 @@ class PosOrder(models.Model):
                 },
                 "NumSerieFacturaEmisor": self.name[0:60],
                 "FechaExpedicionFacturaEmisor": order_date},
-            "PeriodoImpositivo": {
-                "Ejercicio": ejercicio,
-                "Periodo": periodo
-            },
             "FacturaExpedida": {
                 "TipoFactura": tipo_factura,
                 "ClaveRegimenEspecialOTrascendencia": key,
@@ -319,6 +316,17 @@ class PosOrder(models.Model):
                 "ImporteTotal": importe_total
             }
         }
+
+        if sii_map.version == '1.0':
+            orders['PeriodoImpositivo'] = {
+                "Ejercicio": ejercicio,
+                "Periodo": periodo
+            }
+        else:
+            orders['PeriodoLiquidacion'] = {
+                "Ejercicio": ejercicio,
+                "Periodo": periodo
+            }
 
         if self.partner_id:
             orders['FacturaExpedida']['Contraparte'] = {

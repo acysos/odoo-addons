@@ -7,7 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Suministro Inmediato de Información en el IVA",
-    "version": "8.0.1.2.0",
+    "version": "8.0.1.2.1",
     "category": "Accounting & Finance",
     "website": "https://www.acysos.com",
     "author": "Acysos S.L.",
@@ -37,6 +37,7 @@
         "data/aeat_sii_mapping_registration_keys_data.xml",
         "views/aeat_sii_map_view.xml",
         "data/aeat_sii_map_data.xml",
+        "data/aeat_sii_map_data_1_1.xml",
         "data/aeat_sii_mapping_payment_keys_data.xml",
         "security/ir.model.access.csv",
         "security/aeat_sii.xml",

@@ -5,7 +5,7 @@
 {
     "name": "Suministro Inmediato de Información - País Vasco - "
     "Vizcaya/Bizkaia",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.0.1",
     "author": "Acysos S.L.",
     "website": 'https://www.acysos.com',
     "category": "Localization/Account Charts",
@@ -16,7 +16,8 @@
     ],
     "data": [
         "data/ir_config_parameter.xml",
-        "data/aeat_sii_map_data.xml"
+        "data/aeat_sii_map_data.xml",
+        "data/aeat_sii_map_data_1_1.xml"
     ],
     'installable': True,
 }

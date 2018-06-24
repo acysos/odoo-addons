@@ -11,7 +11,7 @@ de Vizcaya/Bizkaia en el País Vasco.
 
 http://www.bizkaia.eus/home2/Temas/DetalleTema.asp?Tem_Codigo=10617&idioma=CA&dpto_biz=5&codpath_biz=5|10616|10617
 
-*AVISO*: No disponen aún de entorno de pruebas
+**PREPARADO PARA SII 1.1**
 
 Installation
 ============
@@ -36,7 +36,7 @@ Foral de Vizcaya/Bizkaia
 Known issues / Roadmap
 ======================
 
-* No disponen aún de entorno de pruebas
+* Ninguna
 
 Credits
 =======

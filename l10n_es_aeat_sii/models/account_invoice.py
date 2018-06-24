@@ -172,7 +172,8 @@ class AccountInvoice(models.Model):
         sii_map_obj = self.env['aeat.sii.map']
         sii_map_line_obj = self.env['aeat.sii.map.lines']
         sii_map = sii_map_obj.search(
-            ['|',
+            [('state', '=', False),
+             '|',
              ('date_from', '<=', fields.Date.today()),
              ('date_from', '=', False),
              '|',
@@ -566,6 +567,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_invoices(self):
         self.ensure_one()
+        sii_map = self._get_sii_map()
         if not self.partner_id.vat:
             raise exceptions.Warning(_(
                 "The partner has not a VAT configured."))
@@ -597,10 +599,6 @@ class AccountInvoice(models.Model):
                     },
                     "NumSerieFacturaEmisor": self.number[0:60],
                     "FechaExpedicionFacturaEmisor": invoice_date},
-                "PeriodoImpositivo": {
-                    "Ejercicio": ejercicio,
-                    "Periodo": periodo
-                },
                 "FacturaExpedida": {
                     "TipoFactura": tipo_factura,
                     "ClaveRegimenEspecialOTrascendencia": key,
@@ -612,6 +610,18 @@ class AccountInvoice(models.Model):
                     "ImporteTotal": importe_total
                 }
             }
+            if sii_map.version == '1.0':
+                invoices['PeriodoImpositivo'] = {
+                    "Ejercicio": ejercicio,
+                    "Periodo": periodo
+                }
+            else:
+                invoices['PeriodoLiquidacion'] = {
+                    "Ejercicio": ejercicio,
+                    "Periodo": periodo
+                }
+                if self.amount_total >= 100000000:
+                    invoices['FacturaExpedida']['Macrodato'] = 'S'
             # Uso condicional de IDOtro/NIF
             invoices['FacturaExpedida']['Contraparte'].update(
                 self._get_sii_identifier())
@@ -656,10 +666,6 @@ class AccountInvoice(models.Model):
                     self.supplier_invoice_number and
                     self.supplier_invoice_number[0:60],
                     "FechaExpedicionFacturaEmisor": invoice_date},
-                "PeriodoImpositivo": {
-                    "Ejercicio": ejercicio,
-                    "Periodo": periodo
-                },
                 "FacturaRecibida": {
                     "TipoFactura": tipo_facturea,
                     "ClaveRegimenEspecialOTrascendencia": key,
@@ -673,6 +679,18 @@ class AccountInvoice(models.Model):
                     "ImporteTotal": importe_total
                 }
             }
+            if sii_map.version == '1.0':
+                invoices['PeriodoImpositivo'] = {
+                    "Ejercicio": ejercicio,
+                    "Periodo": periodo
+                }
+            else:
+                invoices['PeriodoLiquidacion'] = {
+                    "Ejercicio": ejercicio,
+                    "Periodo": periodo
+                }
+                if self.amount_total >= 100000000:
+                    invoices['FacturaExpedida']['Macrodato'] = 'S'
             id_emisor = self._get_sii_identifier()
             invoices['IDFactura']['IDEmisorFactura'].update(id_emisor)
             invoices['FacturaRecibida']['Contraparte'].update(id_emisor)
@@ -1036,15 +1054,21 @@ class AccountInvoice(models.Model):
             invoice_date = self._change_date_format(invoice.date_invoice)
             try:
                 query = {
-                    "PeriodoImpositivo": {
-                        "Ejercicio": ejercicio,
-                        "Periodo": periodo
-                    },
                     "IDFactura": {
                         "NumSerieFacturaEmisor": number,
                         "FechaExpedicionFacturaEmisor": invoice_date
                     }
                 }
+                if sii_map.version == '1.0':
+                    query['PeriodoImpositivo'] = {
+                        "Ejercicio": ejercicio,
+                        "Periodo": periodo
+                    }
+                else:
+                    query['PeriodoLiquidacion'] = {
+                        "Ejercicio": ejercicio,
+                        "Periodo": periodo
+                    }
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, query)
                 self.env['aeat.check.sii.result'].create_result(

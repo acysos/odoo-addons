@@ -9,6 +9,8 @@ Suministro Inmediato de Información en el IVA - Terminal Punto de Venta
 Módulo para la presentación inmediata del IVA, extensión para TPV.
 http://www.agenciatributaria.es/AEAT.internet/SII.html
 
+**PREPARADO PARA SII 1.1**
+
 Installation
 ============
 
@@ -32,7 +34,7 @@ Cuando se procesa la venta por TPV se envia al SII. Si el tiqué en negativo se 
 Known issues / Roadmap
 ======================
 
-* 
+* Ninguna
 
 Credits
 =======

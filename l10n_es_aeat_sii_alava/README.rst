@@ -11,7 +11,7 @@ de Álava/Araba en el País Vasco.
 
 http://www.araba.eus/cs/Satellite?c=Page&cid=1224025371656&language=es_ES&pagename=DiputacionAlava%2FPage%2FDPA_B_contenidoFinal
 
-*AVISO*: el entorno de pruebas estará activo a finales de Noviembre
+**PREPARADO PARA SII 1.1**
 
 Installation
 ============

@@ -63,6 +63,11 @@
                                 <field name="date"/>
                             </group>
                         </group>
+                        <group colspan="4" string="Duplicate registry information">
+                        	<field name="duplicate_registry_state"/>
+                        	<field name="duplicate_registry_error_code"/>
+                        	<field name="duplicate_registry_error_des"/>
+                        </group>
                     </group>
                 </form>
             </field>
