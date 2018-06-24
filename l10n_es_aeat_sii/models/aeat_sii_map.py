@@ -52,6 +52,18 @@ class AeatSiiMap(models.Model):
         comodel_name='aeat.sii.wsdl',
         inverse_name='sii_map_id')
 
+    @api.multi
+    def _get_wsdl(self, key):
+        self.ensure_one()
+        sii_wsdl = self.wsdl_url.search(
+            [('sii_map_id', '=', self.id), ('key', '=', key)], limit=1)
+        if sii_wsdl:
+            wsdl = sii_wsdl.wsdl
+        else:
+            raise exceptions.Warning(_(
+                'WSDL not found. Check your configuration'))
+        return wsdl
+
 
 class AeatSiiMapLines(models.Model):
     _name = 'aeat.sii.map.lines'

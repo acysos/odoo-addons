@@ -117,12 +117,14 @@ class AeatCheckSiiResult(models.Model):
             vals['csv'] = data['DatosPresentacion']['CSV']
             vals['reconcile_state'] = data['EstadoFactura']['EstadoCuadre']
             model_id.sii_reconcile_state = vals['reconcile_state']
-            date = datetime.datetime.strptime(
-                data['EstadoFactura']['TimestampEstadoCuadre'],
-                '%d-%m-%Y %H:%M:%S')
-            new_date = datetime.datetime.strftime(
-                date, '%Y-%m-%d %H:%M:%S')
-            vals['reconcile_timestamp'] = new_date
+            if 'TimestampEstadoCuadre' in data['EstadoFactura']:
+                if data['EstadoFactura']['TimestampEstadoCuadre']:
+                    date = datetime.datetime.strptime(
+                        data['EstadoFactura']['TimestampEstadoCuadre'],
+                        '%d-%m-%Y %H:%M:%S')
+                    new_date = datetime.datetime.strftime(
+                        date, '%Y-%m-%d %H:%M:%S')
+                    vals['reconcile_timestamp'] = new_date
             date = datetime.datetime.strptime(
                 data['EstadoFactura']['TimestampUltimaModificacion'],
                 '%d-%m-%Y %H:%M:%S')
