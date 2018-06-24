@@ -6,6 +6,7 @@ from odoo import api, models, fields
 
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
+
     @api.multi
     def _get_sii_map(self):
         self.ensure_one()
@@ -39,12 +40,16 @@ class AccountInvoice(models.Model):
     def _connect_wsdl(self, wsdl, port_name):
         self.ensure_one()
         company = self.company_id
+        sii_map = self._get_sii_map()
         if company.state_id.code == 'BI' and company.sii_test:
             client = self._connect_sii(wsdl)
             client._default_service_name = 'siiService'
             port_name = self._get_test_mode(port_name)
             client._default_port_name = port_name
-            binding_name = '{'+wsdl.replace('/v10', '')+'}siiBinding'
+            if sii_map.version == '1.0':
+                binding_name = '{'+wsdl.replace('v10/', '')+'}siiBinding'
+            else:
+                binding_name = '{'+wsdl+'}siiBinding'
             url = False
             if port_name == 'SuministroFactEmitidas':
                 url = self.env['ir.config_parameter'].get_param(

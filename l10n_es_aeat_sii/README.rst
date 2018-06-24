@@ -9,6 +9,8 @@ Suministro Inmediato de Información en el IVA
 Módulo para la presentación inmediata del IVA
 http://www.agenciatributaria.es/AEAT.internet/SII.html
 
+**PREPARADO PARA SII 1.1**
+
 Installation
 ============
 

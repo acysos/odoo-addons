@@ -36,6 +36,9 @@ class AeatSiiResult(models.Model):
     inv_type = fields.Selection(TYPE, 'Type')
     invoice_id = fields.Many2one(comodel_name='account.invoice',
                                  string='Invoice')
+    duplicate_registry_state = fields.Char(string='State')
+    duplicate_registry_error_code = fields.Char(string='Error code')
+    duplicate_registry_error_des = fields.Char(string='Error description')
 
     _order = 'id desc'
 
@@ -62,6 +65,9 @@ class AeatSiiResult(models.Model):
             'registry_error_description': False,
             'registry_csv': False,
             'inv_type': inv_type,
+            'duplicate_registry_state': False,
+            'duplicate_registry_error_code': False,
+            'duplicate_registry_error_des': False,
         }
         if model == 'account.invoice':
             vals['invoice_id'] = model_id.id
@@ -143,6 +149,17 @@ class AeatSiiResult(models.Model):
                         reply['DescripcionErrorRegistro']
                 if 'CSV' in reply:
                     vals['registry_csv'] = reply['CSV']
+                if 'RegistroDuplicado' in reply and reply['RegistroDuplicado']:
+                    duplicate = reply['RegistroDuplicado']
+                    if 'EstadoRegistro' in duplicate:
+                        vals['duplicate_registry_state'] = duplicate[
+                            'EstadoRegistro']
+                    if 'CodigoErrorRegistro' in duplicate:
+                        vals['duplicate_registry_error_code'] = duplicate[
+                            'CodigoErrorRegistro']
+                    if 'DescripcionErrorRegistro' in duplicate:
+                        vals['duplicate_registry_error_des'] = duplicate[
+                            'DescripcionErrorRegistro']
         return vals
 
     def create_result(self, model_id, res, inv_type, fault, model):

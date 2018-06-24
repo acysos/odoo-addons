@@ -4,7 +4,7 @@
 
 {
     "name": "Suministro Inmediato de Información - REAGYP",
-    "version": "10.0.1.1.0",
+    "version": "10.0.1.1.1",
     "author": "Acysos S.L.",
     "website": 'https://www.acysos.com',
     "category": "Localization/Account Charts",
@@ -16,7 +16,8 @@
     ],
     "data": [
         "data/account_fiscal_position_data.xml",
-        "data/aeat_sii_map_data.xml"
+        "data/aeat_sii_map_data.xml",
+        "data/aeat_sii_map_data_1_1.xml"
     ],
     'installable': True,
 }
