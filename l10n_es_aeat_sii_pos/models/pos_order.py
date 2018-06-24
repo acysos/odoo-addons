@@ -383,16 +383,6 @@ class PosOrder(models.Model):
         return serv
 
     @api.multi
-    def _get_wsdl(self, sii_map, key):
-        sii_wsdl = sii_map.wsdl_url.search([('key', '=', key)], limit=1)
-        if sii_wsdl:
-            wsdl = sii_wsdl.wsdl
-        else:
-            raise exceptions.Warning(_(
-                'WSDL not found. Check your configuration'))
-        return wsdl
-
-    @api.multi
     def _send_soap(self, wsdl, port_name, operation, param1, param2):
         self.ensure_one()
         serv = self._connect_wsdl(wsdl, port_name)
@@ -403,7 +393,7 @@ class PosOrder(models.Model):
     def _send_simplified_to_sii(self):
         for order in self.filtered(lambda i: i.state in ['done', 'paid']):
             sii_map = order._get_sii_map()
-            wsdl = order._get_wsdl(sii_map, 'wsdl_out')
+            wsdl = sii_map._get_wsdl('wsdl_out')
             port_name = 'SuministroFactEmitidas'
             operation = 'SuministroLRFacturasEmitidas'
             if not order.sii_sent:
@@ -466,17 +456,15 @@ class PosOrder(models.Model):
         """ Request information to AEAT """
         for order in self.filtered(lambda i: i.state in ['done', 'paid']):
             sii_map = order._get_sii_map()
-            wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
+            wsdl = sii_map._get_wsdl('wsdl_out')
             port_name = 'SuministroFactEmitidas'
+            operation = 'ConsultaLRFacturasEmitidas'
             number = order.name[0:60]
             header = order._get_header(False, sii_map)
+            ejercicio = fields.Date.from_string(order.date_order).year
+            periodo = '%02d' % fields.Date.from_string(order.date_order).month
             order_date = self._change_date_format(self.date_order)
-            period = self.env['account.period'].find(self.date_order)[:1]
-            ejercicio = fields.Date.from_string(
-                period.fiscalyear_id.date_start).year
-            periodo = '%02d' % fields.Date.from_string(period.date_start).month
             try:
-                serv = order._connect_wsdl(wsdl, port_name)
                 query = {
                     "PeriodoImpositivo": {
                         "Ejercicio": ejercicio,
@@ -487,13 +475,13 @@ class PosOrder(models.Model):
                         "FechaExpedicionFacturaEmisor": order_date
                     }
                 }
-                res = serv.ConsultaLRFacturasEmitidas(
-                    header, query)
+                res = order._send_soap(
+                    wsdl, port_name, operation, header, query)
                 self.env['aeat.check.sii.result'].create_result(
                     order, res, False, 'pos.order')
             except Exception as fault:
                 self.env['aeat.check.sii.result'].create_result(
-                    order, False, fault, 'account.invoice')
+                    order, False, fault, 'pos.order')
 
     @api.multi
     def check_sii(self):

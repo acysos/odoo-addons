@@ -753,17 +753,6 @@ class AccountInvoice(models.Model):
         return serv
 
     @api.multi
-    def _get_wsdl(self, sii_map, key):
-        sii_wsdl = sii_map.wsdl_url.search(
-            [('sii_map_id', '=', sii_map.id), ('key', '=', key)], limit=1)
-        if sii_wsdl:
-            wsdl = sii_wsdl.wsdl
-        else:
-            raise exceptions.Warning(_(
-                'WSDL not found. Check your configuration'))
-        return wsdl
-
-    @api.multi
     def _send_soap(self, wsdl, port_name, operation, param1, param2):
         self.ensure_one()
         serv = self._connect_wsdl(wsdl, port_name)
@@ -776,11 +765,11 @@ class AccountInvoice(models.Model):
                 lambda i: i.state in ['open', 'paid'] and i.is_sii_mapped):
             sii_map = invoice._get_sii_map()
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
+                wsdl = sii_map._get_wsdl('wsdl_out')
                 port_name = 'SuministroFactEmitidas'
                 operation = 'SuministroLRFacturasEmitidas'
             elif self.type in ['in_invoice', 'in_refund']:
-                wsdl = invoice._get_wsdl(sii_map, 'wsdl_in')
+                wsdl = sii_map._get_wsdl('wsdl_in')
                 port_name = 'SuministroFactRecibidas'
                 operation = 'SuministroLRFacturasRecibidas'
             if not invoice.sii_sent:
@@ -825,12 +814,12 @@ class AccountInvoice(models.Model):
         for invoice in self:
             sii_map = invoice._get_sii_map()
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = invoice._get_wsdl(sii_map, 'wsdl_pr')
+                wsdl = sii_map._get_wsdl('wsdl_pr')
                 port_name = 'SuministroCobrosEmitidas'
                 operation = 'SuministroLRCobrosEmitidas'
                 importe = move.debit
             elif invoice.type in ['in_invoice', 'in_refund']:
-                wsdl = invoice._get_wsdl(sii_map, 'wsdl_ps')
+                wsdl = sii_map._get_wsdl('wsdl_ps')
                 port_name = 'SuministroPagosRecibidas'
                 operation = 'SuministroLRPagosRecibidas'
                 importe = move.credit
@@ -1044,12 +1033,12 @@ class AccountInvoice(models.Model):
         for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
             sii_map = invoice._get_sii_map()
             if invoice.type in ['out_invoice', 'out_refund']:
-                wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
+                wsdl = sii_map._get_wsdl('wsdl_out')
                 port_name = 'SuministroFactEmitidas'
                 operation = 'ConsultaLRFacturasEmitidas'
                 number = invoice.number[0:60]
             elif self.type in ['in_invoice', 'in_refund']:
-                wsdl = invoice._get_wsdl(sii_map, 'wsdl_in')
+                wsdl = sii_map._get_wsdl('wsdl_in')
                 port_name = 'SuministroFactRecibidas'
                 operation = 'ConsultaLRFacturasRecibidas'
                 number = invoice.reference and \
