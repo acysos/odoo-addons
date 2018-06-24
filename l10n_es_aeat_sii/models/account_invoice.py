@@ -59,8 +59,7 @@ class AccountInvoice(models.Model):
         for invoice in self:
             taxes = invoice._get_taxes_map(
                 ['SFESB', 'SFESISP', 'SFENS', 'SFESS', 'SFESBE', 'SFESBEI',
-                 'SFESBEE', 'SFESSE', 'SFRS', 'SFRISP', 'SFRBI', 'RE'],
-                invoice.date_invoice)
+                 'SFESBEE', 'SFESSE', 'SFRS', 'SFRISP', 'SFRBI', 'RE'])
             invoice.is_sii_mapped = False
             for line in invoice.invoice_line_ids:
                 for tax_line in line.invoice_line_tax_ids:
@@ -183,16 +182,16 @@ class AccountInvoice(models.Model):
         return res
 
     @api.multi
-    def _get_sii_map(self, date):
+    def _get_sii_map(self):
         self.ensure_one()
         sii_map_obj = self.env['aeat.sii.map']
         sii_map_line_obj = self.env['aeat.sii.map.lines']
         sii_map = sii_map_obj.search(
             ['|',
-             ('date_from', '<=', date),
+             ('date_from', '<=', fields.Date.today()),
              ('date_from', '=', False),
              '|',
-             ('date_to', '>=', date),
+             ('date_to', '>=', fields.Date.today()),
              ('date_to', '=', False)], limit=1)
         if not sii_map:
             raise exceptions.Warning(_(
@@ -224,11 +223,11 @@ class AccountInvoice(models.Model):
         return mapping_taxes[tax_template]
 
     @api.multi
-    def _get_taxes_map(self, codes, date):
+    def _get_taxes_map(self, codes):
         # Return the codes that correspond to that sii map line codes
         taxes = []
         sii_map_line_obj = self.env['aeat.sii.map.lines']
-        sii_map = self._get_sii_map(date)
+        sii_map = self._get_sii_map()
         mapping_taxes = {}
         for code in codes:
             tax_templates = sii_map_line_obj.search(
@@ -274,8 +273,7 @@ class AccountInvoice(models.Model):
     def _get_tax_line_req(self, tax_type, line, line_taxes):
         self.ensure_one()
         taxes = False
-        taxes_re = self._get_taxes_map(
-            ['RE'], line.invoice_id.date_invoice)
+        taxes_re = self._get_taxes_map(['RE'])
         if len(line_taxes) > 1:
             for tax in line_taxes:
                 if tax in taxes_re:
@@ -341,15 +339,15 @@ class AccountInvoice(models.Model):
         taxes_sii = {}
         taxes_f = {}
         taxes_to = {}
-        taxes_sfesb = self._get_taxes_map(['SFESB'], self.date_invoice)
-        taxes_sfesbe = self._get_taxes_map(['SFESBE'], self.date_invoice)
-        taxes_sfesbei = self._get_taxes_map(['SFESBEI'], self.date_invoice)
-        taxes_sfesbee = self._get_taxes_map(['SFESBEE'], self.date_invoice)
-        taxes_sfesisp = self._get_taxes_map(['SFESISP'], self.date_invoice)
+        taxes_sfesb = self._get_taxes_map(['SFESB'])
+        taxes_sfesbe = self._get_taxes_map(['SFESBE'])
+        taxes_sfesbei = self._get_taxes_map(['SFESBEI'])
+        taxes_sfesbee = self._get_taxes_map(['SFESBEE'])
+        taxes_sfesisp = self._get_taxes_map(['SFESISP'])
         # taxes_sfesisps = self._get_taxes_map(['SFESISPS'], self.date_invoice)
-        taxes_sfens = self._get_taxes_map(['SFENS'], self.date_invoice)
-        taxes_sfess = self._get_taxes_map(['SFESS'], self.date_invoice)
-        taxes_sfesse = self._get_taxes_map(['SFESSE'], self.date_invoice)
+        taxes_sfens = self._get_taxes_map(['SFENS'])
+        taxes_sfess = self._get_taxes_map(['SFESS'])
+        taxes_sfesse = self._get_taxes_map(['SFESSE'])
 
         for line in self.invoice_line_ids:
             for tax_line in line.invoice_line_tax_ids:
@@ -513,8 +511,8 @@ class AccountInvoice(models.Model):
         taxes_sii = {}
         taxes_f = {}
         taxes_isp = {}
-        taxes_sfrs = self._get_taxes_map(['SFRS'], self.date_invoice)
-        taxes_sfrisp = self._get_taxes_map(['SFRISP'], self.date_invoice)
+        taxes_sfrs = self._get_taxes_map(['SFRS'])
+        taxes_sfrisp = self._get_taxes_map(['SFRISP'])
         for line in self.invoice_line_ids:
             for tax_line in line.invoice_line_tax_ids:
                 if tax_line in taxes_sfrs or tax_line in taxes_sfrisp:
@@ -776,7 +774,7 @@ class AccountInvoice(models.Model):
     def _send_invoice_to_sii(self):
         for invoice in self.filtered(
                 lambda i: i.state in ['open', 'paid'] and i.is_sii_mapped):
-            sii_map = invoice._get_sii_map(invoice.date_invoice)
+            sii_map = invoice._get_sii_map()
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
                 port_name = 'SuministroFactEmitidas'
@@ -825,7 +823,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def send_recc_payment_registry(self, move):
         for invoice in self:
-            sii_map = invoice._get_sii_map(move.date)
+            sii_map = invoice._get_sii_map()
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = invoice._get_wsdl(sii_map, 'wsdl_pr')
                 port_name = 'SuministroCobrosEmitidas'
@@ -1044,7 +1042,7 @@ class AccountInvoice(models.Model):
     def _check_invoice(self):
         """ Request information to AEAT """
         for invoice in self.filtered(lambda i: i.state in ['open', 'paid']):
-            sii_map = invoice._get_sii_map(invoice.date_invoice)
+            sii_map = invoice._get_sii_map()
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
                 port_name = 'SuministroFactEmitidas'

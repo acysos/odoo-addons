@@ -70,15 +70,15 @@ class PosOrder(models.Model):
         string='Check results')
 
     @api.multi
-    def _get_sii_map(self, date):
+    def _get_sii_map(self):
         sii_map_obj = self.env['aeat.sii.map']
         sii_map_line_obj = self.env['aeat.sii.map.lines']
         sii_map = sii_map_obj.search(
             ['|',
-             ('date_from', '<=', date),
+             ('date_from', '<=', fields.Date.today()),
              ('date_from', '=', False),
              '|',
-             ('date_to', '>=', date),
+             ('date_to', '>=', fields.Date.today()),
              ('date_to', '=', False)], limit=1)
         if not sii_map:
             raise exceptions.Warning(_(
@@ -134,11 +134,11 @@ class PosOrder(models.Model):
         return mapping_taxes[tax_template]
 
     @api.multi
-    def _get_taxes_map(self, codes, date):
+    def _get_taxes_map(self, codes):
         # Return the codes that correspond to that sii map line codes
         taxes = []
         sii_map_line_obj = self.env['aeat.sii.map.lines']
-        sii_map = self._get_sii_map(date)
+        sii_map = self._get_sii_map()
         mapping_taxes = {}
         for code in codes:
             tax_templates = sii_map_line_obj.search(
@@ -191,8 +191,8 @@ class PosOrder(models.Model):
         taxes_sii = {}
         taxes_f = {}
         taxes_to = {}
-        taxes_sfesb = self._get_taxes_map(['SFESB'], self.date_order)
-        taxes_sfess = self._get_taxes_map(['SFESS'], self.date_order)
+        taxes_sfesb = self._get_taxes_map(['SFESB'])
+        taxes_sfess = self._get_taxes_map(['SFESS'])
         for line in self.lines:
             for tax_line in line.tax_ids:
                 if tax_line in taxes_sfesb:
@@ -402,8 +402,7 @@ class PosOrder(models.Model):
     @api.multi
     def _send_simplified_to_sii(self):
         for order in self.filtered(lambda i: i.state in ['done', 'paid']):
-            sii_map = order._get_sii_map(order.date_order)
-            sii_map = order._get_sii_map(order.date_order)
+            sii_map = order._get_sii_map()
             wsdl = order._get_wsdl(sii_map, 'wsdl_out')
             port_name = 'SuministroFactEmitidas'
             operation = 'SuministroLRFacturasEmitidas'
@@ -466,7 +465,7 @@ class PosOrder(models.Model):
     def _check_simplified(self):
         """ Request information to AEAT """
         for order in self.filtered(lambda i: i.state in ['done', 'paid']):
-            sii_map = order._get_sii_map(order.date_order)
+            sii_map = order._get_sii_map()
             wsdl = invoice._get_wsdl(sii_map, 'wsdl_out')
             port_name = 'SuministroFactEmitidas'
             number = order.name[0:60]
