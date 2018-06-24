@@ -7,7 +7,7 @@
             <field name="name">SII 1.1 Vizcaya/Bizcaia</field>
             <field name="version">1.1</field>
             <field name="date_from">2018-07-01</field>
-            <field name="state" ref="l10n_es_toponyms.ES48"/>
+            <field name="state" ref="base.state_es_bi"/>
         </record>
         
         <!-- SII Tax Map Lines -->
