@@ -7,7 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Suministro Inmediato de Información en el IVA",
-    "version": "11.0.1.1.4",
+    "version": "11.0.1.2.0",
     "category": "Accounting & Finance",
     "website": "https://www.acysos.com",
     "author": "Acysos S.L.",
