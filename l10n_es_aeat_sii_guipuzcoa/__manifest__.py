@@ -15,7 +15,8 @@
         "l10n_es_aeat_sii"
     ],
     "data": [
-        "data/ir_config_parameter.xml"
+        "data/ir_config_parameter.xml",
+        "data/aeat_sii_map_data.xml"
     ],
     'installable': True,
 }

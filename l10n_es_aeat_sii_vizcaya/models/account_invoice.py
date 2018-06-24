@@ -1,11 +1,31 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, models
+from odoo import api, models, fields
 
 
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
+    @api.multi
+    def _get_sii_map(self):
+        self.ensure_one()
+        if self.company_id.state_id.code == 'BI':
+            sii_map_obj = self.env['aeat.sii.map']
+            sii_map_line_obj = self.env['aeat.sii.map.lines']
+            sii_map = sii_map_obj.search(
+                [('state', '=', self.company_id.state_id.id),
+                 '|',
+                 ('date_from', '<=', fields.Date.today()),
+                 ('date_from', '=', False),
+                 '|',
+                 ('date_to', '>=', fields.Date.today()),
+                 ('date_to', '=', False)], limit=1)
+            if not sii_map:
+                raise exceptions.Warning(_(
+                    'SII Map not found. Check your configuration'))
+            return sii_map
+        else:
+            return super(AccountInvoice, self)._get_sii_map()
 
     @api.multi
     def _get_test_mode(self, port_name):
@@ -24,8 +44,7 @@ class AccountInvoice(models.Model):
             client._default_service_name = 'siiService'
             port_name = self._get_test_mode(port_name)
             client._default_port_name = port_name
-            binding_name = '{'+wsdl+'}siiBinding'
-            binding_name = binding_name.replace('/v10', '')
+            binding_name = '{'+wsdl.replace('/v10', '')+'}siiBinding'
             url = False
             if port_name == 'SuministroFactEmitidas':
                 url = self.env['ir.config_parameter'].get_param(
@@ -47,21 +66,3 @@ class AccountInvoice(models.Model):
         else:
             return super(AccountInvoice, self)._connect_wsdl(wsdl, port_name)
 
-    @api.multi
-    def _get_wsdl(self, key):
-        self.ensure_one()
-        if self.company_id.state_id.code == 'BI':
-            return self.env['ir.config_parameter'].get_param(key+'.48', False)
-        else:
-            return super(AccountInvoice, self)._get_wsdl(key)
-
-    @api.multi
-    def _get_invoices(self):
-        # Hacienda de Vizcaya implanta la 1.1 antes que Hacienda Nacional
-        # Fix para poder implementar los cambios de la 1.1 sin que afecte
-        # a el módulo general
-        # Parche temporal, Lantik no ha cambiado los WDSL de la V10, bug grave
-        invoices = super(AccountInvoice, self)._get_invoices()
-        invoices['PeriodoLiquidacion'] = invoices['PeriodoImpositivo']
-#         invoices.pop('PeriodoImpositivo')
-        return invoices
