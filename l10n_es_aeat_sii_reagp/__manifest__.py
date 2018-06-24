@@ -4,14 +4,13 @@
 
 {
     "name": "Suministro Inmediato de Información - REAGYP",
-    "version": "11.0.1.0.0",
+    "version": "11.0.1.1.0",
     "author": "Acysos S.L.",
     "website": 'https://www.acysos.com',
     "category": "Localization/Account Charts",
     "license": "AGPL-3",
     "depends": [
         "l10n_es",
-        "l10n_es_reagp",
         "l10n_es_aeat_sii"
     ],
     "data": [
