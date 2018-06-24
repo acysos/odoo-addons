@@ -4,12 +4,12 @@
 <odoo>
     <data noupdate="0">
     
-        <record id="l10n_es_reagp.fp_reagp_a" model="account.fiscal.position.template">
+        <record id="l10n_es_reagp.fp_reagyp_a" model="account.fiscal.position.template">
             <field name="sii_registration_key_sale" ref="l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_01"/>
             <field name="sii_registration_key_purchase" ref="l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_02"/>
         </record>
 
-        <record id="l10n_es_reagp.fp_reagp_gp" model="account.fiscal.position.template">
+        <record id="l10n_es_reagp.fp_reagyp_gp" model="account.fiscal.position.template">
             <field name="sii_registration_key_sale" ref="l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_01"/>
             <field name="sii_registration_key_purchase" ref="l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_02"/>
         </record>
