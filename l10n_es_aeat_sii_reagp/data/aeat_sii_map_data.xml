@@ -4,21 +4,21 @@
 <odoo>
     <data noupdate="1">
 
-        <record id="aeat_sii_map_line_SFRSREAGP" model="aeat.sii.map.lines">
+        <record id="aeat_sii_map_1_0_line_SFRSREAGP" model="aeat.sii.map.lines">
             <field name="code">SFRSREAGP</field>
             <field name="taxes" eval="[(6, 0, [
                 ref('l10n_es_reagp.account_tax_template_p_iva105_gan'),
                 ref('l10n_es.account_tax_template_p_iva12_agr')
             ])]"/>
-            <field name="sii_map_id" ref="l10n_es_aeat_sii.aeat_sii_map"/>
+            <field name="sii_map_id" ref="l10n_es_aeat_sii.aeat_sii_map_1_0"/>
             <field name="name">SuministroFactRecibidas Sujetas REAGYP</field>
         </record>
 
-        <record id="l10n_es_aeat_sii.aeat_sii_map_line_SFRS" model="aeat.sii.map.lines">
+        <record id="l10n_es_aeat_sii.aeat_sii_map_1_0_line_SFRS" model="aeat.sii.map.lines">
             <field name="taxes" eval="[(4, ref('l10n_es_reagp.account_tax_template_p_iva105_gan'))]"/>
         </record>
 
-        <record id="l10n_es_aeat_sii.aeat_sii_map_line_SFRS" model="aeat.sii.map.lines">
+        <record id="l10n_es_aeat_sii.aeat_sii_map_1_0_line_SFRS" model="aeat.sii.map.lines">
             <field name="taxes" eval="[(4, ref('l10n_es.account_tax_template_p_iva12_agr'))]"/>
         </record>
 

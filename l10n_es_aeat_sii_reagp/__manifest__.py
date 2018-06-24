@@ -4,7 +4,7 @@
 
 {
     "name": "Suministro Inmediato de Información - REAGYP",
-    "version": "11.0.1.0.0",
+    "version": "10.0.1.1.0",
     "author": "Acysos S.L.",
     "website": 'https://www.acysos.com',
     "category": "Localization/Account Charts",

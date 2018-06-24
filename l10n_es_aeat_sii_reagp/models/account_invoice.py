@@ -12,7 +12,7 @@ class AccountInvoice(models.Model):
         self.ensure_one()
         tax_sii = super(AccountInvoice, self)._get_sii_tax_line(
             tax_line, line, line_taxes)
-        taxes_sfrsreagp = self._get_taxes_map(['SFRSREAGP'], self.date_invoice)
+        taxes_sfrsreagp = self._get_taxes_map(['SFRSREAGP'])
         if tax_line in taxes_sfrsreagp:
             tax_sii['PorcentCompensacionREAGYP'] = tax_sii['TipoImpositivo']
             tax_sii['ImporteCompensacionREAGYP'] = tax_sii['CuotaSoportada']
@@ -21,7 +21,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _update_sii_tax_line(self, tax_sii, tax_line, line, line_taxes):
         self.ensure_one()
-        taxes_sfrsreagp = self._get_taxes_map(['SFRSREAGP'], self.date_invoice)
+        taxes_sfrsreagp = self._get_taxes_map(['SFRSREAGP'])
         if tax_line in taxes_sfrsreagp:
             tax_type = tax_type = tax_line.amount * 100
             taxes = tax_line.compute_all(
