@@ -100,7 +100,7 @@ class product_balance_code(models.Model):
 
         except socket.gaierror:
             # could not resolve
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'),
                 _('Hostname could not be resolved. Exiting'))
             return False
@@ -109,7 +109,7 @@ class product_balance_code(models.Model):
         try:
             s.connect((remote_ip, port))
         except:
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('No route to host'))
             return False
 
@@ -146,7 +146,7 @@ class product_balance_code(models.Model):
         except socket.error:
             # Send failed
             _logger.debug('Send failed')
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('Send failed %s') % name)
             return False
 
@@ -163,7 +163,7 @@ class product_balance_code(models.Model):
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
         except socket.error:
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('Failed to create socket %s') % name)
             return False
 
@@ -173,7 +173,7 @@ class product_balance_code(models.Model):
             remote_ip = socket.gethostbyname(host)
         except socket.gaierror:
             # could not resolve
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'),
                 _('Hostname could not be resolved. Exiting %s') % name)
             return False
@@ -208,7 +208,7 @@ class product_balance_code(models.Model):
             s.sendall(message)
         except socket.error:
             # Send failed
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('Send failed %s') % name)
             return False
 
@@ -225,7 +225,7 @@ class product_balance_code(models.Model):
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
         except socket.error:
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('Failed to create socket %s') % name)
             return False
 
@@ -236,7 +236,7 @@ class product_balance_code(models.Model):
 
         except socket.gaierror:
             # could not resolve
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'),
                 _('Hostname could not be resolved. Exiting %s') % name)
             return False
@@ -267,7 +267,7 @@ class product_balance_code(models.Model):
             s.sendall(message)
         except socket.error:
             # Send failed
-            raise exceptions.except_osv(_('Error !'),
+            raise exceptions.except_orm(_('Error !'),
                                  _('Send failed %s') % name)
             return False
 
@@ -285,7 +285,7 @@ class product_balance_code(models.Model):
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
         except socket.error:
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('Failed to create socket %s') % name)
             return False
 
@@ -299,7 +299,7 @@ class product_balance_code(models.Model):
 
         except socket.gaierror:
             # could not resolve
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'),
                 _('Hostname could not be resolved. Exiting %s') % name)
             return False
@@ -308,7 +308,7 @@ class product_balance_code(models.Model):
         try:
             s.connect((remote_ip, port))
         except:
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('No route to host'))
             return False
 
@@ -335,7 +335,7 @@ class product_balance_code(models.Model):
             s.sendall(message)
         except socket.error:
             # Send failed
-            raise exceptions.except_osv(
+            raise exceptions.except_orm(
                 _('Error !'), _('Send failed {}').format(name))
             return False
 
