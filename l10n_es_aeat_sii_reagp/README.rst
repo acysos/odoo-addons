@@ -10,6 +10,8 @@ Módulo para la presentación inmediata del IVA, extensión para Regimen
 especial de agricultura, ganadería y pesca (REAGYP).
 http://www.agenciatributaria.es/AEAT.internet/SII.html
 
+**PREPARADO PARA SII 1.1**
+
 Installation
 ============
 
