@@ -82,32 +82,36 @@ class top_view(http.Controller):
     @http.route(['/realestate/search',
                  '/realestate/search/page/<int:page>'], type='http', auth="public", website=True, csrf=False)
     def searchtopslist(self, page=0, **post):
-
+         
         url = "/realestate/search"
         values = self.searchtops(page, url, post)
         values['page'] = page
         return request.render("website_real_estate.search_list", values)
-
+     
+     
     @http.route(['/realestate/searchmap',
                  '/realestate/searchmap/page/<int:page>'], type='http', auth="public", website=True, csrf=False)
     def searchtopsmap(self, page=0, **post):
-
+           
         url = "/realestate/searchmap"
         values = self.searchtops(page, url, post)
         values['page'] = page
         return request.render("website_real_estate.search_map", values)
-
+           
+       
+      
+     
+     
     def searchtops(self, page=0, url="",  post={}): 
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-
+            
         domain = [('website_published', '=', True), ('available', '=', True)]
         uid = request.uid
-
-        user = request.env['res.users'].with_context(
-            active_test=False).search([('id', '=', uid)])
-
+         
+        user = request.env['res.users'].with_context(active_test=False).search([('id', '=', uid)])
+        
         company = user.company_id
-
+         
         zones_domain = [('id', '>', 0)]
         city_sel = 'city'
         if 'city' in post:
@@ -126,7 +130,7 @@ class top_view(http.Controller):
 
         cities = request.env['real.estate.cities'].sudo().search(
             [('id', '>', 0)])
-
+         
         type1 = [('unlimited','unlimited'),
              ('flat','Flat'),
              ('shop','Shop'),
@@ -140,13 +144,14 @@ class top_view(http.Controller):
              ('parking','Parking'),
              ('box_room','Box room'),
              ('land','Land')]
-
+         
         operations1 = [('sale','Sale'),
                    ('rent','Rent'),
                    ('sale_rent','Sale & Rent'),
                    ('rent_sale_option','Rent with sale option'),
                    ('transfer','Transfer')]
-
+         
+         
         cities_ids = {}
         cities1 = cities.mapped('city_id')
         for city in cities1:
@@ -167,7 +172,8 @@ class top_view(http.Controller):
         rentpriceto_def = 0
         areafrom_def = 0
         areato_def = 0
-
+         
+ 
         if 'zone' in post:
             if (post['zone'] != 'zone'):
                 domain += [('zone', '=', int(post['zone']))]
@@ -211,20 +217,20 @@ class top_view(http.Controller):
             if (splitnumber(post['areato']) > 0):
                 domain += [('m2', '<=', splitnumber(post['areato']))]
                 areato_def = post['areato']
-
+         
         top_obj = request.env['real.estate.top']
-
+         
+         
         top_count = top_obj.search_count(domain)
-
+         
         pager = request.website.pager(url=url, total=top_count, page=page, step=PPG, scope=7, url_args=post)
-
         top_ids_object = top_obj.search(domain, limit=NPages, offset=pager['offset'])
         tops_ids = set([v[0].id for v in top_ids_object])
-
+        
         topss = top_obj.browse(tops_ids)
 
         listToMap = [[],[],[],[],[],[],[],[]]
-
+         
         for t in topss:
             if t.image_ids:
                 image_id = t.image_ids[0].id
@@ -240,11 +246,12 @@ class top_view(http.Controller):
                     listToMap[5].append(t.address.replace(',', ';'))
                     listToMap[6].append(t.m2)
                     listToMap[7].append(t.name)
-
-
+         
+                    
+         
         url_base = str(request.env['ir.config_parameter'].get_param(
             'web.base.url', False))
-
+         
         values = {
             'top' : topss,
             'pager' : pager, 

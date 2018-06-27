@@ -9,327 +9,329 @@
 				<div class="hidden invisible_tops_ids">
 					<span t-esc="topids"/>
 				</div>
-				<div class="container listTop">
-		    		<div class="filters_bar row">
-				    			<div class="top_filters col-md-12">
-				    				<div class="titles_searchbar row">
-								<div class="title1 col-md-6 col-sm-6 col-xs-6">
-									<h4>Tops seeker</h4>
-							    </div>
-							    <div class="title2 col-md-6 col-sm-6 col-xs-6">
-							        <h4>Find all you need</h4>
-							    </div>
-							</div>
-							<div class="hidden ocultbutton" id="pruebax">
-								<button type="button" class="btn btn-info" id='pruebaclick'>Search</button>
-							</div>
-							<div class="attributes_searchbar row">
-								<form action="/realestate/search" method="post">
-									<div class="operation col-md-2">
-										<select name="operations">
-											<t t-if="operation_sel == 'operation'">
-				  								<option id="touch" value="operation" selected="selected">Operation</option>
-				  							</t>
-											<t t-foreach="operations" t-as="topoperations">
-												<t t-if="topoperations[0] == operation_sel">
-													<option id="touch" t-att-value="topoperations[0]" selected="selected"><span t-esc="topoperations[1]" /></option>
-												</t>
-												<t t-if="topoperations[0] != operation_sel">
-													<option id="touch" t-att-value="topoperations[0]"><span t-esc="topoperations[1]" /></option>
-												</t>
-					  						</t>
-										</select>
-									</div>
-									<div class="category col-md-2">
-										<select name="category">
-											<t t-if="category_sel == 'category'">
-				  								<option value="category" selected="selected">Category</option>
-				  							</t>
-											<t t-foreach="type1" t-as="toptype">
-												<t t-if="toptype[0] == category_sel">
-				  								<option t-att-value="toptype[0]" selected="selected"><span t-esc="toptype[1]"/></option>
-												</t>
-												<t t-if="toptype[0] != category_sel">
-				  								<option t-att-value="toptype[0]"><span t-esc="toptype[1]"/></option>
-												</t>
-				  							</t>
-										</select>
-									</div>
-									<div class="city col-md-2">
-										<select name="city" onchange="this.form.submit()">
-											<t t-if="city_sel == 'city'">
-				  								<option value="city" selected="selected">Location</option>
-				  							</t>
-											<t t-foreach="cities" t-as="topcity">
-												<t t-if="topcity[1] == city_sel">
-				  								<option t-att-value="topcity[1]" selected="selected"><span t-esc="topcity[0]"/></option>
-												</t>
-												<t t-if="topcity[1] != city_sel">
-				  								<option t-att-value="topcity[1]"><span t-esc="topcity[0]"/></option>
-												</t>
-				  							</t>
-										</select>
-									</div>
-									<div class="zone col-md-2">
-										<select name="zone">
-				  							<t t-if="zone_sel == 'zone'">
-				  								<option value="zone" selected="selected">Zone</option>
-				  							</t>
-				  							<t t-foreach="zone" t-as="topzones">
-				  								<t t-if="topzones.id == zone_sel">
-													<option t-att-value="topzones.id" selected="selected"><span t-field="topzones.name"/></option>
-												</t>
-												<t t-if="topzones.id != zone_sel">
-													<option t-att-value="topzones.id"><span t-field="topzones.name"/></option>
-												</t>
-				  							</t>
-										</select>
-									</div>
-									<div class="hidden salepricefrom col-md-2">
-										<t t-if="salepricefrom_def != 0">
-											<input id="spf" type="text" name="salepricefrom" t-att-value="salepricefrom_def"/>
-										</t>
-										<t t-if="salepricefrom_def == 0">
-											<input id="spf" type="text" name="salepricefrom" value="Sale price from"/>
-				  						</t>
-									</div>
-									<div class="hidden salepriceto col-md-2">
-										<t t-if="salepriceto_def != 0">
-											<input id="spt" type="text" name="salepriceto" t-att-value="salepriceto_def"/>
-										</t>
-										<t t-if="salepriceto_def == 0">
-											<input id="spt" type="text" name="salepriceto" value="Sale price to"/>
-				  						</t>
-									</div>
-									<div class="hidden rentpricefrom col-md-2">
-										<t t-if="rentpricefrom_def != 0">
-											<input id="rpf" type="text" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
-										</t>
-										<t t-if="rentpricefrom_def == 0">
-											<input id="rpf" type="text" name="rentpricefrom" value="Rent price from"/>
-				  						</t>
-									</div>
-									<div class="hidden rentpriceto col-md-2">
-										<t t-if="rentpriceto_def != 0">
-											<input id="rpt" type="text" name="rentpriceto" t-att-value="rentpriceto_def"/>
-										</t>
-										<t t-if="rentpriceto_def == 0">
-											<input id="rpt" type="text" name="rentpriceto" value="Rent price to"/>
-				  						</t>
-									</div>
-									<div class="areafrom col-md-2">
-										<t t-if="areafrom_def != 0">
-											<input id="af" type="text" name="areafrom" t-att-value="areafrom_def"/>
-										</t>
-										<t t-if="areafrom_def == 0">
-											<input id="af" type="text" name="areafrom" value="area from"/>
-				  						</t>
-									</div>
-									<div class="areato col-md-2">
-										<t t-if="areato_def != 0">
-											<input id="at" type="text" name="areato" t-att-value="areato_def"/>
-										</t>
-										<t t-if="areato_def == 0">
-											<input id="at" type="text" name="areato" value="area to"/>
-				  						</t>
-									</div>
-									<div class="reference col-md-2">
-										<t t-if="reference_def != 'reference'">
-											<input id="refer" type="text" name="reference" t-att-value="reference_def"/>
-										</t>
-										<t t-if="reference_def == 'reference'">
-											<input id="refer" type="text" name="reference" value="reference"/>
-				  						</t>
-									</div>
-									<div class="btnsearch col-md-2">
-										<input type="submit" id="btnSearch" value="Search" />
-									</div>
-								</form>
-							</div>
-							<div class="hidden advanced_searchbar row">
-								<a href="" class="advanced_search1">Advanced Search</a>
-							</div>
-		    			</div>
-		    			<div class="show" id="occultlistmap">
-		    			<div class="selector_view col-md-12 text-center">
-		    				<t t-if="page == 0">
-	                        	 <form id="formsearch" action="/realestate/search" method="post">
-								    <input type="hidden" name="operations" t-att-value="operation_sel"/>
-								    <input type="hidden" name="category" t-att-value="category_sel"/>
-								    <input type="hidden" name="city" t-att-value="city_sel"/>
-								    <input type="hidden" name="zone" t-att-value="zone_sel"/>
-								    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
-								    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
-								    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
-								    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
-								    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
-								    <input type="hidden" name="areato" t-att-value="areato_def"/>
-								    <input type="hidden" name="reference" t-att-value="reference_def"/>
-								    <a t-attf-href="/realestate/search">
-								        <input type="submit" id="btnlist" value="list" />
-								    </a>
-								    
-								</form>
-								
-								
-								<form id="formsearchmap" action="/realestate/searchmap" method="post">
-								    <input type="hidden" name="operations" t-att-value="operation_sel"/>
-								    <input type="hidden" name="category" t-att-value="category_sel"/>
-								    <input type="hidden" name="city" t-att-value="city_sel"/>
-								    <input type="hidden" name="zone" t-att-value="zone_sel"/>
-								    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
-								    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
-								    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
-								    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
-								    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
-								    <input type="hidden" name="areato" t-att-value="areato_def"/>
-								    <input type="hidden" name="reference" t-att-value="reference_def"/>
-								    <a t-attf-href="/realestate/searchmap">
-								        <input type="submit" id="btnmap" value="map" />
-								    </a>
-								    
-								</form>
-	                        </t>
-	                        <t t-if="page != 0">
-	                        	<form id="formsearchpage" action="/realestate/search" method="post">
-								    <input type="hidden" name="operations" t-att-value="operation_sel"/>
-								    <input type="hidden" name="category" t-att-value="category_sel"/>
-								    <input type="hidden" name="city" t-att-value="city_sel"/>
-								    <input type="hidden" name="zone" t-att-value="zone_sel"/>
-								    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
-								    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
-								    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
-								    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
-								    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
-								    <input type="hidden" name="areato" t-att-value="areato_def"/>
-								    <input type="hidden" name="reference" t-att-value="reference_def"/>
-								    <a t-attf-href="/realestate/search/page/{{page}}">
-								        <input type="submit" id="btnlist" value="list" />
-								    </a>
-								    
-								</form>
-								
-								
-								<form id="formsearchmappage" action="/realestate/searchmap" method="post">
-								    <input type="hidden" name="operations" t-att-value="operation_sel"/>
-								    <input type="hidden" name="category" t-att-value="category_sel"/>
-								    <input type="hidden" name="city" t-att-value="city_sel"/>
-								    <input type="hidden" name="zone" t-att-value="zone_sel"/>
-								    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
-								    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
-								    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
-								    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
-								    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
-								    <input type="hidden" name="areato" t-att-value="areato_def"/>
-								    <input type="hidden" name="reference" t-att-value="reference_def"/>
-								    <a t-attf-href="/realestate/searchmap/page/{{page}}">
-								        <input type="submit" id="btnmap" value="map" />
-								    </a>
-								    
-								</form>
-	                        </t>
-		    			</div>
-		    			</div>
-		    			<div class="separator_enumerator col-md-12">
-		    				<p>PROPERTIES  <span class="number_tops"/></p>
-		    				<hr id="separator1"></hr>
-		    			</div>
-		    		</div>
-		    		<div class="tops_and_maps row">
-		    			<div class="tops_list">
-		    				<t t-foreach="top" t-as="topdatas">
-					  			<div class="row everyTop"> 
-				    			<div class="col-md-4 col-sm-4 image_left">
-						            <div class="left2 row">
-					                    <div class="imageP col-md-12">
-					                        <t t-if="topdatas.image_ids">
-					                        	<a t-attf-href="/realestate/top/{{topdatas.id}}"><span t-field="topdatas.image_ids[0].file_db_store"
-					                                    t-field-options='{"widget": "image", "class": "img-responsive"}'/></a>
-					                        </t>
-					                    </div>
-					                    <div class="offer">
-								  			<t t-if="topdatas.image_ids">
-								  				<t t-if="((topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)) or ((topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0))">
-								  					<img src="/website_real_estate/static/img/images/banner_offer.png" id="offer1"/>
-								  				</t>
-								  			</t>
-								  		</div>
-								  		<div class="pending">
-								  			<div class="hidden">
-								  				<span t-field='topdatas.operation_state'/>
-								  			</div>	
-								  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending1"/>
-								  		</div>
-								  		<div class="opportunity">
-								  			<t t-if="topdatas.website_opportunity">
-								  				<img src="/website_real_estate/static/img/images/banner_featured.png" id="opportunity1"/>
-								  			</t>
-								  		</div>
-								  		<div class="new">
-								  			<div class="hidden">
-								  				<span t-field="topdatas.date"/>
-								  				<span t-field="companies.new_top_date"/>
-								  			</div>
-								  			<img class="hidden" src="/website_real_estate/static/img/images/banner_new.png" id="novelty"/>
-								  			
-								  		</div>
-						            </div>
+				<div id="wrap">
+					<div class="container listTop">
+			    		<div class="filters_bar ">
+					    			<div class="top_filters col-md-12">
+					    				<div class="titles_searchbar row">
+									<div class="title1 col-md-6 col-sm-6 col-xs-6">
+										<h4>Tops seeker</h4>
+								    </div>
+								    <div class="title2 col-md-6 col-sm-6 col-xs-6">
+								        <h4>Find all you need</h4>
+								    </div>
 								</div>
-								<div class="col-md-8 col-sm-7 description_right">
-						         <div class="right2">
-						         	 <a id="link_top" t-attf-href="/realestate/top/{{topdatas.id}}"><t t-set="completeAddress1" t-value="topdatas.zone.name or ''+' - '+topdatas.address or ''"/><span id="black_color" t-esc="completeAddress1"/></a>
-						         	 <t t-if="(topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)">
-						       	 		<span id="origsaleprice1" t-field="topdatas.original_sale_price"/> <span id="eur">€</span>
-						       	 		<span class="hidden" id="1"/>
-							       	 </t>
-							       	 <t t-if="(topdatas.sale_price != '') and (topdatas.sale_price &gt; 0)">
-							       	 	<span id="saleprice" t-field="topdatas.sale_price"/> <span id="eur1">€</span>
-							       	 	<span class="hidden" id="2"/>
-							       	 </t>
-							       	 <t t-if="(topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0)">
-							       	 	<span id="origrentprice1" t-field="topdatas.original_rent_price"/> <span id="eur">€/month</span>
-							       	 	<span class="hidden" id="3"/>
-							       	 </t>
-							       	 <t t-if="(topdatas.rent_price &gt; 0) and (topdatas.rent_price &gt; 0)">
-							       	 	<span id="rentprice" t-field="topdatas.rent_price"/> <span id="eur1">€/month</span>
-							       	 	<span class="hidden" id="4"/>
-							       	 </t>
-							       	 <br/><br/>
-							       	 <t t-if="((topdatas.type == 'flat') or (topdatas.type == 'chalet') or (topdatas.type == 'house'))">
-							       	 	<p><b>Rooms:</b> <span t-field="topdatas.rooms"/></p><p><b>Bathroom:</b> <span t-field="topdatas.bathroom"/></p>
-							       	 </t>
-							       	 <p><b>M2:</b> <span t-field="topdatas.m2"/></p>
-							       	 <t t-if="((topdatas.type == 'chalet') or (topdatas.type == 'house'))">
-							       	 	<p><b>Floors:</b> <span t-field="topdatas.floor_number"/></p>
-							       	 </t>
-							       	 <p><b>N° Ref:</b> <span id="reference1" t-field="topdatas.name"/></p>
-							       	 <p><b>Description:</b> <span t-field="topdatas.internet_description"/></p><br/>
-							       	 <div class="url_share_details col-md-12">
-							       	 	<div class="url_details col-md-6">
-							       	 		<a id="more_info" t-attf-href="/realestate/top/{{topdatas.id}}">More info</a>
-							       	 	</div>
-							       	 	<div class="url_share col-md-6">
-							       	 		<div class="oe_share s_share">
-							                  	<p><span id="orange_color">Share:</span>
-							                  	<a class="oe_share_facebook" t-attf-href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_Blank"><i class="fa fa-facebook-square"/> </a>
-							                    <a class="oe_share_twitter" t-attf-href="https://twitter.com/intent/tweet?text={{completeAddress1 + ' - ' + topdatas.name}}&amp;url={url}" target="_Blank"><i class="fa fa-twitter"/> </a>
-							                    <a class="oe_share_linkedin" t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={url}&amp;title={{completeAddress1 + ' - ' + topdatas.name}}" target="_Blank"><i class="fa fa-linkedin"/> </a>
-							                    <a class="oe_share_google" t-attf-href="https://plus.google.com/share?url={url}" target="_Blank"><i class="fa fa-google-plus-square"/> </a>
-							                    <a t-attf-href="mailto:?body={url}&amp;subject={{completeAddress1 + ' - ' + topdatas.name}}"><i class="fa fa-envelope-o"></i></a>                    
-							                  	</p>
-											</div>
-							       	 	</div>
-							       	 </div>
-							      </div>
-							     </div>
-				    			</div>
-					  		</t>
-		    			</div>
-		    		</div>
-			  		<div class="products_pager col-md-12 col-sm-12 col-xs-12">
-		              <t t-call="website.pager"/>
-		            </div>
-		    	</div>
+								<div class="hidden ocultbutton" id="pruebax">
+									<button type="button" class="btn btn-info" id='pruebaclick'>Search</button>
+								</div>
+								<div class="attributes_searchbar row">
+									<form action="/realestate/search" method="post">
+										<div class="operation col-md-2">
+											<select name="operations">
+												<t t-if="operation_sel == 'operation'">
+					  								<option id="touch" value="operation" selected="selected">Operation</option>
+					  							</t>
+												<t t-foreach="operations" t-as="topoperations">
+													<t t-if="topoperations[0] == operation_sel">
+														<option id="touch" t-att-value="topoperations[0]" selected="selected"><span t-esc="topoperations[1]" /></option>
+													</t>
+													<t t-if="topoperations[0] != operation_sel">
+														<option id="touch" t-att-value="topoperations[0]"><span t-esc="topoperations[1]" /></option>
+													</t>
+						  						</t>
+											</select>
+										</div>
+										<div class="category col-md-2">
+											<select name="category">
+												<t t-if="category_sel == 'category'">
+					  								<option value="category" selected="selected">Category</option>
+					  							</t>
+												<t t-foreach="type1" t-as="toptype">
+													<t t-if="toptype[0] == category_sel">
+					  								<option t-att-value="toptype[0]" selected="selected"><span t-esc="toptype[1]"/></option>
+													</t>
+													<t t-if="toptype[0] != category_sel">
+					  								<option t-att-value="toptype[0]"><span t-esc="toptype[1]"/></option>
+													</t>
+					  							</t>
+											</select>
+										</div>
+										<div class="city col-md-2">
+											<select name="city" onchange="this.form.submit()">
+												<t t-if="city_sel == 'city'">
+					  								<option value="city" selected="selected">Location</option>
+					  							</t>
+												<t t-foreach="cities" t-as="topcity">
+													<t t-if="topcity[1] == city_sel">
+					  								<option t-att-value="topcity[1]" selected="selected"><span t-esc="topcity[0]"/></option>
+													</t>
+													<t t-if="topcity[1] != city_sel">
+					  								<option t-att-value="topcity[1]"><span t-esc="topcity[0]"/></option>
+													</t>
+					  							</t>
+											</select>
+										</div>
+										<div class="zone col-md-2">
+											<select name="zone">
+					  							<t t-if="zone_sel == 'zone'">
+					  								<option value="zone" selected="selected">Zone</option>
+					  							</t>
+					  							<t t-foreach="zone" t-as="topzones">
+					  								<t t-if="topzones.id == zone_sel">
+														<option t-att-value="topzones.id" selected="selected"><span t-field="topzones.name"/></option>
+													</t>
+													<t t-if="topzones.id != zone_sel">
+														<option t-att-value="topzones.id"><span t-field="topzones.name"/></option>
+													</t>
+					  							</t>
+											</select>
+										</div>
+										<div class="hidden salepricefrom col-md-2">
+											<t t-if="salepricefrom_def != 0">
+												<input id="spf" type="text" name="salepricefrom" t-att-value="salepricefrom_def"/>
+											</t>
+											<t t-if="salepricefrom_def == 0">
+												<input id="spf" type="text" name="salepricefrom" value="Sale price from"/>
+					  						</t>
+										</div>
+										<div class="hidden salepriceto col-md-2">
+											<t t-if="salepriceto_def != 0">
+												<input id="spt" type="text" name="salepriceto" t-att-value="salepriceto_def"/>
+											</t>
+											<t t-if="salepriceto_def == 0">
+												<input id="spt" type="text" name="salepriceto" value="Sale price to"/>
+					  						</t>
+										</div>
+										<div class="hidden rentpricefrom col-md-2">
+											<t t-if="rentpricefrom_def != 0">
+												<input id="rpf" type="text" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
+											</t>
+											<t t-if="rentpricefrom_def == 0">
+												<input id="rpf" type="text" name="rentpricefrom" value="Rent price from"/>
+					  						</t>
+										</div>
+										<div class="hidden rentpriceto col-md-2">
+											<t t-if="rentpriceto_def != 0">
+												<input id="rpt" type="text" name="rentpriceto" t-att-value="rentpriceto_def"/>
+											</t>
+											<t t-if="rentpriceto_def == 0">
+												<input id="rpt" type="text" name="rentpriceto" value="Rent price to"/>
+					  						</t>
+										</div>
+										<div class="areafrom col-md-2">
+											<t t-if="areafrom_def != 0">
+												<input id="af" type="text" name="areafrom" t-att-value="areafrom_def"/>
+											</t>
+											<t t-if="areafrom_def == 0">
+												<input id="af" type="text" name="areafrom" value="area from"/>
+					  						</t>
+										</div>
+										<div class="areato col-md-2">
+											<t t-if="areato_def != 0">
+												<input id="at" type="text" name="areato" t-att-value="areato_def"/>
+											</t>
+											<t t-if="areato_def == 0">
+												<input id="at" type="text" name="areato" value="area to"/>
+					  						</t>
+										</div>
+										<div class="reference col-md-2">
+											<t t-if="reference_def != 'reference'">
+												<input id="refer" type="text" name="reference" t-att-value="reference_def"/>
+											</t>
+											<t t-if="reference_def == 'reference'">
+												<input id="refer" type="text" name="reference" value="reference"/>
+					  						</t>
+										</div>
+										<div class="btnsearch col-md-2">
+											<input type="submit" id="btnSearch" value="Search" />
+										</div>
+									</form>
+								</div>
+								<div class="hidden advanced_searchbar row">
+									<a href="" class="advanced_search1">Advanced Search</a>
+								</div>
+			    			</div>
+			    			<div class="show" id="occultlistmap">
+			    			<div class="selector_view col-md-12 text-center">
+			    				<t t-if="page == 0">
+		                        	 <form id="formsearch" action="/realestate/search" method="post">
+									    <input type="hidden" name="operations" t-att-value="operation_sel"/>
+									    <input type="hidden" name="category" t-att-value="category_sel"/>
+									    <input type="hidden" name="city" t-att-value="city_sel"/>
+									    <input type="hidden" name="zone" t-att-value="zone_sel"/>
+									    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
+									    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
+									    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
+									    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
+									    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
+									    <input type="hidden" name="areato" t-att-value="areato_def"/>
+									    <input type="hidden" name="reference" t-att-value="reference_def"/>
+									    <a t-attf-href="/realestate/search">
+									        <input type="submit" id="btnlist" value="list" />
+									    </a>
+									    
+									</form>
+									
+									
+									<form id="formsearchmap" action="/realestate/searchmap" method="post">
+									    <input type="hidden" name="operations" t-att-value="operation_sel"/>
+									    <input type="hidden" name="category" t-att-value="category_sel"/>
+									    <input type="hidden" name="city" t-att-value="city_sel"/>
+									    <input type="hidden" name="zone" t-att-value="zone_sel"/>
+									    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
+									    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
+									    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
+									    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
+									    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
+									    <input type="hidden" name="areato" t-att-value="areato_def"/>
+									    <input type="hidden" name="reference" t-att-value="reference_def"/>
+									    <a t-attf-href="/realestate/searchmap">
+									        <input type="submit" id="btnmap" value="map" />
+									    </a>
+									    
+									</form>
+		                        </t>
+		                        <t t-if="page != 0">
+		                        	<form id="formsearchpage" action="/realestate/search" method="post">
+									    <input type="hidden" name="operations" t-att-value="operation_sel"/>
+									    <input type="hidden" name="category" t-att-value="category_sel"/>
+									    <input type="hidden" name="city" t-att-value="city_sel"/>
+									    <input type="hidden" name="zone" t-att-value="zone_sel"/>
+									    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
+									    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
+									    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
+									    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
+									    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
+									    <input type="hidden" name="areato" t-att-value="areato_def"/>
+									    <input type="hidden" name="reference" t-att-value="reference_def"/>
+									    <a t-attf-href="/realestate/search/page/{{page}}">
+									        <input type="submit" id="btnlist" value="list" />
+									    </a>
+									    
+									</form>
+									
+									
+									<form id="formsearchmappage" action="/realestate/searchmap" method="post">
+									    <input type="hidden" name="operations" t-att-value="operation_sel"/>
+									    <input type="hidden" name="category" t-att-value="category_sel"/>
+									    <input type="hidden" name="city" t-att-value="city_sel"/>
+									    <input type="hidden" name="zone" t-att-value="zone_sel"/>
+									    <input type="hidden" name="salepricefrom" t-att-value="salepricefrom_def"/>
+									    <input type="hidden" name="salepriceto" t-att-value="salepriceto_def"/>
+									    <input type="hidden" name="rentpricefrom" t-att-value="rentpricefrom_def"/>
+									    <input type="hidden" name="rentpriceto" t-att-value="rentpriceto_def"/>
+									    <input type="hidden" name="areafrom" t-att-value="areafrom_def"/>
+									    <input type="hidden" name="areato" t-att-value="areato_def"/>
+									    <input type="hidden" name="reference" t-att-value="reference_def"/>
+									    <a t-attf-href="/realestate/searchmap/page/{{page}}">
+									        <input type="submit" id="btnmap" value="map" />
+									    </a>
+									    
+									</form>
+		                        </t>
+			    			</div>
+			    			</div>
+			    			<div class="separator_enumerator col-md-12">
+			    				<p>PROPERTIES  <span class="number_tops"/></p>
+			    				<hr id="separator1"></hr>
+			    			</div>
+			    		</div>
+			    		<div class="tops_and_maps">
+			    			<div class="tops_list">
+			    				<t t-foreach="top" t-as="topdatas">
+						  			<div class="everyTop row"> 
+					    			<div class="col-md-4 col-sm-4 image_left">
+							            <div class="left2">
+						                    <div class="imageP col-md-12">
+						                        <t t-if="topdatas.image_ids">
+						                        	<a t-attf-href="/realestate/top/{{topdatas.id}}"><span t-field="topdatas.image_ids[0].file_db_store"
+						                                    t-field-options='{"widget": "image", "class": "img-responsive"}'/></a>
+						                        </t>
+						                    </div>
+						                    <div class="offer">
+									  			<t t-if="topdatas.image_ids">
+									  				<t t-if="((topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)) or ((topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0))">
+									  					<img src="/website_real_estate/static/img/images/banner_offer.png" id="offer1"/>
+									  				</t>
+									  			</t>
+									  		</div>
+									  		<div class="pending">
+									  			<div class="hidden">
+									  				<span t-field='topdatas.operation_state'/>
+									  			</div>	
+									  			<img class="hidden" src="/website_real_estate/static/img/images/banner_pending.png" id="pending1"/>
+									  		</div>
+									  		<div class="opportunity">
+									  			<t t-if="topdatas.website_opportunity">
+									  				<img src="/website_real_estate/static/img/images/banner_featured.png" id="opportunity1"/>
+									  			</t>
+									  		</div>
+									  		<div class="new">
+									  			<div class="hidden">
+									  				<span t-field="topdatas.date"/>
+									  				<span t-field="companies.new_top_date"/>
+									  			</div>
+									  			<img class="hidden" src="/website_real_estate/static/img/images/banner_new.png" id="novelty"/>
+									  			
+									  		</div>
+							            </div>
+									</div>
+									<div class="col-md-8 col-sm-7 description_right">
+							         <div class="right2">
+							         	 <a id="link_top" t-attf-href="/realestate/top/{{topdatas.id}}"><t t-set="completeAddress1" t-value="topdatas.zone.name or ''+' - '+topdatas.address or ''"/><span id="black_color" t-esc="completeAddress1"/></a>
+							         	 <t t-if="(topdatas.original_sale_price != '') and (topdatas.original_sale_price &gt; 0)">
+							       	 		<span id="origsaleprice1" t-field="topdatas.original_sale_price"/> <span id="eur">€</span>
+							       	 		<span class="hidden" id="1"/>
+								       	 </t>
+								       	 <t t-if="(topdatas.sale_price != '') and (topdatas.sale_price &gt; 0)">
+								       	 	<span id="saleprice" t-field="topdatas.sale_price"/> <span id="eur1">€</span>
+								       	 	<span class="hidden" id="2"/>
+								       	 </t>
+								       	 <t t-if="(topdatas.original_rent_price != '') and (topdatas.original_rent_price &gt; 0)">
+								       	 	<span id="origrentprice1" t-field="topdatas.original_rent_price"/> <span id="eur">€/month</span>
+								       	 	<span class="hidden" id="3"/>
+								       	 </t>
+								       	 <t t-if="(topdatas.rent_price &gt; 0) and (topdatas.rent_price &gt; 0)">
+								       	 	<span id="rentprice" t-field="topdatas.rent_price"/> <span id="eur1">€/month</span>
+								       	 	<span class="hidden" id="4"/>
+								       	 </t>
+								       	 <br/><br/>
+								       	 <t t-if="((topdatas.type == 'flat') or (topdatas.type == 'chalet') or (topdatas.type == 'house'))">
+								       	 	<p><b>Rooms:</b> <span t-field="topdatas.rooms"/></p><p><b>Bathroom:</b> <span t-field="topdatas.bathroom"/></p>
+								       	 </t>
+								       	 <p><b>M2:</b> <span t-field="topdatas.m2"/></p>
+								       	 <t t-if="((topdatas.type == 'chalet') or (topdatas.type == 'house'))">
+								       	 	<p><b>Floors:</b> <span t-field="topdatas.floor_number"/></p>
+								       	 </t>
+								       	 <p><b>N° Ref:</b> <span id="reference1" t-field="topdatas.name"/></p>
+								       	 <p><b>Description:</b> <span t-field="topdatas.internet_description"/></p><br/>
+								       	 <div class="url_share_details col-md-12">
+								       	 	<div class="url_details col-md-6">
+								       	 		<a id="more_info" t-attf-href="/realestate/top/{{topdatas.id}}">More info</a>
+								       	 	</div>
+								       	 	<div class="url_share col-md-6">
+								       	 		<div class="oe_share s_share">
+								                  	<p><span id="orange_color">Share:</span>
+								                  	<a class="oe_share_facebook" t-attf-href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_Blank"><i class="fa fa-facebook-square"/> </a>
+								                    <a class="oe_share_twitter" t-attf-href="https://twitter.com/intent/tweet?text={{completeAddress1 + ' - ' + topdatas.name}}&amp;url={url}" target="_Blank"><i class="fa fa-twitter"/> </a>
+								                    <a class="oe_share_linkedin" t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={url}&amp;title={{completeAddress1 + ' - ' + topdatas.name}}" target="_Blank"><i class="fa fa-linkedin"/> </a>
+								                    <a class="oe_share_google" t-attf-href="https://plus.google.com/share?url={url}" target="_Blank"><i class="fa fa-google-plus-square"/> </a>
+								                    <a t-attf-href="mailto:?body={url}&amp;subject={{completeAddress1 + ' - ' + topdatas.name}}"><i class="fa fa-envelope-o"></i></a>                    
+								                  	</p>
+												</div>
+								       	 	</div>
+								       	 </div>
+								      </div>
+								     </div>
+					    			</div>
+						  		</t>
+			    			</div>
+			    		</div>
+				  		<div class="products_pager col-md-12 col-sm-12 col-xs-12">
+			              <t t-call="website.pager"/>
+			            </div>
+			    	</div>
+			   	</div>
 		    </t>
 	    </template>
 	</data>
