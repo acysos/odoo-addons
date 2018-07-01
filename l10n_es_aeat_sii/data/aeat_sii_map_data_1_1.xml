@@ -2,7 +2,7 @@
 <!-- Copyright 2018 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <openerp>
-    <data noupdate="1">
+    <data noupdate="0">
         <record id="aeat_sii_map_1_1" model="aeat.sii.map">
             <field name="name">SII 1.1</field>
             <field name="version">1.1</field>
@@ -156,43 +156,43 @@
         <record id="wsdl_out_1_1" model="aeat.sii.wsdl">
         	<field name="name">SuministroFactEmitidas</field>
         	<field name="key">wsdl_out</field>
-        	<field name="wsdl">https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii_1_1/fact/ws/SuministroFactEmitidas.wsdl</field>
+        	<field name="wsdl">https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/SuministroFactEmitidas.wsdl</field>
         	<field name="sii_map_id" ref="aeat_sii_map_1_1"/>
         </record>
         <record id="wsdl_in_1_1" model="aeat.sii.wsdl">
         	<field name="name">SuministroFactRecibidas</field>
         	<field name="key">wsdl_in</field>
-        	<field name="wsdl">https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii_1_1/fact/ws/SuministroFactRecibidas.wsdl</field>
+        	<field name="wsdl">https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/SuministroFactRecibidas.wsdl</field>
         	<field name="sii_map_id" ref="aeat_sii_map_1_1"/>
         </record>
         <record id="wsdl_pi_1_1" model="aeat.sii.wsdl">
         	<field name="name">SuministroBienesInversion</field>
         	<field name="key">wsdl_pi</field>
-        	<field name="wsdl">https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii_1_1/fact/ws/SuministroBienesInversion.wsdl</field>
+        	<field name="wsdl">https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/SuministroBienesInversion.wsdl</field>
         	<field name="sii_map_id" ref="aeat_sii_map_1_1"/>
         </record>
         <record id="wsdl_ic_1_1" model="aeat.sii.wsdl">
         	<field name="name">SuministroOpIntracomunitarias</field>
         	<field name="key">wsdl_ic</field>
-        	<field name="wsdl">https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii_1_1/fact/ws/SuministroOpIntracomunitarias.wsdl</field>
+        	<field name="wsdl">https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/SuministroOpIntracomunitarias.wsdl</field>
         	<field name="sii_map_id" ref="aeat_sii_map_1_1"/>
         </record>
         <record id="wsdl_pr_1_1" model="aeat.sii.wsdl">
         	<field name="name">SuministroCobrosEmitidas</field>
         	<field name="key">wsdl_pr</field>
-        	<field name="wsdl">https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii_1_1/fact/ws/SuministroCobrosEmitidas.wsdl</field>
+        	<field name="wsdl">https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/SuministroCobrosEmitidas.wsdl</field>
         	<field name="sii_map_id" ref="aeat_sii_map_1_1"/>
         </record>
         <record id="wsdl_ott_1_1" model="aeat.sii.wsdl">
         	<field name="name">SuministroOpTrascendTribu</field>
         	<field name="key">wsdl_ott</field>
-        	<field name="wsdl">https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii_1_1/fact/ws/SuministroOpTrascendTribu.wsdl</field>
+        	<field name="wsdl">https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/SuministroOpTrascendTribu.wsdl</field>
         	<field name="sii_map_id" ref="aeat_sii_map_1_1"/>
         </record>
         <record id="wsdl_ps_1_1" model="aeat.sii.wsdl">
         	<field name="name">SuministroPagosRecibidas</field>
         	<field name="key">wsdl_ps</field>
-        	<field name="wsdl">https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii_1_1/fact/ws/SuministroPagosRecibidas.wsdl</field>
+        	<field name="wsdl">https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/SuministroPagosRecibidas.wsdl</field>
         	<field name="sii_map_id" ref="aeat_sii_map_1_1"/>
         </record>
     </data>

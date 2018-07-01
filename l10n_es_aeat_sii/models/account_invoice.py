@@ -365,11 +365,14 @@ class AccountInvoice(models.Model):
                         # corrientes nacionales
                         if tax_line in taxes_sfesbe:
                             if 'Exenta' not in inv_breakdown['Sujeta']:
-                                inv_breakdown['Sujeta']['Exenta'] = {
-                                    'BaseImponible': line.price_subtotal}
+                                inv_breakdown['Sujeta']['Exenta'] = {}
+                                inv_breakdown['Sujeta']['Exenta'][
+                                    'DetalleExenta'] = {
+                                        'BaseImponible': line.price_subtotal}
                             else:
                                 inv_breakdown['Sujeta']['Exenta'][
-                                    'BaseImponible'] += line.price_subtotal
+                                    'DetalleExenta'][
+                                        'BaseImponible'] += line.price_subtotal
 
                         if tax_line in taxes_sfesb or \
                                 tax_line in taxes_sfesisp:
@@ -434,15 +437,20 @@ class AccountInvoice(models.Model):
                             tax_line in taxes_sfesbee or \
                             tax_line in taxes_sfesbei:
                         if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
-                            type_breakdown[op_key]['Sujeta'][
-                                'Exenta'] = {
+                            type_breakdown[op_key]['Sujeta']['Exenta'] = {}
+                            type_breakdown[op_key]['Sujeta']['Exenta'][
+                                'DetalleExenta'] = {
                                     'BaseImponible': line.price_subtotal}
                             if tax_line in taxes_sfesbee:
                                 type_breakdown[op_key]['Sujeta']['Exenta'][
-                                    'CausaExencion'] = 'E2'
+                                    'DetalleExenta']['CausaExencion'] = 'E2'
                             if tax_line in taxes_sfesbei:
                                 type_breakdown[op_key]['Sujeta']['Exenta'][
-                                    'CausaExencion'] = 'E5'
+                                    'DetalleExenta']['CausaExencion'] = 'E5'
+                        else:
+                            type_breakdown[op_key]['Sujeta']['Exenta'][
+                                'DetalleExenta'][
+                                    'BaseImponible'] += line.price_subtotal
                         else:
                             type_breakdown[op_key]['Sujeta']['Exenta'][
                                 'BaseImponible'] += line.price_subtotal
