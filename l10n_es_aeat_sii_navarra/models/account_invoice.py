@@ -16,7 +16,12 @@ class AccountInvoice(models.Model):
             client._default_service_name = 'siiService'
             port_name = self._get_test_mode(port_name)
             client._default_port_name = port_name
-            binding_name = '{'+wsdl+'}siiBinding'
+            # Navarra temporal fix
+            wsdl2 = wsdl.replace(
+                'https://www.agenciatributaria.es/static_files/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Modelos_y_formularios/Suministro_inmediato_informacion/FicherosSuministros/V_1_1/',
+                'https://www2.agenciatributaria.gob.es/static_files/common/internet/dep/aplicaciones/es/aeat/ssii/fact/ws/'
+            )
+            binding_name = '{'+wsdl2+'}siiBinding'
             if company.sii_test:
                 url = self.env['ir.config_parameter'].get_param(
                     'l10n_es_aeat_sii.url_soap_test.31', False)
