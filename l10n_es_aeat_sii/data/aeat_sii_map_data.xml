@@ -2,7 +2,7 @@
 <!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <openerp>
-    <data noupdate="1">
+    <data noupdate="0">
         <record id="aeat_sii_map_1_0" model="aeat.sii.map">
             <field name="name">SII 1.0</field>
             <field name="version">1.0</field>
