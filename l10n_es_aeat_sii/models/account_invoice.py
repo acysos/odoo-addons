@@ -451,9 +451,6 @@ class AccountInvoice(models.Model):
                             type_breakdown[op_key]['Sujeta']['Exenta'][
                                 'DetalleExenta'][
                                     'BaseImponible'] += line.price_subtotal
-                        else:
-                            type_breakdown[op_key]['Sujeta']['Exenta'][
-                                'BaseImponible'] += line.price_subtotal
                     if tax_line in taxes_sfess:
                         if 'NoExenta' not in type_breakdown[
                                 'PrestacionServicios']['Sujeta']:
