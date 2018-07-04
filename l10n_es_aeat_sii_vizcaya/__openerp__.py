@@ -12,7 +12,8 @@
     "license": "AGPL-3",
     "depends": [
         "l10n_es",
-        "l10n_es_aeat_sii"
+        "l10n_es_aeat_sii",
+        "l10n_es_toponyms"
     ],
     "data": [
         "data/ir_config_parameter.xml",
