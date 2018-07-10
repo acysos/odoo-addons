@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+
+	    <record id="view_action_real_estate_form" model="ir.ui.view">
+	        <field name="name">crm.action.real.estate.form</field>
+	        <field name="model">crm.action</field>
+	        <field name="inherit_id" ref="crm_action.view_action_form"/>
+	        <field name="arch" type="xml">
+	        	<field name="partner_id" position="after">
+	        		<field name="top_id"/>
+	        	</field>
+	        </field>
+	    </record>
+
+	    <record id="view_action_real_estate_tree" model="ir.ui.view">
+	        <field name="name">crm.action.real.estate.tree</field>
+	        <field name="model">crm.action</field>
+	        <field name="inherit_id" ref="crm_action.view_action_tree"/>
+	        <field name="arch" type="xml">
+	        	<field name="partner_id" position="after">
+	        		<field name="top_id"/>
+	        	</field>
+	        </field>
+	    </record>
+
+    </data>
+</odoo>

@@ -44,6 +44,8 @@
                     <xpath expr="//page[2]" position="after">	
                     	<page string="Real Estate">
                             <group>
+                            	<field name="top_id"/>
+                            	<separator string="Tops Suggested"/>
                             	<field name="top_suggested_ids" colspan="4" nolabel="1" string="Tops Suggested">
                                 <tree string="Tops Suggested" editable="bottom">
                                     <field name="name"/>
@@ -66,11 +68,11 @@
                     	<field name="state"/>
                     </field>
                     <button name="action_set_won" position="before">
-                    	<button name="change_estatep" estates="open,cancel,done,pending" string="Draft" type="object" context="{'estate': 'draft'}"/>
-                    	<button name="change_estatep" estates="draft,cancel,done,pending" string="Open" type="object" context="{'estate': 'open'}"/>
-                    	<button name="change_estatep" estates="open,draft,done,pending" string="Cancel" type="object" context="{'estate': 'cancel'}"/>
-                    	<button name="change_estatep" estates="open,cancel,draft,pending" string="Done" type="object" context="{'estate': 'done'}"/>
-                    	<button name="change_estatep" estates="open,cancel,done,draft" string="Pending" type="object" context="{'estate': 'pending'}"/>
+                    	<button name="change_estatep" states="open,cancel,done,pending" string="Draft" type="object" context="{'estate': 'draft'}"/>
+                    	<button name="change_estatep" states="draft,cancel,done,pending" string="Open" type="object" context="{'estate': 'open'}"/>
+                    	<button name="change_estatep" states="open,draft,done,pending" string="Cancel" type="object" context="{'estate': 'cancel'}"/>
+                    	<button name="change_estatep" states="open,cancel,draft,pending" string="Done" type="object" context="{'estate': 'done'}"/>
+                    	<button name="change_estatep" states="open,cancel,done,draft" string="Pending" type="object" context="{'estate': 'pending'}"/>
                     </button>
                 </field>
             </record>

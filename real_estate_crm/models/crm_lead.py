@@ -1,27 +1,9 @@
 # -*- encoding: utf-8 -*-
-########################################################################
-#
 # @authors: Ignacio Ibeas <ignacio@acysos.com>
 #           Daniel Pascal <daniel@acysos.com>
 # Copyright (C) 2015  Acysos S.L.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see http://www.gnu.org/licenses.
-########################################################################
 
 from odoo import api, fields, models, _
-from odoo.addons import decimal_precision as dp
-import logging
 
 
 class crm_top_suggested(models.Model):
@@ -30,10 +12,9 @@ class crm_top_suggested(models.Model):
     name = fields.Many2one('real.estate.top', 'Top', required=True)
     interested = fields.Boolean('Interested', default=False)
     crm_id = fields.Many2one('crm.lead', 'CRM Lead', required=True,
-                                  ondelete='cascade')
+                             ondelete='cascade')
     updated = fields.Boolean('Updated')
     write_date = fields.Datetime('Update Date', readonly=True)
-    
 
 
 class crm_lead(models.Model):
@@ -59,21 +40,21 @@ class crm_lead(models.Model):
                   ('rent_sale_option', 'Rent with sale option'),
                   ('transfer', 'Transfer'),
                   ('valuation', 'Valuation')]
-    
+
     AVAILABLE_STATES = [('draft', 'Draft'),
                         ('open', 'Open'),
                         ('cancel', 'Cancel'),
                         ('done', 'Done'),
-                        ('pending', 'Pending'),]
+                        ('pending', 'Pending')]
 
-    
+
     zone_ids = fields.Many2many('real.estate.zone',
-                             'crm_lead_real_estate_zone_rel',
-                             'crm_lead_id', 'real_estate_zone_id',
-                             'Zones')
+                                'crm_lead_real_estate_zone_rel',
+                                'crm_lead_id', 'real_estate_zone_id',
+                                'Zones')
     top_type = fields.Selection(TYPES, 'Type', select=True)
     operation = fields.Selection(OPERATIONS, 'Operation', select=True)
-    state = fields.Selection(AVAILABLE_STATES, 'State', default='draft', 
+    state = fields.Selection(AVAILABLE_STATES, 'State', default='draft',
                              size=16, readonly=True)
     sale_price = fields.Float('Sale Price')
     rent_price = fields.Float('Rent Price')
@@ -83,7 +64,7 @@ class crm_lead(models.Model):
     top_suggested_ids = fields.One2many('crm.top.suggested', 'crm_id',
                                      'Tops Suggested')
     prepared = fields.Boolean('Prepared')
-    
+    top_id = fields.Many2one('real.estate.top', 'Top')
 
     '''
     def search_tops_suggested(self, cr, uid, ids, context=None):
@@ -196,12 +177,11 @@ class crm_lead(models.Model):
                 sug_obj.unlink(cr, uid, sug_ids, context)
 
         return True
-    
+
         '''
-    
+
     @api.multi
     def search_tops_suggested(self):
-        print "H2"
         top_obj = self.env['real.estate.top']
         sug_obj = self.env['crm.top.suggested']
         for crm_lead in self:
@@ -296,7 +276,7 @@ class crm_lead(models.Model):
                     '''
 #               sug_obj.unlink(sug_ids)
         return True
-    
+
     @api.multi
     def run_search_top_suggested(self):
         ids = self.search([('state', 'in', ['open', 'pending'])])
@@ -308,7 +288,6 @@ class crm_lead(models.Model):
         self.with_context(context).search_tops_suggested()
         return True
 
-
     @api.multi
     def write(self, vals):
         res = super(crm_lead, self).write(vals)
@@ -317,23 +296,15 @@ class crm_lead(models.Model):
         if not self.env.context.get('cron'):
             self.search_tops_suggested()
         return res
-        
+
     @api.model
     def create(self, vals):
         res_id = super(crm_lead, self).create(vals)
         print res_id
         res_id.search_tops_suggested()
         return res_id
-    
+
     @api.multi
     def change_statep(self):
         self.ensure_one()
         self.state = self._context['state']
-    
-    
-    
-    
-    
-    
-    
-    
