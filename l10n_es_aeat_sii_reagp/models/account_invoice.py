@@ -28,7 +28,7 @@ class AccountInvoice(models.Model):
                 price_unit=self._get_line_price_subtotal(line),
                 quantity=line.quantity, product=line.product_id,
                 partner=line.invoice_id.partner_id)
-            tax_sii[str(tax_type)]['BaseImponible'] += taxes['total_excluded']
+            tax_sii[str(tax_type)]['BaseImponible'] += taxes['total']
             tax_sii[str(tax_type)]['ImporteCompensacionREAGYP'] += \
                 taxes['taxes'][0]['amount']
         else:
