@@ -1,4 +1,4 @@
-﻿# -*- encoding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -272,6 +272,7 @@ class real_estate_top(models.Model):
 
     create_date = fields.Datetime('Create Date', readonly=True)
     write_date = fields.Datetime('Last Write Date', readonly=True)
+    user_id = fields.Many2one('res.users', string='Salesperson')
     name = fields.Char('Reference', readonly=True)
     address = fields.Char('Address', required=True)
     situation = fields.Many2one(

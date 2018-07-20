@@ -31,6 +31,8 @@ Contributors
 * Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>
 * Daniel Pascal - Acysos S.L. <daniel@acysos.com>
 
+Icon by Gan Khoon Lay (https://www.iconfinder.com/icons/1851812/advertisement_advertising_agent_property_real_estate_rent_signboard_icon)
+
 
 Maintainer
 ----------
