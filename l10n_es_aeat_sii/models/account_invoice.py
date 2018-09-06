@@ -274,7 +274,11 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_sii_tax_line(self, tax_line, line, line_taxes):
         self.ensure_one()
-        tax_type = tax_line.amount * 100
+        if tax_line.child_depend:
+            tax_type = abs(
+                tax_line.child_ids.filtered('amount')[:1].amount) * 100
+        else:
+            tax_type = abs(tax_line.amount) * 100
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
             self._get_line_price_subtotal(line),
