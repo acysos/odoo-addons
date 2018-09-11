@@ -291,9 +291,9 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_sii_tax_line(self, tax_line, line, line_taxes):
         self.ensure_one()
-        if tax_line.child_depend:
+        if tax_line.amount_type == 'group':
             tax_type = abs(
-                tax_line.child_ids.filtered('amount')[:1].amount)
+                tax_line.children_tax_ids.filtered('amount')[:1].amount)
         else:
             tax_type = abs(tax_line.amount)
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
@@ -363,7 +363,8 @@ class AccountInvoice(models.Model):
                         taxes_sii['DesgloseFactura'] = {}
                     inv_breakdown = taxes_sii['DesgloseFactura']
                     if tax_line in taxes_sfesb or tax_line in taxes_sfesbe or \
-                            tax_line in taxes_sfesbee:
+                            tax_line in taxes_sfesbee or \
+                            tax_line in taxes_sfesisp:
                         if 'Sujeta' not in inv_breakdown:
                             inv_breakdown['Sujeta'] = {}
                         # TODO l10n_es no tiene impuesto exento de bienes
