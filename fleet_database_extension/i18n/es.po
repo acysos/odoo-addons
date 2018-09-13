@@ -1,0 +1,337 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fleet_database_extension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-01 09:55+0000\n"
+"PO-Revision-Date: 2018-08-01 12:00+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: fleet_database_extension
+#: selection:fleet.vehicle.model.serial,transmission:0
+msgid "Automatic"
+msgstr "Automático"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_co2
+msgid "CO2 Emissions"
+msgstr "Emisiones de CO2"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,help:fleet_database_extension.field_fleet_vehicle_model_serial_co2
+msgid "CO2 emissions of the vehicle"
+msgstr "Emisiones CO2 del vehículo"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,help:fleet_database_extension.fleet_vehicle_model_serial_equip_action
+msgid "Click to create a new serial model equip."
+msgstr "Crea un nuevo equipo para la serie del modelo"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,help:fleet_database_extension.fleet_vehicle_model_serial_exhaust_pipe_action
+msgid "Click to create a new serial model exhaust pipe."
+msgstr "Crea un nuevo tubo de escape para la serie del modelo"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,help:fleet_database_extension.fleet_vehicle_model_serial_wheel_action
+msgid "Click to create a new serial model wheel."
+msgstr "Crea una nueva rueda para la serie del modelo"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,help:fleet_database_extension.fleet_vehicle_model_serial_year_action
+msgid "Click to create a new serial model year."
+msgstr "Crea un nuevo año para la serie del modelo"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,help:fleet_database_extension.fleet_vehicle_model_serial_action
+msgid "Click to create a new serial model."
+msgstr "Crea una nueva serie de vehículo."
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_create_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_create_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_create_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_create_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_create_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_create_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_create_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_create_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_description
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_description
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: fleet_database_extension
+#: selection:fleet.vehicle.model.serial,fuel_type:0
+msgid "Diesel"
+msgstr "Diesel"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_display_name
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_display_name
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_display_name
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_display_name
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_doors
+msgid "Doors Number"
+msgstr "Nº de puertas"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,help:fleet_database_extension.fleet_vehicle_model_serial_action
+msgid "Each serial model are specific configuration for each model."
+msgstr "Cada serie de modelo es una configuración especifica de cada modelo."
+
+#. module: fleet_database_extension
+#: selection:fleet.vehicle.model.serial,fuel_type:0
+msgid "Electric"
+msgstr "Eléctrico"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip
+msgid "Equipment"
+msgstr "Equipamiento"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe
+msgid "Exhaust Pipe"
+msgstr "Tubo de escape"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_fuel_type
+msgid "Fuel Type"
+msgstr "Tipo de combustible"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,help:fleet_database_extension.field_fleet_vehicle_model_serial_fuel_type
+msgid "Fuel Used by the vehicle"
+msgstr "Combustible usado por el vehículo"
+
+#. module: fleet_database_extension
+#: selection:fleet.vehicle.model.serial,fuel_type:0
+msgid "Gasoline"
+msgstr "Gasolina"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_horsepower
+msgid "Horsepower"
+msgstr "Caballos de fuerza"
+
+#. module: fleet_database_extension
+#: selection:fleet.vehicle.model.serial,fuel_type:0
+msgid "Hybrid"
+msgstr "Híbrido"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_id
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_id
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_id
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_id
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: fleet_database_extension
+#: model:ir.model,name:fleet_database_extension.model_fleet_vehicle
+msgid "Information on a vehicle"
+msgstr "Información sobre un vehículo"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial___last_update
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip___last_update
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe___last_update
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel___last_update
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_write_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_write_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_write_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_write_uid
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_write_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_write_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_write_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_write_date
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: fleet_database_extension
+#: selection:fleet.vehicle.model.serial,transmission:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_model_id
+msgid "Model"
+msgstr "Modelo"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,name:fleet_database_extension.fleet_vehicle_model_serial_equip_action
+#: model:ir.ui.menu,name:fleet_database_extension.fleet_vehicle_model_serial_equip_menu
+msgid "Model Equips"
+msgstr "Equipamientos"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,name:fleet_database_extension.fleet_vehicle_model_serial_exhaust_pipe_action
+#: model:ir.ui.menu,name:fleet_database_extension.fleet_vehicle_model_serial_exhaust_pipe_menu
+msgid "Model Exhaust Pipe"
+msgstr "Tubos de escape"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,name:fleet_database_extension.fleet_vehicle_model_serial_wheel_action
+#: model:ir.ui.menu,name:fleet_database_extension.fleet_vehicle_model_serial_wheel_menu
+msgid "Model Wheels"
+msgstr "Ruedas"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,name:fleet_database_extension.fleet_vehicle_model_serial_year_action
+#: model:ir.ui.menu,name:fleet_database_extension.fleet_vehicle_model_serial_year_menu
+msgid "Model years"
+msgstr "Años del modelo"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_equip_name
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_exhaust_pipe_name
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_notes
+msgid "Notes"
+msgstr "Notas"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,help:fleet_database_extension.field_fleet_vehicle_model_serial_doors
+msgid "Number of doors of the vehicle"
+msgstr "Nº de puertas del vehículo"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_power
+msgid "Power"
+msgstr "Potencia"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,help:fleet_database_extension.field_fleet_vehicle_model_serial_power
+msgid "Power in kW of the vehicle"
+msgstr "Potencia en kW del vehículo"
+
+#. module: fleet_database_extension
+#: model:ir.ui.view,arch_db:fleet_database_extension.fleet_vehicle_model_serial_view_form
+#: model:ir.ui.view,arch_db:fleet_database_extension.fleet_vehicle_model_serial_view_tree
+msgid "Serial Model"
+msgstr "Serie del modelo"
+
+#. module: fleet_database_extension
+#: model:ir.actions.act_window,name:fleet_database_extension.fleet_vehicle_model_serial_action
+#: model:ir.ui.menu,name:fleet_database_extension.fleet_vehicle_model_serial_menu
+msgid "Serial Models"
+msgstr "Serie del modelo"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_name
+msgid "Serial Number"
+msgstr "Nº de serie"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_id_10419
+msgid "Serial model"
+msgstr "Serie del modelo"
+
+#. module: fleet_database_extension
+#: sql_constraint:fleet.vehicle.model.serial.equip:0
+msgid "This equipment exist, select it instead of create a new equipment."
+msgstr "Este equipamiento existe, seleccione este en vez de crear uno nuevo."
+
+#. module: fleet_database_extension
+#: sql_constraint:fleet.vehicle.model.serial.exhaust.pipe:0
+msgid "This exhaust pipe exist, select it instead of create a new exhaust."
+msgstr "Este tubo de escape existe, seleccione este en vez de crear uno nuevo."
+
+#. module: fleet_database_extension
+#: sql_constraint:fleet.vehicle.model.serial.wheel:0
+msgid "This wheel exist, select it instead of create a new wheel."
+msgstr "Estas rueda existe, seleccione este en vez de crear una nueva."
+
+#. module: fleet_database_extension
+#: sql_constraint:fleet.vehicle.model.serial.year:0
+msgid "This year exist, select it instead of create a new year."
+msgstr "Esta rueda existe, seleccione este en vez de crear una nueva."
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_transmission
+msgid "Transmission"
+msgstr "Transmisión"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,help:fleet_database_extension.field_fleet_vehicle_model_serial_transmission
+msgid "Transmission Used by the vehicle"
+msgstr "Transmisión usada por el vehículo"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_wheel
+msgid "Wheel"
+msgstr "Ruedas"
+
+#. module: fleet_database_extension
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year
+#: model:ir.model.fields,field_description:fleet_database_extension.field_fleet_vehicle_model_serial_year_name
+msgid "Year"
+msgstr "Año"
+
+#. module: fleet_database_extension
+#: model:ir.model,name:fleet_database_extension.model_fleet_vehicle_model_serial
+msgid "fleet.vehicle.model.serial"
+msgstr "fleet.vehicle.model.serial"
+
+#. module: fleet_database_extension
+#: model:ir.model,name:fleet_database_extension.model_fleet_vehicle_model_serial_equip
+msgid "fleet.vehicle.model.serial.equip"
+msgstr "fleet.vehicle.model.serial.equip"
+
+#. module: fleet_database_extension
+#: model:ir.model,name:fleet_database_extension.model_fleet_vehicle_model_serial_exhaust_pipe
+msgid "fleet.vehicle.model.serial.exhaust.pipe"
+msgstr "fleet.vehicle.model.serial.exhaust.pipe"
+
+#. module: fleet_database_extension
+#: model:ir.model,name:fleet_database_extension.model_fleet_vehicle_model_serial_wheel
+msgid "fleet.vehicle.model.serial.wheel"
+msgstr "fleet.vehicle.model.serial.wheel"
+
+#. module: fleet_database_extension
+#: model:ir.model,name:fleet_database_extension.model_fleet_vehicle_model_serial_year
+msgid "fleet.vehicle.model.serial.year"
+msgstr "fleet.vehicle.model.serial.year"

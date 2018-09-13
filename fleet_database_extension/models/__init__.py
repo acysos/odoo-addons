@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# Copyright 2018 Ignacio Ibeas <ignacio@acysos.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from . import fleet_vehicle_model
+from . import fleet_vehicle

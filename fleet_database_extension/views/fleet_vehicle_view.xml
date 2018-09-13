@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='fleet_vehicle_model_serial_view_tree' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.model.serial.tree</field>
+        <field name="model">fleet.vehicle.model.serial</field>
+        <field name="arch" type="xml">
+            <tree string="Serial Model">
+                <field name="model_id" />
+                <field name="name"/>
+                <field name="year"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_model_serial_view_form' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.model.serial.form</field>
+        <field name="model">fleet.vehicle.model.serial</field>
+        <field name="arch" type="xml">
+            <form string="Serial Model">
+                <sheet>
+                    <group>
+		                <field name="model_id"/>
+		                <field name="name"/>
+		                <field name="year"/>
+		                <field name="doors"/>
+		                <field name="transmission"/>
+		                <field name="fuel_type"/>
+		                <field name="horsepower"/>
+		                <field name="power"/>
+		                <field name="co2"/>
+		                <field name="equip"/>
+		                <field name="wheel"/>
+		                <field name="exhaust_pipe"/>
+		                <field name="notes"/>
+		            </group>
+		        </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_database_view_form' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.database.form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+        	<field name="model_id" position="after">
+        		<field name="model_serial_id" domain="[('model_id', '=', model_id)]"/>
+        	</field>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_model_serial_action' model='ir.actions.act_window'>
+        <field name="name">Serial Models</field>
+        <field name="res_model">fleet.vehicle.model.serial</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a new serial model.
+          </p><p>
+            Each serial model are specific configuration for each model.
+          </p>
+        </field>
+    </record>
+    <menuitem action="fleet_vehicle_model_serial_action" parent="fleet.fleet_configuration" id="fleet_vehicle_model_serial_menu" sequence="1"/>
+
+    <record id='fleet_vehicle_model_serial_year_action' model='ir.actions.act_window'>
+        <field name="name">Model years</field>
+        <field name="res_model">fleet.vehicle.model.serial.year</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a new serial model year.
+          </p>
+        </field>
+    </record>
+    <menuitem action="fleet_vehicle_model_serial_year_action" parent="fleet.fleet_configuration" id="fleet_vehicle_model_serial_year_menu" sequence="50"/>
+
+    <record id='fleet_vehicle_model_serial_equip_action' model='ir.actions.act_window'>
+        <field name="name">Model Equips</field>
+        <field name="res_model">fleet.vehicle.model.serial.equip</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a new serial model equip.
+          </p>
+        </field>
+    </record>
+    <menuitem action="fleet_vehicle_model_serial_equip_action" parent="fleet.fleet_configuration" id="fleet_vehicle_model_serial_equip_menu" sequence="50"/>
+
+    <record id='fleet_vehicle_model_serial_wheel_action' model='ir.actions.act_window'>
+        <field name="name">Model Wheels</field>
+        <field name="res_model">fleet.vehicle.model.serial.wheel</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a new serial model wheel.
+          </p>
+        </field>
+    </record>
+    <menuitem action="fleet_vehicle_model_serial_wheel_action" parent="fleet.fleet_configuration" id="fleet_vehicle_model_serial_wheel_menu" sequence="50"/>
+
+    <record id='fleet_vehicle_model_serial_exhaust_pipe_action' model='ir.actions.act_window'>
+        <field name="name">Model Exhaust Pipe</field>
+        <field name="res_model">fleet.vehicle.model.serial.exhaust.pipe</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a new serial model exhaust pipe.
+          </p>
+        </field>
+    </record>
+    <menuitem action="fleet_vehicle_model_serial_exhaust_pipe_action" parent="fleet.fleet_configuration" id="fleet_vehicle_model_serial_exhaust_pipe_menu" sequence="50"/>
+
+
+</odoo>
