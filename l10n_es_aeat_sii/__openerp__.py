@@ -45,5 +45,6 @@
         "views/account_payment_mode_view.xml",
         "data/account_fiscal_position_data.xml"
     ],
+    'images': ['static/description/banner.jpg'],
     "post_init_hook": "post_init_sii_hook",
 }
