@@ -16,5 +16,6 @@
     "data": [
         "data/ir_config_parameter.xml"
     ],
+    'images': ['static/description/banner.jpg'],
     'installable': True,
 }
