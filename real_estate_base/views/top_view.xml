@@ -644,7 +644,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','flat')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'flat'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_flat"/>
       </record>
       <menuitem
@@ -660,7 +660,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','shop')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'shop'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_shop"/>
       </record>
       <menuitem
@@ -675,7 +675,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','in',['premise','premise-office'])]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'premise'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_shop"/>
       </record>
       <menuitem
@@ -689,7 +689,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','chalet')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'chalet'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_flat"/>
       </record>
       <menuitem
@@ -703,7 +703,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','house')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'house'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_flat"/>
       </record>
       <menuitem
@@ -718,7 +718,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','in',['office','premise-office'])]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'office'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_office"/>
       </record>
       <menuitem
@@ -733,7 +733,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','premise-office')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'premise-office'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_office"/>
       </record>
       <menuitem
@@ -748,7 +748,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','industrial_unit')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'industrial_unit'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_industrial"/>
       </record>
       <menuitem
@@ -763,7 +763,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','hotel_industry')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'hotel_industry'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_hotel_industry"/>
       </record>
       <menuitem
@@ -777,7 +777,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','parking')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'parking'}</field>
       </record>
       <menuitem
                action="real_estate_top_parking_act"
@@ -790,7 +790,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','box_room')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'box_room'}</field>
       </record>
       <menuitem
                action="real_estate_top_box_room_act"
@@ -803,7 +803,7 @@
           <field name="type">ir.actions.act_window</field>
           <field name="view_type">form</field>
           <field name="domain">[('type','=','land')]</field>
-          <field name="context">{"search_default_available":1}</field>
+          <field name="context">{"search_default_available":1, "default_type": 'land'}</field>
           <field name="search_view_id" ref="real_estate_top_filter_land"/>
       </record>
       <menuitem
