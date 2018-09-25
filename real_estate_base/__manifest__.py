@@ -57,6 +57,7 @@
         'views/calendar_view.xml',
         'views/top_meetings_view.xml',
         ],
+    "images": ['static/description/banner.jpg'],
     "active": False,
     "installable": True
 }
