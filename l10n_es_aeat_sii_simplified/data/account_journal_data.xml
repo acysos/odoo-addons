@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="simplified_invoice_journal" model="account.journal">
+            <field name="name">Simplified Invoice Journal</field>
+            <field name="code">SINV</field>
+            <field name="type">sale</field>
+            <field name="sequence">50</field>
+            <field name="invoice_sequence_id" ref="seq_invoice_simplified"/>
+            <field name="refund_inv_sequence_id" ref="seq_invoice_simplified_refund"/>
+        </record>
+
+	</data>
+</odoo>
