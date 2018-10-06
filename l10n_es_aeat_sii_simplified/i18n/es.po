@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* l10n_es_aeat_sii_simplified
+# 	* l10n_es_aeat_sii_simplified
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-06 08:13+0000\n"
-"PO-Revision-Date: 2018-10-06 08:13+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2018-10-06 11:39+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. module: l10n_es_aeat_sii_simplified
 #: model:ir.model,name:l10n_es_aeat_sii_simplified.model_res_company
@@ -28,21 +30,20 @@ msgstr "Factura"
 #. module: l10n_es_aeat_sii_simplified
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii_simplified.field_account_invoice_simplified_invoice
 msgid "Simplified Invoice"
-msgstr "Simplified Invoice"
+msgstr "Factura simplificada"
 
 #. module: l10n_es_aeat_sii_simplified
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii_simplified.field_res_company_simplified_journal_id
 msgid "Simplified Journal"
-msgstr "Simplified Journal"
+msgstr "Diario factura simplificada"
 
 #. module: l10n_es_aeat_sii_simplified
 #: code:addons/l10n_es_aeat_sii_simplified/models/account_invoice.py:26
 #, python-format
 msgid "The total of the invoice %s is more that 400 €"
-msgstr "The total of the invoice %s is more that 400 €"
+msgstr "El total de la factura de la factura %s es más de 400 €"
 
 #. module: l10n_es_aeat_sii_simplified
 #: model:ir.model,name:l10n_es_aeat_sii_simplified.model_account_config_settings
 msgid "account.config.settings"
 msgstr "account.config.settings"
-
