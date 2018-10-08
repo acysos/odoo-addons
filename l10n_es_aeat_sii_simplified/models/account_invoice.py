@@ -22,10 +22,10 @@ class AccountInvoice(models.Model):
         self.ensure_one()
         tipo_factura = super(AccountInvoice, self)._get_tipo_factura()
         if self.simplified_invoice:
-            if self.amount_total > 400:
+            if self.amount_total > self.company_id.simplified_limit:
                 raise UserError(_(
-                    "The total of the invoice %s is more that 400 €") % (
-                        self.invoice_number))
+                    "The total of the invoice %s is more that %f €") % (
+                        self.invoice_number, self.company_id.simplified_limit))
             if self.amount_total < 0 or self.type in ['in_refund', 'out_refund']:
                 tipo_factura = 'R5'
             else:

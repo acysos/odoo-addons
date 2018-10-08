@@ -10,6 +10,7 @@
             <field name="arch" type="xml">
             	<field name="sii_method" position="after">
             		<field name="simplified_journal_id"/>
+            		<field name="simplified_limit"/>
             	</field>
             </field>
         </record>

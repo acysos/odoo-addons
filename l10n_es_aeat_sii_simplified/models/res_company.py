@@ -10,4 +10,5 @@ class ResCompany(models.Model):
     
     simplified_journal_id = fields.Many2one(
         string='Simplified Journal', comodel_name='account.journal')
+    simplified_limit = fields.Float(string='Simplified Limit', default=400.0)
     
