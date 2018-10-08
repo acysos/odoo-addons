@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-06 08:13+0000\n"
-"PO-Revision-Date: 2018-10-06 11:39+0200\n"
+"POT-Creation-Date: 2018-10-08 09:10+0000\n"
+"PO-Revision-Date: 2018-10-08 11:11+0200\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -35,13 +35,18 @@ msgstr "Factura simplificada"
 #. module: l10n_es_aeat_sii_simplified
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii_simplified.field_res_company_simplified_journal_id
 msgid "Simplified Journal"
-msgstr "Diario factura simplificada"
+msgstr "Diario para factura simplificada"
+
+#. module: l10n_es_aeat_sii_simplified
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii_simplified.field_res_company_simplified_limit
+msgid "Simplified Limit"
+msgstr "Limite factura simplificada"
 
 #. module: l10n_es_aeat_sii_simplified
 #: code:addons/l10n_es_aeat_sii_simplified/models/account_invoice.py:26
 #, python-format
-msgid "The total of the invoice %s is more that 400 €"
-msgstr "El total de la factura de la factura %s es más de 400 €"
+msgid "The total of the invoice %s is more that %f €"
+msgstr "El total de la factura %s es mayor que %f €"
 
 #. module: l10n_es_aeat_sii_simplified
 #: model:ir.model,name:l10n_es_aeat_sii_simplified.model_account_config_settings
