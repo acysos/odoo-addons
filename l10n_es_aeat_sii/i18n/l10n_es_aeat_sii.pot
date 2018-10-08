@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 18:17+0000\n"
-"PO-Revision-Date: 2018-01-25 18:17+0000\n"
+"POT-Creation-Date: 2018-10-07 19:27+0000\n"
+"PO-Revision-Date: 2018-10-07 19:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -40,6 +40,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:l10n_es_aeat_sii.action_aeat_sii_mapping
 #: model:ir.model,name:l10n_es_aeat_sii.model_aeat_sii_map
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map_lines_sii_map_id
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_sii_map_id
 #: model:ir.ui.menu,name:l10n_es_aeat_sii.menu_aeat_sii_map
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_map_view_form
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_map_view_tree
@@ -64,6 +65,16 @@ msgstr ""
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_form
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_tree
 msgid "Aeat SII Result"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model,name:l10n_es_aeat_sii.model_aeat_sii_wsdl
+msgid "Aeat SII WDSL Urls"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.l10n_es_aeat_sii_wsdl_lines_view_tree
+msgid "Aeat SII WSDL"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -188,6 +199,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys_create_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key_create_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_create_uid
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_create_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_create_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password_create_uid
 msgid "Created by"
@@ -200,6 +212,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys_create_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key_create_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_create_date
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_create_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_create_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password_create_date
 msgid "Created on"
@@ -264,6 +277,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys_display_name
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key_display_name
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_display_name
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_display_name
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_display_name
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password_display_name
 msgid "Display Name"
@@ -272,6 +286,17 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: selection:l10n.es.aeat.sii,state:0
 msgid "Draft"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+msgid "Drop SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Duplicate registry information"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -328,7 +353,13 @@ msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result_error_code
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_duplicate_registry_error_code
 msgid "Error code"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_duplicate_registry_error_des
+msgid "Error description"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -386,6 +417,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key_id
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_id
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_number_id
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_id
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_id
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password_id
 msgid "ID"
@@ -455,12 +487,18 @@ msgid "Journal Item"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_key
+msgid "Key"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result___last_update
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map___last_update
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map_lines___last_update
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys___last_update
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key___last_update
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result___last_update
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl___last_update
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii___last_update
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password___last_update
 msgid "Last Modified on"
@@ -473,6 +511,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys_write_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key_write_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_write_uid
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_write_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password_write_uid
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_write_uid
 msgid "Last Updated by"
@@ -485,6 +524,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys_write_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key_write_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_write_date
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_write_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_password_write_date
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_write_date
 msgid "Last Updated on"
@@ -537,18 +577,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map_lines_name
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_mapping_registration_keys_name
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_payment_mode_key_name
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_name
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_name
 msgid "Name"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:153
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:166
 #, python-format
 msgid "No Fiscal Position configured for the partner %s"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:235
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:262
 #, python-format
 msgid "No VAT configured for the company '{}'"
 msgstr ""
@@ -716,6 +757,11 @@ msgid "Requeue"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.model.fields,help:l10n_es_aeat_sii.field_account_invoice_sii_resend
+msgid "Resend invoice. This is activate if some critical fields have been changed"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_form
 msgid "Result"
@@ -732,6 +778,11 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice_sii_csv
 msgid "SII CSV"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice_sii_cancel
+msgid "SII Cancel"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -762,6 +813,18 @@ msgid "SII Information"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii_result.py:149
+#, python-format
+msgid "SII Invoice Canceled. Create a new invoice"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:206
+#, python-format
+msgid "SII Map not found. Check your configuration"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice_sii_recc_csv
 msgid "SII Payment RECC CSV"
 msgstr ""
@@ -779,6 +842,11 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_res_company_sii_header_purchase
 msgid "SII Purchase header"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice_sii_resend
+msgid "SII Resend"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -901,6 +969,8 @@ msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result_sent_state
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map_state
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result_duplicate_registry_state
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_l10n_es_aeat_sii_state
 msgid "State"
 msgstr ""
@@ -921,19 +991,7 @@ msgid "Test Enviroment"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/wizard/wizard_update_charts_accounts.py:21
-#, python-format
-msgid "The SII Purchase registration is different"
-msgstr ""
-
-#. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/wizard/wizard_update_charts_accounts.py:18
-#, python-format
-msgid "The SII Sale registration is different"
-msgstr ""
-
-#. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:646
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:710
 #, python-format
 msgid "The invoice supplier number is required"
 msgstr ""
@@ -998,18 +1056,44 @@ msgid "Vat Presenter"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map_version
+msgid "Version"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_wsdl_wsdl
+msgid "WDSL Url"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_map_view_form
+msgid "WSDL Urls"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii_map.py:63
+#, python-format
+msgid "WSDL not found. Check your configuration"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: selection:res.company,send_mode:0
 msgid "With delay"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:931
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map_wsdl_url
+msgid "Wsdl url"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:999
 #, python-format
 msgid "You can not cancel this invoice because there is a job running!"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:582
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:638
 #, python-format
 msgid "You have to select what account chart template use this company."
 msgstr ""
@@ -1042,5 +1126,10 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: model:ir.ui.view,arch_db:l10n_es_aeat_sii.l10n_es_sii_password_wizard_view
 msgid "or"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model,name:l10n_es_aeat_sii.model_wizard_update_charts_accounts
+msgid "wizard.update.charts.accounts"
 msgstr ""
 
