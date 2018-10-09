@@ -2,6 +2,7 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # Copyright 2017 Studio73 - Pablo Fuentes <pablo@studio73>
 # Copyright 2017 Studio73 - Jordi Tolsà <jordi@studio73.es>
+# Copyright 2018 Binovo IT Human Project SL
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
 
@@ -283,9 +284,13 @@ class AccountInvoice(models.Model):
         taxes = tax_line.compute_all(
             self._get_line_price_subtotal(line),
             line.quantity, line.product_id, line.invoice_id.partner_id)
+        if self.type == 'out_refund' and self.refund_type == 'I':
+            taxes_total = -taxes['total']
+        else:
+            taxes_total = taxes['total']
         tax_sii = {
             "TipoImpositivo": tax_type,
-            "BaseImponible": taxes['total']
+            "BaseImponible": taxes_total
         }
         if tax_line_req:
             tipo_recargo = tax_line_req['percentage'] * 100
@@ -311,8 +316,11 @@ class AccountInvoice(models.Model):
             tipo_recargo = tax_line_req['percentage'] * 100
             cuota_recargo = tax_line_req['taxes'][0]['amount']
             tax_sii[str(tax_type)]['CuotaRecargoEquivalencia'] += cuota_recargo
-
-        tax_sii[str(tax_type)]['BaseImponible'] += taxes['total']
+        if self.type == 'out_refund' and self.refund_type == 'I':
+            taxes_total = -taxes['total']
+        else:
+            taxes_total = taxes['total']
+        tax_sii[str(tax_type)]['BaseImponible'] += taxes_total
         if self.type in ['out_invoice', 'out_refund']:
             tax_sii[str(tax_type)]['CuotaRepercutida'] += \
                 taxes['taxes'][0]['amount']
@@ -423,11 +431,15 @@ class AccountInvoice(models.Model):
                     if tax_line in taxes_sfesse or \
                             tax_line in taxes_sfesbee or \
                             tax_line in taxes_sfesbei:
+                        if self.type == 'out_refund' and self.refund_type == 'I':
+                            price_subtotal = -line.price_subtotal
+                        else:
+                            price_subtotal = line.price_subtotal
                         if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
                             type_breakdown[op_key]['Sujeta']['Exenta'] = {}
                             type_breakdown[op_key]['Sujeta']['Exenta'][
                                 'DetalleExenta'] = {
-                                    'BaseImponible': line.price_subtotal}
+                                    'BaseImponible': price_subtotal}
                             if tax_line in taxes_sfesbee:
                                 type_breakdown[op_key]['Sujeta']['Exenta'][
                                     'DetalleExenta']['CausaExencion'] = 'E2'
@@ -437,7 +449,7 @@ class AccountInvoice(models.Model):
                         else:
                             type_breakdown[op_key]['Sujeta']['Exenta'][
                                 'DetalleExenta'][
-                                    'BaseImponible'] += line.price_subtotal
+                                    'BaseImponible'] += price_subtotal
                     if tax_line in taxes_sfess:
                         if 'NoExenta' not in type_breakdown[
                                 'PrestacionServicios']['Sujeta']:
@@ -479,8 +491,6 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             -round(line['CuotaRepercutida'], 2)
-                        line['BaseImponible'] = -round(
-                            line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -488,7 +498,6 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRepercutida', False):
                         line['CuotaRepercutida'] = \
                             abs(round(line['CuotaRepercutida'], 2))
-                        line['BaseImponible'] = round(line['BaseImponible'], 2)
                 line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
@@ -502,7 +511,7 @@ class AccountInvoice(models.Model):
                             -round(line['CuotaRecargoEquivalencia'], 2)
                     line['CuotaRepercutida'] = \
                         -round(line['CuotaRepercutida'], 2)
-                    line['BaseImponible'] = -round(line['BaseImponible'], 2)
+                line['BaseImponible'] = round(line['BaseImponible'], 2)
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
