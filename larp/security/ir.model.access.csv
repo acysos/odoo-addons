@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_larp_player,LARP Player Manager,model_larp_player,group_larp_manager,1,1,1,1
+access_larp_plot,LARP Player Manager,model_larp_plot,group_larp_manager,1,1,1,1
+access_larp_skill,LARP Player Manager,model_larp_skill,group_larp_manager,1,1,1,1
