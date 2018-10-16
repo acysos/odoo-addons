@@ -608,6 +608,10 @@ class AccountInvoice(models.Model):
                 'You have to select what account chart template use this'
                 ' company.'))
         key = self.registration_key.code
+        if self.partner_id.is_company:
+            nombrerazon = self.partner_id.name[0:120]
+        else:
+            nombrerazon = self.partner_id.parent_id.name[0:120]
         if self.type in ['out_invoice', 'out_refund']:
             tipo_factura = 'F1'
             # TODO Los 5 tipos de facturas rectificativas
@@ -630,7 +634,7 @@ class AccountInvoice(models.Model):
                     "ClaveRegimenEspecialOTrascendencia": key,
                     "DescripcionOperacion": self.sii_description[0:500],
                     "Contraparte": {
-                        "NombreRazon": self.partner_id.name[0:120],
+                        "NombreRazon": nombrerazon
                     },
                     "TipoDesglose": tipo_desglose,
                     "ImporteTotal": importe_total
@@ -698,7 +702,7 @@ class AccountInvoice(models.Model):
                     "DescripcionOperacion": self.sii_description[0:500],
                     "DesgloseFactura": desglose_factura,
                     "Contraparte": {
-                        "NombreRazon": self.partner_id.name[0:120]
+                        "NombreRazon": nombrerazon
                     },
                     "FechaRegContable": reg_date,
                     "CuotaDeducible": round(cuota_deducible, 2),
