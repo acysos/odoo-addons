@@ -673,6 +673,10 @@ class AccountInvoice(models.Model):
                 ' company.'))
         key = self.registration_key.code
         tipo_factura = self._get_tipo_factura()
+        if self.partner_id.is_company:
+            nombrerazon = self.partner_id.name[0:120]
+        else:
+            nombrerazon = self.partner_id.parent_id.name[0:120]
         if self.type in ['out_invoice', 'out_refund']:
             tipo_desglose = self._get_sii_out_taxes()
             if self.type == 'out_refund' and self.refund_type == 'I':
@@ -691,7 +695,7 @@ class AccountInvoice(models.Model):
                     "ClaveRegimenEspecialOTrascendencia": key,
                     "DescripcionOperacion": self.sii_description[0:500],
                     "Contraparte": {
-                        "NombreRazon": self.partner_id.name[0:120],
+                        "NombreRazon": nombrerazon
                     },
                     "TipoDesglose": tipo_desglose,
                     "ImporteTotal": importe_total
@@ -755,7 +759,7 @@ class AccountInvoice(models.Model):
                     "DescripcionOperacion": self.sii_description[0:500],
                     "DesgloseFactura": desglose_factura,
                     "Contraparte": {
-                        "NombreRazon": self.partner_id.name[0:120]
+                        "NombreRazon": nombrerazon
                     },
                     "FechaRegContable": reg_date,
                     "CuotaDeducible": round(cuota_deducible, 2),

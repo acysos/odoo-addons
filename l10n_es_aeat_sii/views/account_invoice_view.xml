@@ -21,7 +21,7 @@
                             states="cancel" />
                 </button>
                 <notebook position="inside">
-                    <page string="SII" groups="account.group_account_manager"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                    <page string="SII" groups="l10n_es_aeat.group_account_aeat"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
                         <group string="SII Information">
                             <field name="sii_description"/>
                             <field name="refund_type"
@@ -86,7 +86,7 @@
                             states="cancel" />
                 </button>
                 <notebook position="inside">
-                    <page string="SII" groups="account.group_account_manager" attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                    <page string="SII" groups="l10n_es_aeat.group_account_aeat" attrs="{'invisible': [('sii_enabled', '=', False)]}">
                         <group string="SII Information">
                             <field name="sii_description"/>
                             <field name="refund_type"
