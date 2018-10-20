@@ -40,7 +40,9 @@
     "category" : "Generic Modules/Purchase",
     "init_xml" : [],
     "demo_xml" : [],
-    "update_xml" : ['purchase_view.xml'],
+    "update_xml" : ['views/purchase_view.xml',
+                    'views/account_invoice_view.xml'],
+    "images": ['static/description/banner.jpg'],
     "active": False,
     "installable": True
 }
