@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_3_discounts_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//table[@name='invoice_line_table']/thead//th[@t-if='display_discount']" position="before">
+            <th t-if="display_discount" class="text-right"><strong>Disc. 1 (%)</strong></th>
+            <th t-if="display_discount" class="text-right"><strong>Disc. 2 (%)</strong></th>
+            <th t-if="display_discount" class="text-right"><strong>Disc. 3 (%)</strong></th>
+        </xpath>
+        <xpath expr="//tbody[@class='invoice_tbody']//td[@t-if='display_discount']" position="before">
+            <td t-if="display_discount" class="text-right">
+                <span t-field="l.discount1"/>
+            </td>
+            <td t-if="display_discount" class="text-right">
+                <span t-field="l.discount2"/>
+            </td>
+            <td t-if="display_discount" class="text-right">
+                <span t-field="l.discount3"/>
+            </td>
+        </xpath>
+        <xpath expr="//tr[@t-foreach='range(max(5-len(o.invoice_line_ids),0))']//td[@t-if='display_discount']" position="before">
+            <td t-if="display_discount"/>
+            <td t-if="display_discount"/>
+            <td t-if="display_discount"/>
+        </xpath>
+    </template>
+</odoo>
