@@ -111,6 +111,7 @@ Contributors
 * Omar Castiñeira - Comunitea S.L. <omar@comunitea.com>
 * Ismael Calvo - Factor Libre S.L.
 * Alberto Martín Cortada - Guadaltehch
+* Luis J. Salvatierra <ljsalvatierra@binovo.es>
 
 
 Maintainer
