@@ -340,9 +340,9 @@ class AccountInvoice(models.Model):
             quantity=line.quantity, product=line.product_id,
             partner=line.invoice_id.partner_id)
         if self.type == 'out_refund' and self.refund_type == 'I':
-            taxes_total = -taxes['total']
+            taxes_total = -taxes['total_excluded']
         else:
-            taxes_total = taxes['total']
+            taxes_total = taxes['total_excluded']
         tax_sii = {
             "TipoImpositivo": tax_type,
             "BaseImponible": taxes_total
