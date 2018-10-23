@@ -567,8 +567,16 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
                             -round(line['CuotaRecargoEquivalencia'], 2)
-                    line['CuotaRepercutida'] = \
-                        -round(line['CuotaRepercutida'], 2)
+                    if line.get('CuotaRepercutida', False):
+                        line['CuotaRepercutida'] = \
+                            -round(line['CuotaRepercutida'], 2)
+                else:
+                    if line.get('CuotaRecargoEquivalencia', False):
+                        line['CuotaRecargoEquivalencia'] = \
+                            round(line['CuotaRecargoEquivalencia'], 2)
+                    if line.get('CuotaRepercutida', False):
+                        line['CuotaRepercutida'] = \
+                            abs(round(line['CuotaRepercutida'], 2))
                 line['BaseImponible'] = round(line['BaseImponible'], 2)
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
@@ -687,7 +695,10 @@ class AccountInvoice(models.Model):
         if self.partner_id.is_company:
             nombrerazon = self.partner_id.name[0:120]
         else:
-            nombrerazon = self.partner_id.parent_id.name[0:120]
+            if self.partner_id.parent_id:
+                nombrerazon = self.partner_id.parent_id.name[0:120]
+            else:
+                nombrerazon = self.partner_id.name[0:120]
         if self.type in ['out_invoice', 'out_refund']:
             tipo_desglose = self._get_sii_out_taxes()
             if self.type == 'out_refund' and self.refund_type == 'I':
