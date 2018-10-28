@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="registration_limit" name="Limit registrations">
+    <div id="modal_limit_registration" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h4 class="modal-title" id="myModalLabel"><strong>Limit registrations</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                    	You try to register <span t-esc="quantity"/> ticket<span t-if="quantity > 1">s</span>
+                    	and the limit is <span t-esc="limit"/> ticket<span t-if="limit > 1">s</span>.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="pull-left">
+                        <button type="button" class="btn btn-default js_goto_event" data-dismiss="modal">Cancel Registration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+</odoo>
