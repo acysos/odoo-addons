@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="registration_template" inherit_id="website_event_sale.registration_template">
+		<xpath expr="//span[@itemprop='availability']" position="after">
+			<span t-if="ticket.seats_max and ((ticket.seats_unconfirmed or 0)*100 / ticket.seats_max)&gt;75" class="badge" itemprop="reserved" content="http://schema.org/LimitedAvailability">
+			    <t t-esc="ticket.seats_unconfirmed"/>
+			    <span>reserved</span>
+			</span>
+		</xpath>
+		<xpath expr="//t[@t-set='seats_max_event']" position="after">
+			<t t-set="seats_max_reserved_ticket" t-value="(ticket.seats_availability == 'unlimited' or (ticket.seats_available - ticket.seats_unconfirmed) &gt; 9) and 10 or ticket.seats_available - ticket.seats_unconfirmed + 1"/>
+		</xpath>
+		<xpath expr="//t[@t-set='seats_max']" position="attributes">
+			<attribute name="t-value">min(seats_max_ticket, seats_max_event, seats_max_reserved_ticket)</attribute>
+		</xpath>
+	</template>
+
+</odoo>
