@@ -16,7 +16,7 @@
         </record>
         
 	    <record id="action_larp_game" model="ir.actions.act_window">
-	        <field name="name">Games</field>
+	        <field name="name">LARPs</field>
 	        <field name="res_model">event.event</field>
 	        <field name="view_type">form</field>
 	        <field name="view_mode">tree,form</field>

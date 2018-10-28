@@ -1,30 +1,14 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    @authors: Ignacio Ibeas <ignacio@acysos.com>
-#    Copyright (C) 2015  Acysos S.L.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# -*- coding: utf-8 -*-
+# @authors: Ignacio Ibeas <ignacio@acysos.com>
+# Copyright (C) 2018  Acysos S.L.
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import models, fields, api, _
 
 
 class event_type(models.Model):
     _inherit = 'event.type'
     
-    larp_game = fields.Boolean(string='LARP Game')
+    larp_game = fields.Boolean(string='LARP')
     
     
 class EventEvent(models.Model):
@@ -49,7 +33,7 @@ class EventEvent(models.Model):
             menu_ids = []
             menu_obj = self.env['ir.ui.menu']
             action_obj = self.env['ir.actions.act_window']
-            # Game parent Menu
+            # LARP parent Menu
             gmenu = menu_obj.sudo().create({
                 'name': self.name,
                 'parent_id': self._get_menu_parent_id('larp', 'menu_larp_game')
@@ -58,7 +42,7 @@ class EventEvent(models.Model):
             
             self.larp_menu = gmenu.id
             
-            # Game configuration Menu
+            # LARP configuration Menu
             cmenu = menu_obj.sudo().create({
                 'name':_('Configuration'),
                 'parent_id': gmenu.id,
@@ -66,7 +50,7 @@ class EventEvent(models.Model):
             })
             menu_ids.append(cmenu.id)
 
-            # Game Players Menu
+            # LARP Players Menu
             player_action_id = action_obj.sudo().create({
                 'name': _('Players'),
                 'view_type': 'form',
@@ -83,7 +67,7 @@ class EventEvent(models.Model):
             })
             menu_ids.append(player_menu.id)
 
-            # Game Plots Menu
+            # LARP Plots Menu
             plot_action_id = action_obj.sudo().create({
                 'name': _('Plots'),
                 'view_type': 'form',
@@ -100,7 +84,7 @@ class EventEvent(models.Model):
             })
             menu_ids.append(plot_menu.id)
             
-            # Game Skills Menu
+            # LARP Skills Menu
             skill_action_id = action_obj.sudo().create({
                 'name': _('Skills'),
                 'view_type': 'form',
