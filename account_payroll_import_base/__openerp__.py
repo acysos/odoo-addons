@@ -14,6 +14,9 @@
     "license": "AGPL-3",
     "description": """
     """,
+    "external_dependencies": {
+        "python": ["xlrd", "os", "base64"],
+    },
     "depends": [
         "account", "hr",
     ],
