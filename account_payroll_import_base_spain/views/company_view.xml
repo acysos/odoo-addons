@@ -1,0 +1,19 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_company_payroll_import_csi_form">
+            <field name="name">res.company.payroll.import.csi.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="account_payroll_import_base.view_company_payroll_import_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<field name="sheet_name" position="after">
+            		<field name="account_expense"/>
+            		<field name="account_irpf"/>
+            		<field name="account_ss"/>
+            		<field name="tax_code_base" widget="many2many_tags"/>
+            		<field name="tax_code_amount"/>
+            	</field>
+            </field>
+        </record>
+    </data>
+</openerp>

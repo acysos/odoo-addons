@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_payroll_import_csi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-25 21:00+0000\n"
+"PO-Revision-Date: 2018-10-25 23:02+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: account_payroll_import_csi
+#: code:addons/account_payroll_import_csi/models/import_xls.py:45
+#, python-format
+msgid "Employee not found name %s"
+msgstr "No se encuentra el empleado %s"
+
+#. module: account_payroll_import_csi
+#: code:addons/account_payroll_import_csi/models/import_xls.py:35
+#: code:addons/account_payroll_import_csi/models/import_xls.py:51
+#: code:addons/account_payroll_import_csi/models/import_xls.py:56
+#: code:addons/account_payroll_import_csi/models/import_xls.py:65
+#: code:addons/account_payroll_import_csi/models/import_xls.py:70
+#: code:addons/account_payroll_import_csi/models/import_xls.py:82
+#: code:addons/account_payroll_import_csi/models/import_xls.py:87
+#: code:addons/account_payroll_import_csi/models/import_xls.py:92
+#: code:addons/account_payroll_import_csi/models/import_xls.py:97
+#, python-format
+msgid "Payroll"
+msgstr "Nómina"
+
+#. module: account_payroll_import_csi
+#: code:addons/account_payroll_import_csi/models/import_xls.py:77
+#, python-format
+msgid "The employee %s has not payroll account"
+msgstr "El empleado %s no tiene una cuenta para la nómina"
