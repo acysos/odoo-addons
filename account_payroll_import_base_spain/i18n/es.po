@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 11.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-25 20:58+0000\n"
-"PO-Revision-Date: 2018-10-25 23:00+0200\n"
+"POT-Creation-Date: 2018-10-29 22:41+0000\n"
+"PO-Revision-Date: 2018-10-29 23:42+0100\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,24 +18,24 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #. module: account_payroll_import_base_spain
-#: field:res.company,account_expense:0
-msgid "Account Expense"
-msgstr "Cuenta de gasto"
+#: model:ir.model.fields,field_description:account_payroll_import_base_spain.field_res_company_account_deduction
+msgid "Account Deduction"
+msgstr "Cuenta deducciones"
 
 #. module: account_payroll_import_base_spain
-#: field:res.company,account_irpf:0
+#: model:ir.model.fields,field_description:account_payroll_import_base_spain.field_res_company_account_expense
+msgid "Account Expense"
+msgstr "Cuenta gastos"
+
+#. module: account_payroll_import_base_spain
+#: model:ir.model.fields,field_description:account_payroll_import_base_spain.field_res_company_account_irpf
 msgid "Account IRPF"
 msgstr "Cuenta IRPF"
 
 #. module: account_payroll_import_base_spain
-#: field:res.company,account_ss:0
+#: model:ir.model.fields,field_description:account_payroll_import_base_spain.field_res_company_account_ss
 msgid "Account SS"
-msgstr "Cuentas Seguridad Social"
-
-#. module: account_payroll_import_base_spain
-#: field:res.company,move_confirm:0
-msgid "Auto move confirm?"
-msgstr "¿Confirmar asientos?"
+msgstr "Cuenta SS"
 
 #. module: account_payroll_import_base_spain
 #: model:ir.model,name:account_payroll_import_base_spain.model_res_company
@@ -43,11 +43,11 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: account_payroll_import_base_spain
-#: field:res.company,tax_code_amount:0
+#: model:ir.model.fields,field_description:account_payroll_import_base_spain.field_res_company_tax_code_amount
 msgid "Tax code amount"
-msgstr "Cuenta impuesto cuota"
+msgstr "Impuesto par cuota"
 
 #. module: account_payroll_import_base_spain
-#: field:res.company,tax_code_base:0
+#: model:ir.model.fields,field_description:account_payroll_import_base_spain.field_res_company_tax_code_base
 msgid "Tax code base"
-msgstr "Cuenta impuesto base"
+msgstr "Impuesto para base"
