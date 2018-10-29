@@ -8,7 +8,6 @@ from openerp import models, fields
 class res_company(models.Model):
     _inherit = 'res.company'
 
-    temp_file_path = fields.Char(string='Temp files path', required=True)
     payroll_journal = fields.Many2one(
         comodel_name='account.journal', string='Payroll journal', required=True)
     sheet_name = fields.Char(string='Sheet name', required=True)

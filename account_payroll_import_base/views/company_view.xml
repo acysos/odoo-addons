@@ -8,7 +8,6 @@
             <field name="arch" type="xml">
                 <page string="Configuration" position="inside">
                     <group string="Payroll import options" colspan="4">
-                        <field name="temp_file_path"/>
                         <field name="payroll_journal"/>
                         <field name="sheet_name"/>
                         <field name="move_confirm"/>

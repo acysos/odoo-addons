@@ -4,10 +4,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from openerp import fields, models, api, _
 from openerp.exceptions import Warning
-import time
 import base64
 import xlrd
-import os
 
 
 class PayrollImportXls(models.Model):
@@ -27,30 +25,6 @@ class PayrollImportXls(models.Model):
         ], string='State', select=True, readonly=True, default='draft')
 
     @api.multi
-    def _save_file(self, path, filename, b64_file):
-        """Save a file encoded in base 64"""
-        if not os.path.exists(path):
-            os.makedirs(path)
-        if not os.path.exists(path):
-            raise Warning(_('Error!'), _(
-                'The path to OpenERP medias folder does '
-                'not exists on the server !'))
-        full_path = os.path.join(path, filename)
-        ofile = open(full_path, 'w')
-        try:
-            ofile.write(base64.decodestring(b64_file))
-        finally:
-            ofile.close()
-        return True
-
-    @api.multi
-    def _delete_file(self, directory, filename):
-        path = directory+'/'+filename
-        if os.path.exists(path):
-            os.remove(path)
-        return True
-
-    @api.multi
     def import_xls(self):
         self.sudo().do_import()
 
@@ -59,14 +33,12 @@ class PayrollImportXls(models.Model):
         user = self.env.user
         company = user.company_id
         journal = company.payroll_journal
-        directory = company.temp_file_path
         sheet_name = company.sheet_name
         filename = 'import_temp.xls'
         for import_xls in self:
             if import_xls.software != 'none':
-                import_xls._save_file(directory, filename, import_xls.xls)
                 workbook = xlrd.open_workbook(
-                    directory+'/'+filename)
+                    file_contents = base64.decodestring(import_xls.xls))
                 worksheet = workbook.sheet_by_name(sheet_name)
                 num_rows = worksheet.nrows - 1
                 curr_row = 0

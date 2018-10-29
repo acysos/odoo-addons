@@ -15,7 +15,7 @@
     "description": """
     """,
     "external_dependencies": {
-        "python": ["xlrd", "os", "base64"],
+        "python": ["xlrd", "base64"],
     },
     "depends": [
         "account", "hr",
