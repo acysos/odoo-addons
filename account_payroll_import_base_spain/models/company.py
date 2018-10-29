@@ -17,6 +17,9 @@ class res_company(models.Model):
     account_ss = fields.Many2one(
         comodel_name='account.account', string='Account SS',
         required=True)
+    account_deduction = fields.Many2one(
+        comodel_name='account.account', string='Account Deduction',
+        required=True)
     tax_code_base = fields.Many2many(
         comodel_name='account.tax', string='Tax code base',
         required=True)

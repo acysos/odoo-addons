@@ -10,6 +10,7 @@
             		<field name="account_expense"/>
             		<field name="account_irpf"/>
             		<field name="account_ss"/>
+            		<field name="account_deduction"/>
             		<field name="tax_code_base" widget="many2many_tags"/>
             		<field name="tax_code_amount"/>
             	</field>
