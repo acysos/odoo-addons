@@ -187,14 +187,19 @@ class AccountInvoice(models.Model):
                     " you have to cancel it and drop the invoice from SII"))
             else:
                 vals['sii_resend'] = True
-        if ('number' in vals and self.type in ['out_invoice', 'out_refund']) \
-                or ('reference' in vals and self.type in [
-                    'in_invoice', 'in_refund']):
+        if ('number' in vals and self.type in ['out_invoice', 'out_refund']):
             if self.sii_sent and vals['number'] != self.number:
                 raise UserError(_(
                     "This invoice is sent to SII, if you change the number"
                     " you have to cancel it and drop the invoice from SII"))
             elif vals['number'] != self.number:
+                vals['sii_resend'] = True
+        if ('reference' in vals and self.type in ['in_invoice', 'in_refund']):
+            if self.sii_sent and vals['reference'] != self.reference:
+                raise UserError(_(
+                    "This invoice is sent to SII, if you change the number"
+                    " you have to cancel it and drop the invoice from SII"))
+            elif vals['reference'] != self.reference:
                 vals['sii_resend'] = True
         if 'type' in vals:
             if self.sii_sent:
