@@ -84,7 +84,7 @@ class PayrollImportXls(models.Model):
             }
         acc_move_line_obj.with_context(context).create(total_vals)
         debit_SS = worksheet.cell_value(curr_row, col_476)
-        SS_vals = {'account_id': 579,
+        SS_vals = {'account_id': company.account_ss.id,
                    'name': _('Payroll'),
                    'move_id': new_move.id,
                    'journal_id': journal.id,
