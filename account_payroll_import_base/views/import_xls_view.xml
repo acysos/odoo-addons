@@ -42,6 +42,6 @@
             <field name="view_id" ref="payroll_import_xls_tree_view"/>
         </record>
         
-        <menuitem id="eco_import_xls_menu" name="Account payroll xls import" parent="account.menu_finance_accounting" action="action_payroll_import_xls_tree_view"/>
+        <menuitem id="import_xls_menu" name="Account payroll xls import" parent="account.menu_finance_accounting" action="action_payroll_import_xls_tree_view"/>
     </data>
 </openerp>
