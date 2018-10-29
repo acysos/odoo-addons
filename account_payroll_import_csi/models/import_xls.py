@@ -78,7 +78,7 @@ class PayrollImportXls(models.Model):
             'ref': _('Payroll')
             }
         debit_ss = worksheet.cell_value(curr_row, col_476)
-        ss_vals = {'account_id': 579,
+        ss_vals = {'account_id': company.account_ss.id,
                    'name': _('Payroll'),
                    'journal_id': journal.id,
                    'debit': 0,
