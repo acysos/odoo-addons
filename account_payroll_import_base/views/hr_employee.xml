@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 <data>
-    <record model="ir.ui.view" id="ecobasics_hr_employee_payroll_import_form_view">
-            <field name="name">eco.hr.emoployee.payroll.import.form.view</field>
+    <record model="ir.ui.view" id="hr_employee_payroll_import_form_view">
+            <field name="name">hr.emoployee.payroll.import.form.view</field>
             <field name="model">hr.employee</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
