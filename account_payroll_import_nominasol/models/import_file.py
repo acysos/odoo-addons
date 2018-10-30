@@ -4,21 +4,21 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import fields, models, api, _
 from odoo.exceptions import Warning
-import base64
-import xlrd
 
 
-class PayrollImportXls(models.Model):
-    _inherit = 'payroll.import.xls'
+class ImportFile(models.Model):
+    _inherit = 'import.file'
     
-    software = fields.Selection(selection_add=[('csi', 'CSI')])
+    software = fields.Selection(selection_add=[('nominasol', 'NominaSol')])
     
-    def _do_import_nominasol(
-            self, note, journal, company, worksheet, curr_row):
+    def _do_import_xls_nominasol(
+            self, worksheet, curr_row):
         self.ensure_one()
         moves = {}
         acc_move_obj = self.env['account.move']
         employee_obj = self.env['hr.employee']
+        company = self.company
+        journal = company.payroll_journal
         number_col = 0
         name_col = 3
         col_640 = 4
@@ -26,7 +26,7 @@ class PayrollImportXls(models.Model):
         col_irpf = 10
         col_deduction = 6
         col_total = 5 
-        note += str(worksheet.cell_value(curr_row, name_col)) + ' \n'
+        self.note += str(worksheet.cell_value(curr_row, name_col)) + ' \n'
         move_vals = {
             'name': worksheet.cell_value(curr_row, name_col),
             'journal_id': journal.id,
@@ -41,7 +41,16 @@ class PayrollImportXls(models.Model):
                 _('Employee not found name %s') % (
                     str(worksheet.cell_value(curr_row, name_col)))
             )
+        if employee.address_home_id:
+            partner_id = employee.address_home_id.id
+        else:
+            partner_id = False
+            self.note += _(
+                'Employee %s has not private address for AEAT 111 \n') % (
+                    str(worksheet.cell_value(curr_row, name_col)))
         credit64 = worksheet.cell_value(curr_row, col_640)
+        if not self.company.account_expense:
+            raise Warning(_('No expense account configure in company!'))
         line64_vals = {
             'account_id': company.account_expense.id,
             'name': _('Payroll'),
@@ -49,11 +58,14 @@ class PayrollImportXls(models.Model):
             'credit': 0,
             'debit': credit64,
             'ref': _('Payroll'),
-            'tax_ids': [(6, 0, company.tax_code_base.ids)]
+            'tax_ids': [(6, 0, company.tax_code_base.ids)],
+            'partner_id': partner_id
         }
         context = self._context.copy()
         context['journal_id'] = journal.id
         debitIRPF = worksheet.cell_value(curr_row, col_irpf)
+        if not self.company.account_irpf:
+            raise Warning(_('No IRPF account configure in company!'))
         irpf_vals = {
             'account_id': company.account_irpf.id,
              'name': _('Payroll'),
@@ -78,6 +90,8 @@ class PayrollImportXls(models.Model):
             'ref': _('Payroll')
             }
         debit_ss = worksheet.cell_value(curr_row, col_476)
+        if not self.company.account_ss:
+            raise Warning(_('No SS account configure in company!'))
         ss_vals = {'account_id': company.account_ss.id,
                    'name': _('Payroll'),
                    'journal_id': journal.id,
@@ -102,4 +116,4 @@ class PayrollImportXls(models.Model):
             raise Warning(
                 fault.name + ' ' + move_vals['name']
             )
-        return note, new_move
+        return new_move

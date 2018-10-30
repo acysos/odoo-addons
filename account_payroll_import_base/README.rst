@@ -3,14 +3,14 @@
    :alt: License: AGPL-3
 
 .. image:: https://img.shields.io/badge/github-Acysos-lightgray.png?logo=github
-    :target: https://github.com/acysos/odoo-addons/tree/11.0/fleet_database_extension
+    :target: https://github.com/acysos/odoo-addons/tree/11.0/account_payroll_import_base
     :alt: Acysos
 
-====================================
-XLS account move import payroll base
-====================================
+================================
+Account move import payroll base
+================================
 
-This a base to module to import xls file from payroll external programs to Odoo.
+This a base to module to import file file from payroll external programs to Odoo.
 It load each line a run and specific software import to create a account move.
 
 Usage
@@ -18,9 +18,9 @@ Usage
 
 The options are in the company configuration tab.
 
-Go to Accounting -> Configuration -> Financial Accounting -> Account payroll xls import
+Go to Accounting -> Configuration -> Financial Accounting -> Account payroll import file
 
-Select the software, the account move date and the xls file, and click Import XLS.
+Select the software, the account move date and the file, and click Import File.
 
 Bug Tracker
 ===========

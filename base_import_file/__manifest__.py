@@ -3,7 +3,7 @@
 # Copyright (c) 2018 Ignacio Ibeas Izquierdo <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Account payroll import base",
+    "name": "Base import file",
     "version": "11.0.0.0",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
@@ -12,15 +12,17 @@
         'Ignacio Ibeas <ignacio@acysos.com>'],
     "category": "",
     "license": "AGPL-3",
+    "external_dependencies": {
+        "python": ["xlrd", "base64"],
+    },
     "depends": [
-        "account", "hr", "base_import_file"
+        "base"
     ],
-    "data": ["views/hr_employee.xml",
-             "views/company_view.xml",
-             "views/import_file_view.xml",
-             "data/data.xml",
-             "views/account_move_view.xml",
-             "security/ir.model.access.csv"
+    "data": [
+        "data/ir_sequence_data.xml",
+        "views/company_view.xml",
+        "views/import_file_view.xml",
+        "security/ir.model.access.csv"
     ],
     'images': ['static/description/banner.jpg'],
     "installable": True,

@@ -3,7 +3,7 @@
 # Copyright (c) 2018 Ignacio Ibeas Izquierdo <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Account payroll import base XLS - Spain",
+    "name": "Account payroll import base - Spain",
     "version": "11.0.0.0",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
@@ -12,8 +12,6 @@
         'Ignacio Ibeas <ignacio@acysos.com>'],
     "category": "",
     "license": "AGPL-3",
-    "description": """
-    """,
     "depends": [
         "account_payroll_import_base",
     ],

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-29 22:49+0000\n"
-"PO-Revision-Date: 2018-10-29 23:50+0100\n"
+"POT-Creation-Date: 2018-10-30 19:31+0000\n"
+"PO-Revision-Date: 2018-10-30 20:34+0100\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,34 +18,58 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #. module: account_payroll_import_nominasol
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:41
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:48
 #, python-format
-msgid "Employee not found name %s"
-msgstr "No se encuentra el empleado %s"
+msgid "Employee %s has not private address for AEAT 111 \n"
+msgstr "El empleado %s no tiene dirección privada para AEAT 111 \n"
 
 #. module: account_payroll_import_nominasol
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:33
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:47
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:51
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:59
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:63
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:74
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:78
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:82
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:86
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:90
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:94
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:41
+#, python-format
+msgid "Employee not found name %s"
+msgstr "Empleado %s no encontrado"
+
+#. module: account_payroll_import_nominasol
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:68
+#, python-format
+msgid "No IRPF account configure in company!"
+msgstr "Configure la cuenta para IRPF en la compañía!"
+
+#. module: account_payroll_import_nominasol
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:94
+#, python-format
+msgid "No SS account configure in company!"
+msgstr "Configure la cuenta para la Seguridad Social en la compañía!"
+
+#. module: account_payroll_import_nominasol
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:53
+#, python-format
+msgid "No expense account configure in company!"
+msgstr "Configure la cuenta de gastos en la compañía!"
+
+#. module: account_payroll_import_nominasol
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:33
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:56
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:60
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:71
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:75
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:86
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:90
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:96
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:100
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:104
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:108
 #, python-format
 msgid "Payroll"
 msgstr "Nómina"
 
 #. module: account_payroll_import_nominasol
-#: code:addons/account_payroll_import_nominasol/models/import_xls.py:69
+#: code:addons/account_payroll_import_nominasol/models/import_file.py:81
 #, python-format
 msgid "The employee %s has not payroll account"
-msgstr "El empleado %s no tiene una cuenta para la nómina"
+msgstr "El empleado %s no tiene cuenta de nómina"
 
 #. module: account_payroll_import_nominasol
-#: model:ir.model,name:account_payroll_import_nominasol.model_payroll_import_xls
-msgid "payroll.import.xls"
-msgstr "payroll.import.xls"
+#: model:ir.model,name:account_payroll_import_nominasol.model_import_file
+msgid "import.file"
+msgstr "import.file"

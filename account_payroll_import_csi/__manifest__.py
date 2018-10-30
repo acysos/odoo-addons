@@ -3,7 +3,7 @@
 # Copyright (c) 2018 Ignacio Ibeas Izquierdo <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Account payroll import base XLS - CSI Gestio",
+    "name": "Account payroll import base - CSI Gestio",
     "version": "11.0.0.0",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
@@ -15,6 +15,7 @@
     "description": """
     """,
     "depends": [
+        "base_import_file",
         "account_payroll_import_base_spain",
     ],
     "data": [],

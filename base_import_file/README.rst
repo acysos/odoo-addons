@@ -3,27 +3,30 @@
    :alt: License: AGPL-3
 
 .. image:: https://img.shields.io/badge/github-Acysos-lightgray.png?logo=github
-    :target: https://github.com/acysos/odoo-addons/tree/11.0/account_payroll_import_csi
+    :target: https://github.com/acysos/odoo-addons/tree/11.0/base_import_file
     :alt: Acysos
 
-============================================
-Account move import payroll base CSI Laboral
-============================================
+================
+Base import file
+================
 
-This module import payroll account moves from CSI Laboral. XLS Format.
-http://www.csigestio.com/es/index.htm
-
-Depends
-=======
-
-* account_payroll_import_base
-* account_payroll_import_base_spain
+This a base to module to import spreadsheet files from external programs to Odoo.
+It load each line a run and specific software to import in specific model.
 
 Usage
 =====
 
-The usage is explain in account_payroll_import_base
+The options are in the company configuration tab.
 
+Go to Configuration -> File import -> File import
+
+Select the software, the spreadsheet file, and click Import File.
+
+Known issues / Roadmap
+======================
+
+* Import CSV File
+* Import ODS File
 
 Bug Tracker
 ===========

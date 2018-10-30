@@ -10,5 +10,4 @@ class res_company(models.Model):
 
     payroll_journal = fields.Many2one(
         comodel_name='account.journal', string='Payroll journal', required=True)
-    sheet_name = fields.Char(string='Sheet name', required=True)
     move_confirm = fields.Boolean(string='Auto move confirm?')

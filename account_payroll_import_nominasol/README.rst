@@ -3,14 +3,14 @@
    :alt: License: AGPL-3
 
 .. image:: https://img.shields.io/badge/github-Acysos-lightgray.png?logo=github
-    :target: https://github.com/acysos/odoo-addons/tree/11.0/fleet_database_extension
+    :target: https://github.com/acysos/odoo-addons/tree/11.0/account_payroll_import_nominasol
     :alt: Acysos
 
-==============================================
-XLS account move import payroll base NominaSol
-==============================================
+==========================================
+Account move import payroll base NominaSol
+==========================================
 
-This module import payroll account moves from NominaSol
+This module import payroll account moves from NominaSol. XLS Format.
 https://www.sdelsol.com/programa-nominas-nominasol/
 
 Depends
