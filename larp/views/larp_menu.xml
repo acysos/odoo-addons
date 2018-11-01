@@ -4,7 +4,7 @@
 
         <menuitem name="LARP"
             id="menu_base_larp"
-            sequence="20"/>
+            sequence="20" web_icon="larp,static/description/icon.png"/>
         
         <menuitem id="menu_larp_game" parent="larp.menu_base_larp" name="Events" sequence="5" />
         

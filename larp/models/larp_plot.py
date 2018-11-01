@@ -9,14 +9,15 @@ class LarpPlot(models.Model):
     
     name = fields.Char(string='Name', required=True)
     parent_id = fields.Many2one(string='Parent Plot', comodel_name='larp.plot')
-    event = fields.Many2one(string='Game', comodel_name='event.event',
-                            required=True, ondelete='cascade')
+    event = fields.Many2one(
+        string='LARP', comodel_name='event.event', required=True,
+        ondelete='cascade')
     plot = fields.Html(string='Plot')
-    player_ids = fields.Many2many(string='Players', comodel_name='larp.player',
-                                  relation='larp_player_plot', column1='plot',
-                                  column2='player')
-    skills = fields.Many2many(string='Skills', comodel_name='larp.skill',
-                              relation='larp_player_skill', column1='plot',
-                              column2='skill',
-                              help='Skills needed to do this plot')
+    character_ids = fields.Many2many(
+        string='Players', comodel_name='larp.character',
+        relation='larp_player_plot', column1='plot', column2='player')
+    skills = fields.Many2many(
+        string='Skills', comodel_name='larp.skill',
+        relation='larp_player_skill', column1='plot', column2='skill',
+        help='Skills needed to do this plot')
     

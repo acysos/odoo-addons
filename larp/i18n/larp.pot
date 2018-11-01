@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 21:41+0000\n"
-"PO-Revision-Date: 2018-10-28 21:41+0000\n"
+"POT-Creation-Date: 2018-11-01 19:59+0000\n"
+"PO-Revision-Date: 2018-11-01 19:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,24 +16,54 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: larp
-#: code:addons/larp/models/event.py:63
+#: model:ir.model,name:larp.model_event_registration
+msgid "Attendee"
+msgstr ""
+
+#. module: larp
+#: model:ir.model.fields,field_description:larp.field_event_event_ticket_character_generated
+msgid "Char. Gen."
+msgstr ""
+
+#. module: larp
+#: model:ir.ui.view,arch_db:larp.larp_character_view_form
+msgid "Character"
+msgstr ""
+
+#. module: larp
+#: code:addons/larp/models/event.py:90
+#: code:addons/larp/models/event.py:99
+#: model:ir.actions.act_window,name:larp.action_larp_character
+#: model:ir.ui.menu,name:larp.menu_action_larp_character
+#: model:ir.ui.view,arch_db:larp.larp_skill_view_tree
+#, python-format
+msgid "Characters"
+msgstr ""
+
+#. module: larp
+#: code:addons/larp/models/event.py:82
 #: model:ir.ui.menu,name:larp.menu_larp_configuration
 #, python-format
 msgid "Configuration"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_create_uid
+#: model:ir.model.fields,field_description:larp.field_larp_character_create_uid
 #: model:ir.model.fields,field_description:larp.field_larp_plot_create_uid
 #: model:ir.model.fields,field_description:larp.field_larp_skill_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_create_date
+#: model:ir.model.fields,field_description:larp.field_larp_character_create_date
 #: model:ir.model.fields,field_description:larp.field_larp_plot_create_date
 #: model:ir.model.fields,field_description:larp.field_larp_skill_create_date
 msgid "Created on"
+msgstr ""
+
+#. module: larp
+#: model:ir.model.fields,field_description:larp.field_event_event_default_px
+msgid "Default PX"
 msgstr ""
 
 #. module: larp
@@ -42,7 +72,7 @@ msgid "Description"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_display_name
+#: model:ir.model.fields,field_description:larp.field_larp_character_display_name
 #: model:ir.model.fields,field_description:larp.field_larp_plot_display_name
 #: model:ir.model.fields,field_description:larp.field_larp_skill_display_name
 msgid "Display Name"
@@ -59,15 +89,18 @@ msgid "Event Category"
 msgstr ""
 
 #. module: larp
+#: model:ir.model,name:larp.model_event_event_ticket
+msgid "Event Ticket"
+msgstr ""
+
+#. module: larp
 #: model:ir.ui.menu,name:larp.menu_larp_game
 msgid "Events"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_event
-#: model:ir.model.fields,field_description:larp.field_larp_plot_event
-#: model:ir.model.fields,field_description:larp.field_larp_skill_event
-msgid "Game"
+#: model:ir.model.fields,field_description:larp.field_event_event_ticket_generate_character
+msgid "Gen. Char"
 msgstr ""
 
 #. module: larp
@@ -76,14 +109,27 @@ msgid "Helps you manage your LARPs"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_id
+#: model:ir.model.fields,field_description:larp.field_larp_character_id
 #: model:ir.model.fields,field_description:larp.field_larp_plot_id
 #: model:ir.model.fields,field_description:larp.field_larp_skill_id
 msgid "ID"
 msgstr ""
 
 #. module: larp
+#: model:ir.ui.view,arch_db:larp.larp_character_view_form
+msgid "Information"
+msgstr ""
+
+#. module: larp
+#: model:ir.model.fields,field_description:larp.field_larp_character_partner_id
+msgid "Interpreter"
+msgstr ""
+
+#. module: larp
 #: model:ir.model.fields,field_description:larp.field_event_type_larp_game
+#: model:ir.model.fields,field_description:larp.field_larp_character_event
+#: model:ir.model.fields,field_description:larp.field_larp_plot_event
+#: model:ir.model.fields,field_description:larp.field_larp_skill_event
 #: model:ir.module.category,name:larp.module_category_larp
 #: model:ir.ui.menu,name:larp.menu_base_larp
 #: model:ir.ui.menu,name:larp.menu_larp
@@ -91,13 +137,14 @@ msgid "LARP"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_event_event_larp_game
-msgid "LARP Game"
+#: model:ir.model.fields,field_description:larp.field_event_registration_larp_character
+#: model:ir.ui.view,arch_db:larp.larp_character_view_tree
+msgid "LARP Character"
 msgstr ""
 
 #. module: larp
-#: model:ir.ui.view,arch_db:larp.larp_player_view_tree
-msgid "LARP Player"
+#: model:ir.model.fields,field_description:larp.field_event_event_larp_game
+msgid "LARP Game"
 msgstr ""
 
 #. module: larp
@@ -107,21 +154,21 @@ msgid "LARPs"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player___last_update
+#: model:ir.model.fields,field_description:larp.field_larp_character___last_update
 #: model:ir.model.fields,field_description:larp.field_larp_plot___last_update
 #: model:ir.model.fields,field_description:larp.field_larp_skill___last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_write_uid
+#: model:ir.model.fields,field_description:larp.field_larp_character_write_uid
 #: model:ir.model.fields,field_description:larp.field_larp_plot_write_uid
 #: model:ir.model.fields,field_description:larp.field_larp_skill_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_write_date
+#: model:ir.model.fields,field_description:larp.field_larp_character_write_date
 #: model:ir.model.fields,field_description:larp.field_larp_plot_write_date
 #: model:ir.model.fields,field_description:larp.field_larp_skill_write_date
 msgid "Last Updated on"
@@ -148,10 +195,10 @@ msgid "Menu IDS"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_name
+#: model:ir.model.fields,field_description:larp.field_larp_character_name
 #: model:ir.model.fields,field_description:larp.field_larp_plot_name
 #: model:ir.model.fields,field_description:larp.field_larp_skill_name
-#: model:ir.ui.view,arch_db:larp.larp_player_view_form
+#: model:ir.ui.view,arch_db:larp.larp_character_view_form
 #: model:ir.ui.view,arch_db:larp.larp_plot_view_form
 #: model:ir.ui.view,arch_db:larp.larp_skill_view_form
 msgid "Name"
@@ -169,20 +216,12 @@ msgid "Parent Plot"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_player
-#: model:ir.ui.view,arch_db:larp.larp_player_view_form
 #: model:res.groups,name:larp.group_larp_player
 msgid "Player"
 msgstr ""
 
 #. module: larp
-#: code:addons/larp/models/event.py:71
-#: code:addons/larp/models/event.py:79
-#: model:ir.actions.act_window,name:larp.action_larp_player
-#: model:ir.model.fields,field_description:larp.field_larp_plot_player_ids
-#: model:ir.ui.menu,name:larp.menu_action_larp_player
-#: model:ir.ui.view,arch_db:larp.larp_skill_view_tree
-#, python-format
+#: model:ir.model.fields,field_description:larp.field_larp_plot_character_ids
 msgid "Players"
 msgstr ""
 
@@ -194,10 +233,10 @@ msgid "Plot"
 msgstr ""
 
 #. module: larp
-#: code:addons/larp/models/event.py:88
-#: code:addons/larp/models/event.py:96
+#: code:addons/larp/models/event.py:108
+#: code:addons/larp/models/event.py:117
 #: model:ir.actions.act_window,name:larp.action_larp_plot
-#: model:ir.model.fields,field_description:larp.field_larp_player_plot_ids
+#: model:ir.model.fields,field_description:larp.field_larp_character_plot_ids
 #: model:ir.ui.menu,name:larp.menu_action_larp_plot
 #, python-format
 msgid "Plots"
@@ -209,13 +248,24 @@ msgid "Point of experience"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_point_experience
+#: model:ir.model.fields,field_description:larp.field_larp_character_point_experience
 msgid "Points of experience"
 msgstr ""
 
 #. module: larp
-#: model:ir.model.fields,field_description:larp.field_larp_player_plot
+#: model:ir.model.fields,field_description:larp.field_larp_character_point_used
+msgid "Points used"
+msgstr ""
+
+#. module: larp
+#: model:ir.model.fields,field_description:larp.field_larp_character_plot
 msgid "Principal Plot"
+msgstr ""
+
+#. module: larp
+#: model:ir.model.fields,field_description:larp.field_larp_character_resgistration_id
+#: model:ir.ui.view,arch_db:larp.larp_character_view_form
+msgid "Registration"
 msgstr ""
 
 #. module: larp
@@ -229,10 +279,10 @@ msgid "Skill depends"
 msgstr ""
 
 #. module: larp
-#: code:addons/larp/models/event.py:105
-#: code:addons/larp/models/event.py:113
+#: code:addons/larp/models/event.py:126
+#: code:addons/larp/models/event.py:135
 #: model:ir.actions.act_window,name:larp.action_larp_skill
-#: model:ir.model.fields,field_description:larp.field_larp_player_skills
+#: model:ir.model.fields,field_description:larp.field_larp_character_skills
 #: model:ir.model.fields,field_description:larp.field_larp_plot_skills
 #: model:ir.ui.menu,name:larp.menu_action_larp_skill
 #: model:ir.ui.view,arch_db:larp.larp_skill_view_form
@@ -243,6 +293,27 @@ msgstr ""
 #. module: larp
 #: model:ir.model.fields,help:larp.field_larp_plot_skills
 msgid "Skills needed to do this plot"
+msgstr ""
+
+#. module: larp
+#: model:ir.model.fields,field_description:larp.field_larp_character_ticket_id
+msgid "Ticket"
+msgstr ""
+
+#. module: larp
+#: model:ir.ui.view,arch_db:larp.larp_skill_view_tree
+msgid "Total"
+msgstr ""
+
+#. module: larp
+#: code:addons/larp/models/larp_character.py:21
+#, python-format
+msgid "You can't add more skill without increase the points of experience."
+msgstr ""
+
+#. module: larp
+#: model:ir.model,name:larp.model_larp_character
+msgid "larp.character"
 msgstr ""
 
 #. module: larp

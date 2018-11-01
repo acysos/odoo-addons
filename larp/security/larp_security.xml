@@ -14,8 +14,8 @@
         <field name="name">Manager</field>
         <field name="category_id" ref="module_category_larp"/>
     </record>
-    <record id="group_larp_player" model="res.groups">
-        <field name="name">Player</field>
+    <record id="group_larp_interpreter" model="res.groups">
+        <field name="name">Interpreter</field>
         <field name="category_id" ref="module_category_larp"/>
     </record>
 </data>

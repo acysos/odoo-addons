@@ -19,7 +19,7 @@
 	            		<group>
 	            			<field name="event"/>
 	            			<field name="plot" colspan="4"/>
-		            		<field name="player_ids" colspan="4"/>
+		            		<field name="character_ids" colspan="4"/>
 		            		<field name="skills" colspan="4"/>
 	            		</group>
             		</sheet>

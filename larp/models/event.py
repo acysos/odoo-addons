@@ -5,12 +5,46 @@
 from odoo import models, fields, api, _
 
 
-class event_type(models.Model):
+class EventType(models.Model):
     _inherit = 'event.type'
     
     larp_game = fields.Boolean(string='LARP')
-    
-    
+
+
+class EventTicket(models.Model):
+    _inherit = 'event.event.ticket'
+
+    generate_character = fields.Boolean(string="Gen. Char")
+    character_generated = fields.Boolean(string="Char. Gen.")
+
+
+class EventRegistration(models.Model):
+    _inherit = 'event.registration'
+
+    larp_character = fields.Many2one(
+        comodel_name='larp.character', string='LARP Character')
+
+    @api.one
+    def confirm_registration(self):
+        super(EventRegistration, self).confirm_registration()
+        larp_char = self.env['larp.character'].search(
+            [('ticket_id', '=', self.event_ticket_id.id),
+             ('partner_id', '=', False)], limit = 1)
+        if larp_char:
+            larp_char.partner_id = self.partner_id.id
+            larp_char.registration_id = self.id
+            self.larp_character = larp_char.id
+
+    @api.one
+    def button_reg_cancel(self):
+        super(EventRegistration, self).button_reg_cancel()
+        if self.larp_character:
+            self.larp_character.partner_id = False
+            self.larp_character.registration_id = False
+            self.larp_character = False
+        
+
+
 class EventEvent(models.Model):
     _inherit = 'event.event'
     
@@ -18,6 +52,7 @@ class EventEvent(models.Model):
         string='LARP Game', related='event_type_id.larp_game')
     larp_menu = fields.Many2one(string='Menu', comodel_name='ir.ui.menu')
     larp_menu_ids = fields.Char(string='Menu IDS')
+    default_px = fields.Integer(string='Default PX')
     
     @api.model
     def _get_menu_parent_id(self, module, id_menu):
@@ -50,17 +85,18 @@ class EventEvent(models.Model):
             })
             menu_ids.append(cmenu.id)
 
-            # LARP Players Menu
+            # LARP Characters Menu
             player_action_id = action_obj.sudo().create({
-                'name': _('Players'),
+                'name': _('Characters'),
                 'view_type': 'form',
                 'view_mode': 'tree,form',
-                'res_model': 'larp.player',
+                'res_model': 'larp.character',
                 'usage': 'menu',
-                'domain': [('event', '=', self.id)]
+                'domain': [('event', '=', self.id)],
+                'context': {'default_event': self.id}
             })
             player_menu = menu_obj.sudo().create({
-                'name':_('Players'),
+                'name':_('Characters'),
                 'parent_id': gmenu.id,
                 'sequence': 5,
                 'action': 'ir.actions.act_window,%s' % (player_action_id.id,)
@@ -74,7 +110,8 @@ class EventEvent(models.Model):
                 'view_mode': 'tree,form',
                 'res_model': 'larp.plot',
                 'usage': 'menu',
-                'domain': [('event', '=', self.id)]
+                'domain': [('event', '=', self.id)],
+                'context': {'default_event': self.id}
             })
             plot_menu = menu_obj.sudo().create({
                 'name':_('Plots'),
@@ -83,7 +120,7 @@ class EventEvent(models.Model):
                 'action': 'ir.actions.act_window,%s' % (plot_action_id.id,)
             })
             menu_ids.append(plot_menu.id)
-            
+
             # LARP Skills Menu
             skill_action_id = action_obj.sudo().create({
                 'name': _('Skills'),
@@ -91,7 +128,8 @@ class EventEvent(models.Model):
                 'view_mode': 'tree,form',
                 'res_model': 'larp.skill',
                 'usage': 'menu',
-                'domain': [('event', '=', self.id)]
+                'domain': [('event', '=', self.id)],
+                'context': {'default_event': self.id}
             })
             skill_menu = menu_obj.sudo().create({
                 'name':_('Skills'),
@@ -101,6 +139,26 @@ class EventEvent(models.Model):
             })
             menu_ids.append(skill_menu.id)
             self.larp_menu_ids = str(menu_ids)
+
+        # Generate characters
+        for ticket in self.event_ticket_ids:
+            if ticket.generate_character and not ticket.character_generated:
+                print(ticket.seats_max)
+                if ticket.seats_max > 0:
+                    count = 1
+                    while count <= ticket.seats_max:
+                        name = ticket.name
+                        if ticket.seats_max > 1:
+                            name += ' - ' + str(count)
+                        char_vals = {
+                            'name': name,
+                            'event': self.id,
+                            'point_experience': self.default_px,
+                            'ticket_id': ticket.id
+                        }
+                        self.env['larp.character'].create(char_vals)
+                        count += 1
+                    ticket.character_generated = True
 
     @api.one
     def button_done(self):
@@ -122,6 +180,12 @@ class EventEvent(models.Model):
             if event.larp_menu:
                 menus = self.env['ir.ui.menu'].browse(eval(self.larp_menu_ids))
                 menus.sudo().unlink()
+            self.env['larp.character'].search(
+                [('event', '=', event.id)]).unlink()
+            self.env['larp.skill'].search(
+                [('event', '=', event.id)]).unlink()
+            self.env['larp.plot'].search(
+                [('event', '=', event.id)]).unlink()
         return super(EventEvent, self).unlink()
             
             
