@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <group name="import_file" position="inside">
                     <field name="payroll_journal"/>
+                    <field name="payroll_payment_mode"/>
                     <field name="move_confirm"/>
                 </group>
             </field>

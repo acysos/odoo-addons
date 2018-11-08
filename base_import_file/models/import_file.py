@@ -12,10 +12,12 @@ class ImportFile(models.Model):
     _name = 'import.file'
 
     name = fields.Char(
-        string='Name', required=True, default=lambda self: _('New'))
+        string='Name', required=True, default=lambda self: _('New'),
+        readonly=True, states={'draft': [('readonly', False)]})
     company = fields.Many2one(
-        comodel_name='res.company', string='Company',
-        default=lambda self: self.env['res.company']._company_default_get())
+        comodel_name='res.company', string='Company', readonly=True,
+        default=lambda self: self.env['res.company']._company_default_get(),
+        states={'draft': [('readonly', False)]})
     date = fields.Date(
         string='Date import', readonly=True,
         states={'draft': [('readonly', False)]},
@@ -25,11 +27,16 @@ class ImportFile(models.Model):
         states={'draft': [('readonly', False)]})
     file_type = fields.Selection(
         selection=[('none', 'None'), ('xls', 'Excel XLS(X)')],
-        default='none', states={'draft': [('readonly', False)]})
-    note = fields.Text(string='Notes', states={'draft': [('readonly', False)]})
+        default='none', readonly=True,
+        states={'draft': [('readonly', False)]})
+    note = fields.Text(
+        string='Notes', readonly=True, states={'draft': [('readonly', False)]})
     software = fields.Selection(
         selection=[('none', 'None')], string='External software',
-        default='none', states={'draft': [('readonly', False)]})
+        default='none', readonly=True, states={'draft': [('readonly', False)]})
+    sheet_name = fields.Char(
+        string='Sheet name', required=True, readonly=True,
+        states={'draft': [('readonly', False)]})
     state = fields.Selection(selection=[
         ('cancel', 'Cancelled'), ('draft', 'Draft'), ('imported', 'Imported'),
         ], string='State', select=True, readonly=True, default='draft')
@@ -84,7 +91,12 @@ class ImportFile(models.Model):
     @api.multi
     def do_import_xls(self):
         self.ensure_one()
-        if not self.company.sheet_name:
+        sheet_name = False
+        if self.company.sheet_name:
+            sheet_name = self.company.sheet_name
+        if self.sheet_name:
+            sheet_name = self.sheet_name
+        if not sheet_name:
             raise Warning(_('No sheet name configure in company!'))
         sheet_name = self.company.sheet_name            
         self.note = _('Import file: \n')

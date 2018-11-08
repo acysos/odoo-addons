@@ -19,6 +19,7 @@
 	                    	<field name="name"/>
 	                    	<field name="company" options="{'no_create': True}" groups="base.group_multi_company"/>
 	                    	<field name="software"/>
+	                    	<field name="sheet_name"/>
 	                        <field name="date"/>
 	                        <field name="file"/>
 	                        <field name="file_type"/>

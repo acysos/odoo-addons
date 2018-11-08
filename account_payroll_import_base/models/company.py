@@ -11,3 +11,5 @@ class res_company(models.Model):
     payroll_journal = fields.Many2one(
         comodel_name='account.journal', string='Payroll journal', required=True)
     move_confirm = fields.Boolean(string='Auto move confirm?')
+    payroll_payment_mode = fields.Many2one(
+        comodel_name='account.payment.mode', string='Payroll Payment Mode')

@@ -88,6 +88,8 @@ class ImportFile(models.Model):
             'credit': debit_total,
             'ref': _('Payroll')
             }
+        if company.payroll_payment_mode:
+            total_vals['payment_mode_id'] = company.payroll_payment_mode.id
         debit_ss = worksheet.cell_value(curr_row, col_476)
         if not self.company.account_ss:
             raise Warning(_('No SS account configure in company!'))

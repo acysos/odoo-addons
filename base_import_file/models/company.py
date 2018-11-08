@@ -8,4 +8,4 @@ from odoo import models, fields
 class res_company(models.Model):
     _inherit = 'res.company'
 
-    sheet_name = fields.Char(string='Sheet name', required=True)
+    sheet_name = fields.Char(string='Sheet name')
