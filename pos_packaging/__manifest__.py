@@ -9,8 +9,6 @@
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
     "category": "",
     "license": "AGPL-3",
-    "description": """ When read a packaging barcode in pos add packaging products
-    """,
     "depends": ["point_of_sale", "stock",    
     ],
     "data": ["views/pos_templates.xml",
