@@ -1002,42 +1002,25 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_sii_identifier(self):
         self.ensure_one()
-        dic_ret = {}
+        if self.partner_id.country_id is False or not self.partner_id.country_id.code:
+            raise exceptions.ValidationError(_('Partner has no country or it is invalid.'))
+        if self.fiscal_position is False:
+            raise exceptions.ValidationError(_('Invoice fiscal position is not set.'))
         vat = ''.join(e for e in self.partner_id.vat if e.isalnum()).upper()
-        if self.fiscal_position.name == u'Régimen Intracomunitario':
+        if vat.startswith('ES'):
+            dic_ret = {"NIF": vat[2:]}
+        else:
+            if self.fiscal_position.name == u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
+                id_type = '04'
+            else:
+                id_type = '02'
             dic_ret = {
                 "IDOtro": {
-                    "CodigoPais":
-                        self.partner_id.country_id and
-                        self.partner_id.country_id.code or
-                        vat[:2],
-                    "IDType": '02',
+                    "CodigoPais": self.partner_id.country_id.code,
+                    "IDType": id_type,
                     "ID": vat
                 }
             }
-            dic_ret = self._fix_country_code(dic_ret)
-        elif self.fiscal_position.name == \
-                u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            if vat[:2] == 'ES':
-                _logger.info("Canarias")
-                dic_ret = {"NIF": self.partner_id.vat[2:]}
-            else:
-                _logger.info("Otro")
-                dic_ret = {
-                    "IDOtro": {
-                        "CodigoPais":
-                            self.partner_id.country_id and
-                            self.partner_id.country_id.code or
-                            vat[:2],
-                        "IDType": '04',
-                        "ID": vat
-                      }
-                }
-                dic_ret = self._fix_country_code(dic_ret)
-        elif vat.startswith('ESN'):
-            dic_ret = {"NIF": self.partner_id.vat[2:]}
-        else:
-            dic_ret = {"NIF": self.partner_id.vat[2:]}
         _logger.info(dic_ret)
         return dic_ret
 
