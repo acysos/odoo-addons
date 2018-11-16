@@ -1021,6 +1021,7 @@ class AccountInvoice(models.Model):
                     "ID": vat
                 }
             }
+            dic_ret = self._fix_country_code(dic_ret)
         _logger.info(dic_ret)
         return dic_ret
 
