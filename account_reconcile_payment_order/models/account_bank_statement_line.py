@@ -16,20 +16,13 @@ class AccountBankStatementLine(models.Model):
         line"""
         self.ensure_one()
         digits = self.env['decimal.precision'].precision_get('Account')
-        self.env.cr.execute(
-            '''with order_sums as (
-                select order_id, sum(amount_currency) as amount
-                from bank_payment_line
-                join account_payment_order o on o.id=order_id
-                where o.state in ('uploaded')
-                group by order_id)
-            select order_id from order_sums where amount = %s''',
-            (Decimal(float_repr(abs(self.amount), digits)),))
-        order_ids = [i for i, in self.env.cr.fetchall()]
+        order_ids = self.env['account.payment.order'].search(
+            [('total_company_currency', '=', self.amount),
+             ('state', '=', 'uploaded')])
         # verify that this ids are accessible to the user and from the
         # right bank account if applicable
         domain = [
-            ('id', 'in', order_ids),
+            ('id', 'in', order_ids.ids),
         ]
         if self.bank_account_id.acc_number:
             domain.append(
@@ -44,7 +37,6 @@ class AccountBankStatementLine(models.Model):
         order = orders[0]
         if order.state == 'uploaded':
             move_lines_list = list(set(order._get_transfer_move_lines()))
-            print move_lines_list
         else:
             move_lines = order.line_ids.mapped('move_line_id').filtered(
                 lambda x: not x.reconcile_id)
