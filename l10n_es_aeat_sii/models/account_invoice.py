@@ -849,6 +849,9 @@ class AccountInvoice(models.Model):
                 self.env['aeat.sii.result'].create_result(
                     invoice, False, 'normal', fault, 'account.invoice')
                 self.sii_send_error = fault
+            finally:
+                # avoid transaction rollback
+                self._cr.commit()
 
     @api.multi
     def send_recc_payment_registry(self, move):
