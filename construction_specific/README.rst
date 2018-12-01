@@ -15,7 +15,7 @@ Installation
 Depends:
 
 - HR Worked Days From Timesheet: https://www.odoo.com/apps/modules/10.0/hr_worked_days_from_timesheet/
-- Worked Days Hourly Rates Timesheet: https://www.odoo.com/apps/modules/10.0/hr_worked_days_hourly_rate_timesheet/
+- Worked Days Hourly Rates Timesheet: https://github.com/acysos/odoo-addons/tree/10.0/hr_worked_days_hourly_rate_timesheet
 - Project Task Material: https://www.odoo.com/apps/modules/10.0/project_task_material/
 - Worked Days Activity: https://github.com/acysos/odoo-addons/tree/10.0/hr_worked_days_activity
 - HR - Task in Timesheets: https://github.com/acysos/odoo-addons/tree/10.0/hr_timesheet_task
