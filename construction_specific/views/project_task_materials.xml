@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_project_task_form_materials_construction" model="ir.ui.view">
+      <field name="name">project.task.form.materials.construction</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project_task_material.view_project_task_form_material"/>
+      <field name="arch" type="xml">
+      	<field name="quantity" position="before">
+      		<field name="name"/>
+      	</field>
+      	<field name="quantity" position="after">
+      		<field name="standard_price"/>
+      		<field name="subtotal" sum="Total"/>
+      	</field>
+      </field>
+    </record>
+</odoo>

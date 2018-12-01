@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <record id="view_project_construction" model="ir.ui.view">
+            <field name="name">project.project.construction.tree</field>
+            <field name="model">project.project</field>
+            <field name="field_parent">child_ids</field>
+            <field name="inherit_id" ref="project.view_project"/>
+            <field name="arch" type="xml">
+            	<field name="user_id" position="after">
+            		<field name="date_start" widget="date"/>
+            		<field name="date_estimated" widget="date"/>
+            		<field name="date_shipped" widget="date"/>
+            	</field>
+            	<field name="partner_id" position="attributes">
+            		<attribute name="invisible">1</attribute>
+            	</field>
+            </field>
+        </record>
+
+        <record id="view_task_construction_tree2" model="ir.ui.view">
+            <field name="name">project.task.construction.tree</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+            	<field name="effective_hours" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+            	<field name="remaining_hours" position="attributes">
+            		<attribute name="widget"></attribute>
+            	</field>
+        	</field>
+        </record>
+        
+        <record id="view_task_search_construction_form" model="ir.ui.view">
+            <field name="name">project.task.construction.search.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form"/>
+            <field name="arch" type="xml">
+            	<field name="stage_id" position="after">
+            		<filter string="My revisions" domain="[('reviewer_id','=',uid)]" name="my_revisions_filter"/>
+            	</field>
+            </field>
+        </record>
+    </odoo>

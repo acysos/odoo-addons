@@ -1,0 +1,238 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* odoo_construction_specific
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-22 11:36+0000\n"
+"PO-Revision-Date: 2018-01-22 11:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_percentage_ip
+msgid "% BI"
+msgstr "% VI"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_order_form_construction
+msgid "(Costes)"
+msgstr "(Costes)"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea Analítica"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_industrial_profit
+msgid "BI"
+msgstr "VI"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_company_construction_form
+msgid "Construction"
+msgstr "Construction"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_line_line_costs
+msgid "Cost"
+msgstr "Coste"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_quotation_tree_construction
+msgid "Coste"
+msgstr "Coste"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_analytic_balance
+msgid "Coste/Beneficio"
+msgstr "Coste/Beneficio"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_project_task_material_name
+msgid "Descripcion"
+msgstr "Descripcion"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_project_project_date_estimated
+msgid "Estimated day"
+msgstr "Dia requerido"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_date_shipped
+msgid "Fecha entregado"
+msgstr "Fecha entregado"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_date_estimated
+msgid "Fecha requerida"
+msgstr "Fecha requerida"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,help:odoo_construction_specific.field_sale_order_industrial_profit
+msgid "Industrial profit"
+msgstr "Veneficio industrial"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,help:odoo_construction_specific.field_sale_order_percentage_ip
+msgid "Industrial profit percent"
+msgstr "Porcentaje veneficio industrial"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_hr_holidays
+msgid "Leave"
+msgstr "Ausencia"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_quotation_tree_construction
+msgid "Mano de obra"
+msgstr "Mano de obra"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_quotation_tree_construction
+msgid "Materiales"
+msgstr "Materiales"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_line_line_material
+msgid "Materils"
+msgstr "Materiales"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_task_search_construction_form
+msgid "My revisions"
+msgstr "Mis revisiones"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_quotation_tree_construction
+msgid "Precio"
+msgstr "Precio"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_project_task_material_standard_price
+msgid "Precio Unitario"
+msgstr "Precio Unitario"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_procurement_order
+msgid "Procurement"
+msgstr "Abastecimiento"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_project_project
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_account_analytic_line_supplier
+msgid "Proveedor"
+msgstr "Proveedor"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_account_analytic_line_supplier_ref
+msgid "Ref. Proveedor"
+msgstr "Ref. Proveedor"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_project_project_date_shipped
+msgid "Shipped day"
+msgstr "Dia de entrega"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_res_company_sign1
+msgid "Sing 1"
+msgstr "Firma 1"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_res_company_sign2
+msgid "Sing 2"
+msgstr "Firma 2"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_project_task_project_state
+msgid "State"
+msgstr "Estado"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_project_task_material_subtotal
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_order_tree_construction
+msgid "T.M."
+msgstr "T.M."
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_order_tree_construction
+msgid "T.M.O."
+msgstr "T.M.O."
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_project_task_material
+msgid "Task Material Used"
+msgstr "Materiales usados en la tarea"
+
+#. module: odoo_construction_specific
+#: model:ir.model,name:odoo_construction_specific.model_hr_timesheet_sheet_sheet
+msgid "Timesheet"
+msgstr "Hoja de servicios"
+
+#. module: odoo_construction_specific
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_order_tree_construction
+#: model:ir.ui.view,arch_db:odoo_construction_specific.view_project_task_form_materials_construction
+msgid "Total"
+msgstr "Total"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_total_material
+msgid "Total Materials"
+msgstr "Total Materiales"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_sale_costs
+msgid "Total cost"
+msgstr "Coste Total"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_total_human
+msgid "Total work force"
+msgstr "Total Mano de obra"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_res_company_human_cost
+msgid "Work force cost"
+msgstr "Coste mano de obra"
+
+#. module: odoo_construction_specific
+#: model:ir.model.fields,field_description:odoo_construction_specific.field_sale_order_line_line_human
+msgid "work feorce"
+msgstr "Mano de obra"
+
