@@ -49,6 +49,7 @@ class PosOrder(models.Model):
                  ('4', 'Parcialmente contrastada'),
                  ('5', 'Contrastada')]
 
+    sii_cancel = fields.Boolean(string='SII Cancel', copy=False, readonly=True)
     sii_description = fields.Text(
         string='SII Description', required=True,
         default=_get_default_sii_description)
@@ -177,10 +178,10 @@ class PosOrder(models.Model):
         self.ensure_one()
         tax_type = tax_line.amount * 100
         taxes = tax_line.compute_all(
-            self._get_line_price_subtotal(line),
-            line.qty, line.product_id, line.order_id.partner_id)
+            price_unit=self._get_line_price_subtotal(line),
+            quantity=line.qty, product=line.product_id, partner=line.order_id.partner_id)
 
-        tax_sii[str(tax_type)]['BaseImponible'] += taxes['total']
+        tax_sii[str(tax_type)]['BaseImponible'] += taxes['total_excluded']
         tax_sii[str(tax_type)]['CuotaRepercutida'] += \
             taxes['taxes'][0]['amount']
         return tax_sii
@@ -194,7 +195,7 @@ class PosOrder(models.Model):
         taxes_sfesb = self._get_taxes_map(['SFESB'])
         taxes_sfess = self._get_taxes_map(['SFESS'])
         for line in self.lines:
-            for tax_line in line.tax_ids:
+            for tax_line in line.tax_ids_after_fiscal_position:
                 if tax_line in taxes_sfesb:
                     if 'DesgloseFactura' not in taxes_sii:
                         taxes_sii['DesgloseFactura'] = {}
@@ -222,11 +223,11 @@ class PosOrder(models.Model):
                             taxes_f[str(tax_type)] = \
                                 self._get_sii_tax_line(
                                     tax_line, line,
-                                    line.tax_ids)
+                                    line.tax_ids_after_fiscal_position)
                         else:
                             taxes_f = self._update_sii_tax_line(
                                 taxes_f, tax_line, line,
-                                line.tax_ids)
+                                line.tax_ids_after_fiscal_position)
 
                 if tax_line in taxes_sfess:
                     if 'DesgloseTipoOperacion' not in taxes_sii:
@@ -259,11 +260,11 @@ class PosOrder(models.Model):
                             taxes_to[str(tax_type)] = \
                                 self._get_sii_tax_line(
                                     tax_line, line,
-                                    line.tax_ids)
+                                    line.tax_ids_after_fiscal_position)
                         else:
                             taxes_to = self._update_sii_tax_line(
                                 taxes_to, tax_line, line,
-                                line.tax_ids)
+                                line.tax_ids_after_fiscal_position)
 
         if len(taxes_f) > 0:
             for key, line in taxes_f.iteritems():
@@ -295,7 +296,10 @@ class PosOrder(models.Model):
             raise exceptions.Warning(_(
                 'You have to select what account chart template use this'
                 ' company.'))
-        key = '01'
+        if self.fiscal_position_id and self.fiscal_position_id.sii_registration_key_sale:
+            key = self.fiscal_position_id.sii_registration_key_sale.code
+        else:
+            key = '01'
         if self.amount_total < 0:
             tipo_factura = 'R5'
         else:
@@ -307,7 +311,7 @@ class PosOrder(models.Model):
                 "IDEmisorFactura": {
                     "NIF": company.vat[2:]
                 },
-                "NumSerieFacturaEmisor": self.name[0:60],
+                "NumSerieFacturaEmisor": self.simplified_invoice[0:60],
                 "FechaExpedicionFacturaEmisor": order_date},
             "FacturaExpedida": {
                 "TipoFactura": tipo_factura,
@@ -438,7 +442,7 @@ class PosOrder(models.Model):
         queue_obj = self.env['queue.job']
         for order in self:
             company = order.company_id
-            if company.sii_enabled and company.sii_method == 'auto' and \
+            if company.sii_enabled and \
                     order.simplified_invoice:
                 if not company.use_connector:
                     order._send_simplified_to_sii()
@@ -456,7 +460,9 @@ class PosOrder(models.Model):
     def create_from_ui(self, orders):
         res = super(PosOrder, self).create_from_ui(orders)
         for order in self.browse(res):
-            order.send_sii()
+            company = order.company_id
+            if company.sii_method == 'auto':
+                order.send_sii()
         return res
 
     @api.multi
@@ -467,7 +473,7 @@ class PosOrder(models.Model):
             wsdl = sii_map._get_wsdl('wsdl_out')
             port_name = 'SuministroFactEmitidas'
             operation = 'ConsultaLRFacturasEmitidas'
-            number = order.name[0:60]
+            number = order.simplified_invoice[0:60]
             header = order._get_header(False, sii_map)
             ejercicio = fields.Date.from_string(order.date_order).year
             periodo = '%02d' % fields.Date.from_string(order.date_order).month

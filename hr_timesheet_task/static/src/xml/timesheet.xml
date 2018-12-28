@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-extend="hr_timesheet_sheet.WeeklyTimesheet">
+
+        <!-- Replace all line created with the foreach to take project of task -->
+        <t t-jquery="tr:not([class]):nth-child(n+2):not(:last-child)" t-operation="replace">
+            <tr t-foreach="widget.projects" t-as="project">
+                <td class="oe_timesheet_weekly_account" colspan="1"><a href="javascript:void(0)" t-att-data-id="JSON.stringify(project.project)"><t t-esc="widget.project_names[project.project]"/></a></td>
+                <td class="oe_timesheet_weekly_account_task" colspan="1"><a href="javascript:void(0)" t-att-data-id="JSON.stringify(project.task)"><t t-esc="widget.task_names[project.task]"/></a></td>
+                <t t-set="day_count" t-value="0"/>
+                    <t t-foreach="project.days" t-as="day">
+                        <td t-att-class="moment().format('DD-MM-YYYY') === moment(day.day).format('DD-MM-YYYY') ? 'oe_timesheet_weekly_today' : ''">
+                            <input t-if="!widget.get('effective_readonly')" class="oe_timesheet_weekly_input" t-att-data-project-task="project.project_task"
+                                   t-att-data-day-count="day_count" type="text"/>
+                            <span t-if="widget.get('effective_readonly')" t-att-data-project-task="project.project_task"
+                                  t-att-data-day-count="day_count" class="oe_timesheet_weekly_box"/>
+                            <t t-set="day_count" t-value="day_count + 1"/>
+                        </td>
+                    </t>
+                <td t-att-data-project-task-total="project.project_task" class="oe_timesheet_total"/>
+            </tr>
+        </t>
+
+    </t>
+</templates>
+
+
