@@ -66,7 +66,7 @@ class real_estate_top(models.Model):
                                 inverse_name='top_id',
                                 string='Internet WO Update')
     poster = fields.Boolean('Poster')
-    internet_description = fields.Text('Internet Description')
+    internet_description = fields.Text('Internet Description', translate=True)
     #energy_doc_url = fields.Char('Energy URL', size=512)
     
     
