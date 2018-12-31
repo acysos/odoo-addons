@@ -13,6 +13,9 @@
                         	<field name="idealista_aggregator"/>
                         	<field name="idealista_code"/>
                         	<field name="idealista_prefix"/>
+                        	<field name="idealista_ftp"/>
+                        	<field name="idealista_user"/>
+                        	<field name="idealista_pass" password="True"/>
                         </group>
                 </page>
             </field>

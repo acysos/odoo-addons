@@ -33,4 +33,7 @@ class res_company(models.Model):
     idealista_aggregator = fields.Char(string='Agregador')
     idealista_code = fields.Char(string='Code')
     idealista_prefix = fields.Char(string='Prefijo')
+    idealista_ftp = fields.Char(string='FTP Url')
+    idealista_user = fields.Char(string='FTP User')
+    idealista_pass = fields.Char(string='FTP Password')
     

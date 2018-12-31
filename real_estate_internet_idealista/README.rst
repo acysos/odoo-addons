@@ -3,16 +3,21 @@
    :alt: License: AGPL-3
 
 =====================
-Real Estate Pisos.com
+Real Estate Idealista
 =====================
 
-This module extends Real Estate to create an export XML for the Spanish portal
-Pisos.com
+This module extends Real Estate to create an export XML and json for the
+portal Idealista.
+
+Both formats are available until Idealista disconnect XML Format.
+
 
 Usage
 =====
 
-The xml url is http://<domain>/realestateportal/pisoscom.xml
+The xml url is http://<domain>/realestateportal/idealista.xml
+The json url es uploaded to FTP with a cron action.
+The Idelista configuration is in the company.
 
 Bug Tracker
 ===========

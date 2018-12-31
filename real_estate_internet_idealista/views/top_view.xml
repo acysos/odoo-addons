@@ -13,7 +13,24 @@
                 </field>
           </field>
       </record>
-      
+
+      <record model="ir.ui.view" id="real_estate_top_form_publication_common_idealista">
+          <field name="name">real.estate.top.form.publication.common.idealista</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_form_publication_common"/>
+          <field name="arch" type="xml">
+                <field name="door" position="after">
+                    <group colspan="4" col="4">
+                        <separator string="Idealista.com" colspan="4"/>
+                        <field name="idealistacom_visibility" />
+                        <field name="idealistacom_addr_visibility" />
+                		<field name="idealistacom_gps_precision"/>
+                	</group>
+                </field>
+          </field>
+      </record>
+ 
      <record model="ir.ui.view" id="real_estate_top_filter_common_idealista">
           <field name="name">real.estate.top.filter.common.idealista</field>
           <field name="model">real.estate.top</field>

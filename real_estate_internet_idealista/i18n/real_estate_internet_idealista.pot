@@ -1,284 +1,266 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* real_estate_internet_idealista
+#	* real_estate_internet_idealista
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-31 10:21+0000\n"
-"PO-Revision-Date: 2018-12-31 11:29+0100\n"
-"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"PO-Revision-Date: 2018-12-31 10:21+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: es\n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: real_estate_internet_idealista
 #: help:real.estate.top,idealistacom_addr_visibility:0
-msgid ""
-"\n"
+msgid "\n"
 "            Full address, street name or zone will be shown publicly\n"
 "        "
 msgstr ""
-"\n"
-"            Dirección completa, nombre de calle o zona que es mostrada publicamente\n"
-"        "
 
 #. module: real_estate_internet_idealista
 #: help:real.estate.top,idealistacom_gps_precision:0
-msgid ""
-"\n"
+msgid "\n"
 "            If moved, just the property zone will be shown publicly, but not\n"
 "            its address\n"
 "        "
 msgstr ""
-"\n"
-"            Si selecciona movido, se mostrará solo la zona aproximada, pero no\n"
-"            su dirección\n"
-"        "
 
 #. module: real_estate_internet_idealista
 #: help:real.estate.top,idealistacom_visibility:0
-msgid ""
-"\n"
+msgid "\n"
 "            If the visibility is 'idealista', you can find the property using \n"
 "            the idealista's search engine; 'microsite', the property is only \n"
 "            published on the real estate agency microsite; 'private', the \n"
 "            property is not published and only the customer can see it.\n"
 "        "
 msgstr ""
-"\n"
-"            Si la visibilidad es 'idealista', se podrá buscar el inmuebles usando \n"
-"            el motor de búsqueda de idealista; 'micrositio', el inmueble solo es \n"
-"            público en el micrositio de la inmobiliaria; 'privado', el \n"
-"            inmubele no es publicado y solo puede verlo la inmobiliaria.\n"
-"        "
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista_aggregator:0
 msgid "Agregador"
-msgstr "Agregador"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.hotwater,idealistacom_type:0
 msgid "Central"
-msgstr "Central"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "Central Fuel Oil"
-msgstr "Central Gasóleo"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "Central Gas"
-msgstr "Central Gas"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "Central Other"
-msgstr "Central Otra"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista_code:0
 msgid "Code"
-msgstr "Código"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: model:ir.model,name:real_estate_internet_idealista.model_res_company
 msgid "Companies"
-msgstr "Compañías"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.hotwater,idealistacom_type:0
 msgid "Desconocido"
-msgstr "Desconocido"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_gps_precision:0
 msgid "Exact"
-msgstr "Exacto"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista_pass:0
 msgid "FTP Password"
-msgstr "FTP Contraseña"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista_ftp:0
 msgid "FTP Url"
-msgstr "FTP Url"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista_user:0
 msgid "FTP User"
-msgstr "FTP Ususario"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_addr_visibility:0
 msgid "Full"
-msgstr "Completo"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_gps_precision:0
 msgid "GPS Precision"
-msgstr "Precisión GPS"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: code:addons/real_estate_internet_idealista/models/top.py:260
 #, python-format
 msgid "Ha superado el limite de Idealista"
-msgstr "Ha superado el limite de Idealista"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_addr_visibility:0
 msgid "Hidden"
-msgstr "Oculto"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_visibility:0
 msgid "Idealista"
-msgstr "Idealista"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: view:res.company:real_estate_internet_idealista.view_company_form_real_estate_idealista
 msgid "Idealista Configuration"
-msgstr "Configuración Idealista"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: view:real.estate.top:real_estate_internet_idealista.real_estate_top_form_publication_common_idealista
 msgid "Idealista.com"
-msgstr "Idealista.com"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_air:0
 msgid "Idealistacom air"
-msgstr "Idealistacom air"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_bathroom:0
 msgid "Idealistacom bathroom"
-msgstr "Idealistacom bathroom"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_energyef:0
 msgid "Idealistacom energyef"
-msgstr "Idealistacom energyef"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_furnished:0
 msgid "Idealistacom furnished"
-msgstr "Idealistacom furnished"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_heating:0
 msgid "Idealistacom heating"
-msgstr "Idealistacom heating"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_hotwater:0
 msgid "Idealistacom hotwater"
-msgstr "Idealistacom hotwater"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_operacion:0
 msgid "Idealistacom operacion"
-msgstr "Idealistacom operacion"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_orienta:0
 msgid "Idealistacom orienta"
-msgstr "Idealistacom orienta"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_outside:0
 msgid "Idealistacom outside"
-msgstr "Idealistacom outside"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_state:0
 msgid "Idealistacom state"
-msgstr "Idealistacom estado"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_type:0
 msgid "Idealistacom type"
-msgstr "Idealistacom type"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.hotwater,idealistacom_type:0
 msgid "Independiente"
-msgstr "Independiente"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "Individual Electric"
-msgstr "Individual Eléctrico"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "Individual Other"
-msgstr "Individual Otra"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "Individual Propane Butane"
-msgstr "Individual Propano Butano"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: code:addons/real_estate_internet_idealista/models/top.py:259
 #, python-format
 msgid "Limite excedido!"
-msgstr "Limite excedido!"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista:0
 msgid "Límite"
-msgstr "Límite"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_visibility:0
 msgid "Microsite"
-msgstr "Micrositio"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_gps_precision:0
 msgid "Moved"
-msgstr "Movido"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.hotwater,idealistacom_type:0
 msgid "No disponible"
-msgstr "No disponible"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "No heating"
-msgstr "Sin calefacción"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:res.company,idealista_prefix:0
 msgid "Prefijo"
-msgstr "Prefijo"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.hotwater,idealistacom_type:0
 msgid "Preinstalación"
-msgstr "Preinstalación"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_visibility:0
 msgid "Private"
-msgstr "Privado"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealista:0
 msgid "Publicado en idealista.com"
-msgstr "Publicado en idealista.com"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_flat_idealista
@@ -288,35 +270,36 @@ msgstr "Publicado en idealista.com"
 #: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_office_idealista
 #: view:real.estate.top:real_estate_internet_idealista.real_estate_top_filter_common_shop_idealista
 msgid "Publish in idealista.com"
-msgstr "Publicado en idealista.com"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: view:res.company:real_estate_internet_idealista.view_company_form_real_estate_idealista
 msgid "Real Estate"
-msgstr "Inmobiliaria"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.top,idealistacom_addr_visibility:0
 msgid "Street"
-msgstr "Calle"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.heating,idealistacom_type:0
 #: field:real.estate.hotwater,idealistacom_type:0
 msgid "Tipo Idealista"
-msgstr "Tipo Idealista"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_addr_visibility:0
 msgid "Visibility address"
-msgstr "Visibilidad dirección"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: field:real.estate.top,idealistacom_visibility:0
 msgid "Visibility web"
-msgstr "Visibilidad web"
+msgstr ""
 
 #. module: real_estate_internet_idealista
 #: selection:real.estate.heating,idealistacom_type:0
 msgid "individual Air Conditioning Heat Pump"
-msgstr "Individual Bombra de aire"
+msgstr ""
+

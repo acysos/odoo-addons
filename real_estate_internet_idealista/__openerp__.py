@@ -24,18 +24,16 @@
 
 {
     "name" : "Real Estate Web Idealista.com",
-    "version" : "1.0",
+    "version" : "8.0.0.2.0",
     "author" : "Acysos S.L.",
     "website" : "www.acysos.com",
+    "description": """Publish top in idealista.com""",
     "license" : "AGPL-3",
     "category" : "Specific Industry Applications",
     "depends" : [
         "base",
         "real_estate_base",
         "real_estate_publication",
-#        "smile_export",
-#        "smile_export_file",
-#        "acy_smile_export_file_extended",
         "real_estate_internet_common"
         ],
     "init_xml" : [],
@@ -43,7 +41,8 @@
     "data" :[
         'views/top_view.xml',
         'views/company_view.xml',
-        'views/idealista_template.xml'
+        'views/idealista_template.xml',
+        'data/json_cron.xml'
         ],
     "active": False,
     "installable": True

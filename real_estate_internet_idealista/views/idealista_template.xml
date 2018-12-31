@@ -2,5 +2,6 @@
 <openerp>
 	<data>
 	   <template id="idealista_template"><t t-raw="xml"/></template>
+	   <template id="idealista_template_json"><t t-raw="json"/></template>
 	</data>
 </openerp>

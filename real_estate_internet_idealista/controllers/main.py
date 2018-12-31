@@ -32,15 +32,28 @@ from openerp.tools.translate import _
 from openerp.addons.website.models.website import slug
 
 class idealista_event(http.Controller):
-    @http.route(['/realestateportal/idealista.xml'], type='http', auth="public", website=True)
-    
-    def event_register(self, **post):
+    @http.route(['/realestateportal/idealista.xml'], type='http',
+                auth="public", website=True)
+    def xml_register(self, **post):
         xml = request.env['real.estate.top'].xml_idealista()
         values = {
             'xml': xml
         }
-        return request.render("real_estate_internet_idealista.idealista_template",values, mimetype='application/xml;charset=utf-8')
+        return request.render(
+            "real_estate_internet_idealista.idealista_template", values,
+            mimetype='application/xml;charset=utf-8')
         
+# Use only for development
+#     @http.route(['/realestateportal/properties.json'], type='http',
+#                 auth="public", website=True)
+#     def json_register(self, **post):
+#         json = request.env['real.estate.top'].json_idealista()
+#         values = {
+#             'json': json
+#         }
+#         return request.render(
+#             "real_estate_internet_idealista.idealista_template_json", values,
+#             mimetype='application/json;charset=utf-8')
 
 
     
