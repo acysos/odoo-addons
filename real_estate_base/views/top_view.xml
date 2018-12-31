@@ -39,6 +39,7 @@
                     		<field name="available" />
                     		<field name="exclusive" />
                     		<field name="name" />
+                    		<field name="user_id"/>
                     	</group>
                     </group>
                 </group>

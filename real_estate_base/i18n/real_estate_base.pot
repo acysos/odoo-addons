@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-10 14:29+0000\n"
-"PO-Revision-Date: 2017-10-10 14:29+0000\n"
+"POT-Creation-Date: 2018-12-31 10:08+0000\n"
+"PO-Revision-Date: 2018-12-31 10:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -49,6 +49,11 @@ msgstr ""
 #: view:real.estate.top:real_estate_base.real_estate_top_filter_office
 #: view:real.estate.top:real_estate_base.real_estate_top_filter_shop
 msgid "Advanced search..."
+msgstr ""
+
+#. module: real_estate_base
+#: field:real.estate.top,user_id:0
+msgid "Agent"
 msgstr ""
 
 #. module: real_estate_base
@@ -292,6 +297,11 @@ msgstr ""
 #: field:real.estate.zone,display_name:0
 #: field:rental.agreement,display_name:0
 msgid "Display Name"
+msgstr ""
+
+#. module: real_estate_base
+#: field:real.estate.top,doc_filename:0
+msgid "Doc Filename"
 msgstr ""
 
 #. module: real_estate_base
@@ -734,6 +744,7 @@ msgstr ""
 
 #. module: real_estate_base
 #: field:real.estate.top,city_id:0
+#: field:real.estate.zone,city_id:0
 msgid "Location"
 msgstr ""
 
@@ -1328,6 +1339,7 @@ msgid "Toilet"
 msgstr ""
 
 #. module: real_estate_base
+#: field:real.estate.top,office_toilet_description:0
 #: field:real.estate.top,toilet_description:0
 msgid "Toilet Description"
 msgstr ""
@@ -1409,6 +1421,7 @@ msgstr ""
 
 #. module: real_estate_base
 #: help:real.estate.top,city_id:0
+#: help:real.estate.zone,city_id:0
 msgid "Usa el nombre o el C.P para buscar la localización"
 msgstr ""
 

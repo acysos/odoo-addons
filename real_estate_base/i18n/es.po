@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-10 14:29+0000\n"
-"PO-Revision-Date: 2017-10-10 16:47+0200\n"
+"POT-Creation-Date: 2018-12-31 10:09+0000\n"
+"PO-Revision-Date: 2018-12-31 11:12+0100\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: es\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. module: real_estate_base
 #: field:res.users,meeting_count:0
@@ -52,6 +52,11 @@ msgstr "Información del Administrador"
 #: view:real.estate.top:real_estate_base.real_estate_top_filter_shop
 msgid "Advanced search..."
 msgstr "Busqueda Avanzada..."
+
+#. module: real_estate_base
+#: field:real.estate.top,user_id:0
+msgid "Agent"
+msgstr "Agente"
 
 #. module: real_estate_base
 #: model:ir.actions.act_window,name:real_estate_base.action_partner_agreement
@@ -261,7 +266,7 @@ msgstr "Cliente por Defecto"
 #. module: real_estate_base
 #: field:res.company,default_document_mount:0
 msgid "Default Document Mount"
-msgstr "Punto de montaje por defecto"
+msgstr "Punto de Montaje"
 
 #. module: real_estate_base
 #: field:res.company,default_mount_agreement:0
@@ -285,6 +290,11 @@ msgstr "Fianza"
 #: field:real.estate.zone,display_name:0 field:rental.agreement,display_name:0
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
+
+#. module: real_estate_base
+#: field:real.estate.top,doc_filename:0
+msgid "Doc Filename"
+msgstr "Archivo"
 
 #. module: real_estate_base
 #: field:res.users,document_mount:0
@@ -623,7 +633,7 @@ msgstr "M2 Terreno"
 #: model:ir.ui.menu,name:real_estate_base.menu_real_estate_land_estate_list
 #: field:real.estate.land.state,name:0
 msgid "Land State"
-msgstr "Estado del terreno"
+msgstr "Land State"
 
 #. module: real_estate_base
 #: model:ir.actions.act_window,name:real_estate_base.real_estate_land_type_act
@@ -663,7 +673,7 @@ msgstr "Últ. Modificación en"
 #: field:real.estate.top.subsivision,write_uid:0
 #: field:real.estate.zone,write_uid:0 field:rental.agreement,write_uid:0
 msgid "Last Updated by"
-msgstr "Últ. Actualización por"
+msgstr "Últi. Modificación por"
 
 #. module: real_estate_base
 #: field:real.estate.heating,write_date:0
@@ -674,12 +684,12 @@ msgstr "Últ. Actualización por"
 #: field:real.estate.top.subsivision,write_date:0
 #: field:real.estate.zone,write_date:0 field:rental.agreement,write_date:0
 msgid "Last Updated on"
-msgstr "Últ. Actualización en"
+msgstr "Últ. Modificación en"
 
 #. module: real_estate_base
 #: field:real.estate.top,write_date:0
 msgid "Last Write Date"
-msgstr "Últ. fecha de escritura"
+msgstr "Últ. Modificación en"
 
 #. module: real_estate_base
 #: field:res.users,opportunity_ids:0
@@ -709,7 +719,7 @@ msgid "Local mount point for rental agreement"
 msgstr "Punto de Montaje Local para Contratos de Alquiler"
 
 #. module: real_estate_base
-#: field:real.estate.top,city_id:0
+#: field:real.estate.top,city_id:0 field:real.estate.zone,city_id:0
 msgid "Location"
 msgstr "Localización"
 
@@ -887,7 +897,7 @@ msgstr "Propietarios"
 #: selection:real.estate.subtype,type:0 field:real.estate.top,office_parking:0
 #: field:real.estate.top,parking:0 selection:real.estate.top,type:0
 msgid "Parking"
-msgstr "Parking"
+msgstr "Garaje"
 
 #. module: real_estate_base
 #: field:real.estate.top,parking_description:0
@@ -967,12 +977,12 @@ msgstr "Inmobiliaria"
 #. module: real_estate_base
 #: model:res.groups,name:real_estate_base.group_real_estate_manager
 msgid "Real Estate / Manager"
-msgstr "Real Estate / Gestor"
+msgstr "Real Estate / Manager"
 
 #. module: real_estate_base
 #: model:res.groups,name:real_estate_base.group_real_estate_user
 msgid "Real Estate / User"
-msgstr "Real Estate / Usuario"
+msgstr "Real Estate / User"
 
 #. module: real_estate_base
 #: view:res.users:real_estate_base.view_users_form_real_estate
@@ -983,7 +993,7 @@ msgstr "Configuración Inmobiliaria"
 #. module: real_estate_base
 #: view:real.estate.top.subsivision:real_estate_base.real_estate_top_subdivision_tree
 msgid "Real Estate Subdivisions"
-msgstr "Subdivisiones"
+msgstr "Subdivisiones del inmueble"
 
 #. module: real_estate_base
 #: view:real.estate.subtype:real_estate_base.real_estate_subtype_tree
@@ -1057,7 +1067,7 @@ msgstr "Precio alquiler hasta"
 #. module: real_estate_base
 #: selection:real.estate.top,operation:0
 msgid "Rent with sale option"
-msgstr "Añquiler con opción a compra"
+msgstr "ALquiler con opción a compra"
 
 #. module: real_estate_base
 #: model:ir.actions.act_window,name:real_estate_base.rental_agreement_act
@@ -1175,7 +1185,7 @@ msgstr "Negocio"
 #. module: real_estate_base
 #: view:real.estate.top:real_estate_base.real_estate_top_filter_shop
 msgid "Shop Prepared"
-msgstr "Shop Prepared"
+msgstr "Tienda preparada"
 
 #. module: real_estate_base
 #: field:real.estate.top,shop_window:0
@@ -1288,6 +1298,7 @@ msgid "Toilet"
 msgstr "Aseo"
 
 #. module: real_estate_base
+#: field:real.estate.top,office_toilet_description:0
 #: field:real.estate.top,toilet_description:0
 msgid "Toilet Description"
 msgstr "Descripción del Aseo"
@@ -1314,7 +1325,7 @@ msgstr "Visitas Inmueble"
 #. module: real_estate_base
 #: field:real.estate.top,top_meetings:0
 msgid "Top Meetings"
-msgstr "Reuniones"
+msgstr "Visitas Inmueble"
 
 #. module: real_estate_base
 #: field:real.estate.subtype,type:0
@@ -1365,7 +1376,7 @@ msgid "Updated Date"
 msgstr "Fecha de Actualización"
 
 #. module: real_estate_base
-#: help:real.estate.top,city_id:0
+#: help:real.estate.top,city_id:0 help:real.estate.zone,city_id:0
 msgid "Usa el nombre o el C.P para buscar la localización"
 msgstr "Usa el nombre o el C.P para buscar la localización"
 

@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+﻿# -*- encoding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -97,30 +97,21 @@ class real_estate_top(models.Model):
     @api.multi
     def _get_mount_point(self):
         user = self.env.user
-        print user
         company = user.company_id
-        print company
         for top in self:
             if user.document_mount:
                 mount = user.default_mount_agreement
-                print mount
             else:
                 mount = company.default_mount_agreement
-                print mount
             if user.document_client:
                 client = user.document_client
-                print client
             else:
                 client = company.default_document_client
-                print client
-            model_id = self.env['ir.model'].search([('model','=',
+            model_id = self.env['ir.model'].search([('model', '=',
                                                      'real.estate.top')])
-            print model_id
             dir_obj = self.env['document.directory']
-            dir_id = dir_obj.search([('ressource_type_id','=',model_id.id),
-                                     ('domain','=','[]')])
-            print dir_id.name
-            print top.name
+            dir_id = dir_obj.search([('ressource_type_id', '=', model_id.id),
+                                     ('domain', '=', '[]')])
             path = ''
             if client == 'unix':
                 path = mount + 'Real_Estate' + '/' + top.name + '/'
@@ -201,6 +192,9 @@ class real_estate_top(models.Model):
     write_date = fields.Datetime('Last Write Date', readonly=True)
     name = fields.Char('Reference', size=64, select=True, readonly=True)
     address = fields.Char('Address', required=True)
+    user_id = fields.Many2one(
+        comodel_name='res.users', string='Agent',
+        default=lambda self: self.env.user)
     stair = fields.Char('Stair')
     number = fields.Char('Number', size=64, select=True)
     floor = fields.Char('Floor', size=64, select=True)
@@ -362,8 +356,4 @@ class real_estate_top(models.Model):
         for top in self:
             num_meetings = len(self.env['calendar.event'].search(
                 [('top_id', '=', top.id)]))
-            print num_meetings
             top.top_meetings = num_meetings
-
-
-    
