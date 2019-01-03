@@ -246,29 +246,29 @@ class real_estate_top(models.Model):
             if top.outside or top.office_outside:
                 value = '1'
             top.idealistacom_outside = value
-    
+
     @api.multi
     @api.onchange('idealista')
     def onchange_idealista(self):
-        idealista_tops = self.search([('idealista','=',True),
-                                    ('available','=',True)])
-        
-        user  = self.env.user
-        
+        idealista_tops = self.search([('idealista', '=', True),
+                                      ('available', '=', True)])
+
+        user = self.env.user
+
         if len(idealista_tops) >= user.company_id.idealista:
-            raise except_orm(_('Limite excedido!'),
-                _('Ha superado el limite de Idealista'))
-        
+            raise except_orm(
+                _('Limite excedido!'), _('Ha superado el limite de Idealista'))
+
         return True
 
     def json_operation(self, top):
         operationPrice = 0
         operationPriceToOwn = 0
-        if top.operation=='sale' or top.operation=='sale_rent':
+        if top.operation == 'sale' or top.operation == 'sale_rent':
             operationPrice = int(top.sale_price)
-        if top.operation=='rent':
+        if top.operation == 'rent':
             operationPrice = int(top.rent_price)
-        if top.operation=='rent_sale_option':
+        if top.operation == 'rent_sale_option':
             operationPrice = int(top.rent_price)
             operationPriceToOwn = int(top.sale_price)
         operation_dict = {
@@ -363,9 +363,7 @@ class real_estate_top(models.Model):
 
         features = {
             'featuresType': top.idealistacom_type or '',
-            'featuresAreaConstructed': str(top.cons_m2 or 0),
-            'featuresAreaUsable': str(top.m2 or 0),
-            'featuresAreaPlot': str(top.plot_m2 or 0),
+            'featuresAreaPlot': top.plot_m2 or 0,
             'featuresBathroomNumber': top.idealistacom_bathroom or 0,
             'featuresBedroomNumber': str(top.rooms or 0),
             'featuresConditionedAir': top.idealistacom_air or '',
@@ -385,49 +383,56 @@ class real_estate_top(models.Model):
             'featuresGarden': featuresGarden,
             'featuresPool': featuresPool,
             'featuresWindowsLocation': featuresWindowsLocation,
-            'featuresSmokeExtraction': featuresSmokeExtraction
+            'featuresSmokeExtraction': featuresSmokeExtraction,
+            'featuresBalcony': featuresBalcony
         }
 
-        if top.orientation=='all':
+        if top.idealistacom_type == 'land':
+            features['featuresAreaBuildable'] = top.cons_m2 or 0
+        else:
+            features['featuresAreaConstructed'] = top.cons_m2 or 0
+            features['featuresAreaUsable'] = top.m2 or 0
+
+        if top.orientation == 'all':
             features['featuresOrientationEast'] = True
             features['featuresOrientationNorth'] = True
             features['featuresOrientationSouth'] = True
             features['featuresOrientationWest'] = True
-        if top.orientation=='north':
+        if top.orientation == 'north':
             features['featuresOrientationNorth'] = True
-        if top.orientation=='northeast':
+        if top.orientation == 'northeast':
             features['featuresOrientationNorth'] = True
             features['featuresOrientationEast'] = True
-        if top.orientation=='east':
+        if top.orientation == 'east':
             features['featuresOrientationEast'] = True
-        if top.orientation=='southeast':
+        if top.orientation == 'southeast':
             features['featuresOrientationEast'] = True
             features['featuresOrientationSouth'] = True
-        if top.orientation=='south':
+        if top.orientation == 'south':
             features['featuresOrientationSouth'] = True
-        if top.orientation=='southwest':
+        if top.orientation == 'southwest':
             features['featuresOrientationSouth'] = True
             features['featuresOrientationWest'] = True
-        if top.orientation=='west':
+        if top.orientation == 'west':
             features['featuresOrientationWest'] = True
-        if top.orientation=='northwest':
+        if top.orientation == 'northwest':
             features['featuresOrientationWest'] = True
             features['featuresOrientationNorth'] = True
-            
-        if top.top_state == '3' :
+
+        if top.top_state == '3':
             features['featuresConservation'] = 'new'
         if top.top_state in ['1', '2', '5']:
             features['featuresConservation'] = 'good'
-        if top.top_state=='4':
-            features['featuresConservation'] = 'toRestore' 
+        if top.top_state == '4':
+            features['featuresConservation'] = 'toRestore'
 
         return features
 
     def json_descriptions(self, top):
         descriptions = []
         idealista_languages = [
-            "spanish","italian","portuguese","english","german","french",
-            "russian","chinese","catalan"]
+            "spanish", "italian", "portuguese", "english", "german", "french",
+            "russian", "chinese", "catalan"]
         languages = self.env['res.lang'].search([('active', '=', True)])
         for language in languages:
             lang_found = False
@@ -446,12 +451,12 @@ class real_estate_top(models.Model):
     def json_images(self, top):
         images = []
         company = self.env.user.company_id
-        if top.image_ids != False:
+        if not top.image_ids:
             for image in top.image_ids:
-                imageUrl = 'http://' 
-                imageUrl += company.domain 
+                imageUrl = 'http://'
+                imageUrl += company.domain
                 imageUrl += '/web/binary/saveas?model=base_multi_image.image'
-                imageUrl += '&field=file_db_store&filename_field=name&id=' 
+                imageUrl += '&field=file_db_store&filename_field=name&id='
                 imageUrl += str(image.id)
                 image_dict = {
                     'imageOrder': image.sequence,
@@ -463,9 +468,9 @@ class real_estate_top(models.Model):
     def json_properties(self):
         customerProperties = []
         company = self.env.user.company_id
-        for top in self.search([('idealista','=',True),
-                                ('available','=',True)]):
-            propertyUrl = "https://"+ company.domain + "/realestate/top/"
+        for top in self.search([('idealista', '=', True),
+                                ('available', '=', True)]):
+            propertyUrl = "https://" + company.domain + "/realestate/top/"
             propertyUrl += str(top.id)
             top_dict = {
                 'propertyCode': top.name[0:50] or '',
@@ -479,13 +484,13 @@ class real_estate_top(models.Model):
                 'propertyImages': self.json_images(top),
                 'propertyUrl': propertyUrl
             }
-            
+
             customerProperties.append(top_dict)
         return customerProperties
 
     def json_idealista(self):
         company = self.env.user.company_id
-        
+
         json_dict = {
             'customerCountry': company.country_id.name or '',
             'customerCode': company.idealista_code or '',
@@ -495,9 +500,9 @@ class real_estate_top(models.Model):
             'customerContact': self.json_contact(),
             'customerProperties': self.json_properties()
         }
-        
+
         json_text = json.dumps(json_dict)
-        
+
         if not company.idealista_ftp or not company.idealista_user or \
                 not company.idealista_pass:
             _logger.info('No Idealista FTP Info')
@@ -506,14 +511,14 @@ class real_estate_top(models.Model):
             ftp.login(company.idealista_user, company.idealista_pass)
             ftp_text = io.BytesIO(json_text)
             ftp.storbinary('STOR properties.json', ftp_text)
-        
+
         return json_text
 
     @api.multi
     def xml_idealista(self):
-        
+
         company = self.env.user.company_id
-        
+
         raiz = etree.Element('clients')
         cliente = etree.SubElement(raiz, 'client')
         aggregator = etree.SubElement(cliente, 'aggregator')
@@ -610,10 +615,14 @@ class real_estate_top(models.Model):
                     code2.text = str(image.sequence)
             features = etree.SubElement(property, 'features')
             features.attrib['type'] = top.idealistacom_type or ''
-            constructedArea = etree.SubElement(features, 'constructedArea')
-            constructedArea.text = str(top.cons_m2 or '')
-            usableArea = etree.SubElement(features, 'usableArea')
-            usableArea.text = str(top.m2 or '')
+            if top.idealistacom_type == 'land':
+                buildableArea = etree.SubElement(features, 'buildableArea')
+                buildableArea.text = str(top.cons_m2 or '')
+            else:
+                constructedArea = etree.SubElement(features, 'constructedArea')
+                constructedArea.text = str(top.cons_m2 or '')
+                usableArea = etree.SubElement(features, 'usableArea')
+                usableArea.text = str(top.m2 or '')
             plotArea = etree.SubElement(features, 'plotArea')
             plotArea.text = str(top.plot_m2 or '')
             bedrooms = etree.SubElement(features, 'bedrooms')
