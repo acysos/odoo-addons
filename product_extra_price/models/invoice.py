@@ -146,25 +146,19 @@ class AccountInvoice(models.Model):
                         invoice.with_context(ctx)).values():
                     account_invoice_tax.create(taxe)
 
+    @api.model
     def _refund_cleanup_lines(self, lines):
-        lines2 = []
-        for line in lines:
-            if 'extra_parent_line_id' in line and \
-                    'extra_child_line_id' in line:
-                if not line['extra_parent_line_id'] and not line[
-                        'extra_child_line_id']:
-                    lines2.append(line)
+        result = super(AccountInvoice, self)._refund_cleanup_lines(lines)
+        result2 = []
+        for line in result:
+            if 'extra_child_line_id' in line[2] and \
+                    'extra_parent_line_id' in line[2]:
+                if line[2]['extra_child_line_id']:
+                    line[2]['extra_child_line_id'] = False
+                    result2.append(line)
+                if not line[2]['extra_child_line_id'] and \
+                        not line[2]['extra_parent_line_id']:
+                    result2.append(line)
             else:
-                lines2.append(line)
-
-        for line in lines2:
-            del line['id']
-            del line['invoice_id']
-            for field in ('company_id', 'partner_id', 'account_id',
-                          'product_id', 'uos_id', 'account_analytic_id',
-                          'tax_code_id', 'base_code_id'):
-                line[field] = line.get(field, False) and line[field][0]
-            if 'invoice_line_tax_id' in line:
-                line['invoice_line_tax_id'] = [(6, 0, line.get(
-                    'invoice_line_tax_id', []))]
-        return map(lambda x: (0, 0, x), lines2)
+                result2.append(line)
+        return result2
