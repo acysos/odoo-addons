@@ -17,8 +17,7 @@ except (ImportError, IOError) as err:
     _logger.debug(err)
 
 try:
-    from odoo.addons.connector.queue.job import job
-    from odoo.addons.connector.session import ConnectorSession
+    from odoo.addons.queue_job.job import job
 except ImportError:
     _logger.debug('Can not `import connector`.')
     import functools
@@ -448,13 +447,10 @@ class PosOrder(models.Model):
                     order._send_simplified_to_sii()
                 else:
                     eta = company._get_sii_eta()
-                    session = ConnectorSession.from_env(self.env)
-                    new_delay = confirm_one_simplified.delay(
-                        session, 'pos.order', order.id, eta=eta)
-                    queue_ids = queue_obj.search([
-                        ('uuid', '=', new_delay)
-                    ], limit=1)
-                    order.simplified_jobs_ids |= queue_ids
+                    new_delay = order.sudo().with_context(company_id=company.id
+                                                          ).with_delay(eta=eta).confirm_one_simplified()
+                    job = queue_obj.search([('uuid', '=', new_delay.uuid)], limit=1)
+                    order.sudo().simplified_jobs_ids |= job
 
     @api.model
     def create_from_ui(self, orders):
@@ -507,28 +503,18 @@ class PosOrder(models.Model):
                     order._check_simplified()
                 else:
                     eta = company._get_sii_eta()
-                    session = ConnectorSession.from_env(self.env)
-                    new_delay = check_one_simplified.delay(
-                        session, 'pos.order', order.id, eta=eta)
-                    queue_ids = queue_obj.search([
-                        ('uuid', '=', new_delay)
-                    ], limit=1)
-                    order.simplified_jobs_ids |= queue_ids
+                    new_delay = order.sudo().with_context(company_id=company.id
+                                                          ).with_delay(eta=eta).check_one_simplified()
+                    job = queue_obj.search([('uuid', '=', new_delay.uuid)], limit=1)
+                    order.sudo().simplified_jobs_ids |= job
 
 
-@job(default_channel='root.simplified_validate_sii')
-def confirm_one_simplified(session, model_name, order_id):
-    model = session.env[model_name]
-    order = model.browse(order_id)
+    @job
+    @api.multi
+    def confirm_one_simplified(self):
+        self._send_simplified_to_sii()
 
-    order._send_simplified_to_sii()
-    session.cr.commit()
-
-
-@job(default_channel='root.invoice_check_sii')
-def check_one_simplified(session, model_name, order_id):
-    model = session.env[model_name]
-    order = model.browse(order_id)
-
-    order._check_simplified()
-    session.cr.commit()
+    @job
+    @api.multi
+    def check_one_simplified(self):
+        self._check_simplified()
