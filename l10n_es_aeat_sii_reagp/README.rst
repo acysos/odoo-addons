@@ -24,7 +24,6 @@ Para instalar esté módulo necesita:
 Módulos necesario:
 
 * l10n_es_aeat_sii: https://www.odoo.com/apps/modules/11.0/l10n_es_aeat_sii/
-* l10n_es_reagp: https://www.odoo.com/apps/modules/11.0/l10n_es_reagp/
 
 
 Usage
