@@ -8,7 +8,7 @@ import logging
 from datetime import datetime, date
 from requests import Session
 
-from odoo import _, api, fields, models
+from odoo import _, api, fields, exceptions, models
 from odoo.exceptions import UserError, RedirectWarning, ValidationError
 from odoo.modules.registry import Registry
 
