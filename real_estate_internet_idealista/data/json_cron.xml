@@ -18,6 +18,7 @@
             <field name="doall" eval="False"/>
             <field name="model" eval="'real.estate.top'"/>
             <field name="function" eval="'json_idealista'" />
+            <field name="args" eval="'(None, )'"/>
         </record>
     </data>
 </openerp>
