@@ -195,9 +195,9 @@ class AccountInvoice(models.Model):
              '|',
              ('date_to', '>=', fields.Date.today()),
              ('date_to', '=', False)], limit=1)
-        if not sii_map:
-            raise exceptions.Warning(_(
-                'SII Map not found. Check your configuration'))
+#        if not sii_map:
+#            raise exceptions.Warning(_(
+#                'SII Map not found. Check your configuration'))
         return sii_map
 
     @api.multi

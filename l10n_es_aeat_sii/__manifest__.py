@@ -21,7 +21,7 @@
     "depends": [
         "account_invoice_refund_link",
         "l10n_es_aeat",
-#         "account_chart_update",
+        "account_chart_update",
         "queue_job",
         "account_payment_partner",
     ],
