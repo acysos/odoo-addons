@@ -208,6 +208,7 @@
 											<label class="control-label" for="description">Your Question</label>
 											<textarea class="form-control" name="description" style="min-height: 120px"
 												required="True"></textarea><br/>
+											<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 											<button class="btn btn-primary btn-lg">Send</button> 
 								        </form>
 					                </div>
