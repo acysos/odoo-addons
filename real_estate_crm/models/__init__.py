@@ -5,3 +5,4 @@
 from . import crm_lead
 from . import crm_action
 from . import company
+from . import res_partner

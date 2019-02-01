@@ -7,7 +7,7 @@ var posEnd = 0;
 
 $(document).ready(function(){
     
-	//Si pinchas en una foto esta se sustituye arriba
+	//Click in photo to replace for above
 	
 	if(parseInt($(".js_numbers").find("span").html()) == 1){
 	$(".ip_mapleft .inferior_left img").on("click", function(){
@@ -19,14 +19,14 @@ $(document).ready(function(){
     
     });
 	
-	//Cuando pinchas en una foto la página sube
+	//When change a photo the page up
 	
     $('.ip_mapleft .inferior_left img').click(function(){
         $("html, .superior_left").animate({ scrollTop: 0 }, 600);
         return false;
     });
     
-    //Añade acción al botón siguiente para cambiar de foto
+    //Photo next button
     
 	$(".ip_mapleft .buttonnext  img").on("click", function(){
 	    	var parte1 = $(".image2").find("img").eq(0);
@@ -43,7 +43,7 @@ $(document).ready(function(){
 	    	}
 	    });
 	    
-	//Añade acción al botón anterior para cambiar de foto
+	//Photo back photo
 	
 	$(".ip_mapleft .buttonback  img").on("click", function(){
 			var parte1 = $(".image2").find("img").eq(0);
@@ -60,49 +60,63 @@ $(document).ready(function(){
 				parte1.attr("src", parte2.attr("src"));
 			}
 		});
+
+	//Hide all div except gallery
 	
-	//Oculta todos los divs menos el de la contactar
+	$(".gallery_panel").on("click", function(){
+    	
+    	$(".current").find("#contact").attr("class", "hidden");
+    	$(".current").find("#calculate").attr("class", "hidden");
+//    	$(".current").find("#maps").attr("class", "hidden");
+    	$(".current").find("#share").attr("class", "hidden");
+    	$(".current").find("#gallery").attr("class", "show");
+    });
+
+	//Hide all div except contact
 	
-	$(".inferior_right .req_panel span").on("click", function(){
+	$(".req_panel").on("click", function(){
     	
     	$(".current").find("#contact").attr("class", "show");
     	$(".current").find("#calculate").attr("class", "hidden");
-    	$(".current").find("#maps").attr("class", "hidden");
+//    	$(".current").find("#maps").attr("class", "hidden");
     	$(".current").find("#share").attr("class", "hidden");
+    	$(".current").find("#gallery").attr("class", "hidden");
     });
 	
-	//Oculta todos los divs menos el de la calculadora
+	//Hide all div except calculator
     
-	$(".inferior_right .calc_panel span").on("click", function(){
+	$(".calc_panel").on("click", function(){
 	    	
 		$(".current").find("#contact").attr("class", "hidden");
     	$(".current").find("#calculate").attr("class", "show");
-    	$(".current").find("#maps").attr("class", "hidden");
+//    	$(".current").find("#maps").attr("class", "hidden");
     	$(".current").find("#share").attr("class", "hidden");
+    	$(".current").find("#gallery").attr("class", "hidden");
 	});
 	
-	//Oculta todos los divs menos el del mapa
+	//Hide all div except map
 	
-	$(".inferior_right .map_panel span").on("click", function(){
+//	$(".map_panel").on("click", function(){
+//	    	
+//		$(".current").find("#contact").attr("class", "hidden");
+//    	$(".current").find("#calculate").attr("class", "hidden");
+//    	$(".current").find("#maps").attr("class", "show");
+//    	$(".current").find("#share").attr("class", "hidden");
+//    	$(".current").find("#gallery").attr("class", "hidden");
+//	});
+	
+	//Hide all div except share
+	
+	$(".share_panel").on("click", function(){
 	    	
 		$(".current").find("#contact").attr("class", "hidden");
     	$(".current").find("#calculate").attr("class", "hidden");
-    	$(".current").find("#maps").attr("class", "show");
-    	$(".current").find("#share").attr("class", "hidden");
-	});
-	
-	//Oculta todos los divs menos el de compartir
-	
-	$(".inferior_right .share_panel span").on("click", function(){
-	    	
-		$(".current").find("#contact").attr("class", "hidden");
-    	$(".current").find("#calculate").attr("class", "hidden");
-    	$(".current").find("#maps").attr("class", "hidden");
+//    	$(".current").find("#maps").attr("class", "hidden");
     	$(".current").find("#share").attr("class", "show");
+    	$(".current").find("#gallery").attr("class", "hidden");
 	});
 	
-	//Comprueba como le han llegado los números con decimales en la calculadora
-	//y los corrige si es necesario.
+	//Check if the calculartor number are float and fix them
 	
 	var precio;
 	
@@ -132,7 +146,7 @@ $(document).ready(function(){
 	
 	$(".current #calculate").find("input").eq(2).attr("value", interes.replace(/,/ , '.'));
     
-	//Realiza las operaciones de la calculadora de hipotecas.
+	//Calculator operations
 	
 	$(".current #calc").on("click", function(){
     	
@@ -178,7 +192,7 @@ $(document).ready(function(){
     	    	
     });
 	
-	//Para comprobar que un inmueble es nuevo o no *hay que probarlo cuando tenga el featured puesto
+	//Check if the top is new
 	
 	var max = $(".superior_left .new").find("span").eq(1).html();
 	var fecha = $(".superior_left .new").find("span").eq(0).html();
@@ -207,7 +221,7 @@ $(document).ready(function(){
 		$(".superior_left .new").find("img").attr("class", "show");
 	}
 	
-	//Galeria de imagenes deslizable para móviles
+	//Gallery slider for smartphones
 	
 	$('.image2').bind('touchstart',function(e){
 		var touch = e.originalEvent.touches[0];
@@ -260,7 +274,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	// Para colocar el cartel de color en el campo de eficiencia energética
+	//Energy efficiency color
 	
 	var letter = $(".energy_type").find("span").html();
 	
@@ -296,7 +310,7 @@ $(document).ready(function(){
 
 
 
-//a partir de aqui es el mapa individual
+// Maps
 $(window).load(function(){
     if(parseInt($(".js_numbers").find("span").html()) == 1){
     	
@@ -327,7 +341,7 @@ $(window).load(function(){
 			 lon = toPrecision(latit);
 			 $("#maps").find("a").attr("class", "show urltomaps");
 			 $("#maps").find("a").attr("href", " http://osm.org/go/" + makeShortCode(lat, lon, 15) + "==?m");
-			 $("#probandoo").find("div").attr("class", "hidden");
+			 $("#maps-div").find("div").attr("class", "hidden");
 		 }
 	     
 	     //coloca el banner pending en funcion del campo website_acta

@@ -6,12 +6,7 @@
 Real Estate CRM
 ===============
 
-This module extends CRM for Real Estates. Add properties data to lead.
-
-Installation
-============
-
-Depends real_estate_base: https://www.odoo.com/apps/modules/10.0/real_estate_base/
+This module extends CRM for Real Estates.
 
 Usage
 =====

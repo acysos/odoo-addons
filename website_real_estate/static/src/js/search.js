@@ -1,37 +1,147 @@
 $(document).ready(function(){
 	if(parseInt($(".js_numbers").find("span").html()) == 2){
-		
-		//Añade campos al buscador en funcion de la opción seleccionada
-		
+
+		//Add fields to search depending of the option selected
 		$("select").change(function(){
 		    if (($(this).children(":selected").val() == "sale") || ($(this).children(":selected").val() == "transfer")){
-	    		$(".attributes_searchbar").find("div").eq(4).attr("class", "show salepricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(5).attr("class", "show salepriceto col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "hidden rentpricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(7).attr("class", "hidden rentpriceto col-md-2");
+	    		$(".attributes_searchbar .salepricefrom").attr("class", "show salepricefrom col-md-2");
+	    		$(".attributes_searchbar .salepriceto").attr("class", "show salepriceto col-md-2");
+	    		$(".attributes_searchbar .rentpricefrom").attr("class", "hidden rentpricefrom col-md-2");
+	    		$(".attributes_searchbar .rentpriceto").attr("class", "hidden rentpriceto col-md-2");
+	    		$(".search-advanced .salepricefrom").attr("class", "show salepricefrom");
+	    		$(".search-advanced .salepriceto").attr("class", "show salepriceto");
+	    		$(".search-advanced .rentpricefrom").attr("class", "hidden rentpricefrom");
+	    		$(".search-advanced .rentpriceto").attr("class", "hidden rentpriceto");
+	    		document.getElementById("rpf").value = 'Rent price from';
+	    		document.getElementById("adv_rpf").value = 'Rent price from';
+	    		document.getElementById("rpt").value = 'Rent price to';
+	    		document.getElementById("adv_rpt").value = 'Rent price to';
 	    	}
 	    	else if ($(this).children(":selected").val() == "rent"){
-	    		$(".attributes_searchbar").find("div").eq(4).attr("class", "hidden salepricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(5).attr("class", "hidden salepriceto col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "show rentpricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(7).attr("class", "show rentpriceto col-md-2");
+	    		$(".attributes_searchbar .salepricefrom").attr("class", "hidden salepricefrom col-md-2");
+	    		$(".attributes_searchbar .salepriceto").attr("class", "hidden salepriceto col-md-2");
+	    		$(".attributes_searchbar .rentpricefrom").attr("class", "show rentpricefrom col-md-2");
+	    		$(".attributes_searchbar .rentpriceto").attr("class", "show rentpriceto col-md-2");
+	    		$(".search-advanced .salepricefrom").attr("class", "hidden salepricefrom");
+	    		$(".search-advanced .salepriceto").attr("class", "hidden salepriceto");
+	    		$(".search-advanced .rentpricefrom").attr("class", "show rentpricefrom");
+	    		$(".search-advanced .rentpriceto").attr("class", "show rentpriceto");
+	    		document.getElementById("spf").value = 'Sale price from';
+	    		document.getElementById("adv_spf").value = 'Sale price from';
+	    		document.getElementById("spt").value = 'Sale price to';
+	    		document.getElementById("adv_spt").value = 'Sale price to';
 	    	}
 	    	else if (($(this).children(":selected").val() == "sale_rent") || ($(this).children(":selected").val() == "rent_sale_option")){
-	    		$(".attributes_searchbar").find("div").eq(4).attr("class", "show salepricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(5).attr("class", "show salepriceto col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "show rentpricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(7).attr("class", "show rentpriceto col-md-2");
+	    		$(".attributes_searchbar .salepricefrom").attr("class", "show salepricefrom col-md-2");
+	    		$(".attributes_searchbar .salepriceto").attr("class", "show salepriceto col-md-2");
+	    		$(".attributes_searchbar .rentpricefrom").attr("class", "show rentpricefrom col-md-2");
+	    		$(".attributes_searchbar .rentpriceto").attr("class", "show rentpriceto col-md-2");
+	    		$(".search-advanced .salepricefrom").attr("class", "show salepricefrom");
+	    		$(".search-advanced .salepriceto").attr("class", "show salepriceto");
+	    		$(".search-advanced .rentpricefrom").attr("class", "show rentpricefrom");
+	    		$(".search-advanced .rentpriceto").attr("class", "show rentpriceto");
 	    	}
 	    	else if ($(this).children(":selected").val() == "operation"){
-	    		$(".attributes_searchbar").find("div").eq(4).attr("class", "hidden salepricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(5).attr("class", "hidden salepriceto col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(6).attr("class", "hidden rentpricefrom col-md-2");
-	    		$(".attributes_searchbar").find("div").eq(7).attr("class", "hidden rentpriceto col-md-2");
+	    		$(".attributes_searchbar .salepricefrom").attr("class", "hidden salepricefrom col-md-2");
+	    		$(".attributes_searchbar .salepriceto").attr("class", "hidden salepriceto col-md-2");
+	    		$(".attributes_searchbar .rentpricefrom").attr("class", "hidden rentpricefrom col-md-2");
+	    		$(".attributes_searchbar .rentpriceto").attr("class", "hidden rentpriceto col-md-2");
+	    		$(".search-advanced .salepricefrom").attr("class", "hidden salepricefrom");
+	    		$(".search-advanced .salepriceto").attr("class", "hidden salepriceto");
+	    		$(".search-advanced .rentpricefrom").attr("class", "hidden rentpricefrom");
+	    		$(".search-advanced .rentpriceto").attr("class", "hidden rentpriceto");
+	    		document.getElementById("spf").value = 'Sale price from';
+	    		document.getElementById("adv_spf").value = 'Sale price from';
+	    		document.getElementById("spt").value = 'Sale price to';
+	    		document.getElementById("adv_spt").value = 'Sale price to';
+	    		document.getElementById("rpf").value = 'Rent price from';
+	    		document.getElementById("adv_rpf").value = 'Rent price from';
+	    		document.getElementById("rpt").value = 'Rent price to';
+	    		document.getElementById("adv_rpt").value = 'Rent price to';
 	    	}
 		    
+			if (($(this).children(":selected").val() == "flat") || ($(this).children(":selected").val() == "chalet") || ($(this).children(":selected").val() == "house")){
+				$(".search-advanced .rooms").attr("class", "show rooms");
+			} else {
+				var selected = document.getElementById("categories").value;
+				if (selected == 'flat' || selected == 'chalet' || selected == 'house') {
+					$(".search-advanced .rooms").attr("class", "show rooms");
+				} else {
+					$(".search-advanced .rooms").attr("class", "hidden rooms");
+				}
+
+				document.getElementById("default-bed").checked = 'checked';
+				document.getElementById("default-bath").checked = 'checked';
+			}
+			
+			if (($(this).children(":selected").val() == "unlimited") || 
+					($(this).children(":selected").val() == "flat") || 
+					($(this).children(":selected").val() == "shop") ||
+					($(this).children(":selected").val() == "premise") ||
+					($(this).children(":selected").val() == "chalet") ||
+					($(this).children(":selected").val() == "house") ||
+					($(this).children(":selected").val() == "office") ||
+					($(this).children(":selected").val() == "premise-office") ||
+					($(this).children(":selected").val() == "industrial_unit") ||
+					($(this).children(":selected").val() == "hotel_industry") ||
+					($(this).children(":selected").val() == "parking") ||
+					($(this).children(":selected").val() == "box_room") ||
+					($(this).children(":selected").val() == "land"))
+			{
+				$(".search-advanced .flat-top-type").attr("class", "hidden flat-top-type");
+				$(".search-advanced .shop-top-type").attr("class", "hidden shop-top-type");
+				$(".search-advanced .premise-top-type").attr("class", "hidden premise-top-type");
+				$(".search-advanced .chalet-top-type").attr("class", "hidden chalet-top-type");
+				$(".search-advanced .house-top-type").attr("class", "hidden house-top-type");
+				$(".search-advanced .office-top-type").attr("class", "hidden office-top-type");
+				$(".search-advanced .premise-office-top-type").attr("class", "hidden premise-office-top-type");
+				$(".search-advanced .industrial_unit-top-type").attr("class", "hidden industrial_unit-top-type");
+				$(".search-advanced .hotel_industry-top-type").attr("class", "hidden hotel_industry-top-type");
+				$(".search-advanced .parking-top-type").attr("class", "hidden parking-top-type");
+				$(".search-advanced .box_room-top-type").attr("class", "hidden box_room-top-type");
+				$(".search-advanced .land-top-type").attr("class", "hidden land-top-type");
+				if (($(this).children(":selected").val() == "flat")) {
+					$(".search-advanced .flat-top-type").attr("class", "show flat-top-type");
+				}
+				if (($(this).children(":selected").val() == "shop")) {
+					$(".search-advanced .shop-top-type").attr("class", "show shop-top-type");
+				}
+				if (($(this).children(":selected").val() == "premise")) {
+					$(".search-advanced .premise-top-type").attr("class", "show premise-top-type");
+				}
+				if (($(this).children(":selected").val() == "chalet")) {
+					$(".search-advanced .chalet-top-type").attr("class", "show chalet-top-type");
+				}
+				if (($(this).children(":selected").val() == "house")) {
+					$(".search-advanced .house-top-type").attr("class", "show house-top-type");
+				}
+				if (($(this).children(":selected").val() == "office")) {
+					$(".search-advanced .office-top-type").attr("class", "show office-top-type");
+				}
+				if (($(this).children(":selected").val() == "premise-office")) {
+					$(".search-advanced .premise-office-top-type").attr("class", "show premise-office-top-type");
+				}
+				if (($(this).children(":selected").val() == "industrial_unit")) {
+					$(".search-advanced .industrial_unit-top-type").attr("class", "show industrial_unit-top-type");
+				}
+				if (($(this).children(":selected").val() == "hotel_industry")) {
+					$(".search-advanced .hotel_industry-top-type").attr("class", "show hotel_industry-top-type");
+				}
+				if (($(this).children(":selected").val() == "parking")) {
+					$(".search-advanced .parking-top-type").attr("class", "show parking-top-type");
+				}
+				if (($(this).children(":selected").val() == "box_room")) {
+					$(".search-advanced .box_room-top-type").attr("class", "show box_room-top-type");
+				}
+				if (($(this).children(":selected").val() == "land")) {
+					$(".search-advanced .land-top-type").attr("class", "show land-top-type");
+				}
+				document.getElementById("default-subtype").checked = 'checked';
+			}
+			
 		});
 
-		//oculta el mapa en pantallas pequeñas y el buscador lo encoge en un botón.
+		//Hide the map in small screens and make responsive the search
 		
 		if ($(window).width() < 768){
 			$(".ocultbutton").attr("class", "show ocultbutton");
@@ -39,22 +149,62 @@ $(document).ready(function(){
 			$("#occultlistmap").find("div").attr("class", "hidden");
 		}
 		
-		$("#pruebaclick").on("click", function(){
+		$("#searchclick").on("click", function(){
 	    	
 			$(".ocultbutton").attr("class", "hidden ocultbutton");
 			$(".attributes_searchbar").attr("class", "attributes_searchbar row show");
 			
 	    });
 		
+		$("#spf").on('change', function() {
+			document.getElementById("adv_spf").value = this.value;
+		});
+		$("#adv_spf").on('change', function() {
+			document.getElementById("spf").value = this.value;
+		});
+
+		$("#spt").on('change', function() {
+			document.getElementById("adv_spt").value = this.value;
+		});
+		$("#adv_spt").on('change', function() {
+			document.getElementById("spt").value = this.value;
+		});
+
+		$("#rpf").on('change', function() {
+			document.getElementById("adv_rpf").value = this.value;
+		});
+		$("#adv_rpf").on('change', function() {
+			document.getElementById("rpf").value = this.value;
+		});
 		
-		
-		}
+		$("#rpt").on('change', function() {
+			document.getElementById("adv_rpt").value = this.value;
+		});
+		$("#adv_rpt").on('change', function() {
+			document.getElementById("rpt").value = this.value;
+		});
+
+		$("#af").on('change', function() {
+			document.getElementById("adv_af").value = this.value;
+		});
+		$("#adv_af").on('change', function() {
+			document.getElementById("af").value = this.value;
+		});
+
+		$("#at").on('change', function() {
+			document.getElementById("adv_at").value = this.value;
+		});
+		$("#adv_at").on('change', function() {
+			document.getElementById("at").value = this.value;
+		});
+
+	}
 });
 
 
 $(window).load(function() {
 	if(parseInt($(".js_numbers").find("span").html()) == 2){
-		//Muestra el banner pending
+		//Show banner pending
 		
 		var n = $( ".pending" ).length;
 		
@@ -70,7 +220,7 @@ $(window).load(function() {
 
 
 
-//a partir de aqui es el mapa general
+//Map
 $(window).load(function(){
      if(parseInt($(".js_numbers").find("span").html()) == 2){
     	 
@@ -84,7 +234,6 @@ $(window).load(function(){
      	 while (topidsfromview.indexOf("'") != -1)
      		topidsfromview = topidsfromview.replace("'" , "");
          var topids = topidsfromview.split(', ')
-         
           
          var totaltops = topids.length / 8;
          var markers2 = [];

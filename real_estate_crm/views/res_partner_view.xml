@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+
+        <record id="act_res_partner_2_crm_action" model="ir.actions.act_window">
+            <field name="name">CRM Actions</field>
+            <field name="res_model">crm.action</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_partner_id': active_id}</field>
+            <field name="groups_id" eval="[(4, ref('real_estate_base.group_real_estate_user'))]"/>
+        </record>
+
+        <record id="res_partner_top_view_buttons" model="ir.ui.view">
+            <field name="name">res.partner.top.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="20"/>
+            <field name="groups_id" eval="[(4, ref('real_estate_base.group_real_estate_user'))]"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="action" name="%(real_estate_crm.act_res_partner_2_crm_action)d" 
+                        icon="fa-home">
+						<field string="Actions" name="crm_action_count" widget="statinfo"/>
+                    </button>     
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

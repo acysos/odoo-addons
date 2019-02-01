@@ -9,7 +9,9 @@
     'summary': 'Manage sale order of estates',
     'author': 'Acysos S.L',
     'website': 'http://www.acysos.com',
-    'depends': ['sale', 'sale_start_end_dates', 'sale_stock', 'sales_team'],
+    'depends': [
+        'sale', 'sale_start_end_dates', 'sale_stock',
+        'sales_team', 'sale_rental'],
     'data': [
         'views/sale_order_real_estate.xml',
     ],

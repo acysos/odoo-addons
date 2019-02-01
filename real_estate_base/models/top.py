@@ -232,6 +232,7 @@ class real_estate_top(models.Model):
                   ('rent', 'Rent'),
                   ('sale_rent', 'Sale & Rent'),
                   ('rent_sale_option', 'Rent with sale option'),
+                  ('new_development', 'New development'),
                   ('transfer', 'Transfer'),
                   ('valuation', 'Valuation')]
 

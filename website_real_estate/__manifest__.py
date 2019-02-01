@@ -39,6 +39,7 @@
         'views/featured_tops.xml',
         'views/top_view.xml',
         'views/tops_template.xml',
+        'views/search_advanced.xml',
         'views/search_list.xml',
         'views/search_map.xml',
         'views/assets.xml',

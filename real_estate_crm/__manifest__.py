@@ -34,6 +34,7 @@
     "data": ['security/ir.model.access.csv',
              'views/crm_lead_view.xml',
              'views/crm_action_view.xml',
+             'views/res_partner_view.xml',
              'views/company_view.xml',
              'data/crm_lead_data.xml'],
     "active": False,

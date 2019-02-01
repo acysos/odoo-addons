@@ -35,10 +35,40 @@ class real_estate_top(models.Model):
             ('4','Para Reformar'),
             ('5','Reformado'),
              ]
+    
+    @api.multi
+    def _get_googlemap_url(self):
+        for top in self:
+            if top.latitude and top.longitude:
+                url = 'http://maps.google.com/maps?q='
+                url += top.latitude
+                url += ','
+                url += top.longitude
+                url += '&ll='
+                url += top.latitude
+                url += ','
+                url += top.longitude
+                url += '&z=17'
+                top.google_maps_url = url
+
+    @api.multi
+    def _get_openstreetmap_url(self):
+        for top in self:
+            if top.latitude and top.longitude:
+                url = 'http://www.openstreetmap.org/?mlat='
+                url += top.latitude
+                url += '&mlon='
+                url += top.longitude
+                url += '&zoom=17'
+                top.openstreetmap_url = url
 
     door = fields.Char(string='Puerta')
     latitude = fields.Char('Latitud')
     longitude = fields.Char('Longitud')
     top_state = fields.Selection(TOP_STATE,
                                  'Estado de conservación', select=True)
+    google_maps_url = fields.Char(
+        string='Google Maps URL', compute=_get_googlemap_url)
+    openstreetmap_url = fields.Char(
+        string='Openstreemap URL', compute=_get_openstreetmap_url)
     

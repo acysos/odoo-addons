@@ -26,6 +26,8 @@
                         <group>
                         	<field name="latitude" />
                         	<field name="longitude" />
+                        	<field name="google_maps_url" widget="url"/>
+                        	<field name="openstreetmap_url" widget="url"/>
                         	<field name="top_state" />
                         	<field name="door" />
                         </group>

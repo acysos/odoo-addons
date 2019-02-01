@@ -1,5 +1,5 @@
 
-//estilos para la página featured
+//featured styles
 
 .top_featured{
 	height:450px;
@@ -47,7 +47,11 @@ div.tops_image .img {
 
 
 
-//estilos generales
+// general styles
+
+.mainTop {
+	padding-top: 10px;
+}
 
 .offer{
 	top:30px;
@@ -85,18 +89,18 @@ div.tops_image .img {
 }
 
 .buttonnext {
-    padding-top: 150px;
-    position: absolute;
-    z-index: 100;
-}
-
-.buttonback {
-    padding-top: 150px;
+    padding-top: 200px;
     position: absolute;
     z-index: 120;
 }
 
-//estilos para el template del inmueble
+.buttonback {
+    padding-top: 200px;
+    position: absolute;
+    z-index: 120;
+}
+
+// top styles
 
 .superior_left.row {
     padding-left: 11px;
@@ -107,18 +111,18 @@ div.tops_image .img {
 	top:310px;
 }
 
-.image2{
-	height:350px;
-	overflow: hidden;
-}
+//.image2{
+//	height:350px;
+//	overflow: hidden;
+//}
 
 div.image2 .img {
-   position: absolute;
-   left: 50%;
-   top: 50%;
-   -webkit-transform: translateY(-50%) translateX(-50%);
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   -webkit-transform: translateY(-50%) translateX(-50%);
    width:100%;
-   height: 350px;
+//   height: 350px;
 }
 
 .inferior_left.row{
@@ -152,7 +156,7 @@ div.image1 .img {
 	padding:0px;
 }
 
-.inferior_right #mapPane{
+#mapPane{
 	padding-left : 0;
 	padding-right : 0;
 }
@@ -161,10 +165,27 @@ div.image1 .img {
 	text-align:right;
 }
 
-.calc_panel, .share_panel{
-	text-align:right;
+div.top-buttons {
+	margin: 12px;
+}
+.div-button {
+	display: block;
+	cursor: pointer; 
+	background-color: #CCCCCC;
+	margin: 2px;
 }
 
+.property-detail {
+	border-bottom: 1px solid rgb(112, 111, 111);
+}
+
+#internet-description {
+	margin: 12px;
+}
+
+#origsaleprice, #origrentprice {
+	text-decoration:line-through;
+}
 
 #calculate form label {
     display: inline-block;
@@ -202,12 +223,37 @@ textarea {
     resize: none;
 }
 
+/* Tabs */
+div#mapPane {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin: 0px;
+}
+
+div#mapPane div.tabs {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 7px 8px;
+    transition: 0.3s;
+    display:block;
+}
+
+div#mapPane div.tabs:hover {
+    background-color: #ddd;
+}
+
+div.inferior_right div.current {
+	margin-top: 10px;
+}
 
 
 
 
-
-//estilos para el buscador
+// search styles
 
 .titles_searchbar{
 	padding-left : 0px;
@@ -232,8 +278,10 @@ textarea {
 	padding-right: 0px;
 }
 
-.areafrom, .areato, .salepricefrom, .salepriceto, .rentpricefrom, .rentpriceto,
-.reference{
+.attributes_searchbar .attributes_searchbar .areafrom,
+.attributes_searchbar .areato, .attributes_searchbar .salepricefrom,
+.attributes_searchbar .salepriceto, .attributes_searchbar .rentpricefrom, 
+.attributes_searchbar .rentpriceto, .attributes_searchbar .reference{
 	padding-right:0px;
 }
 
@@ -270,7 +318,7 @@ textarea {
 
 
 
-//estilos para las lista de inmuebles buscados
+// list search styles
 
 .selector_view{
 	margin-top:40px;
@@ -311,7 +359,13 @@ div.imageP .img {
 
 
 
-//estilos para el mapa
+// map styles
+
+div#map {
+	height: 400px;
+	width: auto;
+	overflow: hidden;
+}
 
 .leaflet-popup-content{
 	width:250px;
@@ -811,60 +865,71 @@ div.imageP .img {
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) { 
-    
+	.buttonback {
+    	margin-left: 2%;
+	}
 	.buttonnext {
-    	margin-left: 89%;
+    	margin-left: 92%;
 	}
 }
 
 
 @media screen and (min-width: 1200px) and (max-width: 1250px) {
-    
+	.buttonback {
+    	margin-left: 2%;
+	}
     .buttonnext {
-    	margin-left: 89%;
+    	margin-left: 92%;
 	}
 	
 }
 
 
 @media screen and (min-width: 1251px) and (max-width: 1300px) {
-    
+	.buttonback {
+    	margin-left: 2%;
+	}
     .buttonnext {
-    	margin-left: 89%;
+    	margin-left: 92%;
 	}
 	
 	
 }
 
 @media screen and (min-width: 1301px) and (max-width: 1350px) {
-    
+	.buttonback {
+    	margin-left: 2%;
+	}
     .buttonnext {
-    	margin-left: 89%;
+    	margin-left: 92%;
 	}
 	
 	
 }
 
 @media screen and (min-width: 1351px) and (max-width: 1400px) {
-    
+	.buttonback {
+    	margin-left: 2%;
+	}
     .buttonnext {
-    	margin-left: 89%;
+    	margin-left: 92%;
 	}
 	
 	
 }
 
 @media screen and (min-width: 1401px) and (max-width: 1450px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
 	}
-	
+    .buttonnext {
+    	margin-left: 92%;
+	}
 	
 }
 
 @media screen and (min-width: 1451px) and (max-width: 1500px) {
-    
+ 
     .buttonnext {
     	margin-left: 89%;
 	}
@@ -873,71 +938,86 @@ div.imageP .img {
 }
 
 @media screen and (min-width: 1501px) and (max-width: 1550px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
+	}
+    .buttonnext {
+    	margin-left: 92%;
 	}
 	
 	
 }
 
 @media screen and (min-width: 1551px) and (max-width: 1600px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
+	}
+    .buttonnext {
+    	margin-left: 92%;
 	}
 	
 	
 }
 @media screen and (min-width: 1601px) and (max-width: 1650px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
+	}
+    .buttonnext {
+    	margin-left: 92%;
 	}
 	
 	
 }
 
 @media screen and (min-width: 1651px) and (max-width: 1700px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
+	}
+    .buttonnext {
+    	margin-left: 92%;
 	}
 	
 	
 }
 
 @media screen and (min-width: 1701px) and (max-width: 1750px) {
-   
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
 	}
-	
+    .buttonnext {
+    	margin-left: 92%;
+	}
 	
 }
 
 @media screen and (min-width: 1751px) and (max-width: 1800px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
+	}
+    .buttonnext {
+    	margin-left: 92%;
 	}
 	
 }
 
 
 @media screen and (min-width: 1801px) and (max-width: 1850px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
+	}
+    .buttonnext {
+    	margin-left: 92%;
 	}
 	
 	
 }
 
 @media screen and (min-width: 1851px) and (max-width: 1920px) {
-    
-	.buttonnext {
-    	margin-left: 89%;
+	.buttonback {
+    	margin-left: 2%;
+	}
+    .buttonnext {
+    	margin-left: 92%;
 	}
 	
 }

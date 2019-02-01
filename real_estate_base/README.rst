@@ -8,16 +8,6 @@ Real Estate Base
 
 This module extends Odoo with the base functionality for Real Estate:
 
-- Manage properties
-- Manage buyers, sellers and rentals
-
-
-Installation
-============
-
-Depends base_location: https://www.odoo.com/apps/modules/10.0/base_location/
-
-
 Usage
 =====
 

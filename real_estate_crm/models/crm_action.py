@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 # @authors: Ignacio Ibeas <ignacio@acysos.com>
-#           Daniel Pascal <daniel@acysos.com>
-# Copyright (C) 2015  Acysos S.L.
+# Copyright (C) 2018  Acysos S.L.
 
 from odoo import api, fields, models, _
 

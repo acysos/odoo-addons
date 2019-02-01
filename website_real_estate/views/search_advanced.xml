@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+		<template id="search_advanced">
+			<div class="col-md-3 search-advanced">
+				<div class="show salepricefrom" t-if="operation_sel in ['sale', 'sale_rent', 'rent_sale_option', 'transfer']">
+					<span id="adv-search-title">Sale price</span><br/>
+					<input form="topSearch" id="adv_spf" type="text" class="text-button" name="salepricefrom" t-att-value="salepricefrom_def" t-if="salepricefrom_def != 0"/>
+					<input form="topSearch" id="adv_spf" type="text" class="text-button" name="salepricefrom" placeholder="Sale price from" t-if="salepricefrom_def == 0"/>
+				</div>
+				<div class="hidden salepricefrom" t-else="">
+					<span id="adv-search-title">Sale price</span><br/>
+					<input form="topSearch" id="adv_spf" type="text" class="text-button" name="salepricefrom" t-att-value="salepricefrom_def" t-if="salepricefrom_def != 0"/>
+					<input form="topSearch" id="adv_spf" type="text" class="text-button" name="salepricefrom" placeholder="Sale price from" t-if="salepricefrom_def == 0"/>
+				</div>
+
+				<div class="show salepriceto" t-if="operation_sel in ['sale', 'sale_rent', 'rent_sale_option', 'transfer']">
+					<input form="topSearch" id="adv_spt" type="text" class="text-button" name="salepriceto" t-att-value="salepriceto_def" t-if="salepriceto_def != 0"/>
+					<input form="topSearch" id="adv_spt" type="text" class="text-button" name="salepriceto" placeholder="Sale price to" t-if="salepriceto_def == 0"/>
+				</div>
+				<div class="hidden salepriceto" t-else="">
+					<input form="topSearch" id="adv_spt" type="text" class="text-button" name="salepriceto" t-att-value="salepriceto_def" t-if="salepriceto_def != 0"/>
+					<input form="topSearch" id="adv_spt" type="text" class="text-button" name="salepriceto" placeholder="Sale price to" t-if="salepriceto_def == 0"/>
+				</div>
+
+				<div class="show rentpricefrom" t-if="operation_sel in ['rent', 'sale_rent', 'rent_sale_option']">
+					<span id="adv-search-title">Rent price</span><br/>
+					<input form="topSearch" id="adv_rpf" type="text" class="text-button" name="rentpricefrom" t-att-value="rentpricefrom_def" t-if="rentpricefrom_def != 0"/>
+					<input form="topSearch" id="adv_rpf" type="text" class="text-button" name="rentpricefrom" placeholder="Rent price from" t-if="rentpricefrom_def == 0"/>
+				</div>
+				<div class="hidden rentpricefrom" t-else="">
+					<span id="adv-search-title">Rent price</span><br/>
+					<input form="topSearch" id="adv_rpf" type="text" class="text-button" name="rentpricefrom" t-att-value="rentpricefrom_def" t-if="rentpricefrom_def != 0"/>
+					<input form="topSearch" id="adv_rpf" type="text" class="text-button" name="rentpricefrom" placeholder="Rent price from" t-if="rentpricefrom_def == 0"/>
+				</div>
+
+				<div class="show rentpriceto" t-if="operation_sel in ['rent', 'sale_rent', 'rent_sale_option']">
+					<input form="topSearch" id="adv_rpt" type="text" class="text-button" name="rentpriceto" t-att-value="rentpriceto_def" t-if="rentpriceto_def != 0"/>
+					<input form="topSearch" id="adv_rpt" type="text" class="text-button" name="rentpriceto" placeholder="Rent price to" t-if="rentpriceto_def == 0"/>
+				</div>
+				<div class="hidden rentpriceto" t-else="">
+					<input form="topSearch" id="adv_rpt" type="text" name="rentpriceto" t-att-value="rentpriceto_def" t-if="rentpriceto_def != 0"/>
+					<input form="topSearch" id="adv_rpt" type="text" name="rentpriceto" placeholder="Rent price to" t-if="rentpriceto_def == 0"/>
+				</div>
+
+				<div class="area">
+					<span id="adv-search-title">Build m<sup>2</sup></span>
+					<div class="areafrom">
+						<input form="topSearch" id="adv_af" type="text" class="text-button" name="areafrom" t-att-value="areafrom_def" t-if="areafrom_def != 0"/>
+						<input form="topSearch" id="adv_af" type="text" class="text-button" name="areafrom" placeholder="Area from" t-if="areafrom_def == 0"/>
+					</div>
+					<div class="areato">
+						<input form="topSearch" id="adv_at" type="text" class="text-button" name="areato" t-att-value="areato_def" t-if="areato_def != 0"/>
+						<input form="topSearch" id="adv_at" type="text" class="text-button" name="areato" placeholder="Area to" t-if="areato_def == 0"/>
+					</div>
+				</div>
+
+				<div class="show rooms" t-if="category_sel in ['flat', 'chalet', 'house']">
+					<div class="bedrooms">
+						<span id="adv-search-title">Bedrooms</span><br/>
+						1 <input form="topSearch" type="radio" class="radio-button" name="bed" value="1" t-if="bed != '1'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bed" value="1" checked="checked" t-if="bed == '1'"/>
+						2 <input form="topSearch" type="radio" class="radio-button" name="bed" value="2" t-if="bed != '2'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bed" value="2" checked="checked" t-if="bed == '2'"/>
+						3+ <input form="topSearch" type="radio" class="radio-button" name="bed" value="3" t-if="bed != '3'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bed" value="3" checked="checked" t-if="bed == '3'"/>
+						<input form="topSearch" type="radio" class="hidden" id="default-bed" name="bed" value="0" t-if="bed != '0'"/>
+						<input form="topSearch" type="radio" class="hidden" id="default-bed" name="bed" value="0" checked="checked" t-if="bed == '0'"/>
+					</div>
+					<div class="bathrooms">
+						<span id="adv-search-title">Bathrooms</span><br/>
+						1 <input form="topSearch" type="radio" class="radio-button" name="bath" value="1" t-if="bath != '1'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bath" value="1" checked="checked" t-if="bath == '1'"/>
+						2 <input form="topSearch" type="radio" class="radio-button" name="bath" value="2" t-if="bath != '2'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bath" value="2" checked="checked" t-if="bath == '2'"/>
+						3+ <input form="topSearch" type="radio" class="radio-button" name="bath" value="3" t-if="bath != '3'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bath" value="3" checked="checked" t-if="bath == '3'"/>
+						<input form="topSearch" type="radio" class="hidden radio-button" id="default-bath" name="bath" value="0" t-if="bath != '0'"/>
+						<input form="topSearch" type="radio" class="hidden radio-button" id="default-bath" name="bath" value="0" checked="checked" t-if="bath == '0'"/>
+					</div>
+				</div>
+				<div class="hidden rooms" t-else="">
+					<div class="bedrooms">
+						<span id="adv-search-title">Bedrooms</span><br/> 
+						1 <input form="topSearch" type="radio" class="radio-button" name="bed" value="1" t-if="bed != '1'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bed" value="1" checked="checked" t-if="bed == '1'"/>
+						2 <input form="topSearch" type="radio" class="radio-button" name="bed" value="2" t-if="bed != '2'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bed" value="2" checked="checked" t-if="bed == '2'"/>
+						3+ <input form="topSearch" type="radio" class="radio-button" name="bed" value="3" t-if="bed != '3'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bed" value="3" checked="checked" t-if="bed == '3'"/>
+						<input form="topSearch" type="radio" class="hidden radio-button" id="default-bed" name="bed" value="0" t-if="bed != '0'"/>
+						<input form="topSearch" type="radio" class="hidden radio-button" id="default-bed" name="bed" value="0" checked="checked" t-if="bed == '0'"/>
+					</div>
+					<div class="bathrooms">
+						<span id="adv-search-title">Bathrooms</span><br/>
+						1 <input form="topSearch" type="radio" class="radio-button" name="bath" value="1" t-if="bath != '1'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bath" value="1" checked="checked" t-if="bath == '1'"/>
+						2 <input form="topSearch" type="radio" class="radio-button" name="bath" value="2" t-if="bath != '2'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bath" value="2" checked="checked" t-if="bath == '2'"/>
+						3+ <input form="topSearch" type="radio" class="radio-button" name="bath" value="3" t-if="bath != '3'"/>
+						<input form="topSearch" type="radio" class="radio-button" name="bath" value="3" checked="checked" t-if="bath == '3'"/>
+						<input form="topSearch" type="radio" class="hidden" name="bath" id="default-bath" value="0" t-if="bath != '0'"/>
+						<input form="topSearch" type="radio" class="hidden" name="bath" id="default-bath" value="0" checked="checked" t-if="bath == '0'"/>
+					</div>
+				</div>
+
+				<div class="show flat-top-type" t-if="category_sel in ['flat']">
+					----<span t-esc="subtype_sel"/>----
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'flat'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/>
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden flat-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'flat'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show shop-top-type" t-if="category_sel in ['shop']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'shop'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden shop-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'shop'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show premise-top-type" t-if="category_sel in ['premise']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'premise'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden premise-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'premise'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show chalet-top-type" t-if="category_sel in ['chalet']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'chalet'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden chalet-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'chalet'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show house-top-type" t-if="category_sel in ['house']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'house'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden house-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'house'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show office-top-type" t-if="category_sel in ['office']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'office'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden office-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'office'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show premise-office-top-type" t-if="category_sel in ['premise-office']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'premise-office'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden premise-office-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'premise-office'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show industrial_unit-top-type" t-if="category_sel in ['industrial_unit']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'industrial_unit'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden industrial_unit-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'industrial_unit'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show hotel_industry-top-type" t-if="category_sel in ['hotel_industry']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'hotel_industry'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden hotel_industry-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'hotel_industry'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show parking-top-type" t-if="category_sel in ['parking']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'parking'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden parking-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'parking'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show box_room-top-type" t-if="category_sel in ['box_room']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'box_room'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden box_room-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'box_room'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+
+				<div class="show land-top-type" t-if="category_sel in ['land']">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'land'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden land-top-type" t-else="">
+					<span id="adv-search-title">Type</span><br/>
+					<t t-foreach="subtypes" t-as="subtype">
+						<t t-if="subtype.type == 'land'">
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id"  t-if="subtype_sel != subtype.id"/> 
+							<input form="topSearch" type="radio" class="radio-button" name="subtype" t-att-value="subtype.id" checked="checked" t-if="subtype_sel == subtype.id"/> 
+							<span t-field="subtype.name"/><br/>
+						</t>
+					</t>
+				</div>
+				<div class="hidden all-top-type">
+					<input form="topSearch" type="radio" class="radio-button" id="default-subtype" name="subtype" value="subtype"  t-if="subtype_sel != 'subtype'"/>
+					<input form="topSearch" type="radio" class="radio-button" id="default-subtype" name="subtype" value="subtype" checked="checked" t-if="subtype_sel == 'subtype'"/>
+				</div>
+
+				<div class="advanced-extras">
+					<span id="adv-search-title">Extras</span><br/>
+					<input form="topSearch" type="checkbox" class="checkbox-button" name="reducedprice" value="reducedprice" checked="checked" t-if="reducedprice == 'checked'"/><input form="topSearch" type="checkbox" class="checkbox-button" name="reducedprice" value="reducedprice" t-if="reducedprice == 'not-checked'"/> Reduced price<br/> 
+					<input form="topSearch" type="checkbox" class="checkbox-button" name="parking" value="parking" checked="checked" t-if="parking == 'checked'"/><input form="topSearch" type="checkbox" class="checkbox-button" name="parking" value="parking" t-if="parking == 'not-checked'"/> Parking<br/> 
+					<input form="topSearch" type="checkbox" class="checkbox-button" name="elevator" value="elevator" checked="checked" t-if="elevator == 'checked'"/><input form="topSearch" type="checkbox" class="checkbox-button" name="elevator" value="elevator" t-if="elevator == 'not-checked'"/> Lift<br/>
+					<input form="topSearch" type="checkbox" class="checkbox-button" name="heating" value="heating" checked="checked" t-if="heating == 'checked'"/><input form="topSearch" type="checkbox" class="checkbox-button" name="heating" value="heating" t-if="heating == 'not-checked'"/> Heating<br/> 
+					<input form="topSearch" type="checkbox" class="checkbox-button" name="airconditioning" value="airconditioning" checked="checked" t-if="airconditioning == 'checked'"/><input form="topSearch" type="checkbox" class="checkbox-button" name="airconditioning" value="airconditioning" t-if="airconditioning == 'not-checked'"/> Air conditioning<br/> 
+				</div>
+
+			</div>
+		</template>
+
+    </data>
+</odoo>
