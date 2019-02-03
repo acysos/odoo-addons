@@ -54,7 +54,7 @@ msgstr "Du versuchst"
 #. module: website_event_sale_limit_register
 #: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
 msgid "and the limit is"
-msgstr "zu bestellen, aber die Limite ist"
+msgstr "zu bestellen, die Limite ist"
 
 #. module: website_event_sale_limit_register
 #: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
