@@ -12,7 +12,6 @@
     'website': 'http://www.acysos.com',
     'images' : [],
     'depends' : [
-        'larp',
         'event',
         'website_event',
         'website_event_sale'
