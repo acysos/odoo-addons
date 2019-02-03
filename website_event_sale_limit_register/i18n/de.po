@@ -59,4 +59,4 @@ msgstr "zu bestellen, die Limite ist"
 #. module: website_event_sale_limit_register
 #: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
 msgid "ticket"
-msgstr "ticket"
+msgstr "Ticket"
