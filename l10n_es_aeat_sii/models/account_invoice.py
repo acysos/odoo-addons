@@ -679,12 +679,17 @@ class AccountInvoice(models.Model):
         return tipo_factura
 
     @api.multi
+    def _check_partner_vat(self):
+        for invoice in self:
+            if not invoice.partner_id.vat:
+                raise UserError(
+                    "The partner has not a VAT configured.")
+
+    @api.multi
     def _get_invoices(self):
         self.ensure_one()
         sii_map = self._get_sii_map()
-        if not self.partner_id.vat:
-            raise UserError(
-                "The partner has not a VAT configured.")
+        self._check_partner_vat()
         invoice_date = self._change_date_format(self.date_invoice)
         company = self.company_id
         ejercicio = fields.Date.from_string(

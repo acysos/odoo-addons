@@ -34,8 +34,29 @@ class AccountInvoice(models.Model):
         return tipo_factura
 
     @api.multi
-    def _get_invoices(self):
+    def _check_partner_vat(self):
+        for invoice in self:
+            if not invoice.simplified_invoice:
+                super(AccountInvoice, self)._check_partner_vat()
+
+    @api.multi
+    def _get_sii_identifier(self):
         self.ensure_one()
         if self.simplified_invoice and not self.partner_id.vat:
-            self.partner_id.vat = 'ESA12345674'
-        return super(AccountInvoice, self)._get_invoices()
+            return {}
+        else:
+            return super(AccountInvoice, self)._get_sii_identifier()
+
+    @api.multi
+    def _get_invoices(self):
+        self.ensure_one()
+        invoices = super(AccountInvoice, self)._get_invoices()
+        if self.simplified_invoice:
+            if not 'NIF' in invoices['FacturaExpedida']['Contraparte']:
+                invoices['FacturaExpedida'].pop('Contraparte', None)
+        return invoices
+        
+        
+        
+        
+
