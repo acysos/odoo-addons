@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_sale_limit_register
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-01 20:05+0000\n"
+"PO-Revision-Date: 2018-11-01 21:06+0100\n"
+"Last-Translator: Andreas Hochuli <a.hochuli@hispeed.ch>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: website_event_sale_limit_register
+#: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
+msgid "<strong>Limit registrations</strong>"
+msgstr "<strong>Limitierte Registrierung</strong>"
+
+#. module: website_event_sale_limit_register
+#: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
+msgid "Cancel Registration"
+msgstr "Anmeldung abbrechen"
+
+#. module: website_event_sale_limit_register
+#: model:ir.model,name:website_event_sale_limit_register.model_event_event
+msgid "Event"
+msgstr "Veranstaltung"
+
+#. module: website_event_sale_limit_register
+#: model:ir.model.fields,field_description:website_event_sale_limit_register.field_event_event_limit_per_registration
+msgid "Limit per registration"
+msgstr "Limite pro Registrierung"
+
+#. module: website_event_sale_limit_register
+#: model:ir.model.fields,help:website_event_sale_limit_register.field_event_event_limit_per_registration
+msgid ""
+"Limit the number of registration in each order.\n"
+"        If the value is 0 is not limit."
+msgstr ""
+"Die Anzahl Tickets pro Bestellung limitieren.\n"
+"        Keine Limite bei Wert 0."
+
+#. module: website_event_sale_limit_register
+#: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
+msgid "You try to register"
+msgstr "Du versuchst"
+
+#. module: website_event_sale_limit_register
+#: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
+msgid "and the limit is"
+msgstr "zu bestellen, die Limite ist"
+
+#. module: website_event_sale_limit_register
+#: model:ir.ui.view,arch_db:website_event_sale_limit_register.registration_limit
+msgid "ticket"
+msgstr "Ticket"
