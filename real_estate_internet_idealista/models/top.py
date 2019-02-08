@@ -90,7 +90,7 @@ class real_estate_top(models.Model):
     @api.multi
     def _get_idealistacom_heating(self):
         for top in self:
-            value = ''
+            value = 'noHeating'
             if top.type=='flat':
                 value = top.flat_heating.idealistacom_type
             elif top.type=='shop':
@@ -178,7 +178,7 @@ class real_estate_top(models.Model):
             if top.furnished=='no':
                 value = '1'
             top.idealistacom_furnished = value
-            
+
     @api.multi
     def _get_idealistacom_state(self):
         for top in self:
@@ -190,9 +190,9 @@ class real_estate_top(models.Model):
             if top.top_state=='2':
                 value = '3'
             if top.top_state=='4':
-                value = '2'    
-            top.idealistacom_state = value      
-            
+                value = '2'
+            top.idealistacom_state = value
+
     @api.multi
     def _get_idealistacom_bathroom(self):
         for top in self:
@@ -272,9 +272,10 @@ class real_estate_top(models.Model):
             operationPrice = int(top.rent_price)
             operationPriceToOwn = int(top.sale_price)
         operation_dict = {
-            'operationType': top.idealistacom_operacion or '',
-            'operationPrice': operationPrice,
+            'operationType': top.idealistacom_operacion or ''
         }
+        if operationPrice > 0:
+            operation_dict['operationPrice'] = operationPrice
         if operationPriceToOwn > 0:
             operation_dict['operationPriceToOwn'] = operationPriceToOwn
         return operation_dict
@@ -286,9 +287,12 @@ class real_estate_top(models.Model):
             contact = {
                 'contactName': user.name[0:60],
                 'contactEmail': user.login,
-                'contactPrimaryPhonePrefix': company.idealista_prefix,
-                'contactPrimaryPhoneNumber': user.partner_id.phone
+                'contactPrimaryPhonePrefix': company.idealista_prefix
             }
+            if user.partner_id.phone:
+                contact['contactPrimaryPhoneNumber'] = user.partner_id.phone
+            else:
+                contact['contactPrimaryPhoneNumber'] = company.phone
             if user.partner_id.mobile:
                 contact[
                     'contactSecondaryPhonePrefix'] = company.idealista_prefix
@@ -303,9 +307,8 @@ class real_estate_top(models.Model):
         return contact
 
     def json_address(self, top):
-        addressCountry = ''
-
-        if top.city_id.country_id.name in ['España', 'Spain']:
+        addressCountry = 'Spain'
+        if top.city_id.country_id.name in [smart_unicode('España'), 'Spain']:
             addressCountry = 'Spain'
         if top.city_id.country_id.name in ['Italia', 'Italy']:
             addressCountry = 'Italy'
@@ -314,14 +317,17 @@ class real_estate_top(models.Model):
 
         address = {
             'addressVisibility': top.idealistacom_addr_visibility,
-            'addressStreetame': smart_unicode(top.address or ''),
-            'addressStreetNumber': top.number or '',
-            'addressStair': (top.stair or '')[0:10],
-            'addressDoor': (top.door or '')[0:4],
+            'addressStreetName': smart_unicode(top.address),
+            'addressStreetNumber': top.number or '0',
             'addressPostalCode': top.city_id.name or '',
             'addressTown': (top.city_id.city or '')[0:50],
             'addressCountry': addressCountry,
         }
+
+        if top.stair:
+            address['addressStair'] = top.stair[0:10]
+        if top.door:
+            address['addressDoor'] = top.door[0:4]
 
         if top.floor:
             address['addressFloor'] = top.floor
@@ -329,11 +335,18 @@ class real_estate_top(models.Model):
             address[
                 'addressCoordinatesPrecision'] = top.idealistacom_gps_precision
         if top.latitude:
-            address['addressCoordinatesLatitude'] = float(
+            addressCoordinatesLatitude = float(
                 top.latitude.replace(',', '.') or 0)
+            if addressCoordinatesLatitude > 90:
+                addressCoordinatesLatitude = 90
+            address['addressCoordinatesLatitude'] = addressCoordinatesLatitude
         if top.longitude:
-            address['addressCoordinatesLongitude'] = float(
-                top.longitude.replace(',', '.') or 0)
+            addressCoordinatesLongitude = float(
+                top.latitude.replace(',', '.') or 0)
+            if addressCoordinatesLongitude > 90:
+                addressCoordinatesLongitude = 90
+            address[
+                'addressCoordinatesLongitude'] = addressCoordinatesLongitude
         return address
 
     def json_features(self, top):
@@ -385,20 +398,14 @@ class real_estate_top(models.Model):
 
         features = {
             'featuresType': top.idealistacom_type or '',
-            'featuresAreaPlot': top.plot_m2 or 0,
-            'featuresBathroomNumber': top.idealistacom_bathroom or 0,
-            'featuresBedroomNumber': str(top.rooms or 0),
             'featuresConditionedAir': featuresConditionedAir,
-            'featuresConservation': top.idealistacom_state or '',
             'featuresEnergyCertificateRating': top.idealistacom_energyef or '',
-            'featuresEnergyCertificatePerformance': top.energy_number or 0,
-            'featuresHeatingType': top.idealistacom_heating or '',
+            'featuresHeatingType': top.idealistacom_heating or 'noHeating',
             'featuresHotWater': featuresHotWater,
             'featuresOrientationEast': False,
             'featuresOrientationNorth': False,
             'featuresOrientationSouth': False,
             'featuresOrientationWest': False,
-            'featuresRooms': top.rooms or 0,
             'featuresEquippedWithFurniture': featuresEquippedWithFurniture,
             'featuresStorage': featuresStorage,
             'featuresGarden': featuresGarden,
@@ -408,11 +415,41 @@ class real_estate_top(models.Model):
             'featuresBalcony': featuresBalcony
         }
 
+        try:
+            if int(top.idealistacom_bathroom) > 0:
+                    features['featuresBathroomNumber'] = int(
+                        top.idealistacom_bathroom)
+        except Exception:
+            _logger.info("featuresBathroomNumber incorrect: " + top.name)
+
+        if top.rooms > 0:
+            features['featuresRooms'] = top.rooms
+            features['featuresBedroomNumber'] = top.rooms
+
+        featuresConservation = False
+        if top.top_state:
+            if top.top_state in ['1', '3']:
+                featuresConservation = 'new'
+            if top.top_state in ['2', '5']:
+                featuresConservation = 'good'
+            if top.top_state in ['0', '4']:
+                featuresConservation = 'toRestore'
+        if featuresConservation:
+            features['featuresConservation'] = featuresConservation
+
+        if top.energy_number > 0:
+            features[
+                'featuresEnergyCertificatePerformance'] = top.energy_number
+
         if top.idealistacom_type == 'land':
-            features['featuresAreaBuildable'] = top.cons_m2 or 0
+            features['featuresAreaPlot'] = int(top.land_m2 or 1)
+            features['featuresAreaConstructed'] = int(top.land_m2 or 1)
+            features['featuresAreaBuildable'] = int(top.land_cons_m2 or 1)
         else:
-            features['featuresAreaConstructed'] = int(top.cons_m2 or 0)
-            features['featuresAreaUsable'] = int(top.m2 or 0)
+            if top.plot_m2:
+                features['featuresAreaPlot'] = top.plot_m2
+            features['featuresAreaConstructed'] = int(top.cons_m2 or 1)
+            features['featuresAreaUsable'] = int(top.m2 or 1)
 
         if top.orientation == 'all':
             features['featuresOrientationEast'] = True
@@ -475,7 +512,8 @@ class real_estate_top(models.Model):
     def json_images(self, top):
         images = []
         company = self.env.user.company_id
-        if not top.image_ids:
+        if top.image_ids:
+            sequence = 1
             for image in top.image_ids:
                 imageUrl = 'http://'
                 imageUrl += company.domain
@@ -483,10 +521,11 @@ class real_estate_top(models.Model):
                 imageUrl += '&field=file_db_store&filename_field=name&id='
                 imageUrl += str(image.id)
                 image_dict = {
-                    'imageOrder': image.sequence,
+                    'imageOrder': sequence,
                     'imageUrl': imageUrl,
                 }
                 images.append(image_dict)
+                sequence += 1
         return images
 
     def json_properties(self):
@@ -494,7 +533,7 @@ class real_estate_top(models.Model):
         company = self.env.user.company_id
         for top in self.search([('idealista', '=', True),
                                 ('available', '=', True)]):
-            propertyUrl = "https://" + company.domain + "/realestate/top/"
+            propertyUrl = "https://" + company.domain + "realestate/top/"
             propertyUrl += str(top.id)
             top_dict = {
                 'propertyCode': top.name[0:50] or '',
@@ -505,9 +544,12 @@ class real_estate_top(models.Model):
                 'propertyAddress': self.json_address(top),
                 'propertyFeatures': self.json_features(top),
                 'propertyDescriptions': self.json_descriptions(top),
-                'propertyImages': self.json_images(top),
                 'propertyUrl': propertyUrl
             }
+
+            images = self.json_images(top)
+            if len(images) > 0:
+                top_dict['propertyImages'] = images
 
             customerProperties.append(top_dict)
         return customerProperties
@@ -517,7 +559,7 @@ class real_estate_top(models.Model):
         company = self.env.user.company_id
 
         customerCountry = ''
-        if company.country_id.name in ['España', 'Spain']:
+        if company.country_id.name in [smart_unicode('España'), 'Spain']:
             customerCountry = 'Spain'
         if company.country_id.name in ['Italia', 'Italy']:
             customerCountry = 'Italy'
@@ -657,7 +699,10 @@ class real_estate_top(models.Model):
                 usableArea = etree.SubElement(features, 'usableArea')
                 usableArea.text = str(top.m2 or '')
             plotArea = etree.SubElement(features, 'plotArea')
-            plotArea.text = str(top.plot_m2 or '')
+            if top.idealistacom_type == 'land':
+                plotArea.text = str(top.land_m2 or '')
+            else:
+                plotArea.text = str(top.plot_m2 or '')
             bedrooms = etree.SubElement(features, 'bedrooms')
             bedrooms.text = str(top.rooms or '')
             bathrooms = etree.SubElement(features, 'bathrooms')
