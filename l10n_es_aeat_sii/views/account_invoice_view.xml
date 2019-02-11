@@ -12,10 +12,13 @@
                 <button name="action_invoice_draft" position="after">
                     <button type="object" string="Send SII"
                             name="send_sii" groups="l10n_es_aeat.group_account_aeat"
-                            states="open,paid" />
+                            states="open,paid" attrs="{'invisible': ['|', ('sii_cancel', '=', True)]}" />
                     <button type="object" string="Check SII"
                             name="check_sii" groups="l10n_es_aeat.group_account_aeat"
-                            states="open,paid" attrs="{'invisible': [('sii_sent', '=', False)]}" />
+                            states="open,paid" attrs="{'invisible': ['|', ('sii_sent', '=', False), ('sii_cancel', '=', True)]}" />
+                    <button type="object" string="Drop SII"
+                            name="drop_sii" groups="l10n_es_aeat.group_account_aeat"
+                            states="cancel" />
                 </button>
                 <notebook position="inside">
                     <page string="SII" groups="l10n_es_aeat.group_account_aeat"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
@@ -28,6 +31,8 @@
                         </group>
                         <group string="SII Result">
                             <field name="sii_sent" />
+                            <field name="sii_cancel" />
+                            <field name="sii_resend" invisible="1"/>
                             <field name="sii_registration_date" />
                             <field name="sii_csv"/>
                             <label for="sii_results" colspan="4"/>
@@ -72,10 +77,13 @@
                 <button name="action_invoice_draft" position="after">
                     <button type="object" string="Send SII"
                             name="send_sii" groups="l10n_es_aeat.group_account_aeat"
-                            states="open,paid" />
+                            states="open,paid" attrs="{'invisible': ['|', ('sii_cancel', '=', True)]}" />
                     <button type="object" string="Check SII"
                             name="check_sii" groups="l10n_es_aeat.group_account_aeat"
-                            states="open,paid" attrs="{'invisible': [('sii_sent', '=', False)]}" />
+                            states="open,paid" attrs="{'invisible': ['|', ('sii_sent', '=', False), ('sii_cancel', '=', True)]}" />
+                    <button type="object" string="Drop SII"
+                            name="drop_sii" groups="l10n_es_aeat.group_account_aeat"
+                            states="cancel" />
                 </button>
                 <notebook position="inside">
                     <page string="SII" groups="l10n_es_aeat.group_account_aeat" attrs="{'invisible': [('sii_enabled', '=', False)]}">
@@ -88,6 +96,8 @@
                         </group>
                         <group string="SII Result">
                             <field name="sii_sent" />
+                            <field name="sii_cancel" />
+                            <field name="sii_resend" invisible="1"/>
                             <field name="sii_registration_date" />
                             <field name="sii_csv"/>
                             <label for="sii_results" colspan="4"/>
@@ -140,9 +150,9 @@
 	                            domain="[('sii_send_error','!=',False)]"/>
                     </group>
                     <group name="sii_mapped">
-	                    <filter name="sii_sent" string="SII mapped"
+	                    <filter name="sii_mapped" string="SII mapped"
 	                            domain="[('is_sii_mapped','=',True)]"/>
-	                    <filter name="sii_sent" string="SII not mapped"
+	                    <filter name="sii_not_mapped" string="SII not mapped"
 	                            domain="[('is_sii_mapped','=',False)]"/>
                     </group>
                 </filter>

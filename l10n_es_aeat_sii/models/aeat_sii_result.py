@@ -2,7 +2,7 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import fields, models, _
 import datetime
 
 
@@ -145,8 +145,12 @@ class AeatSiiResult(models.Model):
                 if 'CodigoErrorRegistro' in reply:
                     vals['registry_error_code'] = reply['CodigoErrorRegistro']
                 if 'DescripcionErrorRegistro' in reply:
-                    vals['registry_error_description'] = \
-                        reply['DescripcionErrorRegistro']
+                    if model_id.sii_cancel:
+                        vals['registry_error_description'] = _(
+                            'SII Invoice Canceled. Create a new invoice')
+                    else:
+                        vals['registry_error_description'] = \
+                            reply['DescripcionErrorRegistro']
                 if 'CSV' in reply:
                     vals['registry_csv'] = reply['CSV']
                 if 'RegistroDuplicado' in reply and reply['RegistroDuplicado']:

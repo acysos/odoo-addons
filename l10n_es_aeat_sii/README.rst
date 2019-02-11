@@ -10,7 +10,7 @@ Módulo para la presentación inmediata del IVA
 http://www.agenciatributaria.es/AEAT.internet/SII.html
 
 **PREPARADO PARA SII 1.1**
-**COMPATIBLE CON Odoo.sh y Enterprise**
+**COMPATIBLE con Community, Enterprise y Odoo.sh**
 
 Installation
 ============
@@ -44,7 +44,8 @@ El certificado se puede preparar de dos maneras:
 Configuración de las claves de impuestos:
 
 - Manual: rellene los campos de Clave de Registro SII con el valor que corresponda
-- Automático: actualice el plan contale desde el enlace de "Update chart template" en la pantalla de configuración de Contabilidad. No disponible en Odoo 11.0.
+- Automático: actualice el plan contale desde el enlace de "Update chart template"
+en la pantalla de configuración de Contabilidad.
 
 Connector:
 
@@ -56,7 +57,7 @@ Connector:
 
   Si xmlrpc_port no esta definido: ODOO_CONNECTOR_PORT=8069
 
-       Arranca odoo con --load=web,web_kanban,connector y --workers más grande que 1.
+       Arranca odoo con --load=web,queue_job y --workers más grande que 1.
 
 Más información http://odoo-connector.com
 
@@ -65,10 +66,10 @@ Usuando fichero de configuración:
 [options]
 (...)
 workers = 4
-server_wide_modules = web,web_kanban,connector
+server_wide_modules = web,queue_job
 
 (...)
-[options-connector]
+[queue_job]
 channels = root:4
 
 Usage
@@ -81,7 +82,6 @@ de AEAT.
 Known issues / Roadmap
 ======================
 
-* Actualización de posiciones fiscales con account_chart_update (No migrado)
 * Operación anual. Comunicación de cobros y pagos en métalico
 * Determinadas facturas intracomunitarias (Articulo 66 RIVA)
 * Operación anual. Libro de bienes de inversión (Libro anual se crea un módulo aparte)
@@ -112,6 +112,7 @@ Contributors
 * Omar Castiñeira - Comunitea S.L. <omar@comunitea.com>
 * Ismael Calvo - Factor Libre S.L.
 * Alberto Martín Cortada - Guadaltehch
+* Luis J. Salvatierra <ljsalvatierra@binovo.es>
 
 
 Maintainer

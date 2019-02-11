@@ -4,4 +4,4 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from . import aeat_sii_password
-# from . import wizard_chart_update
+from . import wizard_chart_update
