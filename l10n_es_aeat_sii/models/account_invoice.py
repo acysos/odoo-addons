@@ -58,15 +58,18 @@ class AccountInvoice(models.Model):
     @api.depends('invoice_line_ids')
     def _is_sii_mapped(self):
         for invoice in self:
-            taxes = invoice._get_taxes_map(
-                ['SFESB', 'SFESISP', 'SFENS', 'SFESS', 'SFESBE', 'SFESBEI',
-                 'SFESBEE', 'SFESSE', 'SFRS', 'SFRISP', 'SFRBI', 'RE',
-                 'SFESNS'])
-            invoice.is_sii_mapped = False
-            for line in invoice.invoice_line_ids:
-                for tax_line in line.invoice_line_tax_ids:
-                    if tax_line in taxes:
-                        invoice.is_sii_mapped = True
+            if invoice.company_id.sii_enabled:
+                taxes = invoice._get_taxes_map(
+                    ['SFESB', 'SFESISP', 'SFENS', 'SFESS', 'SFESBE', 'SFESBEI',
+                     'SFESBEE', 'SFESSE', 'SFRS', 'SFRISP', 'SFRBI', 'RE',
+                     'SFESNS'])
+                invoice.is_sii_mapped = False
+                for line in invoice.invoice_line_ids:
+                    for tax_line in line.invoice_line_tax_ids:
+                        if tax_line in taxes:
+                            invoice.is_sii_mapped = True
+            else:
+                invoice.is_sii_mapped = False
 
     RECONCILE = [('1', 'No contrastable'),
                  ('2', 'En proceso de contraste'),
@@ -700,6 +703,9 @@ class AccountInvoice(models.Model):
             raise UserError(_(
                 'You have to select what account chart template use this'
                 ' company.'))
+        if not self.registration_key:
+            raise UserError(_(
+                'You have to select a registration key in SII Tab.'))
         key = self.registration_key.code
         tipo_factura = self._get_tipo_factura()
         if self.partner_id.is_company:
