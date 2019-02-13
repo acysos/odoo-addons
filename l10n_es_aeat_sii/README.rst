@@ -22,6 +22,16 @@ Para instalar esté módulo necesita:
 #. Libreria Python Requests, se puede instalar con el comando 'pip install requests'
 #. Libreria pyOpenSSL, versión 0.15 o posterior
 
+Se requieren las siguientes dependencias que no están aún en http://www.odoo.com/apps,
+pero se pueden descargar en el repositorio: https://github.com/acysos/odoo-addons/tree/12.0
+
+- account_invoice_refund_link
+- l10n_es_aeat
+- queue_job
+- account_payment_partner
+
+Una vez descargado sustituya el __manifest__.py por el __manifest__.py.replace
+
 Una vez instalado ejecute Account Chart Update para actualizar las claves
 de las posiciones fiscales.
 
