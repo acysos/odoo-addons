@@ -45,9 +45,12 @@ class AccountInvoice(models.Model):
         """
         self.ensure_one()
         if self.fiscal_position_id.name == u'Importación con DUA':
-            if self.tax_line.filtered(
-                    lambda x: x.tax_code_id.code in
-                    ['DIBYSCC21', 'DIBYSCC10', 'DIBYSCC04']
+            if self.tax_line_ids.filtered(
+                    lambda x: x.tax_id.description in
+                    ['P_IVA21_IBC', 'P_IVA10_IBC', 'P_IVA4_IBC',
+                     'P_IVA21_IBI', 'P_IVA10_IBI', 'P_IVA4_IBI',
+                     'P_IVA21_SP_EX', 'P_IVA10_SP_EX',
+                     'P_IVA4_SP_EX']
             ):
                 return True
         return False
