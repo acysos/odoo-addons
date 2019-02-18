@@ -32,8 +32,6 @@ pero se pueden descargar en el repositorio: https://github.com/acysos/odoo-addon
 
 Una vez descargado sustituya el __manifest__.py por el __manifest__.py.replace
 
-Una vez instalado ejecute Account Chart Update para actualizar las claves
-de las posiciones fiscales.
 
 Configuration
 =============
