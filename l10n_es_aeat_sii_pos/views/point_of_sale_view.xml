@@ -82,7 +82,10 @@
             <field name="type">ir.actions.server</field>
             <field name="state">code</field>
             <field name="model_id" ref="point_of_sale.model_pos_order" />
-            <field name="code">self.send_sii(cr, uid, context.get('active_ids', []), context)</field>
+            <field name="code">
+                if records:
+                    action = records.send_sii()
+            </field>
         </record>
 
         <record id="action_send_sii_simplified_value" model="ir.values">
@@ -92,23 +95,6 @@
             <field name="model">pos.order</field>
             <field name="value"
                    eval="'ir.actions.server,%d' % ref('l10n_es_aeat_sii_pos.action_send_sii_simplified')" />
-        </record>
-
-        <record id="action_check_sii_simplified" model="ir.actions.server">
-            <field name="name">Check Simplified SII</field>
-            <field name="type">ir.actions.server</field>
-            <field name="state">code</field>
-            <field name="model_id" ref="point_of_sale.model_pos_order" />
-            <field name="code">self.check_sii(cr, uid, context.get('active_ids', []), context)</field>
-        </record>
-
-        <record id="action_check_sii_simplified_value" model="ir.values">
-            <field name="name">Check Simplified SII</field>
-            <field name="key">action</field>
-            <field name="key2">client_action_multi</field>
-            <field name="model">pos.order</field>
-            <field name="value"
-                   eval="'ir.actions.server,%d' % ref('l10n_es_aeat_sii_pos.action_check_sii_simplified')" />
         </record>
 
     </data>

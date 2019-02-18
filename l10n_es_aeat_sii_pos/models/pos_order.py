@@ -53,6 +53,7 @@ class PosOrder(models.Model):
         string='SII Description', required=True,
         default=_get_default_sii_description)
     sii_sent = fields.Boolean(string='SII Sent', copy=False)
+    sii_cancel = fields.Boolean(string='SII Cancel', copy=False, readonly=True)
     sii_csv = fields.Char(string='SII CSV', copy=False)
     sii_results = fields.One2many(
         comodel_name='aeat.sii.result', inverse_name='pos_order_id',
