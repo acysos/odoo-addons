@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2207 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data noupdate="0">
+        <record id="config_parameter_sii_url_soap_out_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_out.20</field>
+            <field name="value">https://sii-prep.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fe/SiiFactFEV1SOAP</field>
+        </record>
+        <record id="config_parameter_sii_url_soap_in_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_in.20</field>
+            <field name="value">https://sii-prep.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fr/SiiFactFRV1SOAP</field>
+        </record>
+        <record id="config_parameter_sii_url_soap_pr_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_pr.20</field>
+            <field name="value">https://sii-prep.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fe/SiiFactCOBV1SOAP</field>
+        </record>
+        <record id="config_parameter_sii_url_soap_ps_20" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_ps.20</field>
+            <field name="value">https://sii-prep.egoitza.gipuzkoa.eus/JBS/HACI/SSII-FACT/ws/fr/SiiFactPAGV1SOAP</field>
+        </record>
+    </data>
+</odoo>
