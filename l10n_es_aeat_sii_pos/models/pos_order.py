@@ -53,6 +53,7 @@ class PosOrder(models.Model):
         string='SII Description', required=True,
         default=_get_default_sii_description)
     sii_sent = fields.Boolean(string='SII Sent', copy=False)
+    sii_cancel = fields.Boolean(string='SII Cancel', copy=False, readonly=True)
     sii_csv = fields.Char(string='SII CSV', copy=False)
     sii_results = fields.One2many(
         comodel_name='aeat.sii.result', inverse_name='pos_order_id',
@@ -438,8 +439,7 @@ class PosOrder(models.Model):
         queue_obj = self.env['queue.job']
         for order in self:
             company = order.company_id
-            if company.sii_enabled and company.sii_method == 'auto' and \
-                    order.simplified_invoice:
+            if company.sii_enabled and company.sii_method == 'auto':
                 if not company.use_connector:
                     order._send_simplified_to_sii()
                 else:
