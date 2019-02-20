@@ -918,6 +918,7 @@ class AccountInvoice(models.Model):
                 if res['EstadoEnvio'] in ['Correcto', 'ParcialmenteCorrecto']:
                     self.sii_sent = True
                     self.sii_resend = False
+                    self.sii_cancel = False
                     self.sii_csv = res['CSV']
                     if 'FechaRegContable' in invoices:
                         if not self.sii_registration_date:
@@ -1179,6 +1180,7 @@ class AccountInvoice(models.Model):
                 number = invoice.reference and \
                     invoice.reference[0:60]
                 id_emisor = self._get_sii_identifier()
+                id_emisor['NombreRazon'] = self.partner_id.name
             header = invoice._get_header(False, sii_map)
             ejercicio = fields.Date.from_string(
                 self.date_invoice).year
