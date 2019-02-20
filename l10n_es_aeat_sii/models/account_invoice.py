@@ -1162,6 +1162,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _drop_invoice(self):
         """ Drop invoice from SII"""
+        queue_obj = self.env['queue.job'].sudo()
         for invoice in self.filtered(lambda i: i.state in ['cancel']):
             sii_map = invoice._get_sii_map()
             company = invoice.company_id
@@ -1284,6 +1285,11 @@ class AccountInvoice(models.Model):
     @api.multi
     def check_one_invoice(self):
         self._check_invoice()
+
+    @job
+    @api.multi
+    def drop_one_invoice(self):
+        self._drop_invoice()
 
     @job
     @api.multi
