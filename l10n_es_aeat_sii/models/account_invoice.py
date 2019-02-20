@@ -918,6 +918,7 @@ class AccountInvoice(models.Model):
                 if res['EstadoEnvio'] in ['Correcto', 'ParcialmenteCorrecto']:
                     self.sii_sent = True
                     self.sii_resend = False
+                    self.sii_cancel = False
                     self.sii_csv = res['CSV']
                     if 'FechaRegContable' in invoices:
                         if not self.sii_registration_date:
