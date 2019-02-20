@@ -2,14 +2,15 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
+============================================================
 Suministro Inmediato de Información de importaciones con DUA
-==============
+============================================================
 
 Configuration
 =============
 
-Para configurar este módulo necesitas tener bien configurado el módulo l10n_es_dua tal y como se explica en dicho módulo.
+Para configurar este módulo necesitas tener bien configurado el módulo
+l10n_es_dua tal y como se explica en dicho módulo.
 
 Installation
 ============
@@ -28,7 +29,8 @@ Una vez descargado sustituya el __manifest__.py por el __manifest__.py.replace
 Usage
 =====
 
-Cuando se valida una factura se comprueba si se trata de una factura DUA y se envía con los datos requeridos por la AEAT
+Cuando se valida una factura se comprueba si se trata de una factura DUA y
+se envía con los datos requeridos por la AEAT
 
 
 Known issues / Roadmap
