@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="seq_invoice_simplified" model="ir.sequence">
+            <field name="name">Simplified Invoice</field>
+            <field name="implementation">no_gap</field>
+            <field name="prefix">S%(range_year)s/</field>
+            <field name="padding">5</field>
+            <field name="use_date_range" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_invoice_simplified_refund" model="ir.sequence">
+            <field name="name">Simplified Invoice Refund</field>
+            <field name="implementation">no_gap</field>
+            <field name="prefix">RS%(range_year)s/</field>
+            <field name="padding">5</field>
+            <field name="use_date_range" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+	</data>
+</odoo>
