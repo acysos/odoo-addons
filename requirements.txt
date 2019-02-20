@@ -1,0 +1,10 @@
+paramiko
+pycrypto
+pycryptodome
+pytz
+pyOpenSSL
+requests
+unidecode
+xmlsig
+zeep
+xmlsec
