@@ -141,6 +141,7 @@ Contribuidores
 * Pedro M. Baeza <pedro.baeza@tecnativa.com>
 * Albert Cabedo <albert@gafic.com>
 * Luis M. Ontalba <luis.martinez@tecnativa.com>
+* Ignacio Ibeas <ignacio@acysos.com>
 
 Maintainer
 ----------
