@@ -318,11 +318,19 @@ class real_estate_top(models.Model):
         address = {
             'addressVisibility': top.idealistacom_addr_visibility,
             'addressStreetName': smart_unicode(top.address),
-            'addressStreetNumber': top.number or '0',
-            'addressPostalCode': top.city_id.name or '',
             'addressTown': (top.city_id.city or '')[0:50],
             'addressCountry': addressCountry,
         }
+
+        try:
+            if int(top.number) > 0:
+                    address['addressStreetNumber'] = top.number
+        except Exception:
+            _logger.info("addressStreetNumber incorrect: " + top.name)
+
+        if top.city_id:
+            if top.city_id.name:
+                address['addressPostalCode'] = top.city_id.name
 
         if top.stair:
             address['addressStair'] = top.stair[0:10]
@@ -414,6 +422,11 @@ class real_estate_top(models.Model):
             'featuresSmokeExtraction': featuresSmokeExtraction,
             'featuresBalcony': featuresBalcony
         }
+
+        if features['featuresType'] == 'premise':
+            features['featuresType'] = 'premises'
+        if features['featuresType'] == 'countryhouse':
+            features['featuresType'] = 'rustic_house'
 
         try:
             if int(top.idealistacom_bathroom) > 0:
