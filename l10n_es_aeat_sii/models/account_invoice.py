@@ -638,8 +638,8 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             -round(line['CuotaSoportada'], 2)
-                        line['BaseImponible'] = -round(
-                            line['BaseImponible'], 2)
+                    line['BaseImponible'] = -round(
+                        line['BaseImponible'], 2)
                 else:
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -647,7 +647,7 @@ class AccountInvoice(models.Model):
                     if line.get('CuotaSoportada', False):
                         line['CuotaSoportada'] = \
                             abs(round(line['CuotaSoportada'], 2))
-                        line['BaseImponible'] = round(line['BaseImponible'], 2)
+                    line['BaseImponible'] = round(line['BaseImponible'], 2)
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
