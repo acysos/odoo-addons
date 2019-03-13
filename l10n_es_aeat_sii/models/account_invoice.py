@@ -589,7 +589,31 @@ class AccountInvoice(models.Model):
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
-
+        if 'DesgloseTipoOperacion' in taxes_sii:
+            if 'Entrega' in taxes_sii['DesgloseTipoOperacion']:
+                if 'Sujeta' in taxes_sii['DesgloseTipoOperacion']['Entrega']:
+                    if 'Exenta' in taxes_sii['DesgloseTipoOperacion'][
+                            'Entrega']['Sujeta']:
+                        if 'DetalleExenta' in taxes_sii[
+                            'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                                'Exenta']:
+                            if 'BaseImponible' in taxes_sii[
+                                'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                                    'Exenta']['DetalleExenta']:
+                                taxes_sii[
+                                'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                                    'Exenta']['DetalleExenta'][
+                                        'BaseImponible'] = round(taxes_sii[
+                                            'DesgloseTipoOperacion']['Entrega'][
+                                                'Sujeta']['Exenta'][
+                                                    'DetalleExenta'][
+                                                        'BaseImponible'], 2
+                                            )
+        if 'DesgloseTipoOperacion' in taxes_sii and \
+                'DesgloseFactura' in taxes_sii:
+            taxes_sii['DesgloseTipoOperacion']['Entrega'] = \
+                taxes_sii['DesgloseFactura']
+            del taxes_sii['DesgloseFactura']
         return taxes_sii
 
     @api.multi
