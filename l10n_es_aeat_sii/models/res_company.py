@@ -51,11 +51,6 @@ class ResCompany(models.Model):
             hour, minute = divmod(self.sent_time, 1)
             hour = int(hour)
             minute = int(minute*60)
-            print(hour)
-            print(minute)
-            print(now.date)
-            print(now.hour)
-            print(now.minute)
             if now.hour < hour or (now.hour == hour and now.minute < minute):
                 now += timedelta(days=1)
 
