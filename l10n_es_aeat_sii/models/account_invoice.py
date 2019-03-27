@@ -454,11 +454,11 @@ class AccountInvoice(models.Model):
                                 inv_breakdown['Sujeta']['Exenta'] = {}
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'DetalleExenta'] = {
-                                        'BaseImponible': line.price_subtotal}
+                                        'BaseImponible': price_subtotal}
                             else:
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'DetalleExenta'][
-                                        'BaseImponible'] += line.price_subtotal
+                                        'BaseImponible'] += price_subtotal
 
                         if tax_line in taxes_sfesb or \
                                 tax_line in taxes_sfesisp:
