@@ -351,6 +351,16 @@ class AccountInvoice(models.Model):
             taxes_total = -taxes['total_excluded']
         else:
             taxes_total = taxes['total_excluded']
+        taxes_amount = taxes['taxes'][0]['amount']
+        if (self.currency_id !=
+                self.company_id.currency_id):
+            taxes_total = self.currency_id.with_context(
+                date=self._get_currency_rate_date()).compute(
+                    taxes_total, self.company_id.currency_id)
+            taxes_amount = self.currency_id.with_context(
+                date=self._get_currency_rate_date()).compute(
+                    taxes['taxes'][0]['amount'],
+                    self.company_id.currency_id)
         tax_sii = {
             "TipoImpositivo": tax_type,
             "BaseImponible": taxes_total
@@ -362,9 +372,9 @@ class AccountInvoice(models.Model):
             tax_sii['CuotaRecargoEquivalencia'] = cuota_recargo
 
         if self.type in ['out_invoice', 'out_refund']:
-            tax_sii['CuotaRepercutida'] = taxes['taxes'][0]['amount']
+            tax_sii['CuotaRepercutida'] = taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
-            tax_sii['CuotaSoportada'] = taxes['taxes'][0]['amount']
+            tax_sii['CuotaSoportada'] = taxes_amount
         return tax_sii
 
     @api.multi
@@ -384,13 +394,21 @@ class AccountInvoice(models.Model):
             taxes_total = -taxes['total_excluded']
         else:
             taxes_total = taxes['total_excluded']
+        taxes_amount = taxes['taxes'][0]['amount']
+        if (self.currency_id !=
+                self.company_id.currency_id):
+            taxes_total = self.currency_id.with_context(
+                date=self._get_currency_rate_date()).compute(
+                    taxes_total, self.company_id.currency_id)
+            taxes_amount = self.currency_id.with_context(
+                date=self._get_currency_rate_date()).compute(
+                    taxes['taxes'][0]['amount'],
+                    self.company_id.currency_id)
         tax_sii[str(tax_type)]['BaseImponible'] += taxes_total
         if self.type in ['out_invoice', 'out_refund']:
-            tax_sii[str(tax_type)]['CuotaRepercutida'] += \
-                taxes['taxes'][0]['amount']
+            tax_sii[str(tax_type)]['CuotaRepercutida'] += taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
-            tax_sii[str(tax_type)]['CuotaSoportada'] += \
-                taxes['taxes'][0]['amount']
+            tax_sii[str(tax_type)]['CuotaSoportada'] += taxes_amount
         return tax_sii
 
     @api.multi
@@ -425,6 +443,13 @@ class AccountInvoice(models.Model):
                         # TODO l10n_es no tiene impuesto exento de bienes
                         # corrientes nacionales
                         if tax_line in taxes_sfesbe:
+                            price_subtotal = line.price_subtotal
+                            if (self.currency_id !=
+                                    self.company_id.currency_id):
+                                price_subtotal = self.currency_id.with_context(
+                                    date=self._get_currency_rate_date(
+                                        )).compute(price_subtotal,
+                                                   self.company_id.currency_id)
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {}
                                 inv_breakdown['Sujeta']['Exenta'][
@@ -501,6 +526,12 @@ class AccountInvoice(models.Model):
                             price_subtotal = -line.price_subtotal
                         else:
                             price_subtotal = line.price_subtotal
+                        if (self.currency_id !=
+                                self.company_id.currency_id):
+                            price_subtotal = self.currency_id.with_context(
+                                date=self._get_currency_rate_date(
+                                    )).compute(price_subtotal,
+                                               self.company_id.currency_id)
                         if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
                             type_breakdown[op_key]['Sujeta']['Exenta'] = {}
                             type_breakdown[op_key]['Sujeta']['Exenta'][
