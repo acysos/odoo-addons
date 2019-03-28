@@ -51,7 +51,7 @@ class ResCompany(models.Model):
             hour, minute = divmod(self.sent_time, 1)
             hour = int(hour)
             minute = int(minute*60)
-            if now.hour > hour or (now.hour == hour and now.minute < minute):
+            if now.hour > hour or (now.hour == hour and now.minute > minute):
                 now += timedelta(days=1)
 
             return now.replace(hour=hour, minute=minute)
