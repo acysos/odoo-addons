@@ -52,7 +52,7 @@ class ResCompany(models.Model):
             hour = int(hour)
             minute = int(minute*60)
 
-            if now.date > hour or (now.hour == hour and now.minute > minute):
+            if now.hour > hour or (now.hour == hour and now.minute > minute):
                 now += timedelta(days=1)
 
             return now.replace(hour=hour, minute=minute)
