@@ -510,13 +510,25 @@ class AccountInvoice(models.Model):
                     if tax_line in taxes_sfens or tax_line in taxes_sfesns:
                         if 'NoSujeta' not in type_breakdown:
                             type_breakdown[op_key]['NoSujeta'] = {}
-                            type_breakdown[op_key]['NoSujeta'][
-                                'ImportePorArticulos7_14_Otros'] = \
-                                line.price_subtotal
+                            if self.registration_key.code == '08' and \
+                                    self.registration_key.type == 'sale':
+                                type_breakdown[op_key]['NoSujeta'][
+                                    'ImporteTAIReglasLocalizacion'] = \
+                                    line.price_subtotal
+                            else:
+                                type_breakdown[op_key]['NoSujeta'][
+                                    'ImportePorArticulos7_14_Otros'] = \
+                                    line.price_subtotal
                         else:
-                            type_breakdown[op_key]['NoSujeta'][
-                                'ImportePorArticulos7_14_Otros'] += \
-                                line.price_subtotal
+                            if self.registration_key.code == '08' and \
+                                    self.registration_key.type == 'sale':
+                                type_breakdown[op_key]['NoSujeta'][
+                                    'ImporteTAIReglasLocalizacion'] += \
+                                    line.price_subtotal
+                            else:
+                                type_breakdown[op_key]['NoSujeta'][
+                                    'ImportePorArticulos7_14_Otros'] += \
+                                    line.price_subtotal
                     else:
                         if 'Sujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['Sujeta'] = {}
