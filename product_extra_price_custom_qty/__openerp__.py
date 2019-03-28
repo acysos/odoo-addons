@@ -21,7 +21,7 @@
 {
     "name": "Product extra price customizable quantity",
     "version": "1",
-    "author": "Acysos S.L., Odoo Community Association (OCA)",
+    "author": "Acysos S.L.",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
     "category": "",
