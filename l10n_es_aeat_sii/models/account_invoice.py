@@ -354,9 +354,11 @@ class AccountInvoice(models.Model):
         taxes_amount = taxes['taxes'][0]['amount']
         if (self.currency_id !=
                 self.company_id.currency_id):
-            taxes_total = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
-                    taxes_total, self.company_id.currency_id)
+            taxes_total = round(
+                self.currency_id.with_context(
+                    date=self._get_currency_rate_date()).compute(
+                        taxes_total, self.company_id.currency_id),
+                2)
             taxes_amount = self.currency_id.with_context(
                 date=self._get_currency_rate_date()).compute(
                     taxes['taxes'][0]['amount'],
