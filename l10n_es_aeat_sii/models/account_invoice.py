@@ -354,11 +354,9 @@ class AccountInvoice(models.Model):
         taxes_amount = taxes['taxes'][0]['amount']
         if (self.currency_id !=
                 self.company_id.currency_id):
-            taxes_total = round(
-                self.currency_id.with_context(
+            taxes_total = self.currency_id.with_context(
                     date=self._get_currency_rate_date()).compute(
-                        taxes_total, self.company_id.currency_id),
-                2)
+                        taxes_total, self.company_id.currency_id)
             taxes_amount = self.currency_id.with_context(
                 date=self._get_currency_rate_date()).compute(
                     taxes['taxes'][0]['amount'],
@@ -790,6 +788,14 @@ class AccountInvoice(models.Model):
                     importe_total = -abs(self.amount_total)
             else:
                 importe_total = self.amount_total
+            if (self.currency_id !=
+                    self.company_id.currency_id):
+                importe_total = round(
+                    self.currency_id.with_context(
+                        date=self._get_currency_rate_date(
+                            )).compute(importe_total,
+                                    self.company_id.currency_id),
+                    2)
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {
