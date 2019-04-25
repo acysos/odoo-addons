@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="hr_employee_payroll_import_form_view">
+            <field name="name">hr.emoployee.payroll.import.form.view</field>
+            <field name="model">hr.employee</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <group name="active_group" position="inside">
+                    <field name="payroll_extid"/>
+                    <field name="payroll_account"/>
+                </group>
+            </field>
+   </record>
+</data>
+</openerp>

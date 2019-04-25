@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="import_file_csi_form_view">
+            <field name="name">Import csi file</field>
+            <field name="model">import.file</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base_import_file.import_file_form_view"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//div[@name='button_box']" position="inside">
+			        <button type="action" id="moves_count_button" class="oe_stat_button" name="%(account.action_move_journal_line)d"
+			        	domain="[('import_file_id','=', active_id)]" icon="fa-usd"
+			        	context="{'search_default_import_file_id': [active_id], 'default_import_file_id': active_id}">
+			            	<field string="Payroll moves" name="count_payroll" widget="statinfo"/>                        
+			        </button>
+            	</xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_payroll_import_file_tree_view">
+            <field name="name">Payroll Import File</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.file</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="base_import_file.import_file_tree_view"/>
+            <field name="domain">[('payroll', '=', True)]</field>
+            <field name="context">{'default_payroll': 1}</field>
+        </record>
+        
+        <menuitem id="payroll_import_file_menu" name="Account payroll import file"
+        parent="account.menu_finance_entries_accounting_entries" action="action_payroll_import_file_tree_view"/>
+    </data>
+</openerp>
