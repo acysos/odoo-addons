@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for import.file -->
+        <record id="seq_import_file" model="ir.sequence">
+            <field name="name">Import file</field>
+            <field name="code">import.file</field>
+            <field name="prefix">IF</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Sequences for import.file.type -->
+        <record id="seq_import_file_type" model="ir.sequence">
+            <field name="name">Import File Type</field>
+            <field name="code">import.file.type</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

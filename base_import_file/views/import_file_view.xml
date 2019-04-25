@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="import_file_form_view">
+            <field name="name">Import file</field>
+            <field name="model">import.file</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Import file">
+	                <header>
+	                	<button name="import_file" string="Import File" type="object" icon="fa-file-import" states="draft" class="oe_highlight"/>
+	                    <button name="cancel_import" string="Cancel Import" type="object" states="draft,imported"/>
+	                    <button name="change_to_draft" string="Change to draft" type="object" states="cancel"/>
+	                    <field name="state" widget="statusbar" statusbar_visible="cancel,draft,imported" />
+	                </header>
+                	<sheet>
+	                    <div class="oe_button_box" name="button_box"/>
+	                    <group>
+	                    	<field name="name"/>
+	                    	<field name="company" options="{'no_create': True}" groups="base.group_multi_company"/>
+	                    	<field name="software"/>
+	                    	<field name="sheet_name"/>
+	                        <field name="date"/>
+	                        <field name="file"/>
+	                        <field name="file_type"/>
+	                        <field name="note" colspan="4"/>
+	                    </group>
+	                </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="import_file_tree_view">
+            <field name="name">Import file</field>
+            <field name="model">import.file</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Import file">
+                	<field name="name"/>
+                	<field name="company" groups="base.group_multi_company"/>
+                    <field name="date"/>
+                    <field name="software"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_import_file_tree_view">
+            <field name="name">Import file</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.file</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="import_file_tree_view"/>
+        </record>
+        
+        <menuitem id="import_file_parent_menu" name="Import file" parent="base.menu_administration"/>
+        <menuitem id="import_file_menu" name="Import file" parent="base_import_file.import_file_parent_menu" action="action_import_file_tree_view"/>
+    </data>
+</openerp>

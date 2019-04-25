@@ -1,0 +1,17 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_company_import_file_form">
+            <field name="name">res.company.import.file.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <page position="inside">
+                    <group string="Import file options" name="import_file" colspan="4">
+                        <field name="sheet_name"/>
+                    </group>
+                </page>
+            </field>
+        </record>
+    </data>
+</openerp>
