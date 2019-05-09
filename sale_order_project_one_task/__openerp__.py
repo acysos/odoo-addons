@@ -22,7 +22,7 @@
 {
     'name': 'Sale Service Project One Task',
     'version': '1.0',
-    'author': 'Acysos SL',
+    'author': 'Acysos S.L.',
     'license': 'AGPL-3',
     'category': 'Sale Management',
     'depends': ['sale',

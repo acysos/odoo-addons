@@ -24,7 +24,7 @@
 {
     'name': 'Products Time Based Sale',
     'version': '1.0',
-    'author': 'Acysos SL',
+    'author': 'Acysos S.L.',
     'category': 'Sale Management',
     'depends': ['sale'],
     'demo': [],

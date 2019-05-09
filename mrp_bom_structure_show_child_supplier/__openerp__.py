@@ -22,7 +22,7 @@
 {
     'name': 'MRP - BoM line structure show child with supplier price',
     'version': '8.0.1.0.0',
-    'author': 'Acysos SL',
+    'author': 'Acysos S.L.',
     'license': 'AGPL-3',
     'category': 'Manufacturing',
     'depends': ['mrp_bom_structure_show_child',

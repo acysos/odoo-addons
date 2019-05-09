@@ -24,7 +24,7 @@
 {
     'name': 'Products Manufacturers Pricelist Base',
     'version': '1.0',
-    'author': 'Acysos SL',
+    'author': 'Acysos S.L.',
     'category': 'Sale Management',
     'depends': ['product', 'product_manufacturer'],
     'demo': [],
