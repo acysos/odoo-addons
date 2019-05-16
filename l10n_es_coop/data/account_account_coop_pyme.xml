@@ -31,161 +31,161 @@
         <field name="code">1000</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Capital social cooperativo: aportaciones obligatorias</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1001_child" model="account.account.template">
         <field name="code">1001</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Capital social cooperativo: aportaciones voluntarias</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_10020_child" model="account.account.template">
         <field name="code">10020</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Socios colaboradores</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_10021_child" model="account.account.template">
         <field name="code">10021</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Asociados o aheridos</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_11450_child" model="account.account.template">
         <field name="code">11450</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Fondo por incorporacion de beneficios</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_10451_child" model="account.account.template">
         <field name="code">11451</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Fondo por incorporacion de beneficios</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1070_child" model="account.account.template">
         <field name="code">1070</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Fondo de participaciones con vencimiento en la liquidacion</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1071_child" model="account.account.template">
         <field name="code">1071</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Otros fondos subordinados con vencimientos en la liquidacion</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_112_child" model="account.account.template">
         <field name="code">112</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Fondo de reserva obligatorio</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_113_child" model="account.account.template">
         <field name="code">113</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Fondo de reserva voluntario</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1181_child" model="account.account.template">
         <field name="code">1181</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Aportaciones de socios en cooperativas</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_148_child" model="account.account.template">
         <field name="code">148</field>
         <field name="reconcile" eval="True"/>
         <field name="name">Fondo de Educación, Formación y Promoción a largo plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1500_child" model="account.account.template">
         <field name="code">1500</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Capital Social Cooperativo a largo plazo considerado pasivo financiero aportaciones obligatorias</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1501_child" model="account.account.template">
         <field name="code">1501</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Capital Social Cooperativo a largo plazo considerado pasivo financiero aportaciones voluntarias</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_15020_child" model="account.account.template">
         <field name="code">15020</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Socios colaboradores</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_15021_child" model="account.account.template">
         <field name="code">15021</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Asociados o adheridos</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1530_child" model="account.account.template">
         <field name="code">1530</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Desembolso no exigos por Capital social cooperativo considerado como pasivo financiero</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1710_child" model="account.account.template">
         <field name="code">1710</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Deudas a largo plazo por reembolso de aportaciones a los socios</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1711_child" model="account.account.template">
         <field name="code">1711</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Deudas a largo plazo por reembolso de aportaciones a los socios</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1712_child" model="account.account.template">
         <field name="code">1712</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Acreedores por fondo de reembolso o actualizacion a largo plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1713_child" model="account.account.template">
         <field name="code">1713</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Acreedores por fondo de reserva voluntario a largo plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1714_child" model="account.account.template">
         <field name="code">1714</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Acreedores por fondos capitalizados a largo plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_1715_child" model="account.account.template">
         <field name="code">1715</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Retorno cooperativo y renumeracion discrecional a pagar a largo plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_capital"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_2527_child" model="account.account.template">
@@ -199,14 +199,14 @@
         <field name="code">307</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Mercader&#237;as adquiridas a socios</field>
-        <field name="user_type_id" ref="l10n_es.account_type_stock"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_317_child" model="account.account.template">
         <field name="code">317</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Materias primas adquiridas a socios</field>
-        <field name="user_type_id" ref="l10n_es.account_type_stock"/>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_4007_child" model="account.account.template">
@@ -227,70 +227,70 @@
         <field name="code">5020</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Capital social cooperativo con caracterisiticas de deuda a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_5210_child" model="account.account.template">
         <field name="code">5210</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Deudas a corto plazo por reembolso de aportaciones a los socios</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_5211_child" model="account.account.template">
         <field name="code">5211</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Acreedores por fondo de reserva obligatorio a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_5212_child" model="account.account.template">
         <field name="code">5212</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Acreedores por fondo de reembolso o actualizacion a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_5213_child" model="account.account.template">
         <field name="code">5213</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Acreedores por fondo de reserva voluntario a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_5214_child" model="account.account.template">
         <field name="code">5214</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Acreedores por fondos capitalizados a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_526_child" model="account.account.template">
         <field name="code">526</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Retorno cooperativo y renumeracion discrecional a pagar a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_5298_child" model="account.account.template">
         <field name="code">5298</field>
         <field name="reconcile" eval="True"/>
         <field name="name">Fondo de educacion, formacion y promocion a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_5427_child" model="account.account.template">
         <field name="code">5427</field>
         <field name="reconcile" eval="False"/>
         <field name="name">Cr&#233;ditos con socios por perdidas a compensar a corto plazo</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_55850_child" model="account.account.template">
         <field name="code">55850</field>
         <field name="reconcile" eval="False"/>
         <field name="name">«Desembolsos exigidos sobre Capital social cooperativo considerado como pasivo financiero</field>
-        <field name="user_type_id" ref="l10n_es.account_type_financieras"/>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
         <field name="chart_template_id" ref="account_chart_template_coop_pyme"/>
     </record>
     <record id="pgc_coop_pyme_605_child" model="account.account.template">

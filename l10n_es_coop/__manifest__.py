@@ -4,7 +4,7 @@
 
 {
     "name": "Planes de cuentas españoles (según PGCE 2008) - Cooperativas",
-    "version": "10.0.1.0.0",
+    "version": "11.0.0.1.0",
     "author": "Acysos S.L.",
     "website": 'https://www.acysos.com',
     "category": "Localization/Account Charts",
@@ -16,7 +16,6 @@
         "data/account_chart_template.xml",
         "data/account_account_coop_pyme.xml",
         "data/account_account_coop_full.xml",
-        "data/account_chart_template_post.xml",
     ],
     'installable': True,
 }

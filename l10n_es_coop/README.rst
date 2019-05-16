@@ -2,8 +2,6 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-EN DESARROLLO, DISPONIBLE EN 6.0, 8.0, 9.0 y 10.0   
-
 ==============================================================
 Plan contable e impuestos de España (PGCE 2008) - Cooperativas
 ==============================================================
