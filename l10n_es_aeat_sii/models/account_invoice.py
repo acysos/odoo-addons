@@ -358,13 +358,11 @@ class AccountInvoice(models.Model):
         taxes_amount = taxes['taxes'][0]['amount']
         if (self.currency_id !=
                 self.company_id.currency_id):
-            taxes_total = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
-                    taxes_total, self.company_id.currency_id)
-            taxes_amount = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
-                    taxes['taxes'][0]['amount'],
-                    self.company_id.currency_id)
+            currency_id = self.currency_id.with_context(date=self.date_invoice)
+            taxes_total = currency_id.compute(
+                taxes_total, self.company_id.currency_id)
+            taxes_amount = currency_id.compute(
+                taxes['taxes'][0]['amount'], self.company_id.currency_id)
         if tax_line_req:
             tipo_recargo = tax_line_req['percentage']
             cuota_recargo = tax_line_req['taxes'][0]['amount']
@@ -397,13 +395,11 @@ class AccountInvoice(models.Model):
         taxes_amount = taxes['taxes'][0]['amount']
         if (self.currency_id !=
                 self.company_id.currency_id):
-            taxes_total = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
-                    taxes_total, self.company_id.currency_id)
-            taxes_amount = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
-                    taxes['taxes'][0]['amount'],
-                    self.company_id.currency_id)
+            currency_id = self.currency_id.with_context(date=self.date_invoice)
+            taxes_total = currency_id.compute(
+                taxes_total, self.company_id.currency_id)
+            taxes_amount = currency_id.compute(
+                taxes['taxes'][0]['amount'], self.company_id.currency_id)
         tax_sii[str(tax_type)]['BaseImponible'] += taxes_total
         if self.type in ['out_invoice', 'out_refund']:
             tax_sii[str(tax_type)]['CuotaRepercutida'] += taxes_amount
@@ -446,10 +442,11 @@ class AccountInvoice(models.Model):
                             price_subtotal = line.price_subtotal
                             if (self.currency_id !=
                                     self.company_id.currency_id):
-                                price_subtotal = self.currency_id.with_context(
-                                    date=self._get_currency_rate_date(
-                                        )).compute(price_subtotal,
-                                                   self.company_id.currency_id)
+                                currency_id = self.currency_id.with_context(
+                                    date=self.date_invoice)
+                                price_subtotal = currency_id.compute(
+                                    price_subtotal,
+                                    self.company_id.currency_id)
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {}
                                 inv_breakdown['Sujeta']['Exenta'][
@@ -540,10 +537,11 @@ class AccountInvoice(models.Model):
                             price_subtotal = line.price_subtotal
                         if (self.currency_id !=
                                 self.company_id.currency_id):
-                            price_subtotal = self.currency_id.with_context(
-                                date=self._get_currency_rate_date(
-                                    )).compute(price_subtotal,
-                                               self.company_id.currency_id)
+                            currency_id = self.currency_id.with_context(
+                                date=self.date_invoice)
+                            price_subtotal = currency_id.compute(
+                                price_subtotal,
+                                self.company_id.currency_id)
                         if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
                             type_breakdown[op_key]['Sujeta']['Exenta'] = {}
                             type_breakdown[op_key]['Sujeta']['Exenta'][
@@ -790,12 +788,11 @@ class AccountInvoice(models.Model):
                 importe_total = self.amount_total
             if (self.currency_id !=
                     self.company_id.currency_id):
-                importe_total = round(
-                    self.currency_id.with_context(
-                        date=self._get_currency_rate_date(
-                            )).compute(importe_total,
-                                    self.company_id.currency_id),
-                    2)
+                currency_id = self.currency_id.with_context(
+                    date=self.date_invoice)
+                importe_total = currency_id.compute(
+                    importe_total,
+                    self.company_id.currency_id)
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {
@@ -856,6 +853,13 @@ class AccountInvoice(models.Model):
                     importe_total = -abs(self.amount_total)
             else:
                 importe_total = self.amount_total
+            if (self.currency_id !=
+                    self.company_id.currency_id):
+                currency_id = self.currency_id.with_context(
+                    date=self.date_invoice)
+                importe_total = currency_id.compute(
+                    importe_total,
+                    self.company_id.currency_id)
             if not self.reference:
                 raise UserError(_(
                     'The invoice supplier number is required'))
