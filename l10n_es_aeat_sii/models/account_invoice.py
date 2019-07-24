@@ -292,6 +292,14 @@ class AccountInvoice(models.Model):
             "TipoImpositivo": tax_type,
             "BaseImponible": taxes_total
         }
+        taxes_amount = taxes['taxes'][0]['amount']
+        if (self.currency_id !=
+                self.company_id.currency_id):
+            currency_id = self.currency_id.with_context(date=self.date_invoice)
+            taxes_total = currency_id.compute(
+                taxes_total, self.company_id.currency_id)
+            taxes_amount = currency_id.compute(
+                taxes['taxes'][0]['amount'], self.company_id.currency_id)
         if tax_line_req:
             tipo_recargo = tax_line_req['percentage'] * 100
             cuota_recargo = tax_line_req['taxes'][0]['amount']
@@ -299,9 +307,9 @@ class AccountInvoice(models.Model):
             tax_sii['CuotaRecargoEquivalencia'] = cuota_recargo
 
         if self.type in ['out_invoice', 'out_refund']:
-            tax_sii['CuotaRepercutida'] = taxes['taxes'][0]['amount']
+            tax_sii['CuotaRepercutida'] = taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
-            tax_sii['CuotaSoportada'] = taxes['taxes'][0]['amount']
+            tax_sii['CuotaSoportada'] = taxes_amount
         return tax_sii
 
     @api.multi
@@ -320,13 +328,19 @@ class AccountInvoice(models.Model):
             taxes_total = -taxes['total']
         else:
             taxes_total = taxes['total']
+        taxes_amount = taxes['taxes'][0]['amount']
+        if (self.currency_id !=
+                self.company_id.currency_id):
+            currency_id = self.currency_id.with_context(date=self.date_invoice)
+            taxes_total = currency_id.compute(
+                taxes_total, self.company_id.currency_id)
+            taxes_amount = currency_id.compute(
+                taxes['taxes'][0]['amount'], self.company_id.currency_id)
         tax_sii[str(tax_type)]['BaseImponible'] += taxes_total
         if self.type in ['out_invoice', 'out_refund']:
-            tax_sii[str(tax_type)]['CuotaRepercutida'] += \
-                taxes['taxes'][0]['amount']
+            tax_sii[str(tax_type)]['CuotaRepercutida'] += taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
-            tax_sii[str(tax_type)]['CuotaSoportada'] += \
-                taxes['taxes'][0]['amount']
+            tax_sii[str(tax_type)]['CuotaSoportada'] += taxes_amount
         return tax_sii
 
     @api.multi
@@ -359,15 +373,23 @@ class AccountInvoice(models.Model):
                         # TODO l10n_es no tiene impuesto exento de bienes
                         # corrientes nacionales
                         if tax_line in taxes_sfesbe:
+                            price_subtotal = line.price_subtotal
+                            if (self.currency_id !=
+                                    self.company_id.currency_id):
+                                currency_id = self.currency_id.with_context(
+                                    date=self.date_invoice)
+                                price_subtotal = currency_id.compute(
+                                    price_subtotal,
+                                    self.company_id.currency_id)
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {}
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'DetalleExenta'] = {
-                                        'BaseImponible': line.price_subtotal}
+                                        'BaseImponible': price_subtotal}
                             else:
                                 inv_breakdown['Sujeta']['Exenta'][
                                     'DetalleExenta'][
-                                        'BaseImponible'] += line.price_subtotal
+                                        'BaseImponible'] += price_subtotal
 
                         if tax_line in taxes_sfesb or \
                                 tax_line in taxes_sfesisp:
@@ -447,6 +469,13 @@ class AccountInvoice(models.Model):
                             price_subtotal = -line.price_subtotal
                         else:
                             price_subtotal = line.price_subtotal
+                        if (self.currency_id !=
+                                self.company_id.currency_id):
+                            currency_id = self.currency_id.with_context(
+                                date=self.date_invoice)
+                            price_subtotal = currency_id.compute(
+                                price_subtotal,
+                                self.company_id.currency_id)
                         if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
                             type_breakdown[op_key]['Sujeta']['Exenta'] = {}
                             type_breakdown[op_key]['Sujeta']['Exenta'][
@@ -668,6 +697,13 @@ class AccountInvoice(models.Model):
                     importe_total = -abs(self.amount_total)
             else:
                 importe_total = self.amount_total
+            if (self.currency_id !=
+                    self.company_id.currency_id):
+                currency_id = self.currency_id.with_context(
+                    date=self.date_invoice)
+                importe_total = currency_id.compute(
+                    importe_total,
+                    self.company_id.currency_id)
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {
@@ -732,6 +768,13 @@ class AccountInvoice(models.Model):
                     importe_total = -abs(self.amount_total)
             else:
                 importe_total = self.amount_total
+            if (self.currency_id !=
+                    self.company_id.currency_id):
+                currency_id = self.currency_id.with_context(
+                    date=self.date_invoice)
+                importe_total = currency_id.compute(
+                    importe_total,
+                    self.company_id.currency_id)
             if not self.supplier_invoice_number:
                 raise exceptions.Warning(_(
                     'The invoice supplier number is required'))
