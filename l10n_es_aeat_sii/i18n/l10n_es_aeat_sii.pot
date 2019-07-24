@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 18:25+0000\n"
-"PO-Revision-Date: 2018-11-15 18:25+0000\n"
-"Last-Translator: Binovo IT Human Project S.L. <ljsalvatierra@binovo.es>\n"
+"POT-Creation-Date: 2019-07-24 14:34+0000\n"
+"PO-Revision-Date: 2019-07-24 14:34+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,6 +41,7 @@ msgstr ""
 #: view:aeat.sii.map:l10n_es_aeat_sii.aeat_sii_map_view_tree
 #: view:aeat.sii.map.lines:l10n_es_aeat_sii.l10n_es_aeat_sii_map_lines_view_tree
 #: field:aeat.sii.map.lines,sii_map_id:0
+#: field:aeat.sii.wsdl,sii_map_id:0
 #: model:ir.actions.act_window,name:l10n_es_aeat_sii.action_aeat_sii_mapping
 #: model:ir.model,name:l10n_es_aeat_sii.model_aeat_sii_map
 #: model:ir.ui.menu,name:l10n_es_aeat_sii.menu_aeat_sii_map
@@ -64,6 +65,16 @@ msgstr ""
 #: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
 #: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_tree
 msgid "Aeat SII Result"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model,name:l10n_es_aeat_sii.model_aeat_sii_wsdl
+msgid "Aeat SII WDSL Urls"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: view:aeat.sii.wsdl:l10n_es_aeat_sii.l10n_es_aeat_sii_wsdl_lines_view_tree
+msgid "Aeat SII WSDL"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -198,6 +209,7 @@ msgstr ""
 #: field:aeat.sii.mapping.registration.keys,create_uid:0
 #: field:aeat.sii.payment.mode.key,create_uid:0
 #: field:aeat.sii.result,create_uid:0
+#: field:aeat.sii.wsdl,create_uid:0
 #: field:l10n.es.aeat.sii,create_uid:0
 #: field:l10n.es.aeat.sii.password,create_uid:0
 msgid "Created by"
@@ -210,6 +222,7 @@ msgstr ""
 #: field:aeat.sii.mapping.registration.keys,create_date:0
 #: field:aeat.sii.payment.mode.key,create_date:0
 #: field:aeat.sii.result,create_date:0
+#: field:aeat.sii.wsdl,create_date:0
 #: field:l10n.es.aeat.sii,create_date:0
 #: field:l10n.es.aeat.sii.password,create_date:0
 msgid "Created on"
@@ -274,6 +287,7 @@ msgstr ""
 #: field:aeat.sii.mapping.registration.keys,display_name:0
 #: field:aeat.sii.payment.mode.key,display_name:0
 #: field:aeat.sii.result,display_name:0
+#: field:aeat.sii.wsdl,display_name:0
 #: field:l10n.es.aeat.sii,display_name:0
 #: field:l10n.es.aeat.sii.password,display_name:0
 msgid "Display Name"
@@ -282,6 +296,17 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: selection:l10n.es.aeat.sii,state:0
 msgid "Draft"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: view:account.invoice:l10n_es_aeat_sii.invoice_sii_form
+#: view:account.invoice:l10n_es_aeat_sii.invoice_supplier_sii_form
+msgid "Drop SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
+msgid "Duplicate registry information"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -338,7 +363,13 @@ msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.check.sii.result,error_code:0
+#: field:aeat.sii.result,duplicate_registry_error_code:0
 msgid "Error code"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.result,duplicate_registry_error_des:0
+msgid "Error description"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -395,6 +426,7 @@ msgstr ""
 #: field:aeat.sii.payment.mode.key,id:0
 #: field:aeat.sii.result,id:0
 #: field:aeat.sii.result,number_id:0
+#: field:aeat.sii.wsdl,id:0
 #: field:l10n.es.aeat.sii,id:0
 #: field:l10n.es.aeat.sii.password,id:0
 msgid "ID"
@@ -432,6 +464,12 @@ msgid "Invoice date"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:1135
+#, python-format
+msgid "Invoice fiscal position is not set."
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: view:aeat.check.sii.result:l10n_es_aeat_sii.aeat_check_sii_result_view_form
 #: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
 msgid "Invoice information"
@@ -459,12 +497,18 @@ msgid "Journal Items"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.wsdl,key:0
+msgid "Key"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: field:aeat.check.sii.result,__last_update:0
 #: field:aeat.sii.map,__last_update:0
 #: field:aeat.sii.map.lines,__last_update:0
 #: field:aeat.sii.mapping.registration.keys,__last_update:0
 #: field:aeat.sii.payment.mode.key,__last_update:0
 #: field:aeat.sii.result,__last_update:0
+#: field:aeat.sii.wsdl,__last_update:0
 #: field:l10n.es.aeat.sii,__last_update:0
 #: field:l10n.es.aeat.sii.password,__last_update:0
 msgid "Last Modified on"
@@ -477,6 +521,7 @@ msgstr ""
 #: field:aeat.sii.mapping.registration.keys,write_uid:0
 #: field:aeat.sii.payment.mode.key,write_uid:0
 #: field:aeat.sii.result,write_uid:0
+#: field:aeat.sii.wsdl,write_uid:0
 #: field:l10n.es.aeat.sii,write_uid:0
 #: field:l10n.es.aeat.sii.password,write_uid:0
 msgid "Last Updated by"
@@ -489,6 +534,7 @@ msgstr ""
 #: field:aeat.sii.mapping.registration.keys,write_date:0
 #: field:aeat.sii.payment.mode.key,write_date:0
 #: field:aeat.sii.result,write_date:0
+#: field:aeat.sii.wsdl,write_date:0
 #: field:l10n.es.aeat.sii,write_date:0
 #: field:l10n.es.aeat.sii.password,write_date:0
 msgid "Last Updated on"
@@ -541,18 +587,21 @@ msgstr ""
 #: field:aeat.sii.map.lines,name:0
 #: field:aeat.sii.mapping.registration.keys,name:0
 #: field:aeat.sii.payment.mode.key,name:0
+#: field:aeat.sii.wsdl,name:0
 #: field:l10n.es.aeat.sii,name:0
 msgid "Name"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:137
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:131
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:152
 #, python-format
 msgid "No Fiscal Position configured for the partner %s"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: code:addons/l10n_es_aeat_sii/models/account_invoice.py:219
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:278
 #, python-format
 msgid "No VAT configured for the company '{}'"
 msgstr ""
@@ -611,6 +660,12 @@ msgstr ""
 #: selection:account.invoice,sii_reconcile_state:0
 #: selection:aeat.check.sii.result,reconcile_state:0
 msgid "Parcialmente contrastada"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:1133
+#, python-format
+msgid "Partner has no country or it is invalid."
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -721,6 +776,11 @@ msgid "Requeue"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: help:account.invoice,sii_resend:0
+msgid "Resend invoice. This is activate if some critical fields have been changed"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: view:aeat.check.sii.result:l10n_es_aeat_sii.aeat_check_sii_result_view_form
 #: view:aeat.sii.result:l10n_es_aeat_sii.aeat_sii_result_view_form
 msgid "Result"
@@ -738,6 +798,11 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: field:account.invoice,sii_csv:0
 msgid "SII CSV"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: field:account.invoice,sii_cancel:0
+msgid "SII Cancel"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -763,6 +828,18 @@ msgid "SII Information"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii_result.py:149
+#, python-format
+msgid "SII Invoice Canceled. Create a new invoice"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:222
+#, python-format
+msgid "SII Map not found. Check your configuration"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: field:account.invoice,sii_recc_csv:0
 msgid "SII Payment RECC CSV"
 msgstr ""
@@ -780,6 +857,11 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: field:res.company,sii_header_purchase:0
 msgid "SII Purchase header"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: field:account.invoice,sii_resend:0
+msgid "SII Resend"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -892,6 +974,8 @@ msgstr ""
 
 #. module: l10n_es_aeat_sii
 #: field:aeat.check.sii.result,sent_state:0
+#: field:aeat.sii.map,state:0
+#: field:aeat.sii.result,duplicate_registry_state:0
 #: field:l10n.es.aeat.sii,state:0
 msgid "State"
 msgstr ""
@@ -924,15 +1008,40 @@ msgid "The SII Sale registration is different"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:624
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:817
 #, python-format
 msgid "The invoice supplier number is required"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:544
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:519
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:711
 #, python-format
 msgid "The partner has not a VAT configured."
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:192
+#, python-format
+msgid "This invoice is sent to SII, if you change the date you have to cancel it and drop the invoice from SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:178
+#, python-format
+msgid "This invoice is sent to SII, if you change the number you have to cancel it and drop the invoice from SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:169
+#, python-format
+msgid "This invoice is sent to SII, if you change the partner you have to cancel it and drop the invoice from SII"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:185
+#, python-format
+msgid "This invoice is sent to SII, if you change the type you have to cancel it and drop the invoice from SII"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
@@ -995,18 +1104,46 @@ msgid "Vat Presenter"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
+#: field:aeat.sii.map,version:0
+msgid "Version"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: field:aeat.sii.wsdl,wsdl:0
+msgid "WDSL Url"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: view:aeat.sii.map:l10n_es_aeat_sii.aeat_sii_map_view_form
+msgid "WSDL Urls"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii_map.py:63
+#, python-format
+msgid "WSDL not found. Check your configuration"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
 #: selection:res.company,send_mode:0
 msgid "With delay"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:907
+#: field:aeat.sii.map,wsdl_url:0
+msgid "Wsdl url"
+msgstr ""
+
+#. module: l10n_es_aeat_sii
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:860
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:1114
 #, python-format
 msgid "You can not cancel this invoice because there is a job running!"
 msgstr ""
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:553
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:528
+#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:720
 #, python-format
 msgid "You have to select what account chart template use this company."
 msgstr ""
@@ -1014,17 +1151,5 @@ msgstr ""
 #. module: l10n_es_aeat_sii
 #: view:l10n.es.aeat.sii.password:l10n_es_aeat_sii.l10n_es_sii_password_wizard_view
 msgid "or"
-msgstr ""
-
-#. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:1006
-#, python-format
-msgid "Partner has no country or it is invalid."
-msgstr ""
-
-#. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:1008
-#, python-format
-msgid "Invoice fiscal position is not set."
 msgstr ""
 
