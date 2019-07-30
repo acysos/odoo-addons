@@ -18,12 +18,9 @@ Installation
 Módulos necesario:
 * l10n_es_aeat_sii: https://www.odoo.com/apps/modules/12.0/l10n_es_aeat_sii/
 
-Se requieren las siguientes dependencias que no están aún en http://www.odoo.com/apps,
-pero se pueden descargar en el repositorio: https://github.com/acysos/odoo-addons/tree/12.0
+Depende de:
 
 - l10n_es_dua
-
-Una vez descargado sustituya el __manifest__.py por el __manifest__.py.replace
 
 
 Usage

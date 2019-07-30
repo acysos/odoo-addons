@@ -11,7 +11,7 @@
     "license": "AGPL-3",
     "depends": [
         "l10n_es_aeat_sii",
-#        "l10n_es_dua",
+        "l10n_es_dua",
     ],
     "data": [
     ],
