@@ -633,21 +633,26 @@ class AccountInvoice(models.Model):
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
         if 'DesgloseTipoOperacion' in taxes_sii:
-            if 'Entrega' in taxes_sii['DesgloseTipoOperacion']:
-                if 'Sujeta' in taxes_sii['DesgloseTipoOperacion']['Entrega']:
+            if 'Entrega' in taxes_sii['DesgloseTipoOperacion'] or \
+                    'PrestacionServicios' in taxes_sii['DesgloseTipoOperacion']:
+                if 'Entrega' in taxes_sii['DesgloseTipoOperacion']:
+                    dt_key = 'Entrega'
+                else:
+                    dt_key = 'PrestacionServicios'
+                if 'Sujeta' in taxes_sii['DesgloseTipoOperacion'][dt_key]:
                     if 'Exenta' in taxes_sii['DesgloseTipoOperacion'][
-                            'Entrega']['Sujeta']:
+                            dt_key]['Sujeta']:
                         if 'DetalleExenta' in taxes_sii[
-                            'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                            'DesgloseTipoOperacion'][dt_key]['Sujeta'][
                                 'Exenta']:
                             if 'BaseImponible' in taxes_sii[
-                                'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                                'DesgloseTipoOperacion'][dt_key]['Sujeta'][
                                     'Exenta']['DetalleExenta']:
                                 taxes_sii[
-                                'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                                'DesgloseTipoOperacion'][dt_key]['Sujeta'][
                                     'Exenta']['DetalleExenta'][
                                         'BaseImponible'] = round(taxes_sii[
-                                            'DesgloseTipoOperacion']['Entrega'][
+                                            'DesgloseTipoOperacion'][dt_key][
                                                 'Sujeta']['Exenta'][
                                                     'DetalleExenta'][
                                                         'BaseImponible'], 2
@@ -1008,8 +1013,8 @@ class AccountInvoice(models.Model):
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
                     send_error = u"{} | {}".format(
-                        unicode(res_line['CodigoErrorRegistro']),
-                        unicode(res_line['DescripcionErrorRegistro'])[:60])
+                        str(res_line['CodigoErrorRegistro']),
+                        str(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error
             except Exception as fault:
                 self.env['aeat.sii.result'].create_result(
@@ -1080,8 +1085,8 @@ class AccountInvoice(models.Model):
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
                     send_recc_error = u"{} | {}".format(
-                        unicode(res_line['CodigoErrorRegistro']),
-                        unicode(res_line['DescripcionErrorRegistro'])[:60])
+                        str(res_line['CodigoErrorRegistro']),
+                        str(res_line['DescripcionErrorRegistro'])[:60])
                 invoice.sii_recc_send_error = send_recc_error
             except Exception as fault:
                 self.env['aeat.sii.result'].create_result(
