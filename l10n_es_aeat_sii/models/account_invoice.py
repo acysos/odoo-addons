@@ -166,7 +166,7 @@ class AccountInvoice(models.Model):
     def write(self, vals):
         if 'partner_id' in vals:
             if self.sii_sent:
-                raise UserError(_(
+                raise exceptions.Warning(_(
                     "This invoice is sent to SII, if you change the partner"
                     " you have to cancel it and drop the invoice from SII"))
             else:
@@ -179,7 +179,7 @@ class AccountInvoice(models.Model):
                         self.supplier_invoice_number and \
                         vals['supplier_invoice_number'] != \
                         self.supplier_invoice_number):
-                    raise UserError(_(
+                    raise exceptions.Warning(_(
                         "This invoice is sent to SII, if you change the number"
                         " you have to cancel it and drop the invoice from SII"))
             elif (self.number and vals['number'] != self.number) or (
@@ -189,14 +189,14 @@ class AccountInvoice(models.Model):
                 vals['sii_resend'] = True
         if 'type' in vals:
             if self.sii_sent:
-                raise UserError(_(
+                raise exceptions.Warning(_(
                     "This invoice is sent to SII, if you change the type"
                     " you have to cancel it and drop the invoice from SII"))
             else:
                 vals['sii_resend'] = True
         if 'date_invoice' in vals:
             if self.sii_sent:
-                raise UserError(_(
+                raise exceptions.Warning(_(
                     "This invoice is sent to SII, if you change the date"
                     " you have to cancel it and drop the invoice from SII"))
             else:
@@ -731,7 +731,12 @@ class AccountInvoice(models.Model):
         if self.partner_id.is_company:
             nombrerazon = self.partner_id.name[0:120]
         else:
-            nombrerazon = self.partner_id.parent_id.name[0:120]
+            if self.partner_id.parent_id:
+                nombrerazon = self.partner_id.parent_id.name[0:120]
+            else:
+                raise exceptions.Warning(_(
+                    'This contact hasn\'t company. You can\'t create an invoice'
+                    ' without company.'))
         if self.type in ['out_invoice', 'out_refund']:
             tipo_factura = 'F1'
             # TODO Los 5 tipos de facturas rectificativas
