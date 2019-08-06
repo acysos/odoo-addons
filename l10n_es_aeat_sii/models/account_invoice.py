@@ -1225,6 +1225,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def drop_sii(self):
+        queue_obj = self.env['queue.job'].sudo()
         for invoice in self:
             company = invoice.company_id
             if company.sii_enabled:
