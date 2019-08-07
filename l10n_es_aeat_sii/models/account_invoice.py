@@ -582,16 +582,16 @@ class AccountInvoice(models.Model):
                             type_breakdown[
                                 'PrestacionServicios']['Sujeta']['NoExenta'][
                                 'DesgloseIVA']['DetalleIVA'] = []
-                            tax_type = tax_line.amount * 100
-                            if str(tax_type) not in taxes_to:
-                                taxes_to[str(tax_type)] = \
-                                    self._get_sii_tax_line(
-                                        tax_line, line,
-                                        line.invoice_line_tax_ids)
-                            else:
-                                taxes_to = self._update_sii_tax_line(
-                                    taxes_to, tax_line, line,
+                        tax_type = tax_line.amount * 100
+                        if str(tax_type) not in taxes_to:
+                            taxes_to[str(tax_type)] = \
+                                self._get_sii_tax_line(
+                                    tax_line, line,
                                     line.invoice_line_tax_ids)
+                        else:
+                            taxes_to = self._update_sii_tax_line(
+                                taxes_to, tax_line, line,
+                                line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
             for key, line in taxes_f.items():
                 if self.type == 'out_refund' and self.refund_type == 'I':
@@ -634,21 +634,26 @@ class AccountInvoice(models.Model):
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
         if 'DesgloseTipoOperacion' in taxes_sii:
-            if 'Entrega' in taxes_sii['DesgloseTipoOperacion']:
-                if 'Sujeta' in taxes_sii['DesgloseTipoOperacion']['Entrega']:
+            if 'Entrega' in taxes_sii['DesgloseTipoOperacion'] or \
+                    'PrestacionServicios' in taxes_sii['DesgloseTipoOperacion']:
+                if 'Entrega' in taxes_sii['DesgloseTipoOperacion']:
+                    dt_key = 'Entrega'
+                else:
+                    dt_key = 'PrestacionServicios'
+                if 'Sujeta' in taxes_sii['DesgloseTipoOperacion'][dt_key]:
                     if 'Exenta' in taxes_sii['DesgloseTipoOperacion'][
-                            'Entrega']['Sujeta']:
+                            dt_key]['Sujeta']:
                         if 'DetalleExenta' in taxes_sii[
-                            'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                            'DesgloseTipoOperacion'][dt_key]['Sujeta'][
                                 'Exenta']:
                             if 'BaseImponible' in taxes_sii[
-                                'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                                'DesgloseTipoOperacion'][dt_key]['Sujeta'][
                                     'Exenta']['DetalleExenta']:
                                 taxes_sii[
-                                'DesgloseTipoOperacion']['Entrega']['Sujeta'][
+                                'DesgloseTipoOperacion'][dt_key]['Sujeta'][
                                     'Exenta']['DetalleExenta'][
                                         'BaseImponible'] = round(taxes_sii[
-                                            'DesgloseTipoOperacion']['Entrega'][
+                                            'DesgloseTipoOperacion'][dt_key][
                                                 'Sujeta']['Exenta'][
                                                     'DetalleExenta'][
                                                         'BaseImponible'], 2
@@ -1240,6 +1245,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _drop_invoice(self):
         """ Drop invoice from SII"""
+        queue_obj = self.env['queue.job'].sudo()
         for invoice in self.filtered(lambda i: i.state in ['cancel']):
             sii_map = invoice._get_sii_map()
             company = invoice.company_id
