@@ -11,7 +11,6 @@ from requests import Session
 
 from odoo import _, api, fields, exceptions, models
 from odoo.exceptions import UserError, RedirectWarning, ValidationError
-from odoo.modules.registry import Registry
 
 _logger = logging.getLogger(__name__)
 
