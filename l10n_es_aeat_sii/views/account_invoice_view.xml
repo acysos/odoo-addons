@@ -26,7 +26,7 @@
                             <field name="sii_description"/>
                             <field name="refund_type"
                                    attrs="{'required': [('type', 'in', ('out_refund','in_refund'))]}"/>
-                            <field name="registration_key" domain="[('type', '=', 'purchase')]"/>
+                            <field name="registration_key" domain="[('type', '=', 'purchase')]" attrs="{'required': [('sii_enabled', '=', True)]}"/>
                             <field name="sii_enabled" invisible="1"/>
                         </group>
                         <group string="SII Result">
