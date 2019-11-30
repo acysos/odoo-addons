@@ -139,7 +139,7 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.view_account_invoice_filter" />
             <field name="arch" type="xml">
-            	<xpath expr="//filter[@name='late']" position="after">
+                <filter name="late" position="after">
                     <separator />
                     <group name="sii_sent">
 	                    <filter name="sii_not_sent" string="SII not send"
@@ -149,13 +149,18 @@
 	                    <filter name="sii_send_state" string="SII failed"
 	                            domain="[('sii_send_error','!=',False)]"/>
                     </group>
-                    <separator />
                     <group name="sii_mapped">
 	                    <filter name="sii_mapped" string="SII mapped"
 	                            domain="[('is_sii_mapped','=',True)]"/>
 	                    <filter name="sii_not_mapped" string="SII not mapped"
 	                            domain="[('is_sii_mapped','=',False)]"/>
                     </group>
+                </filter>
+                <xpath expr="//group" position="inside">
+                    <separator/>
+                    <filter string="SII error"
+                        domain="[('sii_send_error','!=',False)]"
+                        context="{'group_by':'sii_send_error'}"/>
                 </xpath>
             </field>
         </record>

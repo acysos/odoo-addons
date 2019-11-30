@@ -22,13 +22,8 @@ Para instalar esté módulo necesita:
 #. Libreria Python Requests, se puede instalar con el comando 'pip install requests'
 #. Libreria pyOpenSSL, versión 0.15 o posterior
 
-Depende de:
-
-- account_invoice_refund_link
-- l10n_es_aeat
-- queue_job
-- account_payment_partner
-
+Una vez instalado ejecute Account Chart Update para actualizar las claves
+de las posiciones fiscales.
 
 Configuration
 =============
@@ -50,7 +45,7 @@ El certificado se puede preparar de dos maneras:
 Configuración de las claves de impuestos:
 
 - Manual: rellene los campos de Clave de Registro SII con el valor que corresponda
-- Automático: actualice el plan contale desde el enlace de "Update chart template" (No disponible en v12)
+- Automático: actualice el plan contale desde el enlace de "Update chart template"
 en la pantalla de configuración de Contabilidad.
 
 Connector:

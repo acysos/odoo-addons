@@ -11,6 +11,7 @@
                     <separator string="SII" />
                     <group>
                         <field name="sii_exempt_cause"/>
+                        <field name="sii_not_subject_7_14"/>
                     </group>
                 </group>
             </field>
