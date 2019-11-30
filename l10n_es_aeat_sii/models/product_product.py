@@ -34,3 +34,5 @@ class ProductTemplate(models.Model):
                    ('E5', 'E5'),
                    ('E6', 'E6')],
         default='none')
+    sii_not_subject_7_14 = fields.Boolean(
+        string="Not subject article 7, 14, others")
