@@ -422,16 +422,24 @@ class AccountInvoice(models.Model):
         taxes_sfesbei = self._get_taxes_map(['SFESBEI'])
         taxes_sfesbee = self._get_taxes_map(['SFESBEE'])
         taxes_sfesisp = self._get_taxes_map(['SFESISP'])
-        # taxes_sfesisps = self._get_taxes_map(['SFESISPS'], self.date_invoice)
+        # taxes_sfesisps = self._get_taxes_map(['SFESISPS']
         taxes_sfens = self._get_taxes_map(['SFENS'])
         taxes_sfess = self._get_taxes_map(['SFESS'])
         taxes_sfesse = self._get_taxes_map(['SFESSE'])
         taxes_sfesns = self._get_taxes_map(['SFESNS'])
 
+        # Invoice with not subject lines with 'DesgloseTipoOperacon' 
+        identifier = self._get_sii_identifier()
+        ns_dt = False
+        if 'IDOtro' in identifier and self.registration_key != '07':
+            if identifier['IDOtro']['ID'][:3] != 'ESN':
+                ns_dt = True
+
         for line in self.invoice_line_ids:
             for tax_line in line.invoice_line_tax_ids:
                 if tax_line in taxes_sfesb or tax_line in taxes_sfesisp or \
-                        tax_line in taxes_sfesbe:
+                        tax_line in taxes_sfesbe or (
+                            tax_line in taxes_sfens and not ns_dt):
                     if 'DesgloseFactura' not in taxes_sii:
                         taxes_sii['DesgloseFactura'] = {}
                     inv_breakdown = taxes_sii['DesgloseFactura']
@@ -489,45 +497,88 @@ class AccountInvoice(models.Model):
                                 taxes_f = self._update_sii_tax_line(
                                     taxes_f, tax_line, line,
                                     line.invoice_line_tax_ids)
-                    # TODO l10n_es no dispone de NoSujetas de bienes
+
+                    if tax_line in taxes_sfens and not ns_dt:
+                        price_subtotal = line.price_subtotal
+                        if (self.currency_id !=
+                                self.company_id.currency_id):
+                            price_subtotal = self.currency_id.with_context(
+                                date=self._get_currency_rate_date(
+                                    )).compute(price_subtotal,
+                                               self.company_id.currency_id)
+                        if 'NoSujeta' not in inv_breakdown:
+                            inv_breakdown['NoSujeta'] = {}
+                            if line.product_id.sii_not_subject_7_14:
+                                if 'ImportePorArticulos7_14_Otros' not in \
+                                        inv_breakdown['NoSujeta']:
+                                    inv_breakdown['NoSujeta'] = {
+                                        'ImportePorArticulos7_14_Otros': \
+                                            price_subtotal}
+                                else:
+                                    inv_breakdown['NoSujeta'][
+                                        'ImportePorArticulos7_14_Otros'] += \
+                                            price_subtotal
+                            else:
+                                if 'ImporteTAIReglasLocalizacion' not in \
+                                        inv_breakdown['NoSujeta']:
+                                    inv_breakdown['NoSujeta'] = {
+                                        'ImporteTAIReglasLocalizacion': price_subtotal
+                                    }
+                                else:
+                                    inv_breakdown['NoSujeta'][
+                                        'ImporteTAIReglasLocalizacion'] += \
+                                            price_subtotal
+
                 if tax_line in taxes_sfess or tax_line in taxes_sfesse or \
-                    tax_line in taxes_sfens or tax_line in taxes_sfesbee or \
-                        tax_line in taxes_sfesbei or tax_line in taxes_sfesns:
+                    tax_line in taxes_sfesbee or tax_line in taxes_sfesbei or \
+                        tax_line in taxes_sfesns or (
+                            tax_line in taxes_sfens and ns_dt):
                     if 'DesgloseTipoOperacion' not in taxes_sii:
                         taxes_sii['DesgloseTipoOperacion'] = {}
                     type_breakdown = taxes_sii['DesgloseTipoOperacion']
                     if tax_line in taxes_sfess or \
                             tax_line in taxes_sfesse or \
-                            tax_line in taxes_sfens or tax_line in taxes_sfesns:
+                            tax_line in taxes_sfesns:
                         if 'PrestacionServicios' not in type_breakdown:
                             type_breakdown['PrestacionServicios'] = {}
                         op_key = 'PrestacionServicios'
-                    if tax_line in taxes_sfesbee or tax_line in taxes_sfesbei:
+                    if tax_line in taxes_sfesbee or tax_line in taxes_sfesbei \
+                            or (tax_line in taxes_sfens and ns_dt):
                         if 'Entrega' not in type_breakdown:
                             type_breakdown['Entrega'] = {}
                         op_key = 'Entrega'
-                    if tax_line in taxes_sfens or tax_line in taxes_sfesns:
-                        if 'NoSujeta' not in type_breakdown:
+                    if tax_line in taxes_sfesns or (
+                            tax_line in taxes_sfens and ns_dt):
+                        price_subtotal = line.price_subtotal
+                        if (self.currency_id !=
+                                self.company_id.currency_id):
+                            price_subtotal = self.currency_id.with_context(
+                                date=self._get_currency_rate_date(
+                                    )).compute(price_subtotal,
+                                               self.company_id.currency_id)
+                        if 'NoSujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['NoSujeta'] = {}
-                            if self.registration_key.code == '08' and \
-                                    self.registration_key.type == 'sale':
-                                type_breakdown[op_key]['NoSujeta'][
-                                    'ImporteTAIReglasLocalizacion'] = \
-                                    line.price_subtotal
+                            if line.product_id.sii_not_subject_7_14:
+                                if 'ImportePorArticulos7_14_Otros' not in \
+                                        type_breakdown[op_key]['NoSujeta']:
+                                    type_breakdown[op_key]['NoSujeta'] = {
+                                        'ImportePorArticulos7_14_Otros': \
+                                            price_subtotal}
+                                else:
+                                    type_breakdown[op_key]['NoSujeta'][
+                                        'ImportePorArticulos7_14_Otros'] += \
+                                            price_subtotal
                             else:
-                                type_breakdown[op_key]['NoSujeta'][
-                                    'ImportePorArticulos7_14_Otros'] = \
-                                    line.price_subtotal
-                        else:
-                            if self.registration_key.code == '08' and \
-                                    self.registration_key.type == 'sale':
-                                type_breakdown[op_key]['NoSujeta'][
-                                    'ImporteTAIReglasLocalizacion'] += \
-                                    line.price_subtotal
-                            else:
-                                type_breakdown[op_key]['NoSujeta'][
-                                    'ImportePorArticulos7_14_Otros'] += \
-                                    line.price_subtotal
+                                if 'ImporteTAIReglasLocalizacion' not in \
+                                        type_breakdown[op_key]['NoSujeta']:
+                                    type_breakdown[op_key]['NoSujeta'] = {
+                                        'ImporteTAIReglasLocalizacion': \
+                                            price_subtotal
+                                    }
+                                else:
+                                    type_breakdown[op_key]['NoSujeta'][
+                                        'ImporteTAIReglasLocalizacion'] += \
+                                            price_subtotal                                    
                     else:
                         if 'Sujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['Sujeta'] = {}
@@ -632,36 +683,52 @@ class AccountInvoice(models.Model):
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
+        if 'DesgloseFactura' in taxes_sii:
+            t_key = 'DesgloseFactura'
+            if 'NoSujeta' in taxes_sii[t_key]:
+                if 'ImportePorArticulos7_14_Otros' in taxes_sii[t_key][
+                        'NoSujeta']:
+                    ns_key = 'ImportePorArticulos7_14_Otros'
+                else:
+                    ns_key = 'ImporteTAIReglasLocalizacion'
+                taxes_sii[t_key]['NoSujeta'][ns_key] = round(
+                    taxes_sii[t_key]['NoSujeta'][ns_key], 2)
+                    
         if 'DesgloseTipoOperacion' in taxes_sii:
-            if 'Entrega' in taxes_sii['DesgloseTipoOperacion'] or \
-                    'PrestacionServicios' in taxes_sii['DesgloseTipoOperacion']:
-                if 'Entrega' in taxes_sii['DesgloseTipoOperacion']:
+            t_key = 'DesgloseTipoOperacion'
+            if 'Entrega' in taxes_sii[t_key] or \
+                    'PrestacionServicios' in taxes_sii[t_key]:
+                if 'Entrega' in taxes_sii[t_key]:
                     dt_key = 'Entrega'
                 else:
                     dt_key = 'PrestacionServicios'
-                if 'Sujeta' in taxes_sii['DesgloseTipoOperacion'][dt_key]:
-                    if 'Exenta' in taxes_sii['DesgloseTipoOperacion'][
+                if 'Sujeta' in taxes_sii[t_key][dt_key]:
+                    if 'Exenta' in taxes_sii[t_key][
                             dt_key]['Sujeta']:
-                        if 'DetalleExenta' in taxes_sii[
-                            'DesgloseTipoOperacion'][dt_key]['Sujeta'][
-                                'Exenta']:
-                            if 'BaseImponible' in taxes_sii[
-                                'DesgloseTipoOperacion'][dt_key]['Sujeta'][
-                                    'Exenta']['DetalleExenta']:
-                                taxes_sii[
-                                'DesgloseTipoOperacion'][dt_key]['Sujeta'][
-                                    'Exenta']['DetalleExenta'][
-                                        'BaseImponible'] = round(taxes_sii[
-                                            'DesgloseTipoOperacion'][dt_key][
-                                                'Sujeta']['Exenta'][
-                                                    'DetalleExenta'][
-                                                        'BaseImponible'], 2
-                                            )
+                        if 'DetalleExenta' in taxes_sii[t_key][dt_key][
+                                'Sujeta']['Exenta']:
+                            if 'BaseImponible' in taxes_sii[t_key][dt_key][
+                                    'Sujeta']['Exenta']['DetalleExenta']:
+                                taxes_sii[t_key][dt_key]['Sujeta']['Exenta'][
+                                    'DetalleExenta']['BaseImponible'] = round(
+                                        taxes_sii[t_key][dt_key]['Sujeta'][
+                                            'Exenta']['DetalleExenta'][
+                                                'BaseImponible'], 2
+                                        )
+                if 'NoSujeta' in taxes_sii[t_key][dt_key]:
+                    if 'ImportePorArticulos7_14_Otros' in taxes_sii[t_key][
+                            dt_key]['NoSujeta']:
+                        ns_key = 'ImportePorArticulos7_14_Otros'
+                    else:
+                        ns_key = 'ImporteTAIReglasLocalizacion'
+                    taxes_sii[t_key][dt_key]['NoSujeta'][ns_key] = round(
+                        taxes_sii[t_key][dt_key]['NoSujeta'][ns_key], 2)
         if 'DesgloseTipoOperacion' in taxes_sii and \
                 'DesgloseFactura' in taxes_sii:
             taxes_sii['DesgloseTipoOperacion']['Entrega'] = \
                 taxes_sii['DesgloseFactura']
             del taxes_sii['DesgloseFactura']
+        
         return taxes_sii
 
     @api.multi
@@ -998,6 +1065,7 @@ class AccountInvoice(models.Model):
                 tipo_comunicacion = 'A1'
             header = invoice._get_header(tipo_comunicacion, sii_map)
             invoices = invoice._get_invoices()
+
             try:
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, invoices)
@@ -1201,22 +1269,18 @@ class AccountInvoice(models.Model):
             }
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position_id.name == \
-                u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            if vat[:2] == 'ES':
-                _logger.info("Canarias")
-                dic_ret = {"NIF": self.partner_id.vat[2:]}
-            else:
-                _logger.info("Otro")
-                dic_ret = {
-                    "IDOtro": {
-                        "CodigoPais":
-                            self.partner_id.country_id and
-                            self.partner_id.country_id.code or
-                            vat[:2],
-                        "IDType": '04',
-                        "ID": vat
-                      }
-                }
+                u'Régimen Extracomunitario':
+            _logger.info("Otro")
+            dic_ret = {
+                "IDOtro": {
+                    "CodigoPais":
+                        self.partner_id.country_id and
+                        self.partner_id.country_id.code or
+                        vat[:2],
+                    "IDType": '04',
+                    "ID": vat
+                  }
+            }
             dic_ret = self._fix_country_code(dic_ret)
         elif vat.startswith('ESN'):
             dic_ret = {"NIF": self.partner_id.vat[2:]}
