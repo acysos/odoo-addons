@@ -683,6 +683,7 @@ class AccountInvoice(models.Model):
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
+
         if 'DesgloseFactura' in taxes_sii:
             t_key = 'DesgloseFactura'
             if 'NoSujeta' in taxes_sii[t_key]:
@@ -787,12 +788,8 @@ class AccountInvoice(models.Model):
                         line['CuotaSoportada'] = \
                             abs(round(line['CuotaSoportada'], 2))
                     line['BaseImponible'] = round(line['BaseImponible'], 2)
-                if self.registration_key.code in ['03', '05', '09', '16']:
-                    line['CuotaSoportada'] = abs(round(0, 2))
                 if line.get('TipoImpositivo', False):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
-                    if self.registration_key.code in ['03', '05', '09', '16']:
-                        line['TipoImpositivo'] = round(0, 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_isp) > 0:
             for key, line in taxes_isp.iteritems():
