@@ -290,8 +290,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def _change_date_format(self, date):
-        datetimeobject = datetime.strptime(date, '%Y-%m-%d')
-        new_date = datetimeobject.strftime('%d-%m-%Y')
+        new_date = date.strftime('%d-%m-%Y')
         return new_date
 
     @api.multi
