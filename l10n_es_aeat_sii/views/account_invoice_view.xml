@@ -25,7 +25,7 @@
                         <group string="SII Information">
                             <field name="sii_description"/>
                             <field name="refund_type"
-                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund'))]}"/>
+                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund')), ('sii_enabled', '=', True)]}"/>
                             <field name="registration_key" domain="[('type', '=', 'purchase')]" attrs="{'required': [('sii_enabled', '=', True)]}"/>
                             <field name="sii_enabled" invisible="1"/>
                         </group>
@@ -90,7 +90,7 @@
                         <group string="SII Information">
                             <field name="sii_description"/>
                             <field name="refund_type"
-                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund'))]}"/>
+                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund')), ('sii_enabled', '=', True)]}"/>
                             <field name="registration_key" domain="[('type', '=', 'sale')]" attrs="{'required': [('sii_enabled', '=', True)]}"/>
                             <field name="sii_enabled" invisible="1"/>
                         </group>
