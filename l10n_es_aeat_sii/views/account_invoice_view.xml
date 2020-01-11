@@ -156,12 +156,6 @@
 	                            domain="[('is_sii_mapped','=',False)]"/>
                     </group>
                 </filter>
-                <xpath expr="//group" position="inside">
-                    <separator/>
-                    <filter string="SII error"
-                        domain="[('sii_send_error','!=',False)]"
-                        context="{'group_by':'sii_send_error'}"/>
-                </xpath>
             </field>
         </record>
 
