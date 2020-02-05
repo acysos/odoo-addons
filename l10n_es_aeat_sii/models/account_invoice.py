@@ -294,6 +294,14 @@ class AccountInvoice(models.Model):
         return new_date
 
     @api.multi
+    def _get_vat_number(self, vat):
+        if vat.startswith('ES'):
+            nif = vat[2:]
+        else:
+            nif = vat
+        return nif
+
+    @api.multi
     def _get_header(self, tipo_comunicacion, sii_map):
         self.ensure_one()
         company = self.company_id
@@ -301,11 +309,12 @@ class AccountInvoice(models.Model):
             raise UserError(_(
                 "No VAT configured for the company '{}'").format(company.name))
         id_version_sii = sii_map.version
+        nif = self._get_vat_number(self.company_id.vat)
         header = {
             "IDVersionSii": id_version_sii,
             "Titular": {
                 "NombreRazon": self.company_id.name[0:120],
-                "NIF": self.company_id.vat[2:]}
+                "NIF": nif}
         }
         header['TipoComunicacion'] = tipo_comunicacion
         return header
@@ -869,10 +878,11 @@ class AccountInvoice(models.Model):
                             )).compute(importe_total,
                                     self.company_id.currency_id),
                     2)
+            nif = self._get_vat_number(company.vat)
             invoices = {
                 "IDFactura": {
                     "IDEmisorFactura": {
-                        "NIF": company.vat[2:]
+                        "NIF": nif
                     },
                     "NumSerieFacturaEmisor": self.number[0:60],
                     "FechaExpedicionFacturaEmisor": invoice_date},
@@ -1119,10 +1129,11 @@ class AccountInvoice(models.Model):
             try:
                 invoice_date = self._change_date_format(invoice.date_invoice)
                 if invoice.type in ['out_invoice', 'out_refund']:
+                    nif = self._get_vat_number(invoice.company_id.vat)
                     payment = {
                         "IDFactura": {
                             "IDEmisorFactura": {
-                                "NIF": invoice.company_id.vat[2:]
+                                "NIF": nif
                             },
                             "NumSerieFacturaEmisor": invoice.number[0:60],
                             "FechaExpedicionFacturaEmisor": invoice_date},
@@ -1244,6 +1255,14 @@ class AccountInvoice(models.Model):
     def _fix_country_code(self, dic_ret):
         if dic_ret['IDOtro']['CodigoPais'] == 'UK':
             dic_ret['IDOtro']['CodigoPais'] = 'GB'
+        if dic_ret['IDOtro']['CodigoPais'] == 'RE':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
+        if dic_ret['IDOtro']['CodigoPais'] == 'GP':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
+        if dic_ret['IDOtro']['CodigoPais'] == 'MQ':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
+        if dic_ret['IDOtro']['CodigoPais'] == 'GF':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
         return dic_ret
 
     @api.multi
@@ -1251,6 +1270,7 @@ class AccountInvoice(models.Model):
         self.ensure_one()
         dic_ret = {}
         vat = ''.join(e for e in self.partner_id.vat if e.isalnum()).upper()
+        nif = self._get_vat_number(vat)
         if self.fiscal_position_id.name == u'Régimen Intracomunitario':
             dic_ret = {
                 "IDOtro": {
@@ -1259,12 +1279,12 @@ class AccountInvoice(models.Model):
                         self.partner_id.country_id.code or
                         vat[:2],
                     "IDType": '02',
-                    "ID": vat
+                    "ID": nif
                 }
             }
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position_id.name == \
-                u'Régimen Extracomunitario':
+                u'Régimen Extracomunitario' or self.fiscal_position_id.name == u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
             _logger.info("Otro")
             dic_ret = {
                 "IDOtro": {
@@ -1273,14 +1293,12 @@ class AccountInvoice(models.Model):
                         self.partner_id.country_id.code or
                         vat[:2],
                     "IDType": '04',
-                    "ID": vat
+                    "ID": nif
                   }
             }
             dic_ret = self._fix_country_code(dic_ret)
-        elif vat.startswith('ESN'):
-            dic_ret = {"NIF": self.partner_id.vat[2:]}
         else:
-            dic_ret = {"NIF": self.partner_id.vat[2:]}
+            dic_ret = {"NIF": nif}
         return dic_ret
 
     def is_sii_invoice(self):
@@ -1318,12 +1336,13 @@ class AccountInvoice(models.Model):
         for invoice in self.filtered(lambda i: i.state in ['cancel']):
             sii_map = invoice._get_sii_map()
             company = invoice.company_id
+            nif = self._get_vat_number(company.vat)
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = sii_map._get_wsdl('wsdl_out')
                 port_name = 'SuministroFactEmitidas'
                 operation = 'AnulacionLRFacturasEmitidas'
                 number = invoice.number[0:60]
-                id_emisor = {"NIF": company.vat[2:]}
+                id_emisor = {"NIF": nif}
             elif self.type in ['in_invoice', 'in_refund']:
                 wsdl = sii_map._get_wsdl('wsdl_in')
                 port_name = 'SuministroFactRecibidas'
@@ -1362,7 +1381,7 @@ class AccountInvoice(models.Model):
                     self.sii_sent = True
             except Exception as fault:
                 self.env['aeat.sii.result'].create_result(
-                    invoice, False, 'normal', fault, 'account.invoice')   
+                    invoice, False, 'normal', fault, 'account.invoice')
 
     @api.multi
     def check_sii(self):
