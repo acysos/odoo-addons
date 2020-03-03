@@ -155,6 +155,15 @@ class AccountInvoice(models.Model):
                 invoice.sii_description = description
 
     @api.model
+    def _get_tax_type(self, tax_line):
+        if tax_line.amount_type == 'group':
+            tax_type = abs(
+                tax_line.children_tax_ids.filtered('amount')[:1].amount)
+        else:
+            tax_type = abs(tax_line.amount)
+        return tax_type
+
+    @api.model
     def _prepare_refund(
             self, invoice, date_invoice=None, date=None,
             description=None, journal_id=None):
@@ -345,11 +354,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_sii_tax_line(self, tax_line, line, line_taxes):
         self.ensure_one()
-        if tax_line.amount_type == 'group':
-            tax_type = abs(
-                tax_line.children_tax_ids.filtered('amount')[:1].amount)
-        else:
-            tax_type = abs(tax_line.amount)
+        tax_type = self._get_tax_type(tax_line)
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
             price_unit=self._get_line_price_subtotal(line),
@@ -388,7 +393,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _update_sii_tax_line(self, tax_sii, tax_line, line, line_taxes):
         self.ensure_one()
-        tax_type = tax_line.amount * 100
+        tax_type = self._get_tax_type(tax_line)
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
             price_unit=self._get_line_price_subtotal(line),
@@ -495,7 +500,7 @@ class AccountInvoice(models.Model):
                                 inv_breakdown['Sujeta'][
                                     'NoExenta']['DesgloseIVA'][
                                     'DetalleIVA'] = []
-                            tax_type = tax_line.amount * 100
+                            tax_type = self._get_tax_type(tax_line)
                             if str(tax_type) not in taxes_f:
                                 taxes_f[str(tax_type)] = \
                                     self._get_sii_tax_line(
@@ -640,7 +645,7 @@ class AccountInvoice(models.Model):
                             type_breakdown[
                                 'PrestacionServicios']['Sujeta']['NoExenta'][
                                 'DesgloseIVA']['DetalleIVA'] = []
-                        tax_type = tax_line.amount * 100
+                        tax_type = self._get_tax_type(tax_line)
                         if str(tax_type) not in taxes_to:
                             taxes_to[str(tax_type)] = \
                                 self._get_sii_tax_line(
@@ -755,7 +760,7 @@ class AccountInvoice(models.Model):
                             taxes_sii['InversionSujetoPasivo'] = {}
                             taxes_sii['InversionSujetoPasivo'][
                                 'DetalleIVA'] = []
-                        tax_type = tax_line.amount * 100
+                        tax_type = self._get_tax_type(tax_line)
                         if str(tax_type) not in taxes_isp:
                             taxes_isp[str(tax_type)] = self._get_sii_tax_line(
                                 tax_line, line, line.invoice_line_tax_ids)
@@ -768,7 +773,7 @@ class AccountInvoice(models.Model):
                             taxes_sii['DesgloseIVA'] = {}
                             taxes_sii['DesgloseIVA'][
                                 'DetalleIVA'] = []
-                        tax_type = tax_line.amount * 100
+                        tax_type = self._get_tax_type(tax_line)
                         if str(tax_type) not in taxes_f:
                             taxes_f[str(tax_type)] = self._get_sii_tax_line(
                                 tax_line, line, line.invoice_line_tax_ids)
