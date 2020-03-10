@@ -837,9 +837,9 @@ class AccountInvoice(models.Model):
         invoice_date = self._change_date_format(self.date_invoice)
         company = self.company_id
         ejercicio = fields.Date.from_string(
-            self.date_invoice).year
+            self.date).year
         periodo = '%02d' % fields.Date.from_string(
-            self.date_invoice).month
+            self.date).month
         if not company.chart_template_id:
             raise UserError(_(
                 'You have to select what account chart template use this'
@@ -917,6 +917,23 @@ class AccountInvoice(models.Model):
                         'BaseRectificada': base_rectificada,
                         'CuotaRectificada': cuota_rectificada
                     }
+
+            if ('IDOtro' in invoices['FacturaExpedida']['Contraparte'] or
+                ('NIF' in invoices['FacturaExpedida']['Contraparte'] and
+                 invoices['FacturaExpedida']['Contraparte']['NIF'].startswith(
+                    'N') and self.partner_id.country_id.code == 'ES')):
+                if 'DesgloseFactura' in invoices[
+                        'FacturaExpedida']['TipoDesglose']:
+                    if 'DesgloseTipoOperacion' not in invoices[
+                            'FacturaExpedida']['TipoDesglose']:
+                        invoices['FacturaExpedida']['TipoDesglose'][
+                            'DesgloseTipoOperacion'] = {}
+                    invoices['FacturaExpedida']['TipoDesglose'][
+                        'DesgloseTipoOperacion']['Entrega'] = invoices[
+                            'FacturaExpedida']['TipoDesglose'][
+                                'DesgloseFactura']
+                    invoices['FacturaExpedida']['TipoDesglose'].pop(
+                        'DesgloseFactura')
 
         if self.type in ['in_invoice', 'in_refund']:
             desglose_factura = self._get_sii_in_taxes()
@@ -1245,6 +1262,14 @@ class AccountInvoice(models.Model):
     def _fix_country_code(self, dic_ret):
         if dic_ret['IDOtro']['CodigoPais'] == 'UK':
             dic_ret['IDOtro']['CodigoPais'] = 'GB'
+        if dic_ret['IDOtro']['CodigoPais'] == 'RE':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
+        if dic_ret['IDOtro']['CodigoPais'] == 'GP':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
+        if dic_ret['IDOtro']['CodigoPais'] == 'MQ':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
+        if dic_ret['IDOtro']['CodigoPais'] == 'GF':
+            dic_ret['IDOtro']['CodigoPais'] = 'FR'
         return dic_ret
 
     @api.multi
@@ -1265,7 +1290,7 @@ class AccountInvoice(models.Model):
             }
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position_id.name == \
-                u'Régimen Extracomunitario':
+                u'Régimen Extracomunitario' or self.fiscal_position_id.name == u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
             _logger.info("Otro")
             dic_ret = {
                 "IDOtro": {
@@ -1335,9 +1360,9 @@ class AccountInvoice(models.Model):
                 id_emisor['NombreRazon'] = self.partner_id.name
             header = invoice._get_header(False, sii_map)
             ejercicio = fields.Date.from_string(
-                self.date_invoice).year
+                self.date).year
             periodo = '%02d' % fields.Date.from_string(
-                self.date_invoice).month
+                self.date).month
             invoice_date = self._change_date_format(invoice.date_invoice)
             try:
                 query = {
@@ -1401,9 +1426,9 @@ class AccountInvoice(models.Model):
                     invoice.reference[0:60]
             header = invoice._get_header(False, sii_map)
             ejercicio = fields.Date.from_string(
-                self.date_invoice).year
+                self.date).year
             periodo = '%02d' % fields.Date.from_string(
-                self.date_invoice).month
+                self.date).month
             invoice_date = self._change_date_format(invoice.date_invoice)
             try:
                 query = {
