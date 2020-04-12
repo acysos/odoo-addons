@@ -43,6 +43,13 @@ class ResCompany(models.Model):
                                  default='auto')
     sent_time = fields.Float(string="Sent time")
     delay_time = fields.Float(string="Delay time")
+    sii_activity_type = fields.Many2one(
+        comodel_name='mail.activity.type', string="SII Activity Type",
+        help="Activity types used when SII fail")
+    sii_activity_user = fields.Many2one(
+        comodel_name='res.users', string="SII Activity User",
+        help="Set an user to overrride the invoice user in activity when SII"
+        " fails")
 
     def _get_sii_eta(self):
         if self.send_mode == 'fixed':

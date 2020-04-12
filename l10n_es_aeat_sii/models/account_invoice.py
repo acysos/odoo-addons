@@ -1126,6 +1126,23 @@ class AccountInvoice(models.Model):
                 self.env['aeat.sii.result'].create_result(
                     invoice, False, 'normal', fault, 'account.invoice')
                 self.sii_send_error = fault
+                if self.company_id.sii_activity_type:
+                    model_id = self.env['ir.model'].search(
+                        [('model', '=', 'account.invoice')])
+                    company = self.company_id
+                    user_id = self.user_id.id
+                    if company.sii_activity_user:
+                        user_id = company.sii_activity_user.id
+                    date_deadline = fields.Date.today().strftime('%Y-%m-%d')
+                    activity_vals = {
+                        'activity_type_id': company.sii_activity_type.id,
+                        'res_id': self.id,
+                        'res_model_id': model_id[0].id,
+                        'date_deadline': date_deadline,
+                        'user_id': user_id,
+                        'summary': 'SII Error: ' + self.number,
+                    }
+                    self.env['mail.activity'].create(activity_vals)
 
     @api.multi
     def send_recc_payment_registry(self, move):

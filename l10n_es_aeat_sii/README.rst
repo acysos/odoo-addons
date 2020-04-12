@@ -48,6 +48,12 @@ Configuración de las claves de impuestos:
 - Automático: actualice el plan contale desde el enlace de "Update chart template"
 en la pantalla de configuración de Contabilidad.
 
+Configuración actividades de alerta:
+
+- NUEVO: si el envio del SII falla, ahora puede enviar una actividad al usuario principal o al usuario que crea la factura
+- En compañía puede establecer el tipo de actividad. Si no esta configurada la tipo de actividad no se manda alerta.
+- En compañía puede indicar si va a usar un usaurio principal, al que se le mandarán todas las actividades. Si no se indica se manda al usuario de la factura.
+
 Connector:
 
 #. Ajustar variables de configuración:
