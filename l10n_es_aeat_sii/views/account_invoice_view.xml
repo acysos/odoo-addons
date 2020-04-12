@@ -11,17 +11,17 @@
             <field name="arch" type="xml">
                 <button name="action_invoice_draft" position="after">
                     <button type="object" string="Send SII"
-                            name="send_sii" groups="l10n_es_aeat.group_account_aeat"
+                            name="send_sii" groups="account.group_account_invoice"
                             states="open,paid" attrs="{'invisible': ['|', ('sii_cancel', '=', True)]}" />
                     <button type="object" string="Check SII"
-                            name="check_sii" groups="l10n_es_aeat.group_account_aeat"
+                            name="check_sii" groups="account.group_account_invoice"
                             states="open,paid" attrs="{'invisible': ['|', ('sii_sent', '=', False), ('sii_cancel', '=', True)]}" />
                     <button type="object" string="Drop SII"
-                            name="drop_sii" groups="l10n_es_aeat.group_account_aeat"
+                            name="drop_sii" groups="account.group_account_invoice"
                             states="cancel" />
                 </button>
                 <notebook position="inside">
-                    <page string="SII" groups="l10n_es_aeat.group_account_aeat"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                    <page string="SII" groups="account.group_account_invoice"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
                         <group string="SII Information">
                             <field name="sii_description"/>
                             <field name="refund_type"
@@ -76,17 +76,17 @@
             <field name="arch" type="xml">
                 <button name="action_invoice_draft" position="after">
                     <button type="object" string="Send SII"
-                            name="send_sii" groups="l10n_es_aeat.group_account_aeat"
+                            name="send_sii" groups="account.group_account_invoice"
                             states="open,paid" attrs="{'invisible': ['|', ('sii_cancel', '=', True)]}" />
                     <button type="object" string="Check SII"
-                            name="check_sii" groups="l10n_es_aeat.group_account_aeat"
+                            name="check_sii" groups="account.group_account_invoice"
                             states="open,paid" attrs="{'invisible': ['|', ('sii_sent', '=', False), ('sii_cancel', '=', True)]}" />
                     <button type="object" string="Drop SII"
-                            name="drop_sii" groups="l10n_es_aeat.group_account_aeat"
+                            name="drop_sii" groups="account.group_account_invoice"
                             states="cancel" />
                 </button>
                 <notebook position="inside">
-                    <page string="SII" groups="l10n_es_aeat.group_account_aeat" attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                    <page string="SII" groups="account.group_account_invoice" attrs="{'invisible': [('sii_enabled', '=', False)]}">
                         <group string="SII Information">
                             <field name="sii_description"/>
                             <field name="refund_type"
