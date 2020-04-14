@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_company_retention_form" model="ir.ui.view">
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page/group" position="inside">
+                    <group name="account_invoice_retention" string="Account Invoice Retention">
+                        <field name="retention_percentage" />
+                        <field name="retention_days" />
+                        <field name="retention_account_out" />
+                        <field name="retention_account_in" />
+                        <field name="with_taxes" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
