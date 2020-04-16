@@ -2,7 +2,9 @@
 # Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import api, models
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
@@ -51,6 +53,9 @@ class AccountInvoice(models.Model):
                     line.pop('CuotaSoportada')
                     line['ImporteCompensacionREAGYP'] = \
                         round(line['ImporteCompensacionREAGYP'], 2)
+                    if self.type == 'in_refund':
+                        line['ImporteCompensacionREAGYP'] = -line[
+                            'ImporteCompensacionREAGYP']
                 invoices['FacturaRecibida']['DesgloseFactura'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         return invoices
