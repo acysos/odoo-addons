@@ -266,7 +266,7 @@ class PosOrder(models.Model):
                                 line.tax_ids)
 
         if len(taxes_f) > 0:
-            for key, line in taxes_f.items():
+            for key, line in list(taxes_f.items()):
                 if line.get('CuotaRepercutida', False):
                     line['CuotaRepercutida'] = \
                         round(line['CuotaRepercutida'], 2)
@@ -275,7 +275,7 @@ class PosOrder(models.Model):
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.items():
+            for key, line in list(taxes_to.items()):
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -424,7 +424,7 @@ class PosOrder(models.Model):
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
-                    send_error = u"{} | {}".format(
+                    send_error = "{} | {}".format(
                         unicode(res_line['CodigoErrorRegistro']),
                         unicode(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error

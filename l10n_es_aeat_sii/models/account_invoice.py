@@ -656,7 +656,7 @@ class AccountInvoice(models.Model):
                                 taxes_to, tax_line, line,
                                 line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
-            for key, line in taxes_f.items():
+            for key, line in list(taxes_f.items()):
                 if self.type == 'out_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -677,7 +677,7 @@ class AccountInvoice(models.Model):
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.items():
+            for key, line in list(taxes_to.items()):
                 if self.type == 'out_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -782,7 +782,7 @@ class AccountInvoice(models.Model):
                                 taxes_f, tax_line, line,
                                 line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
-            for key, line in taxes_f.items():
+            for key, line in list(taxes_f.items()):
                 if self.type == 'in_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -804,7 +804,7 @@ class AccountInvoice(models.Model):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_isp) > 0:
-            for key, line in taxes_isp.items():
+            for key, line in list(taxes_isp.items()):
                 if self.type == 'in_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -1073,10 +1073,31 @@ class AccountInvoice(models.Model):
         return res
 
     @api.multi
+    def _create_fail_activity(self):
+        self.ensure_one()
+        if self.company_id.sii_activity_type:
+            model_id = self.env['ir.model'].search(
+                [('model', '=', 'account.invoice')])
+            company = self.company_id
+            user_id = self.user_id.id
+            if company.sii_activity_user:
+                user_id = company.sii_activity_user.id
+            date_deadline = fields.Date.today().strftime('%Y-%m-%d')
+            activity_vals = {
+                'activity_type_id': company.sii_activity_type.id,
+                'res_id': self.id,
+                'res_model_id': model_id[0].id,
+                'date_deadline': date_deadline,
+                'user_id': user_id,
+                'summary': 'SII Error: ' + self.number,
+            }
+            self.env['mail.activity'].create(activity_vals)
+
+    @api.multi
     def _send_invoice_to_sii(self):
         for invoice in self.filtered(
-                lambda i: i.state in ['open', 'paid'] and i.is_sii_mapped and \
-                (not i.sii_sent or (i.sii_sent and i.sii_resend))):
+                lambda i: i.state in ['open', 'paid'] and i.is_sii_mapped and (
+                    not i.sii_sent or (i.sii_sent and i.sii_resend))):
             sii_map = invoice._get_sii_map()
             if invoice.type in ['out_invoice', 'out_refund']:
                 wsdl = sii_map._get_wsdl('wsdl_out')
@@ -1113,36 +1134,21 @@ class AccountInvoice(models.Model):
                 else:
                     self.sii_sent = False
                     self.sii_resend = False
+                    self._create_fail_activity()
                 self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'normal', False, 'account.invoice')
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
-                    send_error = u"{} | {}".format(
-                        unicode(res_line['CodigoErrorRegistro']),
-                        unicode(res_line['DescripcionErrorRegistro'])[:60])
+                    send_error = "{} | {}".format(
+                        str(res_line['CodigoErrorRegistro']),
+                        str(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error
             except Exception as fault:
                 self.env['aeat.sii.result'].sudo().sudo().create_result(
                     invoice, False, 'normal', fault, 'account.invoice')
                 self.sii_send_error = fault
-                if self.company_id.sii_activity_type:
-                    model_id = self.env['ir.model'].search(
-                        [('model', '=', 'account.invoice')])
-                    company = self.company_id
-                    user_id = self.user_id.id
-                    if company.sii_activity_user:
-                        user_id = company.sii_activity_user.id
-                    date_deadline = fields.Date.today().strftime('%Y-%m-%d')
-                    activity_vals = {
-                        'activity_type_id': company.sii_activity_type.id,
-                        'res_id': self.id,
-                        'res_model_id': model_id[0].id,
-                        'date_deadline': date_deadline,
-                        'user_id': user_id,
-                        'summary': 'SII Error: ' + self.number,
-                    }
-                    self.env['mail.activity'].create(activity_vals)
+                self._create_fail_activity()
 
     @api.multi
     def send_recc_payment_registry(self, move):
@@ -1208,9 +1214,9 @@ class AccountInvoice(models.Model):
                 send_recc_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
-                    send_recc_error = u"{} | {}".format(
-                        unicode(res_line['CodigoErrorRegistro']),
-                        unicode(res_line['DescripcionErrorRegistro'])[:60])
+                    send_recc_error = "{} | {}".format(
+                        str(res_line['CodigoErrorRegistro']),
+                        str(res_line['DescripcionErrorRegistro'])[:60])
                 invoice.sii_recc_send_error = send_recc_error
             except Exception as fault:
                 self.env['aeat.sii.result'].sudo().create_result(
@@ -1310,7 +1316,7 @@ class AccountInvoice(models.Model):
         dic_ret = {}
         vat = ''.join(e for e in self.partner_id.vat if e.isalnum()).upper()
         nif = self._get_vat_number(vat)
-        if self.fiscal_position_id.name == u'Régimen Intracomunitario':
+        if self.fiscal_position_id.name == 'Régimen Intracomunitario':
             dic_ret = {
                 "IDOtro": {
                     "CodigoPais":
@@ -1323,8 +1329,8 @@ class AccountInvoice(models.Model):
             }
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position_id.name == \
-                u'Régimen Extracomunitario' or self.fiscal_position_id.name == u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            _logger.info("Otro")
+                'Régimen Extracomunitario' or self.fiscal_position_id.name == \
+                    'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
             dic_ret = {
                 "IDOtro": {
                     "CodigoPais":
