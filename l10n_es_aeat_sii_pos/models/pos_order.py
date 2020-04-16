@@ -419,7 +419,7 @@ class PosOrder(models.Model):
                     self.sii_csv = res['CSV']
                 else:
                     self.sii_sent = False
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     order, res, 'normal', False, 'pos.order')
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
@@ -429,7 +429,7 @@ class PosOrder(models.Model):
                         unicode(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     order, False, 'normal', fault, 'pos.order')
                 self.sii_send_error = fault
 
@@ -484,10 +484,10 @@ class PosOrder(models.Model):
                 }
                 res = order._send_soap(
                     wsdl, port_name, operation, header, query)
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     order, res, False, 'pos.order')
             except Exception as fault:
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     order, False, fault, 'pos.order')
 
     @api.multi
