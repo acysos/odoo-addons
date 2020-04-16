@@ -267,7 +267,7 @@ class PosOrder(models.Model):
                                 line.tax_ids)
 
         if len(taxes_f) > 0:
-            for key, line in taxes_f.items():
+            for key, line in list(taxes_f.items()):
                 if line.get('CuotaRepercutida', False):
                     line['CuotaRepercutida'] = \
                         round(line['CuotaRepercutida'], 2)
@@ -276,7 +276,7 @@ class PosOrder(models.Model):
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.items():
+            for key, line in list(taxes_to.items()):
                 taxes_sii['DesgloseTipoOperacion']['PrestacionServicios'][
                     'Sujeta']['NoExenta']['DesgloseIVA'][
                     'DetalleIVA'].append(line)
@@ -420,17 +420,17 @@ class PosOrder(models.Model):
                     self.sii_csv = res['CSV']
                 else:
                     self.sii_sent = False
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     order, res, 'normal', False, 'pos.order')
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
-                    send_error = u"{} | {}".format(
-                        unicode(res_line['CodigoErrorRegistro']),
-                        unicode(res_line['DescripcionErrorRegistro'])[:60])
+                    send_error = "{} | {}".format(
+                        str(res_line['CodigoErrorRegistro']),
+                        str(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     order, False, 'normal', fault, 'pos.order')
                 self.sii_send_error = fault
 
@@ -485,10 +485,10 @@ class PosOrder(models.Model):
                 }
                 res = order._send_soap(
                     wsdl, port_name, operation, header, query)
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     order, res, False, 'pos.order')
             except Exception as fault:
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     order, False, fault, 'pos.order')
 
     @api.multi

@@ -155,6 +155,15 @@ class AccountInvoice(models.Model):
                 invoice.sii_description = description
 
     @api.model
+    def _get_tax_type(self, tax_line):
+        if tax_line.amount_type == 'group':
+            tax_type = abs(
+                tax_line.children_tax_ids.filtered('amount')[:1].amount)
+        else:
+            tax_type = abs(tax_line.amount)
+        return tax_type
+
+    @api.model
     def _prepare_refund(
             self, invoice, date_invoice=None, date=None,
             description=None, journal_id=None):
@@ -337,11 +346,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _get_sii_tax_line(self, tax_line, line, line_taxes):
         self.ensure_one()
-        if tax_line.amount_type == 'group':
-            tax_type = abs(
-                tax_line.children_tax_ids.filtered('amount')[:1].amount)
-        else:
-            tax_type = abs(tax_line.amount)
+        tax_type = self._get_tax_type(tax_line)
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
             price_unit=self._get_line_price_subtotal(line),
@@ -380,7 +385,7 @@ class AccountInvoice(models.Model):
     @api.multi
     def _update_sii_tax_line(self, tax_sii, tax_line, line, line_taxes):
         self.ensure_one()
-        tax_type = tax_line.amount * 100
+        tax_type = self._get_tax_type(tax_line)
         tax_line_req = self._get_tax_line_req(tax_type, line, line_taxes)
         taxes = tax_line.compute_all(
             price_unit=self._get_line_price_subtotal(line),
@@ -487,7 +492,7 @@ class AccountInvoice(models.Model):
                                 inv_breakdown['Sujeta'][
                                     'NoExenta']['DesgloseIVA'][
                                     'DetalleIVA'] = []
-                            tax_type = tax_line.amount * 100
+                            tax_type = self._get_tax_type(tax_line)
                             if str(tax_type) not in taxes_f:
                                 taxes_f[str(tax_type)] = \
                                     self._get_sii_tax_line(
@@ -632,7 +637,7 @@ class AccountInvoice(models.Model):
                             type_breakdown[
                                 'PrestacionServicios']['Sujeta']['NoExenta'][
                                 'DesgloseIVA']['DetalleIVA'] = []
-                        tax_type = tax_line.amount * 100
+                        tax_type = self._get_tax_type(tax_line)
                         if str(tax_type) not in taxes_to:
                             taxes_to[str(tax_type)] = \
                                 self._get_sii_tax_line(
@@ -643,7 +648,7 @@ class AccountInvoice(models.Model):
                                 taxes_to, tax_line, line,
                                 line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
-            for key, line in taxes_f.items():
+            for key, line in list(taxes_f.items()):
                 if self.type == 'out_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -664,7 +669,7 @@ class AccountInvoice(models.Model):
                 taxes_sii['DesgloseFactura']['Sujeta']['NoExenta'][
                     'DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_to) > 0:
-            for key, line in taxes_to.items():
+            for key, line in list(taxes_to.items()):
                 if self.type == 'out_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -747,7 +752,7 @@ class AccountInvoice(models.Model):
                             taxes_sii['InversionSujetoPasivo'] = {}
                             taxes_sii['InversionSujetoPasivo'][
                                 'DetalleIVA'] = []
-                        tax_type = tax_line.amount * 100
+                        tax_type = self._get_tax_type(tax_line)
                         if str(tax_type) not in taxes_isp:
                             taxes_isp[str(tax_type)] = self._get_sii_tax_line(
                                 tax_line, line, line.invoice_line_tax_ids)
@@ -760,7 +765,7 @@ class AccountInvoice(models.Model):
                             taxes_sii['DesgloseIVA'] = {}
                             taxes_sii['DesgloseIVA'][
                                 'DetalleIVA'] = []
-                        tax_type = tax_line.amount * 100
+                        tax_type = self._get_tax_type(tax_line)
                         if str(tax_type) not in taxes_f:
                             taxes_f[str(tax_type)] = self._get_sii_tax_line(
                                 tax_line, line, line.invoice_line_tax_ids)
@@ -769,7 +774,7 @@ class AccountInvoice(models.Model):
                                 taxes_f, tax_line, line,
                                 line.invoice_line_tax_ids)
         if len(taxes_f) > 0:
-            for key, line in taxes_f.items():
+            for key, line in list(taxes_f.items()):
                 if self.type == 'in_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -791,7 +796,7 @@ class AccountInvoice(models.Model):
                     line['TipoImpositivo'] = round(line['TipoImpositivo'], 2)
                 taxes_sii['DesgloseIVA']['DetalleIVA'].append(line)
         if len(taxes_isp) > 0:
-            for key, line in taxes_isp.items():
+            for key, line in list(taxes_isp.items()):
                 if self.type == 'in_refund' and self.refund_type == 'I':
                     if line.get('CuotaRecargoEquivalencia', False):
                         line['CuotaRecargoEquivalencia'] = \
@@ -1059,6 +1064,27 @@ class AccountInvoice(models.Model):
         return res
 
     @api.multi
+    def _create_fail_activity(self):
+        self.ensure_one()
+        if self.company_id.sii_activity_type:
+            model_id = self.env['ir.model'].search(
+                [('model', '=', 'account.invoice')])
+            company = self.company_id
+            user_id = self.user_id.id
+            if company.sii_activity_user:
+                user_id = company.sii_activity_user.id
+            date_deadline = date.today()
+            activity_vals = {
+                'activity_type_id': company.sii_activity_type.id,
+                'res_id': self.id,
+                'res_model_id': model_id[0].id,
+                'date_deadline': date_deadline,
+                'user_id': user_id,
+                'summary': 'SII Error: ' + self.number,
+            }
+            self.env['mail.activity'].create(activity_vals)
+
+    @api.multi
     def _send_invoice_to_sii(self):
         for invoice in self.filtered(
                 lambda i: i.state in ['open', 'paid'] and i.is_sii_mapped and \
@@ -1099,19 +1125,21 @@ class AccountInvoice(models.Model):
                 else:
                     self.sii_sent = False
                     self.sii_resend = False
-                self.env['aeat.sii.result'].create_result(
+                    self._create_fail_activity()
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'normal', False, 'account.invoice')
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
-                    send_error = u"{} | {}".format(
-                        unicode(res_line['CodigoErrorRegistro']),
-                        unicode(res_line['DescripcionErrorRegistro'])[:60])
+                    send_error = "{} | {}".format(
+                        str(res_line['CodigoErrorRegistro']),
+                        str(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, False, 'normal', fault, 'account.invoice')
                 self.sii_send_error = fault
+                self._create_fail_activity()
 
     @api.multi
     def send_recc_payment_registry(self, move):
@@ -1171,17 +1199,17 @@ class AccountInvoice(models.Model):
                     invoice.sii_recc_csv = res['CSV']
                 else:
                     invoice.sii_recc_sent = False
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'recc', False, 'account.invoice')
                 send_recc_error = False
                 res_line = res['RespuestaLinea'][0]
                 if res_line['CodigoErrorRegistro']:
-                    send_recc_error = u"{} | {}".format(
-                        unicode(res_line['CodigoErrorRegistro']),
-                        unicode(res_line['DescripcionErrorRegistro'])[:60])
+                    send_recc_error = "{} | {}".format(
+                        str(res_line['CodigoErrorRegistro']),
+                        str(res_line['DescripcionErrorRegistro'])[:60])
                 invoice.sii_recc_send_error = send_recc_error
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, False, 'recc', fault, 'account.invoice')
                 invoice.sii_recc_send_error = fault
 
@@ -1277,7 +1305,7 @@ class AccountInvoice(models.Model):
         self.ensure_one()
         dic_ret = {}
         vat = ''.join(e for e in self.partner_id.vat if e.isalnum()).upper()
-        if self.fiscal_position_id.name == u'Régimen Intracomunitario':
+        if self.fiscal_position_id.name == 'Régimen Intracomunitario':
             dic_ret = {
                 "IDOtro": {
                     "CodigoPais":
@@ -1290,8 +1318,8 @@ class AccountInvoice(models.Model):
             }
             dic_ret = self._fix_country_code(dic_ret)
         elif self.fiscal_position_id.name == \
-                u'Régimen Extracomunitario' or self.fiscal_position_id.name == u'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
-            _logger.info("Otro")
+                'Régimen Extracomunitario' or self.fiscal_position_id.name == \
+                    'Régimen Extracomunitario / Canarias, Ceuta y Melilla':
             dic_ret = {
                 "IDOtro": {
                     "CodigoPais":
@@ -1378,7 +1406,7 @@ class AccountInvoice(models.Model):
                 }
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, query)
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'normal', False, 'account.invoice')
                 if res['EstadoEnvio'] in ['Correcto', 'ParcialmenteCorrecto']:
                     self.sii_sent = False
@@ -1387,7 +1415,7 @@ class AccountInvoice(models.Model):
                 else:
                     self.sii_sent = True
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, False, 'normal', fault, 'account.invoice')   
 
     @api.multi
@@ -1449,10 +1477,10 @@ class AccountInvoice(models.Model):
                     }
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, query)
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     invoice, res, False, 'account.invoice')
             except Exception as fault:
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     invoice, False, fault, 'account.invoice')
 
     @job
