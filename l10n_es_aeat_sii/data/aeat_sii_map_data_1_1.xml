@@ -32,9 +32,9 @@
 
         <record id="aeat_sii_map_1_1_line_SFENS" model="aeat.sii.map.lines">
             <field name="code">SFENS</field>
-            <field name="taxes" eval="[(6, 0, [
+            <!-- <field name="taxes" eval="[(6, 0, [
                 ref('l10n_es.account_tax_template_s_iva_ns_b')
-            ])]"/>
+            ])]"/> -->
             <field name="sii_map_id" ref="aeat_sii_map_1_1"/>
             <field name="name">SuministroFactEmitidas Bienes No Sujeta</field>
         </record>
