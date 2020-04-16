@@ -1113,7 +1113,7 @@ class AccountInvoice(models.Model):
                 else:
                     self.sii_sent = False
                     self.sii_resend = False
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'normal', False, 'account.invoice')
                 send_error = False
                 res_line = res['RespuestaLinea'][0]
@@ -1123,7 +1123,7 @@ class AccountInvoice(models.Model):
                         unicode(res_line['DescripcionErrorRegistro'])[:60])
                 self.sii_send_error = send_error
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().sudo().create_result(
                     invoice, False, 'normal', fault, 'account.invoice')
                 self.sii_send_error = fault
                 if self.company_id.sii_activity_type:
@@ -1203,7 +1203,7 @@ class AccountInvoice(models.Model):
                     invoice.sii_recc_csv = res['CSV']
                 else:
                     invoice.sii_recc_sent = False
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'recc', False, 'account.invoice')
                 send_recc_error = False
                 res_line = res['RespuestaLinea'][0]
@@ -1213,7 +1213,7 @@ class AccountInvoice(models.Model):
                         unicode(res_line['DescripcionErrorRegistro'])[:60])
                 invoice.sii_recc_send_error = send_recc_error
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, False, 'recc', fault, 'account.invoice')
                 invoice.sii_recc_send_error = fault
 
@@ -1421,7 +1421,7 @@ class AccountInvoice(models.Model):
                 }
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, query)
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'normal', False, 'account.invoice')
                 if res['EstadoEnvio'] in ['Correcto', 'ParcialmenteCorrecto']:
                     self.sii_sent = False
@@ -1430,7 +1430,7 @@ class AccountInvoice(models.Model):
                 else:
                     self.sii_sent = True
             except Exception as fault:
-                self.env['aeat.sii.result'].create_result(
+                self.env['aeat.sii.result'].sudo().create_result(
                     invoice, False, 'normal', fault, 'account.invoice')
 
     @api.multi
@@ -1492,10 +1492,10 @@ class AccountInvoice(models.Model):
                     }
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, query)
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     invoice, res, False, 'account.invoice')
             except Exception as fault:
-                self.env['aeat.check.sii.result'].create_result(
+                self.env['aeat.check.sii.result'].sudo().create_result(
                     invoice, False, fault, 'account.invoice')
 
     @job
