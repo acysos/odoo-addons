@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com> License AGPL-3.0 or 
+    later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+    <data>
+        <record id="view_company_product_extra_price_sale_form" model="ir.ui.view">
+            <field name="name">res.company.product.extra.price.sale.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                <page>
+                    <separator name="price_extra_config" string="Price Extra Configuration" />
+                    <group name="price_extra_included_sale">
+                        <field name="price_extra_included_sale"/>
+                    </group>
+                </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>
