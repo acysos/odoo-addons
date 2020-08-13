@@ -6,9 +6,9 @@
     :target: https://github.com/acysos/odoo-addons/tree/11.0/account_cashdro
     :alt: Acysos
 
-===============
-Account Cashdro
-===============
+====================
+Account Cashdro Base
+====================
 
 Account module to use cash journal with a Cashdro Smart Cash Management.
 https://www.cashdro.com/
@@ -20,8 +20,6 @@ Installation
 Python External dependences:
 
 * resquests
-* json
-* webbrowser
 
 
 Usage
@@ -35,6 +33,14 @@ Known issues / Roadmap
 ======================
 
 * Money change
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/acysos/odoo-addons/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smashing it by providing a detailed and welcomed feedback.
 
 Credits
 =======
