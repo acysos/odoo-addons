@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_journal_form" model="ir.ui.view">
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='advanced_settings']/group" position="inside">
+                <group name="payment_mode_group" attrs="{'invisible': [('type', '!=', 'cash')]}" string="Cashdro">
+                    <field name="cashdro_payment_terminal"/>
+                    <field name="cashdro_ip" attrs="{'invisible': [('cashdro_payment_terminal', '=', False)], 'required': [('cashdro_payment_terminal', '=', True)]}"/>
+                    <field name="cashdro_user" attrs="{'invisible': [('cashdro_payment_terminal', '=', False)], 'required': [('cashdro_payment_terminal', '=', True)]}"/>
+                    <field name="cashdro_password" password="True" attrs="{'invisible': [('cashdro_payment_terminal', '=', False)], 'required': [('cashdro_payment_terminal', '=', True)]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
