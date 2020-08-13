@@ -3,7 +3,7 @@
    :alt: License: AGPL-3
 
 .. image:: https://img.shields.io/badge/github-Acysos-lightgray.png?logo=github
-    :target: https://github.com/acysos/odoo-addons/tree/11.0/l10n_es_aeat_mod030
+    :target: https://github.com/acysos/odoo-addons/tree/11.0/account_cashdro
     :alt: Acysos
 
 ===============
