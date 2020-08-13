@@ -19,5 +19,6 @@
         "views/assets.xml"
     ],
     'qweb': ['static/src/xml/pos_cashdro_terminal.xml'],
+    'images': ['static/description/banner.jpg'],
     "installable": True,
 }
