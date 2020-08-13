@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='payment_methods']" position="after">
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="cashdro_payment_terminal"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="cashdro_payment_terminal"/>
+                        <div class="text-muted">
+                            Use cashdro system to make the payments
+                        </div>
+                        <div class="content-group" attrs="{'invisible' : [('cashdro_payment_terminal', '=', False)]}">
+		                    <div class="row mt16">
+		                        <label string="IP Address" for="cashdro_ip" class="col-md-3 o_light_label"/>
+		                        <field name="cashdro_ip"/>
+		                    </div>
+		                </div>
+		                <div class="content-group" attrs="{'invisible' : [('cashdro_payment_terminal', '=', False)]}">
+		                    <div class="row mt16">
+		                        <label string="User" for="cashdro_user" class="col-md-3 o_light_label"/>
+		                        <field name="cashdro_user"/>
+		                    </div>
+		                </div>
+		                <div class="content-group" attrs="{'invisible' : [('cashdro_payment_terminal', '=', False)]}">
+		                    <div class="row mt16">
+		                        <label string="Password" for="cashdro_password" class="col-md-3 o_light_label"/>
+		                        <field name="cashdro_password" password="True"/>
+		                    </div>
+		                </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

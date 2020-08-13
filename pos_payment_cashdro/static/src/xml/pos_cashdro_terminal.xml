@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="PaymentScreen-Paymentlines" >
+        <t t-jquery=".col-name" t-operation="append">
+            <t t-if="line.cashregister.journal.cashdro_payment_terminal and widget.pos.config.cashdro_payment_terminal">
+                   <button class="payment-cashdro-start" t-att-data-cid='line.cid'>Start Cashdro</button>
+                   <button class="payment-cashdro-stop oe_hidden" t-att-data-cid='line.cid'>Stop Cashdro</button>
+            </t>
+        </t>
+    </t>
+</templates>

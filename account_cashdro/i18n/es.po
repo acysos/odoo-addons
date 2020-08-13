@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_cashdro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-13 21:24+0000\n"
+"PO-Revision-Date: 2020-08-13 23:24+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: account_cashdro
+#: model:ir.ui.view,arch_db:account_cashdro.view_account_journal_form
+msgid "Cashdro"
+msgstr "Cashdro"
+
+#. module: account_cashdro
+#: model:ir.model.fields,field_description:account_cashdro.field_account_journal_cashdro_ip
+msgid "Cashdro IP Address"
+msgstr "Dirección IP Cashdro"
+
+#. module: account_cashdro
+#: model:ir.model.fields,field_description:account_cashdro.field_account_journal_cashdro_password
+msgid "Cashdro Password"
+msgstr "Contraseña Cashdro"
+
+#. module: account_cashdro
+#: model:ir.model.fields,field_description:account_cashdro.field_account_journal_cashdro_user
+msgid "Cashdro User"
+msgstr "Usuario Cashdro"
+
+#. module: account_cashdro
+#: model:ir.model,name:account_cashdro.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: account_cashdro
+#: model:ir.model,name:account_cashdro.model_account_payment
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: account_cashdro
+#: model:ir.model,name:account_cashdro.model_cash_box_in
+msgid "cash.box.in"
+msgstr "cash.box.in"
+
+#. module: account_cashdro
+#: model:ir.model,name:account_cashdro.model_cash_box_out
+msgid "cash.box.out"
+msgstr "cash.box.out"

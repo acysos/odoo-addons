@@ -1,0 +1,108 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_payment_cashdro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-13 21:26+0000\n"
+"PO-Revision-Date: 2020-08-13 23:28+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: pos_payment_cashdro
+#: code:addons/pos_payment_cashdro/models/pos_session.py:20
+#, python-format
+msgid "Cash control can only be applied to cash journals."
+msgstr "Control de efectivo solo puede aplicarle en diarios de efectivo."
+
+#. module: pos_payment_cashdro
+#: model:ir.model.fields,field_description:pos_payment_cashdro.field_pos_config_cashdro_ip
+msgid "Cashdro IP Address"
+msgstr "Dirección IP Cashdro"
+
+#. module: pos_payment_cashdro
+#: model:ir.model.fields,field_description:pos_payment_cashdro.field_pos_config_cashdro_password
+msgid "Cashdro Password"
+msgstr "Contraseña Cashdro"
+
+#. module: pos_payment_cashdro
+#: model:ir.model.fields,field_description:pos_payment_cashdro.field_pos_config_cashdro_payment_terminal
+msgid "Cashdro Payment Terminal"
+msgstr "Terminal de pago Cashdro"
+
+#. module: pos_payment_cashdro
+#: model:ir.model.fields,field_description:pos_payment_cashdro.field_pos_config_cashdro_user
+msgid "Cashdro User"
+msgstr "Usuario Cashdro"
+
+#. module: pos_payment_cashdro
+#: model:ir.ui.view,arch_db:pos_payment_cashdro.view_pos_config_form
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#. module: pos_payment_cashdro
+#: model:ir.model,name:pos_payment_cashdro.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: pos_payment_cashdro
+#: model:ir.ui.view,arch_db:pos_payment_cashdro.view_pos_config_form
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: pos_payment_cashdro
+#. openerp-web
+#: code:addons/pos_payment_cashdro/static/src/xml/pos_cashdro_terminal.xml:6
+#, python-format
+msgid "Start Cashdro"
+msgstr "Iniciar Cashdro"
+
+#. module: pos_payment_cashdro
+#. openerp-web
+#: code:addons/pos_payment_cashdro/static/src/xml/pos_cashdro_terminal.xml:7
+#, python-format
+msgid "Stop Cashdro"
+msgstr "Parar Cashdro"
+
+#. module: pos_payment_cashdro
+#: model:ir.model.fields,field_description:pos_payment_cashdro.field_account_journal_cashdro_payment_terminal
+msgid "Use Cashdro?"
+msgstr "¿Utilizar Cashdro?"
+
+#. module: pos_payment_cashdro
+#: model:ir.ui.view,arch_db:pos_payment_cashdro.view_pos_config_form
+msgid "Use cashdro system to make the payments"
+msgstr "Utilizar sistema Cashdro para realizar los pagos"
+
+#. module: pos_payment_cashdro
+#: model:ir.ui.view,arch_db:pos_payment_cashdro.view_pos_config_form
+msgid "User"
+msgstr "Usuario"
+
+#. module: pos_payment_cashdro
+#: model:ir.model,name:pos_payment_cashdro.model_cash_box_in
+msgid "cash.box.in"
+msgstr "cash.box.in"
+
+#. module: pos_payment_cashdro
+#: model:ir.model,name:pos_payment_cashdro.model_cash_box_out
+msgid "cash.box.out"
+msgstr "cash.box.out"
+
+#. module: pos_payment_cashdro
+#: model:ir.model,name:pos_payment_cashdro.model_pos_config
+msgid "pos.config"
+msgstr "pos.config"
+
+#. module: pos_payment_cashdro
+#: model:ir.model,name:pos_payment_cashdro.model_pos_session
+msgid "pos.session"
+msgstr "pos.session"
