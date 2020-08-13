@@ -28,6 +28,8 @@ Usage
 In a Cash journal you can select if it user cashdro.
 If it user cashdro you have to fill the IP, user and password of Cashdro.
 
+If you want to user in POS install this app: https://apps.odoo.com/apps/modules/11.0/pos_payment_cashdro/
+
 
 Known issues / Roadmap
 ======================
