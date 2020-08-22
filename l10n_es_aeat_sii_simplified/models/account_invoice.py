@@ -25,7 +25,7 @@ class AccountInvoice(models.Model):
             if self.amount_total > self.company_id.simplified_limit:
                 raise UserError(_(
                     "The total of the invoice %s is more that %f €") % (
-                        self.invoice_number, self.company_id.simplified_limit))
+                        self.number, self.company_id.simplified_limit))
             if self.amount_total < 0 or self.type in ['in_refund', 'out_refund']:
                 tipo_factura = 'R5'
             else:
