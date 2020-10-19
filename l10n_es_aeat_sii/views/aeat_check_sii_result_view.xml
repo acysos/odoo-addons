@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data>
+    
+        <record id="aeat_check_sii_result_view_tree" model="ir.ui.view">
+            <field name="name">aeat.check.sii.result.view.tree</field>
+            <field name="model">aeat.check.sii.result</field>
+            <field name="arch" type="xml">
+                <tree string="Aeat Check SII Result">
+                    <field name="result_query"/>
+                    <field name="check_date"/>
+                    <field name="sent_state"/>
+                    <field name="timestamp_last"/>
+                    <field name="reconcile_state"/>
+                    <field name="reconcile_timestamp"/>
+                    <field name="reconcile_description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="aeat_check_sii_result_view_form" model="ir.ui.view">
+            <field name="name">aeat.check.sii.result.view.form</field>
+            <field name="model">aeat.check.sii.result</field>
+            <field name="arch" type="xml">
+                <form string="Aeat Check SII Result">
+                    <group>
+                        <group string="Result">
+                            <field name="result_query"/>
+                            <field name="check_date"/>
+                            <field name="csv"/>
+                            <field name="sent_state"/>
+                            <separator string="Presentation Data" colspan="4"/>
+                            <field name="vat_presenter"/>
+                            <field name="timestamp_presentation"/>
+                            <field name="timestamp_last"/>
+                        </group>
+                        <group string="Reconcile">
+                            <field name="reconcile_state"/>
+                            <field name="reconcile_timestamp"/>
+                            <field name="reconcile_description"/>
+                        </group>
+                    </group>
+                    <group string="Invoice information">
+                        <group>
+                            <field name="vat"/>
+                            <field name="other_id"/>
+                            <field name="invoice_number"/>
+                            <field name="invoice_date"/>
+                        </group>
+                        <group>
+                            <field name="invoice_type"/>
+                            <field name="refund_type"/>
+                            <field name="registration_key"/>
+                            <field name="amount_total"/>
+                            <field name="description"/>
+                        </group>
+	                    <group string="Partner information">
+	                        <group>
+	                            <field name="name"/>
+	                            <field name="vat_partner"/>
+	                            <field name="other_id_partner"/>
+	                        </group>
+	                    </group>
+                    </group>
+                    <group string="Error">
+                        <field name="error_code"/>
+                        <field name="description_error"/>
+                        <field name="registry_error_description"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_check_sii_invoices" model="ir.actions.server">
+            <field name="name">Check Invoices SII</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="account.model_account_move" />
+            <field name="binding_model_id" ref="model_account_move" />
+            <field name="code">
+                if records:
+                    action = records.check_sii()
+            </field>
+        </record>
+
+    </data>
+</odoo>

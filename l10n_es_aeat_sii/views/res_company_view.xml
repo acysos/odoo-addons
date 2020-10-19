@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com> License AGPL-3.0 or 
+    later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data>
+        <record id="view_company_sii_form" model="ir.ui.view">
+            <field name="name">res.company.sii.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="arch" type="xml">
+                <page position="inside">
+                    <page name="sii_configuration" string="SII Configuration">
+	                    <separator name="aeat_sii_config" string="AEAT SII Configuration" />
+	                    <group name="sii_enabled">
+	                        <field name="sii_enabled"/>
+	                    </group>
+	                    <group attrs="{'invisible': [('sii_enabled', '=', False)]}">
+	                        <group name="sii_config" string="General config">
+	                            <field name="chart_template_id"
+	                                   attrs="{'required': [('sii_enabled', '=', True)]}"/>
+	                            <field name="sii_test" />
+	                            <field name="sii_method"/>
+	                            <field name="sii_activity_type"/>
+	                            <field name="sii_activity_user"/>
+	                        </group>
+	                        <group name="sii_description" string="Description config">
+	                            <field name="sii_description_method"/>
+	                            <field name="sii_description" attrs="{'invisible': [('sii_description_method', '!=', 'fixed')]}"/>
+	                            <field name="sii_header_sale"/>
+	                            <field name="sii_header_purchase"/>
+	                        </group>
+	                        <group name="sii_connector" string="Connector config">
+	                            <field name="use_connector" />
+	                            <field name="send_mode"
+	                                   attrs="{'invisible': [('use_connector', '=', False)]}"/>
+	                            <field name='sent_time' widget='float_time'
+	                                   attrs="{'invisible': ['|', ('use_connector', '=', False), ('send_mode', '!=', 'fixed')]}"/>
+	                            <field name='delay_time' widget='float_time'
+	                                   attrs="{'invisible': ['|', ('use_connector', '=', False), ('send_mode', '!=', 'delayed')]}"/>
+	                        </group>
+	                    </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data>
+
+        <!-- <record id="invoice_supplier_sii_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.sii.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="arch" type="xml">
+                <button name="action_invoice_draft" position="after">
+                    <button type="object" string="Send SII"
+                            name="send_sii" groups="account.group_account_invoice"
+                            states="open,paid" attrs="{'invisible': ['|', ('sii_cancel', '=', True)]}" />
+                    <button type="object" string="Check SII"
+                            name="check_sii" groups="account.group_account_invoice"
+                            states="open,paid" attrs="{'invisible': ['|', ('sii_sent', '=', False), ('sii_cancel', '=', True)]}" />
+                    <button type="object" string="Drop SII"
+                            name="drop_sii" groups="account.group_account_invoice"
+                            states="cancel" />
+                </button>
+                <notebook position="inside">
+                    <page string="SII" groups="account.group_account_invoice"  attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                        <group string="SII Information">
+                            <field name="sii_description"/>
+                            <field name="refund_type"
+                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund')), ('sii_enabled', '=', True)]}"/>
+                            <field name="registration_key" domain="[('type', '=', 'purchase')]" attrs="{'required': [('sii_enabled', '=', True)]}"/>
+                            <field name="sii_enabled" invisible="1"/>
+                        </group>
+                        <group string="SII Result">
+                            <field name="sii_sent" />
+                            <field name="sii_cancel" />
+                            <field name="sii_resend" invisible="1"/>
+                            <field name="sii_registration_date" />
+                            <field name="sii_csv"/>
+                            <label for="sii_results" colspan="4"/>
+                            <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
+                            <field name="sii_recc_sent" />
+                            <field name="sii_recc_csv"/>
+                            <label for="sii_recc_results" colspan="4"/>
+                            <field name="sii_recc_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+
+                        <group string="SII Verification">
+                            <field name="sii_reconcile_state"/>
+                            <label for="sii_check_results" colspan="4"/>
+                            <field name="sii_check_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+
+                        <group string="Invoice Jobs">
+                            <field name="invoice_jobs_ids" nolabel="1"
+                                   readonly="1">
+                                <tree>
+                                    <field name="date_created"/>
+                                    <field name="date_done"/>
+                                    <field name="state"/>
+                                    <button type="object"
+                                            name="requeue"
+                                            string="Requeue"
+                                            class="oe_highlight"
+                                            attrs="{'invisible': [('state', '!=', 'failed')]}"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record> -->
+
+        <record id="view_move_sii_form" model="ir.ui.view">
+            <field name="name">account.move.sii.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <button name="button_draft" position="after">
+                    <button type="object" string="Send SII"
+                            name="send_sii" groups="account.group_account_invoice"
+                            states="posted" attrs="{'invisible': ['|', ('sii_cancel', '=', True)]}" />
+                    <button type="object" string="Check SII"
+                            name="check_sii" groups="account.group_account_invoice"
+                            states="posted" attrs="{'invisible': ['|', ('sii_sent', '=', False), ('sii_cancel', '=', True)]}" />
+                    <button type="object" string="Drop SII"
+                            name="drop_sii" groups="account.group_account_invoice"
+                            states="cancel" />
+                </button>
+                <notebook position="inside">
+                    <page string="SII" groups="account.group_account_invoice" attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                        <group string="SII Information">
+                            <field name="sii_description"/>
+                            <field name="refund_type"
+                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund')), ('sii_enabled', '=', True)]}"/>
+                            <field name="registration_key" domain="[('type', '=', 'sale')]" attrs="{'required': [('sii_enabled', '=', True)]}"/>
+                            <field name="sii_enabled" invisible="1"/>
+                        </group>
+                        <group string="SII Result">
+                            <field name="sii_sent" />
+                            <field name="sii_cancel" />
+                            <field name="sii_resend" invisible="1"/>
+                            <field name="sii_registration_date" />
+                            <field name="sii_csv"/>
+                            <label for="sii_results" colspan="4"/>
+                            <field name="sii_results" nolabel="1" colspan="4" readonly="1"/>
+                            <field name="sii_recc_sent"/>
+                            <field name="sii_recc_csv"/>
+                            <label for="sii_recc_results" colspan="4"/>
+                            <field name="sii_recc_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+
+                        <group string="SII Verification">
+                            <field name="sii_reconcile_state"/>
+                            <label for="sii_check_results" colspan="4"/>
+                            <field name="sii_check_results" nolabel="1" colspan="4" readonly="1"/>
+                        </group>
+
+                        <group string="Invoice Jobs">
+                            <field name="invoice_jobs_ids" nolabel="1"
+                                   readonly="1">
+                                <tree>
+                                    <field name="date_created"/>
+                                    <field name="date_done"/>
+                                    <field name="state"/>
+                                    <button type="object"
+                                            name="requeue"
+                                            string="Requeue"
+                                            class="oe_highlight"
+                                            attrs="{'invisible': [('state', '!=', 'failed')]}"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_sii_filter" model="ir.ui.view">
+            <field name="name">account.invoice.select.sii</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter" />
+            <field name="arch" type="xml">
+                <filter name="late" position="after">
+                    <separator />
+                    <group name="sii_sent">
+	                    <filter name="sii_not_sent" string="SII not send"
+	                            domain="[('sii_sent','=',False)]" />
+	                    <filter name="sii_sent" string="SII send"
+	                            domain="[('sii_sent','=',True)]"/>
+	                    <filter name="sii_send_state" string="SII failed"
+	                            domain="[('sii_send_error','!=',False)]"/>
+                    </group>
+                    <group name="sii_mapped">
+	                    <filter name="sii_mapped" string="SII mapped"
+	                            domain="[('is_sii_mapped','=',True)]"/>
+	                    <filter name="sii_not_mapped" string="SII not mapped"
+	                            domain="[('is_sii_mapped','=',False)]"/>
+                    </group>
+                </filter>
+            </field>
+        </record>
+
+        <record id="action_send_sii_invoices" model="ir.actions.server">
+            <field name="name">Send Invoices SII</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="account.model_account_move" />
+            <field name="binding_model_id" ref="model_account_move" />
+            <field name="code">
+                if records:
+                    action = records.send_sii()
+            </field>
+        </record>
+
+    </data>
+</odoo>
