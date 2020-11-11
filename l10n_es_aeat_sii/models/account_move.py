@@ -174,7 +174,8 @@ class AccountMove(models.Model):
 
     @api.model
     def create(self, vals):
-        if not vals.get('fiscal_position_id', False):
+        if not vals.get('fiscal_position_id', False) and vals['type'] in [
+                'out_invoice', 'out_refund', 'in_invoice']:
             partner = self.env['res.partner'].browse(vals['partner_id'])
             raise UserError(_(
                 "No Fiscal Position configured for the partner %s") % (
@@ -428,10 +429,10 @@ class AccountMove(models.Model):
         taxes_sfesse = self._get_taxes_map(['SFESSE'])
         taxes_sfesns = self._get_taxes_map(['SFESNS'])
 
-        # Invoice with not subject lines with 'DesgloseTipoOperacon' 
+        # Invoice with not subject lines with 'DesgloseTipoOperacon'
         identifier = self._get_sii_identifier()
         ns_dt = False
-        if 'IDOtro' in identifier and self.registration_key != '07':
+        if 'IDOtro' in identifier and self.registration_key.code != '07':
             if identifier['IDOtro']['ID'][:3] != 'ESN':
                 ns_dt = True
 
