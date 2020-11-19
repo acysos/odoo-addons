@@ -12,9 +12,9 @@ class AccountMoveLine(models.Model):
         res = super(AccountMoveLine, self).reconcile(
             writeoff_acc_id=False, writeoff_journal_id=False)
         for move in self:
-            if move.type in [
+            if move.move_id.type in [
                     'out_invoice', 'out_refund', 'in_invoice', 'in_refund']:
-                if move.registration_key and \
-                        move.registration_key.code == '07':
-                    move.send_recc_payment(move)
+                if move.move_id.registration_key and \
+                        move.move_id.registration_key.code == '07':
+                    move.move_id.send_recc_payment(move)
         return res

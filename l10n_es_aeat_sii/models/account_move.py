@@ -174,21 +174,23 @@ class AccountMove(models.Model):
 
     @api.model
     def create(self, vals):
-        if not vals.get('fiscal_position_id', False) and vals['type'] in [
+        if 'type' in vals and vals['type'] in [
                 'out_invoice', 'out_refund', 'in_invoice']:
-            partner = self.env['res.partner'].browse(vals['partner_id'])
-            raise UserError(_(
-                "No Fiscal Position configured for the partner %s") % (
-                    partner.name))
-        if vals.get('sii_enabled', False):
-            vals.pop('sii_enabled')
-        invoice = super(AccountMove, self).create(vals)
-        if (vals.get('fiscal_position_id') and
-                not vals.get('registration_key')):
-            invoice.onchange_fiscal_position()
-        if not vals.get('sii_description'):
-            invoice._get_sii_description_from_lines()
-        return invoice
+            if not vals.get('fiscal_position_id', False):
+                partner = self.env['res.partner'].browse(vals['partner_id'])
+                raise UserError(_(
+                    "No Fiscal Position configured for the partner %s") % (
+                        partner.name))
+            if vals.get('sii_enabled', False):
+                vals.pop('sii_enabled')
+            invoice = super(AccountMove, self).create(vals)
+            if (vals.get('fiscal_position_id') and
+                    not vals.get('registration_key')):
+                invoice.onchange_fiscal_position()
+            if not vals.get('sii_description'):
+                invoice._get_sii_description_from_lines()
+            return invoice
+        return super(AccountMove, self).create(vals)
 
     def write(self, vals):
         if 'partner_id' in vals:
