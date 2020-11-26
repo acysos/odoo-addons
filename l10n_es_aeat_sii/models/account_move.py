@@ -136,6 +136,12 @@ class AccountMove(models.Model):
                 invoice.registration_key = \
                     invoice.fiscal_position_id.sii_registration_key_purchase
 
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        super(AccountMove, self)._onchange_partner_id()
+        self.onchange_fiscal_position()
+            
+
     @api.onchange('invoice_line_ids')
     def _get_sii_description_from_lines(self):
         for invoice in self:
