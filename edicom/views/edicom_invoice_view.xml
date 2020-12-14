@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+
+<openerp>
+    <data>
+    	
+		<record id="edicom_factura_tree_view" model="ir.ui.view">
+			<field name="name">edicom.factura.tree</field>
+			<field name="model">edicom.factura</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Factura EDI">
+					<field name="invoice_id" />
+				</tree>
+			</field>
+		</record>
+    	
+		<record id="edicom_factura_form_view" model="ir.ui.view">
+			<field name="name">edicom.factura.form</field>
+			<field name="model">edicom.factura</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Factura EDI">
+					<group>
+					<field name="invoice_id"/>
+					</group>
+					<group colspan="4" col="1">
+						<field name="cabfac_ids" nolabel="1"/>
+						<field name="linfac_ids" nolabel="1"/>
+						<field name="obsfac_ids" nolabel="1"/>
+						<field name="obslfac_ids" nolabel="1"/>
+					</group>
+					<newline/>
+					<button name="procesar_factura" string="Procesar factura" type="object" icon="gtk-ok"/>
+					<button name="generar_ficheros" string="Genrar ficheros" type="object" icon="gtk-print"/>
+				</form>
+			</field>
+		</record>
+		
+    	
+		<record id="edicom_factura_filter_view" model="ir.ui.view">
+			<field name="name">edicom.factura.filter</field>
+			<field name="model">edicom.factura</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+			<search string="Factura EDI">
+				<group>
+					<field name="invoice_id" />
+				</group>
+			</search>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_edicom_factura">
+			<field name="name">Factura EDI</field>
+			<field name="res_model">edicom.factura</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="edicom_factura_filter_view"/>
+		</record>
+		
+		<menuitem name="Factura EDI" icon="STOCK_JUSTIFY_FILL" id="menu_edicom_factura" parent="account.menu_finance_receivables" action="action_edicom_factura" />
+		
+	</data>	
+</openerp>

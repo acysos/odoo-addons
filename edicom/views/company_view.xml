@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        
+        <record id="edi_company" model="ir.ui.view">
+            <field name="name">res.company.edi.config</field>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="priority">22</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <page position="inside">
+	                <group string="EDICOM" colspan="4">
+	                    <field name="edi_path"/>
+	                    <field name="edi_node"/>
+                        <field name="edi_node_out_refund"/>
+	                    <field name="out_char_separator"/>
+	                    <field name="edi_sscc_init"/>
+	                    <field name="edi_sscc_code"/>
+	                </group>
+                </page>
+            </field>
+        </record>
+        
+	</data>
+</openerp>

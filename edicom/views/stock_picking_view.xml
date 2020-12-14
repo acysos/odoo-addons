@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        
+        <record id="view_picking_edi_form" model="ir.ui.view">
+            <field name="name">stock.picking.edi.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+            	<button name="do_print_picking" position="after">
+            		<field name='edi_exported' invisible="1"/>
+					<button name="export_edicom" string="Exportar a EDI" type="object" attrs="{'invisible': [('edi_exported','=',True)]}" states="done"/>
+                	<button name="rexport_edicom" string="Volver a exportar a EDI" type="object" attrs="{'invisible': [('edi_exported','=',False)]}" states="done"/>
+            	</button>
+                <notebook position="inside">
+                	<page name="edicom" string="Edicom">
+                		<group>
+                    		<field name="edicom_dock"/>
+                    		<field name="edicom_portes"/>
+                    		<!-- <field name="edicom_recogida"/> -->
+                    		<field name="edicom_tiptrans"/>
+                    		<field name="edicom_idtrans"/>
+                    		<field name="edicom_totqty"/>
+                    		<field name="sscc_code"/>
+                    	</group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+	    <record model="ir.ui.view" id="view_quant_package_edicom_form">
+	        <field name="name">stock.quant.package.edicom.form</field>
+	        <field name="model">stock.quant.package</field>
+	        <field name="inherit_id" ref="stock.view_quant_package_form"/>
+	        <field name="arch" type="xml">
+	        	<field name="location_id" position="after">
+	        		<field name="sscc_code"/>
+	        	</field>
+	        </field>
+	    </record>
+
+	</data>
+</openerp>

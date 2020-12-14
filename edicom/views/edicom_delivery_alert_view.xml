@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+
+		<record id="edicom_delivery_alert_form" model="ir.ui.view">
+		    <field name="name">edicom.delivey.alert.form</field>
+		    <field name="model">edicom.delivey.alert</field>
+		    <field name="arch" type="xml">
+		        <form string="Edicom Delivery Alert">
+                    <header>
+                        <button name="sent_edi" type="object" string="Sent EDI"/>
+                        <field name="state" widget="statusbar" statusbar_visible="notsent,sent" />
+                    </header>
+		        	<sheet>
+			        	<group>
+			        		<field name="name" readonly="True"/>
+			        		<field name="date"/>
+			        		<field name="date_sent"/>
+			        		<field name="driver"/>
+			        		<field name="driver_phone"/>
+			        		<field name="driver_vat"/>
+			        		<field name="driver_plate"/>
+			        		<field name="partner_id"/>
+			        		<field name="partner_address_id"/>
+			        		<field name="picking_ids" domain="[('partner_id', '=', partner_id), ('state', '=', 'done')]"/>
+			        	</group>
+			        </sheet>
+		        </form>
+		    </field>
+	    </record>
+
+		<record id="edicom_delivery_alert_tree" model="ir.ui.view">
+		    <field name="name">edicom.delivey.alert.tree</field>
+		    <field name="model">edicom.delivey.alert</field>
+		    <field name="arch" type="xml">
+		        <tree string="Edicom Delivery Alert">
+	        		<field name="name"/>
+	        		<field name="date"/>
+	        		<field name="driver"/>
+	        		<field name="driver_phone"/>
+	        		<field name="partner_id"/>
+		        </tree>
+		    </field>
+	    </record>
+
+	    <record id="edicom_delivery_alert_action" model="ir.actions.act_window">
+	            <field name="name">Edicom Delivery Alerts</field>
+	            <field name="res_model">edicom.delivey.alert</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_id" ref="edicom_delivery_alert_tree"/>
+	    </record>
+	
+	    <menuitem 
+	        action="edicom_delivery_alert_action" 
+	        id="edicom_delivery_alert_menu" 
+	        parent="stock.menu_warehouse_report" sequence="200"/>
+
+    </data>
+</odoo>

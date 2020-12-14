@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_template_only_edicom_form_view" model="ir.ui.view">
+            <field name="name">product.template.product.edicom.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+            	<notebook position="inside">
+            		<page string="Edicom" name="edicom" attrs="{'invisible': [('product_variant_count', '>', 1)]}">
+            			<group>
+            				<field name="edicom_tipart" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+            			</group>
+            		</page>
+            	</notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

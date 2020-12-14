@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+edicom_factura,edicom.factura,model_edicom_factura,edicom.group_edicom,1,1,1,1
+edicom_cabfac,edicom.cabfac,model_edicom_cabfac,edicom.group_edicom,1,1,1,1
+edicom_linfac,edicom.linfac,model_edicom_linfac,edicom.group_edicom,1,1,1,1
+edicom_obsfac,edicom.obsfac,model_edicom_obsfac,edicom.group_edicom,1,1,1,1
+edicom_obslfac,edicom.obslfac,model_edicom_obslfac,edicom.group_edicom,1,1,1,1
+edicom_delivery_alert,edicom.delivery.alert,model_edicom_delivey_alert,edicom.group_edicom,1,1,1,1
+edicom_factura,edicom.albaran,model_edicom_albaran,edicom.group_edicom,1,1,1,1
+edicom_cabalb,edicom.cabalb,model_edicom_cabalb,edicom.group_edicom,1,1,1,1
+edicom_linalb,edicom.linalb,model_edicom_linalb,edicom.group_edicom,1,1,1,1
+edicom_embalb,edicom.embalb,model_edicom_embalb,edicom.group_edicom,1,1,1,1
