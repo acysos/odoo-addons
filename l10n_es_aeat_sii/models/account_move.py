@@ -57,15 +57,18 @@ class AccountMove(models.Model):
     @api.depends('invoice_line_ids')
     def _is_sii_mapped(self):
         for invoice in self:
-            if invoice.company_id.sii_enabled:
+            if invoice.company_id.sii_enabled and invoice.is_invoice():
                 taxes = invoice._get_taxes_map(
                     ['SFESB', 'SFESISP', 'SFENS', 'SFESS', 'SFESBE', 'SFESBEI',
                      'SFESBEE', 'SFESSE', 'SFRS', 'SFRISP', 'SFRBI', 'RE',
                      'SFESNS'])
+                taxes_ids = []
+                for tax in taxes:
+                    taxes_ids.append(tax.id)
                 invoice.is_sii_mapped = False
                 for line in invoice.invoice_line_ids:
                     for tax_line in line.tax_ids:
-                        if tax_line in taxes:
+                        if tax_line._origin.id in taxes_ids:
                             invoice.is_sii_mapped = True
             else:
                 invoice.is_sii_mapped = False
@@ -107,6 +110,10 @@ class AccountMove(models.Model):
         string="Invoice Jobs", copy=False)
     is_sii_mapped = fields.Boolean(
         string='Is SII mapped', compute='_is_sii_mapped', store=True)
+    sii_registration_key_domain = fields.Char(
+        compute="_compute_sii_registration_key_domain",
+        string="SII registration key domain",
+    )
     sii_reconcile_state = fields.Selection(RECONCILE, string='Reconcile State',
                                            readonly=True, index=True)
     sii_check_results = fields.One2many(
@@ -140,7 +147,16 @@ class AccountMove(models.Model):
     def _onchange_partner_id(self):
         super(AccountMove, self)._onchange_partner_id()
         self.onchange_fiscal_position()
-            
+
+    @api.depends("type")
+    def _compute_sii_registration_key_domain(self):
+        for record in self:
+            if record.type in {"out_invoice", "out_refund"}:
+                record.sii_registration_key_domain = "sale"
+            elif record.type in {"in_invoice", "in_refund"}:
+                record.sii_registration_key_domain = "purchase"
+            else:
+                record.sii_registration_key_domain = False
 
     @api.onchange('invoice_line_ids')
     def _get_sii_description_from_lines(self):
@@ -1441,7 +1457,7 @@ class AccountMove(models.Model):
                 wsdl = sii_map._get_wsdl('wsdl_out')
                 port_name = 'SuministroFactEmitidas'
                 operation = 'ConsultaLRFacturasEmitidas'
-                number = invoice.number[0:60]
+                number = invoice.name[0:60]
             elif self.type in ['in_invoice', 'in_refund']:
                 wsdl = sii_map._get_wsdl('wsdl_in')
                 port_name = 'SuministroFactRecibidas'

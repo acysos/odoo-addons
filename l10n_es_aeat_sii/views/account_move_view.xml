@@ -86,13 +86,15 @@
                             states="cancel" />
                 </button>
                 <notebook position="inside">
-                    <page string="SII" groups="account.group_account_invoice" attrs="{'invisible': [('sii_enabled', '=', False)]}">
+                    <page string="SII" groups="account.group_account_invoice" attrs="{'invisible': ['|', ('sii_enabled', '=', False), ('is_sii_mapped', '=', False)]}">
                         <group string="SII Information">
                             <field name="sii_description"/>
                             <field name="refund_type"
-                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund')), ('sii_enabled', '=', True)]}"/>
-                            <field name="registration_key" domain="[('type', '=', 'sale')]" attrs="{'required': [('sii_enabled', '=', True)]}"/>
+                                   attrs="{'required': [('type', 'in', ('out_refund','in_refund')), ('sii_enabled', '=', True), ('is_sii_mapped', '=', True)]}"/>
+                            <field name="registration_key" domain="[('type', '=', sii_registration_key_domain)]" attrs="{'required': [('sii_enabled', '=', True), ('is_sii_mapped', '=', True)]}"/>
                             <field name="sii_enabled" invisible="1"/>
+                            <field name="is_sii_mapped" invisible="1"/>
+                            <field name="sii_registration_key_domain" invisible="1" />
                         </group>
                         <group string="SII Result">
                             <field name="sii_sent" />
