@@ -1242,8 +1242,8 @@ class AccountMove(models.Model):
                     ], limit=1)
                     move.sudo().invoice_jobs_ids |= job
 
-    def action_post(self):
-        res = super(AccountMove, self).action_post()
+    def post(self):
+        res = super(AccountMove, self).post()
         queue_obj = self.env['queue.job'].sudo()
         for invoice in self:
             company = invoice.company_id
