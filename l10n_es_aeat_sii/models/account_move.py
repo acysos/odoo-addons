@@ -382,10 +382,10 @@ class AccountMove(models.Model):
         if (self.currency_id !=
                 self.company_id.currency_id):
             taxes_total = self.currency_id.with_context(
-                    date=self._get_currency_rate_date()).compute(
+                    date=self.date).compute(
                         taxes_total, self.company_id.currency_id)
             taxes_amount = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
+                date=self.date).compute(
                     taxes['taxes'][0]['amount'],
                     self.company_id.currency_id)
         tax_sii = {
@@ -424,10 +424,10 @@ class AccountMove(models.Model):
         if (self.currency_id !=
                 self.company_id.currency_id):
             taxes_total = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
+                date=self.date).compute(
                     taxes_total, self.company_id.currency_id)
             taxes_amount = self.currency_id.with_context(
-                date=self._get_currency_rate_date()).compute(
+                date=self.date).compute(
                     taxes['taxes'][0]['amount'],
                     self.company_id.currency_id)
         tax_sii[str(tax_type)]['BaseImponible'] += taxes_total
@@ -480,8 +480,7 @@ class AccountMove(models.Model):
                             if (self.currency_id !=
                                     self.company_id.currency_id):
                                 price_subtotal = self.currency_id.with_context(
-                                    date=self._get_currency_rate_date(
-                                        )).compute(price_subtotal,
+                                    date=self.date).compute(price_subtotal,
                                                    self.company_id.currency_id)
                             if 'Exenta' not in inv_breakdown['Sujeta']:
                                 inv_breakdown['Sujeta']['Exenta'] = {}
@@ -528,8 +527,7 @@ class AccountMove(models.Model):
                         if (self.currency_id !=
                                 self.company_id.currency_id):
                             price_subtotal = self.currency_id.with_context(
-                                date=self._get_currency_rate_date(
-                                    )).compute(price_subtotal,
+                                date=self.date).compute(price_subtotal,
                                                self.company_id.currency_id)
                         if 'NoSujeta' not in inv_breakdown:
                             inv_breakdown['NoSujeta'] = {}
@@ -578,8 +576,7 @@ class AccountMove(models.Model):
                         if (self.currency_id !=
                                 self.company_id.currency_id):
                             price_subtotal = self.currency_id.with_context(
-                                date=self._get_currency_rate_date(
-                                    )).compute(price_subtotal,
+                                date=self.date).compute(price_subtotal,
                                                self.company_id.currency_id)
                         if 'NoSujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['NoSujeta'] = {}
@@ -617,8 +614,7 @@ class AccountMove(models.Model):
                         if (self.currency_id !=
                                 self.company_id.currency_id):
                             price_subtotal = self.currency_id.with_context(
-                                date=self._get_currency_rate_date(
-                                    )).compute(price_subtotal,
+                                date=self.date).compute(price_subtotal,
                                                self.company_id.currency_id)
                         if 'Exenta' not in type_breakdown[op_key]['Sujeta']:
                             type_breakdown[op_key]['Sujeta']['Exenta'] = {}
@@ -887,8 +883,7 @@ class AccountMove(models.Model):
                     self.company_id.currency_id):
                 importe_total = round(
                     self.currency_id.with_context(
-                        date=self._get_currency_rate_date(
-                            )).compute(importe_total,
+                        date=self.date).compute(importe_total,
                                     self.company_id.currency_id),
                     2)
             nif = self._get_vat_number(company.vat)
@@ -972,7 +967,7 @@ class AccountMove(models.Model):
             if (self.currency_id !=
                     self.company_id.currency_id):
                 importe_total = self.currency_id.with_context(
-                    date=self._get_currency_rate_date()).compute(
+                    date=self.date).compute(
                         importe_total, self.company_id.currency_id)
             if not self.ref:
                 raise UserError(_(
@@ -1105,7 +1100,7 @@ class AccountMove(models.Model):
                 wsdl = sii_map._get_wsdl('wsdl_out')
                 port_name = 'SuministroFactEmitidas'
                 operation = 'SuministroLRFacturasEmitidas'
-            elif self.type in ['in_invoice', 'in_refund']:
+            elif invoice.type in ['in_invoice', 'in_refund']:
                 wsdl = sii_map._get_wsdl('wsdl_in')
                 port_name = 'SuministroFactRecibidas'
                 operation = 'SuministroLRFacturasRecibidas'
@@ -1125,18 +1120,18 @@ class AccountMove(models.Model):
                 #     res = serv.SuministroLRDetOperacionIntracomunitaria(
                 #         header, invoices)
                 if res['EstadoEnvio'] in ['Correcto', 'ParcialmenteCorrecto']:
-                    self.sii_sent = True
-                    self.sii_resend = False
-                    self.sii_cancel = False
-                    self.sii_csv = res['CSV']
+                    invoice.sii_sent = True
+                    invoice.sii_resend = False
+                    invoice.sii_cancel = False
+                    invoice.sii_csv = res['CSV']
                     if 'FechaRegContable' in invoices:
                         if not self.sii_registration_date:
-                            self.sii_registration_date = \
-                                self._change_date_format(fields.Date.today())
+                            invoice.sii_registration_date = \
+                                invoice._change_date_format(fields.Date.today())
                 else:
-                    self.sii_sent = False
-                    self.sii_resend = False
-                    self._create_fail_activity()
+                    invoice.sii_sent = False
+                    invoice.sii_resend = False
+                    invoice._create_fail_activity()
                 self.env['aeat.sii.result'].sudo().create_result(
                     invoice, res, 'normal', False, 'account.move')
                 send_error = False
@@ -1145,12 +1140,12 @@ class AccountMove(models.Model):
                     send_error = "{} | {}".format(
                         str(res_line['CodigoErrorRegistro']),
                         str(res_line['DescripcionErrorRegistro'])[:60])
-                self.sii_send_error = send_error
+                invoice.sii_send_error = send_error
             except Exception as fault:
                 self.env['aeat.sii.result'].sudo().sudo().create_result(
                     invoice, False, 'normal', fault, 'account.move')
-                self.sii_send_error = fault
-                self._create_fail_activity()
+                invoice.sii_send_error = fault
+                invoice._create_fail_activity()
 
     def send_recc_payment_registry(self, move):
         for invoice in self:
