@@ -24,6 +24,7 @@ odoo.define('pos_payment_terminal.screens', function (require) {
     
     screens.PaymentScreenWidget.include({
 
+    	// Cashdro Payment
         render_paymentlines : function(){
             this._super.apply(this, arguments);
             var self = this;
@@ -176,7 +177,97 @@ odoo.define('pos_payment_terminal.screens', function (require) {
                 self.$('.payment-cashdro-start').removeClass('oe_hidden');
                 self.$('.payment-cashdro-stop').addClass('oe_hidden');
             }
+        },
+        
+        // Cashdro Change
+        renderElement: function() {
+            var self = this;
+            this._super();
+            this.$('.js_change_cashdro').click(function(){
+                self.change_cashdro();
+            });
+        },
+        
+        change_cashdro: async function(line_cid, currency_iso, currency_decimals){
+        	var self = this;
+        	var url_send = 'https://' + self.pos.config.cashdro_ip;
+        	url_send += '/Cashdro3WS/index.php?operation=startOperation';
+        	url_send += '&name=' + self.pos.config.cashdro_user;
+        	url_send += '&password=' + self.pos.config.cashdro_password;
+        	url_send += '&type=18';
+        	url_send += '&posid=pos-' + self.pos.pos_session.name;
+        	url_send += '&posuser=' + self.pos.get_cashier().id;
+        	console.log(url_send);
+            var response_send = null;
+            // Test
+//            response_send = {'code': 1, 'data': 111}
+            $.ajax({
+            	  url: url_send,
+            	  dataType: 'json',
+            	  async: false,
+            	  success: function(response) {
+            		  response_send = response;
+            	  }
+            	});
+            console.log(response_send);
+            var url_start = 'https://' + self.pos.config.cashdro_ip;
+            url_start += '/Cashdro3WS/index.php?operation=acknowledgeOperationId';
+            url_start += '&name=' + self.pos.config.cashdro_user;
+            url_start += '&password=' + self.pos.config.cashdro_password;
+            url_start += '&operationId=' + response_send['data'];
+            console.log(url_start);
+            var response_start = null;
+            $.ajax({
+            	  url: url_start,
+            	  dataType: 'json',
+            	  async: false,
+            	  success: function(response) {
+            		  response_start = response;
+            	  }
+            	});
+            // Test
+//            response_start = {'code': 1, 'data': ''}
+            console.log(response_start);
+            var url_open = 'https://' + self.pos.config.cashdro_ip;
+            url_open += '/Cashdro3Web/index.html#/splash/true'
+            window.open(url_open);
+            var url_ask = 'https://' + self.pos.config.cashdro_ip;
+            url_ask += '/Cashdro3WS/index.php?operation=askOperation';
+            url_ask += '&name=' + self.pos.config.cashdro_user;
+            url_ask += '&password=' + self.pos.config.cashdro_password;
+            url_ask += '&operationId=' + response_send['data'];
+            console.log(url_ask);
+            var response_ask = null;
+            $.ajax({
+          	  url: url_ask,
+          	  dataType: 'json',
+          	  async: false,
+          	  success: function(response) {
+          		response_ask = response;
+          	  }
+          	});
+            console.log(response_ask);
+            var response_ask_data = jQuery.parseJSON(response_ask['data']);
+            // Test
+//            response_ask_data = {'code': 1};
+//            response_ask_data['state'] = 'E';
+            console.log(response_ask_data);
+            while (response_ask_data['operation']['state'] != 'F') {
+            	await sleep(5);
+                $.ajax({
+                	  url: url_ask,
+                	  dataType: 'json',
+                	  async: false,
+                	  success: function(response) {
+                		response_ask = response;
+                	  }
+                	});
+                response_ask_data = jQuery.parseJSON(response_ask['data']);
+//        		response_ask_data['state'] = 'F';
+                console.log(response_ask_data)
+            }
         }
+        
     });
 
 });

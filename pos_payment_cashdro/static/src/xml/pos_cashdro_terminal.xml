@@ -8,4 +8,13 @@
             </t>
         </t>
     </t>
+    <t t-extend="PaymentScreenWidget">
+        <t t-jquery=".payment-buttons" t-operation="append">
+            <t t-if="widget.pos.config.cashdro_payment_terminal">
+                <div class='button js_change_cashdro'>
+                    <i class='fa fa-archive' /> Change Cashdro
+                </div>
+            </t>
+        </t>
+    </t>
 </templates>
