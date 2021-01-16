@@ -35,7 +35,7 @@ In the POS config you have to fill the IP, user and password of Cashdro.
 Known issues / Roadmap
 ======================
 
-* Money change
+* 
 
 Bug Tracker
 ===========

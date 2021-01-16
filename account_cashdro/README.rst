@@ -34,7 +34,7 @@ If you want to user in POS install this app: https://apps.odoo.com/apps/modules/
 Known issues / Roadmap
 ======================
 
-* Money change
+* 
 
 Bug Tracker
 ===========
