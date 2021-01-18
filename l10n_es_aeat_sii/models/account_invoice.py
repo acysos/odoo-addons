@@ -511,26 +511,26 @@ class AccountInvoice(models.Model):
                                 self.company_id.currency_id)
                         if 'NoSujeta' not in inv_breakdown:
                             inv_breakdown['NoSujeta'] = {}
-                            if line.product_id.sii_not_subject_7_14:
-                                if 'ImportePorArticulos7_14_Otros' not in \
-                                        inv_breakdown['NoSujeta']:
-                                    inv_breakdown['NoSujeta'] = {
-                                        'ImportePorArticulos7_14_Otros': \
-                                            price_subtotal}
-                                else:
-                                    inv_breakdown['NoSujeta'][
-                                        'ImportePorArticulos7_14_Otros'] += \
-                                            price_subtotal
+                        if line.product_id.sii_not_subject_7_14:
+                            if 'ImportePorArticulos7_14_Otros' not in \
+                                    inv_breakdown['NoSujeta']:
+                                inv_breakdown['NoSujeta'] = {
+                                    'ImportePorArticulos7_14_Otros': \
+                                        price_subtotal}
                             else:
-                                if 'ImporteTAIReglasLocalizacion' not in \
-                                        inv_breakdown['NoSujeta']:
-                                    inv_breakdown['NoSujeta'] = {
-                                        'ImporteTAIReglasLocalizacion': price_subtotal
-                                    }
-                                else:
-                                    inv_breakdown['NoSujeta'][
-                                        'ImporteTAIReglasLocalizacion'] += \
-                                            price_subtotal
+                                inv_breakdown['NoSujeta'][
+                                    'ImportePorArticulos7_14_Otros'] += \
+                                        price_subtotal
+                        else:
+                            if 'ImporteTAIReglasLocalizacion' not in \
+                                    inv_breakdown['NoSujeta']:
+                                inv_breakdown['NoSujeta'] = {
+                                    'ImporteTAIReglasLocalizacion': price_subtotal
+                                }
+                            else:
+                                inv_breakdown['NoSujeta'][
+                                    'ImporteTAIReglasLocalizacion'] += \
+                                        price_subtotal
 
                 if tax_line in taxes_sfess or tax_line in taxes_sfesse or \
                     tax_line in taxes_sfesbee or tax_line in taxes_sfesbei or \
@@ -562,27 +562,27 @@ class AccountInvoice(models.Model):
                                 self.company_id.currency_id)
                         if 'NoSujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['NoSujeta'] = {}
-                            if line.product_id.sii_not_subject_7_14:
-                                if 'ImportePorArticulos7_14_Otros' not in \
-                                        type_breakdown[op_key]['NoSujeta']:
-                                    type_breakdown[op_key]['NoSujeta'] = {
-                                        'ImportePorArticulos7_14_Otros': \
-                                            price_subtotal}
-                                else:
-                                    type_breakdown[op_key]['NoSujeta'][
-                                        'ImportePorArticulos7_14_Otros'] += \
-                                            price_subtotal
+                        if line.product_id.sii_not_subject_7_14:
+                            if 'ImportePorArticulos7_14_Otros' not in \
+                                    type_breakdown[op_key]['NoSujeta']:
+                                type_breakdown[op_key]['NoSujeta'] = {
+                                    'ImportePorArticulos7_14_Otros': \
+                                        price_subtotal}
                             else:
-                                if 'ImporteTAIReglasLocalizacion' not in \
-                                        type_breakdown[op_key]['NoSujeta']:
-                                    type_breakdown[op_key]['NoSujeta'] = {
-                                        'ImporteTAIReglasLocalizacion': \
-                                            price_subtotal
-                                    }
-                                else:
-                                    type_breakdown[op_key]['NoSujeta'][
-                                        'ImporteTAIReglasLocalizacion'] += \
-                                            price_subtotal                                    
+                                type_breakdown[op_key]['NoSujeta'][
+                                    'ImportePorArticulos7_14_Otros'] += \
+                                        price_subtotal
+                        else:
+                            if 'ImporteTAIReglasLocalizacion' not in \
+                                    type_breakdown[op_key]['NoSujeta']:
+                                type_breakdown[op_key]['NoSujeta'] = {
+                                    'ImporteTAIReglasLocalizacion': \
+                                        price_subtotal
+                                }
+                            else:
+                                type_breakdown[op_key]['NoSujeta'][
+                                    'ImporteTAIReglasLocalizacion'] += \
+                                        price_subtotal                                    
                     else:
                         if 'Sujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['Sujeta'] = {}
