@@ -32,6 +32,13 @@ class AccountMove(models.Model):
                     self.company_id.vat[2:]
                 res['FacturaRecibida']['Contraparte']['NombreRazon'] = \
                     self.company_id.name
+                amount_total = 0.0
+                for line in res['FacturaRecibida']['DesgloseFactura'][
+                        'DesgloseIVA']['DetalleIVA']:
+                    amount_total += line['BaseImponible']
+                    amount_total += line['CuotaSoportada']
+                    res['FacturaRecibida']['ImporteTotal'] = round(
+                        amount_total, 2)
             if self.registration_key.code == '13':
                 res['FacturaRecibida']['TipoFactura'] = 'F6'
             if self.type in ['in_refund']:
@@ -44,13 +51,10 @@ class AccountMove(models.Model):
         """
         self.ensure_one()
         if self.fiscal_position_id.name == u'Importación con DUA':
-            taxes = ['P_IVA21_IBC', 'P_IVA10_IBC', 'P_IVA4_IBC',
-                     'P_IVA21_IBI', 'P_IVA10_IBI', 'P_IVA4_IBI',
-                     'P_IVA21_SP_EX', 'P_IVA10_SP_EX',
-                     'P_IVA4_SP_EX']
+            taxes_dua = self._get_taxes_map(['DUA'])
             for line in self.invoice_line_ids:
                 for tax_line in line.tax_ids:
-                    if tax_line.description in taxes:
+                    if tax_line in taxes_dua:
                         return True
         return False
 

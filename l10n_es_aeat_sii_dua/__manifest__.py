@@ -14,6 +14,7 @@
         "l10n_es_dua",
     ],
     "data": [
+        "data/aeat_sii_map_data_1_1.xml"
     ],
     "application": False,
     "installable": True,

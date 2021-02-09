@@ -397,7 +397,10 @@ class AccountMove(models.Model):
             cuota_recargo = tax_line_req['taxes'][0]['amount']
             tax_sii['TipoRecargoEquivalencia'] = tipo_recargo
             tax_sii['CuotaRecargoEquivalencia'] = cuota_recargo
-
+        if self.type == 'out_refund' and self.refund_type == 'I':
+            taxes_amount = -abs(taxes_amount)
+        else:
+            taxes_amount = abs(taxes_amount)
         if self.type in ['out_invoice', 'out_refund']:
             tax_sii['CuotaRepercutida'] = taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
@@ -431,6 +434,10 @@ class AccountMove(models.Model):
                     taxes['taxes'][0]['amount'],
                     self.company_id.currency_id)
         tax_sii[str(tax_type)]['BaseImponible'] += taxes_total
+        if self.type == 'out_refund' and self.refund_type == 'I':
+            taxes_amount = -abs(taxes_amount)
+        else:
+            taxes_amount = abs(taxes_amount)
         if self.type in ['out_invoice', 'out_refund']:
             tax_sii[str(tax_type)]['CuotaRepercutida'] += taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
@@ -527,30 +534,33 @@ class AccountMove(models.Model):
                         if (self.currency_id !=
                                 self.company_id.currency_id):
                             price_subtotal = self.currency_id.with_context(
-                                date=self.date).compute(price_subtotal,
-                                               self.company_id.currency_id)
+                                date=self.date).compute(
+                                    price_subtotal,
+                                    self.company_id.currency_id)
                         if 'NoSujeta' not in inv_breakdown:
                             inv_breakdown['NoSujeta'] = {}
-                            if line.product_id.sii_not_subject_7_14:
-                                if 'ImportePorArticulos7_14_Otros' not in \
-                                        inv_breakdown['NoSujeta']:
-                                    inv_breakdown['NoSujeta'] = {
-                                        'ImportePorArticulos7_14_Otros': \
-                                            price_subtotal}
-                                else:
-                                    inv_breakdown['NoSujeta'][
-                                        'ImportePorArticulos7_14_Otros'] += \
-                                            price_subtotal
+                        if self.type == 'out_refund' and self.refund_type == 'I':
+                            price_subtotal = -price_subtotal
+                        if line.product_id.sii_not_subject_7_14:
+                            if 'ImportePorArticulos7_14_Otros' not in \
+                                    inv_breakdown['NoSujeta']:
+                                inv_breakdown['NoSujeta'] = {
+                                    'ImportePorArticulos7_14_Otros': \
+                                        price_subtotal}
                             else:
-                                if 'ImporteTAIReglasLocalizacion' not in \
-                                        inv_breakdown['NoSujeta']:
-                                    inv_breakdown['NoSujeta'] = {
-                                        'ImporteTAIReglasLocalizacion': price_subtotal
-                                    }
-                                else:
-                                    inv_breakdown['NoSujeta'][
-                                        'ImporteTAIReglasLocalizacion'] += \
-                                            price_subtotal
+                                inv_breakdown['NoSujeta'][
+                                    'ImportePorArticulos7_14_Otros'] += \
+                                        price_subtotal
+                        else:
+                            if 'ImporteTAIReglasLocalizacion' not in \
+                                    inv_breakdown['NoSujeta']:
+                                inv_breakdown['NoSujeta'] = {
+                                    'ImporteTAIReglasLocalizacion': price_subtotal
+                                }
+                            else:
+                                inv_breakdown['NoSujeta'][
+                                    'ImporteTAIReglasLocalizacion'] += \
+                                        price_subtotal
 
                 if tax_line in taxes_sfess or tax_line in taxes_sfesse or \
                     tax_line in taxes_sfesbee or tax_line in taxes_sfesbei or \
@@ -580,6 +590,8 @@ class AccountMove(models.Model):
                                                self.company_id.currency_id)
                         if 'NoSujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['NoSujeta'] = {}
+                            if self.type == 'out_refund' and self.refund_type == 'I':
+                                price_subtotal = -price_subtotal
                             if line.product_id.sii_not_subject_7_14:
                                 if 'ImportePorArticulos7_14_Otros' not in \
                                         type_breakdown[op_key]['NoSujeta']:
@@ -600,7 +612,7 @@ class AccountMove(models.Model):
                                 else:
                                     type_breakdown[op_key]['NoSujeta'][
                                         'ImporteTAIReglasLocalizacion'] += \
-                                            price_subtotal                                    
+                                            price_subtotal
                     else:
                         if 'Sujeta' not in type_breakdown[op_key]:
                             type_breakdown[op_key]['Sujeta'] = {}
@@ -847,6 +859,34 @@ class AccountMove(models.Model):
                 raise UserError(
                     "The partner has not a VAT configured.")
 
+    def _get_not_amount_taxes(self):
+        self.ensure_one()
+        taxes_sfrs = self._get_taxes_map(['SFRS'])
+        taxes_sfrisp = self._get_taxes_map(['SFRISP'])
+        taxes_sfesb = self._get_taxes_map(['SFESB'])
+        taxes_sfesbe = self._get_taxes_map(['SFESBE'])
+        taxes_sfesbei = self._get_taxes_map(['SFESBEI'])
+        taxes_sfesbee = self._get_taxes_map(['SFESBEE'])
+        taxes_sfesisp = self._get_taxes_map(['SFESISP'])
+        # taxes_sfesisps = self._get_taxes_map(['SFESISPS'], self.date_invoice)
+        taxes_sfens = self._get_taxes_map(['SFENS'])
+        taxes_sfess = self._get_taxes_map(['SFESS'])
+        taxes_sfesse = self._get_taxes_map(['SFESSE'])
+        taxes_sfesns = self._get_taxes_map(['SFESNS'])
+        taxes_re = self._get_taxes_map(['RE'])
+        all_taxes = taxes_sfrs + taxes_sfrisp + taxes_sfesb + taxes_sfesbe
+        all_taxes += taxes_sfesbei + taxes_sfesbee + taxes_sfesisp + taxes_re
+        all_taxes += taxes_sfens + taxes_sfess + taxes_sfesse + taxes_sfesns
+        not_amount_taxes = 0.0
+        tax_lines = self.line_ids.filtered(lambda line: line.tax_line_id)
+        for tax_line in tax_lines:
+            if tax_line.tax_line_id not in all_taxes:
+                if tax_line.debit > 0.0:
+                    not_amount_taxes += tax_line.debit
+                if tax_line.credit > 0.0:
+                    not_amount_taxes -= tax_line.credit
+        return not_amount_taxes
+
     def _get_invoices(self):
         self.ensure_one()
         sii_map = self._get_sii_map()
@@ -875,10 +915,10 @@ class AccountMove(models.Model):
                 nombrerazon = self.partner_id.name[0:120]
         if self.type in ['out_invoice', 'out_refund']:
             tipo_desglose = self._get_sii_out_taxes()
+            not_amount_taxes = self._get_not_amount_taxes()
+            importe_total = self.amount_total - not_amount_taxes
             if self.type == 'out_refund' and self.refund_type == 'I':
-                    importe_total = -abs(self.amount_total)
-            else:
-                importe_total = self.amount_total
+                importe_total = -abs(importe_total)
             if (self.currency_id !=
                     self.company_id.currency_id):
                 importe_total = round(
@@ -902,7 +942,7 @@ class AccountMove(models.Model):
                         "NombreRazon": nombrerazon
                     },
                     "TipoDesglose": tipo_desglose,
-                    "ImporteTotal": importe_total
+                    "ImporteTotal": round(importe_total, 2)
                 }
             }
             if sii_map.version == '1.0':
@@ -960,10 +1000,10 @@ class AccountMove(models.Model):
                     cuota_deducible += desglose['CuotaSoportada']
             reg_date = self._change_date_format(
                 self.sii_registration_date or fields.Date.today())
+            not_amount_taxes = self._get_not_amount_taxes()
+            importe_total = self.amount_total - not_amount_taxes
             if self.type == 'in_refund' and self.refund_type == 'I':
-                    importe_total = -abs(self.amount_total)
-            else:
-                importe_total = self.amount_total
+                importe_total = -abs(self.amount_total)
             if (self.currency_id !=
                     self.company_id.currency_id):
                 importe_total = self.currency_id.with_context(
@@ -989,7 +1029,7 @@ class AccountMove(models.Model):
                     },
                     "FechaRegContable": reg_date,
                     "CuotaDeducible": round(cuota_deducible, 2),
-                    "ImporteTotal": importe_total
+                    "ImporteTotal": round(importe_total, 2)
                 }
             }
             if sii_map.version == '1.0':
@@ -1110,7 +1150,6 @@ class AccountMove(models.Model):
                 tipo_comunicacion = 'A1'
             header = invoice._get_header(tipo_comunicacion, sii_map)
             invoices = invoice._get_invoices()
-
             try:
                 res = invoice._send_soap(
                     wsdl, port_name, operation, header, invoices)

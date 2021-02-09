@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0+e\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-12 09:53+0000\n"
-"PO-Revision-Date: 2020-04-12 12:00+0200\n"
+"POT-Creation-Date: 2021-01-07 11:39+0000\n"
+"PO-Revision-Date: 2021-01-07 12:42+0100\n"
 "Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid "AEAT SII Configuration"
 msgstr "Configuración AEAT SII"
 
 #. module: l10n_es_aeat_sii
-#: selection:l10n.es.aeat.sii,state:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__l10n_es_aeat_sii__state__active
 msgid "Active"
 msgstr "Activo"
 
@@ -66,7 +66,9 @@ msgstr "SII - Lineas de mapeo"
 #: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_view_search
 #: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_mapping_registration_keys_view_tree
 msgid "Aeat SII Registration Keys"
-msgstr "Aeat SII Tabla de claves: régimen especial/identificación operaciones con transedencia tributaria"
+msgstr ""
+"Aeat SII Tabla de claves: régimen especial/identificación operaciones con "
+"transedencia tributaria"
 
 #. module: l10n_es_aeat_sii
 #: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_sii_result_view_form
@@ -90,35 +92,43 @@ msgid "Amount total"
 msgstr "Total"
 
 #. module: l10n_es_aeat_sii
-#: selection:res.company,send_mode:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__send_mode__fixed
 msgid "At fixed time"
 msgstr "A hora fija"
 
 #. module: l10n_es_aeat_sii
-#: selection:res.company,sii_description_method:0
-#: selection:res.company,sii_method:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__sii_description_method__auto
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__sii_method__auto
 msgid "Automatic"
 msgstr "Automático"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,help:l10n_es_aeat_sii.field_res_company__sii_description_method
-msgid "By default the description is writed by the user. If the optionis auto is generated from the invoice lines"
-msgstr "Por defecto la descripción es rellenada por el usuario. Si la opción es auto se generá a partir de las líneas de la factura."
+msgid ""
+"By default the description is writed by the user. If the optionis auto is "
+"generated from the invoice lines"
+msgstr ""
+"Por defecto la descripción es rellenada por el usuario. Si la opción es "
+"auto se generá a partir de las líneas de la factura."
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,help:l10n_es_aeat_sii.field_res_company__sii_method
-msgid "By default the invoice send in validate process, with manual method, there a button to send the invoice."
-msgstr "Por defecto la factura es enviada al validarla, con método manual, tiene que pulsar el botón de enviar factura."
+msgid ""
+"By default the invoice send in validate process, with manual method, there "
+"a button to send the invoice."
+msgstr ""
+"Por defecto la factura es enviada al validarla, con método manual, tiene "
+"que pulsar el botón de enviar factura."
 
 #. module: l10n_es_aeat_sii
-#: selection:account.invoice,refund_type:0
-#: selection:aeat.check.sii.result,refund_type:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__account_move__refund_type__i
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__refund_type__i
 msgid "By differences"
 msgstr "Por diferencias"
 
 #. module: l10n_es_aeat_sii
-#: selection:account.invoice,refund_type:0
-#: selection:aeat.check.sii.result,refund_type:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__account_move__refund_type__s
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__refund_type__s
 msgid "By substitution"
 msgstr "Por sustitución"
 
@@ -145,18 +155,20 @@ msgid "Check Invoices SII"
 msgstr "Consultar SII"
 
 #. module: l10n_es_aeat_sii
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "Check SII"
 msgstr "Consultar SII"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,help:l10n_es_aeat_sii.field_res_company__use_connector
-msgid "Check it to use connector instead to send the invoice when it is validated"
-msgstr "Pulse para usar el módulo connector en vez de enviar la factura cuando es validada"
+msgid ""
+"Check it to use connector instead to send the invoice when it is validated"
+msgstr ""
+"Pulse para usar el módulo connector en vez de enviar la factura cuando es "
+"validada"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_check_results
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_check_results
 msgid "Check results"
 msgstr "Consultar resultados"
 
@@ -184,7 +196,7 @@ msgid "Compañía"
 msgstr "Compañía"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.check.sii.result,result_query:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__result_query__condatos
 msgid "Con datos"
 msgstr "Con datos"
 
@@ -194,8 +206,8 @@ msgid "Connector config"
 msgstr "Configuración del conector"
 
 #. module: l10n_es_aeat_sii
-#: selection:account.invoice,sii_reconcile_state:0
-#: selection:aeat.check.sii.result,reconcile_state:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__account_move__sii_reconcile_state__5
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__reconcile_state__5
 msgid "Contrastada"
 msgstr "Contrastada"
 
@@ -296,13 +308,12 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: l10n_es_aeat_sii
-#: selection:l10n.es.aeat.sii,state:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__l10n_es_aeat_sii__state__draft
 msgid "Draft"
 msgstr "Borrador"
 
 #. module: l10n_es_aeat_sii
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "Drop SII"
 msgstr "Anular SII"
 
@@ -312,43 +323,43 @@ msgid "Duplicate registry information"
 msgstr "Información del registro duplicada"
 
 #. module: l10n_es_aeat_sii
-#: selection:product.template,sii_exempt_cause:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__product_template__sii_exempt_cause__e1
 msgid "E1"
 msgstr "E1"
 
 #. module: l10n_es_aeat_sii
-#: selection:product.template,sii_exempt_cause:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__product_template__sii_exempt_cause__e2
 msgid "E2"
 msgstr "E2"
 
 #. module: l10n_es_aeat_sii
-#: selection:product.template,sii_exempt_cause:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__product_template__sii_exempt_cause__e3
 msgid "E3"
 msgstr "E3"
 
 #. module: l10n_es_aeat_sii
-#: selection:product.template,sii_exempt_cause:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__product_template__sii_exempt_cause__e4
 msgid "E4"
 msgstr "E4"
 
 #. module: l10n_es_aeat_sii
-#: selection:product.template,sii_exempt_cause:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__product_template__sii_exempt_cause__e5
 msgid "E5"
 msgstr "E5"
 
 #. module: l10n_es_aeat_sii
-#: selection:product.template,sii_exempt_cause:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__product_template__sii_exempt_cause__e6
 msgid "E6"
 msgstr "E6"
 
 #. module: l10n_es_aeat_sii
-#: selection:account.invoice,sii_reconcile_state:0
-#: selection:aeat.check.sii.result,reconcile_state:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__account_move__sii_reconcile_state__2
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__reconcile_state__2
 msgid "En proceso de contraste"
 msgstr "En proceso de contraste"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_enabled
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_enabled
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_res_company__sii_enabled
 msgid "Enable SII"
 msgstr "Activar SII"
@@ -375,10 +386,11 @@ msgid "Error description"
 msgstr "Descripción errpr"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/aeat_sii_map.py:39
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii_map.py:0
 #, python-format
 msgid "Error! The dates of the record overlap with an existing record."
-msgstr "Error! Las fechas de los registros se solapan con un registro existente."
+msgstr ""
+"Error! Las fechas de los registros se solapan con un registro existente."
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_product_product__sii_exempt_cause
@@ -397,7 +409,7 @@ msgid "Fiscal Position"
 msgstr "Posición fiscal"
 
 #. module: l10n_es_aeat_sii
-#: selection:res.company,sii_description_method:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__sii_description_method__fixed
 msgid "Fixed"
 msgstr "Fijo"
 
@@ -441,23 +453,21 @@ msgid "ID Version SII"
 msgstr "IDVersionSii"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/aeat_sii.py:35
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii.py:0
 #: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.l10n_es_sii_password_wizard_view
 #, python-format
 msgid "Insert Password"
-msgstr "Introduzca contraseña"
+msgstr "Introduzca su contraseña"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model,name:l10n_es_aeat_sii.model_account_invoice
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result__invoice_id
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_result__invoice_id
 msgid "Invoice"
 msgstr "Factura"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__invoice_jobs_ids
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__invoice_jobs_ids
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "Invoice Jobs"
 msgstr "Trabajos factura"
 
@@ -478,8 +488,8 @@ msgid "Invoice number"
 msgstr "Número factura"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_recc_results
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_results
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_recc_results
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_results
 msgid "Invoice results"
 msgstr "Resultados de la factura"
 
@@ -489,9 +499,14 @@ msgid "Invoice type"
 msgstr "Tipo factura"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__is_sii_mapped
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__is_sii_mapped
 msgid "Is SII mapped"
 msgstr "Es factura SII"
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model,name:l10n_es_aeat_sii.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model,name:l10n_es_aeat_sii.model_account_move_line
@@ -558,8 +573,8 @@ msgid "Load Certificate"
 msgstr "Cargar Certificado"
 
 #. module: l10n_es_aeat_sii
-#: selection:res.company,sii_description_method:0
-#: selection:res.company,sii_method:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__sii_description_method__manual
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__sii_method__manual
 msgid "Manual"
 msgstr "Manual"
 
@@ -595,36 +610,36 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:180
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
 msgid "No Fiscal Position configured for the partner %s"
 msgstr "La empresa %s no tiene posición fiscal"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:318
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
 msgid "No VAT configured for the company '{}'"
 msgstr "No se ha configurado CIF/NIF para la compañía"
 
 #. module: l10n_es_aeat_sii
-#: selection:account.invoice,sii_reconcile_state:0
-#: selection:aeat.check.sii.result,reconcile_state:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__account_move__sii_reconcile_state__1
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__reconcile_state__1
 msgid "No contrastable"
 msgstr "No contrastable"
 
 #. module: l10n_es_aeat_sii
-#: selection:account.invoice,sii_reconcile_state:0
-#: selection:aeat.check.sii.result,reconcile_state:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__account_move__sii_reconcile_state__3
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__reconcile_state__3
 msgid "No contrastada"
 msgstr "No contrastada"
 
 #. module: l10n_es_aeat_sii
-#: selection:product.template,sii_exempt_cause:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__product_template__sii_exempt_cause__none
 msgid "None"
 msgstr "Ninguno"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.result,inv_type:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_sii_result__inv_type__normal
 msgid "Normal"
 msgstr "Normal"
 
@@ -641,15 +656,16 @@ msgid "Obtain Keys"
 msgstr "Obtener Claves"
 
 #. module: l10n_es_aeat_sii
-#: selection:res.company,send_mode:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__send_mode__auto
 msgid "On validate"
 msgstr "Al validar"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/wizard/aeat_sii_password.py:69
+#: code:addons/l10n_es_aeat_sii/wizard/aeat_sii_password.py:0
+#: code:addons/l10n_es_aeat_sii/wizards/aeat_sii_password.py:0
 #, python-format
 msgid "OpenSSL version is not supported. Upgrade to 0.15 or greater."
-msgstr "Versión de OpenSSL no soportada. Actualice a 0.15 o superior "
+msgstr "Versión de OpenSSL no soportada. Actualice a 0.15 o superior."
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result__other_id
@@ -663,8 +679,8 @@ msgid "Owner"
 msgstr "Dueño"
 
 #. module: l10n_es_aeat_sii
-#: selection:account.invoice,sii_reconcile_state:0
-#: selection:aeat.check.sii.result,reconcile_state:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__account_move__sii_reconcile_state__4
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__reconcile_state__4
 msgid "Parcialmente contrastada"
 msgstr "Parcialmente contrastada"
 
@@ -705,7 +721,7 @@ msgid "Public Key"
 msgstr "Clave pública"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.mapping.registration.keys,type:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_sii_mapping_registration_keys__type__purchase
 msgid "Purchase"
 msgstr "Compras"
 
@@ -715,7 +731,7 @@ msgid "Queue Job"
 msgstr "Trabajo de Cola"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.result,inv_type:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_sii_result__inv_type__recc
 msgid "RECC"
 msgstr "RECC"
 
@@ -725,7 +741,7 @@ msgid "Reconcile"
 msgstr "Conciliar"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_reconcile_state
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_reconcile_state
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result__reconcile_state
 msgid "Reconcile State"
 msgstr "Estado cuadre"
@@ -741,13 +757,13 @@ msgid "Reconcile description"
 msgstr "Descripción cuadre"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__refund_type
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__refund_type
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result__refund_type
 msgid "Refund Type"
 msgstr "Tipo rectificativa"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__registration_key
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__registration_key
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result__registration_key
 msgid "Registration key"
 msgstr "Clave del registro"
@@ -769,15 +785,17 @@ msgid "Registry State"
 msgstr "EstadoRegistro"
 
 #. module: l10n_es_aeat_sii
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "Requeue"
 msgstr "Poner en cola"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,help:l10n_es_aeat_sii.field_account_invoice__sii_resend
-msgid "Resend invoice. This is activate if some critical fields have been changed"
-msgstr "Reenviar factura. Este campo se activa si hay actualizaciones de algún campo crítico"
+#: model:ir.model.fields,help:l10n_es_aeat_sii.field_account_move__sii_resend
+msgid ""
+"Resend invoice. This is activate if some critical fields have been changed"
+msgstr ""
+"Reenviar factura. Este campo se activa si hay actualizaciones de algún "
+"campo crítico"
 
 #. module: l10n_es_aeat_sii
 #: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.aeat_check_sii_result_view_form
@@ -787,9 +805,8 @@ msgstr "Resultado"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.actions.act_window,name:l10n_es_aeat_sii.l10n_es_sii_action
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
 #: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.product_template_form_sii_view
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "SII"
 msgstr "SII"
 
@@ -804,12 +821,12 @@ msgid "SII Activity User"
 msgstr "SII Usuario para la actividad"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_csv
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_csv
 msgid "SII CSV"
 msgstr "SII CSV"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_cancel
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_cancel
 msgid "SII Cancel"
 msgstr "SII Anulado"
 
@@ -824,7 +841,7 @@ msgid "SII Configuration"
 msgstr "Configuración SII"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_description
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_description
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_res_company__sii_description
 msgid "SII Description"
 msgstr "Descripción SII"
@@ -835,35 +852,34 @@ msgid "SII Description Method"
 msgstr "Método para la descripción"
 
 #. module: l10n_es_aeat_sii
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "SII Information"
 msgstr "Información SII"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/aeat_sii_result.py:149
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii_result.py:0
 #, python-format
 msgid "SII Invoice Canceled. Create a new invoice"
 msgstr "Factura SII anulada. Debe crear una nueva factura."
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:255
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
 msgid "SII Map not found. Check your configuration"
 msgstr "Mapa SII no encontrado. Compruebe la configuración."
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_recc_csv
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_recc_csv
 msgid "SII Payment RECC CSV"
 msgstr "Pago SII RECC CSV"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_recc_send_error
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_recc_send_error
 msgid "SII Payment RECC Send Error"
 msgstr "Error en el envío Pago SII RECC"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_recc_sent
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_recc_sent
 msgid "SII Payment RECC Sent"
 msgstr "Pago SII RECC enviado"
 
@@ -873,13 +889,12 @@ msgid "SII Purchase header"
 msgstr "Cabecera para compras"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_resend
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_resend
 msgid "SII Resend"
 msgstr "SII Reenviar"
 
 #. module: l10n_es_aeat_sii
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "SII Result"
 msgstr "Resultado SII"
 
@@ -889,18 +904,17 @@ msgid "SII Sale header"
 msgstr "Cabecera para ventas"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_send_error
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_send_error
 msgid "SII Send Error"
 msgstr "SII Error de envío"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_sent
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_sent
 msgid "SII Sent"
 msgstr "SII Enviado"
 
 #. module: l10n_es_aeat_sii
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "SII Verification"
 msgstr "Verificación SII"
 
@@ -930,9 +944,14 @@ msgid "SII not send"
 msgstr "SII No enviadas"
 
 #. module: l10n_es_aeat_sii
-#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_invoice__sii_registration_date
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_registration_date
 msgid "SII registration date"
 msgstr "SII fecha de registro"
+
+#. module: l10n_es_aeat_sii
+#: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_account_move__sii_registration_key_domain
+msgid "SII registration key domain"
+msgstr "Clave del registro"
 
 #. module: l10n_es_aeat_sii
 #: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_account_invoice_sii_filter
@@ -940,7 +959,7 @@ msgid "SII send"
 msgstr "SII Enviadas"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.sii.mapping.registration.keys,type:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_sii_mapping_registration_keys__type__sale
 msgid "Sale"
 msgstr "Ventas"
 
@@ -950,8 +969,7 @@ msgid "Send Invoices SII"
 msgstr "Enviar facturas SII"
 
 #. module: l10n_es_aeat_sii
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_sii_form
-#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.invoice_supplier_sii_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_aeat_sii.view_move_sii_form
 msgid "Send SII"
 msgstr "Enviar SII"
 
@@ -983,10 +1001,11 @@ msgstr "NumSerieFacturaEmisorResumenFin"
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,help:l10n_es_aeat_sii.field_res_company__sii_activity_user
 msgid "Set an user to overrride the invoice user in activity when SII fails"
-msgstr "Establezca el usuario prioritario para la actividad cuando el SII falla"
+msgstr ""
+"Establezca el usuario prioritario para la actividad cuando el SII falla"
 
 #. module: l10n_es_aeat_sii
-#: selection:aeat.check.sii.result,result_query:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__aeat_check_sii_result__result_query__sindatos
 msgid "Sin datos"
 msgstr "Sin datos"
 
@@ -1011,7 +1030,7 @@ msgstr "Impuestos"
 #. module: l10n_es_aeat_sii
 #: model:ir.model,name:l10n_es_aeat_sii.model_account_fiscal_position_template
 msgid "Template for Fiscal Position"
-msgstr "Plantilla para posición fiscal"
+msgstr "Plantilla de posición fiscal"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_res_company__sii_test
@@ -1024,35 +1043,50 @@ msgid "The chart template for the company (if any)"
 msgstr "La plantilla del plan de la compañía (si existe)"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:970
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
 msgid "The invoice supplier number is required"
 msgstr "El número de factura de proveedor es obligatorio"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:225
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
-msgid "This invoice is sent to SII, if you change the date you have to cancel it and drop the invoice from SII"
-msgstr "Esta factura está enviada al SII, si cambia la fecha tiene que cancelarla y anularla del SII"
+msgid ""
+"This invoice is sent to SII, if you change the date you have to cancel it "
+"and drop the invoice from SII"
+msgstr ""
+"Esta factura está enviada al SII, si cambia la fecha tiene que cancelarla y "
+"anularla del SII"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:204
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:211
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
-msgid "This invoice is sent to SII, if you change the number you have to cancel it and drop the invoice from SII"
-msgstr "Esta factura está enviada al SII, si cambia su número tiene que cancelarla y anularla del SII"
+msgid ""
+"This invoice is sent to SII, if you change the number you have to cancel it "
+"and drop the invoice from SII"
+msgstr ""
+"Esta factura está enviada al SII, si cambia su número tiene que cancelarla "
+"y anularla del SII"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:197
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
-msgid "This invoice is sent to SII, if you change the partner you have to cancel it and drop the invoice from SII"
-msgstr "Esta factura está enviada al SII, si cambia la empresa tiene que cancelarla y anularla del SII"
+msgid ""
+"This invoice is sent to SII, if you change the partner you have to cancel "
+"it and drop the invoice from SII"
+msgstr ""
+"Esta factura está enviada al SII, si cambia la empresa tiene que cancelarla "
+"y anularla del SII"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:218
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
-msgid "This invoice is sent to SII, if you change the type you have to cancel it and drop the invoice from SII"
-msgstr "Esta factura está enviada al SII, si cambia el tipo tiene que cancelarla y anularla del SII"
+msgid ""
+"This invoice is sent to SII, if you change the type you have to cancel it "
+"and drop the invoice from SII"
+msgstr ""
+"Esta factura está enviada al SII, si cambia el tipo tiene que cancelarla y "
+"anularla del SII"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_check_sii_result__timestamp_last
@@ -1129,20 +1163,20 @@ msgid "WSDL Urls"
 msgstr "WSDL Urls"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/aeat_sii_map.py:63
+#: code:addons/l10n_es_aeat_sii/models/aeat_sii_map.py:0
 #, python-format
 msgid "WSDL not found. Check your configuration"
 msgstr "WSDL no encontrado. Comprueba su configuración"
 
 #. module: l10n_es_aeat_sii
-#: selection:res.company,send_mode:0
+#: model:ir.model.fields.selection,name:l10n_es_aeat_sii.selection__res_company__send_mode__delayed
 msgid "With delay"
 msgstr "Con retardo"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model,name:l10n_es_aeat_sii.model_wizard_update_charts_accounts
 msgid "Wizard Update Charts Accounts"
-msgstr "Asistente para la actualización de cuentas contables"
+msgstr "wizard.update.charts.accounts"
 
 #. module: l10n_es_aeat_sii
 #: model:ir.model.fields,field_description:l10n_es_aeat_sii.field_aeat_sii_map__wsdl_url
@@ -1150,19 +1184,19 @@ msgid "Wsdl Url"
 msgstr "Wsdl Url"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:1284
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
 msgid "You can not cancel this invoice because there is a job running!"
 msgstr "No puede cancelar una factura porque hay un trabajo ejecutándose!"
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:861
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
 msgid "You have to select a registration key in SII Tab."
 msgstr "Tiene que seleccionar una clave de registro en la pestaña SII."
 
 #. module: l10n_es_aeat_sii
-#: code:addons/l10n_es_aeat_sii/models/account_invoice.py:857
+#: code:addons/l10n_es_aeat_sii/models/account_move.py:0
 #, python-format
 msgid "You have to select what account chart template use this company."
 msgstr "Debe seleccionar que plan contable utiliza esta compañía"
