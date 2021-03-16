@@ -22,8 +22,14 @@ Para instalar esté módulo necesita:
 #. Libreria Python Requests, se puede instalar con el comando 'pip install requests'
 #. Libreria pyOpenSSL, versión 0.15 o posterior
 
-Para su instalación requiere el módulo: account_invoice_refund_link
-Hasta una migración definitiva puede descargarlo aquí: https://github.com/acysos/odoo-addons/tree/14.0
+Para su instalación requiere los siguiente módulo: 
+- account_invoice_refund_link
+- l10n_es_aeat
+- queue_job
+- account_payment_partner
+Hasta una migración definitiva puede descargarlos aquí: https://github.com/acysos/odoo-addons/tree/14.0
+
+Reemplace el archivo __manifest__.py por __manifest__.py.replace
 
 Configuration
 =============
