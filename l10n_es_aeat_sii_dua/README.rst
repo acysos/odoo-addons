@@ -24,6 +24,7 @@ Depende de:
 
 Hasta una migración definitiva puede descargarlos aquí: https://github.com/acysos/odoo-addons/tree/14.0
 
+Reemplace el archivo __manifest__.py por __manifest__.py.replace
 
 Usage
 =====
