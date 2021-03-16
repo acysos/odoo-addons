@@ -19,7 +19,7 @@
                    "requests"],
     },
     "depends": [
-        "account_invoice_refund_link",
+#         "account_invoice_refund_link",
         "l10n_es_aeat",
 #         "account_chart_update",
         "queue_job",
