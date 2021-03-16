@@ -1,4 +1,4 @@
-odoo-addons-13.0
+odoo-addons-14.0
 ===============
 
-Extra modules for Odoo 13.0
+Extra modules for Odoo 14.0
