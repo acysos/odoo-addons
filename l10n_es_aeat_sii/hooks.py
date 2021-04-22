@@ -23,13 +23,13 @@ def post_init_sii_hook(cr, registry):
                 cr.execute("""
                     UPDATE account_move
                     SET registration_key = %s
-                    WHERE type IN ('in_invoice', 'in_refund');""",
+                    WHERE move_type IN ('in_invoice', 'in_refund');""",
                            (purchase_key[0].id,))
             if sale_key:
                 cr.execute("""
                     UPDATE account_move
                     SET registration_key = %s
-                    WHERE type NOT IN ('in_invoice', 'in_refund');""",
+                    WHERE move_type NOT IN ('in_invoice', 'in_refund');""",
                            (sale_key[0].id,))
             cr.execute("""
                 ALTER TABLE account_move
@@ -38,5 +38,5 @@ def post_init_sii_hook(cr, registry):
             cr.execute("""
                 UPDATE account_move
                 SET sii_registration_date = create_date
-                WHERE type in ('in_invoice', 'in_refund');
+                WHERE move_type in ('in_invoice', 'in_refund');
                 """)
