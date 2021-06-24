@@ -383,10 +383,6 @@ class AccountInvoice(models.Model):
             cuota_recargo = tax_line_req['taxes'][0]['amount']
             tax_sii['TipoRecargoEquivalencia'] = tipo_recargo
             tax_sii['CuotaRecargoEquivalencia'] = cuota_recargo
-        if self.type == 'out_refund' and self.refund_type == 'I':
-            taxes_amount = -abs(taxes_amount)
-        else:
-            taxes_amount = abs(taxes_amount)
         if self.type in ['out_invoice', 'out_refund']:
             tax_sii['CuotaRepercutida'] = taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
@@ -421,10 +417,6 @@ class AccountInvoice(models.Model):
                     taxes['taxes'][0]['amount'],
                     self.company_id.currency_id)
         tax_sii[str(tax_type)]['BaseImponible'] += taxes_total
-        if self.type == 'out_refund' and self.refund_type == 'I':
-            taxes_amount = -abs(taxes_amount)
-        else:
-            taxes_amount = abs(taxes_amount)
         if self.type in ['out_invoice', 'out_refund']:
             tax_sii[str(tax_type)]['CuotaRepercutida'] += taxes_amount
         if self.type in ['in_invoice', 'in_refund']:
@@ -864,9 +856,12 @@ class AccountInvoice(models.Model):
         taxes_sfess = self._get_taxes_map(['SFESS'])
         taxes_sfesse = self._get_taxes_map(['SFESSE'])
         taxes_sfesns = self._get_taxes_map(['SFESNS'])
+        taxes_re = self._get_taxes_map(['RE'])
         all_taxes = taxes_sfrs + taxes_sfrisp + taxes_sfesb + taxes_sfesbe
         all_taxes += taxes_sfesbei + taxes_sfesbee + taxes_sfesisp
         all_taxes += taxes_sfens + taxes_sfess + taxes_sfesse + taxes_sfesns
+        all_taxes += taxes_sfens + taxes_sfess + taxes_sfesse + taxes_sfesns + \
+            taxes_re
         not_amount_taxes = 0.0
         for tax_line in self.tax_line_ids:
             if tax_line.tax_id not in all_taxes:
