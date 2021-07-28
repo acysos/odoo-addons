@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Ignacio Ibeas <ignacio@acysos.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data noupdate="0">
+        <record id="config_parameter_sii_url_soap_out_48" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_out.48</field>
+            <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fe/SiiFactFEV1SOAP?wsdl</field>
+        </record>
+        <record id="config_parameter_sii_url_soap_in_48" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_in.48</field>
+            <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fr/SiiFactFRV1SOAP?wsdl</field>
+        </record>
+        <record id="config_parameter_sii_url_soap_pr_48" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_pr.48</field>
+            <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fe/SiiFactCOBV1SOAP?wsdl</field>
+        </record>
+        <record id="config_parameter_sii_url_soap_ps_48" model="ir.config_parameter" forcecreate="True">
+            <field name="key">l10n_es_aeat_sii.url_soap_ps.48</field>
+            <field name="value">https://pruapps.bizkaia.eus/SSII-FACT/ws/fr/SiiFactPAGV1SOAP?wsdl</field>
+        </record>
+    </data>
+</odoo>
