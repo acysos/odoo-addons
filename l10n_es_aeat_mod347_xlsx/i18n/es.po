@@ -1,0 +1,230 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_es_aeat_mod347_xlsx
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-04 08:49+0000\n"
+"PO-Revision-Date: 2019-04-04 10:53+0200\n"
+"Last-Translator: Ignacio Ibeas - Acysos S.L. <ignacio@acysos.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:101
+#, python-format
+msgid "1T"
+msgstr "1T"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:149
+#, python-format
+msgid "1T Real Estate"
+msgstr "1T Inmuebles"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:113
+#, python-format
+msgid "2T"
+msgstr "2T"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:162
+#, python-format
+msgid "2T Real Estate"
+msgstr "2T Inmuebles"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:125
+#, python-format
+msgid "3T"
+msgstr "3T"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:175
+#, python-format
+msgid "3T Real Estate"
+msgstr "3T Inmuebles"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:137
+#, python-format
+msgid "4T"
+msgstr "4T"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:188
+#, python-format
+msgid "4T Real Estate"
+msgstr "4T Inmuebles"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model,name:l10n_es_aeat_mod347_xlsx.model_l10n_es_aeat_mod347_report
+msgid "AEAT 347 Report"
+msgstr "Modelo 347"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:64
+#, python-format
+msgid "Amount"
+msgstr "Importe"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:266
+#, python-format
+msgid "Bussiness Real Estate Rent"
+msgstr "Alquiler del inmueble"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:76
+#, python-format
+msgid "Cash Amount"
+msgstr "Importe recibido en efectivo"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:233
+#, python-format
+msgid "Cash Basis Operation"
+msgstr "Operación de criterio de caja"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/models/mod347.py:22
+#, python-format
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:44
+#, python-format
+msgid "Country Code"
+msgstr "Código de país"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model.fields,field_description:l10n_es_aeat_mod347_xlsx.field_report_l10n_es_aeat_mod347_xlsx_aeat_mod347_xlsx_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/models/mod347.py:23
+#, python-format
+msgid "Exception"
+msgstr "Excepción"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.ui.view,arch_db:l10n_es_aeat_mod347_xlsx.view_l10n_es_aeat_mod347_report_xls_form
+msgid "Export XLS"
+msgstr "Exportar XLS"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model.fields,field_description:l10n_es_aeat_mod347_xlsx.field_report_l10n_es_aeat_mod347_xlsx_aeat_mod347_xlsx_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:222
+#, python-format
+msgid "Insurance Operation"
+msgstr "Operación de seguro"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model.fields,field_description:l10n_es_aeat_mod347_xlsx.field_report_l10n_es_aeat_mod347_xlsx_aeat_mod347_xlsx___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:24
+#, python-format
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:14
+#, python-format
+msgid "Operation Key"
+msgstr "Clave de operación"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model.fields,field_description:l10n_es_aeat_mod347_xlsx.field_l10n_es_aeat_mod347_partner_record_operation_key_value
+msgid "Operation Key Value"
+msgstr "Clave de operación - Valor"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model,name:l10n_es_aeat_mod347_xlsx.model_l10n_es_aeat_mod347_partner_record
+msgid "Partner Record"
+msgstr "Registro de empresa"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/models/mod347.py:20
+#, python-format
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:88
+#, python-format
+msgid "Real Estate Transmission Amount"
+msgstr "Importe de transmisión de inmueble"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:211
+#, python-format
+msgid "Record is OK"
+msgstr "Registro correcto"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:255
+#, python-format
+msgid "Related Goods Operation"
+msgstr "Operación de mercancias fuera del aduanero"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/models/mod347.py:21
+#, python-format
+msgid "Sent"
+msgstr "Enviado"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:201
+#, python-format
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:54
+#, python-format
+msgid "State Code"
+msgstr "Código de provincia"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model.fields,field_description:l10n_es_aeat_mod347_xlsx.field_l10n_es_aeat_mod347_partner_record_state_value
+msgid "State Value"
+msgstr "Estado - Valor"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:244
+#, python-format
+msgid "Taxable Person Operation"
+msgstr "Operación sujeto pasivo"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: code:addons/l10n_es_aeat_mod347_xlsx/report/aeat_mod347_xlsx.py:34
+#, python-format
+msgid "VAT"
+msgstr "NIF"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model,name:l10n_es_aeat_mod347_xlsx.model_report_l10n_es_aeat_mod347_xls_aeat_mod347_xlsx
+msgid "report.l10n_es_aeat_mod347_xls.aeat_mod347_xlsx"
+msgstr "report.l10n_es_aeat_mod347_xls.aeat_mod347_xlsx"
+
+#. module: l10n_es_aeat_mod347_xlsx
+#: model:ir.model,name:l10n_es_aeat_mod347_xlsx.model_report_l10n_es_aeat_mod347_xlsx_aeat_mod347_xlsx
+msgid "report.l10n_es_aeat_mod347_xlsx.aeat_mod347_xlsx"
+msgstr "report.l10n_es_aeat_mod347_xlsx.aeat_mod347_xlsx"

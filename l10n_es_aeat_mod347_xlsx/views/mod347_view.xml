@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_l10n_es_aeat_mod347_report_xls_form" model="ir.ui.view">
+    <field name="name">l10n.es.aeat.mod347.report.xls</field>
+    <field name="model">l10n.es.aeat.mod347.report</field>
+    <field name="inherit_id" ref="l10n_es_aeat_mod347.view_l10n_es_aeat_mod347_report_form"/>
+    <field name="arch" type="xml">
+    	<button name="button_send_mails" position="after">
+    		<button type="object" name="export_xls" states="calculated" string="Export XLS"/>
+    	</button>
+    </field>
+  </record>
+
+</odoo>
