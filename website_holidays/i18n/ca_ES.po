@@ -1,0 +1,374 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_holidays
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-18 09:52+0000\n"
+"PO-Revision-Date: 2023-01-18 12:32+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: website_holidays
+#: model:mail.template,body_html:website_holidays.email_template_holiday_change
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"\t\t\t\t<p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"\t\t\t\t\tHola ${object.employee_id.name}\n"
+"\t\t\t\t</p>\n"
+"\t\t\t\t<p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"\t\t\t\t\tTienes novedades en el portal del empleado sobre tus "
+"vacaciones.\n"
+"\t\t\t\t\tPuedes acceder para revisarlas a través de éste link:\n"
+"\t\t\t\t\t<a href=\"https://${object.get_base_url()}/employee/"
+"holidays\">https://${object.get_base_url()}/employee/holidays</a>\n"
+"\t\t\t\t</p>\n"
+"\t\t\t\t<br/>\n"
+"\t\t\t\t<p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"\t\t\t\t\tSaludos\n"
+"\t\t\t\t</p>\n"
+"\t\t\t</div>\n"
+"\t\t"
+msgstr ""
+
+#. module: website_holidays
+#: model:mail.template,body_html:website_holidays.email_template_leave_change
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+"\">\n"
+"                    Hola ${object.employee_id.name}\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+"\">\n"
+"                    Tienes novedades en el portal del empleado sobre "
+"tus ausencias.\n"
+"                    Puedes acceder para revisarlas a través de éste "
+"link:\n"
+"                    <a href=\"https://${object.get_base_url()}/employee/"
+"leaves\">https://${object.get_base_url()}/employee/leaves</a>\n"
+"                </p>\n"
+"                <br/>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+"\">\n"
+"                    Saludos\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid ""
+"<span id=\"timeoff_edit_submit\" class=\"btn btn-primary "
+"mb-2\">Actualizar</span>"
+msgstr ""
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid ""
+"<span type=\"submit\" id=\"timeoff_req_submit\" class=\"btn btn-primary "
+"mb-2\">Enviar</span>"
+msgstr ""
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "<span>Atrás</span>"
+msgstr ""
+
+#. module: website_holidays
+#: model:mail.template,subject:website_holidays.email_template_leave_change
+msgid "AUSENCIASS ACTUALIZADAS"
+msgstr "Absències actualitzades"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__leave_id
+msgid "Ausencia"
+msgstr "Absència"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_document_menu
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Ausencias"
+msgstr "Absències"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_upload
+msgid "Añadir Justificante"
+msgstr "Afegir justificant"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Cambiar"
+msgstr "Canviar"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_upload
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Cancelar"
+msgstr "Cancel·lar"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__create_uid
+msgid "Created by"
+msgstr "Creat per"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__create_date
+msgid "Created on"
+msgstr "Creat el"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Custom Hours:"
+msgstr "Horaris personalitzats"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Descrición"
+msgstr "Descripció"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Descripción"
+msgstr "Descripció"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid "Description"
+msgstr "Descripció"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid "Desde:"
+msgstr "Des de"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+msgid "Dias/Horas"
+msgstr "Dies/Hores"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Dias/horas"
+msgstr "Dies/Hores"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__display_name
+msgid "Display Name"
+msgstr "Nom visualització"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__document_id
+msgid "Documento"
+msgstr "Document"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Duración:"
+msgstr "Durada:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid "Editar Vacaciones/Ausencia"
+msgstr "Editar vacances/Absències"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_upload
+msgid "Enviar"
+msgstr "Enviar"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Estado"
+msgstr "Estat"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Fecha Final"
+msgstr "Data Final"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Fecha Inicio"
+msgstr "Data Inici"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid "Fecha fin:"
+msgstr "Data final:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Fecha final:"
+msgstr "Data final:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Fecha inicial:"
+msgstr "Data inicial:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid "Fecha inicio:"
+msgstr "Data inici:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "From:"
+msgstr "Des de:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Half Day:"
+msgstr "Mig Dia:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid "Hasta:"
+msgstr "Fins a:"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Justificante"
+msgstr "Justificant"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave__documents_ids
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Justificantes"
+msgstr "Justificants"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document____last_update
+msgid "Last Modified on"
+msgstr "Darrera modificació el"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__write_uid
+msgid "Last Updated by"
+msgstr "Darrera actualització per"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__write_date
+msgid "Last Updated on"
+msgstr "Darrera actualització el"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_request_submit
+msgid "Mensaje"
+msgstr "Missatge"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Nueva Petición"
+msgstr "Nova petició"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_request_submit
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "OK"
+msgstr "OK"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Period:"
+msgstr "Període:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Petición Ausencia"
+msgstr "Petició Absència"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+msgid "Petición Vacaciones"
+msgstr "Petició Vacances"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_type__available_portal
+msgid "Petición por el portal"
+msgstr "Petició per portal"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+msgid "Saldo:"
+msgstr "Saldo:"
+
+#. module: website_holidays
+#: model:ir.model,name:website_holidays.model_hr_leave
+msgid "Time Off"
+msgstr "Temps Lliure"
+
+#. module: website_holidays
+#: model:ir.model,name:website_holidays.model_hr_leave_type
+msgid "Time Off Type"
+msgstr "Tipus de temps lliure"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_leaves
+msgid "Tipo"
+msgstr "Tipus"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+msgid "Tipo ausencia:"
+msgstr "Tipus absència:"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "Tipo:"
+msgstr "Tipus:"
+
+#. module: website_holidays
+#: model:ir.model.fields,field_description:website_holidays.field_hr_leave_document__name
+msgid "Titulo"
+msgstr "Títol"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.holidays_edit
+#: model_terms:ir.ui.view,arch_db:website_holidays.leave_request
+msgid "To:"
+msgstr "A:"
+
+#. module: website_holidays
+#: model:mail.template,subject:website_holidays.email_template_holiday_change
+msgid "VACACIONES ACTUALIZADAS"
+msgstr "Vacances actualitzades"
+
+#. module: website_holidays
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_document_menu
+#: model_terms:ir.ui.view,arch_db:website_holidays.website_holidays
+msgid "Vacaciones"
+msgstr "Vacances"
+
+#. module: website_holidays
+#: model:ir.model,name:website_holidays.model_hr_leave_document
+msgid "hr.leave.document"
+msgstr "hr.deixar.document"

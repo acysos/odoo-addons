@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_resumen_overtime_form" model="ir.ui.view">
+        <field name="name">hr.overtime.form</field>
+        <field name="model">hr.overtime</field>
+        <field name="arch" type="xml">
+            <form string="Extra hour credit">
+                <group>
+                    <group>
+                        <field name="employee_id"/>
+                    </group>
+                    <group>
+                        <field name="quantity"/>
+                        <field name="initial_qty"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="overtime_history"/>
+                    <field name="overtime_modify">
+                        <tree editable="top">
+                            <field name="date"/>
+                            <field name="name"/>
+                            <field name="qty"/>
+                        </tree>
+                    </field>
+                </group>
+            </form>
+            </field>
+    </record>
+</odoo>

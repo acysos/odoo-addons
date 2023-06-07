@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <odoo>
+        <menuitem
+            id="menu_document_root"
+            name="Documentos"
+            groups="group_document_manager"
+            web_icon="website_document,static/description/icon.png"
+            sequence="60"/>
+      <menuitem
+            id="menu_document_main"
+            name="Menu"
+            parent="menu_document_root"
+            sequence="0"/>
+
+
+    <record id="view_document_category_form" model="ir.ui.view">
+        <field name="name">document.category.form</field>
+        <field name="model">document.category</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Carpeta">
+                <sheet>
+                    <div>
+                        <h1><field name="complete_name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="parent_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="child_ids"/>
+                    </group>
+                    <group>
+                        <field name="document_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_document_category_tree" model="ir.ui.view">
+        <field name="name">document.category.tree</field>
+        <field name="model">document.category</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Categorias">
+                <field name="complete_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_document_form" model="ir.ui.view">
+            <field name="name">document.form</field>
+            <field name="model">document.document</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="documento">
+                    <header>
+                        <button name="open_log" type="object"
+                                    icon="fa-search" string="Ver registros"/>
+                                    <button name="send_custom_mail"
+                            string="Nuevos destinatarios" type="object"
+                            attrs="{'invisible': [('first_mail', '!=', True)]}"/>     
+                        <button name="send_first_mail" type="object"
+                                    string="Enviar por correo" attrs="{'invisible': [('first_mail', '=', True)]}"/>
+                        <button name="send_reminder_mail" type="object" string="Enviar Recordatorios"/>
+                              
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                            <field name="name"/>
+                            <field name="first_mail" readonly="1"/>
+                            </group>
+                            <group>
+                            <field name="user_id"/>
+                            <field name="last_reminder" readonly="1"/>
+                            </group>
+                        </group>
+                        <group >
+                            <group >
+                                <field name="document"/>
+                                <field name="category_id"/>
+                                <field name="is_help"/>
+                            </group>
+                            <group>
+                                <field name="all_users"/>
+                                <field name="autoriced_users"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="control_revised"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+            </record>
+       <record id="view_document_tree" model="ir.ui.view">
+            <field name="name">document.tree</field>
+            <field name="model">document.document</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Documentos">
+                    <field name="name"/>
+                    <field name="category_id"/>
+                </tree>
+            </field>
+       </record>
+       <record id="document_log_view_search" model="ir.ui.view">
+        <field name="name">document.log.search</field>
+        <field name="model">document.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="user_id"/>
+                <separator/>
+                <group expand="0" string="Group By...">
+                    <filter context="{'group_by': 'user_id'}"
+                            name="group_user"
+                            string="Usuario"/>
+                </group>
+            </search>
+        </field>
+    </record>
+       <record id="document_log_tree" model="ir.ui.view">
+        <field name="name">document.log.tree</field>
+        <field name="model">document.log</field>
+        <field name="arch" type="xml">
+            <tree string="Acciones">
+                <field name="user_id"/>
+                <field name="event_type"/>
+                <field name="event_date"/>
+            </tree>
+        </field>
+        </record>
+       <record id="action_document_tree" model="ir.actions.act_window">
+            <field name="name">document tree</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">document.document</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">tree,form</field>
+       </record>
+       <record id="website_document_log_action"
+        model="ir.actions.act_window">
+        <field name="name">Log descargas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">document.log</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id"
+            ref="website_document.document_log_view_search" />
+    </record>
+    <record id="action_document_categ_tree" model="ir.actions.act_window">
+        <field name="name">document categ tree</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">document.category</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+       <menuitem
+            id="menu_view_document_form"
+            name="Documentos"
+            action="action_document_tree"
+            parent="menu_document_main"
+            sequence="1"/>
+    <menuitem
+            id="menu_view_document_category_form"
+            name="Carpetas Documentos"
+            action="action_document_categ_tree"
+            parent="menu_document_main"
+            sequence="10"/>
+    </odoo>

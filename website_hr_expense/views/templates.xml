@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="assets_frontend"
+		inherit_id="website.assets_frontend">
+		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript"
+				src="/website_hr_expense/static/src/js/expense.js"></script>
+		</xpath>
+	</template>
+	<template id="website_expense_menu"
+		name="Website document menu" inherit_id="website_hr.website_hr_menu">
+		<xpath expr="//div[@id='menu']" position="inside">
+			<div t-if="user_id.employee_id.tester" class="col-4 text-center"
+				style="margin-top:10px;">
+				<a href="/employee/expenses" class="d-block h-100" itemprop="url">
+					<img src="/website_hr_expense/static/src/img/gastos.png"
+						style="max-height: 70px;" />
+					<p>Expenses</p>
+				</a>
+			</div>
+		</xpath>
+	</template>
+	<template id="website_expenses" name="My Expensess">
+		<t t-call="website.layout">
+			<div class="row">
+
+				<div class="col-3">
+					<h1>
+						<a href="/employee">
+							<span>Go Back</span>
+						</a>
+					</h1>
+				</div>
+				<div class="col-9 text-right" style="overflow:visible;">
+					<h1>
+						<img src="/website_hr_expense/static/src/img/gastos.png"
+							style="max-height: 40px;">Expenses</img>
+					</h1>
+
+				</div>
+			</div>
+			<div class="text-center"
+				style="margin-top:10px;margin.bottom:10px;">
+				<h1>
+					<button type="button" class="btn-primary expense_req_btn">New Expense</button>
+				</h1>
+			</div>
+
+
+			<div>
+			       <form name="send_expense" action="/expense/send" method="post"
+                                             enctype="multipart/form-data">
+				<table style="margin-left:5px;width:100%">
+					<thead>
+					     <th style="padding: 8px;">Send</th>
+						<th style="padding: 8px;">Date</th>
+						<th style="padding: 8px;">Description</th>
+						<th style="padding: 8px;">Paid By</th>
+						<th style="padding: 8px;">Total</th>
+						<th style="padding: 8px;">State</th>
+					</thead>
+					<tbody>
+						<t t-foreach="expenses" t-as="expense">
+							<tr>
+							   <td>
+							        <t t-if="expense.state == 'draft'">
+							             <input type='checkbox' class="expense_id"
+                                                       t-att-name="expense" t-att-value="int(expense.id)" />
+							        </t>
+							   </td>
+							   <td style="border-bottom: 0.5px solid grey;padding: 8px;">
+									<span t-field="expense.date"
+										t-options='{"widget": "date"}' />
+								</td>
+								<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+									<span t-field="expense.name" />
+								</td>
+								<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+									<span t-field="expense.payment_mode" />
+								</td>
+								<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+									<span t-field="expense.total_amount" />
+								</td>
+								<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+									<span t-field="expense.state" />
+								</td>
+								<td t-if="expense.state == 'draft'">
+									<span>
+										<input type='hidden' class="expense_id"
+											name="expense_id" t-att-value="int(expense.id)" />
+										<button type="button"
+											class="mt8 mb8 edit_expense_btn edit_expense btn-primary">Cambiar</button>
+									</span>
+								</td>
+								<td t-if="expense.state != 'draft'">
+								  <a role="button" class="btn btn-primary mb-2" t-att-href="'/expense/print/%i' % expense.id" target="_blank" aria-label="Print" title="Print"><i class="fa fa-print"></i> Imprimir</a>
+								</td>
+							</tr>
+						</t>
+					</tbody>
+				</table>
+				 <div class="text-center">
+                                                  <input type="hidden" name="csrf_token"
+                                                       t-att-value="request.csrf_token()" />
+                                                  <button name="send_exp_but" type="submit"
+                                                       class="btn btn-primary mb-2">Send selection</button>
+                         </div>
+                                             
+				</form>
+			</div>
+		</t>
+	</template>
+	<template id="expense_request">
+		<div class="modal fade" id="expense_request_modal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">New Expense</h4>
+					</div>
+					<t t-if="message">
+						<div class="modal-body modal_form">
+							<t t-raw="message" />
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="btn_reload"
+								class="timeoff_req btn btn-default" data-dismiss="modal">OK</button>
+						</div>
+					</t>
+					<t t-else="">
+						<form method="post" enctype="multipart/form-data"
+							class="expense_req_form">
+							<div class="modal-body modal_form">
+								<input type="hidden" name="csrf_token"
+									t-att-value="request.csrf_token()" />
+								<input type="hidden" name="employee_id" id="employee_id"
+									t-att-value="request._uid" />
+								<div class="form-row mt8 timeoff_type">
+									<label class="col-4 control-label form_label"
+										for="prod_id">Expense:</label>
+									<select class="form-control col-6" id="prod_id"
+										name="prod_id">
+										<option value="" selected="True">
+											<span>---</span>
+										</option>
+										<t t-foreach="products" t-as="prod">
+											<option t-att-value="prod.id">
+												<t t-esc="prod.name" />
+											</option>
+										</t>
+									</select>
+								</div>
+								<div class="form-row mt8 start_date">
+									<label class="col-4 control-label form_label"
+										for="req_date_from">Date:</label>
+									<input class="form-control col-6 input_date" type="date"
+										id="req_date" name="req_date" t-att-value="req_date"
+										required="1" />
+								</div>
+								<div class="form-row mt8 expense_price">
+									<label class="col-4 control-label form_label"
+										for="expense_price">Price unit:</label>
+									<input class="form-control col-6" type="number" step="0.01"
+										id="expense_price" name="expense_price" value="0" required="1" />
+								</div>
+
+								<div class="form-row mt8 expense_qty">
+									<label class="col-4 control-label form_label"
+										for="expense_qty">Cuantity:</label>
+									<input class="form-control col-6" type="number"
+										id="expense_qty" name="expense_qty" value="1" required="1" />
+								</div>
+
+								<div class="form-row mt8 expense_payer" id="expense_payer"
+									style="margin-left:200px;">
+									<label class="col-2 control-label form_label"
+										for="payer_id">Payer:</label>
+									<select class="form-control col-4" id="payer_id"
+										name="payer_id">
+										<option value="own_account" selected="True">
+											<span>Employee (to reimburse)</span>
+										</option>
+										<option value="company_account">
+											<span>Company</span>
+										</option>
+									</select>
+								</div>
+								<div class="form-row mt8" style="display:none;">
+									<span id="selecionado_prod">0</span>
+								</div>
+								<div class="form-row mt8" style="display:none;">
+									<span id="selecionado_payer">own_account</span>
+								</div>
+								<div class="form-row mt8 description">
+									<label class="col-4 control-label form_label" for="name">Descrición
+									</label>
+									<textarea class="form-control col-6" id="name"
+										rows="4" name="name" required="1" />
+								</div>
+
+							</div>
+							<div class="row expense_buttons">
+								<div class="col-6 text-center">
+									<span type="submit" id="expense_req_submit"
+										class="btn btn-primary mb-2">send</span>
+								</div>
+								<div class="col-6 text-center">
+									<button type="cancel" class="btn btn-primary"
+										data-dismiss="modal">Cancel</button>
+								</div>
+							</div>
+						</form>
+					</t>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template id="expense_request_submit">
+		<div class="modal fade" id="expense_request_msg">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Mensaje</h4>
+					</div>
+					<div class="modal-body">
+						<t t-raw="message" />
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="btn_reload"
+							class="expense_request_btn btn btn-primary" data-dismiss="modal">OK
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template id="expense_edit">
+		<div class="modal fade" id="expense_edit_modal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Edit Expense</h4>
+					</div>
+					<t t-if="message">
+						<div class="modal-body modal_form">
+							<t t-raw="message" />
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="btn_reload"
+								class="expense_edit_req btn btn-default" data-dismiss="modal">OK
+							</button>
+						</div>
+					</t>
+					<t t-else="">
+						<form role="form" method="post" enctype="multipart/form-data"
+							class="expense_req_form">
+							<div class="modal-body modal_form">
+								<input type="hidden" name="csrf_token"
+									t-att-value="request.csrf_token()" />
+								<input type="hidden" name="expense_id" id="expense_id"
+									t-att-value="expense_id" />
+								<input type="hidden" name="user_id" id="employee_id"
+									t-att-value="request._uid" />
+								<div id="error" class="mt8" />
+								<div class="form-row mt8">
+									<label class="col-4 control-label form_label" for="et_id">Product:
+									</label>
+									<select class="form-control col-6" id="prod_id"
+										name="prod_id" t-att-value="product_id.id">
+										<t t-foreach="product_ids" t-as="p">
+											<option t-att-value="p.id"
+												t-att-selected="p.id == (product_id.id or -1)">
+												<t t-esc="p.name" />
+											</option>
+										</t>
+									</select>
+
+								</div>
+								<div class="form-row mt8">
+									<label class="col-4 control-label form_label"
+										for="request_date">Date:</label>
+									<input class="form-control col-6 input_date_from"
+										type="date" id="request_date" name="request_date"
+										t-att-value="date" required="1" />
+								</div>
+
+							
+
+							<div class="form-row mt8 duration">
+								<label class="col-4 control-label form_label"
+									for="expense_price">Unit price:</label>
+								<input class="form-control col-6" type="text"
+									id="expense_price" name="expense_price"
+									t-att-value="unit_amount" required="1"  />
+							</div>
+
+
+
+							<div class="form-row mt8 expense_qty div_qty">
+								<label class="col-4 control-label form_label"
+									for="expense_qty">Quantity:</label>
+								<input class="form-control col-1 o_expense_qty"
+									type="number" id="expense_qty" name="expense_qty"
+									t-att-value="quantity" required="1" />
+							</div>
+							<div class="form-row mt8 expense_payer" id="payer">
+								<label class="col-4 control-label form_label" for="rd_id">payer:
+								</label>
+								<select class="form-control col-6" id="payer_id"
+									name="payer_id">
+									<option value="own_account"
+										t-att-selected="payment_mode == 'own_account'">
+										<span>Employee (to reimburse)</span>
+									</option>
+									<option value="company_account"
+										t-att-selected="payment_mode == 'company_account'">
+										<span>Company</span>
+									</option>
+								</select>
+							</div>
+							<div class="form-row mt8" >
+                                        <span t-esc="payment_mode"></span>
+                                   </div>
+							<div class="form-row mt8" style="display:none;">
+								<span id="selecionado_prod" t-esc="product_id.id"></span>
+							</div>
+							<div class="form-row mt8" style="display:none;">
+								<span id="selecionado_payer" t-esc="payment_mode"></span>
+							</div>
+							<div class="form-row mt8">
+								<label class="col-4 control-label form_label" for="name">Description
+								</label>
+								<textarea class="form-control col-6" id="name" rows="4"
+									name="name" required="1" t-esc="name" />
+							</div>
+                              </div>
+							<div class="row">
+								<div class="col-6 text-center">
+									<span id="expense_edit_submit"
+										class="btn btn-primary mb-2">Actualizar</span>
+								</div>
+								<div class="col-6 text-center">
+									<button type="cancel" class="btn btn-primary"
+										data-dismiss="modal">Cancelar</button>
+								</div>
+							</div>
+						</form>
+					</t>
+				</div>
+			</div>
+		</div>
+	</template>
+</odoo>

@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="website_hr_resumen"
+		inherit_id="website_hr.website_hr_menu">
+		<div id="menu" position="inside">
+			<div class="col-4 text-center" style="margin-top:25px;">
+
+				<a href="/my/resumen" class="d-block h-100" itemprop="url">
+					<img src="/website_hr_day_resumen/static/src/img/lupa.jpg"
+						style="max-height: 70px;" />
+					<p>Resumen H.</p>
+				</a>
+			</div>
+		</div>
+	</template>
+	<template id="portal_resumen_month">
+		<t t-call="website.layout">
+		<div class="row">
+			<div class="col-3">
+				<h1>
+					<a href="/employee">
+						<span>Atrás</span>
+					</a>
+				</h1>
+			</div>
+			<div class="col-9 text-right">
+			    <h1>
+                   <img src="/website_hr_day_resumen/static/src/img/lupa.jpg"
+                       style="max-height: 40px;" >Resumen H.</img></h1>
+			</div>
+		</div>
+		<div class="text-center">
+			<div class="row">
+
+				<div class="col-3">
+					<a t-att-href="ant_url">Ant.</a>
+				</div>
+				<div class="col-6">
+				   <h3>
+					<span>Horas acumuladas:</span> <span t-esc="overtime_qty"/>
+                       </h3>
+
+				</div>
+				<div class="col-3">
+					<a t-att-href="next_url">Sig.</a>
+				</div>
+			</div>
+		</div>
+			<div>
+				<table style="margin-left:5px;width:100%">
+					<thead>
+						<th style="border-bottom: 0.5px solid grey;background-color:#F6F5F4;">Fecha</th>
+						<th style="border-bottom: 0.5px solid grey;">H. teo</th>
+						<th style="border-bottom: 0.5px solid grey;background-color:#F6F5F4;">H. Ext</th>
+						<th style="border-bottom: 0.5px solid grey;">H. ret</th>
+						<th style="border-bottom: 0.5px solid grey;background-color:#F6F5F4;">Au. J</th>
+						<th style="border-bottom: 0.5px solid grey;">Au. NJ</th>
+					</thead>
+					<tbody>
+						<t t-foreach="resumen_ids" t-as="resumen">
+							<tr>
+								<td style="border-bottom: 0.5px solid grey;background-color:#F6F5F4;" ><span t-field="resumen.day" t-field-options='{"format";"DD/MM/yyyy"}'/></td>
+								<td style="border-bottom: 0.5px solid grey;"><span t-if="resumen.teorical_hours" t-esc="resumen.get_hex_th()" /></td>
+								<td style="border-bottom: 0.5px solid grey;background-color:#F6F5F4;"><span t-if="resumen.extra_hours" t-esc="resumen.get_hex_extra_hours()"/></td>
+								<td style="border-bottom: 0.5px solid grey;"><span t-if="resumen.hours_delayed" t-esc="resumen.get_hex_h_retraso()"/></td>
+								<td style="border-bottom: 0.5px solid grey;background-color:#F6F5F4;"><span t-if="resumen.j_hours" t-esc="resumen.get_hex_aus_j()"/></td>
+								<td style="border-bottom: 0.5px solid grey;"><span t-if="resumen.no_j_hours" t-esc="resumen.get_hex_aus_n_j()"/></td>
+							</tr>
+						</t>
+					</tbody>
+				</table>
+			</div>
+		</t>
+	</template>
+	<template id="portal_resumen" name="portal HR resumen">
+		<t t-call="website.layout">
+			<div>
+				<h1>
+					<a href="/employee">
+						<span>Atras</span>
+					</a>
+				</h1>
+			</div>
+			<div class="text-center">
+				<div class="row">
+
+					<div class="col-3">
+						<a t-att-href="ant_url">Ant.</a>
+					</div>
+					<div class="col-6">
+						<h1>
+							<span t-esc="year" />
+						</h1>
+
+
+					</div>
+					<div class="col-3">
+						<a t-att-href="next_url">Sig.</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="teo_h" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="round(work_h, 2)" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="au_j" />
+						</div>
+						<div>
+							<span>Dias Vac:</span>
+							<span t-esc="vac" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(del_h, 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="ext_h" />
+						</div>
+						<div>
+							<span>Aus. no justi:</span>
+							<span t-esc="au_nj" />
+						</div>
+						<div>
+							<span>Dias Noch:</span>
+							<span t-esc="noch" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center">
+				<div>
+					<h3>
+						<a t-att-href="ene_url">Enero</a>
+					</h3>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="months['1'][0]" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="round(months['1'][1], 2)" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['1'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac:</span>
+							<span t-esc="months['1'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['1'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['1'][2]" />
+						</div>
+						<div>
+							<span>Aus. no justi:</span>
+							<span t-esc="months['1'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['1'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="feb_url">Febrero</a>
+					</h3>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['2'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['2'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['2'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['2'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['2'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['2'][2]" />
+						</div>
+						<div>
+							<span>Aus. no justi:</span>
+							<span t-esc="months['2'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['2'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="mar_url">Marzo</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['3'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['3'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['3'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['3'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['3'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['3'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['3'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['3'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="abr_url">Abril</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['4'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['4'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['4'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['4'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['4'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['4'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['4'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['4'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="may_url">Mayo</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['5'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['5'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['5'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['5'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['5'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['5'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['5'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['5'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="jun_url">Junio</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['6'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['6'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['6'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['6'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['6'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['6'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['6'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['6'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="jul_url">Julio</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['7'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['7'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['7'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['7'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['7'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['7'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['7'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['7'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="ago_url">Agosto</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['8'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['8'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['8'][4]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['8'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['8'][3],2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['8'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['8'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['8'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="sep_url">Septiembre</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['9'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['9'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['9'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['9'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['9'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['9'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['9'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['9'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="oct_url">Octibre</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['10'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['10'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['10'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['10'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['10'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['10'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['10'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['10'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="nob_url">Noviembre</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['11'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['11'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['11'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['11'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['11'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['11'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['11'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['11'][6]" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>
+						<a t-att-href="dic_url">Diciembre</a>
+					</h3>
+				</div>
+				<div class="row">
+
+					<div class="col-6">
+						<div>
+							<span>H. teoricas:</span>
+							<span t-esc="round(months['12'][0], 2)" />
+						</div>
+						<div>
+							<span>H. trabajadas:</span>
+							<span t-esc="months['12'][1]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['12'][4]" />
+						</div>
+						<div>
+							<span>Dias Vac</span>
+							<span t-esc="months['12'][7]" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div>
+							<span>H. retraso:</span>
+							<span t-esc="round(months['12'][3], 2)" />
+						</div>
+						<div>
+							<span>H. extra:</span>
+							<span t-esc="months['12'][2]" />
+						</div>
+						<div>
+							<span>Aus. justi:</span>
+							<span t-esc="months['12'][5]" />
+						</div>
+						<div>
+							<span>Dias Noch</span>
+							<span t-esc="months['12'][6]" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</t>
+	</template>
+
+</odoo>

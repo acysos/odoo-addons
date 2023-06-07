@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_frontend"
+            inherit_id="website.assets_frontend">
+            <xpath expr="//script[last()]" position="after">
+                <script type="text/javascript"
+                    src="/website_work_calendary/static/src/js/work_calendary.js"></script>
+            </xpath>
+        </template>
+	<template id="website_calendary_menu"
+		name="Website calenday menu" inherit_id="website_hr.website_hr_menu">
+		<xpath expr="//div[@id='menu']" position="inside">
+			<div class="col-4 text-center"
+				style="margin-top:10px;">
+				<a href="/calendario" class="d-block h-100" itemprop="url">
+					<img src="/website_work_calendary/static/src/img/calen.png"
+						style="max-height: 70px;" />
+					<p>Calendario</p>
+				</a>
+			</div>
+		</xpath>
+	</template>
+
+	<template id="website_calendary_month">
+		<t t-call="website.layout">
+			<div class="row">
+				<div class="col-3">
+					<h1>
+						<a href="/employee">
+							<span>Atrás</span>
+						</a>
+					</h1>
+				</div>
+				<div class="col-9 text-right">
+					<h1>
+						<img src="/website_work_calendary/static/src/img/calen.png"
+							style="max-height: 40px;">Calendario</img>
+					</h1>
+				</div>
+			</div>
+			<div class="text-center">
+				<h1>
+					<a href="/calendario/año">
+						<span t-esc="year_str" />
+					</a>
+				</h1>
+			</div>
+			<div class="row" style="display:flex;justify-content: center;">
+
+				<t t-call="website_work_calendary.website_calendary_help" />
+
+			</div>
+			<div class="row">
+				<div class="col-2"
+					style="display:flex;justify-content: center;align-items: center;">
+					<t t-if="ant_url">
+						<a t-att-href="ant_url">Ant.</a>
+					</t>
+					<t t-else="">
+						Ant.
+					</t>
+				</div>
+				<div class="col-8" style="display:flex;justify-content: center;">
+					<t t-call="website_work_calendary.website_calendary_fold" />
+				</div>
+				<div class="col-2"
+					style="display:flex;justify-content: center;align-items: center;">
+					<t t-if="next_url">
+						<a t-att-href="next_url">Sig.</a>
+					</t>
+				</div>
+			</div>
+		</t>
+	</template>
+	<template id="website_calendary_help">
+		<table style="width:70%;">
+			<tr>
+				<td style="color:red;text-align:center">X</td>
+				<td>Festivo</td>
+				<td></td>
+				<td></td>
+				<td style="text-align:center">X</td>
+				<td>Laboral</td>
+			</tr>
+			<tr>
+				<td style="color:#2164BD;text-align:center">X</td>
+				<td>Vacaciones</td>
+				<td style="color:orange;text-align:center;">X</td>
+				<td>Aus. J</td>
+				<td style="color:#2DDEFF;text-align:center;">X</td>
+				<td>Aus. NJ</td>
+			</tr>
+			<tr>
+				<t t-foreach="color_excep" t-as="help">
+				<td t-attf-style="{{help_value['back_c']}};{{help_value['num_c']}};text-align:center;">X</td> 
+				<td>
+				      <span t-esc="help"/>
+				</td>
+				</t>
+			</tr>
+			
+		</table>
+	</template>
+	<template id="website_calendary_main">
+		<t t-call="website.layout">
+			<div class="row">
+				<div class="col-3">
+					<h1>
+						<a href="/calendario">
+							<span>Atrás</span>
+						</a>
+					</h1>
+				</div>
+				<div class="col-9 text-right">
+					<h1>
+						<img src="/website_work_calendary/static/src/img/calen.png"
+							style="max-height: 40px;">Calendario</img>
+					</h1>
+				</div>
+			</div>
+			<div class="row" style="margin-left:15%;">
+				<t t-call="website_work_calendary.website_calendary_help" />
+			</div>
+			<div style="margin-right:50px;">
+				<t t-foreach="months" t-as="month">
+
+					<div style="margin-left:50px;float:left;">
+						<t t-call="website_work_calendary.website_calendary_fold" />
+					</div>
+
+				</t>
+			</div>
+
+		</t>
+
+
+	</template>
+	<template id="website_calendary_fold">
+		<table>
+			<caption style="text-align:center;caption-side:top">
+				<t t-if="month['url']">
+					<a t-att-href="month['url']">
+						<span t-esc="month['name']" />
+					</a>
+				</t>
+				<t t-else="">
+					<span t-esc="month['name']" />
+				</t>
+			</caption>
+			<thead>
+				<th style="padding:5px;text-align:right;">L</th>
+				<th style="padding:5px;text-align:right">M</th>
+				<th style="padding:5px;text-align:right">X</th>
+				<th style="padding:5px;text-align:right">J</th>
+				<th style="padding:5px;text-align:right">V</th>
+				<th style="padding:5px;text-align:right">S</th>
+				<th style="padding:5px;text-align:right">D</th>
+			</thead>
+			<tbody>
+				<t t-foreach="month['weeks']" t-as="week">
+					<tr>
+						<t t-foreach="week" t-as="day">
+							<t t-call="website_work_calendary.website_calendary_day_frame" />
+						</t>
+					</tr>
+				</t>
+				<t t-if="len(month['weeks'])==5">
+					<tr>
+						<td style="padding:5px;">
+							<br />
+						</td>
+					</tr>
+				</t>
+			</tbody>
+		</table>
+	</template>
+	<template id="website_calendary_day_frame">
+         <td t-att-style="day['back_c']" class="work_day_td">
+               <t t-call="website_work_calendary.website_calendary_day" />
+          </td>
+	</template>
+	<template id="website_calendary_day">
+		<t t-if="day['number']">
+			<t t-if="day['fest']">
+				<span style="color:red;" t-esc="day['number']" />
+			</t>
+			<t t-if="day['aus']">
+                    <t t-if="day['aus']=='no_j'">
+                         <span t-esc="day['number']" style="color:#2DDEFF"/>
+                    </t>
+                    <t t-if="day['aus']=='si_j'">
+                         <span t-esc="day['number']" style="color:orange"/>
+                    </t>
+                    <t t-if="day['aus']=='holy'">
+                         <span t-esc="day['number']" style="color:#2164BD"/>
+                    </t>
+               </t>
+			<t t-else="">
+				<t t-if="not day['fest']">
+				 <span style="display:none" t-esc="day['date']" class="work_date"/>
+				 <span t-esc="day['number']" t-att-style="day['num_c']" class="c_work_day"/>
+				</t>
+			</t>
+		</t>
+	</template>
+	<template id="website_calendary_schedule">
+		<div class="modal fade" id="work_schedule_modal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+					<div>
+						<h1 class="modal-title">Horario</h1>
+					</div>
+					<div>
+					   <h4 class="modal-title"><span t-esc="day" t-options='{"widget": "date"}'/></h4>
+					</div>
+					</div>
+
+					<div class="modal-body modal_form">
+						<t t-foreach="schedules" t-as="schedule">
+						<div><span t-esc="schedule['init']"/>-><span t-esc="schedule['fin']"/></div>
+						</t>
+						<t t-if="not schedules">
+						    <span>Sin Planificar</span>
+						</t>
+					</div>
+					<div class="modal-footer">
+						<button type="button"
+							class="btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+</odoo>

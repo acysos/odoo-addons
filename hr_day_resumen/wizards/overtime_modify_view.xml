@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="Overtime_modify_wiz" model="ir.ui.view">
+        <field name="name">overtime.modify.wiz</field>
+        <field name="model">overtime.modify.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Crear Modificacion de Saldo">
+                <group>
+                   <group>
+                    <field name="reason"/>
+                     <field name="qty"/>
+                     <field name="date"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="department_ids" widget="many2many_tags"/>
+                    <field name="employee_ids" widget="many2many_tags"/>
+                </group>
+                <footer>
+                        <button name="action_done" type="object"
+                                        string="Confirm" class="oe_highlight"/>
+                         or
+                                        <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+   <act_window
+        id="action_overtime_modify"
+        name="Overtime modify wiz"
+        res_model="overtime.modify.wiz"
+        view_mode="form"
+        view_id="Overtime_modify_wiz"
+        target="new"
+    />
+    <menuitem
+        parent="menu_hr_resumen"
+        name="Modificar saldo H.E."
+        action="action_overtime_modify"
+        id="menu_overtime_modify_wizard"
+        sequence="70"
+    />
+</odoo>

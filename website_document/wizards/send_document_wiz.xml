@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="Document_send_mail" model="ir.ui.view">
+	    <field name="name">document.send.mail</field>
+	    <field name="model">document.send.wiz</field>
+	    <field name="arch" type="xml">
+	        <form string="Enviar Mail">
+	            <group>
+	               <group>
+	                <field name="user_ids">
+	                <tree>
+	                   <field name="name"/>
+	                </tree>
+	                </field>
+	                
+	                </group>
+	            </group>
+	            <footer>
+	                    <button name="action_done" type="object"
+	                                    string="Confirm" class="oe_highlight"/>
+	                     or
+	                                    <button special="cancel" string="Cancel"/>
+	            </footer>
+	        </form>
+	    </field>
+    </record>
+   <act_window
+        id="action_document_send_mail"
+        name="Document send mail"
+        res_model="document.send.wiz"
+        view_mode="form"
+        view_id="Document_send_mail"
+        target="new"
+    />
+</odoo>

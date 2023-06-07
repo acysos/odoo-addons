@@ -1,0 +1,206 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_hr_expense
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-26 10:10+0000\n"
+"PO-Revision-Date: 2022-10-08 19:47+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+msgid ""
+"<span id=\"expense_edit_submit\" class=\"btn btn-primary "
+"mb-2\">Actualizar</span>"
+msgstr ""
+"<span id=\"expense_edit_submit\" class=\"btn btn-primary "
+"mb-2\">Actualitzar</span>"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "<span id=\"selecionado_payer\">own_account</span>"
+msgstr "<span id=\"selecionado_payer\">compte propi</span>"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid ""
+"<span type=\"submit\" id=\"expense_req_submit\" class=\"btn btn-primary "
+"mb-2\">send</span>"
+msgstr ""
+"<span type=\"submit\" id=\"expense_req_submit\" class=\"btn btn-primary "
+"mb-2\">envia</span>"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "<span>Company</span>"
+msgstr "<span>Empresa</span>"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "<span>Employee (to reimburse)</span>"
+msgstr "<span>Empleat (per reemborsar)</span>"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "<span>Go Back</span>"
+msgstr "<span>Torna enrere</span>"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "Cambiar"
+msgstr "Canviar"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+msgid "Cancelar"
+msgstr "Cancel·lar"
+
+#. module: website_hr_expense
+#: code:addons/website_hr_expense/controllers/main.py:0
+#, python-format
+msgid "Changes.aply succesfuly"
+msgstr "Canvis aplicats amb èxit"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "Cuantity:"
+msgstr "Quantitat:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "Date"
+msgstr "Data"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "Date:"
+msgstr "Data:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "Descrición"
+msgstr "Descripció"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "Description"
+msgstr "Descripció"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+msgid "Edit Expense"
+msgstr "Editar despesa"
+
+#. module: website_hr_expense
+#: code:addons/website_hr_expense/controllers/main.py:0
+#, python-format
+msgid ""
+"Expense cannot be requested as Portal User not linked with any Employee."
+msgstr ""
+"No es poden demanar despeses com a Usuari del Portal no vinculat amb "
+"cap Empleat."
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "Expense:"
+msgstr "Despesa:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expense_menu
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "Expenses"
+msgstr "Despeses"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request_submit
+msgid "Mensaje"
+msgstr "Missatge"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "New Expense"
+msgstr "Nova despesa"
+
+#. module: website_hr_expense
+#: code:addons/website_hr_expense/controllers/main.py:0
+#, python-format
+msgid "New expense created succesfuly"
+msgstr "Nova despesa creada amb èxit"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request_submit
+msgid "OK"
+msgstr "D'acord"
+
+#. module: website_hr_expense
+#: code:addons/website_hr_expense/controllers/main.py:0
+#, python-format
+msgid "Only draft expenses can be modified"
+msgstr "Només es poden modificar els esborranys de despeses"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "Paid By"
+msgstr "Pagat per"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "Payer:"
+msgstr "Pagador:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_request
+msgid "Price unit:"
+msgstr "Preu unitari:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+msgid "Product:"
+msgstr "Producte:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+msgid "Quantity:"
+msgstr "Quantitat:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "State"
+msgstr "Estat"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.website_expenses
+msgid "Total"
+msgstr "Total"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+msgid "Unit price:"
+msgstr "Preu unitari:"
+
+#. module: website_hr_expense
+#: model_terms:ir.ui.view,arch_db:website_hr_expense.expense_edit
+msgid "payer:"
+msgstr "pagador:"

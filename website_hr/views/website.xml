@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_hr_breadcrumbs" name="Portal HR Breadcrumbs" inherit_id="portal.portal_breadcrumbs">
+        <xpath expr="//a[@href='/my/home']" position="attributes">
+            <attribute name="href">/employee</attribute>
+        </xpath>
+    </template>
+    <template id="portal_layout_hide" name="Portal Layout hidden" inherit_id="portal.portal_layout">
+        <xpath expr="//div[@t-if='not no_breadcrumbs and not my_details and not breadcrumbs_searchbar']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+        <!-- <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath> -->
+    </template>
+    <template id="portal_my_attendances_hide" name="portal attendance Layout hidden" inherit_id="hr_attendance_portal.portal_my_attendances">
+        <xpath expr="//t[@t-call='portal.portal_searchbar']" position="replace">
+        
+        </xpath>
+    </template>
+    <template id="website_my_attendances" name="My Attendances" inherit_id="hr_attendance_portal_inout.portal_my_attendances_inherit">
+        <xpath expr="//tr[@t-foreach='attendances']" position="replace">
+            <tr t-foreach="attendances" t-as="attendance">
+               <td><span  t-field="attendance.check_in" t-field-options='{"format";"DD/MM/yyyy HH:mm"}'/></td>
+               <td><span  t-field="attendance.check_out" t-field-options='{"format";"DD/MM/yyyy HH:mm"}'/></td>
+               <td><span  t-field="attendance.worked_hours" t-options="{'widget': 'float_time'}"/></td>
+            </tr>
+        </xpath>
+        <xpath expr="//div[@id='check_inout_button']" position="replace">
+            <div class="mb4 row" id="check_inout_button">
+            <div class="col-3"><h1><a href="/employee">
+                <span>Atrás</span></a></h1>
+            </div>
+            <div class="col-9 text-right">
+                    <h1>
+                    <img src="/website_hr/static/src/img/fichar.svg"
+                        style="max-height: 40px;" >Marcajes</img></h1>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top:10px;margin.bottom:10px;">
+	            <h1>
+	                <t t-if="user_id.employee_id.ext_attendance">
+		                <a t-if="user_id.employee_id.attendance_state != 'checked_in'" href="#" class="btn btn-primary" data-toggle="modal" data-target="#check_in_out">
+		                    Registrar entrada
+		                </a>
+	                
+	                <t t-else="">
+	                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#check_in_out">Registrar salida</a>
+	                    
+	                </t>
+	                </t>
+	                <div class="modal fade" id="check_in_out" role="dialog">
+	                    <div class="modal-dialog">
+	                        <div class="modal-content">
+	                            <div class="modal-header">
+	                                <h3 class="modal-title">Confirmar</h3>
+	                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+	                            </div>
+	                            <div class="modal-body">
+	                                <div class="text-center">
+	                                    <a t-attf-href="/my/attendance/check_in_out?{{ keep_query() }}" class="btn btn-primary">
+	                                        <span t-if="user_id.employee_id.attendance_state != 'checked_in'">Registrar entrada</span>
+	                                        <span t-else="">Registrar salida</span>
+	                                    </a>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> 
+	            </h1>
+            </div>
+            
+        </xpath>
+    </template>
+    <template id="website_hr_menu" name="Portal Empleado">
+        <t t-call="website.layout">
+        <h1 class="text-center">Portal Empleado</h1>
+        <div id="menu" class="row">
+            
+               <div class="col-4 text-center" style="margin-top:10px;">
+               
+                <a href="/my/attendance" class="d-block h-100" itemprop="url">
+                    <img src="/website_hr/static/src/img/fichar.svg" style="max-height: 70px;"/>
+                    <p>Marcajes</p>
+                 </a>
+               </div> 
+                <!-- <div t-if="user_id.employee_id.tester" class="col-4 text-center" style="margin-top:10px;">
+                    <a href="/my/leaves" class="d-block h-100" itemprop="url">
+                    <img src="/website_hr/static/src/img/palmeras.jpg" style="max-height: 70px;"/>
+                    <p>Vacaciones</p>>
+                 </a>
+                 
+                </div>
+                <div t-if="user_id.employee_id.tester" class="col-4 text-center" style="margin-top:10px;">
+                    <a href="/my/leaves" class="d-block h-100" itemprop="url">
+                    <img src="/website_hr/static/src/img/ausencia.jpg" style="max-height: 70px;"/>
+                    <p>Ausencias</p>>
+                 </a>
+                </div> -->
+                <div t-if="user_id.employee_id.tester" class="col-4 text-center" style="margin-top:10px;">
+                    <a href="/my/regular" class="d-block h-100" itemprop="url">
+                    <img src="/website_hr/static/src/img/regular.jpg" style="max-height: 70px;"/>
+                    <p>Corregir Marcaje</p>
+                 </a>
+                </div>
+        
+        </div>
+        </t>
+    </template>
+    <template id="website_my_attendances_inherit" name="Website Attendances" inherit_id="hr_attendance_portal_inout.portal_my_attendances_inherit">
+        <xpath expr="//div[@id='check_inout_button']" position="attributes">
+            <attribute name="t-if">user_id.employee_id.ext_attendance</attribute>
+        </xpath>
+    </template>
+</odoo>

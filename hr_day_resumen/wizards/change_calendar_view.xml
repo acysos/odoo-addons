@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="resume_change_calendar_form" model="ir.ui.view">
+        <field name="name">resume_change_calendar.form</field>
+        <field name="model">change.calendar.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Cambiar calendario">
+                <group>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="old_calendar" readonly="1"/>
+                        <field name="start_date"/>
+                        <field name="new_calendar"/>
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Aplicar"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancelar" special="cancel" class="oe_link" />
+                </footer>
+            </form>
+            </field>
+    </record>
+    <record id="action_change_calendar" model="ir.actions.act_window">
+        <field name="name">change calendar</field>
+        <field name="res_model">change.calendar.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="update_calendar_wiz" model="ir.ui.view">
+        <field name="name">update.calendar</field>
+        <field name="model">update.calendar.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Crear Horarios">
+                <group>
+                    <group>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                        <field name="calendar_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Aplicar"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancelar" special="cancel" class="oe_link" />
+                </footer>
+            </form>
+        </field>
+    </record>
+   <act_window
+        id="action_update_Calendar"
+        name="Update calendar wiz"
+        res_model="update.calendar.wiz"
+        view_mode="form"
+        view_id="update_calendar_wiz"
+        target="new"
+    />
+    <menuitem
+        parent="menu_hr_resumen"
+        name="Crear horario."
+        action="action_update_Calendar"
+        id="menu_update_calendar_wizard"
+        sequence="77"
+    />
+</odoo>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+     <menuitem  id="menu_hr_resumen"
+               name="Day Resume"
+               groups="hr.group_hr_manager"
+               parent="hr.menu_hr_root"
+               sequence="9"
+    />
+
+    <record id="resumen_view_search" model="ir.ui.view">
+        <field name="name">day.resumen.search</field>
+        <field name="model">hr.day.resumen</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                
+                <separator/>
+                <group expand="0" string="Group By...">
+                    <filter context="{'group_by': 'employee_id'}"
+                            name="group_employee"
+                            string="Empleado"
+                    />
+                    <filter string="semana actual" name="this_week_filter" 
+                        domain="[('day', '&lt;=', ((context_today()+relativedelta(weeks=0, weekday=-1)).strftime('%Y-%m-%d'))), ('day', '&gt;', ((context_today()-relativedelta(weeks=1, weekday=6)).strftime('%Y-%m-%d')))]"/>
+                    <filter string="semana pasada" name="last_yeek_filter" 
+                        domain="[('day', '&lt;=', ((context_today()+relativedelta(weeks=-1, weekday=-1)).strftime('%Y-%m-%d'))), ('day', '&gt;', ((context_today()-relativedelta(weeks=2, weekday=6)).strftime('%Y-%m-%d')))]"/>
+                    <separator/>
+                    <filter string="Con retraso" name="with_delay_filter"
+                        domain="[('hours_delayed', '>', 0.001)]"/>
+                    <filter string="Con H. Extra" name="with_eh_filter"
+                        domain="[('extra_hours', '>', 0.001)]"/>
+                    
+                    <filter context="{'group_by': 'department_id'}"
+                            name="Departamento"
+                            string="Departamento"
+                    />
+                    
+                    <filter context="{'group_by': 'day'}"
+                            name="Dia"
+                            string="Fecha"
+                    />
+                    
+                </group>
+            </search>
+        </field>
+    </record>
+	<record id="hr_ide_day_resumen_form" model="ir.ui.view">
+		<field name="name">hr.ide.day.resuem.form</field>
+		<field name="model">hr.day.resumen</field>
+		<field name="arch" type="xml">
+			<form string="Resumen diario">
+			<header>
+			 <button name="update_hours" string="Recalcular horas"
+                    type="object" />		 
+			</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="employee_id" />
+							<field name="resume_line">
+								<form>
+								    <group>
+								        <group>
+								        <field name="begin"/>
+								        </group>
+								        <group>
+								        <field name="end"/>
+								        </group>
+								    </group>
+								</form>
+								<tree>
+									<field name="begin" />
+									<field name="end" />
+									<field name="work_time" />
+								</tree>
+							</field>
+						</group>
+						<group>
+							<field name="day" />
+							<field name="attendance_ids" context="{'default_model':'day.resumen', 'default_resumen':active_id}">
+								<form>
+                                  <group>
+                                    <field name="employee_id"/>
+                                    <group>
+                                      <field name="check_in"/>
+                                      <field name="worked_hours"/>
+                                    </group>
+                                    <group>
+                                        <field name="check_out"/>
+                                    </group>
+                                  </group>
+                                  
+                                </form>
+								<tree>
+									<field name="check_in" />
+									<field name="check_out" />
+									<field name="worked_hours" />
+								</tree>
+							</field>
+						</group>
+						<group>
+						  
+						  <field name="leave_ids" readonly="1">
+							  <tree>
+							      <field name="holiday_status_id"/>
+							      <field name="state"/>
+							      <field name="date_from"/>
+							      <field name="date_to"/>
+							  </tree>
+						  </field>
+						  
+						</group>
+					</group>
+					<group>
+						<group>
+							<field name="calendar_id" />
+							<field name="teorical_hours" />
+							<field name="hours_delayed" />
+							<field name="no_j_hours"/>
+							<field name="is_overtime"/>
+						</group>
+						<group>
+							<field name="real_hours"/>
+							<field name="extra_hours" />
+							<field name="j_hours"/>
+						</group>
+					</group>
+					<group>
+					   <field name="overtime_id" groups="base.group_no_one"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="hr_resumen_tree" model="ir.ui.view">
+		<field name="name">hr.resumen.tree</field>
+		<field name="model">hr.day.resumen</field>
+		<field name="arch" type="xml">
+			<tree string="Day summaries">
+                <field name="employee_id" readonly="1"/>
+                <field name="day" readonly="1"/>
+                <field name="comp_teorical_hours" string="Horas teoricas"/>
+                <field name="comp_j" string="Aus. J"/>
+                <field name="comp_no_j" string="Aus. Nj"/>
+                <field name="comp_extra_hours" string="Horas extra"/>
+                <field name="comp_hours_delayed" string="Horas retraso"/>
+                <field name="is_overtime"/>
+            </tree>
+		</field>
+	</record>
+
+	<record id="action_hr_day_resumen_report" model="ir.actions.act_window">
+        <field name="name">Hr day resumen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.day.resumen</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+    </record>
+    <record id="recalculate_resumen_action"
+            model="ir.actions.server">
+            <field name="name">Recalcular resumen</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="model_hr_day_resumen" />
+            <field name="binding_model_id" ref="model_hr_day_resumen" />
+            <field name="code">if records:
+                                    for record in records:
+                                        action = record.update_hours()
+            </field>
+        </record>
+        
+    
+    <menuitem id="menu_hr_day_resumen_report"
+        name="Resumenes diarios" action="action_hr_day_resumen_report"
+        parent="menu_hr_resumen" sequence="1"
+        groups="hr.group_hr_manager" />
+
+</odoo>

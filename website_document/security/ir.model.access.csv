@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_document_manager,DocumentDocuent,model_document_document,group_document_manager,1,1,1,1
+access_document_user,DocumentDocuemnt,model_document_document,group_document_user,1,0,0,0
+access_document_cat_manager,DocumentCategory,model_document_category,group_document_manager,1,1,1,1
+access_document_cat_user,DocumentCategory,model_document_category,group_document_user,1,0,0,0
+access_document_log_manager,DocumentLog,model_document_log,group_document_manager,1,1,1,1

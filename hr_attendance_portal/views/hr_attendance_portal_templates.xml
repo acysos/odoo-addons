@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_menu_attendance" name="Portal layout: attendance menu entry" inherit_id="portal.portal_breadcrumbs" priority="50">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'attendance' or attendance" t-attf-class="breadcrumb-item #{'active ' if not attendance else ''}">
+                <a t-if="attendance" t-attf-href="/my/attendance?{{ keep_query() }}">Attendances</a>
+                <t t-else="">Attendances</t>
+            </li>
+            <li t-if="attendance" class="breadcrumb-item active">
+                <span t-esc="format_datetime(attendance.env, attendance.check_in, dt_format='short')"/> - <span t-esc="format_datetime(attendance.env, attendance.check_out, dt_format='short')"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_attendance" name="Portal My Home : attendance entry" inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="user_id.employee_ids" t-call="portal.portal_docs_entry">
+                <t t-set="title">Attendances</t>
+                <t t-set="url" t-value="'/my/attendance'"/>
+                <t t-set="count" t-value="attendance_count"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_attendances" name="My Attendances">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Attendances</t>
+                <form class="form-inline o_portal_search_panel ml-lg-4">
+                    <div class="input-group input-group-sm w-100">
+                        <div class="input-group-prepend">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"/>
+                            <div class="dropdown-menu" role="menu">
+                                <t t-foreach='attendance_searchbar_inputs' t-as='input'>
+                                    <a t-att-href="'#' + attendance_searchbar_inputs[input]['input']"
+                                        t-attf-class="dropdown-item#{search_in == attendance_searchbar_inputs[input]['input'] and ' active' or ''}">
+                                        <span t-raw="attendance_searchbar_inputs[input]['label']"/>
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                        <input type="date" class="form-control form-control-sm" placeholder="Search" t-att-value='search' name="search"/>
+                        <span class="input-group-append">
+                            <button class="btn btn-secondary search-submit" type="button">
+                                <span class="fa fa-search"/>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </t>
+            <t t-if="not attendances">
+                <p>There are no attendances found.</p>
+            </t>
+            <t t-if="attendances" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>Work Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="attendances" t-as="attendance">
+                        <td><a t-attf-href="/my/attendance/#{attendance.id}?{{ keep_query() }}" t-esc="format_datetime(attendance.env, attendance.check_in, dt_format='short')"/></td>
+                        <td><a t-attf-href="/my/attendance/#{attendance.id}?{{ keep_query() }}" t-esc="format_datetime(attendance.env, attendance.check_out, dt_format='short')"/></td>
+                        <td><a t-attf-href="/my/attendance/#{attendance.id}?{{ keep_query() }}" t-field="attendance.worked_hours" t-options="{'widget': 'float_time'}"/></td>
+                    </tr>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_attendance" name="My Attendance">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="card o_attendance_portal_form">
+                    <div class="card-header">
+                        <h4>
+                            <span t-esc="format_datetime(attendance.env, attendance.check_in, dt_format='short')"/> - <span t-esc="format_datetime(attendance.env, attendance.check_out, dt_format='short')"/>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3 col-lg-2"><label for="check_in">Check In:</label></div>
+                            <div class="col-sm-12 col-md-9 col-lg-4 mb8">
+                                <input class="form-control" name="check_in" id="check_in" disabled="true" t-att-value="format_datetime(attendance.env, attendance.check_in, dt_format='short')"/>
+                            </div>
+                            <div class="col-sm-12 col-md-3 col-lg-2"><label for="check_out">Check Out:</label></div>
+                            <div class="col-sm-12 col-md-9 col-lg-4 mb8">
+                                <input class="form-control" name="check_out" id="check_out" disabled="true" t-att-value="format_datetime(attendance.env, attendance.check_out, dt_format='short')"/>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-12 col-md-3 col-lg-2"><label for="employee_id">Work Hours:</label></div>
+                            <div class="col-sm-12 col-md-9 col-lg-10">
+                                <input class="form-control" name="worked_hours" id="worked_hours" disabled="true" t-att-value="format_duration(attendance.worked_hours)"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_resumene_repor,HrResumenReport,model_hr_resumen_report,hr.group_hr_manager,1,1,1,1
+access_hr_resumen_report_line,HrResumenReportLine,model_hr_resumen_report_line,hr.group_hr_manager,1,1,1,1
+access_hr_day_resumen,HrDayResumen,model_hr_day_resumen,hr.group_hr_manager,1,1,1,1
+access_hr_day_resumen_user,HrDayResumen,model_hr_day_resumen,hr.group_hr_user,1,1,1,0
+access_hr_overtime_user,HrOvertime,model_hr_overtime,hr.group_hr_user,1,1,1,1
+access_hr_overtime_line_user,HrOvertimeLine,model_hr_overtime_line,hr.group_hr_user,1,1,1,1
+access_hr_day_resumen_line,HrDayResumen,model_hr_day_resumen_line,hr.group_hr_manager,1,1,1,1
+access_hr_day_resumen_user_line,HrDayResumen,model_hr_day_resumen_line,hr.group_hr_user,1,1,1,0
+access_hr_update_calendar_manager,UpdateCalendarWiz,model_update_calendar_wiz,hr.group_hr_manager,1,1,1,1

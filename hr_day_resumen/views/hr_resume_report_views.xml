@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	
+	<record id="hr_resume_report_form" model="ir.ui.view">
+		<field name="name">hr.resume.report.form</field>
+		<field name="model">hr.resumen.report</field>
+		<field name="arch" type="xml">
+			<form string="Hours Report">
+				<header>
+					<button name="action_do" type="object" states="draft"
+						string="Calculate" />
+					<button name="action_done" type="object" states="calc"
+						string="Aprobe" />
+					<button name="action_draft" type="object"
+						states="calc,cancel" string="Draft" />
+					<button name="action_cancel" type="object"
+						states="draft,calc,done" string="Cancel" />
+					<field name="state" widget="statusbar"
+						statusbar_visible="draft,calc,done" />
+				</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="name" />
+							<field name="date_start"
+								attrs="{'readonly': [('state', 'in', ('done','calc','cancel'))]}" />
+						</group>
+						<group>
+							<field name="employee_id"
+								attrs="{'readonly': [('state', 'in', ('done','calc','cancel'))]}" />
+							<field name="date_end"
+								attrs="{'readonly': [('state', 'in', ('done','calc','cancel'))]}" />
+						</group>
+					</group>
+					<group>
+						<field name="line_ids"
+							attrs="{'readonly': [('state', 'in', ('done','cancel'))]}">
+							<tree string="Report Lines" editable="bottom">
+								<field name="employee_id" readonly="1" />
+								<field name="teorycal_hour" string="H. teor"/>
+								<field name="worked_hours" string="H. trab"/>
+ 							     <field name="extra_hour" string="H. extra"/>
+                                        <field name="extra_1" string="H. E1" />
+                                        <field name="extra_f" string="H. EF" />
+                              	     <field name="hours_delayed" string="H. retr"/>
+								<field name="worked_days" string="D. trab"/>
+								<field name="j_hours"  string="A. J."/>
+                                        <field name="no_j_hours" string="A. Nj"/>
+                                        <field name="overtime_dif" string="Dif. saldo"/>
+								<button name="open_resumen" type="object" icon="fa-search"/>
+							</tree>
+						</field>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="hr_resume_report_tree" model="ir.ui.view">
+		<field name="name">hr.resume.report.tree</field>
+		<field name="model">hr.resumen.report</field>
+		<field name="arch" type="xml">
+			<tree string="Reports">
+				<field name="name" string="Referencia" readonly="1" />
+				<field name="date_start" readonly="1" />
+				<field name="date_end" readonly="1" />
+				<field name="state" readonly="1" />
+			</tree>
+		</field>
+	</record>
+	
+
+	<record id="attendance_resume_tree" model="ir.ui.view">
+		<field name="name">attendance.resume.tree</field>
+		<field name="model">hr.attendance</field>
+		<field name="arch" type="xml">
+			<tree string="Informe Horas trabajadas">
+				<field name="employee_id" readonly="1" />
+				<field name="check_in" readonly="1" />
+				<field name="check_out" readonly="1" />
+				<field name="worked_hours" />
+			</tree>
+		</field>
+	</record>
+	<record id="action_hr_resume_report" model="ir.actions.act_window">
+		<field name="name">Hr resume reports</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">hr.resumen.report</field>
+		<field name="view_mode">tree,form</field>
+		<field name="context">{}</field>
+		<field name="domain">[]</field>
+	</record>
+	
+	<record id="hr_day_resumen_action_resume" model="ir.actions.act_window">
+        <field name="name">Hour Resume</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.day.resumen</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+	<record id="attendance_action_resume" model="ir.actions.act_window">
+		<field name="name">Horas trabajadas</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">hr.attendance</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="attendance_resume_tree" />
+	</record>
+	<menuitem id="menu_hr_resume_report"
+		name="Report real/teorical" action="action_hr_resume_report"
+		parent="menu_hr_resumen" sequence="40"
+		groups="hr.group_hr_manager" />
+</odoo>

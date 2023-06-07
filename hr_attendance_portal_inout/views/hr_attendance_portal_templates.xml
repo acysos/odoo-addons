@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_attendances_inherit" name="My Attendances" inherit_id="hr_attendance_portal.portal_my_attendances">
+        <xpath expr="//t[@t-call='portal.portal_searchbar']" position="after">
+            <div class="mb4" id="check_inout_button">
+                <a t-if="user_id.employee_id.attendance_state != 'checked_in'" href="#" class="btn btn-primary" data-toggle="modal" data-target="#check_in_out">Registrar entrada</a>
+                <t t-else="">
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#check_in_out">Registrar Salida</a>
+                    <strong>Hours today:</strong>
+                    <span t-field="user_id.employee_id.hours_today" t-options="{'widget': 'float_time'}"/>
+                    <small>(refresh page to update)</small>
+                </t> 
+                <div class="modal fade" id="check_in_out" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Confirm</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-center">
+                                    <a t-attf-href="/my/attendance/check_in_out?{{ keep_query() }}" class="btn btn-primary">
+                                        <span t-if="user_id.employee_id.attendance_state != 'checked_in'">Registrar entrada</span>
+                                        <span t-else="">Registrar Salida</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

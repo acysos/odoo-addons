@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="website_document" name="Website document">
+        <t t-call="website.layout">
+        <div class="row">
+            <div class="col-3">
+            
+            
+            <div><h1><a t-att-href="go_back"><span>Atrás</span></a></h1></div>
+             
+          </div>
+              <div class="col-9 text-right" style="overflow:visible;">
+              <t t-if="help">
+                <h1><img src="/website_document/static/src/img/help-icon.png"
+                            style="max-height: 40px;" >Ayuda</img></h1>
+              </t>
+              <t t-else="">
+                <h1><img src="/website_document/static/src/img/carpeta.png"
+                            style="max-height: 40px;" >Documentos</img></h1>
+              </t>
+              </div>
+              </div>
+              <div t-if="folder" class="text-center" style="margin-top:10px;margin.bottom:10px;">
+                <h1><span t-esc="folder"/></h1>
+              </div>
+              <div id="document_main" style="margin-right:50px;">
+                <t t-foreach="categories" t-as="cat">
+                    <div style="margin-left:50px;float:left;">
+                    <a t-att-href="cat['cat_url']" class="d-block h-100" itemprop="url">
+                        <img src="/website_document/static/src/img/carpeta.png" style="max-height: 70px;"/>
+                        <span t-esc="cat['category'].name"/>
+                    </a>
+                    </div>
+                </t>
+                <t t-foreach="documents" t-as="doc">
+                <div style="margin-left:50px;float:left;">
+                    <form t-att-action="'/download/attachment?attachment_id=%i' % doc.id" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div>
+                            <div class="text-center">
+                            <img src="/website_document/static/src/img/documento.png" style="max-height: 70px;"/>
+                            </div>
+                            <button type="submit" class="btn btn-secondary" style="margin: 0 0 10px;"> <i class="fa fa-download"></i>  <span t-esc="doc.name"/> </button>
+                            </div>
+                    </form>
+                </div>
+                </t>
+            </div>
+    </t>
+    </template>
+	    <template id="website_document_viewer" name="Website document viewer">
+	        <t t-call="website.layout">
+	            
+	                <div><h1><a href="/documentos"><span>Atrás</span></a></h1></div>
+	            <div>
+	               <embed t-att-src="attach" type="application/pdf" width="100%" height="600px" />
+	            </div>
+	            
+	            </t>
+	  </template>
+    <template id="website_document_menu" name="Website document menu" inherit_id="website_hr.website_hr_menu">
+        <xpath expr="//div[@id='menu']" position="inside">
+            <div class="col-4 text-center" style="margin-top:10px;">
+                <a href="/documentos" class="d-block h-100" itemprop="url">
+                    <img src="/website_document/static/src/img/carpeta.png" style="max-height: 70px;"/>
+                    <p>Documentos</p>
+                 </a>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='menu']/div[1]" position="before">
+            <div class="col-4 text-center" style="margin-top:10px;">
+                <a href="/ayuda" class="d-block h-100" itemprop="url">
+                    <img src="/website_document/static/src/img/help-icon.png" style="max-height: 70px;"/>
+                    <p>Ayuda</p>
+                 </a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="resumen_fix_hours_form" model="ir.ui.view">
+        <field name="name">resumen_fix_hours.form</field>
+        <field name="model">hr.resumen.fix.hours</field>
+        <field name="arch" type="xml">
+            <form string="Ajustar Horas Trabajadas">
+                <group>
+                    <group>
+                        <field name="old_hour" readonly="1"/>
+                        <field name="new_hour"/>
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Ajustar Horas"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancelar" special="cancel" class="oe_link" />
+                </footer>
+            </form>
+            </field>
+    </record>
+    <record id="resumen_fix_hours_form_resumen" model="ir.ui.view">
+        <field name="name">ide_fix_hours.form.resumen</field>
+        <field name="model">hr.resumen.fix.hours.resumen</field>
+        <field name="arch" type="xml">
+            <form string="Ajustar Horas Trabajadas">
+                <group>
+                    <group>
+                        <field name="old_hour" readonly="1"/>
+                        <field name="new_hour"/>
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Ajustar Horas"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancelar" special="cancel" class="oe_link" />
+                </footer>
+            </form>
+            </field>
+    </record>
+    <record id="action_fix_hours" model="ir.actions.act_window">
+        <field name="name">Fix worked hours</field>
+        <field name="res_model">hr.resumen.fix.hours</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_fix_hours_resumen" model="ir.actions.act_window">
+        <field name="name">Fix worked hours resumen</field>
+        <field name="res_model">hr.resumen.fix.hours.resumen</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

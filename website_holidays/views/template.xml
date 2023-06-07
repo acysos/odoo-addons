@@ -1,0 +1,601 @@
+<odoo>
+	<data>
+
+		<template id="assets_frontend"
+			inherit_id="website.assets_frontend">
+			<xpath expr="//script[last()]" position="after">
+				<script type="text/javascript"
+					src="/website_holidays/static/src/js/holidays.js"></script>
+			</xpath>
+		</template>
+		<template id="website_document_menu"
+			name="Website document menu" inherit_id="website_hr.website_hr_menu">
+			<xpath expr="//div[@id='menu']" position="inside">
+				<div class="col-4 text-center"
+					style="margin-top:10px;">
+					<a href="/employee/holidays" class="d-block h-100" itemprop="url">
+						<img src="/website_holidays/static/src/img/palmeras.jpg"
+							style="max-height: 70px;" />
+						<p>Vacaciones</p>
+					</a>
+				</div>
+				<div class="col-4 text-center"
+					style="margin-top:10px;">
+					<a href="/employee/leaves" class="d-block h-100" itemprop="url">
+						<img src="/website_holidays/static/src/img/ausencia.jpg"
+							style="max-height: 70px;" />
+						<p>Ausencias</p>
+					</a>
+				</div>
+			</xpath>
+		</template>
+		<template id="website_holidays" name="My holidays">
+			<t t-call="website.layout">
+				<div class="row">
+				
+					<div class="col-3">
+						<h1>
+							<a href="/employee">
+								<span>Atrás</span>
+							</a>
+						</h1>
+					</div>
+					<div class="col-9 text-right" style="overflow:visible;">
+					   <h1><img src="/website_holidays/static/src/img/palmeras.jpg"
+                            style="max-height: 40px;" >Vacaciones</img></h1>
+	                        
+	                    </div>
+                </div>
+				<div class="text-center" style="margin-top:10px;margin.bottom:10px;">
+                        <h1>
+                            <button type="button"
+                                class="btn-primary holiday_req_btn">Petición Vacaciones</button>
+                            </h1>
+                </div>
+				
+					<div class="text-center">
+						<h2>
+							Saldo:
+							<span t-esc="allocation_display" />
+						</h2>
+					</div>
+				<div>
+					<table style="margin-left:5px;width:100%">
+						<thead>
+							<th style="padding: 8px;">Tipo</th>
+							<th style="padding: 8px;">Descripción</th>
+							<th style="padding: 8px;">Fecha Inicio</th>
+							<th style="padding: 8px;">Fecha Final</th>
+							<th style="padding: 8px;">Dias/Horas</th>
+							<th style="padding: 8px;">Estado</th>
+						</thead>
+						<tbody>
+							<t t-foreach="holidays" t-as="holiday">
+								<tr>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.holiday_status_id" />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.name" />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.request_date_from"
+											t-options='{"widget": "date"}' />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.request_date_to"
+											t-options='{"widget": "date"}' />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+									   <span t-field="holiday.duration_display"/>
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.state" />
+									</td>
+									<td t-if="holiday.state in ('draft', 'confirm')">
+										<span>
+											<input type='hidden' class="leave_id" name="leave_id"
+												t-att-value="int(holiday.id)" />
+											<button type="submit"
+												class="mt8 mb8 edit_leave_btn edit_holiday btn-primary">Cambiar</button>
+										</span>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table>
+				</div>
+
+			</t>
+		</template>
+		<template id="website_leaves" name="My leaves">
+			<t t-call="website.layout">
+			<div class="row">
+				<div class="col-3">
+					<h1>
+						<a href="/employee">
+							<span>Atrás</span>
+						</a>
+					</h1>
+				</div>
+				<div class="col-9 text-right" style="overflow:visible;">
+					<h1><img src="/website_holidays/static/src/img/ausencia.jpg"
+                            style="max-height: 40px;" >Ausencias</img></h1>
+				</div>
+				</div>
+				<div class="text-center">
+				    <h1>
+                        <button type="button"
+                            class=" btn-primary timeoff_req_btn">Petición Ausencia</button>
+                    </h1>
+                <!-- </div>
+				
+					<div class="text-center">
+						<h2>
+							Saldo:
+							<span t-esc="allocation_display" />
+						</h2>
+					</div>
+					
+				
+				<div> -->
+					<table style="margin-left:5px;width:100%">
+						<thead>
+							<th style="padding: 8px;">Tipo</th>
+							<th style="padding: 8px;">Descripción</th>
+							<th style="padding: 8px;">Fecha Inicio</th>
+							<th style="padding: 8px;">Fecha Final</th>
+							<th style="padding: 8px;">Dias/horas</th>
+							<th style="padding: 8px;">Estado</th>
+							<th style="padding: 8px;">Justificantes</th>
+						</thead>
+						<tbody>
+							<t t-foreach="holidays" t-as="holiday">
+								<tr>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.holiday_status_id" />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.name" />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.request_date_from"
+											t-options='{"widget": "date"}' />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.request_date_to"
+											t-options='{"widget": "date"}' />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+									   <span t-field="holiday.duration_display"/>
+									</td>
+									<td style="border-bottom: 0.5px solid grey;padding: 8px;">
+										<span t-field="holiday.state" />
+									</td>
+									<td style="border-bottom: 0.5px solid grey;text-align:left;padding: 8px;">
+										<t t-foreach="holiday.sudo().documents_ids" t-as="attach">
+											<div>
+												<a
+													t-attf-href="/employee/holidays/downattch?attachment_id=#{attach.id}">
+													<span t-field="attach.name" />
+												</a>
+											</div>
+										</t>
+									</td>
+
+									<td style="border-bottom: 0.5px solid grey;">
+										<span t-if="holiday.state in ('draft', 'confirm')">
+											<input type='hidden' class="leave_id" name="leave_id"
+												t-att-value="int(holiday.id)" />
+											<button type="submit"
+												class="mt8 mb8 edit_leave_btn edit_leave btn-primary">Cambiar</button>
+										</span>
+									</td>
+									<td style="border-bottom: 0.5px solid grey;">
+									<input type='hidden' class="leave_id" name="leave_id"
+                                                t-att-value="int(holiday.id)" />
+									  <button type="submit" class="mt8 mb8 upload_leave_btn btn-primary">Justificante</button>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table>
+				</div>
+
+
+
+				<t t-call="portal.portal_table">
+
+				</t>
+
+			</t>
+		</template>
+		<template id="leave_request">
+			<div class="modal fade" id="timeoff_request_modal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Nueva Petición</h4>
+						</div>
+						<t t-if="message">
+							<div class="modal-body modal_form">
+								<t t-raw="message" />
+							</div>
+							<div class="modal-footer">
+								<button type="button" id="btn_reload"
+									class="timeoff_req btn btn-default" data-dismiss="modal">OK</button>
+							</div>
+						</t>
+						<t t-else="">
+							<form method="post" enctype="multipart/form-data"
+								class="timeoff_req_form">
+								<div class="modal-body modal_form">
+									<input type="hidden" name="csrf_token"
+										t-att-value="request.csrf_token()" />
+									<input type="hidden" name="employee_id" id="employee_id"
+										t-att-value="employee_id" />
+									<div class="form-row mt8 timeoff_type">
+										<label class="col-4 control-label form_label" for="t_id">Tipo:</label>
+										<select class="form-control col-6" id="t_id"
+											name="t_id">
+											<option value="" selected="True">
+												<span>---</span>
+											</option>
+											<t t-foreach="timeoff_types" t-as="t">
+												<option t-att-value="t.id">
+													<t t-esc="t.name_get_portal(employee_id)"/>
+												</option>
+											</t>
+										</select>
+									</div>
+									<div class="form-row mt8" style="display:none;">
+										<span id="selecionado"></span>
+									</div>
+									<div class="form-row mt8 start_date">
+										<label class="col-4 control-label form_label"
+											for="req_date_from">Fecha inicial:</label>
+										<input class="form-control col-6 input_date_from"
+											type="date" id="req_date_from" name="req_date_from"
+											t-att-value="req_date_from" required="1" />
+									</div>
+									<div class="form-row mt8 end_date">
+										<label class="col-4 control-label form_label"
+											for="req_date_to">Fecha final:</label>
+										<input class="form-control col-6 input_date_to"
+											type="date" id="req_date_to" name="req_date_to"
+											t-att-value="req_date_to" required="1" />
+									</div>
+									<div class="form-row mt8 duration">
+										<label class="col-4 control-label form_label"
+											for="number_of_days">Duración:</label>
+										<input class="form-control col-6" type="text"
+											id="number_of_days" name="number_of_days"
+											t-att-value="number_of_days" required="1" readonly="1" />
+									</div>
+
+									<div class="form-row mt8 div_unit_half"
+										id="o_div_unit_half">
+										<label class="col-4 control-label form_label"
+											for="request_unit_half">Half Day:</label>
+										<input class="form-control col-1 o_request_unit_half"
+											type="checkbox" id="e_request_unit_half"
+											name="request_unit_half" value="" required="1" />
+									</div>
+									<div class="form-row mt8 period_unit" id="period"
+										style="margin-left:200px;">
+										<label class="col-2 control-label form_label"
+											for="rd_id">Period:</label>
+										<select class="form-control col-4" id="rd_id"
+											name="rd_id">
+											<option value="" selected="True">
+												<span>---</span>
+											</option>
+											<t t-foreach="request_date_from_period" t-as="rd">
+												<option t-att-value="rd[0]">
+													<t t-esc="rd[1]" />
+												</option>
+											</t>
+										</select>
+									</div>
+									<div class="form-row mt8 div_custom_hour"
+										id="o_div_custom_hour">
+										<label class="col-4 control-label form_label"
+											for="request_unit_hours">Custom Hours:</label>
+										<input class="form-control col-1 o_request_unit_hours"
+											type="checkbox" id="o_request_unit_hours"
+											name="request_unit_hours" value="" />
+									</div>
+									<div class="form-row mt8 from_to_hours" id="from_to_hours"
+										style="margin-left:200px;">
+										 <label class="col-2 control-label form_label" for="hf_id">From:</label>
+			                                        <select class="form-control col-3" id="hf_id" name="hf_id">
+			                                            <t t-foreach="request_hour_from" t-as="hf">
+			                                                <option t-att-value="hf[0]" t-att-selected="hf[0]">
+			                                                    <t t-esc="hf[1]"/>
+			                                                </option>
+			                                            </t>
+			                                        </select>
+			                                        <label class="col-2 control-label form_label" for="ht_id">To:</label>
+			                                        <select class="form-control col-3" id="ht_id" name="ht_id">
+			                                            <t t-foreach="request_hour_to" t-as="ht">
+			                                                <option t-att-value="ht[0]" t-att-selected="ht[0]">
+			                                                    <t t-esc="ht[1]"/>
+			                                                </option>
+			                                            </t>
+			                                        </select>
+									</div>
+									<div class="form-row mt8" style="display:none;">
+                                                  <span id="selecionado_hf">0</span>
+                                             </div>
+                                             <div class="form-row mt8" style="display:none;">
+                                                  <span id="selecionado_ht">0</span>
+                                             </div>
+									<div class="form-row mt8 description">
+										<label class="col-4 control-label form_label" for="name">Descrición
+										</label>
+										<textarea class="form-control col-6" id="name"
+											rows="4" name="name" required="1" />
+									</div>
+									<!-- <div class="form-row mt8 attach"> <label class="col-2 control-label 
+										form_label" for="req_attach">Justificante:</label> <input type="file" id="req_attach" 
+										name="req_attach" data-show-upload="true" data-show-caption="true" data-show-preview="true"/> 
+										</div> -->
+								</div>
+								<div class="row holy_buttons">
+								<div class="col-6 text-center">
+									<span type="submit" id="timeoff_req_submit"
+										class="btn btn-primary mb-2">Enviar</span>
+							     </div>
+							     <div class="col-6 text-center">
+									<button type="cancel" class="btn btn-primary"
+										data-dismiss="modal">Cancelar</button>
+							     </div>
+								</div>
+							</form>
+						</t>
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<template id="holidays_request_submit">
+			<div class="modal fade" id="timeoff_request_msg">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Mensaje</h4>
+						</div>
+						<div class="modal-body">
+							<t t-raw="message" />
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="btn_reload"
+								class="timeoff_request_btn btn btn-primary" data-dismiss="modal">OK
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="holidays_upload">
+			<div class="modal fade" id="timeoff_upload_modal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1>Añadir Justificante</h1>
+						</div>
+						<div class="modal-body modal_form">
+							<form name="holi_upload" action="/employee/holidays/sendattch" method="post"
+								enctype="multipart/form-data">
+								<input type="hidden" name="csrf_token"
+									t-att-value="request.csrf_token()" />
+								<input type="hidden" name="leave_id" id="leave_id"
+									t-att-value="leave_id" />
+
+								<input type="file" name="req_attach" class="hidden"
+									data-show-upload="true" data-show-caption="true"
+									data-show-preview="true" />
+								<button name="submitmsg" type="submit"
+									class="btn btn-primary mb-2">Enviar</button>
+
+							</form>
+						</div>
+						<div class="modal-footer">
+                                    <button type="cancel" class="btn btn-primary"
+                                        data-dismiss="modal">Cancelar</button>
+                                </div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="holidays_edit">
+			<div class="modal fade" id="timeoff_edit_modal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Editar Vacaciones/Ausencia</h4>
+						</div>
+						<t t-if="message">
+							<div class="modal-body modal_form">
+								<t t-raw="message" />
+							</div>
+							<div class="modal-footer">
+								<button type="button" id="btn_reload"
+									class="timeoff_edit_req btn btn-default" data-dismiss="modal">OK
+								</button>
+							</div>
+						</t>
+						<t t-else="">
+							<form role="form" method="post"
+								enctype="multipart/form-data" class="timeoff_req_form">
+								<div class="modal-body modal_form">
+									<input type="hidden" name="csrf_token"
+										t-att-value="request.csrf_token()" />
+									<input type="hidden" name="leave_id" id="leave_id"
+										t-att-value="leave_id" />
+									<input type="hidden" name="user_id" id="employee_id"
+										t-att-value="employee_id.id" />
+									<div id="error" class="mt8" />
+									<div class="form-row mt8">
+										<label class="col-4 control-label form_label"
+											for="et_id">Tipo ausencia:</label>
+										<select class="form-control col-6" id="t_id"
+											name="t_id" t-att-value="holiday_status_id">
+											<t t-foreach="timeoff_types" t-as="t">
+												<option t-att-value="t.id"
+													t-att-selected="t.id == (holiday_status_id.id or -1)">
+													<t t-esc="t.name" />
+												</option>
+											</t>
+										</select>
+
+									</div>
+									<div class="form-row mt8" style="display:none;">
+										<span id="selecionado"></span>
+									</div>
+                                    
+									<div class="form-row mt8">
+										<label class="col-4 control-label form_label"
+											for="request_date_from">Fecha inicio:</label>
+										<input class="form-control col-6 input_date_from"
+											type="date" id="request_date_from" name="request_date_from"
+											t-att-value="request_date_from" required="1" />
+									</div>
+                                    <t t-if="request_unit_hours">
+									<div class="form-row mt8 end_date" style="display: none;">
+										<label class="col-4 control-label form_label"
+											for="request_date_to">Fecha fin:</label>
+										<input class="form-control col-6 input_date_to"
+											type="date" id="request_date_to" name="request_date_to"
+											t-att-value="request_date_to" required="1" />
+									</div>
+                                    </t>
+                                    
+                                    <t t-else="">
+                                        <div class="form-row mt8 end_date">
+                                        <label class="col-4 control-label form_label"
+                                            for="request_date_to">Fecha fin:</label>
+                                        <input class="form-control col-6 input_date_to"
+                                            type="date" id="request_date_to" name="request_date_to"
+                                            t-att-value="request_date_to" required="1" />
+                                    </div>
+                                    </t>
+									<div class="form-row mt8 duration">
+										<label class="col-4 control-label form_label"
+											for="number_of_days">Duración:</label>
+										<input class="form-control col-6" type="text"
+											id="number_of_days" name="number_of_days"
+											t-att-value="number_of_days" required="1" readonly="1" />
+									</div>
+
+
+
+									<div class="form-row mt8 half_day_unit div_unit_half">
+										<label class="col-4 control-label form_label"
+											for="request_unit_half">Half Day:</label>
+										<input class="form-control col-1 o_request_unit_half"
+											type="checkbox" id="e_request_unit_half"
+											name="request_unit_half" t-att-checked="request_unit_half" />
+									</div>
+									<div class="form-row mt8 period_unit"
+										style="margin-left:200px;" id="period">
+										<label class="col-2 control-label form_label"
+											for="rd_id">Period:</label>
+										<select class="form-control col-6" id="rd_id"
+											name="rd_id">
+											<option value="" selected="True">
+												<span>---</span>
+											</option>
+											<t t-foreach="request_date_from_period" t-as="rd">
+												<option t-att-value="rd[0]">
+													<t t-esc="rd[1]" />
+												</option>
+											</t>
+										</select>
+									</div>
+									<div class="form-row mt8 hour_unit div_custom_hour">
+										<label class="col-4 control-label form_label"
+											for="request_unit_hours">Custom Hours:</label>
+										<input class="form-control col-1 o_request_unit_hours"
+											type="checkbox" id="o_request_unit_hours"
+											name="request_unit_hours" t-att-checked="request_unit_hours" />
+									</div>
+									<t t-if="request_unit_hours">
+									<div class="form-row mt8 from_to_hours" id="from_hours">
+										<select class="form-control col-3" id="hf_id" name="hf_id">
+                                                           <t t-foreach="request_hour_from" t-as="hf">
+                                                               <t t-if="hour_from == hf[0]">
+                                                               <option t-att-value="hf[0]" selected="selected">
+                                                                   <t t-esc="hf[1]"/>
+                                                               </option>
+                                                               </t>
+                                                               <t t-else="">
+                                                                 <option t-att-value="hf[0]">
+                                                                   <t t-esc="hf[1]"/>
+                                                               </option>
+                                                               </t>
+                                                           </t>
+                                                       </select>
+                                                       <label class="col-2 control-label form_label" for="ht_id">To:</label>
+                                                       <select class="form-control col-3" id="ht_id" name="ht_id">
+                                                           <t t-foreach="request_hour_to" t-as="ht">
+                                                               <t t-if="hour_to == ht[0]">
+                                                               <option t-att-value="ht[0]" selected="selected">
+                                                                   <t t-esc="ht[1]"/>
+                                                               </option>
+                                                               </t>
+                                                               <t t-else="">
+                                                                 <option t-att-value="ht[0]">
+                                                                   <t t-esc="ht[1]"/>
+                                                               </option>
+                                                               </t>
+                                                           </t>
+                                                       </select>
+                                             </div>
+                                             <div class="form-row mt8" style="display: none">
+                                                  <span id="selecionado_hf"><t t-esc="hour_from"/></span>
+                                             </div>
+                                             <div class="form-row mt8" style="display: none">
+                                                  <span id="selecionado_ht"><t t-esc="hour_to"/></span>
+                                             </div>
+									</t>
+									<t t-else="">
+									   <div class="form-row mt8 from_to_hours"
+                                         id="from_hours" style="display: none">
+                                        <label class="col-4 control-label form_label"
+                                            for="hf_id">Desde:</label>
+                                        <input type="time" id="hf_id" name="hf_id" class="form-control col-6"
+                                            t-att-value="hour_from" />
+
+                                        <label class="col-4 control-label form_label"
+                                            for="ht_id" t-att-value="hour_to">Hasta:</label>
+                                        <input type="time" id="ht_id" name="ht_id" class="form-control col-6"
+                                            t-att-value="hour_to" />
+
+                                    </div>
+									</t>
+									<div class="form-row mt8">
+										<label class="col-4 control-label form_label" for="name">Description
+										</label>
+										<textarea class="form-control col-6" id="name"
+											rows="4" name="name" required="1" t-esc="name" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6 text-center">
+									<span id="timeoff_edit_submit"
+										class="btn btn-primary mb-2">Actualizar</span>
+									</div>
+									<div class="col-6 text-center">
+									<button type="cancel" class="btn btn-primary"
+										data-dismiss="modal">Cancelar</button>
+										</div>
+								</div>
+							</form>
+						</t>
+					</div>
+				</div>
+			</div>
+		</template>
+	</data>
+</odoo>

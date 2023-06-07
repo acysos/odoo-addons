@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data noupdate="1">
+    <record id="email_template_new_document" model="mail.template">
+            <field name="name">New document alert</field>
+            <field name="model_id" ref="website_document.model_document_document"/>
+            <field name="subject">Nuevo documento ${object.name}</field>
+            <field name="email_from">${(object.user_id.email_formatted or user.email_formatted) | safe}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Buenas
+    </p>
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Tienes un nuevo documento para descargar lo puedes hacer en:
+            
+    </p>
+    <br />
+    <a href="${object.get_base_url()}${object.donwload_url}" target="_blank"
+       style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+        ${object.name}
+    </a>
+    <br />
+    <br />
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Saludos
+    </p>
+</div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+ </record>
+ 
+ 
+   <record id="email_template_document_remenber" model="mail.template">
+            <field name="name">Remenber document alert</field>
+            <field name="model_id" ref="website_document.model_document_document"/>
+            <field name="subject">Recordatorio documento ${object.name}</field>
+            <field name="email_from">${(object.user_id.email_formatted or user.email_formatted) | safe}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        
+        Buenas
+        </p>
+        <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Recordarte que tienes un documento para descargar, lo puedes hacer en:
+        </p>
+        <br />
+    <a href="${object.get_base_url()}${object.donwload_url}" target="_blank"
+       style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+        ${object.name}
+    </a>
+    <br />
+    <br />
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Saludos
+    </p>
+   
+</div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+</data>

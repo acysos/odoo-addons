@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="resource_calendar_form_website_view" model="ir.ui.view">
+        <field name="name">resource_calendar_form_website.view</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Website colors" name="website_colors">
+                              <div>
+                              <label for="number_color"/>
+                              <field name="number_color" widget="color"/>
+                              </div>
+                              <div>
+                              <label for="background_color"/>
+                              <field name="background_color" widget="color"/>
+                              </div>
+                    
+                    <group>
+                    <field name="color_exceptions">
+                         <tree editable="top">
+                              <field name="name"/>
+                              <field name="hours_total_exception"/>
+                              <field name="begin_exception" invisible="1"/>
+                              <field name="number_color" widget="color"/>
+                              <field name="background_color" widget="color"/>
+                         </tree>
+                    </field>
+                    </group>
+                </page>
+          </notebook>
+        </field>
+    </record>
+</odoo>

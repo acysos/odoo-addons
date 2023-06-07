@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data noupdate="1">
+	<record id="email_template_holiday_change" model="mail.template">
+		<field name="name">holiday_change</field>
+		<field name="model_id" ref="website_holidays.model_hr_leave" />
+		<field name="subject">VACACIONES ACTUALIZADAS</field>
+		<field name="email_from">${user.email_formatted | safe}</field>
+		<field name="email_to">${object.employee_id.user_id.login}</field>
+		<field name="body_html" type="html">
+			<div style="margin: 0px; padding: 0px;">
+				<p style="margin: 0px; padding: 0px; font-size: 13px;">
+					Hola ${object.employee_id.name}
+				</p>
+				<p style="margin: 0px; padding: 0px; font-size: 13px;">
+					Tienes novedades en el portal del empleado sobre tus vacaciones.
+					Puedes acceder para revisarlas a través de éste link:
+					<a href="https://${object.get_base_url()}/employee/holidays">https://${object.get_base_url()}/employee/holidays</a>
+				</p>
+				<br />
+				<p style="margin: 0px; padding: 0px; font-size: 13px;">
+					Saludos
+				</p>
+			</div>
+		</field>
+		<field name="auto_delete" eval="False" />
+	</record>
+	<record id="email_template_leave_change" model="mail.template">
+        <field name="name">leave_change</field>
+        <field name="model_id" ref="website_holidays.model_hr_leave" />
+        <field name="subject">AUSENCIASS ACTUALIZADAS</field>
+        <field name="email_from">${user.email_formatted | safe}</field>
+        <field name="email_to">${object.employee_id.user_id.login}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Hola ${object.employee_id.name}
+                </p>
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Tienes novedades en el portal del empleado sobre tus ausencias.
+                    Puedes acceder para revisarlas a través de éste link:
+                    <a href="https://${object.get_base_url()}/employee/leaves">https://${object.get_base_url()}/employee/leaves</a>
+                </p>
+                <br />
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Saludos
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="False" />
+    </record>
+</data>
