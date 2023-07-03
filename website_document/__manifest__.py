@@ -28,8 +28,7 @@
     "license": "AGPL-3",
     "description": """
     """,
-    "depends": ['base', "mail"
-    ],
+    "depends": ['base', "mail", "website_hr"],
     "data": ["security/document_security.xml", "security/ir.model.access.csv","views/document.xml",
              "views/templates.xml", 'data/mail_data.xml', 'wizards/send_document_wiz.xml'
     ],
