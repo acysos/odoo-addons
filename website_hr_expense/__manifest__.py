@@ -24,7 +24,7 @@
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
-    "category": "",
+    "category": "Website, Human Resources",
     "license": "AGPL-3",
     "description": """ Employees complete expenses on the website
     """,

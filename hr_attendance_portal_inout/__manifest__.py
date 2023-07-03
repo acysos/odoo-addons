@@ -11,7 +11,7 @@
     'author': 'Eduwebgroup',
     'website': 'http://www.eduwebgroup.com',
 
-    'category': 'Human Resources',
+    'category': 'Human Resources, Website',
     'version': '14.0.0.0.1',
 
     'depends': [

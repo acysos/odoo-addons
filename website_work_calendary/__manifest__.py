@@ -19,12 +19,12 @@
 #
 ##############################################################################
 {
-    "name": "Website work calendar",
+    "name": "Website Work Calendar",
     "version": "14.0.0.0.1",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
-    "category": "",
+    "category": "Website, Human Resources, Calendar",
     "license": "AGPL-3",
     "description": """
     """,

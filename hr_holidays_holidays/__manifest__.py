@@ -19,12 +19,12 @@
 #
 ##############################################################################
 {
-    "name": "HR leave holidays",
+    "name": "HR Leave Holidays",
     "version": "14.0.0.0.1",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
-    "category": "",
+    "category": "Human Resources",
     "license": "AGPL-3",
     "description": """ Clasifica ausencias de vaciones por separado del resto de ausencias justificadas
     """,

@@ -19,12 +19,12 @@
 #
 ##############################################################################
 {
-    "name": "Website HR attendance",
+    "name": "Website HR Attendance",
     "version": "14.0.0.0.1",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
-    "category": "",
+    "category": "Website, Human Resources",
     "license": "AGPL-3",
     "description": """HR attendance in website""",
     "depends": ['website', 'hr_attendance_portal_inout', 'portal'],
