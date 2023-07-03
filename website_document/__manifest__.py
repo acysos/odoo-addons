@@ -19,17 +19,16 @@
 #
 ##############################################################################
 {
-    "name": "documentos web",
-    "version": "14.0",
+    "name": "Web Documents",
+    "version": "14.0.0.0.1",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
     "contributors": ['Alexander Ezquevo <alexander@acysos.com>', ],
-    "category": "",
+    "category": "Website, Human Resources",
     "license": "AGPL-3",
     "description": """
     """,
-    "depends": ['base', "mail"
-    ],
+    "depends": ['base', "mail", "website_hr"],
     "data": ["security/document_security.xml", "security/ir.model.access.csv","views/document.xml",
              "views/templates.xml", 'data/mail_data.xml', 'wizards/send_document_wiz.xml'
     ],
