@@ -28,6 +28,6 @@
     "license": "AGPL-3",
     "description": """HR attendance in website""",
     "depends": ['website', 'hr_attendance_portal_inout', 'portal'],
-    "data": ['views/website.xml', 'views/hr_enployee_views.xml'],
+    "data": ['views/website.xml', 'views/hr_employee_views.xml'],
     "installable": True,
 }
