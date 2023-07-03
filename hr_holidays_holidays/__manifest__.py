@@ -19,7 +19,7 @@
 #
 ##############################################################################
 {
-    "name": "HR leacve holidays",
+    "name": "HR leave holidays",
     "version": "14.0.0.0.1",
     "author": "Acysos S.L.",
     "website": "www.acysos.com",
