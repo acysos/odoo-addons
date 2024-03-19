@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_partner_property_retention_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form" />
+        <field name="arch" type="xml">
+            <group name="fiscal_information" position="after">
+                <group name="account_invoice_retention" string="Account Invoice Retention">
+                	<field name="with_retention" />
+                    <field name="retention_percentage" />
+                    <field name="retention_days" />
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

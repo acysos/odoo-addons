@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_invoice_retention
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-25 21:51+0000\n"
+"PO-Revision-Date: 2020-04-25 21:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_invoice_retention
+#: model_terms:ir.ui.view,arch_db:account_invoice_retention.report_invoice_document_retention
+msgid "<strong>Retention Due Date:</strong>"
+msgstr "<strong>Fecha de vencimiento retención:</strong>"
+
+#. module: account_invoice_retention
+#: model_terms:ir.ui.view,arch_db:account_invoice_retention.report_invoice_document_retention
+msgid "<strong>Retention amount:</strong>"
+msgstr "<strong>Importe retención:</strong>"
+
+#. module: account_invoice_retention
+#: model_terms:ir.ui.view,arch_db:account_invoice_retention.view_company_retention_form
+#: model_terms:ir.ui.view,arch_db:account_invoice_retention.view_partner_property_retention_form
+msgid "Account Invoice Retention"
+msgstr "Retención de factura"
+
+#. module: account_invoice_retention
+#: model:ir.model,name:account_invoice_retention.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: account_invoice_retention
+#: model:ir.model,name:account_invoice_retention.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: account_invoice_retention
+#: model:ir.model,name:account_invoice_retention.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: account_invoice_retention
+#: model_terms:ir.ui.view,arch_db:account_invoice_retention.view_move_retention_form
+msgid "Retention"
+msgstr "Retención"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_company__retention_account_in
+msgid "Retention Account In"
+msgstr "Cuenta para la retención proveedor"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_company__retention_account_out
+msgid "Retention Account Out"
+msgstr "Cuenta para la retención cliente"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_account_move__retention_amount
+msgid "Retention Amount"
+msgstr "Total retenido"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_account_move__retention_date_due
+msgid "Retention Date Due"
+msgstr "Fecha de vencimiento de la retención"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_account_move__retention_days
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_company__retention_days
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_partner__retention_days
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_users__retention_days
+msgid "Retention Days"
+msgstr "Días retenidos"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_account_move__retention_state
+#: model_terms:ir.ui.view,arch_db:account_invoice_retention.view_account_invoice_retention_filter
+msgid "Retention Payment"
+msgstr "Pago retenido"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_account_move__retention_percentage
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_company__retention_percentage
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_partner__retention_percentage
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_users__retention_percentage
+msgid "Retention Percentage"
+msgstr "Porcentaje retenido"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,help:account_invoice_retention.field_res_partner__with_retention
+#: model:ir.model.fields,help:account_invoice_retention.field_res_users__with_retention
+msgid "This partner apply retention in invoices"
+msgstr "Esta empresa aplica retenciones en la factura"
+
+#. module: account_invoice_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_account_move__with_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_partner__with_retention
+#: model:ir.model.fields,field_description:account_invoice_retention.field_res_users__with_retention
+msgid "With retention"
+msgstr "Con retención"

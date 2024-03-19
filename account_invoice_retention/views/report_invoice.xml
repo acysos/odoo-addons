@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+	    <template id="report_invoice_document_retention" inherit_id="account.report_invoice_document">
+	       <xpath expr="//p[@name='comment']" position="before">
+	           <p t-if="o.retention_amount != 0">
+	               <strong>Retention amount:</strong> <span t-field="o.retention_amount" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+	               <strong>Retention Due Date:</strong> <span t-field="o.retention_date_due"/>
+	           </p>
+	       </xpath>
+	    </template>
+
+    </data>
+</openerp>
