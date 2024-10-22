@@ -23,6 +23,7 @@
     "version": "14.0.1.0.0",
     "author": "Acysos S.L.",
     "website": "http://www.acysos.com",
+    "license" : "AGPL-3",
     "complexity": "normal",
     "category": "Specific Industry",
     "depends": ['base',
