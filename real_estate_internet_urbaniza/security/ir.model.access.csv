@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_real_estate_public,real_estate_base.public,real_estate_base.model_real_estate_top,,1,0,0,0
+access_real_estate_zone_public,real_estate_zone.public,real_estate_base.model_real_estate_zone,,1,0,0,0
+access_real_estate_heating_public,real_estate_heating.public,real_estate_base.model_real_estate_heating,,1,0,0,0
+access_real_estate_hotwater_public,real_estate_hotwater.public,real_estate_base.model_real_estate_hotwater,,1,0,0,0
+access_real_estate_subtype_public,real_estate_subtype.public,real_estate_base.model_real_estate_subtype,,1,0,0,0
+access_base_multi_image_public,multiimage.public,base_multi_image.model_base_multi_image_image,,1,0,0,0
+access_res_city_zipc,res.city.zip,base_location.model_res_city_zip,,1,0,0,0

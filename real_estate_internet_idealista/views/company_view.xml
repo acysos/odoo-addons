@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_company_form_real_estate_idealista">
+            <field name="name">res.company.form.real.estate.idealista</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="real_estate_base.view_company_form_real_estate"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <!-- <page string="Real Estate" position="inside">
+                		<separator string="Idealista Configuration" colspan="4"/>
+                        <group>
+                        	<field name="idealista" />
+                        	<field name="idealista_aggregator"/>
+                        	<field name="idealista_code"/>
+                        	<field name="idealista_prefix"/>
+                        </group>
+                </page> -->
+                <xpath expr="//notebook/page[2]" position="inside">
+                	<separator string="Idealista Configuration" colspan="4"/>
+                        <group>
+                        	<field name="idealista" />
+                        	<field name="idealista_aggregator"/>
+                        	<field name="idealista_code"/>
+                        	<field name="idealista_prefix"/>
+                        </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

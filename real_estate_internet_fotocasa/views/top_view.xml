@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+      
+      <record model="ir.ui.view" id="real_estate_top_form_publication_fotocasa">
+          <field name="name">real.estate.top.form.publication.fotocasa</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">form</field>
+          <field name="inherit_id" ref="real_estate_publication.real_estate_top_form_publication"/>
+          <field name="arch" type="xml">
+                <field name="internet_wo" position="before">
+                    <field name="fotocasa" on_change="onchange_fotocasa()"/>
+                </field>
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="real_estate_top_filter_common_fotocasa">
+          <field name="name">real.estate.top.filter.common.fotocasa</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common"/>
+          <field name="arch" type="xml">
+          		<group name="internet" position="inside">
+          			<filter string="Publish in Fotocasa.com" name="real_estate_filter_common_fotocasa" domain="[('fotocasa','=',True)]"/>
+          		</group>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="real_estate_top_filter_common_flat_fotocasa">
+          <field name="name">real.estate.top.filter.common.flat.fotocasa</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_flat"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in Fotocasa.com" name="real_estate_filter_common_flat_fotocasa" domain="[('fotocasa','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_industrial_fotocasa">
+          <field name="name">real.estate.top.filter.common.industrial.fotocasa</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_industrial"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in Fotocasa.com" name="real_estate_filter_common_industrial_fotocasa" domain="[('fotocasa','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_shop_fotocasa">
+          <field name="name">real.estate.top.filter.common.shop.fotocasa</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_shop"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in Fotocasa.com" name="real_estate_filter_common_shop_fotocasa" domain="[('fotocasa','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_office_fotocasa">
+          <field name="name">real.estate.top.filter.common.office.fotocasa</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_office"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in Fotocasa.com" name="real_estate_filter_common_office_fotocasa" domain="[('fotocasa','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="real_estate_top_filter_common_land_fotocasa">
+          <field name="name">real.estate.top.filter.common.land.fotocasa</field>
+          <field name="model">real.estate.top</field>
+          <field name="type">search</field>
+          <field name="inherit_id" ref="real_estate_internet_common.real_estate_top_filter_common_land"/>
+          <field name="arch" type="xml">
+                <group name="internet" position="inside">
+                    <filter string="Publish in Fotocasa.com" name="real_estate_filter_common_land_fotocasa" domain="[('fotocasa','=',True)]"/>
+                </group>
+          </field>
+      </record>
+      
+  </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+    
+   <!-- <record id="seq_type_real_estate_top" model="ir.sequence.type">
+        <field name="name">Real Estate Code</field>
+        <field name="code">real.estate.top</field>
+    </record>  --> 
+    <record id="real_estate_top_seq" model="ir.sequence">
+        <field name="name">Real Estate Code</field>
+        <field name="code">real.estate.top</field>
+        <field name="number_next">1</field>
+        <field name="padding">6</field>
+    </record>
+
+</data>
+</odoo>

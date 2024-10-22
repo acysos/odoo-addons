@@ -1,0 +1,149 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_images
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-03 16:07+0000\n"
+"PO-Revision-Date: 2017-10-03 18:11+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: real_estate_images
+#: code:addons/real_estate_images/models/real_estate_top_images.py:24
+#, python-format
+msgid "Add Images to the Top"
+msgstr "Añadir imágenes al inmueble"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Add Multiple Images to the Top"
+msgstr "Añadir múltiples imágenes al inmueble"
+
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Comments"
+msgstr "Comentarios"
+
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: real_estate_images
+#: field:multimages.wizard,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: real_estate_images
+#: field:multimages.wizard,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: real_estate_images
+#: field:multimages.wizard,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: real_estate_images
+#: field:multimages.wizard,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Image"
+msgstr "Imagen"
+
+#. module: real_estate_images
+#: field:real.estate.top,image_ids:0
+msgid "Images"
+msgstr "Imágenes"
+
+#. module: real_estate_images
+#: field:multimages.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: real_estate_images
+#: field:multimages.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: real_estate_images
+#: field:multimages.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: real_estate_images
+#: field:real.estate.top,image_main:0
+msgid "Main image"
+msgstr "Imagen principal"
+
+#. module: real_estate_images
+#: field:real.estate.top,image_main_medium:0
+msgid "Medium image"
+msgstr "Imagen media"
+
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "Multiple Images to the Top"
+msgstr "Múltiples imagenes al inmueble"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Name"
+msgstr "Nombre"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Options"
+msgstr "Opciones"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Preview"
+msgstr "Vista previa"
+
+#. module: real_estate_images
+#: field:real.estate.top,image_main_small:0
+msgid "Small image"
+msgstr "Imagen pequeña"
+
+#. module: real_estate_images
+#: field:multimages.wizard,zip_tops_images:0
+msgid "Upload a zip file with images"
+msgstr "Sube un zip con imágenes"
+
+#. module: real_estate_images
+#: view:real.estate.top:real_estate_images.real_estate_image_form_view
+msgid "Web Images"
+msgstr "Imágenes Web"
+
+#. module: real_estate_images
+#: view:multimages.wizard:real_estate_images.adding_pictures_form_view
+msgid "or"
+msgstr "or"
+
+#. module: real_estate_images
+#: field:multimages.wizard,top_id:0
+msgid "topid"
+msgstr "topid"

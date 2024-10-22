@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+      <record model="ir.ui.view" id="view_partner_form_real_estate">
+          <field name="name">view.partner.form.real.estate</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="arch" type="xml">
+              <field name="title" position="replace" />
+              <field name="name" position="replace">
+                  <field name="name" colspan="4"/>
+              </field>
+              <field name="street" position="before">
+                 <field name="name2" placeholder="Second Owner"/>
+                    <field name="vat2" placeholder="2º NIF"/>
+                    <field name="real_estate_type" placeholder="Type"/>
+                    <field name="ref" placeholder="Reference"/>
+              </field>
+              <field name="parent_id" position="after">
+                  <field name="active"/>
+              </field>
+	      	  <field name="active" position="replace"/>
+ 	    <!--    <field name="lang" position="after">
+                 
+              </field>  
+			  <xpath expr="//field[@name='category_id']" position="before">
+			  	<label for="vat"/>
+			  	<field name='vat'/>
+			  </xpath>  -->   
+			  <xpath expr="//label[@for='street']" position="replace">
+			  	<label for="street" string="Information"/>
+			  </xpath>
+			  <field name="lang" position="after">
+			     <field name="spoken_lang" widget="many2many_tags"/>
+			     <field name="create_date"/>
+			     <field name="date_first_contact"/>
+			  </field>
+			  
+          </field>
+        </record>
+        
+    <!--     <record model="ir.ui.view" id="invisible_partner_view_vat">
+          <field name="name">invisible.partner.view.vat</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="l10n_es_aeat_mod347.view_partner_form_mod347"/>
+          <field name="arch" type="xml">
+          	<xpath expr="//label[@for='vat']" position="replace">
+			</xpath>
+          	<xpath expr="//div[@name='vat_info']" position="replace">
+			</xpath>
+          </field>
+        </record> -->
+        
+        
+        
+   <!--   <record id="invisible_partner_view_buttons" model="ir.ui.view">
+            <field name="name">invisible.partner.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.partner_view_button_journal_item_count"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']/button[4]" position="attributes">
+			  		<attribute name="invisible">1</attribute>
+			  	</xpath>
+			  	<xpath expr="//div[@name='buttons']/button[5]" position="attributes">
+			  		<attribute name="invisible">1</attribute>
+			  	</xpath>
+			  	<xpath expr="//div[@name='buttons']/button[@name='177']" position="attributes">
+			  		<attribute name="invisible">1</attribute>
+			  	</xpath>
+            </field>
+        </record>   -->   
+        
+        <record id="view_partner_tree_real_estate1" model="ir.ui.view">
+            <field name="name">res.partner.tree.real.estate</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field eval="8" name="priority"/>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="country_id" position="replace">
+                    <field name="country_id" invisible="True"/>
+                </field>
+                <field name="phone" position="after">
+                    <field name="mobile"/>
+                </field>
+            </field>
+        </record>
+        
+        
+        <record id="view_res_partner_filter_real_estate" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="priority" eval="5"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Partner">
+                    <group col='10' colspan='4'>
+                        <filter string="Customers" name="customer" icon="terp-personal" domain="[('parent_id','=',1)]" help="Customer Partners"/>
+                        <filter string="Suppliers" name="supplier" icon="terp-personal" domain="[('parent_id','=',1)]" help="Supplier Partners"/>
+                        <separator orientation="vertical"/>
+                        <field name="name" select="1"/>
+                        <field name="name2" select="1"/>
+                  <!--   <field name="address" select="1" string="Address"/>  -->    
+                        <field name="phone" />
+                        <field name="mobile" />
+                        <field name="vat" />
+                        <field name="vat2" string="Second Vat" />
+                        <field name="user_id" select="1">
+                            <filter string="My Partners" name="partners" icon="terp-personal+" domain="[('user_id','=',uid)]"/>
+                        </field>
+                    </group>
+                    <newline />
+                    <group expand="0" string="Extended Filter...">
+                        <field name="city" select="1"/>
+                        <field name="email" select="1"/>
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group By...">
+                        <filter string="Salesman" name="salesman" icon="terp-personal" domain="[]" context="{'group_by' : 'user_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+       <menuitem name="Meetings" id="calendar_meeting"
+                  parent="menu_base_real_estate" sequence="3"/>
+            <menuitem name="Calendar" id="mail_menu_calendar_real_estate" parent="calendar_meeting" sequence="10" action="calendar.action_calendar_event"/>
+            
+   <!--   <menuitem name="Phone calls" id="phone_calls" parent="menu_base_real_estate" sequence="4" /> 
+        	<menuitem name="Inbound" id="menu_crm_case_phone_inbound_real_estate" parent="phone_calls" action="crm.crm_case_categ_phone_incoming0" />
+        	<menuitem name="Outbound" id="menu_crm_case_phone_outbound_real_estate" parent="phone_calls" action="crm.crm_case_categ_phone_outgoing0"/>
+          --> 	
+        <menuitem name="Phone Calls" id="menu_crm_case_phone"
+              groups="sales_team.group_sale_salesman"
+              parent="menu_base_real_estate" sequence="6" />
+              <menuitem name="Logged Calls" id="menu_crm_case_phone_inbound"
+              parent="menu_crm_case_phone"
+              action="crm_phonecall.crm_case_categ_phone_incoming0" />
+              <menuitem name="Scheduled Calls" id="menu_crm_case_phone_outbound"
+              parent="menu_crm_case_phone"
+              groups="crm_phonecall.group_scheduled_calls"
+              action="crm_phonecall.crm_case_categ_phone_outgoing0"/>
+        	
+       <menuitem name="Companies" id="company_info" parent="menu_base_real_estate" sequence="6" /> 
+       		<menuitem name="Companies" action="base.action_res_company_form" id="menu_action_res_company_form_real_estate" parent="company_info"/>
+        
+        
+        <menuitem id="menu_real_estate_partner" name="Owner" parent="menu_base_real_estate" sequence="1"/>
+        <record id="action_partner_all_form" model="ir.actions.act_window">
+            <field name="name">All</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="domain">[]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_estate"/>
+            <field name="context">{'search_default_customer':1 }</field>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_estate_all" name="All"
+                  parent="menu_real_estate_partner"
+                  action="action_partner_all_form" sequence="5"/>
+        <record id="action_partner_owner_form" model="ir.actions.act_window">
+            <field name="name">Owners</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="domain">[('real_estate_type','=','owner'),('parent_id','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_estate"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_estate_owner" name="Owners"
+                  parent="menu_real_estate_partner"
+                  action="action_partner_owner_form" sequence="10"/>
+        <record id="action_partner_tenant_form" model="ir.actions.act_window">
+            <field name="name">Tenants</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="domain">[('real_estate_type','=','tenant'),('parent_id','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_estate"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_estate_tenant" name="Tenants"
+                  parent="menu_real_estate_partner"
+                  action="action_partner_tenant_form" sequence="10"/>
+        <record id="action_partner_buyer_form" model="ir.actions.act_window">
+            <field name="name">Buyers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="domain">[('real_estate_type','=','buyer'),('parent_id','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_estate"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_estate_buyer" name="Buyers"
+                  parent="menu_real_estate_partner"
+                  action="action_partner_buyer_form" sequence="10"/>
+        <record id="action_partner_manage_form" model="ir.actions.act_window">
+            <field name="name">Manage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="domain">[('real_estate_type','=','manage'),('parent_id','=',1)]</field>
+            <field name="search_view_id" ref="view_res_partner_filter_real_estate"/>
+            <field name="filter" eval="True"/>
+        </record>
+        <menuitem id="menu_real_estate_manage" name="Manage"
+                  parent="menu_real_estate_partner"
+                  action="action_partner_manage_form" sequence="10"/>
+
+        <record id="action_partner_tops" model="ir.actions.act_window">
+            <field name="name">Tops</field>
+            <field name="res_model">real.estate.top</field>
+            <field name="domain">[('partner_id', '=', active_id)]</field>
+        </record>
+			
+		        
+         <record 
+			id="action_partner_agreement" model="ir.actions.act_window">
+            <field name="name">Agreements</field>
+            <field name="res_model">rental.agreement</field>
+            <field name="domain">['|',('partner_id', '=', active_id),('owner_id', '=', active_id)]</field>
+            </record>
+	
+
+        
+</odoo>
