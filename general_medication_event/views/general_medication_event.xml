@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+		<record model="ir.ui.view" id="view_general_medication_event_tree">
+			<field name="name">medication_event_order.tree</field>
+			<field name="model">farm.general.medication.event</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Event order">
+					<field name="name" />
+					<field name="farm" />
+					<field name="feed_product"/>
+					<field name="timestamp" />
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_general_medication_event_form">
+            <field name="name">medication_event_order.form</field>
+            <field name="model">farm.general.medication.event</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                <header>
+                    <field name="state" widget="statusbar" />
+                    <button name="confirm" invisible="state == 'draft'"
+                        string="Confirm Order" id="draft_confirm"
+                        type="object" />
+                    <button name="long_confirm" invisible="state == 'draft'"
+                        string="Long Confirm Order" id="draft_long_confirm"
+                        type="object" />
+                </header>
+                <sheet>
+                    <group>
+                        <group readonly="state == 'validated'">
+                            <field name="name"/>
+                            <field name="distribution_type"/>
+                            <field name="medicated_feed" invisible ="medication_in_feed == False"/>
+                            <field name="dest_yard" invisible="distribution_type == 'farm'"/>
+                            <field name="location_dest" domain="[('location_id', '=', farm)]"/>
+                            <field name="feed_quantity"/>
+                            <field name="feed_location" domain="[('id', '=',allowed_locations)]"/>
+                            <field name="uom"/>
+                            <field name="move"/>
+                            <field name="provider"/>
+                        </group>
+                        <group>
+                            <field name="specie" />
+                            <field name="medication_in_feed"/>
+                            <field name="farm" />
+                            <field name="only_mated" invisible="distribution_type == 'farm'"/>
+                            <field name="timestamp" readonly="state == 'validated'"/>
+                            <field name="feed_product"/>
+                            <field name="feed_lot" domain="[('id', '=',allowed_lots)]"/>
+                            <field name="prescription"/>
+                            <field name="job_order" readonly="True"/>
+                            <field name="veterinarian_id"/>
+                        </group>
+                    </group>
+                    <group invisible="1">
+                        <field name="allowed_lots"/>
+                        <field name="allowed_locations"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="general_medication_event_search_view">
+            <field name="name">general.medication.event.search</field>
+            <field name="model">farm.general.medication.event</field>
+            <field name="arch" type="xml">
+                <search string="Search General medication event">
+                    <group>
+                        <field name="name" />
+                        <field name="feed_product" />
+                    </group>
+                    <newline />
+                    <group expand="0" string="Group by...">
+                        <filter string="Farm"
+                                name="farm"
+                                domain="[]"
+                                context="{'group_by': 'farm'}" />
+                        <filter string="State"
+                                name="state"
+                                domain="[]"
+                                context="{'group_by': 'state'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+</odoo>

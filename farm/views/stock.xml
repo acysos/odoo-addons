@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="stock_warehouse_form_farm_view" model="ir.ui.view">
+        <field name="name">stock.warehouse.farm.form</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="external"/>
+                <field name="holding_number"/>
+                <field name="radius"/>
+                <field name='animal_max'/>
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_foster_location_tree">
+        <field name="name">forser_location.tree</field>
+        <field name="model">farm.foster.locations</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_foster_location_form">
+        <field name="name">foster_location.form</field>
+        <field name="model">farm.foster.locations</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Foste Location">
+                <sheet>
+                    <field name="location"/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_transit_location_tree">
+        <field name="name">transit_location.tree</field>
+        <field name="model">farm.transit.locations</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_transit_location_form">
+        <field name="name">transit_location.form</field>
+        <field name="model">farm.transit.locations</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Foste Location">
+                <sheet>
+                    <field name="location"/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_transit_location_form">
+        <field name="name">transit_location.form</field>
+        <field name="model">farm.transit.locations</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Foste Location">
+                <sheet>
+                    <field name="location"/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_future_location_tree">
+        <field name="name">future_location.tree</field>
+        <field name="model">farm.future_maders.locations</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_future_location_form">
+        <field name="name">future_location.form</field>
+        <field name="model">farm.future_maders.locations</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Foste Location">
+                <sheet>
+                    <field name="location"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_silo_location_tree">
+        <field name="name">silo_location.tree</field>
+        <field name="model">stock.location.silo_stock.location</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+<record model="ir.ui.view" id="view_silo_location_form">
+    <field name="name">silo_location.form</field>
+    <field name="model">stock.location.silo_stock.location</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <form string="Location to Feed">
+            <group>
+
+                <field name="location"/>
+            </group>
+        </form>
+    </field>
+</record>
+</odoo>

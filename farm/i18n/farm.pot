@@ -1,0 +1,2728 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* farm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-08 10:39+0000\n"
+"PO-Revision-Date: 2024-11-08 10:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__abort_event
+msgid "Abort"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__abort_events
+msgid "Abort Events"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__abort
+msgid "Aborts"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal__state
+msgid ""
+"According to NPPC Production and FinancialStandards there are four status "
+"for breedingsows The status change is event driven:arrivaldate, entry date "
+"mating event and removal event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__active
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__active
+msgid "Active"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__account
+msgid "Analytic Account"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__animal
+#: model:ir.model.fields,field_description:farm.field_farm_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__animal
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__animal
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__animal
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__animal
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__animal
+#: model:ir.ui.menu,name:farm.menu_farm_animal
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_form
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_tree
+msgid "Animal"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__animal_group
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_group
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_group_tree
+msgid "Animal Group"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_group_weigth
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_group_weigth_tree
+msgid "Animal Group Weigth"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__animal_type
+#: model:ir.model.fields,field_description:farm.field_stock_lot__animal_type
+msgid "Animal Type"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__to_animal_type
+msgid "Animal Type to Trasform"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__weight_record__farm_animal_weight
+msgid "Animal Weight"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_animal_group
+msgid "Animal group"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_animal_group_view
+msgid "Animal groups"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_animal_view
+#: model:ir.ui.menu,name:farm.menu_farm_animals
+msgid "Animals"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__arrival_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__arrival_date
+msgid "Arrival Date"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__birthdate
+msgid "Birthdate"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__breed
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__breed
+msgid "Breed"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__breeds
+msgid "Breeds"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_semen_extraction_event_form
+msgid "Calc. Doses"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__semen_calculated_qty
+msgid "Calc. Semen Produced Qty"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__solvent_calculated_qty
+msgid "Calc. semen solvent Qty"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__dose_calculated_units
+msgid "Calculated Doses"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_semen_extraction_event__dose_calculated_units
+msgid ""
+"Calculates the number of doses based on Container (BoM) and Semen Produced Qty. The quantity is expressed in the UoM of the Container.\n"
+"You have to save the event to see this calculated value."
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_consume_stock
+msgid "Comsume Stock"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__feed_quantity
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__feed_quantity
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__feed_quantity
+msgid "Comsumed Cuantity"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_consume_stock_form
+msgid "Confirm Consume"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_event_order_form
+#: model_terms:ir.ui.view,arch_db:farm.view_removal_event_form
+#: model_terms:ir.ui.view,arch_db:farm.view_semen_extraction_event_form
+msgid "Confirm Order"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_consume_stock__state__confirmed
+msgid "Confirmed"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_consume_stock_form
+msgid "Consume stock"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_consume_stock_view
+msgid "ConsumeStock"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__consumed_feed
+msgid "Consumed Feed (kg)"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__consumed_feed
+msgid "Consumed Feed per Animal (kg)"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__bom
+msgid "Container"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_problem__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_removal_reason__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_removal_type__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_specie__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__create_uid
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__create_uid
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__create_uid
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__create_uid
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_problem__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_removal_reason__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_removal_type__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_specie__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__create_date
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__create_date
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__create_date
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__create_date
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__current_cycle
+msgid "Current Cycle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__farm
+msgid "Current Farm"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__location
+msgid "Current Location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__current_weight
+msgid "Current Weight"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__location
+msgid "Current location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__current_weight
+msgid "Current weight"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__cycles
+msgid "Cycles)"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__date
+msgid "Date"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__timestamp
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__timestamp
+msgid "Date & Time"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__timestamp
+msgid "Date & time"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__ordination_date
+msgid "Date for ordination"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__transition_days
+msgid "Days in Transition"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__fattening_days
+msgid "Days in fatening"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__dead
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__dead
+msgid "Dead"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__to_location
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__to_location
+msgid "Destination"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__to_animal
+msgid "Destination Animal"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__to_animal_group
+msgid "Destination Group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/transformation_event.py:0
+#, python-format
+msgid "Destination animal type no compatible"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__to_location
+#: model_terms:ir.ui.view,arch_db:farm.farm_consume_stock_search_view
+msgid "Destinity"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__diagnosis_events
+msgid "Diagnosis"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_animal__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_problem__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_removal_reason__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_removal_type__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_specie__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__display_name
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__display_name
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__display_name
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__display_name
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__type
+msgid "Distribution Type"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__dose_bom
+#: model_terms:ir.ui.view,arch_db:farm.view_dose_form
+#: model_terms:ir.ui.view,arch_db:farm.view_dose_tree
+msgid "Dose"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__dose_bom
+msgid "Dose Container"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__dose_product
+msgid "Dose Product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__doses_semen_qty
+msgid "Dose Semen Qty"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__dose_lot
+msgid "Dose lot"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__dose_product
+msgid "Dose product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__doses
+msgid "Doses"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__dose_location
+msgid "Doses Location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_abort_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_consume_stock__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_feed_mixin__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_import_mixin__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_farrowing_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_feed_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_foster_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_insemination_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_medication_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_removal_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_dose__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__state__draft
+#: model:ir.model.fields.selection,name:farm.selection__farm_weaning_event__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__employee
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__employee
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__employee
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__employee
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__employee
+msgid "Employee"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_abort_event__employee
+#: model:ir.model.fields,help:farm.field_farm_event__employee
+#: model:ir.model.fields,help:farm.field_farm_event_feed_mixin__employee
+#: model:ir.model.fields,help:farm.field_farm_event_import_mixin__employee
+#: model:ir.model.fields,help:farm.field_farm_event_order__employee
+#: model:ir.model.fields,help:farm.field_farm_farrowing_event__employee
+#: model:ir.model.fields,help:farm.field_farm_feed_event__employee
+#: model:ir.model.fields,help:farm.field_farm_foster_event__employee
+#: model:ir.model.fields,help:farm.field_farm_insemination_event__employee
+#: model:ir.model.fields,help:farm.field_farm_medication_event__employee
+#: model:ir.model.fields,help:farm.field_farm_move_event__employee
+#: model:ir.model.fields,help:farm.field_farm_pregnancy_diagnosis_event__employee
+#: model:ir.model.fields,help:farm.field_farm_removal_event__employee
+#: model:ir.model.fields,help:farm.field_farm_semen_extraction_event__employee
+#: model:ir.model.fields,help:farm.field_farm_transformation_event__employee
+#: model:ir.model.fields,help:farm.field_farm_weaning_event__employee
+msgid "Employee that did the job."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__end_date
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__end_date
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__end_date
+msgid "End Date"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_event_feed_mixin__end_date
+#: model:ir.model.fields,help:farm.field_farm_feed_event__end_date
+#: model:ir.model.fields,help:farm.field_farm_medication_event__end_date
+msgid ""
+"End date of the period in which the givenquantity of product was consumed. "
+"It is the dateof event's timestamp."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__event
+#: model_terms:ir.ui.view,arch_db:farm.view_abstract_event_form
+#: model_terms:ir.ui.view,arch_db:farm.view_abstract_event_tree
+#: model_terms:ir.ui.view,arch_db:farm.view_consume_stock_tree
+msgid "Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__event_type
+msgid "Event Type"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_event_order_tree
+msgid "Event order"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_event_order_view
+msgid "EventOrder"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_events
+msgid "Events"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__event_order_sequence
+msgid "Events Orders' Sequence"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_warehouse__external
+msgid "External"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__semen_lot_sequence
+msgid "Extracted Semen Lots' Sequence"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_semen_extraction_view
+msgid "Extraction Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_location__factory
+msgid "Factory"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__farm
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__farm
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_consume_stock__type__farm
+#: model:ir.module.category,name:farm.module_category_farm
+#: model:ir.ui.menu,name:farm.menu_farm
+#: model_terms:ir.ui.view,arch_db:farm.animal_group_search_view
+#: model_terms:ir.ui.view,arch_db:farm.animal_search_view
+#: model_terms:ir.ui.view,arch_db:farm.feed_event_search_view
+msgid "Farm"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_configuration_farm_line
+#: model_terms:ir.ui.view,arch_db:farm.view_farm_line_form
+#: model_terms:ir.ui.view,arch_db:farm.view_farm_line_tree
+msgid "Farm Line"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_location__farm_yard
+msgid "Farm Yard"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_farm_line_view
+msgid "FarmLine"
+msgstr ""
+
+#. module: farm
+#: model:res.groups,name:farm.group_farm_manager
+msgid "FarmManager"
+msgstr ""
+
+#. module: farm
+#: model:res.groups,name:farm.group_farm_user
+msgid "FarmUser"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__farm_lines
+msgid "Farms"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__farrowing_event
+msgid "Farrowing"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__event
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__event
+msgid "Farrowing Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__farrowing_group
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__farrowing_group
+msgid "Farrowing Group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__farrowing_events
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__farrowing
+msgid "Farrowings"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_group__state__fatten
+msgid "Faten up"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__feed_product
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__feed_product
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__feed_product
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__feed
+msgid "Feed"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_feed_event_form
+msgid "Feed Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__feed_lot
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__feed_lot
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__feed_lot
+msgid "Feed Lot"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__feed_location
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__feed_location
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__feed_location
+msgid "Feed Source"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__feed_product_uom_category
+msgid "Feed Uom Category"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.farm_feed_event_graph_view
+msgid "Feed diagram"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.animal_group2_open_feed_events
+#: model:ir.actions.act_window,name:farm.animal_open_feed_events
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_form
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_group
+msgid "Feed events"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__feed_lost_found_location
+msgid "Feed transit"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__animal
+#: model:ir.model.fields.selection,name:farm.selection__farm_abort_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__sex__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_feed_mixin__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_import_mixin__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_farrowing_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_feed_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_foster_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_insemination_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_medication_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_removal_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__to_animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__farm_weaning_event__animal_type__female
+#: model:ir.model.fields.selection,name:farm.selection__stock_lot__animal_type__female
+msgid "Female"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__female_cycle
+msgid "Female Cicle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__female_cycle
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__female_cycle
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__cycle
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__female_cycle
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__move
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__pair_event
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__female_cycle
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__cycle
+#: model_terms:ir.ui.view,arch_db:farm.view_cycle_form
+#: model_terms:ir.ui.view,arch_db:farm.view_cycle_tree
+msgid "Female Cycle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__female_to_location
+msgid "Female Destination"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__female_move
+msgid "Female Stock Move"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__female_cycle
+msgid "Female cycle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__female_product
+msgid "Female's Product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__has_female
+msgid "Females"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__female_sequence
+msgid "Females' Sequence"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__first_mating
+msgid "First Mating"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__formula_result
+msgid "Formula Result"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__foster_location
+msgid "Foster Location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__fostered
+msgid "Fostered"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__foster_events
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__foster_events
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__quantity
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__foster
+msgid "Fosters"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__future_maders_location
+msgid "Future maders location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal__removal_date
+msgid "Get information from the corresponding removal event."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__party
+#: model:ir.model.fields,field_description:farm.field_farm_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__animal_group
+#: model:ir.model.fields,field_description:farm.field_stock_lot__animal_group
+#: model:ir.model.fields.selection,name:farm.selection__farm_abort_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_feed_mixin__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_import_mixin__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_farrowing_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_feed_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_foster_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_insemination_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_medication_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_removal_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__to_animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__farm_weaning_event__animal_type__group
+#: model:ir.model.fields.selection,name:farm.selection__stock_lot__animal_type__group
+msgid "Group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__weight_record__farm_animal_group_weight
+msgid "Group Weight"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.animal_group_search_view
+#: model_terms:ir.ui.view,arch_db:farm.animal_search_view
+#: model_terms:ir.ui.view,arch_db:farm.farm_consume_stock_search_view
+#: model_terms:ir.ui.view,arch_db:farm.feed_event_search_view
+msgid "Group by..."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_weaning_event__weared_group
+msgid ""
+"Group in which weaned animals shouldbe added to. If left blank they will "
+"keepthe same group."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__group_product
+msgid "Group's Product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__has_group
+msgid "Groups"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__group_sequence
+msgid "Groups' Sequence"
+msgstr ""
+
+#. module: farm
+#: model:ir.module.category,description:farm.module_category_farm
+msgid "Helps you manage your farms"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_animal__id
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__id
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__id
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__id
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__id
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__id
+#: model:ir.model.fields,field_description:farm.field_farm_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__id
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__id
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__id
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__id
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__id
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_problem__id
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__id
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__id
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_removal_reason__id
+#: model:ir.model.fields,field_description:farm.field_farm_removal_type__id
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__id
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_specie__id
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__id
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__id
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__id
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__id
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__id
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__id
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__id
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__id
+msgid "ID"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_foster_event__quantity
+msgid "If this quantity is negative it isa Foster Out."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__imported
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__imported
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__imported
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__imported
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__imported
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__imported
+msgid "Imported"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__has_female
+msgid "In this farm there are females."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__has_group
+msgid "In this farm there are groups."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__has_individual
+msgid "In this farm there are individuals."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__has_male
+msgid "In this farm there are males."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_stock_location__silo
+msgid "Indicates that the location is a silo."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_stock_location__locations_to_fed
+msgid ""
+"Indicates the locations the silo feeds. Note that this will only be a "
+"default value."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal__location
+msgid "Indicates where the animal currently resides."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_abort_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_feed_mixin__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_import_mixin__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_farrowing_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_feed_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_foster_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_insemination_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_medication_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_removal_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__to_animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__farm_weaning_event__animal_type__individual
+#: model:ir.model.fields.selection,name:farm.selection__stock_lot__animal_type__individual
+msgid "Individual"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__individual_product
+msgid "Individual's Product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__has_individual
+msgid "Individuals"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__individual_sequence
+msgid "Individuals' Sequence"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__initial_location
+msgid "Initial Location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__initial_location
+msgid "Initial location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__initial_quantity
+msgid "Initial quantity"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__insemination_events
+msgid "Insemination"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__days_from_insemination
+msgid "Insemination Days"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__insemination_events
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__insemination
+msgid "Inseminations"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_stock_location
+msgid "Inventory Locations"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_female_cycle__state__lactating
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_group__state__lactating
+msgid "Lactating"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__days_between_farrowing_weaning
+msgid "Lactating Days"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__last_extraction
+msgid "Last Extraction"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_problem__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_removal_reason__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_removal_type__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_specie__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__write_uid
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__write_uid
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__write_uid
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__write_uid
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_female_cycle__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event_group__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_problem__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_removal_reason__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_removal_type__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_specie__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__write_date
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__write_date
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__write_date
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__write_date
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__last_produced_group
+msgid "Last produced group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__sequence
+msgid "Line Num"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__live
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__live
+msgid "Live"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__location
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__location
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__location
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__location
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__location
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__location
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__location
+#: model_terms:ir.ui.view,arch_db:farm.animal_group_search_view
+#: model_terms:ir.ui.view,arch_db:farm.animal_search_view
+#: model_terms:ir.ui.view,arch_db:farm.feed_event_search_view
+msgid "Location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_location__locations_to_fed
+msgid "Location to fed"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__lost_move
+msgid "Lost Stock  Move"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__lot
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__lot_id
+#: model:ir.model.fields,field_description:farm.field_farm_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__lot
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__lot
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__lot
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__lot
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__lot
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal__lot
+#: model:ir.model.fields,field_description:farm.field_stock_lot_farm_animal_group__lot
+msgid "Lot"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_stock_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_abort_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__sex__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_feed_mixin__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_import_mixin__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_farrowing_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_feed_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_foster_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_insemination_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_medication_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_removal_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__to_animal_type__male
+#: model:ir.model.fields.selection,name:farm.selection__farm_weaning_event__animal_type__male
+msgid "Male"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__male_product
+msgid "Male's Product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__stock_lot__animal_type__male
+msgid "Male)"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__has_male
+msgid "Males"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__male_sequence
+msgid "Males' Sequence"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__state__mated
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_female_cycle__state__mated
+msgid "Mated"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_location__animal_max
+#: model:ir.model.fields,field_description:farm.field_stock_warehouse__animal_max
+msgid "Max num of animals"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__medicated_feed
+msgid "Medicated Feed"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__medication_events
+msgid "Medication"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_medication_event_form
+msgid "Medication Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.animal_group_open_medication_events
+#: model:ir.actions.act_window,name:farm.animal_open_medication_events
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_form
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_group
+msgid "Medication events"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__medication_in_feed
+msgid "Medication in feed"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__medication
+msgid "Medications"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.feed_event_search_view
+msgid "Month"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/semen_extration_event.py:0
+#, python-format
+msgid "More semen in doses than produced"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__mother
+msgid "Mother"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__semen_move
+msgid "Move"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__mummified
+msgid "Mummified"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_problem__name
+#: model:ir.model.fields,field_description:farm.field_farm_removal_reason__name
+#: model:ir.model.fields,field_description:farm.field_farm_removal_type__name
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__name
+msgid "Name"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie__name
+msgid "Name of the specie. ie. \"Pig\""
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__result__negative
+msgid "Negative"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__stock_lot__animal_type__no
+msgid "No animal"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__result__nonconclusive
+msgid "Non conclusive"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_animal__notes
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__notes
+#: model:ir.model.fields,field_description:farm.field_farm_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__notes
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__notes
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__notes
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__notes
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__notes
+msgid "Notes"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__quantity
+msgid "Num. of animals"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__number
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__number
+msgid "Number"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal_female_cycle__days_between_farrowing_weaning
+msgid "Number of days between Farrowing and Weaning."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__quantity
+msgid "Number of individuals"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal_female_cycle__removed
+msgid ""
+"Number of removed animals from Produced Group. Diference between born live "
+"and weaned, computing Fostered diference."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__sequence
+msgid "Nun. cycle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__result__not-pregnant
+msgid "Observed not Pregnant"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/abort_event.py:0
+#, python-format
+msgid "Only females can abort"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/insemination_event.py:0
+#, python-format
+msgid "Only females can be bred"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/pregnancy_diagnosis_event.py:0
+#, python-format
+msgid "Only females can be diagnosed"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/farrowing_event.py:0
+#, python-format
+msgid "Only females can be farrow"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/foster_event.py:0
+#, python-format
+msgid "Only females can foster a group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/weaning_event.py:0
+#, python-format
+msgid "Only females can wean a group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/foster_event.py:0
+#, python-format
+msgid "Only lactating females can foster a group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/weaning_event.py:0
+#, python-format
+msgid "Only lactating females can wean a group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/pregnancy_diagnosis_event.py:0
+#, python-format
+msgid "Only mated females can be diagnosed"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/abort_event.py:0
+#, python-format
+msgid "Only pregnat females can abort"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__job_order
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__job_order
+msgid "Order"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__origin
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__origin
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__origin
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__from_location
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__from_location
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__from_location
+#: model_terms:ir.ui.view,arch_db:farm.farm_consume_stock_search_view
+msgid "Origin"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__pair_female
+msgid "Pair Female"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__result__positive
+msgid "Positive"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__pregnancy_diagnosis_events
+msgid "Pregnanci Diagnosis"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__pregnancy_diagnosis
+msgid "Pregnancy Diagnosis"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__pregnant
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_female_cycle__state__pregnat
+msgid "Pregnat"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__problem
+msgid "Problem"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__produced_group
+msgid "Produced Group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__product_id
+msgid "Product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__sale_product
+msgid "Product denomination in sales"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie__semen_product
+msgid ""
+"Product for the mixture of semen to raise the expected quality.\n"
+"It is used in the Production lots produced in the Extraction Events and in the BoM containers for doses used in deliveries to farms for inseminations."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__state__prospective
+msgid "Prospective"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__origin__purchased
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_group__origin__purchased
+msgid "Purchased"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_purchases
+msgid "Purchases"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__purpose
+msgid "Purpose"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__feed_quantity_animal_day
+msgid "Qty. per Animal Day"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__quantity
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/removal_event.py:0
+#: code:addons/farm/models/removal_event.py:0
+#: code:addons/farm/models/transformation_event.py:0
+#, python-format
+msgid "Quantity no compatible"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_warehouse__radius
+msgid "Radius"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__origin__raised
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_group__origin__raised
+msgid "Raised"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal_group__origin
+msgid ""
+"Raised means that this group was born inthe farm. Otherwise, it was "
+"purchased."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_lot__semen_breed
+msgid "Raza"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__reason
+msgid "Reason"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__name
+msgid "Reference"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__semen_remaining_qty
+msgid "Remaining Semen"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__removal_date
+msgid "Removal Date"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_removal_view
+#: model:ir.ui.menu,name:farm.menu_farm_removal_event
+#: model_terms:ir.ui.view,arch_db:farm.view_removal_event_form
+msgid "Removal Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__removal_reason
+msgid "Removal Reason"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__removal_date
+msgid "Removal date"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__state__removed
+msgid "Removed"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__removed_location
+msgid "Removed Location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__removed
+msgid "Removed Quantity"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__purpose__replacement
+msgid "Replacement"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__result
+msgid "Result"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__purpose__sale
+msgid "Sale"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.animal_search_view
+msgid "Search Animal"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.animal_group_search_view
+msgid "Search Animal group"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.farm_consume_stock_search_view
+msgid "Search consume stock"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.feed_event_search_view
+msgid "Search feed event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_transformation_event__to_animal_group
+msgid ""
+"Select a Destination Group if youwant to add the transformed animals tothis "
+"group. To create a new group leave it empty."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__dose_lot_sequence
+msgid "Semen Dose Lots' Sequence"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__untreated_semen_qty
+msgid "Semen Extracted Qty"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_extraction_event
+msgid "Semen Extraction"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_semen_extraction_event_form
+msgid "Semen Extraction Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__extractions
+msgid "Semen Extractions"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__semen_qty
+msgid "Semen Producec Quantity"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__semen_qty
+msgid "Semen Qty"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__semen_lot
+msgid "Semen lot"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__semen_product
+#: model:ir.model.fields,field_description:farm.field_farm_specie__semen_product
+msgid "Semen's Product"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__female_sequence
+msgid "Sequence used for female production lots and animals."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__group_sequence
+msgid "Sequence used for group production lots and animals."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__individual_sequence
+msgid "Sequence used for individual lots and animals."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__male_sequence
+msgid "Sequence used for male lots and animals."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie_farm_line__event_order_sequence
+msgid "Sequence used for the Event Orders in this farm."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__sex
+msgid "Sex"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_location__silo
+msgid "Silo"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_group__state__sold
+msgid "Sold"
+msgstr ""
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_specie_view
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_animal__specie
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__specie
+#: model:ir.model.fields,field_description:farm.field_farm_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__specie
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__specie
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__specie
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__specie
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_specie_breed__specie
+#: model:ir.model.fields,field_description:farm.field_farm_specie_farm_line__specie
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__specie
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__specie
+#: model:ir.ui.menu,name:farm.menu_farm_configuration_specie
+#: model_terms:ir.ui.view,arch_db:farm.view_specie_form
+#: model_terms:ir.ui.view,arch_db:farm.view_specie_tree
+msgid "Specie"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__specific_lot
+msgid "Specific lot"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__start_date
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__start_date
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__start_date
+msgid "Start Date"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_event_feed_mixin__start_date
+#: model:ir.model.fields,help:farm.field_farm_feed_event__start_date
+#: model:ir.model.fields,help:farm.field_farm_medication_event__start_date
+msgid ""
+"Start date of the period inwhich the given quantity of product wasconsumed."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_abort_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_animal__state
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__state
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__state
+#: model:ir.model.fields,field_description:farm.field_farm_consume_stock__state
+#: model:ir.model.fields,field_description:farm.field_farm_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__state
+#: model:ir.model.fields,field_description:farm.field_farm_event_import_mixin__state
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__state
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_foster_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_pregnancy_diagnosis_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__state
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__state
+#: model_terms:ir.ui.view,arch_db:farm.animal_group_search_view
+#: model_terms:ir.ui.view,arch_db:farm.animal_search_view
+#: model_terms:ir.ui.view,arch_db:farm.farm_consume_stock_search_view
+#: model_terms:ir.ui.view,arch_db:farm.feed_event_search_view
+msgid "State"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__stillborn
+msgid "Stillborn"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_stock_move
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__move
+#: model:ir.model.fields,field_description:farm.field_farm_farrowing_event__move
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__move
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__move
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__move
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__move
+#: model:ir.model.fields,field_description:farm.field_farm_transformation_event__move
+msgid "Stock Move"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_insemination_event__move
+msgid "Stock move"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__trasformation_events
+msgid "Tasformation Events"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal__initial_location
+msgid ""
+"The Location where the animal was reached or where it was allocated when it was purchased.\n"
+"It is used as historical information and to get Serial Number."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal_group__initial_location
+msgid ""
+"The Location where the group wasreached or where it was allocated whenit was purchased.\n"
+"It is used ashistorical information and to getSerial Number."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal__arrival_date
+msgid "The date this animal arrived (if itwas purchased) or when it was born."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal_group__arrival_date
+msgid "The date this group arrived (if it waspurchased) or when it was born."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal_group__initial_quantity
+msgid ""
+"The number of animals in groupwhen it was reached or purchased.\n"
+"Itis used as historical information andto create the initial move."
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/event_order.py:0
+#, python-format
+msgid "The values of animal type are diferent on order and events"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/event_order.py:0
+#, python-format
+msgid "The values of farm are diferent on order and events"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/event_order.py:0
+#, python-format
+msgid "The values of specie are diferent on order and events"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/event_order.py:0
+#, python-format
+msgid "There are no event associated with this work order"
+msgstr ""
+
+#. module: farm
+#: model_terms:ir.ui.view,arch_db:farm.view_feed_event_tree
+msgid "Tot. feed quantity"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__transformation_event
+msgid "Transformation Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__lost_found_location
+msgid "Transit Location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_group__state__transition
+msgid "Transition"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_location__transport
+msgid "Transport"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__trasformation_event
+msgid "Trasformation Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__type
+#: model:ir.model.fields,field_description:farm.field_farm_removal_event__removal_type
+msgid "Type"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_feed_mixin__uom
+#: model:ir.model.fields,field_description:farm.field_farm_feed_event__uom
+#: model:ir.model.fields,field_description:farm.field_farm_medication_event__uom
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__uom
+msgid "UOM"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__sex__undetermined
+msgid "Undetermined"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_animal__number
+msgid "Unique Lot/Serial Number"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__unit_price
+msgid "Unit Price"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_move_event__unit_price
+msgid "Unitary cost of Animal or Group foranalytical accounting."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__purpose__unknown
+msgid "Unknown"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal__state__unmated
+#: model:ir.model.fields.selection,name:farm.selection__farm_animal_female_cycle__state__unmated
+msgid "Unmated"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__days_between_wearing_and_insemination
+msgid "Unmated Days"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__days_from_farrowing
+msgid "Unpregnat Days"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__uom
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__uom
+msgid "Uom"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_abort_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_feed_mixin__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_import_mixin__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_farrowing_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_feed_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_foster_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_insemination_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_medication_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_pregnancy_diagnosis_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_removal_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_dose__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_semen_extraction_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_transformation_event__state__validated
+#: model:ir.model.fields.selection,name:farm.selection__farm_weaning_event__state__validated
+msgid "Validated"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie__foster_location
+msgid "Virtual location where fostered animals are moved to."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie__lost_found_location
+msgid "Virtual location where lost or found animals are moved to."
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie__removed_location
+msgid "Virtual location where removed animals are moved to."
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_stock_warehouse
+msgid "Warehouse"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__weaned_to_location
+msgid "Weaned Destination"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__weared_group
+msgid "Weaned group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__weaning_event
+msgid "Weaning Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_event_order__event_type__weaning
+msgid "Weanings"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_female_cycle__weared
+msgid "Weared"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event__weared_move
+msgid "Weared Stock Move"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_weaning_event_female_cycle__event
+msgid "Wearing Event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_weight__weight
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__weight
+#: model_terms:ir.ui.view,arch_db:farm.view_animal_weight_form
+msgid "Weight"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_move_event__weight_record
+msgid "Weight Record"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__weights
+msgid "Weights"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__weight
+msgid "Weigth records"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group_weight__weight
+msgid "Weihht"
+msgstr ""
+
+#. module: farm
+#: model:ir.ui.menu,name:farm.menu_farm_event_order
+msgid "Work order"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_consume_stock__type__yard
+msgid "Yard"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/animal.py:0
+#, python-format
+msgid "animal location and product location are diferent"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__consumed_feed_location
+msgid "consumed feed location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__feed_quantity
+msgid "cumulative consumed feed"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/semen_extration_event.py:0
+#, python-format
+msgid "dose already defined"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_abort_event
+msgid "farm.abort.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_animal
+msgid "farm.animal"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_animal_female_cycle
+msgid "farm.animal.female_cycle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_animal_group
+msgid "farm.animal.group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_animal_group_weight
+msgid "farm.animal.group.weight"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_animal_weight
+msgid "farm.animal.weight"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_consume_stock
+msgid "farm.consume.stock"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_event
+msgid "farm.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_event_feed_mixin
+msgid "farm.event.feed_mixin"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_event_import_mixin
+msgid "farm.event.import.mixin"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_event_order
+msgid "farm.event.order"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_farrowing_event
+msgid "farm.farrowing.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_farrowing_event_female_cycle
+msgid "farm.farrowing.event_female_cycle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_farrowing_event_group
+msgid "farm.farrowing.event_group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_farrowing_problem
+msgid "farm.farrowing.problem"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_feed_event
+msgid "farm.feed.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_foster_event
+msgid "farm.foster.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_foster_locations
+msgid "farm.foster.locations"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_future_maders_locations
+msgid "farm.future_maders.locations"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_insemination_event
+msgid "farm.insemination.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_medication_event
+msgid "farm.medication.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_move_event
+msgid "farm.move.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_pregnancy_diagnosis_event
+msgid "farm.pregnancy_diagnosis.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_removal_event
+msgid "farm.removal.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_removal_reason
+msgid "farm.removal.reason"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_removal_type
+msgid "farm.removal.type"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_semen_extraction_dose
+msgid "farm.semen_extraction.dose"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_semen_extraction_event
+msgid "farm.semen_extraction.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_specie
+msgid "farm.specie"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_specie_breed
+msgid "farm.specie.breed"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_specie_farm_line
+msgid "farm.specie.farm_line"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_transformation_event
+msgid "farm.transformation.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_transit_locations
+msgid "farm.transit.locations"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_weaning_event
+msgid "farm.weaning.event"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_farm_weaning_event_female_cycle
+msgid "farm.weaning.event_female_cycle"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__fatten_date
+msgid "fatten day"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__feed_events
+msgid "feed"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/insemination_event.py:0
+#, python-format
+msgid "female's cycle is not compatible to be bred"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/animal_group.py:0
+#, python-format
+msgid "group intial quantity and product quantity are diferent"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/account_invoice.py:0
+#: code:addons/farm/models/stock.py:0
+#, python-format
+msgid "group sold not found"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_warehouse__holding_number
+msgid "holding number"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_stock_warehouse__radius
+msgid ""
+"is used for calculating transport costs, you can use absolute or relative "
+"values"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal__lot
+msgid "lot"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/animal_group.py:0
+#, python-format
+msgid ""
+"lots can not be mixed in an initial group, create a group for each lot and "
+"then group them into the desired group"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_specie__name
+msgid "name"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/farrowing_event.py:0
+#, python-format
+msgid "no deads and no lives"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/semen_extration_event.py:0
+#, python-format
+msgid "no doses"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/animal.py:0
+#: code:addons/farm/models/animal_group.py:0
+#, python-format
+msgid "no product in farms for this lot"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__production
+msgid "production"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/transformation_event.py:0
+#, python-format
+msgid "quantity is biger than group quantity"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/foster_event.py:0
+#, python-format
+msgid "quantity is biger than incoming group quantity"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/transformation_event.py:0
+#, python-format
+msgid "quantity is smaler than one"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/insemination_event.py:0
+#, python-format
+msgid "semen dose no avairable"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_stock_location_silo_stock_location__silo
+msgid "silo"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_foster_locations__specie
+#: model:ir.model.fields,field_description:farm.field_farm_future_maders_locations__specie
+#: model:ir.model.fields,field_description:farm.field_farm_transit_locations__specie
+msgid "specie"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_semen_extraction_dose__state
+msgid "state"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_stock_location_silo_stock_location
+msgid "stock.location.silo_stock.location"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_stock_lot_farm_animal
+msgid "stock.lot_farm.animal"
+msgstr ""
+
+#. module: farm
+#: model:ir.model,name:farm.model_stock_lot_farm_animal_group
+msgid "stock.lot_farm.animal.group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/transformation_event.py:0
+#: code:addons/farm/models/transformation_event.py:0
+#, python-format
+msgid ""
+"the destination is different from the location of the destination group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/transformation_event.py:0
+#, python-format
+msgid ""
+"the destination of animal is the same of the locationof the origin group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/removal_event.py:0
+#, python-format
+msgid "the origin is different from the location of the animal"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/removal_event.py:0
+#, python-format
+msgid "the origin is different from the location of the group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/stock.py:0
+#, python-format
+msgid "there are insufficient nº of animals"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/animal_group.py:0
+#, python-format
+msgid "this lot iis in use, please create new lot"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/animal_group.py:0
+#, python-format
+msgid "this lot is in use from oder group"
+msgstr ""
+
+#. module: farm
+#. odoo-python
+#: code:addons/farm/models/animal.py:0
+#, python-format
+msgid "this lot is in use, please create new lot"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields.selection,name:farm.selection__farm_move_event__weight_record__no
+msgid "undefined"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,help:farm.field_farm_specie__sale_product
+msgid "use when you sale animal units but customer pay meat kilogram"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_event_order__weaning_events
+msgid "weaning"
+msgstr ""
+
+#. module: farm
+#: model:ir.model.fields,field_description:farm.field_farm_animal_group__weaning_day
+msgid "weaning_day"
+msgstr ""

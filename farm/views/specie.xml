@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	   <record model="ir.ui.view" id="view_specie_tree">
+	       <field name="name">specie.tree</field>
+	       <field name="model">farm.specie</field>
+
+	       <field name="arch" type="xml">
+	           <tree string="Specie">
+	              <field name="name"/>
+	           </tree>  
+	       </field>
+	   </record>
+		<record model="ir.ui.view" id="view_specie_form">
+			<field name="name">specie.form</field>
+			<field name="model">farm.specie</field>
+
+			<field name="arch" type="xml">
+				<form string="Specie">
+					<header>
+					   <group >
+					       <field name="name"/>
+					   </group>
+					</header>
+					<sheet>
+					<group>
+						<group>
+							<field name="male_product"/>
+							<field name="female_product"/>
+						</group>
+						<group>
+							<field name="individual_product"/>
+							<field name="group_product"/>
+						</group>
+					</group>
+					<group>
+						<group>
+							<field name="semen_product"/>
+						</group>
+						<group>
+							<field name="sale_product"/>
+						</group>
+					</group>	
+					<group>
+						<group>
+							<field name="breeds"/>
+						</group>
+						<group>
+							<field name="farm_lines"/>
+						</group>
+					</group>				
+					<group>
+						<group>
+							<field name="removed_location"/>
+							<field name="foster_location"/>
+							<field name="lost_found_location"/>
+						</group>
+						<group>
+							<field name="future_maders_location"/>
+							<field name="feed_lost_found_location"/>
+							<field name="consumed_feed_location"/>
+						</group>
+					</group>
+					</sheet>
+				</form>
+			
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_farm_line_tree">
+           <field name="name">farm.line.tree</field>
+           <field name="model">farm.specie.farm_line</field>
+
+           <field name="arch" type="xml">
+               <tree string="Farm Line">
+                  <field name="specie"/>
+                  <field name="farm"/>
+               </tree>  
+           </field>
+       </record>
+		<record model="ir.ui.view" id="view_farm_line_form">
+            <field name="name">farm.line.form</field>
+            <field name="model">farm.specie.farm_line</field>
+
+            <field name="arch" type="xml">
+                <form string="Farm Line">
+                    <sheet>
+                        <group>
+                            <field name="specie"/>
+                            <field name="farm"/>
+                            <field name="event_order_sequence"/>
+                        </group>
+                    </sheet>
+                  </form>
+              </field>
+          </record>		
+
+</odoo>

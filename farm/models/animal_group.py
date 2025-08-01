@@ -1,0 +1,400 @@
+# -*- coding: utf-8 -*-
+# @authors: Alexander Ezquevo <alexander@acysos.com>
+# Copyright (C) 2015  Acysos S.L.
+# Copyright (C) 2024 Acysos S.L.
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError as Warning
+from datetime import datetime
+
+
+DFORMAT = "%Y-%m-%d %H:%M:%S"
+DFORMAT2 = "%Y-%m-%d"
+
+class AnimalGroupRemovedTags(models.Model):
+    _name = 'farm.tags.removed'
+
+    name = fields.Char(string='Name', related='tag.name')
+    animal_group = fields.Many2one(comodel_name='farm.animal.group', string='Animal Group')
+    tag = fields.Many2one(comodel_name='farm.tags', string='Tag')
+
+class AnimalGroupMalesTags(models.Model):
+    _name = 'farm.tags.males'
+
+    name = fields.Char(string='Name', related='tag.name')
+    animal_group = fields.Many2one(comodel_name='farm.animal.group', string='Animal Group')
+    tag = fields.Many2one(comodel_name='farm.tags', string='Tag')
+
+class AnimalGroupFemalesTags(models.Model):
+    _name = 'farm.tags.females'
+
+    name = fields.Char(string='Name', related='tag.name')
+    animal_group = fields.Many2one(comodel_name='farm.animal.group', string='Animal Group')
+    tag = fields.Many2one(comodel_name='farm.tags', string='Tag')
+
+class AnimalGroup(models.Model):
+    _name = 'farm.animal.group'
+    _order = 'arrival_date desc'
+
+    name = fields.Char(string="name", compute="get_name", store="True")
+    mother = fields.Char(string='Mother', compute='get_mother')
+    specie = fields.Many2one(comodel_name='farm.specie', string='Specie',
+                             required=True)
+    breed = fields.Many2one(comodel_name='farm.specie.breed', string='Breed')
+    lot = fields.One2many(comodel_name='stock.lot_farm.animal.group',
+                          inverse_name='animal_group', column1='lot',
+                          string='Lot')
+    number = fields.Char(string='Number', compute='get_number', store=True)
+    location = fields.Many2one(comodel_name='stock.location',
+                               string='Current location',
+                               domain=[('usage', '!=', 'view'), ])
+    farm = fields.Many2one(comodel_name='stock.location',
+                           string='Current Farm',
+                           domain=[('usage', '=', 'view')])
+    quantity = fields.Integer(string='Quantity')
+    origin = fields.Selection([('purchased', 'Purchased'),
+                               ('raised', 'Raised'), ], string='Origin',
+                              required=True,
+                              default='purchased',
+                              help='Raised means that this group was born in'
+                              'the farm. Otherwise, it was purchased.')
+    arrival_date = fields.Date(string='Arrival Date',
+                               default=fields.Date.today(),
+                               help="The date this group arrived (if it was"
+                               "purchased) or when it was born.")
+    """
+    purchase_shipment = fields.Many2one(comodel_name='stock.shipment.in',
+                                       string='Purchase Shipment',
+                                       readonly=True)
+    """
+    initial_location = fields.Many2one(comodel_name='stock.location',
+                                       string='Initial location',
+                                       required=True,
+                                       domain=[('usage', '=', 'internal'),
+                                               ('silo', '=', False), ],
+                                       help="The Location where the group was"
+                                       "reached or where it was allocated when"
+                                       "it was purchased.\nIt is used as"
+                                       "historical information and to get"
+                                       "Serial Number.")
+    initial_quantity = fields.Integer(string='Initial quantity', required=True,
+                                      help="The number of animals in group"
+                                      "when it was reached or purchased.\nIt"
+                                      "is used as historical information and"
+                                      "to create the initial move.")
+    removal_date = fields.Date(string='Removal date', readonly=True)
+    weights = fields.One2many(comodel_name='farm.animal.group.weight',
+                              inverse_name='party', column1='tag',
+                              string='Weights')
+    current_weight = fields.Many2one(comodel_name='farm.animal.group.weight',
+                                     string='Current weight',
+                                     compute='on_change_with_current_weight')
+    tags = fields.Many2many(comodel_name='farm.tags',
+                            inverse_name='animal_group', string='Tag')
+    removed_tags = fields.One2many(comodel_name='farm.tags.removed', string='Removed Tags',
+                                    inverse_name='animal_group')
+    tags_males = fields.One2many(comodel_name='farm.tags.males', string='males tags', inverse_name='animal_group')
+    tags_females = fields.One2many(comodel_name='farm.tags.females', string='female tags', inverse_name='animal_group')
+    notes = fields.Text(string='Notes')
+    active = fields.Boolean(string='Active', default=True)
+    feed_quantity = fields.Float(string='cumulative consumed feed')
+    consumed_feed = fields.Float(string='Consumed Feed per Animal (kg)',
+                                 compute='get_consumed_feed')
+    state = fields.Selection(selection=[
+        ('lactating', 'Lactating'), ('transition', 'Transition'),
+        ('fatten', 'Faten up'), ('sold', 'Sold')],
+        readonly=True, default='fatten')
+    transition_days = fields.Integer(string='Days in Transition',
+                                     compute='get_transit_days')
+    fattening_days = fields.Integer(string='Days in fatening',
+                                    compute='get_fattenig_days')
+    fatten_date = fields.Date(string='fatten day', compute='_get_fatten_day',
+                              store=True)
+    weaning_day = fields.Datetime(string='weaning_day', compute='get_weaning_day')
+
+
+    def show_feed_event_from_group(self):
+        feed_ev_obj = self.env['farm.feed.event']
+        ids = []
+        for res in self:
+            for lot in res.lot:
+                feed_evts = feed_ev_obj.search([
+                    ('lot', '=', lot.lot.id)])
+                for event in feed_evts:
+                    ids.append(event.id)
+            res = {'view_mode': 'tree,form',
+                   'res_model': 'farm.feed.event',
+                   'view_id': False,
+                   'type': 'ir.actions.act_window',
+                   'view_type': 'form',
+                   'domain': [('id', 'in', ids)]}
+            return res
+
+    def get_mother(self):
+        farrow = self.env['farm.farrowing.event_group']
+        for res in self:
+            group_farrow = farrow.search([
+                ('animal_group', '=', res.id)])
+            if len(group_farrow)!= 0:
+                result = group_farrow.event.animal.number
+                if group_farrow.event.animal.tag:
+                    result = result + ' (' + group_farrow.event.animal.tag.name + ')'
+
+                res.mother = result
+            else:
+                res.mother = '*'
+
+    def get_weaning_day(self):
+        for res in self:
+            if res.state != 'lactating':
+                weaning_obj = self.env['farm.weaning.event']
+                wean = weaning_obj.search([
+                    ('farrowing_group', '=', res.id)])
+                if len(wean) != 0:
+                    res.weaning_day = datetime.strptime(wean.timestamp, DFORMAT)
+                else:
+                    res.weaning_day = False
+            else:
+                res.weaning_day = False
+
+    @api.depends('location', 'state')
+    def _get_fatten_day(self):
+        for res in self:
+            if res.state not in ('lactating', 'transition'):
+                transformation_obj = self.env['farm.transformation.event']
+                transition_location = []
+                for loc in res.specie.lost_found_location:
+                    transition_location.append(loc.location.id)
+                transition = transformation_obj.search([
+                    ('animal_group', '=', res.id),
+                    ('from_location.id', 'in', transition_location),
+                    ('to_location.id', 'not in', transition_location)])
+                if transition:
+                    res.fatten_date = transition[-1].timestamp
+                else:
+                    res.fatten_date = res.arrival_date
+            else:
+                res.fatten_date = False
+
+    def get_transit_days(self):
+        print('-- entra --')
+        if self.state == 'lactating':
+            print('-- lactating --')
+            self.transition_days = 0
+        elif self.state == 'transition':
+            print('-- transition --')
+            weaning_obj = self.env['farm.weaning.event']
+            wean = weaning_obj.search([
+                ('farrowing_group', '=', self.id)])
+            if wean:
+                wean_day = wean.timestamp
+                self.transition_days = (datetime.today() - wean_day).days
+            else:
+                ref_day = self.arrival_date
+                self.transition_days = (datetime.today() - ref_day).days
+        else:
+            print('-- else --')
+            weaning_obj = self.env['farm.weaning.event']
+            transformation_obj = self.env['farm.transformation.event']
+            wean = weaning_obj.search([
+                ('farrowing_group', '=', self.id)])
+            if len(wean) != 0:
+                wean_day = wean.timestamp
+            else:
+                wean_day = self.arrival_date
+            transition_location = []
+            for loc in self.specie.lost_found_location:
+                transition_location.append(loc.location.id)
+            transition = transformation_obj.search([
+                ('animal_group', '=', self.id),
+                ('from_location.id', 'in', transition_location),
+                ('to_location.id', 'not in', transition_location)])
+            if transition:
+                transition_finish = transition[-1].timestamp
+                self.transition_days = (transition_finish - wean_day).days
+            else:
+                self.transition_days = 0
+        print('-- sale --')
+
+    def get_fattenig_days(self):
+        if self.state == 'lactating' or self.state == 'transition':
+            self.fattening_days = 0
+        else:
+            transformation_obj = self.env['farm.transformation.event']
+            transition_location = []
+            for loc in self.specie.lost_found_location:
+                transition_location.append(loc.location.id)
+            transition = transformation_obj.search([
+                ('animal_group', '=', self.id),
+                ('from_location.id', 'in', transition_location),
+                ('to_location.id', 'not in', transition_location)])
+            if len(transition) == 0:
+                transition_finish = datetime.strptime(
+                    str(self.arrival_date), DFORMAT2)
+            else:
+                transition_finish = datetime.strptime(
+                    str(transition[-1].timestamp, DFORMAT2))
+            if self.state == 'fatten':
+                self.fattening_days = (
+                    datetime.today() - transition_finish).days
+            else:
+                moves_obj = self.env['farm.move.event']
+                sale_move = moves_obj.search([
+                    ('animal_group', '=', self.id)])
+                sale_day = sale_move[-1].timestamp
+                self.fattening_days = (sale_day - transition_finish).days
+
+    def create_first_move(self, res):
+        moves_obj = self.env['stock.move']
+        quant_obj = self.env['stock.quant']
+        for record in res:
+            if not record.lot:
+                production_lot_obj = self.env['stock.lot']
+                animal_group_lot_obj = \
+                    self.env['stock.lot_farm.animal.group']
+                new_lot = production_lot_obj.create({
+                    'product_id': res.specie.group_product.id,
+                    'animal_type': 'group',
+                    })
+                animal_group_lot_obj.create({
+                    'lot': new_lot.id,
+                    'animal_group': res.id})
+            quant = quant_obj.search([
+                ('lot_id', '=', record.lot[0].lot.id),
+                ('location_id', '=', record.initial_location.id)
+                ])
+            record.location = record.initial_location
+            if len(record.lot) > 1:
+                    raise Warning(
+                        _('lots can not be mixed in an initial group, create a'
+                          ' group for each lot and then group them into the'
+                          ' desired group'))
+            elif record.origin == 'raised':
+                if not quant:
+                    raise_location = self.env['stock.location'].search(
+                        [('usage', '=', 'production')])
+                    uom = record.lot.lot.product_id.product_tmpl_id.uom_id.id
+                    new_move = moves_obj.create({
+                        'name': 'raise-' + record.lot[0].lot.name,
+                        'create_date': fields.Date.today(),
+                        'date': record.arrival_date,
+                        'product_id': record.lot[0].lot.product_id.id,
+                        'product_uom_qty': record.initial_quantity,
+                        'product_uom': uom,
+                        'location_id': raise_location.id,
+                        'location_dest_id': record.initial_location.id,
+                        'company_id': record.initial_location.company_id.id,
+                        })
+                    self.env['stock.move.line'].create({
+                        'move_id': new_move.id,
+                        'product_id': record.lot[0].lot.product_id.id,
+                        'product_uom_id': uom,
+                        'quantity': record.initial_quantity,
+                        'location_id': raise_location.id,
+                        'location_dest_id': record.initial_location.id,
+                        'lot_id': record.lot[0].lot.id,
+                        'lot_name': record.lot[0].lot.name,
+                        'company_id': record.initial_location.company_id.id,
+                        })
+
+                    new_move._action_done()
+                else:
+                    raise Warning(
+                        _('this lot iis in use, please create new lot'))
+            else:
+                if not quant:
+                    raise Warning(
+                        _('no product in farms for this lot'))
+                target_quant = False
+                for q in quant:
+                    if q.location_id == record.initial_location:
+                        if q.qty >= record.initial_quantity:
+                            target_quant = q
+                if not target_quant:
+                    raise Warning(
+                        _('group intial quantity and product quantity '
+                          'are diferent'))
+                an_group = self.env['farm.animal.group'].search([
+                    ('lot.lot.id', '=', record.lot.lot.id),
+                    ('id', '!=', record.id)])
+                if len(an_group) > 0:
+                    raise Warning(
+                        _('this lot is in use from oder group'))
+
+    @api.model_create_multi
+    def create(self, vals):
+        res = super(AnimalGroup, self).create(vals)
+        self.create_first_move(res)
+        res.quantity = res.initial_quantity
+        return res
+
+    @api.depends('number', 'tags')
+    def get_name(self):
+        for res in self:
+            result = ''
+            if res.tags:
+                for tag in res.tags:
+                    result += tag.name + ' '
+                result += '-' + res.number
+            else:
+                result = res.number
+            res.name = result
+
+    def name_get(self):
+        result = ''
+        displayName = []
+        for group in self:
+            if group.tags:
+                for tag in group.tags:
+                    result = result + tag.name + ' '
+                displayName.append(
+                    (group.id, group.number + '-' + result))
+            else:
+                displayName.append((group.id, group.number))
+        return displayName
+
+    @api.depends('lot')
+    def get_number(self):
+        for group in self:
+            result = '*'
+            if len(group.lot) > 2:
+                result = group.lot[2].lot.name
+            elif len(group.lot) > 0:
+                result = group.lot[0].lot.name
+            group.number = result
+
+    def get_locations(self):
+        return False
+
+    def on_change_with_current_weight(self):
+        if self.weights:
+            self.current_weight = self.weights[0].id
+        else:
+            self.current_weight = False
+
+    def get_consumed_feed(self):
+        if self.quantity == 0:
+            self.consumed_feed = self.feed_quantity/self.initial_quantity
+        else:
+            self.consumed_feed = self.feed_quantity/self.quantity
+
+
+class AnimalGroupWeight(models.Model):
+    _name = 'farm.animal.group.weight'
+    _order = 'timestamp DESC'
+    rec_name = 'weight'
+
+    party = fields.Many2one(comodel_name='farm.animal.group',
+                            string='Group', ondelete='CASCADE',
+                            required=True)
+    timestamp = fields.Datetime(string='Date & time',
+                                default=fields.Datetime.now())
+    quantity = fields.Integer(string='Number of individuals', required=True)
+    uom = fields.Many2one(comodel_name='product.uom', string='Uom')
+    weight = fields.Float(string='Weihht', digits=(3, 2), required=True)
+
+    @api.onchange('timestamp')
+    def get_defaults(self):
+        if self.party is not False:
+            self.quantity = self.party.quantity

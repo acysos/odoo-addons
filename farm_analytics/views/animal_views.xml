@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_animal_analitic_form">
+    <field name="name">animal.analitic.form</field>
+    <field name="model">farm.animal</field>
+    <field name="inherit_id" ref="farm.view_animal_form"/>
+    <field name="arch" type="xml">
+            <group id="female_fields" position="after">
+            <group>
+                <field name="account" readonly="1"/>
+            </group>
+</odoo>

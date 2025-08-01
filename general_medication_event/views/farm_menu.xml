@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+         <record id="farm_general_medication_event_view" model="ir.actions.act_window">
+            <field name="name">Farm_general_medication</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farm.general.medication.event</field>
+            <field name="view_id" ref="view_general_medication_event_tree"/>
+        </record>
+        <menuitem action="farm_general_medication_event_view" id="menu_farm_general_medication_event"
+            name="General Medication Event" parent="farm.menu_farm_events" sequence="12"/>
+
+</odoo>

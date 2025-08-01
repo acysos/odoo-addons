@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_farmer_tree">
+        <field name="name">farmer.tree</field>
+        <field name="model">farm.farmer</field>
+
+        <field name="arch" type="xml">
+            <tree string="Farmer">
+                <field name="employee_id" />
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_farmer_form">
+        <field name="name">farmer.form</field>
+        <field name="model">farm.farmer</field>
+
+        <field name="arch" type="xml">
+        <form string="Farmer">
+
+        <sheet>
+            <group>
+                <group>
+                    <field name="employee_id"/>
+
+                </group>
+                <group>
+                    <field name="specie_ids"/>
+                    <field name="farm_ids"/>
+                </group>
+            </group>
+        </sheet>
+        </form>
+        </field>
+    </record>
+    <record id="farm_farmer_view" model="ir.actions.act_window">
+        <field name="name">Farmers</field>
+
+        <field name="res_model">farm.farmer</field>
+
+        <field name="view_id" ref="view_farmer_tree"/>
+    </record>
+    <menuitem action="farm_farmer_view" id="menu_farm_configuration_farm_line"
+              name="Farmers" parent="farm.menu_farm_configuration" sequence="6"/>
+
+</odoo>
