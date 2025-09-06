@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="wizard_navarra_export" model="ir.ui.view">
+        <field name="name">Export Hacienda Navarra file</field>
+        <field name="model">l10n.es.navarra.report.export_to_hn</field>
+        <field name="arch" type="xml">
+            <form string="Export Hacienda Navarra file">
+                <field invisible="1" name="state" />
+                <field name="name" invisible="1" />
+                <div attrs="{'invisible': [('state', '!=', 'open')]}">
+                    <p>Pulse el botón <strong
+                    >Exportar</strong> para iniciar el proceso de exportación del archivo para Hacienda Navarra.</p>
+                </div>
+                <div attrs="{'invisible': [('state', '!=', 'get')]}">
+                    <h2>Exportación completada</h2>
+                    <p>Aquí está el archivo para Hacienda Navarra exportado: <field
+                            name="data"
+                            readonly="1"
+                            filename="name"
+                    /></p>
+                    <p
+                    >Ponga este archivo dentro de su carpeta personal de la Hacienda Navarra, y úselo en el programa <strong
+                    >Informativas</strong> o pulsando en el botón <strong
+                    >Optativo: Importar datos de fichero</strong> en el formulario on-line.</p>
+                </div>
+                <footer attrs="{'invisible': [('state', '!=', 'open')]}">
+                    <button
+                            name="action_get_file"
+                            string="Export"
+                            type="object"
+                            class="oe_highlight"
+                    />
+                    <button
+                            special="cancel"
+                            string="Cancel"
+                            type="object"
+                            class="oe_link"
+                    />
+                </footer>
+                <footer attrs="{'invisible': [('state', '!=', 'get')]}">
+                    <button special="cancel" string="Close" type="object" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!-- NOTE: These two records must be copied on child module, changing
+    both ids, res_model to the inherited one, act_window_id and name
+    (if you want) -->
+    <record model="ir.actions.act_window" id="action_wizard_navarra_export">
+        <field name="name">Export Hacienda Navarra file</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n.es.navarra.report.export_to_hn</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record model="ir.actions.act_window.view" id="action_wizard_navarra_export_form">
+        <field name="act_window_id" ref="action_wizard_navarra_export" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="l10n_es_navarra.wizard_navarra_export" />
+    </record>
+</odoo>
