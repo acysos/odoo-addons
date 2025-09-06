@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2025 Acysos S.L. <info@acysos.com>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_l10n_es_navarra_modf69_report_tree" model="ir.ui.view">
+        <field name="name">l10n.es.navarra.modf69.report.tree</field>
+        <field name="model">l10n.es.navarra.modf69.report</field>
+        <field name="inherit_id" ref="l10n_es_aeat.view_l10n_es_aeat_report_tree" />
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="string">F66-F69 reports</attribute>
+            </tree>
+            <field name="period_type" position="after">
+                <field name="total_devengado" />
+                <field name="total_deducir" />
+<!--                <field name="porcentaje_atribuible_estado" readonly="state == 'done'" />-->
+<!--                <field name="resultado_liquidacion" />-->
+            </field>
+        </field>
+    </record>
+    <record id="view_l10n_es_aeat_modf69_report_form" model="ir.ui.view">
+        <field name="name">l10n.es.navarra.modf69.report.form</field>
+        <field name="model">l10n.es.navarra.modf69.report</field>
+        <field name="inherit_id" ref="l10n_es_aeat.view_l10n_es_aeat_report_form" />
+        <field name="arch" type="xml">
+            <field name="partner_bank_id" position="before">
+                <field name="casilla_129" />
+                <field name="casilla_93" />
+                <field name="casilla_164" invisible="period_type not in ('4T', '12')" />
+                <field name="casilla_264" />
+                <field name="casilla_266" />
+                <field name="payment_method" />
+            </field>
+            <field name="export_config_id" position="replace"/>
+<!--            <xpath expr="//button[@type='action']" position="replace">
+                <button
+                        name="%(action_wizard_navarra_export)d"
+                        type="action"
+                        string="Export to Hacienda Navarra"
+                        invisible="state not in ('posted', 'done')"
+                        icon="fa-share"
+                />
+            </xpath>-->
+            <group name="group_declaration" position="after">
+                <group
+                        string="Resultado"
+                        name="group_result"
+                        invisible="state == 'draft'"
+                        col="3"
+                >
+                    <group>
+                        <field
+                                name="total_devengado"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                        />
+                        <field
+                                name="total_deducir"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                        />
+                        <field name="casilla_55" widget="percentage"/>
+                        <field
+                                name="casilla_61"
+                                readonly="1"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                    <group
+                            class="oe_subtotal_footer oe_right"
+                            invisible="state == 'draft'"
+                            colspan="2"
+                    >
+                        <field
+                                name="resultado_liquidacion"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                </group>
+                <notebook invisible="state == 'draft'">
+                    <page string="Tax lines">
+                        <field name="tax_line_ids" nolabel="1" readonly="1">
+                            <tree editable="bottom">
+                                <field name="field_number_navarra" />
+                                <field name="name_navarra" />
+                                <field name="amount" />
+                                <button
+                                        name="get_calculated_move_lines"
+                                        type="object"
+                                        help="Show journal items"
+                                        aria-label="Show journal items"
+                                        title="Show journal items"
+                                        icon="fa-search-plus"
+                                />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </group>
+            <form position="inside">
+                <div class="oe_chatter">
+                    <field
+                            name="message_follower_ids"
+                            widget="mail_followers"
+                            groups="base.group_user"
+                    />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_l10n_es_navarra_f69_report" model="ir.actions.act_window">
+        <field name="name">Model F69-F66</field>
+        <field name="res_model">l10n.es.navarra.modf69.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Create and query Navarra Model F66-F69 reports</field>
+    </record>
+    <record
+            model="ir.actions.act_window.view"
+            id="action_l10n_es_navarra_f69_report_tree"
+    >
+        <field name="sequence" eval="2" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_l10n_es_navarra_modf69_report_tree" />
+        <field name="act_window_id" ref="action_l10n_es_navarra_f69_report" />
+    </record>
+    <record
+            model="ir.actions.act_window.view"
+            id="action_l10n_es_navarra_f69_report_form"
+    >
+        <field name="sequence" eval="3" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_l10n_es_aeat_modf69_report_form" />
+        <field name="act_window_id" ref="action_l10n_es_navarra_f69_report" />
+    </record>
+    <menuitem
+            id="menu_navarra_f69_report"
+            parent="l10n_es_navarra.menu_navarra_report"
+            action="action_l10n_es_navarra_f69_report"
+            sequence="69"
+            name="Model F69-F66"
+    />
+    
+</odoo>
