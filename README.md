@@ -1,4 +1,4 @@
-odoo-addons-16.0
+odoo-addons-18.0
 ===============
 
-Extra modules for Odoo 16.0
+Extra modules for Odoo 18.0
