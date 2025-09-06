@@ -29,5 +29,6 @@
         'views/res_company_views.xml',
         'views/aeat_report_views.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
 }
