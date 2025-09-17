@@ -151,10 +151,15 @@ class L10nEsNavarraModF69Report(models.Model):
             ])
             for move_line in move_lines_base:
                 for tax in move_line.tax_ids:
+                    tax_external_id = list(tax.get_external_id().values())[0].replace(
+                        'account.'+str(self.env.company.id)+'_', '')
+                    while "account." in tax_external_id:
+                        tax_external_id = tax_external_id.replace(
+                            'account.', '')
+
                     data_base.append({
                         'id': move_line.id,
-                        'tax_external_id': list(tax.get_external_id().values())[0].replace(
-                            'account.'+str(self.env.company.id)+'_', ''),
+                        'tax_external_id': tax_external_id,
                         'debit': move_line.debit,
                         'credit': move_line.credit,
                         'partner_id': move_line.partner_id.id,
