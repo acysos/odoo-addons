@@ -26,7 +26,11 @@ class AeatTaxAgency(models.Model):
                     'sii_test': company.sii_test,
                 })
                 _logger.info("Data: %s", data)
-                response = requests.post(self.IAP_URL + ENDPOINT, data=data)
+                response = self._get_response(ENDPOINT, data)
+                if not response:
+                    raise exceptions.UserError(
+                        _("Error connecting to the IAP service. Please try again later.")
+                    )
                 if response.status_code != 200:
                     raise exceptions.UserError(
                         _("Error in the IAP service: %s") % response.reason

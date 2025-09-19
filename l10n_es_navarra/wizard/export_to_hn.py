@@ -191,7 +191,11 @@ class L10nEsNavarraReportExportToHN(models.TransientModel):
                 partner_refund_data.append(data_line)
             data['partner_refund_data'] = json.dumps(partner_refund_data)
 
-        response = requests.post(self.IAP_URL + ENDPOINT, data=data)
+        response = self._get_response(ENDPOINT, data)
+        if not response:
+            raise exceptions.UserError(
+                _("Error connecting to the IAP service. Please try again later.")
+            )
         if response.status_code != 200:
             raise exceptions.UserError(
                 _("Error in the IAP service: %s") % response.reason

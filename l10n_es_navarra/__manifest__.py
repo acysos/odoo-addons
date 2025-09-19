@@ -3,7 +3,7 @@
 
 {
     'name': 'Hacienda Foral de Navarra',
-    'version': '16.0.0.1.3',
+    'version': '16.0.0.1.4',
     'author': 'Acysos S.L.',
     'website': 'https://www.navarradoo.com',
     'category': 'Accounting',
