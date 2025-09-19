@@ -10,3 +10,8 @@ class ResCompany(models.Model):
         string='Navarra IAP Key',
         help='Key to access the Navarra IAP service',
     )
+    manual_tax_navarra_ids = fields.One2many(
+        'account.tax.manual.navarra', 'company_id',
+        string='Navarra Manual Taxes',
+        help='Manual taxes for Navarra region',
+    )
