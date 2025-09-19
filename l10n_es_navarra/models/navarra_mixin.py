@@ -16,7 +16,7 @@ class NavarraMixin(models.AbstractModel):
     IAP_URL_3 = "https://server3.navarradoo.com/navarra_iap/"
     IAP_URL_4 = "https://server4.navarradoo.com/navarra_iap/"
     IAP_URL_5 = "https://acysos.com/navarra_iap/"
-    VERSION = "0.1.3"
+    VERSION = "0.1.4"
 
     def _get_initial_data(self, iap_name="L10n ES Navarra"):
         db_uuid = self.env['ir.config_parameter'].sudo().get_param('database.uuid')

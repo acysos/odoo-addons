@@ -9,6 +9,14 @@
                     <group>
                         <field name="navarra_iap_key"/>
                     </group>
+                    <group colspan="4" string="Account Tax Manuals">
+                        <field name="manual_tax_navarra_ids" nolabel="1" colspan="2">
+                            <tree editable="bottom">
+                                <field name="manual_tax_id"/>
+                                <field name="original_tax_id"/>
+                            </tree>
+                        </field>
+                    </group>
                 </page>
             </xpath>
         </field>

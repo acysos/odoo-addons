@@ -151,6 +151,13 @@ class L10nEsNavarraModF69Report(models.Model):
             ])
             for move_line in move_lines_base:
                 for tax in move_line.tax_ids:
+                    manual_tax_line = self.env['account.tax.manual.navarra'].search([
+                        ('company_id', '=', self.env.company.id),
+                        ('manual_tax_id', '=', tax.id),
+                    ], limit=1)
+                    if manual_tax_line:
+                        tax = manual_tax_line.original_tax_id
+
                     tax_external_id = list(tax.get_external_id().values())[0].replace(
                         'account.'+str(self.env.company.id)+'_', '')
                     while "account." in tax_external_id:
