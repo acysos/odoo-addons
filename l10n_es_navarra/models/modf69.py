@@ -173,6 +173,60 @@ class L10nEsNavarraModF69Report(models.Model):
                         'move_type': move_line.move_id.move_type,
                         'account_code': move_line.account_id.code[:3],
                     })
+            
+            data_annual_taxes = []
+            data_annual_base = []
+            if modf69.period_type in ['4T', '12']:
+                date_start_annual = modf69.date_end.replace(month=1, day=1)
+                move_lines_annual_taxes = self.env['account.move.line'].search([
+                    ('date', '>=', date_start_annual),
+                    ('date', '<=', modf69.date_end),
+                    ('tax_line_id', '!=', False),
+                    ('parent_state', '=', 'posted'),
+                ])
+                for move_line in move_lines_annual_taxes:
+                    data_annual_taxes.append({
+                        'id': move_line.id,
+                        'tax_external_id': list(move_line.tax_line_id.get_external_id().values())[0].replace(
+                            'account.'+str(self.env.company.id)+'_', ''),
+                        'debit': move_line.debit,
+                        'credit': move_line.credit,
+                        'partner_id': move_line.partner_id.id,
+                        'move_type': move_line.move_id.move_type,
+                        'account_code': move_line.account_id.code[:3],
+                    })
+                
+                move_lines_annual_base = self.env['account.move.line'].search([
+                    ('date', '>=', date_start_annual),
+                    ('date', '<=', modf69.date_end),
+                    ('tax_ids', '!=', False),
+                    ('parent_state', '=', 'posted'),
+                ])
+                for move_line in move_lines_annual_base:
+                    for tax in move_line.tax_ids:
+                        manual_tax_line = self.env['account.tax.manual.navarra'].search([
+                            ('company_id', '=', self.env.company.id),
+                            ('manual_tax_id', '=', tax.id),
+                        ], limit=1)
+                        if manual_tax_line:
+                            tax = manual_tax_line.original_tax_id
+
+                        tax_external_id = list(tax.get_external_id().values())[0].replace(
+                            'account.'+str(self.env.company.id)+'_', '')
+                        while "account." in tax_external_id:
+                            tax_external_id = tax_external_id.replace(
+                                'account.', '')
+
+                        data_annual_base.append({
+                            'id': move_line.id,
+                            'tax_external_id': tax_external_id,
+                            'debit': move_line.debit,
+                            'credit': move_line.credit,
+                            'partner_id': move_line.partner_id.id,
+                            'move_type': move_line.move_id.move_type,
+                            'account_code': move_line.account_id.code[:3],
+                        })
+
             data = self._get_initial_data(iap_name="F69-F66 Calculate")
             data.update({
                 'period_type': modf69.period_type,
@@ -184,6 +238,8 @@ class L10nEsNavarraModF69Report(models.Model):
                 'casilla_55': modf69.casilla_55,
                 'data_taxes': json.dumps(data_taxes),
                 'data_base': json.dumps(data_base),
+                'data_annual_taxes': json.dumps(data_annual_taxes),
+                'data_annual_base': json.dumps(data_annual_base),
             })
             response = self._get_response(ENDPOINT, data)
             if not response:
@@ -220,6 +276,10 @@ class L10nEsNavarraModF69Report(models.Model):
                 ], limit=1)
                 if counterpart_account_id:
                     modf69_vals['counterpart_account_id'] = counterpart_account_id.id
+                if 'casilla_164' in result:
+                    modf69_vals['casilla_164'] = result['casilla_164']
+                if 'casilla_93' in result:
+                    modf69_vals['casilla_93'] = result['casilla_93']
                 modf69.write(modf69_vals)
         return True
 
