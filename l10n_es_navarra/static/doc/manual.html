@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Manual Hacienda Foral de Navarra</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #16a085;
+        }
+
+        code {
+            background: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .note {
+            background: #e8f6f3;
+            padding: 15px;
+            border-left: 5px solid #1abc9c;
+            margin: 20px 0;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hacienda Foral de Navarra - Manual de Usuario</h1>
+
+    <p>Este manual describe el uso y configuración del módulo de integración con Hacienda Foral de Navarra para Odoo.
+    </p>
+
+    <h2>1. Configuración Inicial</h2>
+    <p>Antes de comenzar, asegúrese de tener instalados los módulos base requeridos.</p>
+
+    <h3>Paso 1: Obtención de Credenciales</h3>
+    <p>Solicite sclave IAP en <a href="https://navarradoo.com">navarradoo.com</a>.</p>
+
+    <h3>Paso 2: Configuración en Odoo</h3>
+    <ol>
+        <li>Vaya a <strong>Ajustes > Compañías</strong> y abra su compañía.</li>
+        <li>En la pestaña <strong>Navarra</strong>, introduzca la clave en el campo <code>Clave IAP Navarra</code>.</li>
+        <li>En la pestaña <strong>AEAT</strong>, asegúrese de seleccionar <code>Hacienda Foral de Navarra</code> en el
+            campo <strong>Agencia Tributaria</strong>.</li>
+    </ol>
+
+    <div class="note">
+        <strong>Importante:</strong> La selección correcta de la Agencia Tributaria es crucial para que los envíos del
+        SII y la generación de modelos funcionen correctamente.
+    </div>
+
+    <h3>Paso 3: Mapeo de Impuestos Personalizados</h3>
+    <p>Esta configuración es <strong>necesaria si ha creado impuestos propios</strong> en Odoo que no están incluidos en
+        la localización estándar, y desea que se reflejen correctamente en los modelos (F69/F66).</p>
+    <p>En la pestaña <strong>"Navarra"</strong> de la compañía, utilice la tabla <em>Navarra Manual Taxes</em> para
+        indicar qué impuesto estándar corresponde a cada uno de sus impuestos personalizados:</p>
+    <ul>
+        <li><strong>Manual Tax (Impuesto Manual):</strong> Seleccione el impuesto personalizado que usted ha creado y
+            utiliza en sus facturas.</li>
+        <li><strong>Original Tax (Impuesto Original/Oficial):</strong> Seleccione el impuesto estándar de Odoo
+            equivalente. El sistema usará la configuración de este impuesto para calcular correctamente las casillas del
+            modelo.</li>
+    </ul>
+    <p><em>Ejemplo: Si ha creado un impuesto "IVA 21% (Ventas Web)" para uso interno, debe mapearlo al "IVA 21%
+            (Bienes)" estándar para que Hacienda lo reconozca.</em></p>
+
+    <h2>2. Presentación de Impuestos</h2>
+
+    <h3>Modelos F66 y F69</h3>
+    <p>Estos modelos (IVA) se encuentran disponibles en el menú de <strong>Declaraciones de AEAT</strong>. Su
+        funcionamiento es idéntico al estándar de Odoo: crear, calcular y presentar.</p>
+
+    <h3>Modelos 347 y 349</h3>
+    <p>Para presentar estos modelos en Navarra:</p>
+    <ol>
+        <li>Genere el modelo desde el menú de Declaraciones.</li>
+        <li>Complete el flujo de validación hasta que el estado sea <strong>Publicado</strong> o <strong>Hecho</strong>.
+        </li>
+        <li>Pulse el botón <strong>Exportar Hacienda Navarra</strong> que aparecerá en la parte superior.</li>
+        <li>El sistema descargará un archivo con el formato específico requerido.</li>
+    </ol>
+
+    <h2>3. Suministro Inmediato de Información (SII)</h2>
+    <p>El módulo automatiza la conexión con los servidores de Navarra.</p>
+    <ul>
+        <li>Configure el SII en <strong>Contabilidad > Administración > AEAT > SII</strong>.</li>
+        <li>Al tener la Agencia Tributaria configurada como "Navarra", Odoo usará automáticamente los endpoints y la
+            autenticación correcta (Clave IAP).</li>
+    </ul>
+
+    <hr />
+    <p><small>Soporte: <a href="mailto:soporte@navarradoo.com">soporte@navarradoo.com</a> | Desarrollado por Acysos
+            S.L.</small></p>
+</body>
+
+</html>

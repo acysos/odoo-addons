@@ -272,7 +272,7 @@ class L10nEsNavarraModF69Report(models.Model):
                 counterpart_account_code = result.get("counterpart_account_code")
                 counterpart_account_id = self.env['account.account'].search([
                     ("code", "=like", counterpart_account_code+'%'),
-                    ('company_id', '=', self.env.company.id),
+                    ('company_ids', 'in', self.env.company.id),
                 ], limit=1)
                 if counterpart_account_id:
                     modf69_vals['counterpart_account_id'] = counterpart_account_id.id
