@@ -1,0 +1,3 @@
+id,map_parent_id:id,field_number,name,to_regularize,move_type,field_type,sum_type,inverse,account_xmlid_ids/id,tax_xmlid_ids/id
+navarradoo_f69_2024_10_map_line_01,navarradoo_f69_2024_10_map,1,Navarra API Line,0,all,base,both,0,,
+navarradoo_f69_2024_10_map_line_02,navarradoo_f69_2024_10_map,2,Navarra API Line,1,all,base,both,0,,
