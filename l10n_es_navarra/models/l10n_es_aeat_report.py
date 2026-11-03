@@ -17,7 +17,7 @@ class L10nEsAeatReport(models.AbstractModel):
         navarra_tax_agency = self.env.ref(
             "l10n_es_aeat.aeat_tax_agency_navarra")
         for record in self:
-            if self.env.company.tax_agency_id.id == navarra_tax_agency.id and record.number in ["669", "349", "347"]:
+            if self.env.company.tax_agency_id.id == navarra_tax_agency.id and record.number in ["669", "715", "349", "347"]:
                 record.is_navarra_model = True
             else:
                 record.is_navarra_model = False

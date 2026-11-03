@@ -27,9 +27,9 @@
             <field name="partner_bank_id" position="before">
                 <field name="casilla_129" />
                 <field name="casilla_93" />
-                <field name="casilla_164" invisible="period_type not in ('4T', '12')" />
+                <field name="casilla_164" invisible="period_type not in ('4T', '12') and not casilla_129" />
                 <field name="casilla_264" />
-                <field name="casilla_266" />
+                <field name="casilla_266" invisible="period_type not in ('1T', '2T', '3T', '4T')" />
                 <field name="payment_method" />
             </field>
             <field name="export_config_id" position="replace"/>
