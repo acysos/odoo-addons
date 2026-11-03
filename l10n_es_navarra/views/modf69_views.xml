@@ -27,13 +27,13 @@
             <field name="partner_bank_id" position="before">
                 <field name="casilla_129" />
                 <field name="casilla_93" />
-                <field name="casilla_164" attrs="{'invisible': [('period_type', 'not in', ('4T', '12'))]}"/>
+                <field name="casilla_164" attrs="{'invisible': [('period_type', 'not in', ('4T', '12')), ('casilla_129', '=', False)]}"/>
                 <field name="casilla_264" />
-                <field name="casilla_266" />
+                <field name="casilla_266" attrs="{'invisible': [('period_type', 'not in', ('1T', '2T', '3T', '4T'))]}" />
                 <field name="payment_method" />
             </field>
             <field name="export_config_id" position="replace"/>
-            <xpath expr="//button[@type='action']" position="replace">
+<!--            <xpath expr="//button[@type='action']" position="replace">
                 <button
                         name="%(action_wizard_navarra_export)d"
                         type="action"
@@ -41,7 +41,7 @@
                         attrs="{'invisible': [('state', 'not in', ('posted', 'done'))]}"
                         icon="fa-share"
                 />
-            </xpath>
+            </xpath>-->
             <group name="group_declaration" position="after">
                 <group
                         string="Resultado"
