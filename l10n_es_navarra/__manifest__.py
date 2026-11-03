@@ -3,7 +3,7 @@
 
 {
     'name': 'Hacienda Foral de Navarra',
-    'version': '19.0.0.1.5',
+    'version': '19.0.0.1.6',
     'author': 'Acysos S.L.',
     'website': 'https://www.navarradoo.com',
     'category': 'Accounting',
@@ -21,11 +21,15 @@
     'data': [
         'security/ir.model.access.csv',
         'security/l10n_es_navarra_f69_security.xml',
+        'security/l10n_es_navarra_715_security.xml',
         'data/f69/2024-10/l10n.es.aeat.map.tax.csv',
         'data/f69/2024-10/l10n.es.aeat.map.tax.line.csv',
+        'data/715/2025-11/l10n.es.aeat.map.tax.csv',
+        'data/715/2025-11/l10n.es.aeat.map.tax.line.csv',
         'wizard/export_to_hn_wizard.xml',
         'views/navarra_menu_views.xml',
         'views/modf69_views.xml',
+        'views/mod715_views.xml',
         'views/res_company_views.xml',
         'views/aeat_report_views.xml',
     ],

@@ -177,7 +177,7 @@ class L10nEsNavarraModF69Report(models.Model):
             
             data_annual_taxes = []
             data_annual_base = []
-            if modf69.period_type in ['4T', '12']:
+            if modf69.period_type in ['4T', '12'] or modf69.casilla_129:
                 date_start_annual = modf69.date_end.replace(month=1, day=1)
                 move_lines_annual_taxes = self.env['account.move.line'].search([
                     ('date', '>=', date_start_annual),
@@ -237,6 +237,7 @@ class L10nEsNavarraModF69Report(models.Model):
                 'report_id': modf69.id,
                 'map_tax_line_id': self.env.ref('l10n_es_navarra.navarradoo_f69_2024_10_map_line_01').id,
                 'casilla_55': modf69.casilla_55,
+                'casilla_129': modf69.casilla_129,
                 'data_taxes': json.dumps(data_taxes),
                 'data_base': json.dumps(data_base),
                 'data_annual_taxes': json.dumps(data_annual_taxes),

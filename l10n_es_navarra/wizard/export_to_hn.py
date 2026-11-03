@@ -57,7 +57,7 @@ class L10nEsNavarraReportExportToHN(models.TransientModel):
                 data['model_number'] = 'F66'
             data['total_devengado'] = report.total_devengado
             data['total_deducir'] = report.total_deducir
-            data['casilla_55'] = report.casilla_55
+            data['casilla_55'] = report.casilla_55 * 100 if 0 < report.casilla_55 <= 1 else report.casilla_55
             data['casilla_61'] = report.casilla_61
             data['previous_result'] = report.previous_result
             data['resultado_liquidacion'] = report.resultado_liquidacion
@@ -65,12 +65,33 @@ class L10nEsNavarraReportExportToHN(models.TransientModel):
             data['payment_method'] = report.payment_method
             data['casilla_93'] = '1' if report.casilla_93 else '0'
             data['casilla_129'] = '1' if report.casilla_129 else '0'
-            data['casilla_164_si'] = '1' if report.casilla_129 else '0'
-            data['casilla_164_no'] = '1' if not report.casilla_129 else '0'
+            data['casilla_164_si'] = '1' if report.casilla_164 else '0'
+            data['casilla_164_no'] = '1' if not report.casilla_164 else '0'
             data['casilla_264'] = '1' if report.casilla_264 else '0'
             data['casilla_265'] = '1' if not report.casilla_264 else '0'
             data['casilla_266'] = '1' if report.casilla_266 else '0'
             data['casilla_267'] = '1' if not report.casilla_266 else '0'
+            data['partner_bank_acc_number'] = partner_bank_acc_number
+
+            data_lines = []
+            for line in report.tax_line_ids:
+                data_line = {
+                    'field_number': line.field_number_navarra,
+                    'name': line.name_navarra,
+                    'amount': line.amount,
+                    'to_regularize': line.to_regularize,
+                }
+                data_lines.append(data_line)
+            data['data_lines'] = json.dumps(data_lines)
+
+        if report._name == 'l10n.es.navarra.mod715.report':
+            if report.period_type in ['1T', '2T', '3T', '4T']:
+                data['model_number'] = '715'
+            else:
+                data['model_number'] = '745'
+            data['casilla_01'] = report.casilla_01
+            data['period_type_conversion'] = report.period_type_conversion
+            data['payment_method'] = report.payment_method
             data['partner_bank_acc_number'] = partner_bank_acc_number
 
             data_lines = []
