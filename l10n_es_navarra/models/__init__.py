@@ -5,5 +5,6 @@ from . import account_tax_manual_navarra
 from . import l10n_es_aeat_report
 from . import modf69
 from . import mod715
+from . import mod759
 from . import res_company
 from . import sii

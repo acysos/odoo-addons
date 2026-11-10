@@ -105,6 +105,27 @@ class L10nEsNavarraReportExportToHN(models.TransientModel):
                 data_lines.append(data_line)
             data['data_lines'] = json.dumps(data_lines)
 
+        if report._name == 'l10n.es.navarra.mod759.report':
+            if report.period_type in ['1T', '2T', '3T', '4T']:
+                data['model_number'] = '759'
+            else:
+                data['model_number'] = '760'
+            data['casilla_01'] = report.casilla_01
+            data['period_type_conversion'] = report.period_type_conversion
+            data['payment_method'] = report.payment_method
+            data['partner_bank_acc_number'] = partner_bank_acc_number
+
+            data_lines = []
+            for line in report.tax_line_ids:
+                data_line = {
+                    'field_number': line.field_number_navarra,
+                    'name': line.name_navarra,
+                    'amount': line.amount,
+                    'to_regularize': line.to_regularize,
+                }
+                data_lines.append(data_line)
+            data['data_lines'] = json.dumps(data_lines)
+
         if report._name == 'l10n.es.aeat.mod347.report':
             data['model_number'] = '347'
             data['statement_type'].replace("N", " ")
