@@ -32,36 +32,42 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__move_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__move_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__move_id
 msgid "Account entry"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_needaction
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_needaction
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_needaction
 msgid "Action Needed"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_ids
 msgid "Activities"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_exception_decoration
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_exception_decoration
 msgid "Activity Exception Decoration"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_state
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_state
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_state
 msgid "Activity State"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_type_icon
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_type_icon
 msgid "Activity Type Icon"
 msgstr ""
@@ -73,6 +79,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__allow_posting
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__allow_posting
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__allow_posting
 msgid "Allow posting"
 msgstr ""
@@ -84,18 +91,21 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_attachment_count
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__partner_bank_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__partner_bank_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__partner_bank_id
 msgid "Bank account"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__calculation_date
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__calculation_date
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__calculation_date
 msgid "Calculation Date"
 msgstr ""
@@ -149,24 +159,28 @@ msgstr ""
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_account_tax_manual_navarra__company_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__company_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__company_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__company_id
 msgid "Company"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__partner_bank_id
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__partner_bank_id
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__partner_bank_id
 msgid "Company bank account used for the presentation"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__contact_email
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__contact_email
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__contact_email
 msgid "Contact Email"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__counterpart_account_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__counterpart_account_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__counterpart_account_id
 msgid "Counterpart account"
 msgstr ""
@@ -179,6 +193,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_account_tax_manual_navarra__create_uid
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__create_uid
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__create_uid
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__create_uid
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_report_export_to_hn__create_uid
 msgid "Created by"
@@ -187,6 +202,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_account_tax_manual_navarra__create_date
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__create_date
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__create_date
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__create_date
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_report_export_to_hn__create_date
 msgid "Created on"
@@ -194,6 +210,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__currency_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__currency_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__currency_id
 msgid "Currency"
 msgstr ""
@@ -201,6 +218,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_account_tax_manual_navarra__display_name
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__display_name
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__display_name
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__display_name
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_report_export_to_hn__display_name
 msgid "Display Name"
@@ -208,12 +226,14 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__date_end
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__date_end
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__date_end
 msgid "Ending date"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__error_count
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__error_count
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__error_count
 msgid "Error Count"
 msgstr ""
@@ -221,6 +241,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #. odoo-python
 #: code:addons/l10n_es_navarra/models/mod715.py:0
+#: code:addons/l10n_es_navarra/models/mod759.py:0
 #: code:addons/l10n_es_navarra/models/modf69.py:0
 #: code:addons/l10n_es_navarra/models/sii.py:0
 #: code:addons/l10n_es_navarra/wizard/export_to_hn.py:0
@@ -231,6 +252,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #. odoo-python
 #: code:addons/l10n_es_navarra/models/mod715.py:0
+#: code:addons/l10n_es_navarra/models/mod759.py:0
 #: code:addons/l10n_es_navarra/models/modf69.py:0
 #: code:addons/l10n_es_navarra/models/sii.py:0
 #: code:addons/l10n_es_navarra/wizard/export_to_hn.py:0
@@ -256,6 +278,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__export_config_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__export_config_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__export_config_id
 msgid "Export config"
 msgstr ""
@@ -292,30 +315,35 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_follower_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_follower_ids
 msgid "Followers"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_partner_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_type_icon
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_type_icon
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__contact_name
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__contact_name
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__contact_name
 msgid "Full Name"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__has_message
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__has_message
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__has_message
 msgid "Has Message"
 msgstr ""
@@ -323,6 +351,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_account_tax_manual_navarra__id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_report_export_to_hn__id
 msgid "ID"
@@ -330,38 +359,45 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_exception_icon
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_exception_icon
 msgid "Icon"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_exception_icon
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_exception_icon
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_exception_icon
 msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_needaction
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_needaction
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_has_error
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_has_error
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_has_error
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_has_sms_error
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_has_sms_error
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__0
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__0
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_modf69_report__payment_method__0
 msgid "Indica la no solicitud de la tramitación del pago"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_is_follower
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_is_follower
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_is_follower
 msgid "Is Follower"
 msgstr ""
@@ -377,6 +413,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_aeat_report__is_navarra_model
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_aeat_report_tax_mapping__is_navarra_model
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__is_navarra_model
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__is_navarra_model
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__is_navarra_model
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_vat_book__is_navarra_model
 msgid "Is Navarra Model"
@@ -384,12 +421,14 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__journal_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__journal_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__journal_id
 msgid "Journal"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__journal_id
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__journal_id
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__journal_id
 msgid "Journal in which post the move."
 msgstr ""
@@ -401,6 +440,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__representative_vat
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__representative_vat
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__representative_vat
 msgid "L.R. VAT number"
 msgstr ""
@@ -408,6 +448,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_account_tax_manual_navarra__write_uid
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__write_uid
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__write_uid
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__write_uid
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_report_export_to_hn__write_uid
 msgid "Last Updated by"
@@ -416,6 +457,7 @@ msgstr ""
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_account_tax_manual_navarra__write_date
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__write_date
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__write_date
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__write_date
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_report_export_to_hn__write_date
 msgid "Last Updated on"
@@ -423,6 +465,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__representative_vat
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__representative_vat
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__representative_vat
 msgid "Legal Representative VAT number."
 msgstr ""
@@ -439,12 +482,14 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_has_error
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_has_error
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_has_error
 msgid "Message Delivery error"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_ids
 msgid "Messages"
 msgstr ""
@@ -462,18 +507,21 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__number
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__number
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__number
 msgid "Model number"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__contact_name
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__contact_name
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__contact_name
 msgid "Must have name and surname."
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__my_activity_date_deadline
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr ""
@@ -506,48 +554,56 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_calendar_event_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_date_deadline
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_summary
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_summary
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_summary
 msgid "Next Activity Summary"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_type_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_type_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_type_id
 msgid "Next Activity Type"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_needaction_counter
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_has_error_counter
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_has_error_counter
 msgid "Number of errors"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_needaction_counter
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_needaction_counter
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_has_error_counter
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_has_error_counter
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr ""
@@ -559,30 +615,35 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__partner_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__partner_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__partner_id
 msgid "Partner"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__payment_method
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__payment_method
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__payment_method
 msgid "Payment method"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__period_type
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__period_type
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__period_type
 msgid "Period Type"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__period_type_conversion
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__period_type_conversion
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__period_type_conversion
 msgid "Period type conversion"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__contact_phone
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__contact_phone
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__contact_phone
 msgid "Phone"
 msgstr ""
@@ -598,6 +659,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__previous_number
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__previous_number
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__previous_number
 msgid "Previous declaration number"
 msgstr ""
@@ -611,48 +673,56 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__rating_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__rating_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__rating_ids
 msgid "Ratings"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__name
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__name
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__name
 msgid "Report identifier"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_user_id
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_user_id
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_user_id
 msgid "Responsible User"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_mod715_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_mod759_report_form
 #: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_modf69_report_form
 msgid "Resultado"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__message_has_sms_error
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_mod715_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_mod759_report_form
 #: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_modf69_report_form
 msgid "Show journal items"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__date_start
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__date_start
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__date_start
 msgid "Starting date"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__state
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__state
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__state
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_report_export_to_hn__state
 msgid "State"
@@ -660,12 +730,14 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__statement_type
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__statement_type
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__statement_type
 msgid "Statement Type"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_state
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_state
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_state
 msgid ""
 "Status based on activities\n"
@@ -676,12 +748,14 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__support_type
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__support_type
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__support_type
 msgid "Support Type"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__7
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__7
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_modf69_report__payment_method__7
 msgid ""
 "Sólo en declaraciones que salen a pagar. Domiciliación del pago en cuenta "
@@ -690,6 +764,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__2
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__2
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_modf69_report__payment_method__2
 msgid ""
 "Sólo en declaraciones que salen a pagar. Indica que se solicita que "
@@ -699,6 +774,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__1
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__1
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_modf69_report__payment_method__1
 msgid ""
 "Sólo en declaraciones que salen a pagar. Indica que se solicita que "
@@ -708,6 +784,7 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__3
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__3
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_modf69_report__payment_method__3
 msgid ""
 "Sólo en declaraciones que salen a pagar. Indica que se solicita que "
@@ -717,20 +794,24 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__tax_agency_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__tax_agency_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__tax_agency_ids
 msgid "Tax Agency"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__tax_line_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__tax_line_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__tax_line_ids
 #: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_mod715_report_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_mod759_report_form
 #: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_aeat_modf69_report_form
 msgid "Tax lines"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__counterpart_account_id
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__counterpart_account_id
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__counterpart_account_id
 msgid ""
 "This account will be the counterpart for all the journal items that are "
@@ -739,36 +820,42 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__activity_exception_decoration
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__company_vat
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__company_vat
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__company_vat
 msgid "VAT number"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__valued_tax_line_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__valued_tax_line_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__valued_tax_line_ids
 msgid "Valued tax lines"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__website_message_ids
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__website_message_ids
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__website_message_ids
 msgid "Website Messages"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod715_report__website_message_ids
+#: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_mod759_report__website_message_ids
 #: model:ir.model.fields,help:l10n_es_navarra.field_l10n_es_navarra_modf69_report__website_message_ids
 msgid "Website communication history"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__year
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__year
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_modf69_report__year
 msgid "Year"
 msgstr ""
@@ -866,20 +953,45 @@ msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod715_report__casilla_01
+#: model:ir.model.fields,field_description:l10n_es_navarra.field_l10n_es_navarra_mod759_report__casilla_01
 msgid "[01] Amount to pay"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__4
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__4
 msgid "Solicitud de aplazamiento"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__5
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__5
 msgid "Solicitud de compensación"
 msgstr ""
 
 #. module: l10n_es_navarra
 #: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod715_report__payment_method__6
+#: model:ir.model.fields.selection,name:l10n_es_navarra.selection__l10n_es_navarra_mod759_report__payment_method__6
 msgid "Pago mediante carta de pago"
+msgstr ""
+
+#. module: l10n_es_navarra
+#: model:ir.actions.act_window,name:l10n_es_navarra.action_l10n_es_navarra_759_report
+#: model:ir.ui.menu,name:l10n_es_navarra.menu_navarra_759_report
+msgid "Model 759-760"
+msgstr ""
+
+#. module: l10n_es_navarra
+#: model:ir.model,name:l10n_es_navarra.model_l10n_es_navarra_mod759_report
+msgid "Navarra 759-760 Report"
+msgstr ""
+
+#. module: l10n_es_navarra
+#: model_terms:ir.ui.view,arch_db:l10n_es_navarra.view_l10n_es_navarra_mod759_report_list
+msgid "759-760 reports"
+msgstr ""
+
+#. module: l10n_es_navarra
+#: model_terms:ir.actions.act_window,help:l10n_es_navarra.action_l10n_es_navarra_759_report
+msgid "Create and query Navarra Model 759-760 reports"
 msgstr ""
