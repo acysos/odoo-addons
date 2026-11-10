@@ -10,6 +10,7 @@ Módulo para la presentación de modelos de Navarra (https://www.navarra.es/es/h
 
 - F66-F69
 - 715-745
+- 759-760
 - F50-347
 - 349
 - SII
@@ -35,15 +36,13 @@ en https://navarradoo.com
 Dicha clave debe ser introducida en la configuración de la compañía en la pestaña de "Navarra", en el campo
 "Clave IAP Navarra". También en la pestaña de "AEAT" indique que usa Hacienda Foral de Navarra.
 
-Los módelos F66-F69 y 715-745 se habilitan dentro del menu de Declaraciones de AEAT. Los otros módulos usan el funcionamiento
+Los módelos F66-F69, 715-745 y 759-760 se habilitan dentro del menu de Declaraciones de AEAT. Los otros módulos usan el funcionamiento
 estándar de los módulos indicados. En el caso de los modelos F50-F347 y 349, tienen un nuevo botón que se llama
 "Exportar Hacienda Navarra" que genera un fichero en el formato de Hacienda Navarra.
 
 
 Roadmap
 =======
-
-* Modelo 759
 
 
 Bug Tracker

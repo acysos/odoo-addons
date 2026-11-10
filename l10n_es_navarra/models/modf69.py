@@ -133,9 +133,17 @@ class L10nEsNavarraModF69Report(models.Model):
                 ('parent_state', '=', 'posted'),
             ])
             for move_line in move_lines_taxes:
+                tax = move_line.tax_line_id
+                manual_tax_line = self.env['account.tax.manual.navarra'].search([
+                    ('company_id', '=', self.env.company.id),
+                    ('manual_tax_id', '=', tax.id),
+                ], limit=1)
+                if manual_tax_line:
+                    tax = manual_tax_line.original_tax_id
+
                 data_taxes.append({
                     'id': move_line.id,
-                    'tax_external_id': list(move_line.tax_line_id.get_external_id().values())[0].replace(
+                    'tax_external_id': list(tax.get_external_id().values())[0].replace(
                         'account.'+str(self.env.company.id)+'_', ''),
                     'debit': move_line.debit,
                     'credit': move_line.credit,
@@ -186,9 +194,17 @@ class L10nEsNavarraModF69Report(models.Model):
                     ('parent_state', '=', 'posted'),
                 ])
                 for move_line in move_lines_annual_taxes:
+                    tax = move_line.tax_line_id
+                    manual_tax_line = self.env['account.tax.manual.navarra'].search([
+                        ('company_id', '=', self.env.company.id),
+                        ('manual_tax_id', '=', tax.id),
+                    ], limit=1)
+                    if manual_tax_line:
+                        tax = manual_tax_line.original_tax_id
+
                     data_annual_taxes.append({
                         'id': move_line.id,
-                        'tax_external_id': list(move_line.tax_line_id.get_external_id().values())[0].replace(
+                        'tax_external_id': list(tax.get_external_id().values())[0].replace(
                             'account.'+str(self.env.company.id)+'_', ''),
                         'debit': move_line.debit,
                         'credit': move_line.credit,
